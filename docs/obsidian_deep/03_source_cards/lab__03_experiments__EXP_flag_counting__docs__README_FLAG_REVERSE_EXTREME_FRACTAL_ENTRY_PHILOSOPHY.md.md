@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md"
+source_path: "docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md"
 source_ext: ".md"
 source_size: 29231
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
+[[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
 
 ## Summary
 
@@ -45,9 +45,9 @@ entities: []
 
 ## Related Source Documents
 
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `21`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `21`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|answer_normalized_en.md]] — score `20`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|answer_normalized_en.md]] — score `20`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `20`

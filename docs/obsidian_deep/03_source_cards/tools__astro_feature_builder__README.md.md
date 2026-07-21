@@ -45,7 +45,7 @@ Python-side deterministic generator for candle-aligned astrological feature stor
 - [[docs/architecture|architecture.md]] — score `24`
 - [metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `20`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|README.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `16`
 - [[tools/astro_ml/README|README.md]] — score `16`
 - [[docs/ui/ARCHITECTURE|ARCHITECTURE.md]] — score `16`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `14`

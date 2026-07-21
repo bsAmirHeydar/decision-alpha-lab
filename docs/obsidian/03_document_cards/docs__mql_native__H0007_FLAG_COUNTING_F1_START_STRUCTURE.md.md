@@ -70,7 +70,7 @@ concepts:
 - [[docs/obsidian/04_concepts/Hook|Hook]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -78,8 +78,8 @@ concepts:
 
 - [[README|Decision Alpha Lab]] — `readme`
 - [[docs/mql_native/MODULE_MAP|MQL Module Map]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|H0001 / H0002 Algorithm and Hypothesis README]] — `mql_native_docs`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|H0001-H0004 Research Lock]] — `mql_native_docs`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004 — Reversal/Continuation Branch Regime Clustering]] — `mql_native_docs`

@@ -45,7 +45,7 @@ M0007
 - [[docs/mql_native/M0007_F1_MQL5_IMPLEMENTATION|M0007_F1_MQL5_IMPLEMENTATION.md]] — score `9`
 - [metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `9`
 - [[lab/03_experiments/EXP_flag_counting/README|README.md]] — score `9`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `9`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `9`
 
 ## Obsidian Use
 

@@ -34,7 +34,7 @@ Why L2 is the default Extreme anchor level. L2 is our minimum valid L. The L con
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

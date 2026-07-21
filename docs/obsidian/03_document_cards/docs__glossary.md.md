@@ -53,7 +53,7 @@ A structural high or low where the market previously made a visible decision. A 
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -62,15 +62,15 @@ A structural high or low where the market previously made a visible decision. A 
 - [[docs/principles|Research Principles]] — `core_docs`
 - [[docs/architecture|System Architecture]] — `core_docs`
 - [[docs/atomic_live_research_contract|Atomic Live Research Contract]] — `core_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
 - [[docs/research_lessons_and_failure_modes|Research Lessons and Failure Modes]] — `core_docs`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|H4 Deep Atomic Report + H6 Reversal Optionality]] — `debug_docs`
 - [[docs/debug/H6_REACTION_BOX_ZONES|H6 Reaction Box Zones]] — `debug_docs`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|EXP0004 — MQL-native M0004 Branch Regime Clustering]] — `experiment`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|Flag Project Philosophy: Market Anatomy, Liquidity Necessity, and Objective Flow]] — `experiment`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|Flag Project Philosophy: Market Anatomy, Liquidity Necessity, and Objective Flow]] — `experiment`
 
 ## Recommended Obsidian use
 

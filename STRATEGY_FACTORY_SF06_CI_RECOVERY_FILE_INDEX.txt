@@ -1,7 +1,7 @@
 .github/workflows/engineering-policy.yml
 COMMIT_MESSAGE.md
-INSTALL_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
-README_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
+docs/releases/legacy_migration/general/1acf66301651_INSTALL_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
+docs/releases/legacy_migration/general/a1182f9a7bb7_README_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
 STRATEGY_FACTORY_SF06_CI_RECOVERY_MANIFEST.json
 docs/strategy_factory_implementation/hotfixes/SF06_CI_RECOVERY_AND_POLICY_EXPLANATION.md
 lab/11_strategy_factory/tests/phase06_anatomy/test_layout.py

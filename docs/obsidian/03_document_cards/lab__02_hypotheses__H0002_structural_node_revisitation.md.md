@@ -3,7 +3,7 @@ title: "H0002 — Structural Node Territories and Revisitation Dynamics"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0002_structural_node_revisitation.md"
+source_path: "docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "7659"
@@ -22,7 +22,7 @@ concepts:
 
 # H0002 — Structural Node Territories and Revisitation Dynamics
 
-**Source:** [[lab/02_hypotheses/H0002_structural_node_revisitation|lab/02_hypotheses/H0002_structural_node_revisitation.md]]
+**Source:** [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -55,14 +55,14 @@ Draft H0001 proposed that structurally defined highs and lows may represent priv
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Rally|Rally]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
 
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
 - [[lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility|H0002 — Reversal vs Continuation Node-Exit Volatility Model]] — `hypothesis`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/ui/ROADMAP|UI Implementation Roadmap]] — `ui_docs`

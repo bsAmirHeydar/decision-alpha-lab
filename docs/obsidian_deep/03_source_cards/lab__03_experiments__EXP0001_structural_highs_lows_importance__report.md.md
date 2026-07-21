@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md"
+source_path: "docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md"
 source_ext: ".md"
 source_size: 0
 empty: true
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]]
+[[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]]
 
 ## Summary
 

@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0005_directional_memory_atomic.md"
+source_path: "docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md"
 source_ext: ".md"
 source_size: 2737
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0005", "M0001"]
 
 ## Source
 
-[[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]]
+[[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]]
 
 ## Summary
 
@@ -44,7 +44,7 @@ H0005, M0001
 
 ## Related Source Documents
 
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `25`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `25`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `24`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] — score `24`
 - [[papers/001_atomic_live_regime_framework|001_atomic_live_regime_framework.md]] — score `24`

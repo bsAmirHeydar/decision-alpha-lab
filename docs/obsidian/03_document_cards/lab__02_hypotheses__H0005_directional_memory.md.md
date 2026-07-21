@@ -42,16 +42,16 @@ concepts:
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
 
 - [[docs/mql_native/H0005_DIRECTIONAL_MEMORY|H0005 — Directional Memory of Structural Regimes]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|D0005 — H5 No-Future Walk-Forward Audit]] — `debug_docs`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|D0006 — H5 Live Touch Replay Audit]] — `debug_docs`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`

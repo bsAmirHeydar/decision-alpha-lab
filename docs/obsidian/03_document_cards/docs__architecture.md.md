@@ -64,7 +64,7 @@ Decision Alpha Lab uses a layered architecture for structural market research an
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -77,10 +77,10 @@ Decision Alpha Lab uses a layered architecture for structural market research an
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|H0001 / H0002 Algorithm and Hypothesis README]] — `mql_native_docs`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|H0001-H0004 Research Lock]] — `mql_native_docs`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004 — Reversal/Continuation Branch Regime Clustering]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
 - [[README|Decision Alpha Lab]] — `readme`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|EXP0003 — M0002 Reversal/Continuation Exit Volatility]] — `experiment`
 
 ## Recommended Obsidian use

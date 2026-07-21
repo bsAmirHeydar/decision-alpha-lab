@@ -1,0 +1,42 @@
+{
+  "acceptance_status": "PASS",
+  "active_compatibility_count": 520,
+  "approved_relocation_count": 656,
+  "blocking_canonical_orphan_count": 929,
+  "canonical_basename_collision_count": 0,
+  "canonical_knowledge_record_count": 25965,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_12B_REFERENCE_ONLY",
+  "direct_test_count": 16,
+  "document_delete_count": 0,
+  "excluded_slow_rebuild_tests": [
+    "lab/11_strategy_factory/migration/tests_lcm_10b/test_rebuild.py",
+    "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py"
+  ],
+  "generated_document_count": 162,
+  "hostile_review_status": "PASS",
+  "link_rewrite_count": 5639,
+  "master_phase": "LCM-12",
+  "order_authority_created": false,
+  "phase_id": "LCM-12B",
+  "qa_report_digest": "sha256:1b3b3136df9f9c59000a62995d80e683a3c38d2477bcc42c37c21b580adf7cdf",
+  "reconciliation_id": "DOCRECON_F60803B1B8316F47D966D02CB905ACC8",
+  "redirect_stub_count": 136,
+  "residual_unresolved_reference_count": 3721,
+  "rewritten_destination_failure_count": 0,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "stable_regression_suites": {
+    "LCM-09B": 34,
+    "LCM-10A_EXCLUDING_FULL_REBUILD": 23,
+    "LCM-10B_EXCLUDING_FULL_REBUILD": 34,
+    "LCM-10C": 15,
+    "LCM-11A": 16,
+    "LCM-11B": 24,
+    "LCM-12A": 20,
+    "LCM_ROADMAP_REFINEMENT": 5
+  },
+  "stable_regression_test_count": 171,
+  "total_executed_test_count": 187,
+  "validation_status": "PASS"
+}

@@ -1,39 +1,17 @@
-# Profile 03 — Paper Live Broker Audit
+---
+title: "Redirect — profile 03 paper live broker audit"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_B34ADE2DA6C9C0C1A206DE2DB1F9D8ED
+source_digest: sha256:bfc8547f57cd71668c5b7289ac130dd145f53cd3b898eac219ed9f15271dcdfa
+canonical_target: docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Intent
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|profile 03 paper live broker audit]].
 
-Live paper monitoring with broker position visibility, but still no real trade management.
-
-## Required mode
-
-- Runtime mode: Paper Live.
-
-## Broker position manager
-
-Enable broker position manager only for scanning and audit.
-
-Real close actions remain disabled.
-
-## Real transports
-
-Disabled:
-
-- Real auto-entry.
-- Real partial close.
-- Real hard close finalizer.
-- Paper Live real-action overrides.
-
-## What to verify
-
-The operator should verify:
-
-1. Positions on Symbol1/Symbol2 with the configured magic number are classified as STC-managed.
-2. Positions on Symbol1/Symbol2 with other magic numbers are classified as foreign.
-3. Foreign positions are never closed.
-4. Positions on other symbols are ignored.
-5. Broker position rows match actual terminal positions.
-
-## Acceptance criteria
-
-This profile passes when broker classification is correct and no real close/send action occurs.
-
+Do not edit this redirect as doctrine.

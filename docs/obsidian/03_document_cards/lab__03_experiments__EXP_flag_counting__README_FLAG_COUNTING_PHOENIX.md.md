@@ -3,7 +3,7 @@ title: "EXP Flag Counting Phoenix"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md"
+source_path: "docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "989"
@@ -21,7 +21,7 @@ concepts:
 
 # EXP Flag Counting Phoenix
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md]]
+**Source:** [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -49,7 +49,7 @@ Phoenix is the active Flag Counting implementation. Read first: Then read: Phoen
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

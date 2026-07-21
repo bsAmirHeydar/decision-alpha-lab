@@ -46,12 +46,12 @@ H0005, M0001
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `26`
 - [[README|README.md]] — score `26`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] — score `24`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `24`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `24`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `24`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `24`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `22`
 - [[docs/architecture|architecture.md]] — score `21`
 - [[docs/atomic_live_research_contract|atomic_live_research_contract.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `21`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `20`
 
 ## Obsidian Use

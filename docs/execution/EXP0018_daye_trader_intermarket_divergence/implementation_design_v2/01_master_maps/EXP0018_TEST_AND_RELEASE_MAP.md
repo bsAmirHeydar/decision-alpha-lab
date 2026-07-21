@@ -1,36 +1,17 @@
-  ---
-  id: EXP0018-TEST-RELEASE-MAP-V2
-  title: "EXP0018 Test and Release Map v2"
-  type: test-plan
-  status: active
-  project: EXP0018
-  version: 2.0.0
-  created: 2026-07-10
-  updated: 2026-07-10
-  tags:
-    - exp0018
-- daye-trader
-- implementation-design
-  ---
+---
+title: "Redirect — EXP0018 TEST AND RELEASE MAP"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_F4DE35A542EBE7F41932C49F7C7053AF
+source_digest: sha256:ca00367452590dc7154042e350dbacaaa834320f9cd56956687a0185b9cbd576
+canonical_target: docs/evidence/release/f4de35a542eb_EXP0018_TEST_AND_RELEASE_MAP.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-# نقشه تست و Release
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/release/f4de35a542eb_EXP0018_TEST_AND_RELEASE_MAP|EXP0018 TEST AND RELEASE MAP]].
 
-```text
-Static/Schema
-→ Unit/Pure Functions
-→ Invariant/Property
-→ Scenario Fixtures
-→ Historical Replay
-→ Live/Replay Reconciliation
-→ Visual Golden Review
-→ Performance/Restart
-→ Supervisor Sign-off
-→ RC + Rollback Drill
-```
-
-## هیچ تستی چه چیزی را اثبات نمی‌کند؟
-
-- Compile فقط پذیرش syntax/type را اثبات می‌کند.
-- Screenshot فقط همان نمونه را اثبات می‌کند.
-- Replay بدون causal-time audit می‌تواند leakage داشته باشد.
-- ناظر بصری جای duplicate/schema tests را نمی‌گیرد.
+Do not edit this redirect as doctrine.

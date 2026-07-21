@@ -44,8 +44,8 @@ Atomic No-Sample مسیر validation سخت‌گیرانه است که از samp
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
 - [[docs/research-roadmap|Research Roadmap]] — `core_docs`
 - [[docs/research_lessons_and_failure_modes|Research Lessons and Failure Modes]] — `core_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
 - [[lab/03_validation/VAL0008_h4_causal_batch/README|VAL0008 — H4 Causal Batch Validation]] — `validation`
 - [[lab/03_validation/VAL0009_h5_atomic_no_sample_replay/README|VAL0009 — H5 Atomic No-Sample Replay]] — `validation`
 - [[lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README|VAL0010 — H4 Atomic No-Sample Regime Replay]] — `validation`

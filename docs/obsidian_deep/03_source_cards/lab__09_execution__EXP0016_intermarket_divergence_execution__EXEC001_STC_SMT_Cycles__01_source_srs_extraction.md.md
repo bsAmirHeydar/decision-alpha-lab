@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction.md"
+source_path: "docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction.md"
 source_ext: ".md"
 source_size: 6464
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction.md]]
+[[docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction|docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction.md]]
 
 ## Summary
 
@@ -46,13 +46,13 @@ This file is a factual English extraction from `STC Expert Advisor SRS.pdf`. It 
 ## Related Source Documents
 
 - [[docs/architecture|architecture.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions|08_open_questions.md]] — score `13`
+- [[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|08_open_questions.md]] — score `13`
 - [[docs/principles|principles.md]] — score `12`
 - [[docs/ui/ARCHITECTURE|ARCHITECTURE.md]] — score `12`
 - [signals.yaml](../../registry/signals.yaml) — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|17_implementation_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|18_module_breakdown.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|17_implementation_plan.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|18_module_breakdown.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|21_first_patch_scope.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|22_level_01_skeleton.md]] — score `9`
 

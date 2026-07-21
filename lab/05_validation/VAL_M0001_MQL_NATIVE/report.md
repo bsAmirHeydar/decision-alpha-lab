@@ -1,15 +1,17 @@
-# VAL_M0001_MQL_NATIVE
+---
+title: "Redirect — report"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_454E81F9F0B326544426155A8BE88244
+source_digest: sha256:ccce7055fdc7a80cd20370cf06ce312ebf4c5a8b8fe890884a6464fc1d74e0d0
+canonical_target: docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Scope
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report]].
 
-Visual and journal validation for the native MQL5 implementation of M0001.
-
-## Checklist
-
-- [ ] L-rule high node confirms exactly at `i + L`.
-- [ ] L-rule low node confirms exactly at `i + L`.
-- [ ] Marker is drawn on pivot candle.
-- [ ] Active-from line, when enabled, is drawn at `i + L`.
-- [ ] Event scan does not start before active-from.
-- [ ] RTV fields match the event window and before-window lengths.
-- [ ] Strategy Tester visual state does not require Python.
+Do not edit this redirect as doctrine.

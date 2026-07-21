@@ -55,7 +55,7 @@ This directory contains the data bridge used by **Decision Alpha Lab / EXP0015 I
 - [[docs/obsidian/04_concepts/Intermarket_Divergence|Intermarket Divergence]]
 - [[docs/obsidian/04_concepts/Licensing|Licensing]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

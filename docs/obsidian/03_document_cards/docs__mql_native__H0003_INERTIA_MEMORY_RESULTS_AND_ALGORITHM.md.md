@@ -56,7 +56,7 @@ H0003 asks whether the continuation branch discovered in H0002 is only a stronge
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Rally|Rally]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -73,7 +73,7 @@ H0003 asks whether the continuation branch discovered in H0002 is only a stronge
 - [[docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY|M0002 Deep Audit and Stability Suite]] — `mql_native_docs`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|M0002 — Reversal vs Continuation After Exit Volatility]] — `mql_native_docs`
 - [[docs/mql_native/M0001_H0001_LOGIC_REPAIR_AUDIT|M0001 / H0001 Logic Repair Audit]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
 
 ## Recommended Obsidian use
 

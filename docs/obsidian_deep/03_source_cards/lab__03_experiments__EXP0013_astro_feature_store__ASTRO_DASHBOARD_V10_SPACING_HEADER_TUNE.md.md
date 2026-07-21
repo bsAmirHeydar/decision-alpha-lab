@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md"
+source_path: "docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md"
 source_ext: ".md"
 source_size: 735
 empty: false
@@ -14,7 +14,7 @@ entities: ["EXP0013"]
 
 ## Source
 
-[[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]]
+[[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]]
 
 ## Summary
 
@@ -38,13 +38,13 @@ EXP0013
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION|ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH|ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH|ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|ASTRO_FEATURE_MEANING.md]] — score `12`
 
 ## Obsidian Use

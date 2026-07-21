@@ -1,44 +1,17 @@
-# EXP Flag Counting Phoenix
+---
+title: "Redirect — README FLAG COUNTING PHOENIX"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_B7D4F188EB790DC6B8D135B6BDE46894
+source_digest: sha256:15ba0443c223dad3e587d3330813a6e85024bc56d1b236913aaafba138af0ce6
+canonical_target: docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-Phoenix is the active Flag Counting implementation.
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|README FLAG COUNTING PHOENIX]].
 
-## Source of truth
-
-Read first:
-
-```text
-docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
-```
-
-Then read:
-
-```text
-docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md
-docs/flag_counting/FLAG_COUNTING_ENGINEERING_PACK_V5.md
-docs/flag_counting/implementation_ladder_v1/
-docs/flag_counting/phoenix_rebuild/
-```
-
-## Compile and run
-
-```text
-mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
-```
-
-Phoenix must be used instead of all previous FlagCounting, VNext, V6, or M0007 experiments for new work.
-
-## Recommended first settings
-
-```text
-InpBarsToScan = 5000
-InpUseMultiScale = true
-InpRequireF1PhaseBoundary = true
-InpAllowF1FailOpenWhenNoHook = true
-InpDrawHooks = true
-InpDetailedLabels = true
-InpVerboseAuditLogs = false
-```
-
-## Implementation rule
-
-Do not patch from screenshots. Patch the correct implementation-ladder level, update audit evidence, and keep renderer non-authoritative.
+Do not edit this redirect as doctrine.

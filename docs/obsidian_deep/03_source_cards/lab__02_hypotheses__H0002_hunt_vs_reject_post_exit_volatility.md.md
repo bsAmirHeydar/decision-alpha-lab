@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md"
+source_path: "docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md"
 source_ext: ".md"
 source_size: 843
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0001", "H0002", "M0001", "M0002"]
 
 ## Source
 
-[[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md]]
+[[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md]]
 
 ## Summary
 

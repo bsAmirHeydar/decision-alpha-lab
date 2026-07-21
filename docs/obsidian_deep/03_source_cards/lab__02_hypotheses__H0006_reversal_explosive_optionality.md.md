@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0006_reversal_explosive_optionality.md"
+source_path: "docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md"
 source_ext: ".md"
 source_size: 715
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0006", "M0001", "M0002"]
 
 ## Source
 
-[[lab/02_hypotheses/H0006_reversal_explosive_optionality|lab/02_hypotheses/H0006_reversal_explosive_optionality.md]]
+[[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md]]
 
 ## Summary
 
@@ -37,7 +37,7 @@ H0006, M0001, M0002
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `22`
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|H6_NODE_SURVIVAL_MAP.md]] — score `19`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|H6_CANDLE_STREAM_FAST.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
 - [[docs/debug/H6_REACTION_BOX_ZONES|H6_REACTION_BOX_ZONES.md]] — score `16`
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|E0002_CLOSE_CONFIRMED_MARKET.md]] — score `16`

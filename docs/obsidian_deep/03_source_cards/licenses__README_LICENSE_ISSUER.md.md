@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "licenses/README_LICENSE_ISSUER.md"
+source_path: "docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md"
 source_ext: ".md"
 source_size: 2983
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[licenses/README_LICENSE_ISSUER|licenses/README_LICENSE_ISSUER.md]]
+[[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md]]
 
 ## Summary
 

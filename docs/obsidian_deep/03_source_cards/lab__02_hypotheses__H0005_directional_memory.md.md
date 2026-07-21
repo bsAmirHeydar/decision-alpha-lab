@@ -35,15 +35,15 @@ H0005, M0001
 
 ## Related Source Documents
 
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `21`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `21`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `20`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `20`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[papers/001_atomic_live_regime_framework|001_atomic_live_regime_framework.md]] — score `20`
 - [[README|README.md]] — score `20`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `19`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `19`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `19`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `19`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `19`
 
 ## Obsidian Use

@@ -38,7 +38,7 @@ EXT-07 says each nearby L2 can be an opportunity, but execution must still decid
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

@@ -3,7 +3,7 @@ title: "H0005 — Directional Memory and Execution"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0005_directional_memory_atomic.md"
+source_path: "docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "2737"
@@ -24,7 +24,7 @@ concepts:
 
 # H0005 — Directional Memory and Execution
 
-**Source:** [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]]
+**Source:** [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -59,20 +59,20 @@ id: H0005 status: active_rebuilt family: directional_memory_execution official_c
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
 
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 - [[lab/02_hypotheses/H0005_directional_memory|H0005 — Directional Memory]] — `hypothesis`
 - [[docs/mql_native/H0005_DIRECTIONAL_MEMORY|H0005 — Directional Memory of Structural Regimes]] — `mql_native_docs`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
 - [[papers/001_atomic_live_regime_framework|Atomic Live Regime Framework]] — `paper`
 - [[README|Decision Alpha Lab]] — `readme`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|E0002 — H0005 Close-Confirmed Market Executor]] — `execution_docs`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|H0005 Reversal Structural-Target-Capped Execution — Build 1.25]] — `execution_docs`
 - [[docs/execution/README|Decision Alpha Lab — Execution]] — `execution_docs`

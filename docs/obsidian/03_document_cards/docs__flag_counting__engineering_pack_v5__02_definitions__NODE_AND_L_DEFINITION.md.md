@@ -44,7 +44,7 @@ The Flag Counting engine must reuse the existing project node module. Do not rew
 
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

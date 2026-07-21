@@ -44,8 +44,8 @@ Context power, position, exploitable constraints, training targets, reversal pro
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|answer_normalized_en.md]] — score `12`
 - [[docs/experience_capture/answers/NDS-R01/question_en|question_en.md]] — score `12`
 - [[docs/experience_capture/questions/remaining_v2/by_code/NDS-R01|NDS-R01.md]] — score `12`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `12`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `12`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `12`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `12`
 
 ## Obsidian Use
 

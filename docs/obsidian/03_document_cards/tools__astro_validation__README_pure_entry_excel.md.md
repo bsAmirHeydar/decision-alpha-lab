@@ -3,7 +3,7 @@ title: "Pure Astro Entry Excel Report"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "tools/astro_validation/README_pure_entry_excel.md"
+source_path: "docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md"
 source_ext: ".md"
 category: "tool_docs"
 source_size_bytes: "1090"
@@ -16,7 +16,7 @@ concepts:
 
 # Pure Astro Entry Excel Report
 
-**Source:** [[tools/astro_validation/README_pure_entry_excel|tools/astro_validation/README_pure_entry_excel.md]]
+**Source:** [[docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel|docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md]]
 
 **Category:** `tool_docs`  
 **Status:** ok  

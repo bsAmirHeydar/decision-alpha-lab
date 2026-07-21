@@ -54,19 +54,19 @@ Known-Time Causality خط قرمز ضد lookahead است: هر label فقط بع
 - [[docs/research/H0009_astro_path_cleanliness_metrics|H0009 — Astro Path Cleanliness Metrics]] — `research_docs`
 - [[docs/research_lessons_and_failure_modes|Research Lessons and Failure Modes]] — `core_docs`
 - [[docs/ui/ROADMAP|UI Implementation Roadmap]] — `ui_docs`
-- [[lab/02_hypotheses/H0002_structural_node_revisitation|H0002 — Structural Node Territories and Revisitation Dynamics]] — `hypothesis`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
-- [[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|H0008 — Distribution Engineering for Conditional Sequence Extraction]] — `hypothesis`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|EXP0002 — MQL-native M0001 Runtime]] — `experiment`
+- [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|H0002 — Structural Node Territories and Revisitation Dynamics]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008 — Distribution Engineering for Conditional Sequence Extraction]] — `hypothesis`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|EXP0002 — MQL-native M0001 Runtime]] — `experiment`
 - [[lab/03_experiments/EXP0012_distributional_cluster_miner/README|EXP0012 — Distributional Cluster Miner]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|EXP0013 — Astro Feature Meaning and Research Semantics]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|Astro Professionalization Gap Map]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|EXP0013 Astro Raw Sky Radical Redesign]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|EXP0013 — Astro Excel / CSV Build Commands]] — `experiment`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|Astro Professionalization Gap Map]] — `experiment`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|EXP0013 Astro Raw Sky Radical Redesign]] — `experiment`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|EXP0013 — Astro Excel / CSV Build Commands]] — `experiment`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|EXP0016 Astro Meta Learner]] — `experiment`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|Flag Project Philosophy: Market Anatomy, Liquidity Necessity, and Objective Flow]] — `experiment`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|Flag Project Philosophy: Market Anatomy, Liquidity Necessity, and Objective Flow]] — `experiment`
 - [[lab/03_validation/VAL0007_h5_causal_live_replay/README|VAL0007 — H5 Causal Live Replay]] — `validation`
 - [[lab/03_validation/VAL0008_h4_causal_batch/README|VAL0008 — H4 Causal Batch Validation]] — `validation`
 - [[lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README|VAL0010 — H4 Atomic No-Sample Regime Replay]] — `validation`
@@ -80,10 +80,10 @@ Known-Time Causality خط قرمز ضد lookahead است: هر label فقط بع
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|VAL0010 — H4 Atomic No-Sample Regime Validation]] — `validation`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|VAL0011 — Main Atomic No-Sample Unification]] — `validation`
 - [[lab/06_production/EXECUTION_FAMILIES/README|Execution Families]] — `production_signal`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|EXEC001 STC SMT Cycles — Implementation Plan]] — `experiment`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|EXEC001 STC SMT Cycles — Module Breakdown]] — `experiment`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register|EXEC001 STC SMT Cycles — Implementation Risk Register]] — `experiment`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine|Level 06 — SMT Candidate Engine]] — `experiment`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|EXEC001 STC SMT Cycles — Implementation Plan]] — `experiment`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|EXEC001 STC SMT Cycles — Module Breakdown]] — `experiment`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register|EXEC001 STC SMT Cycles — Implementation Risk Register]] — `experiment`
+- [[docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine|Level 06 — SMT Candidate Engine]] — `experiment`
 - [[lab/09_execution/mql5/README|MQL5 Execution and Validation Layer]] — `execution`
 - [[papers/001_atomic_live_regime_framework|Atomic Live Regime Framework]] — `paper`
 - [[tools/astro_feature_builder/README|Astro Feature Builder]] — `tool_docs`

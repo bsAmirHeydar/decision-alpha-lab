@@ -185,7 +185,7 @@ No per-tick scan, print, renderer, CSV, timer, chart object, or AI runtime was i
 - `docs/nds_entry_architecture/f2_waist_break_point2_limit/08_operator_guide.md`
 - `docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md`
 - `docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`
-- `docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md`
+- `docs/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC.md`
 - `docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F-Phase Filter.md`
 - `docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window.md`
 

@@ -1,13 +1,17 @@
-# Hook / ND Branching V1
+---
+title: "Redirect — README HOOK ND BRANCHING V1"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_40B0C8ECC98C1E6D395F0D548E5B2D08
+source_digest: sha256:9d87224c58b0d5ea45988f93520c6e27e9b1eb74b02731a19d2c81f982f3fc83
+canonical_target: docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This experiment now has a dedicated Hook / ND branch-sequence specification.
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1|README HOOK ND BRANCHING V1]].
 
-Read these documents before modifying Hook / ND code:
-
-- `docs/flag_counting/phoenix_rebuild/hook_nd_branching/README.md`
-- `docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_BRANCH_SEQUENCE_CONTRACT_V1.md`
-- `docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_BRANCH_ALGORITHM_V1.md`
-- `docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_VISUALIZATION_AND_LABEL_LAYOUT_V1.md`
-- `docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_IMPLEMENTATION_CHECKLIST_V1.md`
-
-The key correction is that Hook / ND is not a raw 3-node or 4-node window. A Hook can contain many internal branch sequences. The branch count is unlimited. The internal counted nodes inside each branch must be reduced to at most four through adaptive L. ND exists only when at least one branch has exactly three or four counted nodes and passes the retracement rule.
+Do not edit this redirect as doctrine.

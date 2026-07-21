@@ -1,6 +1,6 @@
-COMMIT_MESSAGE_V2.md
-INSTALL_STRATEGY_FACTORY_V2_PATCH.md
-README_STRATEGY_FACTORY_V2_PATCH.md
+docs/releases/legacy_migration/general/1bf81df6e545_COMMIT_MESSAGE_V2.md
+docs/releases/legacy_migration/general/42e5e3e6c5f5_INSTALL_STRATEGY_FACTORY_V2_PATCH.md
+docs/releases/legacy_migration/general/54e062fd10a0_README_STRATEGY_FACTORY_V2_PATCH.md
 docs/obsidian_deep/00_mocs/STRATEGY_FACTORY_MOC.md
 docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md
 docs/strategy_factory/00_start_here/01_MISSION_AND_NON_GOALS.md
@@ -197,8 +197,8 @@ docs/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md
 docs/strategy_factory_v2/90_reference/76_CLI_AND_ARTIFACT_REFERENCE.md
 docs/strategy_factory_v2/90_reference/_MOC_90_REFERENCE.md
 lab/11_strategy_factory/README.md
-lab/11_strategy_factory/README_V2.md
-lab/11_strategy_factory/examples/NEW_ANATOMY_COMMANDS.md
+docs/releases/legacy_migration/general/bf58528b06f3_README_V2.md
+docs/evidence/new_anatomy_scaffold_commands/35b65148a1ff_NEW_ANATOMY_COMMANDS.md
 lab/11_strategy_factory/examples/data/bars_NQ.csv
 lab/11_strategy_factory/examples/data/events.csv
 lab/11_strategy_factory/examples/data/features.csv
@@ -221,7 +221,7 @@ lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_PluginInterf
 lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_RuntimeGate.mqh
 lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_Telemetry.mqh
 lab/11_strategy_factory/mql5/README.md
-lab/11_strategy_factory/mql5/README_V2.md
+docs/releases/legacy_migration/general/bbec7e198c87_README_V2.md
 lab/11_strategy_factory/python/strategy_factory/__init__.py
 lab/11_strategy_factory/python/strategy_factory/__main__.py
 lab/11_strategy_factory/python/strategy_factory/adapters/__init__.py
@@ -293,7 +293,7 @@ lab/11_strategy_factory/python/strategy_factory/testing/metamorphic.py
 lab/11_strategy_factory/python/strategy_factory/testing/property_cases.py
 lab/11_strategy_factory/python/strategy_factory/validation/__init__.py
 lab/11_strategy_factory/python/strategy_factory/validation/folds.py
-lab/11_strategy_factory/requirements-optional.txt
+docs/evidence/optional_challengers_reporting_core_strategy_factory_uses/df82cb0352db_requirements-optional.txt
 lab/11_strategy_factory/schemas/canonical_contracts.schema.json
 lab/11_strategy_factory/schemas/strategy_manifest.schema.json
 lab/11_strategy_factory/schemas/strategy_plan_v2.schema.json

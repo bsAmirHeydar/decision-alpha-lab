@@ -11,16 +11,16 @@ type: empty_docs_audit
 |---|---|
 | [[data/README|data/README.md]] | — |
 | [lab/03_experiments/EXP0000_sample/metadata.yaml](../../lab/03_experiments/EXP0000_sample/metadata.yaml) | — |
-| [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] | — |
+| [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] | — |
 | [lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml](../../lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml) | — |
-| [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] | — |
-| [[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]] | — |
+| [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] | — |
+| [[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]] | — |
 | [[lab/04_analysis/ANL001/README|lab/04_analysis/ANL001/README.md]] | — |
 | [lab/05_validation/VAL001/metadata.yaml](../../lab/05_validation/VAL001/metadata.yaml) | Validation / Audit |
-| [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] | Validation / Audit |
+| [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] | Validation / Audit |
 | [lab/06_production/SIG001/metadata.yaml](../../lab/06_production/SIG001/metadata.yaml) | — |
 | [[lab/06_production/SIG001/README|lab/06_production/SIG001/README.md]] | — |
-| [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] | — |
+| [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] | — |
 | [[lab/07_monitoring/MON001/README|lab/07_monitoring/MON001/README.md]] | — |
 | [[lab/08_archive/failed_experiments/README|lab/08_archive/failed_experiments/README.md]] | — |
 | [[lab/08_archive/rejected_hypotheses/README|lab/08_archive/rejected_hypotheses/README.md]] | — |

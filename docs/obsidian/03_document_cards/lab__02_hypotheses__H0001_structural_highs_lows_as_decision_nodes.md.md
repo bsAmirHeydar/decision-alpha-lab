@@ -3,7 +3,7 @@ title: "H0001 — Structural Highs and Lows as Decision Nodes"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md"
+source_path: "docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "5922"
@@ -25,7 +25,7 @@ concepts:
 
 # H0001 — Structural Highs and Lows as Decision Nodes
 
-**Source:** [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]]
+**Source:** [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -57,7 +57,7 @@ id: H0001 status: draft origin_observations: OBS0001 related_experiments: [] rel
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Rally|Rally]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
@@ -75,7 +75,7 @@ id: H0001 status: draft origin_observations: OBS0001 related_experiments: [] rel
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|H0003 — Continuation Inertia, Volatility Memory, and Clustered Persistence]] — `mql_native_docs`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|H0003 — Continuation Inertia, Volatility Memory, and Clustered Event Intensity]] — `mql_native_docs`
 - [[lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility|H0002 — Reversal vs Continuation Node-Exit Volatility Model]] — `hypothesis`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 
 ## Recommended Obsidian use
 

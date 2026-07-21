@@ -40,7 +40,7 @@ This document is kept only as a historical note. The active M0002 module is not 
 
 ## Concepts
 
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 
@@ -54,7 +54,7 @@ This document is kept only as a historical note. The active M0002 module is not 
 - [[docs/mql_native/M0001_H0001_LOGIC_REPAIR_AUDIT|M0001 / H0001 Logic Repair Audit]] — `mql_native_docs`
 - [[docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY|M0002 Deep Audit and Stability Suite]] — `mql_native_docs`
 - [[docs/mql_native/MODULE_MAP|MQL Module Map]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|H0005 — Contextual Branch Regime State]] — `hypothesis`
 
 ## Recommended Obsidian use

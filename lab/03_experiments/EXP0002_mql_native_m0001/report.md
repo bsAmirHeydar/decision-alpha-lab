@@ -1,17 +1,17 @@
-# EXP0002 — MQL-native M0001 Runtime
+---
+title: "Redirect — report"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_319A21879DAE244FC4F84871EF54D491
+source_digest: sha256:4f4f15f12b749aa86f48700b5e023104f7e1f5e3e79345de57ad3546020dfe46
+canonical_target: docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Objective
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report]].
 
-Move M0001 from a Python/MQL bridge into a pure MQL5 runtime while preserving the lab research workflow.
-
-## Hypothesis
-
-A native MQL5 implementation will produce faster, clearer, and more live-safe visual validation than an external Python bridge because the detector, event engine, tester timeline, and chart objects live in the same runtime.
-
-## Validation Target
-
-- L-rule nodes appear only after `L` right-side candles exist.
-- Markers point to the true pivot candle.
-- Event construction starts only from `active_from_index`.
-- No future candles are available to the engine.
-- Visual redraw is synchronous with MT5 tester time.
+Do not edit this redirect as doctrine.

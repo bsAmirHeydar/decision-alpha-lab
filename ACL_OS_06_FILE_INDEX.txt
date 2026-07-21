@@ -1,7 +1,7 @@
 COMMIT_MESSAGE.md
 COMMIT_MESSAGE.txt
-INSTALL_ALPHA_LAB_ACL_OS_06.md
-README_ALPHA_LAB_ACL_OS_06.md
+docs/releases/legacy_migration/general/77df21c3f8c6_INSTALL_ALPHA_LAB_ACL_OS_06.md
+docs/releases/legacy_migration/general/5324379af14d_README_ALPHA_LAB_ACL_OS_06.md
 docs/alpha_lab_master_architecture/context_lifecycle_os/05_RESEARCH_BATCH/00_MOC.md
 docs/alpha_lab_master_architecture/context_lifecycle_os/05_RESEARCH_BATCH/ACL06_ACL07_HANDOFF.md
 docs/alpha_lab_master_architecture/context_lifecycle_os/05_RESEARCH_BATCH/ACL06_ATOMIC_PUBLICATION.md

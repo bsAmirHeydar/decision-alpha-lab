@@ -12,7 +12,7 @@ document_count: "1"
 
 ## Documents
 
-- [[lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility|M0001 — Relative Territory Volatility (RTV)]] — [[docs/obsidian/03_document_cards/lab__core__CP0001_structural_nodes__metrics__M0001_relative_territory_volatility|card]] — `core_component`
+- [[docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility|M0001 — Relative Territory Volatility (RTV)]] — [[docs/obsidian/03_document_cards/lab__core__CP0001_structural_nodes__metrics__M0001_relative_territory_volatility|card]] — `core_component`
 
 ## Folder relationships
 

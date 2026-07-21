@@ -1,0 +1,25 @@
+{
+  "canonical_moc_path": "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+  "claim_ceiling": "LCM_12B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_authority_escalation_count": 0,
+  "generated_moc_path": "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "knowledge_record_count": 25965,
+  "master_phase": "LCM-12",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12B",
+  "producer": "tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService",
+  "records_path": "records/canonical_knowledge_records.jsonl",
+  "registry_digest": "sha256:f943807110463d52b153526227422bba46714c64644c9b1769cc930b22da638e",
+  "registry_id": "DOCKNOWREG_7A3CC728636A8A0CD11BCE0551C27310",
+  "relocated_count": 656,
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:020ea2360275ae066eded754c0879869b5d57058cc961017caa34e23473d5645",
+    "sha256:b1ca25c852780e27e0bfb3aa10a6f4cdde7c360ea0c5f0fcfccadc44d4efb882"
+  ],
+  "validation_status": "PASS"
+}

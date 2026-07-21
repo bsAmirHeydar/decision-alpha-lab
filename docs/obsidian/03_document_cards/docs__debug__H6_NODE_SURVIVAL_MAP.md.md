@@ -45,7 +45,7 @@ This release redefines H0006 as a chart-facing no-sample node survival map. A ra
 - [[docs/obsidian/04_concepts/Atomic_No-Sample|Atomic No-Sample]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
@@ -58,10 +58,10 @@ This release redefines H0006 as a chart-facing no-sample node survival map. A ra
 - [[docs/debug/H4_ATOMIC_FULL_STRESS_CONTEXT|H4 Atomic Full Stress + Human Context Diagnostics]] — `debug_docs`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|H4 Fast Atomic Main Report]] — `debug_docs`
 - [[docs/debug/H6_REACTION_BOX_ZONES|H6 Reaction Box Zones]] — `debug_docs`
-- [[lab/02_hypotheses/H0006_reversal_explosive_optionality|H0006 — Node Survival Edge Map]] — `hypothesis`
+- [[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|H0006 — Node Survival Edge Map]] — `hypothesis`
 - [[docs/architecture|System Architecture]] — `core_docs`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 
 ## Recommended Obsidian use
 

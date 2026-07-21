@@ -3,7 +3,7 @@ title: "Metrics"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/07_monitoring/MON001/metrics.md"
+source_path: "docs/evidence/mon001/2cb2a9127709_metrics.md"
 source_ext: ".md"
 category: "monitoring"
 source_size_bytes: "0"
@@ -14,7 +14,7 @@ entities:
 
 # Metrics
 
-**Source:** [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]]
+**Source:** [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]]
 
 **Category:** `monitoring`  
 **Status:** empty-filled  

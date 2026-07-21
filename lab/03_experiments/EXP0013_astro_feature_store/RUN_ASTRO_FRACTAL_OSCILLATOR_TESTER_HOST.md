@@ -1,64 +1,17 @@
-# Run EXP0013 Astro Fractal Oscillator through Tester Host
+---
+title: "Redirect — RUN ASTRO FRACTAL OSCILLATOR TESTER HOST"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_6EA0F9DE36E97260ED99F48DFE0355F7
+source_digest: sha256:a930b5d1e7a33648a7c1b73e61e582bb6cbe2b54d5ce1cef41a20ebb716e93f8
+canonical_target: docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## 1. Compile
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|RUN ASTRO FRACTAL OSCILLATOR TESTER HOST]].
 
-Compile:
-
-```text
-mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5
-mql5/Experts/Research/EXP0013_AstroFractalOscillator_TesterHost.mq5
-```
-
-Optional simpler path:
-
-```text
-mql5/Indicators/EXP0013_AstroFractalOscillator.mq5
-```
-
-## 2. Open Strategy Tester
-
-Select Expert Advisor:
-
-```text
-EXP0013_AstroFractalOscillator_TesterHost
-```
-
-Do not select the Indicators folder.
-
-## 3. Inputs
-
-```text
-InpIndicatorPath        = Research\EXP0013_AstroFractalOscillator
-InpAstroCsvFile         = astro_GMT3_M1_2026_to_now_mql.csv
-InpBrokerGmtOffsetHours = 0
-InpRequireExactBarTime  = true
-InpMaxBarsToProcess     = 10000
-InpPreset               = ASTRO_OSC_M1_PATH_QUALITY
-InpShowDiagnosticsLine  = true
-InpTryFallbackPaths     = true
-InpAddIndicatorToChart  = true
-```
-
-If Shared Projects pathing blocks the default indicator path, try:
-
-```text
-InpIndicatorPath = EXP0013_AstroFractalOscillator
-```
-
-or:
-
-```text
-InpIndicatorPath = Shared Projects\decision-alpha-lab\mql5\Indicators\Research\EXP0013_AstroFractalOscillator
-```
-
-## 4. Expected behavior
-
-The EA host should load with a chart comment:
-
-```text
-STATUS: INDICATOR HANDLE OK
-```
-
-Then the oscillator should appear in a separate subwindow.
-
-If the subwindow is not automatically added, the host still confirms whether the indicator handle is valid. In that case, attach the compiled indicator manually to the Visual Tester chart.
+Do not edit this redirect as doctrine.

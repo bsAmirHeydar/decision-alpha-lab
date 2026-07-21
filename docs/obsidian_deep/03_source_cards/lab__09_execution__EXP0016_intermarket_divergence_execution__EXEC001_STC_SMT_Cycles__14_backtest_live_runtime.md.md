@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime.md"
+source_path: "docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime.md"
 source_ext: ".md"
 source_size: 3479
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime.md]]
+[[docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime|docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime.md]]
 
 ## Summary
 
@@ -50,10 +50,10 @@ The implementation should support three modes: Research backtest. Paper live. Au
 - [requirements.txt](../../requirements.txt) — score `10`
 - [requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
 - [requirements.txt](../../tools/astro_ml/requirements.txt) — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|04_smt_divergence_rules.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|05_execution_and_risk.md]] — score `9`
+- [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|04_smt_divergence_rules.md]] — score `9`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|05_execution_and_risk.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|06_mql5_architecture_plan.md]] — score `9`
 
 ## Obsidian Use

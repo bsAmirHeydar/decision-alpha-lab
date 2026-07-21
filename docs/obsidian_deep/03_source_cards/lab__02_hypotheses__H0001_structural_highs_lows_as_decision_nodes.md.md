@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md"
+source_path: "docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md"
 source_ext: ".md"
 source_size: 5922
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0001", "H0002", "H0003", "H0004", "H0005", "M0001"]
 
 ## Source
 
-[[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]]
+[[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]]
 
 ## Summary
 

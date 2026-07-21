@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0002_structural_node_revisitation.md"
+source_path: "docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md"
 source_ext: ".md"
 source_size: 7659
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0001", "H0002"]
 
 ## Source
 
-[[lab/02_hypotheses/H0002_structural_node_revisitation|lab/02_hypotheses/H0002_structural_node_revisitation.md]]
+[[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md]]
 
 ## Summary
 
@@ -45,7 +45,7 @@ H0001, H0002
 
 ## Related Source Documents
 
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `23`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `23`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `22`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
 - [[docs/ui/ROADMAP|ROADMAP.md]] — score `22`

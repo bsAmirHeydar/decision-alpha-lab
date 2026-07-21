@@ -1,0 +1,10 @@
+{
+  "active_compatibility_count": 520,
+  "handoff_digest": "sha256:e4116f346c2351d415f41fff605d6c2af88754452ad7ac3cba700820f6a6dc38",
+  "link_rewrite_count": 5639,
+  "move_count": 656,
+  "output_manifest_digest": "sha256:f75c33f9e2ad06e75e1ab6c2983cc4eac292f9aa51bfcf27ce2a6e653a8d5941",
+  "output_root": "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8",
+  "reconciliation_id": "DOCRECON_F60803B1B8316F47D966D02CB905ACC8",
+  "redirect_materialized_count": 136
+}

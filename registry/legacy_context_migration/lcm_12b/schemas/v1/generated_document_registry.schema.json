@@ -1,0 +1,66 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm12b/generated_document_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "generated_document_count": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "phase_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "registry_digest": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "registry_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "registry_id",
+    "generated_document_count",
+    "registry_digest"
+  ],
+  "title": "generated_document_registry.schema.json",
+  "type": "object"
+}

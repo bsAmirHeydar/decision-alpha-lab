@@ -39,7 +39,7 @@ H0004, H0006, M0006
 
 - [[lab/03_validation/VAL0016_h6_standalone_optionality/README|README.md]] — score `23`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
 - [[README|README.md]] — score `17`
 - [[lab/03_validation/VAL0017_h6_fast_accurate/README|README.md]] — score `17`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `16`

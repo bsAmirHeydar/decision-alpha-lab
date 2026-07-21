@@ -349,7 +349,7 @@ The active documentation is:
 
 ```text
 docs/nds_entry_architecture/README.md
-docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md
+docs/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC.md
 ```
 
 The default profile is fail-closed. It does not implement unanswered Zone or

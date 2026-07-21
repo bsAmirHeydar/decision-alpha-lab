@@ -1,45 +1,17 @@
-# Flag Counting Implementation Ladder V1
+---
+title: "Redirect — README IMPLEMENTATION LADDER V1"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_E4BED75620978F4B629410AE76871767
+source_digest: sha256:cfc4ed079cbed11c699f2dde93bfd07be0ffe6f6330aa4d0f0ef8abcdcebb8ce
+canonical_target: docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-The Phoenix implementation ladder lives under:
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1|README IMPLEMENTATION LADDER V1]].
 
-```text
-docs/flag_counting/implementation_ladder_v1/
-```
-
-Use it together with the current canon:
-
-```text
-docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
-```
-
-The experiment rule is:
-
-```text
-Do not patch Hook, F lifecycle, ownership, canonicalization, audit/export, and renderer in one pass.
-```
-
-Current implementation order:
-
-```text
-L00 governance/canon
-L01 candle/index foundation
-L02 nodes
-L03 identity
-L04 Hook/ND context
-L05 flag body
-L06 internal count
-L07 F1
-L08 F2
-L09 F3
-L10 sequence ownership
-L11 canonicalization/audit decisions
-L11.5 raw audit export/report
-L12 renderer
-L13 validation
-L14 release/rollback
-L15 interface contracts
-L16 acceptance matrix
-L17 resolved decisions
-```
-
-A patch must declare the highest layer it touches and provide acceptance evidence for that layer.
+Do not edit this redirect as doctrine.

@@ -42,7 +42,7 @@ When several destinations or exit opportunities exist, how should take profit, p
 - [requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
 - [requirements.txt](../../tools/astro_ml/requirements.txt) — score `10`
 - [requirements.txt](../../tools/cme_bridge/requirements.txt) — score `10`
-- [[lab/07_monitoring/MON001/metrics|metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|metrics.md]] — score `8`
 - [[docs/experience_capture/answers/DST-R02/notes_en|notes_en.md]] — score `7`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `6`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `6`

@@ -44,7 +44,7 @@ This experiment runs the M0002 central Expert Advisor. It reuses M0001 structura
 ## Concepts
 
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
@@ -60,7 +60,7 @@ This experiment runs the M0002 central Expert Advisor. It reuses M0001 structura
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004 — Reversal/Continuation Branch Regime Clustering]] — `mql_native_docs`
 - [[docs/mql_native/M0001_H0001_LOGIC_REPAIR_AUDIT|M0001 / H0001 Logic Repair Audit]] — `mql_native_docs`
 - [[docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY|M0002 Deep Audit and Stability Suite]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
 
 ## Recommended Obsidian use
 

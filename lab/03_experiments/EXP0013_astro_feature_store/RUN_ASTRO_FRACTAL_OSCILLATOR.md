@@ -1,61 +1,17 @@
-# Run EXP0013 Astro Fractal Oscillator
+---
+title: "Redirect — RUN ASTRO FRACTAL OSCILLATOR"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_55B1EC2FE983D48D998ED49C2E138F67
+source_digest: sha256:9106c3245455f12ce4f6fc48a5d23d41545677314992f3a29f62cf1f89e39d5d
+canonical_target: docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Compile
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR|RUN ASTRO FRACTAL OSCILLATOR]].
 
-```text
-mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5
-```
-
-Also compile the raw-axis version if needed:
-
-```text
-mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5
-```
-
-## Recommended first setup
-
-```text
-InpAstroCsvFile         = astro_GMT3_M1_2026_to_now_mql.csv
-InpBrokerGmtOffsetHours = 0
-InpRequireExactBarTime  = true
-InpMaxBarsToProcess     = 10000
-InpPreset               = ASTRO_OSC_M1_PATH_QUALITY
-InpShowDiagnosticsLine  = true
-```
-
-## If the indicator appears but shows no lines
-
-Check the Experts/Journal tab. The loader tries these locations:
-
-```text
-MQL5\Files\<input>
-MQL5\Files\<basename>
-MQL5\Files\astro\<basename>
-Common\Files\<input>
-Common\Files\<basename>
-Common\Files\astro\<basename>
-```
-
-If the CSV is not loaded, the indicator still loads and draws a diagnostic zero line instead of disappearing silently.
-
-## Best visual presets
-
-For most M1 observation:
-
-```text
-ASTRO_OSC_M1_PATH_QUALITY
-```
-
-For compact roulette/jackpot read:
-
-```text
-ASTRO_OSC_COMPACT_JACKPOT
-```
-
-For root-cause breakdown:
-
-```text
-ASTRO_OSC_MACRO_BACKGROUND
-ASTRO_OSC_REGIME_ENGINE
-ASTRO_OSC_MOON_MICRO
-```
+Do not edit this redirect as doctrine.

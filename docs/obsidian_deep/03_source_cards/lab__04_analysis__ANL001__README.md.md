@@ -34,7 +34,7 @@ ANL001
 
 ## Related Source Documents
 
-- [[lab/04_analysis/ANL001/notes|notes.md]] — score `6`
+- [[docs/evidence/anl001/692b0b9aa0db_notes|notes.md]] — score `6`
 
 ## Obsidian Use
 

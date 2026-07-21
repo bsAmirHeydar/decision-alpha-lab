@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP0000_sample/report.md"
+source_path: "docs/evidence/exp0000_sample/58c8a635ff91_report.md"
 source_ext: ".md"
 source_size: 0
 empty: true
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]]
+[[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]]
 
 ## Summary
 

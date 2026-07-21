@@ -1,7 +1,7 @@
 COMMIT_MESSAGE.md
 EXPAND_REMOVE_UCEE_I10_PATCH.ps1
-INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md
-README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md
+docs/releases/legacy_migration/general/737740a1b68f_INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md
+docs/releases/legacy_migration/general/17d661f29614_README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md
 UCEE_I10_QA_REPORT.json
 docs/obsidian_deep/01_concepts/UCE-I10_Deep_Admission_Is_Non-Bypassable.md
 docs/obsidian_deep/01_concepts/UCE-I10_Deep_Qualification_Is_Multi-Seed.md

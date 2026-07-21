@@ -41,7 +41,7 @@ Purpose: make the main H4 and H5 experts use live-style atomic raw-event reports
 
 - [[docs/obsidian/04_concepts/Atomic_No-Sample|Atomic No-Sample]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

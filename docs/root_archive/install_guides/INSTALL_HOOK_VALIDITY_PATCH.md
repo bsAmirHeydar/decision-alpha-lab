@@ -1,37 +1,17 @@
-# Install Hook Validity Patch
+---
+title: "Redirect — INSTALL HOOK VALIDITY PATCH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_619A9452C19781D1329EC3E9F961AC33
+source_digest: sha256:a6c33220e3187f678cdd294875d72271f2f0d4fea88cf4cbbe7c52aced637e10
+canonical_target: docs/releases/legacy_migration/general/619a9452c197_INSTALL_HOOK_VALIDITY_PATCH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-Place `alpha_lab_hook_validity_patch.zip` in the root of your project and run:
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/619a9452c197_INSTALL_HOOK_VALIDITY_PATCH|INSTALL HOOK VALIDITY PATCH]].
 
-```powershell
-Expand-Archive -Path .\alpha_lab_hook_validity_patch.zip -DestinationPath . -Force
-Remove-Item .\alpha_lab_hook_validity_patch.zip
-```
-
-Then open the project root as an Obsidian vault and start here:
-
-```text
-00_HOOK_VALIDITY_START_HERE.md
-```
-
-## Suggested Commit
-
-```powershell
-git add 00_HOOK_VALIDITY_START_HERE.md `
-        README_HOOK_VALIDITY_PATCH.md `
-        INSTALL_HOOK_VALIDITY_PATCH.md `
-        docs/hook_validity `
-        docs/obsidian_hook
-
-git commit -m "docs(hook): add hook validity and fractal-noise control architecture" -m "Add English documentation and Obsidian knowledge layer for the Alpha Lab Hook Validity Layer.
-
-Includes:
-- valid hook philosophy and filtering policy
-- Hook After Hook chained-node validity rule
-- Hook After Opposing F3 validity rule
-- invalid hook and fractal-noise control policy
-- hook-zone risk contract documentation
-- hook validation dataset and learning policy
-- Obsidian MOC, concept notes, policy notes, architecture maps, templates, and canvas diagrams
-
-This commit is documentation-only. It does not change trading logic, execution behavior, MQL5 code, Python research code, registry semantics, or production rules."
-```
+Do not edit this redirect as doctrine.

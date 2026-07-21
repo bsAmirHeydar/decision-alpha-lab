@@ -35,7 +35,7 @@ Price is the only directly observable market truth. Structural memory is preferr
 ## Related Source Documents
 
 - [[docs/glossary|glossary.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `16`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `16`
 - [[docs/architecture|architecture.md]] — score `15`
 - [[docs/atomic_live_research_contract|atomic_live_research_contract.md]] — score `15`
@@ -43,7 +43,7 @@ Price is the only directly observable market truth. Structural memory is preferr
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|H4_DEEP_H6_OPTIONALITY_REPORT.md]] — score `14`
 - [[docs/debug/H6_REACTION_BOX_ZONES|H6_REACTION_BOX_ZONES.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `14`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `14`
 
 ## Obsidian Use
 

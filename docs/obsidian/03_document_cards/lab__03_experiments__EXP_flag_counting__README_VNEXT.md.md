@@ -3,7 +3,7 @@ title: "EXP Flag Counting vNext — Archived"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/README_VNEXT.md"
+source_path: "docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "513"
@@ -15,7 +15,7 @@ concepts:
 
 # EXP Flag Counting vNext — Archived
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/README_VNEXT|lab/03_experiments/EXP_flag_counting/README_VNEXT.md]]
+**Source:** [[docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT|docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md]]
 
 **Category:** `experiment`  
 **Status:** ok  

@@ -119,7 +119,7 @@ git add -- `
   "docs/nds_hook_architecture/68_phase51_nds_entry_transition_architecture.md" `
   "docs/nds_entry_architecture" `
   "docs/obsidian_hook/00_mocs/HOOK_CANON_STEP7_MOC.md" `
-  "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md" `
+  "docs/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC.md" `
   "docs/obsidian_hook/03_architecture/Phase 51 NDS Entry Transition Architecture.md" `
   "docs/obsidian_hook/05_templates/NDS Setup Review Template.md" `
   "docs/obsidian_hook/07_indexes/HOOK_VALIDITY_INDEX.md" `

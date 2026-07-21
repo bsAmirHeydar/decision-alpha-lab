@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md"
+source_path: "docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md"
 source_ext: ".md"
 source_size: 1469
 empty: false
@@ -14,7 +14,7 @@ entities: ["EXP0013"]
 
 ## Source
 
-[[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]]
+[[docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]]
 
 ## Summary
 
@@ -38,11 +38,11 @@ EXP0013
 
 ## Related Source Documents
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|BUILD_EXCEL_COMMANDS.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|BUILD_EXCEL_COMMANDS.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|README.md]] — score `17`
 - [[tools/astro_live_bridge/README|README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`

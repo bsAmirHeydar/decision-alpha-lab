@@ -42,11 +42,11 @@ H0006, M0001
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|H6_NODE_SURVIVAL_MAP.md]] — score `19`
 - [[lab/03_validation/VAL0017_h6_fast_accurate/README|README.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `17`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `17`
 - [[docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP|H6_STANDALONE_OPTIONALITY_EDGE_MAP.md]] — score `16`
 
 ## Obsidian Use

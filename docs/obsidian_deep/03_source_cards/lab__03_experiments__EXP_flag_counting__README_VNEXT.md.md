@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_VNEXT.md"
+source_path: "docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md"
 source_ext: ".md"
 source_size: 513
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_VNEXT|lab/03_experiments/EXP_flag_counting/README_VNEXT.md]]
+[[docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT|docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md]]
 
 ## Summary
 
@@ -37,9 +37,9 @@ This document is retained as implementation history only. Do not use `FlagCounti
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|FLAG_COUNTING_CURRENT_CANON.md]] — score `12`
 - [metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `5`
 - [[lab/03_experiments/EXP_flag_counting/README|README.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6|README_FLAG_COUNTING_V6.md]] — score `5`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `5`
+- [[docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
+- [[docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6|README_FLAG_COUNTING_V6.md]] — score `5`
 - [[docs/00_project_index|00_project_index.md]] — score `4`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 - [[docs/experience_capture/answers/BASE-03/answer_normalized_en|answer_normalized_en.md]] — score `4`

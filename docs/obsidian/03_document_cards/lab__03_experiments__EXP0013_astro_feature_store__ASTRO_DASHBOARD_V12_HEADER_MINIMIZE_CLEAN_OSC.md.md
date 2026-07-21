@@ -3,7 +3,7 @@ title: "EXP0013 Astro Dashboard V12 - Clean Header, Minimize Mode, Cleaner Oscil
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md"
+source_path: "docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "759"
@@ -17,7 +17,7 @@ concepts:
 
 # EXP0013 Astro Dashboard V12 - Clean Header, Minimize Mode, Cleaner Oscillator
 
-**Source:** [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md]]
+**Source:** [[docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC|docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -49,14 +49,14 @@ This patch improves three user-facing areas: clearer header text hierarchy expli
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|EXP0013 Astro CSV Runtime Diagnostic Guide]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_FILES_ROOT_FALLBACK|EXP0013 Astro CSV Runtime Path Fix]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|EXP0013 Astro CSV Runtime Path and Panel Diagnostics]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|EXP0013 Astro CSV Runtime Path Fix]] — `experiment`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|EXP0013 Astro CSV Runtime Path Fix]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|EXP0013 Astro Dashboard V2 - Cockpit Layout]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|EXP0013 Astro Dashboard V3 - Interactive Cockpit]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|EXP0013 Astro Dashboard V4 - Layout Cleanup]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|ASTRO Doctrine V1]] — `experiment`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|EXP0013 Astro Dashboard V4 - Layout Cleanup]] — `experiment`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|ASTRO Doctrine V1]] — `experiment`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|EXP0013 — Astro Feature Meaning and Research Semantics]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|EXP0013 Astro Fractal M1 Oscillator Guide]] — `experiment`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL|EXP0013 Astro Scale Model for M1]] — `experiment`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|EXP0013 Astro Fractal M1 Oscillator Guide]] — `experiment`
+- [[docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL|EXP0013 Astro Scale Model for M1]] — `experiment`
 
 ## Recommended Obsidian use
 

@@ -3,7 +3,7 @@ title: "H0003 — Continuation Inertia, Volatility Memory, and Clustering"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md"
+source_path: "docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "530"
@@ -19,7 +19,7 @@ concepts:
 
 # H0003 — Continuation Inertia, Volatility Memory, and Clustering
 
-**Source:** [[lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering|lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md]]
+**Source:** [[docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering|docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -40,7 +40,7 @@ Hypothesis: continuation exits from completed node-territory events create a str
 ## Concepts
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 
@@ -52,10 +52,10 @@ Hypothesis: continuation exits from completed node-territory events create a str
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|H0003 — Continuation Inertia, Volatility Memory, and Clustered Event Intensity]] — `mql_native_docs`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004 — Reversal/Continuation Branch Regime Clustering]] — `mql_native_docs`
 - [[docs/mql_native/MODULE_MAP|MQL Module Map]] — `mql_native_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001 — Structural Highs and Lows as Decision Nodes]] — `hypothesis`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|H0002 Hunt/Reject Draft — Deprecated]] — `hypothesis`
 
 ## Recommended Obsidian use
 

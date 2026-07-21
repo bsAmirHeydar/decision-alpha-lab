@@ -46,7 +46,7 @@ D0005, H0005, M0001, M0002
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|E0002_CLOSE_CONFIRMED_MARKET.md]] — score `23`
 - [[docs/execution/E0003_CONTINUATION_CLOSE_HUNT|E0003_CONTINUATION_CLOSE_HUNT.md]] — score `23`
 - [[docs/execution/README|README.md]] — score `23`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `23`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `23`
 - [[lab/03_validation/VAL0005_h5_no_future_walk_forward/README|README.md]] — score `23`
 - [[lab/04_execution/EXE0002_close_confirmed_market/README|README.md]] — score `23`
 

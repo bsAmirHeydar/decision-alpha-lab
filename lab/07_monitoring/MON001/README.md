@@ -41,7 +41,7 @@ status: "scaffold"
 
 ## Related documents
 
-- [[lab/07_monitoring/MON001/metrics|Metrics]]
+- [[docs/evidence/mon001/2cb2a9127709_metrics|Metrics]]
 
 ## Obsidian links
 

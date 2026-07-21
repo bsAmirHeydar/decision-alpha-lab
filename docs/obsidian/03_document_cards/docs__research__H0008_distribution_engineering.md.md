@@ -48,13 +48,13 @@ A trading strategy should be treated as an outcome-distribution generator, not m
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
 
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|H0008 — Distribution Engineering Instead of Raw Edge Hunting]] — `article_docs`
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|H0008 — Distribution Engineering for Conditional Sequence Extraction]] — `hypothesis`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008 — Distribution Engineering for Conditional Sequence Extraction]] — `hypothesis`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|H0009 — Astro Feature Store for Distribution Engineering]] — `research_docs`
 - [[docs/research/H0009_astro_feature_taxonomy|EXP0013 — Astro Feature Meaning and Research Semantics]] — `research_docs`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|H4 Deep Atomic Report + H6 Reversal Optionality]] — `debug_docs`
@@ -63,8 +63,8 @@ A trading strategy should be treated as an outcome-distribution generator, not m
 - [[docs/glossary|Glossary]] — `core_docs`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/principles|Research Principles]] — `core_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
 
 ## Recommended Obsidian use
 

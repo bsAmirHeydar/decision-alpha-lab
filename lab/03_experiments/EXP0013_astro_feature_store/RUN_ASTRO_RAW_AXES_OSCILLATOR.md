@@ -1,52 +1,17 @@
-# Run EXP0013 Astro Raw Axes Oscillator
+---
+title: "Redirect — RUN ASTRO RAW AXES OSCILLATOR"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_1CF21803C17BF5EC9773C14142E88DB6
+source_digest: sha256:08292c3930bbe18a1f178dced0ab63405bfe0755551d5afd4e8b3d294147bf6f
+canonical_target: docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Compile
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|RUN ASTRO RAW AXES OSCILLATOR]].
 
-```text
-mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5
-```
-
-## Attach in chart or Visual Tester
-
-Recommended compact inputs:
-
-```text
-InpAstroCsvFile         = astro_GMT3_M1_2026_to_now_mql.csv
-InpBrokerGmtOffsetHours = 0
-InpRequireExactBarTime  = true
-InpMaxBarsToProcess     = 5000
-InpShowFlow             = true
-InpShowImpulse          = true
-InpShowFriction         = true
-InpShowPressure         = true
-InpShowTransition       = false
-InpShowMoonTempo        = false
-InpShowSaturnDrag       = false
-```
-
-If your CSV is stored in the `astro` subfolder under `MQL5\Files`, use:
-
-```text
-InpAstroCsvFile = astro\astro_GMT3_M1_2026_to_now_mql.csv
-```
-
-## Visual reading order
-
-1. Impulse
-2. Friction
-3. Pressure
-4. Flow
-5. optional: Transition / MoonTempo / SaturnDrag
-
-## First interpretation pass
-
-```text
-Impulse up + Friction down + Pressure controlled
-=> cleaner breakout candidate
-
-Flow up + Friction down
-=> smoother continuation candidate
-
-Friction up + Pressure up + Transition up
-=> chop / dirty-path warning
-```
+Do not edit this redirect as doctrine.

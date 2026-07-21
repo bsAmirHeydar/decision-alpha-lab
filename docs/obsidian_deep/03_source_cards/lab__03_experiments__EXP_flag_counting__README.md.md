@@ -50,7 +50,7 @@ M0007
 - [[docs/flag_counting/FLAG_COUNTING_VNEXT_IMPLEMENTATION|FLAG_COUNTING_VNEXT_IMPLEMENTATION.md]] — score `19`
 - [[mql5/Include/M0007/README_M0007_FlagCountingF1|README_M0007_FlagCountingF1.md]] — score `19`
 - [metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `18`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `18`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|README_FLAG_COUNTING_PHOENIX.md]] — score `18`
 
 ## Obsidian Use
 

@@ -13,7 +13,7 @@ phase: F2 waist-break Point2 v5
 
 - [[NDS F2 Waist-Break Point2 Limit Setup]]
 - [[NDS F2 RR Hedge and Parallel Contexts]]
-- [[NDS_ENTRY_EXECUTION_MOC]]
+- [[docs/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC]]
 
 ## Duplicate rule
 

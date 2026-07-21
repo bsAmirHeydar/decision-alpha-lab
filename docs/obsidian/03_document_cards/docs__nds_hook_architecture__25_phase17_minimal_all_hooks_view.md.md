@@ -39,7 +39,7 @@ Show all Hook sequences in a minimal structural rendering: all Hook sequences se
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

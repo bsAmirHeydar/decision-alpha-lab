@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/05_validation/VAL_M0001_MQL_NATIVE/report.md"
+source_path: "docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md"
 source_ext: ".md"
 source_size: 504
 empty: false
@@ -14,7 +14,7 @@ entities: ["M0001"]
 
 ## Source
 
-[[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]]
+[[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]]
 
 ## Summary
 
@@ -40,7 +40,7 @@ M0001
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `17`
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `17`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `17`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `17`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `17`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `17`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `17`
 - [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|MQL_NATIVE_ARCHITECTURE.md]] — score `17`

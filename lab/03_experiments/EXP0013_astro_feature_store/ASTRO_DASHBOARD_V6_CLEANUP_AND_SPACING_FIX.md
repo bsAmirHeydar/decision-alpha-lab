@@ -1,69 +1,17 @@
-# EXP0013 Astro Dashboard V6 - Cleanup and Spacing Fix
+---
+title: "Redirect — ASTRO DASHBOARD V6 CLEANUP AND SPACING FIX"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_E8031FE69DD30C0A8B3D3660496FC774
+source_digest: sha256:e34c17c9e0aee6f17dbe2e3b1a01784362d872bbd86b80d7147ce2b0e438f541
+canonical_target: docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch addresses two specific problems from the previous versions:
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|ASTRO DASHBOARD V6 CLEANUP AND SPACING FIX]].
 
-## 1) Old panels were not being cleared
-
-### Problem
-When the expert refreshed, changed mode, or was reloaded, some previous panels stayed on the chart.
-That created duplicates such as:
-- old focus cards still visible
-- old cockpit cards staying behind
-- old oscillator fragments remaining
-
-### Fix
-This version now does two levels of cleanup:
-
-- full cleanup on `OnInit`
-- full cleanup on `OnDeinit`
-- full cleanup at the start of every render cycle
-
-It also removes objects from older EXP0013 astro prefixes, so legacy panels from previous dashboard versions are cleared too.
-
-## 2) Text and numbers were still too crowded
-
-### Problem
-The previous layout still had:
-- labels too close to values
-- values too close to state labels
-- bars too close to text
-- bottom oscillator overly wide and visually noisy
-
-### Fix
-This version improves spacing by:
-- increasing metric-row spacing
-- separating columns into:
-  - label
-  - value
-  - state bucket
-  - bar
-- widening the focus card and cockpit cards
-- shrinking the bottom oscillator into a more compact recent-history block
-
-## Color logic
-This version uses the requested scale:
-
-- low = red
-- mid = yellow
-- high = green
-
-## Modes
-### Cockpit
-Shows:
-- Path Quality
-- Micro M1
-- Macro Background
-- Raw Axes
-- Diagnostics
-
-### Focus
-Shows one larger selected section:
-- Path
-- Micro
-- Regime
-- Macro
-- Raw
-
-## Notes
-Because the dashboard now does full object cleanup before redrawing, it prioritizes a clean and correct screen state over retaining old objects.
-That is intentional to eliminate ghost panels and duplicated sections.
+Do not edit this redirect as doctrine.

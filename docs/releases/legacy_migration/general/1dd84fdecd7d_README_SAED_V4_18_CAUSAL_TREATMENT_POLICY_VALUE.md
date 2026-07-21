@@ -1,0 +1,3 @@
+# SAED V4-18 Causal Treatment and Policy Value
+
+Additive closed-contract reference implementation of causal treatment-effect and off-policy policy-value research over immutable V4-17 evidence. The patch contains Python source, exact input contracts, deterministic golden artifacts, closed schemas, scientific and mutation tests, QA tooling, static MQL5 guards, detailed Obsidian documentation, phase status, inventory and hash ledger. All results are synthetic research evidence. The patch does not claim a real treatment effect, real policy value, economic uplift, alpha, promotion, runtime activation, production authorization or live trading.

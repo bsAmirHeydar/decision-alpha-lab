@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/04_analysis/ANL001/notes.md"
+source_path: "docs/evidence/anl001/692b0b9aa0db_notes.md"
 source_ext: ".md"
 source_size: 0
 empty: true
@@ -14,7 +14,7 @@ entities: ["ANL001"]
 
 ## Source
 
-[[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]]
+[[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]]
 
 ## Summary
 

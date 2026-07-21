@@ -26,7 +26,7 @@ concepts:
 
 ## خلاصه
 
-This document mirrors the implementation-level notes for: `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md` Level 03 adds the M1-based check-candle data layer for EXEC001 STC SMT Cycles. It does not add W levels, SMT detection, signal generation, paper trading, drawing, partial close, hard close, or auto trading. Generated Common Files outputs: `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_build_sanity.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_runtime_events.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_time_audit.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_check_candles.csv`
+This document mirrors the implementation-level notes for: `docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md` Level 03 adds the M1-based check-candle data layer for EXEC001 STC SMT Cycles. It does not add W levels, SMT detection, signal generation, paper trading, drawing, partial close, hard close, or auto trading. Generated Common Files outputs: `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_build_sanity.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_runtime_events.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_time_audit.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_check_candles.csv`
 
 ## Headings
 
@@ -44,7 +44,7 @@ This document mirrors the implementation-level notes for: `lab/09_execution/EXP0
 
 ## Related documents
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator|Level 03 — Check Candle Aggregator and Pair Data Completeness]] — `experiment`
+- [[docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator|Level 03 — Check Candle Aggregator and Pair Data Completeness]] — `experiment`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_06_STC_SMT_CANDIDATE_ENGINE|Level 06 STC SMT Candidate Engine]] — `execution_docs`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY|Level 08 STC SMT Risk Plan and Paper Entry]] — `execution_docs`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_09_STC_SMT_PAPER_OUTCOME_SIMULATOR|LEVEL 09 — STC SMT Paper Outcome Simulator]] — `execution_docs`

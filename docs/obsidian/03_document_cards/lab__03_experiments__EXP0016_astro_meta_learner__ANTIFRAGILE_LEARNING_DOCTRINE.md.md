@@ -3,7 +3,7 @@ title: "EXP0016 Antifragile Astro Learning Doctrine"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md"
+source_path: "docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "7731"
@@ -21,7 +21,7 @@ concepts:
 
 # EXP0016 Antifragile Astro Learning Doctrine
 
-**Source:** [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md]]
+**Source:** [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -56,7 +56,7 @@ This document defines the thinking style of the Astro ML system. The goal is not
 - [[docs/obsidian/04_concepts/Astro_ML|Astro ML]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Licensing|Licensing]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

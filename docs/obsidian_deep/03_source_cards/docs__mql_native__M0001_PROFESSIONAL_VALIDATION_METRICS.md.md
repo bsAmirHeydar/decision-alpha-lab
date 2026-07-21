@@ -45,13 +45,13 @@ M0001
 
 ## Related Source Documents
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `25`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `25`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `22`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `21`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|M0001_CANDLE_GATED_RUNTIME.md]] — score `20`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `20`
 - [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|MQL_NATIVE_ARCHITECTURE.md]] — score `20`
 - [[docs/architecture|architecture.md]] — score `19`

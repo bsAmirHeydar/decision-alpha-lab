@@ -51,8 +51,8 @@ The detailed field-level contract for ExecutionIntent is not fully known yet. Ho
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|answer_normalized_en.md]] — score `16`
 - [[docs/experience_capture/answers/NDS-R01/question_en|question_en.md]] — score `16`
 - [[docs/experience_capture/questions/remaining_v2/by_code/NDS-R01|NDS-R01.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `14`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `14`
 

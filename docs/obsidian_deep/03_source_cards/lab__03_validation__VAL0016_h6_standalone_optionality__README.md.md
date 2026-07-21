@@ -38,7 +38,7 @@ H0004, H0006, M0006, VAL0016
 - [validations.yaml](../../registry/validations.yaml) — score `21`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `13`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `11`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `11`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|README.md]] — score `11`
 - [[lab/09_execution/mql5/README|README.md]] — score `11`
 - [[README|README.md]] — score `11`

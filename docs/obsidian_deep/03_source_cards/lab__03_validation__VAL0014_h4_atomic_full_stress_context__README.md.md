@@ -36,7 +36,7 @@ H0004, M0002, VAL0014
 
 - [[docs/articles/structural_regime_memory_without_samples|structural_regime_memory_without_samples.md]] — score `18`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] — score `18`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `18`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `18`
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|README.md]] — score `18`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|README.md]] — score `18`
 - [[README|README.md]] — score `18`

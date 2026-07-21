@@ -3,7 +3,7 @@ title: "Flag Project — Reverse Extreme and Fractal Entry Philosophy"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md"
+source_path: "docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "29231"
@@ -21,7 +21,7 @@ concepts:
 
 # Flag Project — Reverse Extreme and Fractal Entry Philosophy
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
+**Source:** [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -52,7 +52,7 @@ concepts:
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Rally|Rally]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
@@ -66,7 +66,7 @@ concepts:
 - [[docs/debug/E0008/README|E0008 — MTF Purple Extreme Executor]] — `debug_docs`
 - [[docs/flag_counting/implementation_ladder_v1/README|Phoenix Flag Counting Implementation Ladder V1]] — `flag_counting_docs`
 - [[docs/flag_counting/engineering_pack_v5/README|Flag Counting Engineering Pack V5]] — `flag_counting_docs`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|Flag Project Philosophy II: Optionality, X/Y State Reading, and Multi-Regime Market Anatomy]] — `experiment`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|Flag Project Philosophy II: Optionality, X/Y State Reading, and Multi-Regime Market Anatomy]] — `experiment`
 - [[docs/debug/E0006/README|E0006 — Structural Execution Layer Overview]] — `debug_docs`
 - [[docs/principles|Research Principles]] — `core_docs`
 - [[lab/03_experiments/EXP0014_ICT/README|EXP0014 — ICT Sweep / FVG / IFVG / CISD Execution Lab]] — `experiment`

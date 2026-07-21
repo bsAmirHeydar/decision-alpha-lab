@@ -40,7 +40,7 @@ Path: Summary: A Potential Zone in NDS is a price range where multi-sided and fr
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 
 ## Related documents

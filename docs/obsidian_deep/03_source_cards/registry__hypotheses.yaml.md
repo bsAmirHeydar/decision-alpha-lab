@@ -39,7 +39,7 @@ H0001, H0002, H0007
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `16`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `16`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|H0002_hunt_vs_reject_post_exit_volatility.md]] — score `16`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|H0002_hunt_vs_reject_post_exit_volatility.md]] — score `16`
 - [[README|README.md]] — score `16`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `14`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|H0001_H0004_RESEARCH_LOCK.md]] — score `14`

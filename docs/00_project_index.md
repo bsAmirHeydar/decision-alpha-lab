@@ -14,3 +14,8 @@ Correct MQL module layout:
 mql5/Experts/Mxxxx_ModuleName/
 mql5/Include/Mxxxx_ModuleName/
 ```
+
+## Canonical Knowledge Registry (LCM-12B)
+
+- [[knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX|Canonical Knowledge Index]]
+- [[knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX|Generated Document Index]]

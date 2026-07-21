@@ -1,48 +1,17 @@
-# Profile 05 — Auto Trade Full Managed
+---
+title: "Redirect — profile 05 auto trade full managed"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_39E8F73F460DF02CF2736FAFBA649D04
+source_digest: sha256:5650a8fd59924f5120efab66ad219a78d558c334660851017fb390ab2b09c169
+canonical_target: docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Intent
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|profile 05 auto trade full managed]].
 
-Full automated lifecycle:
-
-- real entry;
-- real broker position scan;
-- real partial close for M1/M2;
-- real hard close finalizer after 15:30 New York.
-
-## Required mode
-
-- Runtime mode: Auto Trade.
-
-## Required real transports
-
-Enable:
-
-- Broker position manager.
-- Real auto-entry.
-- Real partial close if partial behavior is desired.
-- Real hard close finalizer.
-
-## Required safety behavior
-
-- Magic-only management must remain enabled.
-- Foreign positions must remain audit-only.
-- Duplicate instance lock must remain enabled.
-- Validation must run on init.
-- Persistence must remain enabled.
-
-## What to verify during first deployment
-
-1. New York time is correct.
-2. M/W dashboard is correct.
-3. Validation summary is acceptable.
-4. Broker scan sees no unintended managed positions.
-5. First signal creates exactly one real entry group.
-6. SL/TP match paper plan.
-7. Partial marker is written only after successful partial close.
-8. Hard close finalizer retries only matching magic positions.
-9. No position with nonmatching magic is closed.
-
-## Acceptance criteria
-
-This profile is production-ready only after it has behaved correctly on a safe account through at least one full STC trading day.
-
+Do not edit this redirect as doctrine.

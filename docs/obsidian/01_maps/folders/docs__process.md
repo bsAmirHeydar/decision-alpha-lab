@@ -13,7 +13,7 @@ document_count: "2"
 ## Documents
 
 - [[docs/process/metatrader_compile_checklist|MetaTrader Compile Checklist]] — [[docs/obsidian/03_document_cards/docs__process__metatrader_compile_checklist|card]] — `core_docs`
-- [[docs/process/release_application_protocol|Release Application Protocol]] — [[docs/obsidian/03_document_cards/docs__process__release_application_protocol|card]] — `core_docs`
+- [[docs/evidence/release_application_protocol/9f8ab22f3dfb_release_application_protocol|Release Application Protocol]] — [[docs/obsidian/03_document_cards/docs__process__release_application_protocol|card]] — `core_docs`
 
 ## Folder relationships
 

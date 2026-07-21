@@ -53,8 +53,8 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION.md]] — score `24`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN|docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md]] — score `24`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `24`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `24`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `24`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `24`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `24`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `23`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `23`
 
@@ -118,7 +118,7 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]] — score `13`
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md]] — score `13`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md]] — score `13`
 - [registry/patches/H0008_EXP0012_distribution_engineering.yaml](../../registry/patches/H0008_EXP0012_distribution_engineering.yaml) — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]] — score `12`
@@ -138,7 +138,7 @@ type: source_relationship_map
 ## [[docs/articles/structural_regime_memory_without_samples|docs/articles/structural_regime_memory_without_samples.md]]
 
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `25`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `25`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `25`
 - [[README|README.md]] — score `25`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `23`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `23`
@@ -151,16 +151,16 @@ type: source_relationship_map
 - [[docs/principles|docs/principles.md]] — score `15`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/architecture|docs/architecture.md]] — score `9`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]] — score `8`
 
 ## [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `22`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `21`
 - [[README|README.md]] — score `21`
 - [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]] — score `19`
@@ -177,7 +177,7 @@ type: source_relationship_map
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md]] — score `23`
 - [[docs/execution/E0003_CONTINUATION_CLOSE_HUNT|docs/execution/E0003_CONTINUATION_CLOSE_HUNT.md]] — score `23`
 - [[docs/execution/README|docs/execution/README.md]] — score `23`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `23`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `23`
 
 ## [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]]
 
@@ -208,13 +208,13 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `15`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `15`
 - [[docs/research_lessons_and_failure_modes|docs/research_lessons_and_failure_modes.md]] — score `15`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `15`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `15`
 - [[README|README.md]] — score `15`
 - [[docs/debug/D0007_H5_CAUSAL_LIVE_REPLAY_AUDIT|docs/debug/D0007_H5_CAUSAL_LIVE_REPLAY_AUDIT.md]] — score `14`
 
 ## [[docs/debug/D0009_H5_ATOMIC_NO_SAMPLE_REPLAY_AUDIT|docs/debug/D0009_H5_ATOMIC_NO_SAMPLE_REPLAY_AUDIT.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
 - [[README|README.md]] — score `19`
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `18`
@@ -230,9 +230,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `28`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `28`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `28`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|lab/02_hypotheses/H0004_branch_regime_clustering.md]] — score `28`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md]] — score `28`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|lab/03_validation/VAL0012_h4_fast_atomic_main/README.md]] — score `28`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `27`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `27`
 
 ## [[docs/debug/E0006/ENTRY_QUALIFICATION_README|docs/debug/E0006/ENTRY_QUALIFICATION_README.md]]
 
@@ -339,7 +339,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `23`
 - [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]] — score `19`
 - [[lab/03_validation/VAL0022_h6_reaction_box_zones/README|lab/03_validation/VAL0022_h6_reaction_box_zones/README.md]] — score `19`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `19`
 - [[docs/debug/E0007/README|docs/debug/E0007/README.md]] — score `17`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `17`
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md]] — score `17`
@@ -358,7 +358,7 @@ type: source_relationship_map
 ## [[docs/debug/H4_ATOMIC_FULL_STRESS_CONTEXT|docs/debug/H4_ATOMIC_FULL_STRESS_CONTEXT.md]]
 
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `23`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `23`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `23`
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `23`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `23`
 - [[README|README.md]] — score `23`
@@ -374,16 +374,16 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `21`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `20`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|docs/debug/H4_FAST_ATOMIC_MAIN_REPORT.md]] — score `19`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `19`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `19`
 - [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]] — score `18`
 
 ## [[docs/debug/H4_FAST_ATOMIC_EXTENDED_REPORT|docs/debug/H4_FAST_ATOMIC_EXTENDED_REPORT.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `9`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT.md]] — score `9`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|docs/debug/H4_FAST_ATOMIC_MAIN_REPORT.md]] — score `9`
@@ -396,8 +396,8 @@ type: source_relationship_map
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `25`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|lab/03_validation/VAL0012_h4_fast_atomic_main/README.md]] — score `25`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `24`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `23`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `23`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `23`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `23`
 
 ## [[docs/debug/H6_BOX_ALGORITHM_README|docs/debug/H6_BOX_ALGORITHM_README.md]]
 
@@ -414,7 +414,7 @@ type: source_relationship_map
 
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|docs/debug/H6_NODE_SURVIVAL_MAP.md]] — score `22`
 - [[docs/debug/H6_FAST_ACCURATE_OPTIONALITY|docs/debug/H6_FAST_ACCURATE_OPTIONALITY.md]] — score `21`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `20`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `20`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `20`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `19`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|docs/debug/H4_FAST_ATOMIC_MAIN_REPORT.md]] — score `19`
@@ -427,9 +427,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|docs/debug/H6_NODE_SURVIVAL_MAP.md]] — score `19`
 - [[lab/03_validation/VAL0017_h6_fast_accurate/README|lab/03_validation/VAL0017_h6_fast_accurate/README.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `17`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]] — score `17`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
 
 ## [[docs/debug/H6_NODE_SURVIVAL_MAP|docs/debug/H6_NODE_SURVIVAL_MAP.md]]
@@ -437,10 +437,10 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `24`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|docs/debug/H6_CANDLE_STREAM_FAST.md]] — score `22`
 - [[docs/architecture|docs/architecture.md]] — score `20`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `20`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `20`
 - [[README|README.md]] — score `20`
 - [[docs/debug/H6_FAST_ACCURATE_OPTIONALITY|docs/debug/H6_FAST_ACCURATE_OPTIONALITY.md]] — score `19`
-- [[lab/02_hypotheses/H0006_reversal_explosive_optionality|lab/02_hypotheses/H0006_reversal_explosive_optionality.md]] — score `19`
+- [[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md]] — score `19`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `19`
 
 ## [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]]
@@ -458,7 +458,7 @@ type: source_relationship_map
 
 - [[lab/03_validation/VAL0016_h6_standalone_optionality/README|lab/03_validation/VAL0016_h6_standalone_optionality/README.md]] — score `23`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `17`
 - [[README|README.md]] — score `17`
 - [[lab/03_validation/VAL0017_h6_fast_accurate/README|lab/03_validation/VAL0017_h6_fast_accurate/README.md]] — score `17`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `16`
@@ -534,8 +534,8 @@ type: source_relationship_map
 ## [[docs/execution/EXP0015_intermarket_time_divergence/LEGACY_COMPILE_FIX|docs/execution/EXP0015_intermarket_time_divergence/LEGACY_COMPILE_FIX.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/EXP0015_cme_live_backtest_plan|docs/EXP0015_cme_live_backtest_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README|lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md]] — score `11`
@@ -544,11 +544,11 @@ type: source_relationship_map
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/IMPLEMENTATION_PLAN_INDEX|docs/execution/EXP0016_intermarket_divergence_execution/IMPLEMENTATION_PLAN_INDEX.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `21`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `19`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register.md]] — score `19`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `19`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register|docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register.md]] — score `19`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]] — score `17`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/README|lab/09_execution/EXP0016_intermarket_divergence_execution/README.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `14`
@@ -568,21 +568,21 @@ type: source_relationship_map
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `12`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `12`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `12`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `15`
+- [[docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator|docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `15`
 
@@ -605,12 +605,12 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE21_PAPER_REGIME_ATTRIBUTION|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE21_PAPER_REGIME_ATTRIBUTION.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `12`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_06_STC_SMT_CANDIDATE_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_06_STC_SMT_CANDIDATE_ENGINE.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine.md]] — score `16`
+- [[docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine|docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_09_STC_SMT_PAPER_OUTCOME_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_09_STC_SMT_PAPER_OUTCOME_SIMULATOR.md]] — score `14`
@@ -634,9 +634,9 @@ type: source_relationship_map
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `15`
@@ -650,28 +650,28 @@ type: source_relationship_map
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_10_STC_SMT_PARTIAL_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_10_STC_SMT_PARTIAL_CLOSE_SIMULATOR.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `15`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `15`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_12_STC_SMT_PERSISTENCE_RESTART_RECOVERY|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_12_STC_SMT_PERSISTENCE_RESTART_RECOVERY.md]]
@@ -687,10 +687,10 @@ type: source_relationship_map
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `19`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `19`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `19`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `19`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `19`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `17`
@@ -711,11 +711,11 @@ type: source_relationship_map
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/36_level_15_broker_position_manager|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/36_level_15_broker_position_manager.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `8`
+- [[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md]] — score `8`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `8`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `8`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `8`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `8`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `8`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_16_STC_SMT_REAL_AUTO_ENTRY_ROUTER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_16_STC_SMT_REAL_AUTO_ENTRY_ROUTER.md]]
@@ -744,19 +744,19 @@ type: source_relationship_map
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `15`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `15`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_19_STC_SMT_VALIDATION_PACK|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_19_STC_SMT_VALIDATION_PACK.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `11`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `11`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER.md]] — score `11`
@@ -766,20 +766,20 @@ type: source_relationship_map
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed.md]] — score `14`
+- [[docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix|docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix.md]] — score `14`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `14`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `14`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]] — score `14`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]] — score `14`
+- [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md]] — score `14`
 
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_21_STC_SMT_DRAWING_AUDIT|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_21_STC_SMT_DRAWING_AUDIT.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `9`
 - [[docs/EXP0015_cme_live_backtest_plan|docs/EXP0015_cme_live_backtest_plan.md]] — score `8`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `8`
@@ -798,9 +798,9 @@ type: source_relationship_map
 ## [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `22`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `21`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `21`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `21`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `21`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS.md]] — score `20`
@@ -835,7 +835,7 @@ type: source_relationship_map
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `14`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `14`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `14`
 - [[lab/03_experiments/EXP0015_intermarket_time_divergence/README|lab/03_experiments/EXP0015_intermarket_time_divergence/README.md]] — score `13`
 - [[mql5/Experts/IntermarketDivergence/README|mql5/Experts/IntermarketDivergence/README.md]] — score `13`
 
@@ -890,8 +890,8 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/BASE-04/answer_normalized_en|docs/experience_capture/answers/BASE-04/answer_normalized_en.md]] — score `18`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|docs/experience_capture/answers/DST-R03/answer_normalized_en.md]] — score `18`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
 - [[docs/experience_capture/answers/BASE-02/answer_raw_en|docs/experience_capture/answers/BASE-02/answer_raw_en.md]] — score `17`
 
 ## [[docs/experience_capture/answers/BASE-02/answer_raw_en|docs/experience_capture/answers/BASE-02/answer_raw_en.md]]
@@ -902,8 +902,8 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/BASE-04/answer_normalized_en|docs/experience_capture/answers/BASE-04/answer_normalized_en.md]] — score `16`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|docs/experience_capture/answers/DST-R03/answer_normalized_en.md]] — score `16`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
 
 ## [[docs/experience_capture/answers/BASE-02/notes_en|docs/experience_capture/answers/BASE-02/notes_en.md]]
 
@@ -1131,7 +1131,7 @@ type: source_relationship_map
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `18`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R03|docs/experience_capture/questions/remaining_v2/by_code/DATA-R03.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `12`
@@ -1140,7 +1140,7 @@ type: source_relationship_map
 
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R03|docs/experience_capture/questions/remaining_v2/by_code/DATA-R03.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [requirements.txt](../../requirements.txt) — score `10`
 - [tools/astro_feature_builder/requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
@@ -1219,7 +1219,7 @@ type: source_relationship_map
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `18`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `14`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `14`
 - [[docs/ai_execution/EXTREME_L2_NODE_CYCLE_LIMIT_ENTRY_FA|docs/ai_execution/EXTREME_L2_NODE_CYCLE_LIMIT_ENTRY_FA.md]] — score `14`
@@ -1230,7 +1230,7 @@ type: source_relationship_map
 - [tools/astro_feature_builder/requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
 - [tools/astro_ml/requirements.txt](../../tools/astro_ml/requirements.txt) — score `10`
 - [tools/cme_bridge/requirements.txt](../../tools/cme_bridge/requirements.txt) — score `10`
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `8`
 - [[docs/experience_capture/answers/DST-R02/notes_en|docs/experience_capture/answers/DST-R02/notes_en.md]] — score `7`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `6`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `6`
@@ -1243,8 +1243,8 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE7_LEFT_PANEL_SECTION_TOGGLES|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE7_LEFT_PANEL_SECTION_TOGGLES.md]] — score `20`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN|docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md]] — score `20`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `20`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `20`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `20`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
 
 ## [[docs/experience_capture/answers/DST-R03/answer_raw_en|docs/experience_capture/answers/DST-R03/answer_raw_en.md]]
 
@@ -1288,7 +1288,7 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/NDS-R01/question_en|docs/experience_capture/answers/NDS-R01/question_en.md]] — score `16`
 - [[docs/experience_capture/questions/remaining_v2/by_code/NDS-R01|docs/experience_capture/questions/remaining_v2/by_code/NDS-R01.md]] — score `16`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
 
 ## [[docs/experience_capture/answers/ENT-R01/answer_raw_en|docs/experience_capture/answers/ENT-R01/answer_raw_en.md]]
 
@@ -1434,7 +1434,7 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `20`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `18`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `12`
@@ -1459,8 +1459,8 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `16`
 - [[docs/experience_capture/answers/NDS-R01/question_en|docs/experience_capture/answers/NDS-R01/question_en.md]] — score `16`
 - [[docs/experience_capture/questions/remaining_v2/by_code/NDS-R01|docs/experience_capture/questions/remaining_v2/by_code/NDS-R01.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `16`
 
 ## [[docs/experience_capture/answers/EXE-R01/answer_raw_en|docs/experience_capture/answers/EXE-R01/answer_raw_en.md]]
 
@@ -1588,8 +1588,8 @@ type: source_relationship_map
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|docs/experience_capture/answers/DST-R03/answer_normalized_en.md]] — score `18`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `16`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `16`
 - [[docs/experience_capture/answers/EXT-01/answer_normalized_en|docs/experience_capture/answers/EXT-01/answer_normalized_en.md]] — score `16`
@@ -1849,10 +1849,10 @@ type: source_relationship_map
 - [[docs/experience_capture/questions/by_code/EXT-09|docs/experience_capture/questions/by_code/EXT-09.md]] — score `16`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 
 ## [[docs/experience_capture/answers/EXT-09/answer_raw_en|docs/experience_capture/answers/EXT-09/answer_raw_en.md]]
 
@@ -1868,7 +1868,7 @@ type: source_relationship_map
 ## [[docs/experience_capture/answers/EXT-09/notes_en|docs/experience_capture/answers/EXT-09/notes_en.md]]
 
 - [[docs/experience_capture/questions/by_code/EXT-09|docs/experience_capture/questions/by_code/EXT-09.md]] — score `18`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
@@ -2001,7 +2001,7 @@ type: source_relationship_map
 
 - [[docs/experience_capture/questions/by_code/EXT-12|docs/experience_capture/questions/by_code/EXT-12.md]] — score `20`
 - [[docs/glossary|docs/glossary.md]] — score `20`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `14`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `14`
@@ -2027,8 +2027,8 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION.md]] — score `22`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN|docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md]] — score `22`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `22`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `22`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `22`
 
 ## [[docs/experience_capture/answers/NDS-R01/answer_raw_en|docs/experience_capture/answers/NDS-R01/answer_raw_en.md]]
 
@@ -2058,8 +2058,8 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `19`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|docs/experience_capture/answers/DST-R03/answer_normalized_en.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `18`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `16`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `16`
 
@@ -2243,7 +2243,7 @@ type: source_relationship_map
 
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `16`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `16`
 - [[docs/ai_execution/EXTREME_L2_NODE_CYCLE_LIMIT_ENTRY_FA|docs/ai_execution/EXTREME_L2_NODE_CYCLE_LIMIT_ENTRY_FA.md]] — score `16`
@@ -2426,11 +2426,11 @@ type: source_relationship_map
 
 - [[docs/architecture|docs/architecture.md]] — score `16`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R03|docs/experience_capture/questions/remaining_v2/by_code/DATA-R03.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [requirements.txt](../../requirements.txt) — score `10`
 
 ## [[docs/experience_capture/index_fragments/DST-R01_en|docs/experience_capture/index_fragments/DST-R01_en.md]]
@@ -2449,9 +2449,9 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `14`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [requirements.txt](../../requirements.txt) — score `10`
 - [tools/astro_feature_builder/requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
 
@@ -3205,7 +3205,7 @@ type: source_relationship_map
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R02|docs/experience_capture/questions/remaining_v2/by_code/DATA-R02.md]] — score `10`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R01|docs/experience_capture/questions/remaining_v2/by_code/DATA-R01.md]] — score `10`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R04|docs/experience_capture/questions/remaining_v2/by_code/DATA-R04.md]] — score `10`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 
 ## [[docs/experience_capture/questions/remaining_v2/sections/07_ai_training/README|docs/experience_capture/questions/remaining_v2/sections/07_ai_training/README.md]]
@@ -3271,25 +3271,25 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/AI-R03/question_en|docs/experience_capture/questions/remaining_v3_split/AI-R03/question_en.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/experience_capture/questions/remaining_v2/by_code/AI-R03|docs/experience_capture/questions/remaining_v2/by_code/AI-R03.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
 
 ## [[docs/experience_capture/questions/remaining_v3_split/AI-R03/question_fa|docs/experience_capture/questions/remaining_v3_split/AI-R03/question_fa.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/experience_capture/questions/remaining_v2/by_code/AI-R03|docs/experience_capture/questions/remaining_v2/by_code/AI-R03.md]] — score `8`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
 
 ## [[docs/experience_capture/questions/remaining_v3_split/answered_boundary_v3_split_fa|docs/experience_capture/questions/remaining_v3_split/answered_boundary_v3_split_fa.md]]
 
@@ -3370,7 +3370,7 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_en|docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_en.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R04|docs/experience_capture/questions/remaining_v2/by_code/DATA-R04.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_fa|docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_fa.md]] — score `11`
@@ -3381,7 +3381,7 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_fa|docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_fa.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/experience_capture/questions/remaining_v2/by_code/DATA-R04|docs/experience_capture/questions/remaining_v2/by_code/DATA-R04.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_en|docs/experience_capture/questions/remaining_v3_split/DATA-R04/question_en.md]] — score `11`
@@ -3656,7 +3656,7 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/RSK-R02/question_fa|docs/experience_capture/questions/remaining_v3_split/RSK-R02/question_fa.md]]
 
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `8`
 - [[docs/experience_capture/questions/remaining_v3_split/RSK-R02/question_en|docs/experience_capture/questions/remaining_v3_split/RSK-R02/question_en.md]] — score `7`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `6`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `6`
@@ -3689,7 +3689,7 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_en|docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_en.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `14`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `14`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `14`
@@ -3700,7 +3700,7 @@ type: source_relationship_map
 
 ## [[docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_fa|docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_fa.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_en|docs/experience_capture/questions/remaining_v3_split/TEST-R01/question_en.md]] — score `13`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
@@ -3712,7 +3712,7 @@ type: source_relationship_map
 ## [[docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_en|docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_en.md]]
 
 - [[docs/experience_capture/questions/remaining_v2/by_code/TEST-R02|docs/experience_capture/questions/remaining_v2/by_code/TEST-R02.md]] — score `10`
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `8`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `6`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `6`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `6`
@@ -3723,7 +3723,7 @@ type: source_relationship_map
 ## [[docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_fa|docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_fa.md]]
 
 - [[docs/experience_capture/questions/remaining_v2/by_code/TEST-R02|docs/experience_capture/questions/remaining_v2/by_code/TEST-R02.md]] — score `8`
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `8`
 - [[docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_en|docs/experience_capture/questions/remaining_v3_split/TEST-R02/question_en.md]] — score `5`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `4`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
@@ -3762,7 +3762,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
 
 ## [[docs/flag_counting/engineering_pack_v5/01_concepts/INVARIANTS_AND_ASSUMPTIONS|docs/flag_counting/engineering_pack_v5/01_concepts/INVARIANTS_AND_ASSUMPTIONS.md]]
 
@@ -4101,7 +4101,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `19`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md]] — score `17`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `17`
 
@@ -4114,7 +4114,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `19`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
 - [[docs/architecture|docs/architecture.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
 
 ## [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md]]
 
@@ -4123,7 +4123,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `19`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `18`
 - [[docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT|docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md]] — score `17`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2.md]] — score `17`
 
@@ -4141,9 +4141,9 @@ type: source_relationship_map
 ## [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md]] — score `13`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.md]] — score `13`
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `13`
@@ -4152,9 +4152,9 @@ type: source_relationship_map
 ## [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_03_DUPLICATE_REBUILD_REDUCTION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_03_DUPLICATE_REBUILD_REDUCTION.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.md]] — score `11`
@@ -4163,7 +4163,7 @@ type: source_relationship_map
 ## [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `18`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `15`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_CLEAN_ISOLATED_STATE_GATE|docs/flag_counting/FLAG_COUNTING_LEVEL_19_CLEAN_ISOLATED_STATE_GATE.md]] — score `15`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `15`
@@ -4174,9 +4174,9 @@ type: source_relationship_map
 ## [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_05_RUNTIME_HEALTH_SUMMARY|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_05_RUNTIME_HEALTH_SUMMARY.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.md]] — score `11`
@@ -4222,7 +4222,7 @@ type: source_relationship_map
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `18`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `18`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION.md]] — score `17`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN|docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md]] — score `17`
 
@@ -4826,7 +4826,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `21`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `21`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `20`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
 - [[docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT|docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md]] — score `19`
@@ -4835,7 +4835,7 @@ type: source_relationship_map
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `27`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `22`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `22`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]] — score `21`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `21`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `20`
@@ -4848,7 +4848,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]] — score `21`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `21`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `20`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `20`
 - [[docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT|docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2.md]] — score `19`
 - [[docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3|docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md]] — score `19`
@@ -4857,8 +4857,8 @@ type: source_relationship_map
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md]] — score `11`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.md]] — score `11`
@@ -4916,7 +4916,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `17`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `16`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT|docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md]] — score `15`
 
 ## [[docs/flag_counting/FLAG_COUNTING_VNEXT_IMPLEMENTATION|docs/flag_counting/FLAG_COUNTING_VNEXT_IMPLEMENTATION.md]]
@@ -4945,7 +4945,7 @@ type: source_relationship_map
 
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `20`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [[docs/flag_counting/implementation_ladder_v1/04_LEVEL_04_HOOK_ND_CONTEXT_ENGINE|docs/flag_counting/implementation_ladder_v1/04_LEVEL_04_HOOK_ND_CONTEXT_ENGINE.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT|docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md]] — score `15`
@@ -4954,8 +4954,8 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/02_LEVEL_02_NODE_ENGINE|docs/flag_counting/implementation_ladder_v1/02_LEVEL_02_NODE_ENGINE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE|docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE.md]] — score `13`
@@ -4965,8 +4965,8 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/03_LEVEL_03_NODE_IDENTITY_AND_SCALE|docs/flag_counting/implementation_ladder_v1/03_LEVEL_03_NODE_IDENTITY_AND_SCALE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE|docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE.md]] — score `13`
@@ -4987,7 +4987,7 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/05_LEVEL_05_FLAG_BODY_ENGINE|docs/flag_counting/implementation_ladder_v1/05_LEVEL_05_FLAG_BODY_ENGINE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/flag_counting/implementation_ladder_v1/07_LEVEL_07_F1_LIFECYCLE_ENGINE|docs/flag_counting/implementation_ladder_v1/07_LEVEL_07_F1_LIFECYCLE_ENGINE.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT|docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `15`
@@ -4999,7 +4999,7 @@ type: source_relationship_map
 ## [[docs/flag_counting/implementation_ladder_v1/06_LEVEL_06_INTERNAL_COUNT_ENGINE|docs/flag_counting/implementation_ladder_v1/06_LEVEL_06_INTERNAL_COUNT_ENGINE.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT|docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX|docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md]] — score `15`
@@ -5009,7 +5009,7 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/07_LEVEL_07_F1_LIFECYCLE_ENGINE|docs/flag_counting/implementation_ladder_v1/07_LEVEL_07_F1_LIFECYCLE_ENGINE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/flag_counting/implementation_ladder_v1/05_LEVEL_05_FLAG_BODY_ENGINE|docs/flag_counting/implementation_ladder_v1/05_LEVEL_05_FLAG_BODY_ENGINE.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT|docs/flag_counting/implementation_ladder_v1/11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md]] — score `15`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `15`
@@ -5020,8 +5020,8 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/08_LEVEL_08_F2_LIFECYCLE_ENGINE|docs/flag_counting/implementation_ladder_v1/08_LEVEL_08_F2_LIFECYCLE_ENGINE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE|docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE.md]] — score `13`
@@ -5031,8 +5031,8 @@ type: source_relationship_map
 
 ## [[docs/flag_counting/implementation_ladder_v1/09_LEVEL_09_F3_EXTENSION_AND_LOCK_ENGINE|docs/flag_counting/implementation_ladder_v1/09_LEVEL_09_F3_EXTENSION_AND_LOCK_ENGINE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE|docs/flag_counting/implementation_ladder_v1/01_LEVEL_01_CANDLE_STREAM_AND_TIMEBASE.md]] — score `11`
@@ -5087,7 +5087,7 @@ type: source_relationship_map
 ## [[docs/flag_counting/implementation_ladder_v1/13_LEVEL_13_VALIDATION_MATRIX|docs/flag_counting/implementation_ladder_v1/13_LEVEL_13_VALIDATION_MATRIX.md]]
 
 - [[docs/flag_counting/VALIDATION_CASE_REGISTRY|docs/flag_counting/VALIDATION_CASE_REGISTRY.md]] — score `24`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
 - [[docs/flag_counting/implementation_ladder_v1/14_LEVEL_14_RELEASE_ROLLBACK_AND_DEBUG_PROTOCOL|docs/flag_counting/implementation_ladder_v1/14_LEVEL_14_RELEASE_ROLLBACK_AND_DEBUG_PROTOCOL.md]] — score `17`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `17`
 - [[docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX|docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md]] — score `17`
@@ -5131,7 +5131,7 @@ type: source_relationship_map
 ## [[docs/flag_counting/implementation_ladder_v1/17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE|docs/flag_counting/implementation_ladder_v1/17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `24`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `17`
 - [[docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX|docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md]] — score `17`
 - [[docs/flag_counting/implementation_ladder_v1/README|docs/flag_counting/implementation_ladder_v1/README.md]] — score `17`
@@ -5142,9 +5142,9 @@ type: source_relationship_map
 ## [[docs/flag_counting/implementation_ladder_v1/18_LEVEL_18_STATIC_QA_AND_COMPILE_HARDENING|docs/flag_counting/implementation_ladder_v1/18_LEVEL_18_STATIC_QA_AND_COMPILE_HARDENING.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS|docs/flag_counting/implementation_ladder_v1/15_MODULE_INTERFACE_CONTRACTS.md]] — score `13`
 - [[docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX|docs/flag_counting/implementation_ladder_v1/16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md]] — score `13`
 - [[docs/flag_counting/implementation_ladder_v1/README|docs/flag_counting/implementation_ladder_v1/README.md]] — score `13`
@@ -5175,7 +5175,7 @@ type: source_relationship_map
 ## [[docs/flag_counting/OFFLINE_LICENSE_RUNBOOK|docs/flag_counting/OFFLINE_LICENSE_RUNBOOK.md]]
 
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `21`
-- [[licenses/README_LICENSE_ISSUER|licenses/README_LICENSE_ISSUER.md]] — score `20`
+- [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md]] — score `20`
 - [[docs/debug/MARKET_LANGUAGE/README|docs/debug/MARKET_LANGUAGE/README.md]] — score `18`
 - [[docs/flag_counting/implementation_ladder_v1/README|docs/flag_counting/implementation_ladder_v1/README.md]] — score `18`
 - [[docs/nds_hook_architecture/README|docs/nds_hook_architecture/README.md]] — score `18`
@@ -5351,7 +5351,7 @@ type: source_relationship_map
 ## [[docs/glossary|docs/glossary.md]]
 
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `18`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `18`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `18`
 - [[docs/architecture|docs/architecture.md]] — score `17`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `17`
@@ -5364,8 +5364,8 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `21`
 - [[docs/principles|docs/principles.md]] — score `19`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `18`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `14`
@@ -5417,8 +5417,8 @@ type: source_relationship_map
 ## [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `28`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|docs/MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `20`
 - [[docs/MQL_NATIVE_MIGRATION_DECISION|docs/MQL_NATIVE_MIGRATION_DECISION.md]] — score `20`
@@ -5461,8 +5461,8 @@ type: source_relationship_map
 ## [[docs/M0001_PARQUET_EVENT_BRIDGE|docs/M0001_PARQUET_EVENT_BRIDGE.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `26`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `23`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `23`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `18`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|docs/MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `18`
@@ -5564,7 +5564,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION|docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION.md]] — score `5`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `5`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `5`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `5`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `5`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `5`
 - [[docs/mql_native/M0001_FULL_REVISIT_LOGIC|docs/mql_native/M0001_FULL_REVISIT_LOGIC.md]] — score `5`
 
@@ -5609,7 +5609,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `26`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `26`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `26`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `25`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `25`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `24`
 
 ## [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]]
@@ -5663,7 +5663,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `33`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `33`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|lab/02_hypotheses/H0005_contextual_branch_regime_state.md]] — score `33`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `32`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `32`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `28`
 - [[README|README.md]] — score `27`
 
@@ -5674,9 +5674,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md]] — score `17`
 - [[docs/execution/README|docs/execution/README.md]] — score `17`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `17`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]] — score `17`
 
 ## [[docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION|docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION.md]]
 
@@ -5693,7 +5693,7 @@ type: source_relationship_map
 
 - [[README|README.md]] — score `49`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `37`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `35`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `35`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `33`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `33`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `33`
@@ -5704,7 +5704,7 @@ type: source_relationship_map
 
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `12`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `12`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `12`
 - [[docs/mql_native/M0001_LIVE_ZONE_RESYNC|docs/mql_native/M0001_LIVE_ZONE_RESYNC.md]] — score `12`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `12`
 - [[docs/mql_native/M0001_REVISIT_EXTREME_RESET|docs/mql_native/M0001_REVISIT_EXTREME_RESET.md]] — score `12`
@@ -5717,7 +5717,7 @@ type: source_relationship_map
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `20`
 - [[docs/M0001_EVENT_BRIDGE_ARCHITECTURE|docs/M0001_EVENT_BRIDGE_ARCHITECTURE.md]] — score `19`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `18`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `18`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `18`
 - [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|docs/mql_native/MQL_NATIVE_ARCHITECTURE.md]] — score `18`
 - [[docs/architecture|docs/architecture.md]] — score `17`
@@ -5788,10 +5788,10 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `12`
 - [[docs/mql_native/M0001_EXIT_GAP_BOTH_SIDES_REPAIR|docs/mql_native/M0001_EXIT_GAP_BOTH_SIDES_REPAIR.md]] — score `12`
 
-## [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]]
+## [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `20`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `20`
@@ -5801,9 +5801,9 @@ type: source_relationship_map
 
 ## [[docs/mql_native/M0001_EXCEL_REPORT_RELIABLE_WRITE|docs/mql_native/M0001_EXCEL_REPORT_RELIABLE_WRITE.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `17`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `12`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
@@ -5827,15 +5827,15 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
 - [[docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN|docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 
 ## [[docs/mql_native/M0001_FAST_FINAL_ONLY_RUNTIME|docs/mql_native/M0001_FAST_FINAL_ONLY_RUNTIME.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `19`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
 - [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]] — score `18`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `18`
@@ -5845,8 +5845,8 @@ type: source_relationship_map
 
 ## [[docs/mql_native/M0001_FINAL_NODE_RANDOM_REPORTS|docs/mql_native/M0001_FINAL_NODE_RANDOM_REPORTS.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `19`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `19`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `12`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
@@ -5857,18 +5857,18 @@ type: source_relationship_map
 ## [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `16`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `16`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
 
 ## [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]]
 
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `26`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `20`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `20`
@@ -5915,21 +5915,21 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT|docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 
-## [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]]
+## [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `16`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `16`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
 
 ## [[docs/mql_native/M0001_LATEST_VISUAL_CAPS|docs/mql_native/M0001_LATEST_VISUAL_CAPS.md]]
 
@@ -5937,9 +5937,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON|docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON.md]] — score `14`
 
 ## [[docs/mql_native/M0001_LIVE_BAR_STREAM|docs/mql_native/M0001_LIVE_BAR_STREAM.md]]
@@ -5957,7 +5957,7 @@ type: source_relationship_map
 
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `16`
 - [[docs/mql_native/M0001_REVISIT_EXTREME_RESET|docs/mql_native/M0001_REVISIT_EXTREME_RESET.md]] — score `16`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `16`
@@ -5967,8 +5967,8 @@ type: source_relationship_map
 ## [[docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON|docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `17`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `16`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
@@ -5978,8 +5978,8 @@ type: source_relationship_map
 ## [[docs/mql_native/M0001_MINIMAL_INPUTS|docs/mql_native/M0001_MINIMAL_INPUTS.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `18`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `18`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
@@ -5994,16 +5994,16 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `14`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]] — score `14`
 
 ## [[docs/mql_native/M0001_NODE_DUAL_OUTCOME_STATE|docs/mql_native/M0001_NODE_DUAL_OUTCOME_STATE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `19`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `16`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `16`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `16`
 - [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|docs/mql_native/MQL_NATIVE_ARCHITECTURE.md]] — score `16`
@@ -6036,7 +6036,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `12`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `12`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `12`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `12`
 - [[docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT|docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT.md]] — score `12`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `12`
 - [[docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN|docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN.md]] — score `12`
@@ -6047,27 +6047,27 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
 - [[docs/mql_native/M0001_FULL_REVISIT_LOGIC|docs/mql_native/M0001_FULL_REVISIT_LOGIC.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 
 ## [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `22`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `20`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `20`
 
 ## [[docs/mql_native/M0001_PROJECT_REPORT_SYNC|docs/mql_native/M0001_PROJECT_REPORT_SYNC.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `18`
 - [[docs/architecture|docs/architecture.md]] — score `17`
 - [[docs/M0001_SINGLE_SOURCE_LIVE_ARCHITECTURE|docs/M0001_SINGLE_SOURCE_LIVE_ARCHITECTURE.md]] — score `17`
@@ -6076,20 +6076,20 @@ type: source_relationship_map
 
 ## [[docs/mql_native/M0001_REMOVE_EXCEL_JSON_REPORT_LAYER|docs/mql_native/M0001_REMOVE_EXCEL_JSON_REPORT_LAYER.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `14`
 - [[docs/mql_native/M0001_PROJECT_REPORT_SYNC|docs/mql_native/M0001_PROJECT_REPORT_SYNC.md]] — score `14`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `14`
 
 ## [[docs/mql_native/M0001_REPORT_HARD_DIAGNOSTICS|docs/mql_native/M0001_REPORT_HARD_DIAGNOSTICS.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `17`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `10`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `10`
@@ -6098,9 +6098,9 @@ type: source_relationship_map
 
 ## [[docs/mql_native/M0001_REPORT_RETURN_FIX|docs/mql_native/M0001_REPORT_RETURN_FIX.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `17`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `10`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `10`
@@ -6142,9 +6142,9 @@ type: source_relationship_map
 
 ## [[docs/mql_native/M0001_RTV_DISTRIBUTION_REPORT|docs/mql_native/M0001_RTV_DISTRIBUTION_REPORT.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `19`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `19`
 - [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]] — score `18`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `12`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
@@ -6179,10 +6179,10 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
 - [[docs/mql_native/M0001_FULL_REVISIT_LOGIC|docs/mql_native/M0001_FULL_REVISIT_LOGIC.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 
 ## [[docs/mql_native/M0001_RTV_WAIT_FOR_EXIT_GAP|docs/mql_native/M0001_RTV_WAIT_FOR_EXIT_GAP.md]]
 
@@ -6190,16 +6190,16 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON|docs/mql_native/M0001_LOGRTV_RANDOM_NULL_COMPARISON.md]] — score `14`
 
 ## [[docs/mql_native/M0001_STRESS_VALIDATION_SUITE|docs/mql_native/M0001_STRESS_VALIDATION_SUITE.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `16`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `16`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
@@ -6234,7 +6234,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT|docs/mql_native/M0001_EXTREME_AND_HUNT_ZONE_AUDIT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
 - [[docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN|docs/mql_native/M0001_HUNT_ZONE_FROM_NODE_ORIGIN.md]] — score `14`
@@ -6245,9 +6245,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `14`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `14`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE|docs/mql_native/M0001_FINAL_ONLY_WARMUP_AND_PRUNE.md]] — score `14`
-- [[docs/mql_native/M0001_JSON_AUDIT_REPORT|docs/mql_native/M0001_JSON_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_LATEST_VISUAL_CAPS|docs/mql_native/M0001_LATEST_VISUAL_CAPS.md]] — score `14`
 
 ## [[docs/mql_native/M0001_VIEWPORT_VISUAL_RENDERER|docs/mql_native/M0001_VIEWPORT_VISUAL_RENDERER.md]]
@@ -6325,16 +6325,16 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `45`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `45`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `43`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|lab/02_hypotheses/H0004_branch_regime_clustering.md]] — score `40`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md]] — score `40`
 
 ## [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|docs/mql_native/MQL_NATIVE_ARCHITECTURE.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `27`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
 - [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]] — score `24`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `20`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `20`
 
@@ -6342,7 +6342,7 @@ type: source_relationship_map
 
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `16`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `16`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `16`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `16`
@@ -6352,8 +6352,8 @@ type: source_relationship_map
 ## [[docs/MQL_NATIVE_MIGRATION_DECISION|docs/MQL_NATIVE_MIGRATION_DECISION.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `28`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `20`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|docs/MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `20`
@@ -6626,13 +6626,13 @@ type: source_relationship_map
 
 ## [[docs/nds_hook_architecture/24_phase16_mql_array_reference_compile_fix|docs/nds_hook_architecture/24_phase16_mql_array_reference_compile_fix.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/nds_hook_architecture/07_mql5_integration_contract|docs/nds_hook_architecture/07_mql5_integration_contract.md]] — score `5`
 
 ## [[docs/nds_hook_architecture/25_phase17_minimal_all_hooks_view|docs/nds_hook_architecture/25_phase17_minimal_all_hooks_view.md]]
@@ -6703,13 +6703,13 @@ type: source_relationship_map
 
 ## [[docs/nds_hook_architecture/31_phase22_cycle_arc_input_declaration_compile_fix|docs/nds_hook_architecture/31_phase22_cycle_arc_input_declaration_compile_fix.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/nds_hook_architecture/07_mql5_integration_contract|docs/nds_hook_architecture/07_mql5_integration_contract.md]] — score `5`
 
 ## [[docs/nds_hook_architecture/32_phase23_hook_origin_group_semicircle|docs/nds_hook_architecture/32_phase23_hook_origin_group_semicircle.md]]
@@ -6725,13 +6725,13 @@ type: source_relationship_map
 
 ## [[docs/nds_hook_architecture/33_phase23_grouped_semicircle_compile_fix|docs/nds_hook_architecture/33_phase23_grouped_semicircle_compile_fix.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/nds_hook_architecture/07_mql5_integration_contract|docs/nds_hook_architecture/07_mql5_integration_contract.md]] — score `5`
 
 ## [[docs/nds_hook_architecture/34_phase24_hook_envelope_curve_no_markers|docs/nds_hook_architecture/34_phase24_hook_envelope_curve_no_markers.md]]
@@ -6758,13 +6758,13 @@ type: source_relationship_map
 
 ## [[docs/nds_hook_architecture/36_phase25_signature_compile_fix|docs/nds_hook_architecture/36_phase25_signature_compile_fix.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/nds_hook_architecture/07_mql5_integration_contract|docs/nds_hook_architecture/07_mql5_integration_contract.md]] — score `5`
 
 ## [[docs/nds_hook_architecture/37_phase26_doc_aligned_hook_rebuild|docs/nds_hook_architecture/37_phase26_doc_aligned_hook_rebuild.md]]
@@ -6858,7 +6858,7 @@ type: source_relationship_map
 ## [[docs/principles|docs/principles.md]]
 
 - [[docs/glossary|docs/glossary.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `16`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [[docs/architecture|docs/architecture.md]] — score `15`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `15`
@@ -6871,21 +6871,21 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `21`
 - [[docs/debug/MAIN_ATOMIC_NO_SAMPLE_UNIFICATION|docs/debug/MAIN_ATOMIC_NO_SAMPLE_UNIFICATION.md]] — score `19`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `17`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `17`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `17`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `16`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|docs/debug/H4_FAST_ATOMIC_MAIN_REPORT.md]] — score `14`
 
-## [[docs/process/release_application_protocol|docs/process/release_application_protocol.md]]
+## [[docs/evidence/release_application_protocol/9f8ab22f3dfb_release_application_protocol|docs/evidence/release_application_protocol/9f8ab22f3dfb_release_application_protocol.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/process/metatrader_compile_checklist|docs/process/metatrader_compile_checklist.md]] — score `5`
 
 ## [[docs/PROJECT_LAYOUT|docs/PROJECT_LAYOUT.md]]
@@ -6902,7 +6902,7 @@ type: source_relationship_map
 ## [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]]
 
 - [[README|README.md]] — score `34`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `32`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `32`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `30`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `27`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|lab/02_hypotheses/H0005_contextual_branch_regime_state.md]] — score `26`
@@ -6913,17 +6913,17 @@ type: source_relationship_map
 ## [[docs/research-roadmap|docs/research-roadmap.md]]
 
 - [[docs/ui/ROADMAP|docs/ui/ROADMAP.md]] — score `20`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/architecture|docs/architecture.md]] — score `15`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `15`
 - [[docs/glossary|docs/glossary.md]] — score `15`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `14`
 - [[README|README.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 
 ## [[docs/research/H0008_distribution_engineering|docs/research/H0008_distribution_engineering.md]]
 
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md]] — score `13`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md]] — score `13`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `12`
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|docs/articles/distribution_engineering_for_conditional_sequence_extraction.md]] — score `11`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]] — score `9`
@@ -6935,23 +6935,23 @@ type: source_relationship_map
 ## [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]]
 
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `16`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `16`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `16`
 - [[tools/astro_ml/README|tools/astro_ml/README.md]] — score `16`
 - [[lab/03_experiments/EXP0012_distributional_cluster_miner/README|lab/03_experiments/EXP0012_distributional_cluster_miner/README.md]] — score `15`
 - [[docs/architecture|docs/architecture.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `14`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `14`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `14`
 
 ## [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `21`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `17`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `19`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `19`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `17`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `17`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `17`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `17`
 
 ## [[docs/research/H0009_astro_path_cleanliness_metrics|docs/research/H0009_astro_path_cleanliness_metrics.md]]
@@ -6960,15 +6960,15 @@ type: source_relationship_map
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `11`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `10`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `8`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `8`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `8`
 - [[tools/astro_ml/README|tools/astro_ml/README.md]] — score `8`
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `8`
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `7`
 
 ## [[docs/research_lessons_and_failure_modes|docs/research_lessons_and_failure_modes.md]]
 
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `30`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `24`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `24`
 - [[README|README.md]] — score `24`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `22`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
@@ -6979,8 +6979,8 @@ type: source_relationship_map
 ## [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `20`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
@@ -7003,9 +7003,9 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `27`
 - [[docs/ui/ROADMAP|docs/ui/ROADMAP.md]] — score `26`
 - [[docs/ui/VISUALIZATION_API|docs/ui/VISUALIZATION_API.md]] — score `26`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `25`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `25`
 - [[docs/ui/VISUAL_REPLAY_PROTOCOL|docs/ui/VISUAL_REPLAY_PROTOCOL.md]] — score `24`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `21`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `21`
 
@@ -7022,7 +7022,7 @@ type: source_relationship_map
 
 ## [[docs/ui/VISUAL_REPLAY_PROTOCOL|docs/ui/VISUAL_REPLAY_PROTOCOL.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `19`
 - [[docs/ui/ROADMAP|docs/ui/ROADMAP.md]] — score `18`
 - [[docs/ui/VISUALIZATION_API|docs/ui/VISUALIZATION_API.md]] — score `18`
@@ -7042,18 +7042,18 @@ type: source_relationship_map
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `27`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `27`
 
-## [[lab/01_observation/OBS0001_structural_highs_lows_importance|lab/01_observation/OBS0001_structural_highs_lows_importance.md]]
+## [[docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance|docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md]]
 
 - [registry/hypotheses.yaml](../../registry/hypotheses.yaml) — score `15`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `11`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `11`
-- [[lab/02_hypotheses/H0002_structural_node_revisitation|lab/02_hypotheses/H0002_structural_node_revisitation.md]] — score `11`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `11`
+- [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md]] — score `11`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `9`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `9`
 - [[docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE|docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE.md]] — score `9`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `9`
 
-## [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]]
+## [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]]
 
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|lab/02_hypotheses/H0005_contextual_branch_regime_state.md]] — score `37`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `35`
@@ -7064,7 +7064,7 @@ type: source_relationship_map
 - [[README|README.md]] — score `35`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `32`
 
-## [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md]]
+## [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md]]
 
 - [[lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility|lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility.md]] — score `30`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `28`
@@ -7097,9 +7097,9 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `27`
 - [[docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY|docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY.md]] — score `27`
 
-## [[lab/02_hypotheses/H0002_structural_node_revisitation|lab/02_hypotheses/H0002_structural_node_revisitation.md]]
+## [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md]]
 
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `23`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `23`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `22`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
 - [[docs/ui/ROADMAP|docs/ui/ROADMAP.md]] — score `22`
@@ -7108,7 +7108,7 @@ type: source_relationship_map
 - [[lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility|lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility.md]] — score `21`
 - [[lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility_deep_audit|lab/02_hypotheses/H0002_reversal_vs_continuation_post_exit_volatility_deep_audit.md]] — score `21`
 
-## [[lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering|lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md]]
+## [[docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering|docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md]]
 
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `23`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `23`
@@ -7119,7 +7119,7 @@ type: source_relationship_map
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `23`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|lab/02_hypotheses/H0005_contextual_branch_regime_state.md]] — score `22`
 
-## [[lab/02_hypotheses/H0004_branch_regime_clustering|lab/02_hypotheses/H0004_branch_regime_clustering.md]]
+## [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md]]
 
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `32`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|docs/mql_native/H0001_H0004_RESEARCH_LOCK.md]] — score `32`
@@ -7130,7 +7130,7 @@ type: source_relationship_map
 - [[README|README.md]] — score `27`
 - [[docs/architecture|docs/architecture.md]] — score `27`
 
-## [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]]
+## [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]]
 
 - [[README|README.md]] — score `34`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `32`
@@ -7150,22 +7150,22 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `38`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `38`
 - [[README|README.md]] — score `38`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `37`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `37`
 
 ## [[lab/02_hypotheses/H0005_directional_memory|lab/02_hypotheses/H0005_directional_memory.md]]
 
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `21`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `21`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `20`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `20`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `20`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `20`
 - [[README|README.md]] — score `20`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `19`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `19`
 
-## [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]]
+## [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]]
 
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `25`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `25`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `24`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `24`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `24`
@@ -7174,18 +7174,18 @@ type: source_relationship_map
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md]] — score `20`
 - [[docs/execution/README|docs/execution/README.md]] — score `20`
 
-## [[lab/02_hypotheses/H0006_reversal_explosive_optionality|lab/02_hypotheses/H0006_reversal_explosive_optionality.md]]
+## [[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `22`
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|docs/debug/H6_NODE_SURVIVAL_MAP.md]] — score `19`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|docs/debug/H6_CANDLE_STREAM_FAST.md]] — score `17`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `17`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `17`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `16`
 - [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]] — score `16`
 - [[docs/execution/E0002_CLOSE_CONFIRMED_MARKET|docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md]] — score `16`
 - [[docs/execution/E0003_CONTINUATION_CLOSE_HUNT|docs/execution/E0003_CONTINUATION_CLOSE_HUNT.md]] — score `16`
 
-## [[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md]]
+## [[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md]]
 
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `30`
 - [[docs/debug/E0008/README|docs/debug/E0008/README.md]] — score `23`
@@ -7196,12 +7196,12 @@ type: source_relationship_map
 - [[lab/03_validation/VAL0023_e6_all_zone_touch_limit/README|lab/03_validation/VAL0023_e6_all_zone_touch_limit/README.md]] — score `21`
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `21`
 
-## [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md]]
+## [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md]]
 
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|docs/articles/distribution_engineering_for_conditional_sequence_extraction.md]] — score `13`
 - [[docs/research/H0008_distribution_engineering|docs/research/H0008_distribution_engineering.md]] — score `13`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `11`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]] — score `11`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `11`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]] — score `11`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT.md]] — score `10`
 - [[docs/debug/H6_FAST_ACCURATE_OPTIONALITY|docs/debug/H6_FAST_ACCURATE_OPTIONALITY.md]] — score `10`
 - [[docs/debug/H6_REACTION_BOX_ZONES|docs/debug/H6_REACTION_BOX_ZONES.md]] — score `10`
@@ -7209,32 +7209,32 @@ type: source_relationship_map
 
 ## [lab/03_experiments/EXP0000_sample/metadata.yaml](../../lab/03_experiments/EXP0000_sample/metadata.yaml)
 
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `1`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `1`
 
-## [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]]
+## [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]]
 
 - [lab/03_experiments/EXP0000_sample/metadata.yaml](../../lab/03_experiments/EXP0000_sample/metadata.yaml) — score `1`
 
 ## [lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml](../../lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml)
 
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `1`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `1`
 
-## [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]]
+## [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]]
 
 - [lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml](../../lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml) — score `1`
 
 ## [lab/03_experiments/EXP0002_mql_native_m0001/metadata.yaml](../../lab/03_experiments/EXP0002_mql_native_m0001/metadata.yaml)
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `13`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `13`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `12`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `12`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `12`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `12`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md]] — score `12`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 
-## [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]]
+## [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `15`
 - [[docs/debug/H4_FAST_ATOMIC_MAIN_REPORT|docs/debug/H4_FAST_ATOMIC_MAIN_REPORT.md]] — score `15`
@@ -7281,7 +7281,7 @@ type: source_relationship_map
 ## [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]]
 
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md]] — score `21`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|lab/02_hypotheses/H0004_branch_regime_clustering.md]] — score `21`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md]] — score `21`
 - [[docs/architecture|docs/architecture.md]] — score `15`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `15`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT.md]] — score `13`
@@ -7295,7 +7295,7 @@ type: source_relationship_map
 - [[lab/02_hypotheses/H0005_directional_memory|lab/02_hypotheses/H0005_directional_memory.md]] — score `19`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT.md]] — score `13`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `13`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `13`
@@ -7303,20 +7303,20 @@ type: source_relationship_map
 ## [[lab/03_experiments/EXP0005_mql_native_m0004_contextual_branch_state/README|lab/03_experiments/EXP0005_mql_native_m0004_contextual_branch_state/README.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [[lab/03_experiments/EXP0005_mql_native_directional_memory/README|lab/03_experiments/EXP0005_mql_native_directional_memory/README.md]] — score `11`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
 
 ## [lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml](../../lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml)
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]] — score `11`
 - [[lab/03_experiments/EXP0012_distributional_cluster_miner/README|lab/03_experiments/EXP0012_distributional_cluster_miner/README.md]] — score `10`
 - [[docs/research/H0008_distribution_engineering|docs/research/H0008_distribution_engineering.md]] — score `10`
@@ -7329,16 +7329,16 @@ type: source_relationship_map
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|docs/articles/distribution_engineering_for_conditional_sequence_extraction.md]] — score `11`
 - [lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml](../../lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml) — score `10`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `10`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `10`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `10`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `10`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `10`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `10`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
@@ -7348,20 +7348,20 @@ type: source_relationship_map
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `16`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `16`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `16`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_FILES_ROOT_FALLBACK|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_FILES_ROOT_FALLBACK.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `16`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `16`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `15`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `14`
@@ -7370,162 +7370,162 @@ type: source_relationship_map
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_FILES_ROOT_FALLBACK|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_FILES_ROOT_FALLBACK.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]]
+## [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `16`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `16`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]]
-
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
-
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md]]
+## [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH|docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md]]
+## [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md]]
+
+- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
+- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
+- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH|docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]] — score `12`
+
+## [[docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC|docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]]
+## [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]]
 
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `14`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `14`
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `13`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]]
+## [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `16`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `15`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `14`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE.md]]
+## [[docs/evidence/exp0013_astro_dashboard_pro_clean_layout/45e4e980b219_ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE|docs/evidence/exp0013_astro_dashboard_pro_clean_layout/45e4e980b219_ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL|docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]]
+## [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]]
+## [[docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH|docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN|docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX|docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]]
+## [[docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `14`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `14`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `14`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `14`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md]]
+## [[docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE|docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `12`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `12`
+- [[docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md]] — score `12`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `12`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]]
+## [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `17`
@@ -7534,75 +7534,75 @@ type: source_relationship_map
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]]
 
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `21`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]]
+## [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]]
 
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL.md]]
+## [[docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL|docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `14`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]] — score `14`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]]
+## [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `17`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]]
+## [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]]
 
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `24`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `22`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `22`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `22`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `21`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `21`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]]
+## [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `28`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `27`
 - [[lab/03_experiments/EXP0013_astro_feature_store/finalization/README|lab/03_experiments/EXP0013_astro_feature_store/finalization/README.md]] — score `25`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `25`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `22`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `20`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
@@ -7610,234 +7610,234 @@ type: source_relationship_map
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `20`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]]
+## [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `22`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `20`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `22`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `20`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]]
+## [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `22`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `22`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `20`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]]
+## [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]]
+## [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `20`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `20`
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]]
+## [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `22`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `22`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `20`
 - [[docs/architecture|docs/architecture.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_V14_COMPILE_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_V14_COMPILE_FIX.md]]
+## [[docs/evidence/exp0013_raw_sky_compile_fix/cc710a086588_ASTRO_RAW_SKY_V14_COMPILE_FIX|docs/evidence/exp0013_raw_sky_compile_fix/cc710a086588_ASTRO_RAW_SKY_V14_COMPILE_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `14`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `14`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `14`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `14`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TESTER_OPEN_ERROR_3_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TESTER_OPEN_ERROR_3_FIX.md]]
+## [[docs/evidence/exp0013_tester_open_error_3_fix/5686a01d77c7_ASTRO_TESTER_OPEN_ERROR_3_FIX|docs/evidence/exp0013_tester_open_error_3_fix/5686a01d77c7_ASTRO_TESTER_OPEN_ERROR_3_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `16`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]]
+## [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `20`
 - [[docs/research/H0009_astro_feature_taxonomy|docs/research/H0009_astro_feature_taxonomy.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIMING_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIMING_DOCTRINE.md]]
+## [[docs/evidence/astro_timing_doctrine/e8dec3f797a0_ASTRO_TIMING_DOCTRINE|docs/evidence/astro_timing_doctrine/e8dec3f797a0_ASTRO_TIMING_DOCTRINE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `7`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `7`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `7`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `7`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_OSCILLATOR_COMPILE_FIX_AND_FRACTAL_PLAN.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `7`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `7`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `7`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `7`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `7`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md]]
+## [[docs/evidence/exp0013_astro_unified_dashboard_ea_display_update_fix/da2c2a4d4bf4_ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX|docs/evidence/exp0013_astro_unified_dashboard_ea_display_update_fix/da2c2a4d4bf4_ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `16`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `16`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `16`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `16`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]]
+## [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `20`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `20`
+- [[docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN|docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `18`
 
 ## [lab/03_experiments/EXP0013_astro_feature_store/compile_logs/compile_report.txt](../../lab/03_experiments/EXP0013_astro_feature_store/compile_logs/compile_report.txt)
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `15`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `15`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `15`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `15`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `15`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `15`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `15`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `15`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `15`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `15`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `15`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `15`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `15`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/finalization/README|lab/03_experiments/EXP0013_astro_feature_store/finalization/README.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `17`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `17`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `17`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `17`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `17`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `17`
+- [[docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX|docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md]] — score `17`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `17`
 
 ## [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml)
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `18`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `18`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `18`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|docs/research/H0009_astro_feature_store_distribution_engineering.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 
 ## [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `30`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `28`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `28`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `28`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `26`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `30`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `28`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `28`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `28`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `26`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FEATURE_MEANING.md]] — score `26`
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `24`
 - [[docs/architecture|docs/architecture.md]] — score `22`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR.md]]
+## [[docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR|docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `16`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `16`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `16`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]]
+## [[docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST|docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `18`
+- [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]] — score `18`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `17`
 - [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `16`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_PATH_SCREEN|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_PATH_SCREEN.md]]
+## [[docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN|docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `19`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `19`
 - [tools/astro_ml/requirements.txt](../../tools/astro_ml/requirements.txt) — score `14`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `13`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `13`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `13`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `13`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `13`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `13`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `13`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_EA_GUIDE.md]] — score `13`
 
-## [[lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR|lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md]]
+## [[docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR|docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md]]
 
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `20`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `18`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V3_INTERACTIVE_COCKPIT_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `18`
+- [[docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT|docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `18`
+- [[docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md]] — score `18`
 
 ## [[lab/03_experiments/EXP0014_ICT/README|lab/03_experiments/EXP0014_ICT/README.md]]
 
@@ -7872,14 +7872,14 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `16`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `16`
 
-## [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md]]
+## [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md]]
 
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `18`
 - [[docs/principles|docs/principles.md]] — score `16`
 - [[tools/astro_ml/README|tools/astro_ml/README.md]] — score `15`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]] — score `13`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `12`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `12`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/README|lab/09_execution/EXP0016_intermarket_divergence_execution/README.md]] — score `11`
 
@@ -7897,7 +7897,7 @@ type: source_relationship_map
 ## [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]]
 
 - [[tools/astro_ml/README|tools/astro_ml/README.md]] — score `33`
-- [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `26`
+- [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `26`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `26`
 - [[docs/architecture|docs/architecture.md]] — score `24`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `24`
@@ -7907,11 +7907,11 @@ type: source_relationship_map
 
 ## [[lab/03_experiments/EXP_flag_counting/acceptance_matrix/README|lab/03_experiments/EXP_flag_counting/acceptance_matrix/README.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `8`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md]] — score `8`
 - [[docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE|docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md]] — score `8`
@@ -7927,33 +7927,33 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE10_PANEL_LINE_CONTRACT|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE10_PANEL_LINE_CONTRACT.md]] — score `10`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `10`
 
-## [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]]
+## [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `26`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `24`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `22`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `22`
 - [[docs/principles|docs/principles.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `21`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `21`
 - [[docs/experience_capture/answers/BASE-04/answer_normalized_en|docs/experience_capture/answers/BASE-04/answer_normalized_en.md]] — score `20`
 
-## [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]]
+## [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]]
 
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `24`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `23`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `23`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `23`
+- [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]] — score `23`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `22`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `22`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `20`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `20`
 - [[docs/debug/MARKET_LANGUAGE/README|docs/debug/MARKET_LANGUAGE/README.md]] — score `20`
 
-## [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
+## [[docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY|docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md]]
 
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
+- [[docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY|docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md]] — score `23`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `22`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `21`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `21`
 - [[docs/experience_capture/answers/DST-R03/answer_normalized_en|docs/experience_capture/answers/DST-R03/answer_normalized_en.md]] — score `20`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|docs/experience_capture/answers/NDS-R01/answer_normalized_en.md]] — score `20`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `20`
@@ -7993,7 +7993,7 @@ type: source_relationship_map
 - [[docs/flag_counting/FLAG_COUNTING_VNEXT_IMPLEMENTATION|docs/flag_counting/FLAG_COUNTING_VNEXT_IMPLEMENTATION.md]] — score `19`
 - [[mql5/Include/M0007/README_M0007_FlagCountingF1|mql5/Include/M0007/README_M0007_FlagCountingF1.md]] — score `19`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5.md]]
+## [[docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5|docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5.md]]
 
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `19`
 - [[docs/debug/MARKET_LANGUAGE/README|docs/debug/MARKET_LANGUAGE/README.md]] — score `18`
@@ -8004,7 +8004,7 @@ type: source_relationship_map
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `18`
 - [[docs/nds_hook_architecture/README|docs/nds_hook_architecture/README.md]] — score `18`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md]]
+## [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `25`
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `18`
@@ -8015,7 +8015,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `17`
 - [[docs/debug/MARKET_LANGUAGE/README|docs/debug/MARKET_LANGUAGE/README.md]] — score `15`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]]
+## [[docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]]
 
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `11`
 - [[docs/debug/E0006/README|docs/debug/E0006/README.md]] — score `10`
@@ -8026,7 +8026,7 @@ type: source_relationship_map
 - [[docs/ui/README|docs/ui/README.md]] — score `10`
 - [[lab/03_experiments/EXP0005_mql_native_directional_memory/README|lab/03_experiments/EXP0005_mql_native_directional_memory/README.md]] — score `10`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]]
+## [[docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]]
 
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `11`
 - [[docs/debug/E0006/README|docs/debug/E0006/README.md]] — score `10`
@@ -8037,7 +8037,7 @@ type: source_relationship_map
 - [[docs/ui/README|docs/ui/README.md]] — score `10`
 - [[lab/03_experiments/EXP0005_mql_native_directional_memory/README|lab/03_experiments/EXP0005_mql_native_directional_memory/README.md]] — score `10`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]]
+## [[docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `16`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `9`
@@ -8048,18 +8048,18 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/BASE-05/answer_normalized_en|docs/experience_capture/answers/BASE-05/answer_normalized_en.md]] — score `8`
 - [[docs/experience_capture/answers/BASE-06/answer_normalized_en|docs/experience_capture/answers/BASE-06/answer_normalized_en.md]] — score `8`
 
-## [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6.md]]
+## [[docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6|docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `12`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `5`
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_VNEXT|lab/03_experiments/EXP_flag_counting/README_VNEXT.md]] — score `5`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md]] — score `5`
+- [[docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
+- [[docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT|docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md]] — score `5`
 - [[docs/00_project_index|docs/00_project_index.md]] — score `4`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 
-## [[lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1|lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md]]
+## [[docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1|docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md]]
 
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `17`
 - [[docs/ai_execution/README|docs/ai_execution/README.md]] — score `16`
@@ -8070,25 +8070,25 @@ type: source_relationship_map
 - [[docs/flag_counting/implementation_ladder_v1/README|docs/flag_counting/implementation_ladder_v1/README.md]] — score `16`
 - [[docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_BRANCH_ALGORITHM_V1|docs/flag_counting/phoenix_rebuild/hook_nd_branching/HOOK_ND_BRANCH_ALGORITHM_V1.md]] — score `16`
 
-## [[lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1|lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md]]
+## [[docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1|docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `18`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `11`
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `11`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `10`
 
-## [[lab/03_experiments/EXP_flag_counting/README_VNEXT|lab/03_experiments/EXP_flag_counting/README_VNEXT.md]]
+## [[docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT|docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md]]
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `12`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `5`
 - [[lab/03_experiments/EXP_flag_counting/README|lab/03_experiments/EXP_flag_counting/README.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6.md]] — score `5`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md]] — score `5`
+- [[docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4|docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `5`
+- [[docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6|docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6.md]] — score `5`
 - [[docs/00_project_index|docs/00_project_index.md]] — score `4`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 
@@ -8105,16 +8105,16 @@ type: source_relationship_map
 
 ## [[lab/03_experiments/EXP_flag_counting/static_qa/README|lab/03_experiments/EXP_flag_counting/static_qa/README.md]]
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 
-## [[lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE|lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md]]
+## [[docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE|docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md]]
 
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `16`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `16`
@@ -8128,7 +8128,7 @@ type: source_relationship_map
 ## [[lab/03_experiments/EXP_flag_counting/validation_cases/README|lab/03_experiments/EXP_flag_counting/validation_cases/README.md]]
 
 - [[docs/flag_counting/VALIDATION_CASE_REGISTRY|docs/flag_counting/VALIDATION_CASE_REGISTRY.md]] — score `24`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `16`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_CLEAN_ISOLATED_STATE_GATE|docs/flag_counting/FLAG_COUNTING_LEVEL_19_CLEAN_ISOLATED_STATE_GATE.md]] — score `16`
@@ -8149,9 +8149,9 @@ type: source_relationship_map
 
 ## [[lab/03_validation/VAL0006_h5_live_touch_replay/README|lab/03_validation/VAL0006_h5_live_touch_replay/README.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `17`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `16`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `16`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT.md]] — score `15`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `15`
@@ -8163,7 +8163,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `17`
 - [[papers/001_atomic_live_regime_framework|papers/001_atomic_live_regime_framework.md]] — score `17`
 - [[README|README.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `15`
 - [[docs/debug/D0007_H5_CAUSAL_LIVE_REPLAY_AUDIT|docs/debug/D0007_H5_CAUSAL_LIVE_REPLAY_AUDIT.md]] — score `15`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `15`
@@ -8198,7 +8198,7 @@ type: source_relationship_map
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `23`
 - [[docs/research_lessons_and_failure_modes|docs/research_lessons_and_failure_modes.md]] — score `20`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `20`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `20`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `20`
 - [[README|README.md]] — score `20`
 - [[docs/articles/structural_regime_memory_without_samples|docs/articles/structural_regime_memory_without_samples.md]] — score `18`
 
@@ -8207,9 +8207,9 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `13`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/architecture|docs/architecture.md]] — score `8`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `8`
 
@@ -8227,8 +8227,8 @@ type: source_relationship_map
 ## [[lab/03_validation/VAL0013_h4_fast_atomic_extended/README|lab/03_validation/VAL0013_h4_fast_atomic_extended/README.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `20`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `17`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `15`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `17`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `15`
 - [[docs/architecture|docs/architecture.md]] — score `14`
 - [[docs/articles/structural_regime_memory_without_samples|docs/articles/structural_regime_memory_without_samples.md]] — score `14`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `14`
@@ -8239,7 +8239,7 @@ type: source_relationship_map
 
 - [[docs/articles/structural_regime_memory_without_samples|docs/articles/structural_regime_memory_without_samples.md]] — score `18`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `18`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `18`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `18`
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `18`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `18`
 - [[README|README.md]] — score `18`
@@ -8249,10 +8249,10 @@ type: source_relationship_map
 ## [[lab/03_validation/VAL0015_h4_deep_h6_optionality/README|lab/03_validation/VAL0015_h4_deep_h6_optionality/README.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `15`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|docs/debug/H6_CANDLE_STREAM_FAST.md]] — score `9`
 - [[docs/debug/H6_FAST_ACCURATE_OPTIONALITY|docs/debug/H6_FAST_ACCURATE_OPTIONALITY.md]] — score `9`
 - [[docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP|docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP.md]] — score `9`
@@ -8263,7 +8263,7 @@ type: source_relationship_map
 - [registry/validations.yaml](../../registry/validations.yaml) — score `21`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `13`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `11`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `11`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|lab/03_validation/VAL0012_h4_fast_atomic_main/README.md]] — score `11`
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `11`
 - [[README|README.md]] — score `11`
@@ -8286,17 +8286,17 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `13`
 - [[lab/03_validation/VAL0017_h6_fast_accurate/README|lab/03_validation/VAL0017_h6_fast_accurate/README.md]] — score `13`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|docs/debug/H6_CANDLE_STREAM_FAST.md]] — score `11`
 - [[docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP|docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP.md]] — score `11`
 
 ## [[lab/03_validation/VAL0021_h6_node_survival_map/README|lab/03_validation/VAL0021_h6_node_survival_map/README.md]]
 
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `8`
 - [[docs/architecture|docs/architecture.md]] — score `8`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT.md]] — score `8`
@@ -8356,13 +8356,13 @@ type: source_relationship_map
 - [[docs/experience_capture/answers/BASE-01/answer_normalized_en|docs/experience_capture/answers/BASE-01/answer_normalized_en.md]] — score `10`
 - [[docs/experience_capture/answers/BASE-02/answer_normalized_en|docs/experience_capture/answers/BASE-02/answer_normalized_en.md]] — score `10`
 
-## [[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]]
+## [[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]]
 
 - [[lab/04_analysis/ANL001/README|lab/04_analysis/ANL001/README.md]] — score `6`
 
 ## [[lab/04_analysis/ANL001/README|lab/04_analysis/ANL001/README.md]]
 
-- [[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]] — score `6`
+- [[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]] — score `6`
 
 ## [[lab/04_analysis/ANL004_h4_causal_batch_vs_classic/README|lab/04_analysis/ANL004_h4_causal_batch_vs_classic/README.md]]
 
@@ -8371,7 +8371,7 @@ type: source_relationship_map
 - [[docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP|docs/debug/H6_STANDALONE_OPTIONALITY_EDGE_MAP.md]] — score `11`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `11`
 - [[docs/research_lessons_and_failure_modes|docs/research_lessons_and_failure_modes.md]] — score `11`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `11`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `11`
 - [[lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `11`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|lab/03_validation/VAL0012_h4_fast_atomic_main/README.md]] — score `11`
 
@@ -8379,9 +8379,9 @@ type: source_relationship_map
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [registry/experiments.yaml](../../registry/experiments.yaml) — score `9`
 - [[docs/architecture|docs/architecture.md]] — score `8`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `8`
@@ -8465,7 +8465,7 @@ type: source_relationship_map
 
 ## [lab/05_validation/VAL001/metadata.yaml](../../lab/05_validation/VAL001/metadata.yaml)
 
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `2`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `2`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `2`
@@ -8474,7 +8474,7 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `2`
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|docs/articles/distribution_engineering_for_conditional_sequence_extraction.md]] — score `2`
 
-## [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]]
+## [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]]
 
 - [lab/05_validation/VAL001/metadata.yaml](../../lab/05_validation/VAL001/metadata.yaml) — score `8`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `2`
@@ -8491,7 +8491,7 @@ type: source_relationship_map
 - [[lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/03_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `28`
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `25`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `25`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `25`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `25`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `25`
 - [[README|README.md]] — score `25`
 - [[docs/articles/structural_regime_memory_without_samples|docs/articles/structural_regime_memory_without_samples.md]] — score `23`
@@ -8499,7 +8499,7 @@ type: source_relationship_map
 ## [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]]
 
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `30`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `30`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `30`
 - [[README|README.md]] — score `30`
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `25`
 - [[lab/09_execution/mql5/README|lab/09_execution/mql5/README.md]] — score `25`
@@ -8509,22 +8509,22 @@ type: source_relationship_map
 
 ## [lab/05_validation/VAL_M0001_MQL_NATIVE/metadata.yaml](../../lab/05_validation/VAL_M0001_MQL_NATIVE/metadata.yaml)
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `9`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `9`
 - [lab/03_experiments/EXP0002_mql_native_m0001/metadata.yaml](../../lab/03_experiments/EXP0002_mql_native_m0001/metadata.yaml) — score `7`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `5`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `5`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 - [[docs/architecture|docs/architecture.md]] — score `4`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT.md]] — score `4`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `4`
 - [[docs/debug/E0006/README|docs/debug/E0006/README.md]] — score `4`
 
-## [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]]
+## [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `17`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `17`
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `17`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|docs/MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `17`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `17`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `17`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `17`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `17`
 - [[docs/mql_native/MQL_NATIVE_ARCHITECTURE|docs/mql_native/MQL_NATIVE_ARCHITECTURE.md]] — score `17`
@@ -8550,13 +8550,13 @@ type: source_relationship_map
 - [lab/06_production/SIG001/metadata.yaml](../../lab/06_production/SIG001/metadata.yaml) — score `6`
 - [[docs/laboratory_architecture|docs/laboratory_architecture.md]] — score `5`
 
-## [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]]
+## [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]]
 
 - [[lab/07_monitoring/MON001/README|lab/07_monitoring/MON001/README.md]] — score `6`
 
 ## [[lab/07_monitoring/MON001/README|lab/07_monitoring/MON001/README.md]]
 
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — score `6`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — score `6`
 
 ## [[lab/09_execution/bridge/README|lab/09_execution/bridge/README.md]]
 
@@ -8569,68 +8569,68 @@ type: source_relationship_map
 - [[docs/ai_execution/README|docs/ai_execution/README.md]] — score `2`
 - [[docs/architecture|docs/architecture.md]] — score `2`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map.md]]
+## [[docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map|docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map.md]]
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `24`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README|lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/README|lab/09_execution/EXP0016_intermarket_divergence_execution/README.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/README.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `17`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `17`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `17`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `17`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction.md]]
+## [[docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction|docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions.md]] — score `13`
+- [[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md]] — score `13`
 - [[docs/principles|docs/principles.md]] — score `12`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `12`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md]]
+## [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md]] — score `9`
+- [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md]] — score `9`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `12`
 - [[docs/EXP0015_cme_live_backtest_plan|docs/EXP0015_cme_live_backtest_plan.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP|docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `11`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `11`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md]]
+## [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `9`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `9`
+- [[docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan|docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md]] — score `9`
+- [[docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1|docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md]] — score `9`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]]
+## [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]] — score `11`
@@ -8639,173 +8639,173 @@ type: source_relationship_map
 
 - [[docs/architecture|docs/architecture.md]] — score `18`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `15`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md]]
+## [[docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan|docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions.md]]
+## [[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `9`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]]
+## [[docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1|docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `14`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `14`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `14`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `14`
+- [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md]] — score `14`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `14`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/10_owner_decisions_pass_2|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/10_owner_decisions_pass_2.md]]
+## [[docs/evidence/10_owner_decisions_pass_2/19b8476ed547_10_owner_decisions_pass_2|docs/evidence/10_owner_decisions_pass_2/19b8476ed547_10_owner_decisions_pass_2.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `12`
+- [[docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map|docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map.md]] — score `12`
+- [[docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1|docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `12`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]]
+## [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `15`
+- [[docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract|docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/12_state_machines|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/12_state_machines.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `9`
+- [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md]] — score `9`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]] — score `9`
+- [[docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan|docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md]] — score `9`
+- [[docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1|docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md]] — score `9`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `11`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `11`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime.md]]
+## [[docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime|docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [tools/cme_bridge/requirements.txt](../../tools/cme_bridge/requirements.txt) — score `12`
 - [requirements.txt](../../requirements.txt) — score `10`
 - [tools/astro_feature_builder/requirements.txt](../../tools/astro_feature_builder/requirements.txt) — score `10`
 - [tools/astro_ml/requirements.txt](../../tools/astro_ml/requirements.txt) — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md]] — score `9`
+- [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract.md]]
+## [[docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract|docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit.md]] — score `13`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry.md]] — score `11`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]]
+## [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `16`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `16`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `16`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]]
+## [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `24`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `24`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `22`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `20`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `20`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `18`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]]
+## [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `24`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `24`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `22`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `20`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `20`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `18`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]]
+## [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `20`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `20`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `19`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map.md]] — score `16`
+- [[docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map|docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map.md]] — score `16`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register.md]]
+## [[docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register|docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `14`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `14`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]] — score `13`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `20`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `20`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `19`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `18`
@@ -8813,142 +8813,142 @@ type: source_relationship_map
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `18`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `18`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `16`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]] — score `13`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md]]
+## [[docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator|docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/23_level_02_time_engine.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `11`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `11`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/25_level_04_w_level_builder|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/25_level_04_w_level_builder.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `11`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `13`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine.md]]
+## [[docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine|docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `11`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/28_level_07_confirmation_signal_registry|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/28_level_07_confirmation_signal_registry.md]]
+## [[docs/evidence/level_07_confirmation_signal_registry/c5f8b7b0b328_28_level_07_confirmation_signal_registry|docs/evidence/level_07_confirmation_signal_registry/c5f8b7b0b328_28_level_07_confirmation_signal_registry.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `11`
+- [[docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery|docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery.md]] — score `11`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `11`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/29_level_08_risk_plan_paper_entry.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `16`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `12`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `16`
+- [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md]] — score `16`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `16`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/31_level_10_partial_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/31_level_10_partial_close_simulator.md]]
+## [[docs/evidence/level_10_paper_partial_close_simulator_w4_management/91dce4903990_31_level_10_partial_close_simulator|docs/evidence/level_10_paper_partial_close_simulator_w4_management/91dce4903990_31_level_10_partial_close_simulator.md]]
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `11`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `11`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md]]
+## [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `16`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `16`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery.md]]
+## [[docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery|docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery.md]]
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `13`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]] — score `13`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]]
+## [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `21`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `18`
@@ -8956,22 +8956,22 @@ type: source_relationship_map
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `18`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `18`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `18`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `16`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/36_level_15_broker_position_manager|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/36_level_15_broker_position_manager.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer.md]] — score `11`
@@ -8980,30 +8980,30 @@ type: source_relationship_map
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]] — score `11`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `11`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/38_level_17_real_partial_close_manager|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/38_level_17_real_partial_close_manager.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `16`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `16`
+- [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md]] — score `16`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `16`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/39_level_18_real_hard_close_finalizer.md]]
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/26_level_05_reference_matrix_hunt_detector.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]] — score `13`
@@ -9011,60 +9011,60 @@ type: source_relationship_map
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `20`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `20`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `20`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `18`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `18`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map.md]] — score `16`
+- [[docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map|docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map.md]] — score `16`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `17`
+- [[docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix|docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `17`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `17`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `17`
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md]] — score `16`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `16`
 - [[mql5/Include/FlagCountingPhoenix/README_FlagCountingPhoenix|mql5/Include/FlagCountingPhoenix/README_FlagCountingPhoenix.md]] — score `16`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix.md]]
+## [[docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix|docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/43_level_21_drawing_audit.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `15`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `15`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md]] — score `13`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md]] — score `13`
+- [[docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract|docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md]] — score `13`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `13`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `13`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `13`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]]
+## [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `10`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `9`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]] — score `9`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]]
+## [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]]
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `10`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `10`
@@ -9075,71 +9075,71 @@ type: source_relationship_map
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_19_STC_SMT_VALIDATION_PACK|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_19_STC_SMT_VALIDATION_PACK.md]] — score `10`
 - [[docs/EXP0015_cme_live_backtest_plan|docs/EXP0015_cme_live_backtest_plan.md]] — score `10`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]]
+## [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed.md]] — score `9`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `9`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `9`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
+- [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md]] — score `9`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_05_STC_SMT_REFERENCE_HUNT_DETECTOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_05_STC_SMT_REFERENCE_HUNT_DETECTOR.md]] — score `8`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]]
+## [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]]
 
 - [registry/signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed.md]] — score `9`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `9`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `9`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]] — score `9`
+- [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md]] — score `9`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER.md]] — score `8`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed.md]]
+## [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `9`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `9`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]] — score `9`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_04_STC_SMT_W_LEVEL_BUILDER.md]] — score `8`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_05_STC_SMT_REFERENCE_HUNT_DETECTOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_05_STC_SMT_REFERENCE_HUNT_DETECTOR.md]] — score `8`
 
-## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_06_emergency_hard_close_only|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_06_emergency_hard_close_only.md]]
+## [[docs/evidence/profile_06_emergency_hard_close_only/e564656d4633_profile_06_emergency_hard_close_only|docs/evidence/profile_06_emergency_hard_close_only/e564656d4633_profile_06_emergency_hard_close_only.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `10`
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — score `8`
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — score `8`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `8`
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — score `8`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `7`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `10`
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — score `8`
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — score `8`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `8`
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — score `8`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `7`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/README.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed.md]] — score `15`
+- [[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]] — score `15`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]] — score `15`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit.md]] — score `15`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md]] — score `15`
+- [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed.md]] — score `15`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]] — score `13`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `13`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER.md]] — score `13`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]]
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing.md]] — score `28`
+- [[docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing|docs/evidence/level_13_visualization_audit_drawing/b5b7350fdc84_34_level_13_visualization_audit_drawing.md]] — score `28`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts.md]] — score `26`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/00_strategy_document_map.md]] — score `24`
+- [[docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map|docs/evidence/00_strategy_document_map/7a03efa653e6_00_strategy_document_map.md]] — score `24`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator.md]] — score `24`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md]] — score `24`
+- [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md]] — score `24`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `23`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]] — score `22`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `22`
+- [[docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1|docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md]] — score `22`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `22`
 
 ## [[lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README|lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md]]
 
@@ -9147,8 +9147,8 @@ type: source_relationship_map
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_11_STC_SMT_HARD_CLOSE_SIMULATOR.md]] — score `15`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `15`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER|docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_18_STC_SMT_REAL_HARD_CLOSE_FINALIZER.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton.md]] — score `15`
 
@@ -9181,7 +9181,7 @@ type: source_relationship_map
 - [[lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README|lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md]] — score `25`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `25`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `25`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `25`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `25`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md]] — score `25`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT.md]] — score `23`
 
@@ -9212,7 +9212,7 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `2`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `2`
 
-## [[lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility|lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md]]
+## [[docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility|docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md]]
 
 - [[docs/architecture|docs/architecture.md]] — score `15`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `15`
@@ -9234,7 +9234,7 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `2`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `2`
 
-## [[licenses/README_LICENSE_ISSUER|licenses/README_LICENSE_ISSUER.md]]
+## [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md]]
 
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `20`
 - [[docs/debug/MARKET_LANGUAGE/README|docs/debug/MARKET_LANGUAGE/README.md]] — score `18`
@@ -9247,14 +9247,14 @@ type: source_relationship_map
 
 ## [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `21`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `19`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `21`
+- [[docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE|docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md]] — score `19`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PATH_CLEANLINESS_SCREEN_GUIDE.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `19`
-- [[lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS|lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md]] — score `19`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `19`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `19`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `19`
+- [[docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS|docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md]] — score `19`
 
 ## [[mql5/Experts/ICT/README|mql5/Experts/ICT/README.md]]
 
@@ -9289,7 +9289,7 @@ type: source_relationship_map
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|docs/execution/EXP0016_intermarket_divergence_execution/README.md]] — score `10`
 - [[docs/EXP0015_cme_live_backtest_plan|docs/EXP0015_cme_live_backtest_plan.md]] — score `10`
 
-## [[mql5/Include/Execution/README_DAL_ExecRouletteRisk|mql5/Include/Execution/README_DAL_ExecRouletteRisk.md]]
+## [[docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk|docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk.md]]
 
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `4`
 - [[docs/architecture|docs/architecture.md]] — score `4`
@@ -9338,8 +9338,8 @@ type: source_relationship_map
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `26`
 - [[README|README.md]] — score `26`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|docs/reports/2026-06-20_h4_h5_gold_m10_report.md]] — score `24`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]] — score `24`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|lab/02_hypotheses/H0005_directional_memory_atomic.md]] — score `24`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]] — score `24`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md]] — score `24`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `22`
 - [[docs/architecture|docs/architecture.md]] — score `21`
 - [[docs/atomic_live_research_contract|docs/atomic_live_research_contract.md]] — score `21`
@@ -9363,7 +9363,7 @@ type: source_relationship_map
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `19`
 - [[docs/M0001_SINGLE_SOURCE_LIVE_ARCHITECTURE|docs/M0001_SINGLE_SOURCE_LIVE_ARCHITECTURE.md]] — score `19`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|docs/MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `19`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md]] — score `19`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md]] — score `19`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `19`
 
 ## [registry/experiments.yaml](../../registry/experiments.yaml)
@@ -9384,7 +9384,7 @@ type: source_relationship_map
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `16`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `16`
 - [[docs/mql_native/MODULE_MAP|docs/mql_native/MODULE_MAP.md]] — score `16`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md]] — score `16`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md]] — score `16`
 - [[README|README.md]] — score `16`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `14`
 
@@ -9404,7 +9404,7 @@ type: source_relationship_map
 - [lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml](../../lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml) — score `17`
 - [[lab/03_experiments/EXP0012_distributional_cluster_miner/README|lab/03_experiments/EXP0012_distributional_cluster_miner/README.md]] — score `17`
 - [[docs/research/H0008_distribution_engineering|docs/research/H0008_distribution_engineering.md]] — score `15`
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md]] — score `15`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md]] — score `15`
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|docs/articles/distribution_engineering_for_conditional_sequence_extraction.md]] — score `12`
 - [[docs/debug/E0006/README|docs/debug/E0006/README.md]] — score `12`
 - [[docs/execution/README|docs/execution/README.md]] — score `12`
@@ -9446,8 +9446,8 @@ type: source_relationship_map
 ## [[reports/mql_native/M0001/README|reports/mql_native/M0001/README.md]]
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `17`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `15`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `15`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `15`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `15`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `12`
 - [[docs/architecture|docs/architecture.md]] — score `9`
 - [[docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT|docs/debug/D0005_H5_NO_FUTURE_WALK_FORWARD_AUDIT.md]] — score `9`
@@ -9481,7 +9481,7 @@ type: source_relationship_map
 - [[docs/architecture|docs/architecture.md]] — score `24`
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `20`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `16`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `16`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `16`
 - [[tools/astro_ml/README|tools/astro_ml/README.md]] — score `16`
 - [[docs/ui/ARCHITECTURE|docs/ui/ARCHITECTURE.md]] — score `16`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `14`
@@ -9500,21 +9500,21 @@ type: source_relationship_map
 
 ## [[tools/astro_live_bridge/README|tools/astro_live_bridge/README.md]]
 
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `21`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `19`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `21`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `19`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `19`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `17`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V2_COCKPIT_GUIDE.md]] — score `17`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md]] — score `17`
+- [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md]] — score `17`
 
 ## [[tools/astro_ml/README|tools/astro_ml/README.md]]
 
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|lab/03_experiments/EXP0016_astro_meta_learner/README.md]] — score `33`
 - [[tools/astro_feature_builder/README|tools/astro_feature_builder/README.md]] — score `24`
 - [[mql5/Experts/AstroExecution/README|mql5/Experts/AstroExecution/README.md]] — score `24`
-- [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `23`
+- [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `23`
 - [[docs/flag_counting/implementation_ladder_v1/README|docs/flag_counting/implementation_ladder_v1/README.md]] — score `22`
 - [[docs/flag_counting/README|docs/flag_counting/README.md]] — score `22`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `22`
@@ -9529,29 +9529,29 @@ type: source_relationship_map
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_COMMON_FILES_TESTER_FIX.md]] — score `6`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_DIAGNOSTIC_GUIDE.md]] — score `6`
 - [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_AND_PANEL_FIX.md]] — score `6`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `6`
+- [[docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX|docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md]] — score `6`
 
 ## [[tools/astro_validation/README|tools/astro_validation/README.md]]
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `12`
-- [[lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
+- [[docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT|docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md]] — score `12`
+- [[docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP|docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md]] — score `12`
+- [[docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP|docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md]] — score `12`
+- [[docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS|docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md]] — score `12`
+- [[docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE|docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md]] — score `12`
 - [[lab/03_experiments/EXP0013_astro_feature_store/README|lab/03_experiments/EXP0013_astro_feature_store/README.md]] — score `12`
 
-## [[tools/astro_validation/README_pure_entry_excel|tools/astro_validation/README_pure_entry_excel.md]]
+## [[docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel|docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md]]
 
 - [lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `16`
 - [lab/03_experiments/EXP0016_astro_meta_learner/metadata.yaml](../../lab/03_experiments/EXP0016_astro_meta_learner/metadata.yaml) — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|lab/03_experiments/EXP0004_mql_native_m0004/report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|lab/05_validation/VAL_M0001_MQL_NATIVE/report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|docs/evidence/val_m0001_mql_native/454e81f9f0b3_report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|lab/03_experiments/EXP0003_mql_native_m0002/report.md]] — score `12`
 - [lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml](../../lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml) — score `12`
 - [lab/03_experiments/EXP_flag_counting/metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]] — score `12`
 
 ## [[tools/cme_bridge/README|tools/cme_bridge/README.md]]
 
@@ -9578,8 +9578,8 @@ type: source_relationship_map
 ## [tools/stc_smt_deployment/EXEC001_deployment_profiles.yaml](../../tools/stc_smt_deployment/EXEC001_deployment_profiles.yaml)
 
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan.md]] — score `12`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan.md]] — score `12`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/41_level_20_operator_manual_deployment_profiles.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README.md]] — score `12`

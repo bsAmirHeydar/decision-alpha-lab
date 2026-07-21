@@ -39,7 +39,7 @@ H0008
 
 ## Related Source Documents
 
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|H0008_distribution_engineering_sequence_clusters.md]] — score `13`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008_distribution_engineering_sequence_clusters.md]] — score `13`
 - [signals.yaml](../../registry/signals.yaml) — score `12`
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|distribution_engineering_for_conditional_sequence_extraction.md]] — score `11`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|H0009_astro_feature_store_distribution_engineering.md]] — score `9`

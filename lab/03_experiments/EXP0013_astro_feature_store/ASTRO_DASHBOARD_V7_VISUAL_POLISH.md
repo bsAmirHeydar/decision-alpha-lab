@@ -1,48 +1,17 @@
-# EXP0013 Astro Dashboard V7 - Visual Polish
+---
+title: "Redirect — ASTRO DASHBOARD V7 VISUAL POLISH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_884BE8B774A1C87D082FA3F4F971B7C4
+source_digest: sha256:a7f18b3709e9080bf79c8ce2f690d26600e09e760f39192221849a685d50c8fa
+canonical_target: docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch focuses on making the dashboard significantly cleaner and more visually pleasant.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH|ASTRO DASHBOARD V7 VISUAL POLISH]].
 
-## What changed
-
-- clearer and larger titles
-- bigger and more visible buttons
-- more horizontal spacing between label / value / bucket / bar
-- better use of the wide empty chart space
-- cleaner header hierarchy
-- wider cards
-- more comfortable line spacing in cards and diagnostics
-- compact oscillator kept clean and readable
-- old dashboard objects are still force-cleaned on init / deinit / rerender
-
-## Design goals
-
-- make section titles obvious at first glance
-- make controls immediately visible
-- avoid cramped text columns
-- keep the chart readable while still showing the research dashboard
-
-## Modes
-
-- Cockpit: 4 cards + diagnostics
-- Focus: one large section + diagnostics
-
-## Buttons
-
-Top row:
-- COCKPIT
-- PATH
-- MICRO
-- REGIME
-- MACRO
-- RAW
-
-Second row:
-- TEXT ON / OFF
-- OSC ON / OFF
-- RELOAD
-
-## Color logic
-
-- low = red
-- mid = yellow
-- high = green
+Do not edit this redirect as doctrine.

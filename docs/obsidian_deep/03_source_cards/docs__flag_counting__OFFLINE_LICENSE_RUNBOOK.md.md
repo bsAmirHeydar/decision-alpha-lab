@@ -40,7 +40,7 @@ This project uses a hardened offline runtime license for EX5 distribution. The l
 ## Related Source Documents
 
 - [[docs/flag_counting/README|README.md]] — score `21`
-- [[licenses/README_LICENSE_ISSUER|README_LICENSE_ISSUER.md]] — score `20`
+- [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|README_LICENSE_ISSUER.md]] — score `20`
 - [[docs/debug/MARKET_LANGUAGE/README|README.md]] — score `18`
 - [[docs/flag_counting/implementation_ladder_v1/README|README.md]] — score `18`
 - [[docs/nds_hook_architecture/README|README.md]] — score `18`

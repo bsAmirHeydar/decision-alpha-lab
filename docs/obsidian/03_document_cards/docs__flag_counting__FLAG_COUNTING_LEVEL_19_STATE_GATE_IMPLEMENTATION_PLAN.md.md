@@ -57,7 +57,7 @@ Status: implementation plan Parent spec: `FLAG_COUNTING_LEVEL_19_STATE_GATE_DASH
 - [[docs/obsidian/04_concepts/Hook|Hook]]
 - [[docs/obsidian/04_concepts/Licensing|Licensing]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Rally|Rally]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 

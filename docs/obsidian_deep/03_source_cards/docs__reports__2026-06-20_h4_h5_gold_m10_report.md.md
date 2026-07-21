@@ -44,7 +44,7 @@ H0004, H0005, M0001, M0002
 ## Related Source Documents
 
 - [[README|README.md]] — score `34`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `32`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `32`
 - [[lab/05_validation/VAL0011_main_atomic_no_sample_unification/README|README.md]] — score `30`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `27`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|H0005_contextual_branch_regime_state.md]] — score `26`

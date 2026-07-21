@@ -3,7 +3,7 @@ title: "Offline License Issuer Folder"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "licenses/README_LICENSE_ISSUER.md"
+source_path: "docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md"
 source_ext: ".md"
 category: "license_docs"
 source_size_bytes: "2983"
@@ -18,7 +18,7 @@ concepts:
 
 # Offline License Issuer Folder
 
-**Source:** [[licenses/README_LICENSE_ISSUER|licenses/README_LICENSE_ISSUER.md]]
+**Source:** [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md]]
 
 **Category:** `license_docs`  
 **Status:** ok  
@@ -45,7 +45,7 @@ This folder is the private issuer-side archive for FlagCounting Phoenix offline 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Licensing|Licensing]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

@@ -161,7 +161,7 @@ Work is done when behavior, evidence, documentation, installation, rollback, and
 - [[ALPHA_LAB_POLICY_HIERARCHY|Policy Hierarchy]]
 - [[ALPHA_LAB_CODE_STYLE_STANDARD|Code Style]]
 - [[ALPHA_LAB_QUALITY_GATE_MATRIX|Quality Gates]]
-- [[ALPHA_LAB_PATCH_RELEASE_STANDARD|Patch and Release]]
+- [[docs/evidence/alpha_lab_release_standard/db0cec343c04_ALPHA_LAB_PATCH_RELEASE_STANDARD|Patch and Release]]
 - [[ALPHA_LAB_MQL5_COMPATIBILITY_STANDARD|MQL5 Compatibility]]
 - [[ALPHA_LAB_RESEARCH_REPRODUCIBILITY_STANDARD|Research Reproducibility]]
 - [[ALPHA_LAB_EXECUTION_SAFETY_STANDARD|Execution Safety]]

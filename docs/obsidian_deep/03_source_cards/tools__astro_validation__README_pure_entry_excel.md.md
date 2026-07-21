@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "tools/astro_validation/README_pure_entry_excel.md"
+source_path: "docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md"
 source_ext: ".md"
 source_size: 1090
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[tools/astro_validation/README_pure_entry_excel|tools/astro_validation/README_pure_entry_excel.md]]
+[[docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel|docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md]]
 
 ## Summary
 
@@ -37,11 +37,11 @@ Builds a fast batch Excel report from an astro feature CSV without running MT5 t
 - [metadata.yaml](../../lab/03_experiments/EXP0013_astro_feature_store/metadata.yaml) — score `16`
 - [metadata.yaml](../../lab/03_experiments/EXP0016_astro_meta_learner/metadata.yaml) — score `14`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
 - [metadata.yaml](../../lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml) — score `12`
 - [metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `12`
 - [[tools/astro_validation/README|README.md]] — score `11`
 - [[docs/architecture|architecture.md]] — score `10`
 

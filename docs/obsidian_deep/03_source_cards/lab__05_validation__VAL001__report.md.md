@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/05_validation/VAL001/report.md"
+source_path: "docs/evidence/val001/360462a17ab1_report.md"
 source_ext: ".md"
 source_size: 0
 empty: true
@@ -14,7 +14,7 @@ entities: ["VAL001"]
 
 ## Source
 
-[[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]]
+[[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]]
 
 ## Summary
 

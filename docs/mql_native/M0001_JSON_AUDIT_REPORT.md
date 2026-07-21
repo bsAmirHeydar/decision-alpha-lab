@@ -1,65 +1,17 @@
-# M0001 JSON Audit Report
+---
+title: "Redirect — M0001 JSON AUDIT REPORT"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_2E8468DD6E0A828821C429DEEE816DDD
+source_digest: sha256:8f19d5d7931d2f2ee7f4baa417421cac885f7155524822a72f1d3d52534f0dcc
+canonical_target: docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Input
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT|M0001 JSON AUDIT REPORT]].
 
-```text
-InpWriteJsonReport = true
-InpJsonReportUseFullHistorySnapshot = true
-```
-
-## Output
-
-```text
-reports\mql_native\M0001\<symbol>_M0001_full_audit_report.json
-```
-
-If the prefixed path fails, the writer falls back to:
-
-```text
-<symbol>_M0001_full_audit_report.json
-```
-
-inside the MT5 Files sandbox.
-
-## JSON sections
-
-```json
-{
-  "schema": "decision-alpha-lab.m0001.audit_report.v1",
-  "run": {},
-  "semantics": {},
-  "nodes": [],
-  "node_audit_states": [],
-  "events": []
-}
-```
-
-## Fields
-
-The JSON includes all state-machine fields discussed:
-
-```text
-touch_started
-first_touch_time
-touch_confirmed
-touch_confirmed_time
-hunted
-hunt_time
-consumed
-consumed_time
-consume_reason
-active
-territory_lower
-territory_upper
-expansion_extreme
-revisit_id
-entry_time
-exit_time
-mean_before
-mean_inside
-rtv
-```
-
-## Version
-
-`M0001_LiveVisualLab.mq5` version: `1.38`.
+Do not edit this redirect as doctrine.

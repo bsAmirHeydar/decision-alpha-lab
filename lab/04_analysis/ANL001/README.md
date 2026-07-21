@@ -41,7 +41,7 @@ status: "scaffold"
 
 ## Related documents
 
-- [[lab/04_analysis/ANL001/notes|Notes]]
+- [[docs/evidence/anl001/692b0b9aa0db_notes|Notes]]
 
 ## Obsidian links
 

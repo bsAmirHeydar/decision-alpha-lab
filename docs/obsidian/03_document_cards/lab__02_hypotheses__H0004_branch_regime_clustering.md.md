@@ -3,7 +3,7 @@ title: "H0004 — Branch Regime Clustering"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0004_branch_regime_clustering.md"
+source_path: "docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "2163"
@@ -23,7 +23,7 @@ concepts:
 
 # H0004 — Branch Regime Clustering
 
-**Source:** [[lab/02_hypotheses/H0004_branch_regime_clustering|lab/02_hypotheses/H0004_branch_regime_clustering.md]]
+**Source:** [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -53,7 +53,7 @@ Completed M0001 node-territory events do not produce independent reversal/contin
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -65,7 +65,7 @@ Completed M0001 node-territory events do not produce independent reversal/contin
 - [[docs/mql_native/MODULE_MAP|MQL Module Map]] — `mql_native_docs`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|H0005 — Contextual Branch Regime State]] — `hypothesis`
 - [[docs/debug/D0010_H4_ATOMIC_NO_SAMPLE_REGIME_AUDIT|D0010 — H4 Atomic No-Sample Regime Audit]] — `debug_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|Report — H4/H5 GOLD M10 Review, 2026-06-20]] — `core_docs`
 - [[README|Decision Alpha Lab]] — `readme`
 - [[docs/architecture|System Architecture]] — `core_docs`

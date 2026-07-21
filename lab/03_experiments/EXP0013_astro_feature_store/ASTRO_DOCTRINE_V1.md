@@ -1,63 +1,17 @@
-# ASTRO Doctrine V1
+---
+title: "Redirect — ASTRO DOCTRINE V1"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_F9353ABB5FD5147CC0CC2AAEC7E8AEF1
+source_digest: sha256:0a6517c5970e5480d6572fa40b285b53eba9fe7a786d5a87bea80623420cad12
+canonical_target: docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This document freezes the first formal doctrine snapshot for the EXP0013 astro-only stack.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1|ASTRO DOCTRINE V1]].
 
-## Core doctrine
-
-- zodiac mode: `tropical`
-- body universe: `major7_outer_nodes`
-- house system: `P` / Placidus
-- aspect family: `major_ptolemaic_6deg`
-- parallel orb limit: `1.0`
-- doctrine id: `astro_only_doctrine_v1`
-- schema version: `astro_feature_schema_v4`
-
-## House semantics
-
-- `H1`: emergence, activation, visible ignition
-- `H2`: resources, accumulation, material consolidation
-- `H3`: motion, messaging, local signal noise
-- `H4`: root, base, reversal foundation
-- `H5`: release, appetite, expressive impulse
-- `H6`: correction, friction, maintenance drag
-- `H7`: polarity, counterpart force, opposition field
-- `H8`: compression, liquidation, hidden pressure
-- `H9`: expansion, belief, directional thesis
-- `H10`: execution peak, visibility, public action
-- `H11`: continuation, support, follow-through
-- `H12`: dissolution, exhaustion, invisible loss of force
-
-## Aspect semantics
-
-- `conjunction`: fusion and intensification
-- `sextile`: cooperative release
-- `square`: friction and forced action
-- `trine`: clean flow
-- `opposition`: polarity and externalization
-
-## Signal discipline
-
-The doctrine does not permit direct trade entry from a single symbol such as:
-
-- one sign
-- one aspect
-- one house
-- one natal hit
-
-Instead, the minimum valid chain is:
-
-1. macro field
-2. meso gate
-3. micro trigger
-4. minute window
-5. only then entry or exit language
-
-## Threshold policy
-
-Thresholds are family-specific and doctrine-owned. They are no longer treated as random local constants in each EA.
-
-Current profile owner:
-- `DAL_AstroFamilyThresholds.mqh`
-
-The JSON mirror for the Python/build side lives in:
-- `tools/astro_feature_builder/astro_config.example.json`
+Do not edit this redirect as doctrine.

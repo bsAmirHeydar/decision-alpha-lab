@@ -1,28 +1,17 @@
-  ---
-  id: EXP0018-RELEASE-GATES-V2
-  title: "EXP0018 Release Gate Matrix v2"
-  type: quality-gate
-  status: active
-  project: EXP0018
-  version: 2.0.0
-  created: 2026-07-10
-  updated: 2026-07-10
-  tags:
-    - exp0018
-- daye-trader
-- implementation-design
-  ---
+---
+title: "Redirect — EXP0018 RELEASE GATE MATRIX V2"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_70FB9D51D4BE5C1F793B175E9A35797A
+source_digest: sha256:cd3693fc90dea2edcf0ba4c1e7c714b8bf12eaaf5c03960d46aba8be3e028aa7
+canonical_target: docs/evidence/release_gates/70fb9d51d4be_EXP0018_RELEASE_GATE_MATRIX_V2.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-# Release Gates
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/release_gates/70fb9d51d4be_EXP0018_RELEASE_GATE_MATRIX_V2|EXP0018 RELEASE GATE MATRIX V2]].
 
-| Gate | Evidence | Failure action |
-|---|---|---|
-| Doctrine | ADR + examples | stop |
-| Compile | 0 errors/0 warnings | hotfix |
-| Contract | validators/tests | stop |
-| Replay | event hash parity | causal debug |
-| Visual | supervisor golden pass | renderer/detector triage |
-| Data | no orphan/duplicate | producer repair |
-| Performance | budget pass | optimize without semantic change |
-| Rollback | drill pass | no release |
-| Authority | no order API | critical stop |
+Do not edit this redirect as doctrine.

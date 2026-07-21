@@ -1,17 +1,17 @@
-# EXP0013 Astro Dashboard V10 - Header and spacing tuning
+---
+title: "Redirect — ASTRO DASHBOARD V10 SPACING HEADER TUNE"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_674FD8707612F0BE0AFCF91A4BF160D6
+source_digest: sha256:4023e63b9306480efdfc2d1adb2ad4b7e99f25aef001d91aef2c66c09d3ecfab
+canonical_target: docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch refines the cockpit layout without changing the stable in-place update model from V9.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE|ASTRO DASHBOARD V10 SPACING HEADER TUNE]].
 
-## Changes
-
-- smaller and cleaner header title so the top line fits better
-- larger buttons with smaller text so captions stay inside the buttons
-- header status lines moved upward and compacted so the header is cleaner
-- metric cards now reserve more width for the left label column
-- value, bucket, and bar columns have more breathing room
-- first-column overlap issues are reduced by a wider dynamic label width rule
-- compact oscillator uses the same wider spacing logic
-
-## Result
-
-The dashboard should stay stable in place, but look cleaner and fit the top region better.
+Do not edit this redirect as doctrine.

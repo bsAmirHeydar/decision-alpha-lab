@@ -41,11 +41,11 @@ M0001
 ## Related Source Documents
 
 - [[docs/architecture|architecture.md]] — score `27`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `25`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `25`
 - [[docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK|M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md]] — score `24`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `21`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `20`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `20`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `20`
 - [[docs/ui/ARCHITECTURE|ARCHITECTURE.md]] — score `20`

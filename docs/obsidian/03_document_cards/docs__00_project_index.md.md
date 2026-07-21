@@ -52,7 +52,7 @@ M0007 — Adaptive F1 Flag Counting Project-name repetition inside MQL folders i
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/mql_native/M0007_F1_MQL5_IMPLEMENTATION|M0007 — Adaptive F1 Flag Counting MQL5 Implementation]] — `mql_native_docs`
 - [[lab/03_experiments/EXP_flag_counting/README|EXP Flag Counting]] — `experiment`
-- [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|EXP Flag Counting Phoenix]] — `experiment`
+- [[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|EXP Flag Counting Phoenix]] — `experiment`
 - [[mql5/Include/M0007/README_M0007_FlagCountingF1|M0007 — F1 Flag Counting MQL5 Module]] — `mql5_docs`
 - [[docs/debug/MARKET_LANGUAGE/README|DAL Market Language — Nodes, Cycles, Hooks, Rallies, Flags, 123 Flags, and Open 1/2s]] — `debug_docs`
 - [[docs/architecture|System Architecture]] — `core_docs`

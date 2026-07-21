@@ -12,7 +12,7 @@ document_count: "2"
 
 ## Documents
 
-- [[lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE|Phoenix Validation Case Template]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP_flag_counting__validation_cases__CASE_TEMPLATE|card]] — `experiment`
+- [[docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE|Phoenix Validation Case Template]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP_flag_counting__validation_cases__CASE_TEMPLATE|card]] — `experiment`
 - [[lab/03_experiments/EXP_flag_counting/validation_cases/README|Phoenix Flag Counting Validation Cases]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP_flag_counting__validation_cases__README|card]] — `experiment`
 
 ## Folder relationships

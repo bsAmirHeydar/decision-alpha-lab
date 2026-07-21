@@ -3,7 +3,7 @@ title: "README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2 — Archived"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md"
+source_path: "docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "434"
@@ -16,7 +16,7 @@ concepts:
 
 # README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2 — Archived
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]]
+**Source:** [[docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2|docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -34,7 +34,7 @@ This document is retained as historical context only. The active source of truth
 
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

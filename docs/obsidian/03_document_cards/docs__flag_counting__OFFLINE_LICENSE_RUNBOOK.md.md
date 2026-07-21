@@ -42,12 +42,12 @@ This project uses a hardened offline runtime license for EX5 distribution. The l
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Licensing|Licensing]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents
 
-- [[licenses/README_LICENSE_ISSUER|Offline License Issuer Folder]] — `license_docs`
+- [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|Offline License Issuer Folder]] — `license_docs`
 - [[docs/flag_counting/README|Flag Counting Documentation]] — `flag_counting_docs`
 - [[docs/debug/MARKET_LANGUAGE/README|DAL Market Language — Nodes, Cycles, Hooks, Rallies, Flags, 123 Flags, and Open 1/2s]] — `debug_docs`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/README|EXP0016 Intermarket Divergence Execution Documentation]] — `execution_docs`

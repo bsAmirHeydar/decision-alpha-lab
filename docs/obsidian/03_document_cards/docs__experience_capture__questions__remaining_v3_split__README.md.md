@@ -32,7 +32,7 @@ This folder stores each remaining NDS experience-capture question in its own fol
 
 ## Concepts
 
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

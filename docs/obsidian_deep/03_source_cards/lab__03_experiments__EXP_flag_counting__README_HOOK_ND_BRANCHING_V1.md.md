@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md"
+source_path: "docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md"
 source_ext: ".md"
 source_size: 977
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1|lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md]]
+[[docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1|docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md]]
 
 ## Summary
 

@@ -3,7 +3,7 @@ title: "DAL_ExecRouletteRisk — Roulette Execution Risk Model"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "mql5/Include/Execution/README_DAL_ExecRouletteRisk.md"
+source_path: "docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk.md"
 source_ext: ".md"
 category: "mql5_docs"
 source_size_bytes: "4243"
@@ -16,7 +16,7 @@ concepts:
 
 # DAL_ExecRouletteRisk — Roulette Execution Risk Model
 
-**Source:** [[mql5/Include/Execution/README_DAL_ExecRouletteRisk|mql5/Include/Execution/README_DAL_ExecRouletteRisk.md]]
+**Source:** [[docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk|docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk.md]]
 
 **Category:** `mql5_docs`  
 **Status:** ok  
@@ -41,7 +41,7 @@ concepts:
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

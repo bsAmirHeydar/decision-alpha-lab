@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md"
+source_path: "docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md"
 source_ext: ".md"
 source_size: 1622
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0007", "M0001"]
 
 ## Source
 
-[[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md]]
+[[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md]]
 
 ## Summary
 

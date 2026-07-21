@@ -1,82 +1,17 @@
-# Run Astro Path Cleanliness Screen
+---
+title: "Redirect — RUN ASTRO PATH SCREEN"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_FE12AFA052CD6E4FC50CDD31BF6758F7
+source_digest: sha256:44bf72f8f8436fd83d6f48650246ef5b0f9316ffa3fcdd3e25477008e779f5bf
+canonical_target: docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## 1. Build the CSV/XLSX first
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN|RUN ASTRO PATH SCREEN]].
 
-Use the command guide here:
-
-```text
-lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md
-```
-
-Example:
-
-```powershell
-python -m pip install -r tools/astro_feature_builder/requirements.txt
-
-python tools/astro_feature_builder/astro_feature_builder.py `
-  --start-broker "2024-01-01 00:00:00" `
-  --end-broker "2024-02-01 00:00:00" `
-  --timeframe-minutes 1 `
-  --broker-gmt-offset-hours 2 `
-  --ephe-path "tools/astro_feature_builder/ephe" `
-  --out-csv "data/astro/astro_XAUUSD_M1_202401_mql.csv" `
-  --out-xlsx "data/astro/astro_XAUUSD_M1_202401_review.xlsx"
-```
-
-## 2. Copy the runtime CSV into MetaTrader
-
-Copy the CSV to:
-
-```text
-<MetaTrader Data Folder>/MQL5/Files/astro/astro_XAUUSD_M1_202401_mql.csv
-```
-
-In MetaTrader:
-
-```text
-File → Open Data Folder → MQL5 → Files → astro
-```
-
-Create the `astro` folder if it does not exist.
-
-## 3. Compile the screen-only demo
-
-Compile:
-
-```text
-mql5/Experts/Research/EXP0013_AstroPathCleanlinessMetrics_Demo.mq5
-```
-
-## 4. Run in Visual Tester
-
-Recommended inputs:
-
-```text
-InpAstroCsvFile             = astro\astro_XAUUSD_M1_202401_mql.csv
-InpBrokerGmtOffsetHours     = 2.0
-InpReadTimeframe            = PERIOD_M1
-InpRequireExactBarTime      = true
-InpReadOnlyOnNewBar         = true
-InpValidateUtcOffset        = true
-InpShowRawBodies            = true
-InpShowFeatureKeys          = true
-InpUseObjectPanel           = true
-InpUseTerminalComment       = true
-InpPrintMetricsOnNewBar     = true
-```
-
-## 5. What to watch visually
-
-Look at the market path while the panel changes candle by candle.
-
-Questions:
-
-```text
-Does CleanPath rise before cleaner movements?
-Does PullbackRisk rise before deeper pullbacks?
-Does ChopRisk rise before fake moves or ranges?
-Does clean_impulse appear before direct breakouts?
-Does clean_flow appear during smoother continuation?
-```
-
-Do not trade from this screen. It is an observation layer only.
+Do not edit this redirect as doctrine.

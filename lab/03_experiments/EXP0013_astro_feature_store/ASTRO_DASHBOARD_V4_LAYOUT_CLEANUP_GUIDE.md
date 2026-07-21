@@ -1,94 +1,17 @@
-# EXP0013 Astro Dashboard V4 - Layout Cleanup
+---
+title: "Redirect — ASTRO DASHBOARD V4 LAYOUT CLEANUP GUIDE"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_FDCB3B9B6858E3C69625494459596D43
+source_digest: sha256:99023bd4013b2bb52b5bd2d4f3def301669e306e442b8b56106c111ebb44fbba
+canonical_target: docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch focuses specifically on visual cleanup and readability.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE|ASTRO DASHBOARD V4 LAYOUT CLEANUP GUIDE]].
 
-## What was fixed
-
-The previous interactive cockpit was functionally better, but visually it still had these problems:
-
-- cards were too narrow
-- value text and labels could collide
-- header controls were too crowded
-- diagnostics mixed into the same visual density as analytical cards
-- oscillator rows were too compressed
-
-## V4 layout improvements
-
-### 1) Cleaner header
-
-The header is now split into clearer lines:
-
-- title
-- research/runtime line
-- symbol / timeframe / mode line
-- row status line
-- broker/utc line
-- thesis/help line
-
-Buttons are now placed in two dedicated rows on the right side, instead of colliding with title text.
-
-### 2) Better card spacing
-
-Cards now use a wider structure with separate columns for:
-
-- metric name
-- numeric value
-- bucket label
-- progress bar
-
-This makes them much easier to scan.
-
-### 3) Clearer diagnostics
-
-Diagnostics now live in their own larger dedicated card.
-This keeps troubleshooting readable when the row is exact / fallback / missing.
-
-### 4) Cleaner oscillator
-
-The oscillator now uses:
-
-- wider historical area
-- clearer metric label/value area
-- dedicated mini-bar zone
-- more vertical row spacing
-
-## View modes
-
-### Cockpit mode
-
-Shows the multi-card dashboard.
-
-### Focus mode
-
-Shows one selected section larger, plus diagnostics.
-
-## Buttons
-
-Top row:
-
-- COCKPIT
-- PATH
-- MICRO
-- REGIME
-- MACRO
-- RAW
-
-Second row:
-
-- TEXT ON/OFF
-- OSC ON/OFF
-- PTH
-- MIC
-- REG
-- MAC
-- RAW
-- RELOAD
-
-## Notes
-
-This is still a research UI, not a trade executor.
-It is meant to answer:
-
-```text
-How clean, noisy, smooth, or dirty is the path context for the market direction I already have?
-```
+Do not edit this redirect as doctrine.

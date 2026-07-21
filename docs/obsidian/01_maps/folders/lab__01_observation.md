@@ -12,7 +12,7 @@ document_count: "1"
 
 ## Documents
 
-- [[lab/01_observation/OBS0001_structural_highs_lows_importance|OBS0001 — Apparent Importance of Structural Highs and Lows]] — [[docs/obsidian/03_document_cards/lab__01_observation__OBS0001_structural_highs_lows_importance|card]] — `documentation`
+- [[docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance|OBS0001 — Apparent Importance of Structural Highs and Lows]] — [[docs/obsidian/03_document_cards/lab__01_observation__OBS0001_structural_highs_lows_importance|card]] — `documentation`
 
 ## Folder relationships
 

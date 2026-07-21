@@ -53,7 +53,7 @@ The Visual Replay Protocol defines how the UI replays market candles and overlay
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
@@ -61,9 +61,9 @@ The Visual Replay Protocol defines how the UI replays market candles and overlay
 
 - [[docs/ui/ROADMAP|UI Implementation Roadmap]] — `ui_docs`
 - [[docs/ui/VISUALIZATION_API|Visualization API Contract]] — `ui_docs`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|EXP0002 — MQL-native M0001 Runtime]] — `experiment`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|EXP0002 — MQL-native M0001 Runtime]] — `experiment`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|EXP0003 — M0002 Reversal/Continuation Exit Volatility]] — `experiment`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|VAL_M0001_MQL_NATIVE]] — `validation`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|VAL_M0001_MQL_NATIVE]] — `validation`
 - [[docs/ui/README|Quant Lab UI Architecture]] — `ui_docs`
 - [[docs/architecture|System Architecture]] — `core_docs`
 - [[docs/atomic_live_research_contract|Atomic Live Research Contract]] — `core_docs`

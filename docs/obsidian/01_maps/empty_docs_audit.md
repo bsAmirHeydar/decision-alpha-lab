@@ -13,13 +13,13 @@ short_count: "8"
 ## Empty files filled by this patch
 
 - [[data/README|data/README.md]] — `data_docs` — generated scaffold included in patch
-- [[lab/03_experiments/EXP0000_sample/report|lab/03_experiments/EXP0000_sample/report.md]] — `experiment` — generated scaffold included in patch
-- [[lab/03_experiments/EXP0001_structural_highs_lows_importance/report|lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md]] — `experiment` — generated scaffold included in patch
-- [[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]] — `analysis` — generated scaffold included in patch
+- [[docs/evidence/exp0000_sample/58c8a635ff91_report|docs/evidence/exp0000_sample/58c8a635ff91_report.md]] — `experiment` — generated scaffold included in patch
+- [[docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report|docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md]] — `experiment` — generated scaffold included in patch
+- [[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]] — `analysis` — generated scaffold included in patch
 - [[lab/04_analysis/ANL001/README|lab/04_analysis/ANL001/README.md]] — `analysis` — generated scaffold included in patch
-- [[lab/05_validation/VAL001/report|lab/05_validation/VAL001/report.md]] — `validation` — generated scaffold included in patch
+- [[docs/evidence/val001/360462a17ab1_report|docs/evidence/val001/360462a17ab1_report.md]] — `validation` — generated scaffold included in patch
 - [[lab/06_production/SIG001/README|lab/06_production/SIG001/README.md]] — `production_signal` — generated scaffold included in patch
-- [[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]] — `monitoring` — generated scaffold included in patch
+- [[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]] — `monitoring` — generated scaffold included in patch
 - [[lab/07_monitoring/MON001/README|lab/07_monitoring/MON001/README.md]] — `monitoring` — generated scaffold included in patch
 - [[lab/08_archive/failed_experiments/README|lab/08_archive/failed_experiments/README.md]] — `archive` — generated scaffold included in patch
 - [[lab/08_archive/rejected_hypotheses/README|lab/08_archive/rejected_hypotheses/README.md]] — `archive` — generated scaffold included in patch

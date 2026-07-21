@@ -3,7 +3,7 @@ title: "M0001 — Relative Territory Volatility (RTV)"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md"
+source_path: "docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md"
 source_ext: ".md"
 category: "core_component"
 source_size_bytes: "9075"
@@ -18,7 +18,7 @@ concepts:
 
 # M0001 — Relative Territory Volatility (RTV)
 
-**Source:** [[lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility|lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md]]
+**Source:** [[docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility|docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md]]
 
 **Category:** `core_component`  
 **Status:** ok  
@@ -50,7 +50,7 @@ Final Specification Frozen Design Document M0001 (Relative Territory Volatility)
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 
 ## Related documents

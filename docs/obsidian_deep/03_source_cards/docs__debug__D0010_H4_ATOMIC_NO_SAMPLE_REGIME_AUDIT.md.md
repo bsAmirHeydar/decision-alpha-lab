@@ -42,9 +42,9 @@ D0010, H0004, M0001, M0002, M0004
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|H0001_H0004_RESEARCH_LOCK.md]] — score `28`
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004_BRANCH_REGIME_CLUSTERING.md]] — score `28`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `28`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `28`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `28`
 - [[lab/03_validation/VAL0012_h4_fast_atomic_main/README|README.md]] — score `28`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `27`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `27`
 - [[README|README.md]] — score `27`
 - [[docs/architecture|architecture.md]] — score `27`
 

@@ -1,129 +1,17 @@
-# Offline License Issuer Folder
+---
+title: "Redirect — README LICENSE ISSUER"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_DC619E167A21F7F7B902D9633A6C5D09
+source_digest: sha256:e21fa15cbc4d4cac8edc6314290f44631579e28076bc40c59e939b0e7e89b957
+canonical_target: docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This folder is the private issuer-side archive for FlagCounting Phoenix offline licenses.
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|README LICENSE ISSUER]].
 
-Keep this folder private. Do not ship it to recipients and do not commit generated user folders.
-
-## What stays in git
-
-Only these guide files should remain in the repository:
-
-```text
-licenses/README_LICENSE_ISSUER.md
-licenses/.gitignore
-```
-
-## What is generated locally
-
-Each license issuance creates one user folder next to this guide:
-
-```text
-licenses/
-  user0001-Amir-Hosein-Heydar/
-    user0001-Amir-Hosein-Heydar_recipient_inputs.txt
-    user0001-Amir-Hosein-Heydar_issuer_audit.json
-    user0001-Amir-Hosein-Heydar_full_record.txt
-  issued_licenses_index.csv
-```
-
-The `.gitignore` in this folder ignores generated records by default.
-
-## Create a license bound to account and broker server
-
-Run from the repository root:
-
-```powershell
-python tools/flag_counting/offline_license_keygen.py `
-  --first-name Amir `
-  --middle-name Hosein `
-  --last-name Heydar `
-  --account 12345678 `
-  --server "Broker-Demo" `
-  --expires 20261231 `
-  --passphrase "Your-Strong-Password-Here"
-```
-
-The tool prints the recipient inputs and also writes them under:
-
-```text
-licenses/user0001-Amir-Hosein-Heydar/
-```
-
-## Create a license without server binding
-
-Use this only when the server name is unstable or the user legitimately needs multiple server names for the same account:
-
-```powershell
-python tools/flag_counting/offline_license_keygen.py `
-  --first-name Amir `
-  --middle-name Hosein `
-  --last-name Heydar `
-  --account 12345678 `
-  --server-any `
-  --expires 20261231 `
-  --passphrase "Your-Strong-Password-Here"
-```
-
-## Force a user code
-
-By default the tool finds the next available user number and creates `user0001`, `user0002`, and so on.
-
-To force a specific code:
-
-```powershell
-python tools/flag_counting/offline_license_keygen.py `
-  --user-code user0001 `
-  --first-name Amir `
-  --middle-name Hosein `
-  --last-name Heydar `
-  --account 12345678 `
-  --server "Broker-Demo" `
-  --expires 20261231 `
-  --passphrase "Your-Strong-Password-Here"
-```
-
-## Files to send to the recipient
-
-Send only the six values from:
-
-```text
-user0001-Amir-Hosein-Heydar_recipient_inputs.txt
-```
-
-These are the only values the user needs to paste into MT5 Inputs:
-
-```text
-InpPhaseModelProfile
-InpRenderMemo
-InpNodeModelSeed
-InpBoundaryModelSeed
-InpValidationModelSeed
-InpReleaseModelSeed
-```
-
-## Files to keep private
-
-Keep these private:
-
-```text
-*_issuer_audit.json
-*_full_record.txt
-issued_licenses_index.csv
-tools/flag_counting/offline_license_keygen.py
-```
-
-## Overwrite an existing user folder
-
-Use `--overwrite` only when you intentionally want to replace files for the same user code/name folder.
-
-```powershell
-python tools/flag_counting/offline_license_keygen.py `
-  --overwrite `
-  --user-code user0001 `
-  --first-name Amir `
-  --middle-name Hosein `
-  --last-name Heydar `
-  --account 12345678 `
-  --server "Broker-Demo" `
-  --expires 20261231
-```
+Do not edit this redirect as doctrine.

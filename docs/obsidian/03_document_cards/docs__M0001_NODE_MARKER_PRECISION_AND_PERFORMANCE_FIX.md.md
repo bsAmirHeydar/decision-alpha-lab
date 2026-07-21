@@ -38,7 +38,7 @@ The Python node price is the truth. The visual marker must point exactly to it. 
 
 ## Concepts
 
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

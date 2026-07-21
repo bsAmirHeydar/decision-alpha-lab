@@ -1,41 +1,17 @@
-# Canonical F-Logic Integration Patch
+---
+title: "Redirect — README CANONICAL F LOGIC INTEGRATION PATCH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_4225EA569E6D42722356BAC99BAD5336
+source_digest: sha256:b77940d3e9f0e2507e3c80a8f80aa8f350fc1e27cfc9e10b543d26d36badefdc
+canonical_target: docs/releases/legacy_migration/general/4225ea569e6d_README_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Purpose
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/4225ea569e6d_README_CANONICAL_F_LOGIC_INTEGRATION_PATCH|README CANONICAL F LOGIC INTEGRATION PATCH]].
 
-This documentation patch corrects the Zone-AF documentation layer by explicitly binding all F-related zone interpretations to the existing Flag Counting canon.
-
-The Zone engine may use F1/F2/F3 structures to locate reversal potential, movement constraints, parent zones, child-zone requirements, and risk-contract opportunities. However, it must not create a parallel definition of F1, F2, or F3.
-
-## Core Rule
-
-```text
-The Flag Counting canon defines F objects.
-The Zone-AF layer interprets canonical F objects as potential zones.
-```
-
-## Source of Truth
-
-The F source-of-truth hierarchy remains:
-
-1. `docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`
-2. `docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md`
-3. `docs/flag_counting/FLAG_COUNTING_ENGINEERING_PACK_V5.md`
-4. `docs/flag_counting/engineering_pack_v5/`
-5. `docs/flag_counting/implementation_ladder_v1/`
-6. Current Phoenix implementation under `mql5/Include/FlagCountingPhoenix/`
-
-## What This Patch Adds
-
-- canonical F logic integration doctrine;
-- source-of-truth map for F-to-zone usage;
-- Obsidian MOC and concept pages;
-- policy note preventing duplicate F definitions;
-- training note requiring canonical F events as labels/features.
-
-## What This Patch Does Not Change
-
-- No MQL5 code changes.
-- No Python changes.
-- No execution changes.
-- No registry changes.
-- No redefinition of F1/F2/F3.
+Do not edit this redirect as doctrine.

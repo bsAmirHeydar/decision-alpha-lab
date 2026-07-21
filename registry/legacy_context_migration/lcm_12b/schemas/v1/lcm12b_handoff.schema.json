@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm12b/lcm12b_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "documentation_registry_digest": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "handoff_digest": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "handoff_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "handoff_type": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "phase_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "handoff_id",
+    "handoff_type",
+    "documentation_registry_digest",
+    "handoff_digest"
+  ],
+  "title": "lcm12b_handoff.schema.json",
+  "type": "object"
+}

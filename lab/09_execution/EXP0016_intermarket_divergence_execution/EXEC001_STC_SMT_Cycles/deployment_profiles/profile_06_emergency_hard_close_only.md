@@ -1,42 +1,17 @@
-# Profile 06 — Emergency Hard Close Only
+---
+title: "Redirect — profile 06 emergency hard close only"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_E564656D4633CBFAA2DB0EB898072CF2
+source_digest: sha256:9666cf9fe4f8130213228a58d82b8072cb58b12c2e98a784cc3809103ecedde2
+canonical_target: docs/evidence/profile_06_emergency_hard_close_only/e564656d4633_profile_06_emergency_hard_close_only.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Intent
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/profile_06_emergency_hard_close_only/e564656d4633_profile_06_emergency_hard_close_only|profile 06 emergency hard close only]].
 
-Close remaining STC-managed positions after 15:30 New York without allowing new entries.
-
-## Required behavior
-
-Disable:
-
-- STC entry.
-- Real auto-entry.
-- Real partial close.
-
-Enable:
-
-- Broker position manager.
-- Real hard close finalizer.
-
-## Important constraints
-
-The finalizer must only close positions that:
-
-1. are on Symbol1 or Symbol2;
-2. match the configured magic number;
-3. are still open after the STC hard-close threshold.
-
-Manual or foreign positions must never be closed.
-
-## Use cases
-
-Use this profile when:
-
-- the EA was restarted after 15:30;
-- managed positions remain open unexpectedly;
-- auto-entry must stay disabled while cleanup is performed;
-- the operator wants finalizer-only behavior.
-
-## Acceptance criteria
-
-The profile passes when all matching magic-number positions are closed or clearly reported as requiring manual review after retry cap.
-
+Do not edit this redirect as doctrine.

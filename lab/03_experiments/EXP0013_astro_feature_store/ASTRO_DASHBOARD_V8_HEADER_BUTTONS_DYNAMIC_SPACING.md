@@ -1,28 +1,17 @@
-# EXP0013 Astro Dashboard V8 - Header, Buttons, Dynamic Spacing
+---
+title: "Redirect — ASTRO DASHBOARD V8 HEADER BUTTONS DYNAMIC SPACING"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_38DFE94AFABD25E78B94C74255377D82
+source_digest: sha256:6277a02386c6bd126dddf0af4d245ca530baaa57b4a69bea2b703d6d6441ac7a
+canonical_target: docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch specifically improves the three visual issues requested:
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING|ASTRO DASHBOARD V8 HEADER BUTTONS DYNAMIC SPACING]].
 
-## 1) Clearer header
-- larger main title
-- clearer vertical separation between title, view line, CSV status, and time line
-- a dedicated status badge for EXACT / FALLBACK / NOT FOUND
-- better use of empty header space
-
-## 2) Bigger buttons
-- larger width and height
-- more spacing between buttons
-- clearer visibility in the top-right area
-
-## 3) Better spacing inside cards
-- label/value spacing is now based on the longest metric name in the section
-- then extra visual gap is added after the label column
-- value, bucket, and bar columns are separated more clearly
-- same dynamic spacing logic is also applied to the compact oscillator
-
-## Visual logic
-- low = red
-- mid = yellow
-- high = green
-
-## Cleanup
-Previous dashboard objects are still force-cleared on init, rerender, and deinit.
+Do not edit this redirect as doctrine.

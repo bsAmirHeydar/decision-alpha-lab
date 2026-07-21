@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm12b/obsidian_link_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "link_rewrite_count": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "new_broken_reference_count": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "phase_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "report_digest": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "report_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "report_id",
+    "link_rewrite_count",
+    "new_broken_reference_count",
+    "report_digest"
+  ],
+  "title": "obsidian_link_report.schema.json",
+  "type": "object"
+}

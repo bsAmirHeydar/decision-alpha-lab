@@ -3,7 +3,7 @@ title: "Notes"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/04_analysis/ANL001/notes.md"
+source_path: "docs/evidence/anl001/692b0b9aa0db_notes.md"
 source_ext: ".md"
 category: "analysis"
 source_size_bytes: "0"
@@ -14,7 +14,7 @@ entities:
 
 # Notes
 
-**Source:** [[lab/04_analysis/ANL001/notes|lab/04_analysis/ANL001/notes.md]]
+**Source:** [[docs/evidence/anl001/692b0b9aa0db_notes|docs/evidence/anl001/692b0b9aa0db_notes.md]]
 
 **Category:** `analysis`  
 **Status:** empty-filled  

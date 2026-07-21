@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md"
+source_path: "docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md"
 source_ext: ".md"
 source_size: 434
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]]
+[[docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3|docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]]
 
 ## Summary
 

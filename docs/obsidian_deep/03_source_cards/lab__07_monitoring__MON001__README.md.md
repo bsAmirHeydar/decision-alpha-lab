@@ -34,7 +34,7 @@ MON001
 
 ## Related Source Documents
 
-- [[lab/07_monitoring/MON001/metrics|metrics.md]] — score `6`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|metrics.md]] — score `6`
 
 ## Obsidian Use
 

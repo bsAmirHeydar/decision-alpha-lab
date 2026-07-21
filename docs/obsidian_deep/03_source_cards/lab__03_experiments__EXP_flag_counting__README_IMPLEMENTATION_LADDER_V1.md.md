@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md"
+source_path: "docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md"
 source_ext: ".md"
 source_size: 887
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1|lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md]]
+[[docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1|docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md]]
 
 ## Summary
 
@@ -36,8 +36,8 @@ The Phoenix implementation ladder lives under: Use it together with the current 
 
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|FLAG_COUNTING_CURRENT_CANON.md]] — score `18`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `14`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `12`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `12`
 - [metadata.yaml](../../lab/03_experiments/EXP_flag_counting/metadata.yaml) — score `11`
 - [[lab/03_experiments/EXP_flag_counting/README|README.md]] — score `11`

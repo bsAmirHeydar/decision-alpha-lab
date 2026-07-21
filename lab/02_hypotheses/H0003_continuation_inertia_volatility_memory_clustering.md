@@ -1,7 +1,17 @@
-# H0003 — Continuation Inertia, Volatility Memory, and Clustering
+---
+title: "Redirect — H0003 continuation inertia volatility memory clustering"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_6A29B9341FF58616D7C930BE79CFD442
+source_digest: sha256:bba7730c8558227b1eb725ffebb43038961876fe87d7ed58579124c44bb75c27
+canonical_target: docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-Hypothesis: continuation exits from completed node-territory events create a stronger post-event volatility-memory state than reversal exits.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering|H0003 continuation inertia volatility memory clustering]].
 
-Operationally, H0003 uses exact M0001 events and M0002 branch labels. It evaluates whether continuation has higher event RTV, stronger horizon deltas, better carry ratios, fatter tail behavior, and positive time-cluster structure.
-
-This hypothesis is a volatility-state classifier, not a directional trading strategy.
+Do not edit this redirect as doctrine.

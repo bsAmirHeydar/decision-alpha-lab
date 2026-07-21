@@ -1,37 +1,17 @@
-# 08 - Open Questions
+---
+title: "Redirect — 08 open questions"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_18E20583BB824C58B315B1C590141D78
+source_digest: sha256:f7341cd5571d0f387c123a7e9576e393213cddcdbd1a7c7873d91ac0725934b6
+canonical_target: docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-The core strategy is locked. The items below are not blockers for the research/paper implementation. They are optional engineering or research extensions.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|08 open questions]].
 
-## Optional future knobs
-
-1. Whether to expose reference selection as a research input. Canonical default is largest stop distance on the clean traded symbol.
-2. Whether to use lower-timeframe path reconstruction for ambiguous SL/TP candles. Canonical default is to mark them `AMBIGUOUS`.
-3. Whether to support separate data symbols and execution symbols. Canonical STC uses Symbol1 and Symbol2 as both data and execution symbols.
-4. Whether to support broker-specific commission models beyond simple net reporting.
-5. Whether to export drawings as screenshots or only render them on chart.
-6. Whether to add a calendar for holidays and early closes. Canonical default is no trade when data is missing or incomplete.
-7. Whether to add auto-trade mode after research and paper modes are validated.
-
-## No longer open
-
-These are locked and should not be reopened during implementation unless the strategy version changes:
-
-- Touch equality.
-- No tolerance.
-- W reference matrix.
-- W1 no signal.
-- New York time.
-- Check candle anchoring from 20:00.
-- No entry in M gaps.
-- No entry on final check candle of M.
-- Trade clean symbol.
-- SL uses clean traded symbol reference W.
-- Reference selection by largest stop.
-- Final Reward as R-multiple.
-- Hard close at 15:30.
-- Partial at W4 end for M1/M2 only.
-- M3 partial disabled.
-- Entry OFF audit-only/no delayed entry.
-- Offline at entry time means no delayed entry.
-- Magic-number-only position management.
-- Duplicate instance prevention.
+Do not edit this redirect as doctrine.

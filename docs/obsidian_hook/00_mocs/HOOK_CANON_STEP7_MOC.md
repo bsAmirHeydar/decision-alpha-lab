@@ -19,7 +19,7 @@
 
 ## Entry transition after valid-Hook capture
 
-- [[NDS_ENTRY_EXECUTION_MOC]]
+- [[docs/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC]]
 - [[../03_architecture/Phase 51 NDS Entry Transition Architecture]]
 
 

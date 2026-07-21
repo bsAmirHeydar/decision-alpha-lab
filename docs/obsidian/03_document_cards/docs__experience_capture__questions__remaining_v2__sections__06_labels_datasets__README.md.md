@@ -37,7 +37,7 @@ These are remaining questions only. They do not replace or delete answered quest
 ## Concepts
 
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

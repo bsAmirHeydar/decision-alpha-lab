@@ -1,61 +1,17 @@
-# EXP0013 Astro Dashboard V5 - Pro Clean Layout
+---
+title: "Redirect — ASTRO DASHBOARD V5 PRO CLEAN GUIDE"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_45E4E980B219B1CC3842FFCBDA5F2151
+source_digest: sha256:d2320af11bec9506cfcff7ce1ab1e2f39886074b660872870a2547d45c71a75a
+canonical_target: docs/evidence/exp0013_astro_dashboard_pro_clean_layout/45e4e980b219_ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch is focused on making the dashboard noticeably more professional and easier to read.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_pro_clean_layout/45e4e980b219_ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE|ASTRO DASHBOARD V5 PRO CLEAN GUIDE]].
 
-## Main visual changes
-
-- removed extra clutter from the header
-- removed the old crowded toggle cluster
-- simplified the cockpit to the most useful cards
-- switched the display heat scale to:
-  - low = red
-  - mid = yellow
-  - high = green
-- improved spacing between rows and cards
-- replaced the oversized bottom panel with a compact oscillator board
-
-## Cockpit mode
-
-Shows:
-- Path Quality
-- Micro M1
-- Macro Background
-- Raw Axes
-- Diagnostics
-
-## Focus mode
-
-Shows a larger version of the selected section:
-- Path
-- Micro
-- Regime
-- Macro
-- Raw
-
-## Compact oscillator
-
-The lower block is no longer a huge stretched history area.
-It is now a compact recent-history board that shows:
-- metric name
-- current value
-- current mini bar
-- short sparkline history
-
-## Buttons
-
-Top row:
-- COCKPIT
-- PATH
-- MICRO
-- REGIME
-- MACRO
-- RAW
-
-Second row:
-- TEXT ON/OFF
-- OSC ON/OFF
-- RELOAD
-
-## Goal of this version
-
-This version is meant to be visually cleaner while still keeping all major astro states available.
+Do not edit this redirect as doctrine.

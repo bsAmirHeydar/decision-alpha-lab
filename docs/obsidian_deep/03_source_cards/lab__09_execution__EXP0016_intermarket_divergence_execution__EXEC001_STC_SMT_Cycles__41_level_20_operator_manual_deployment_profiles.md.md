@@ -45,10 +45,10 @@ Level 20 is a documentation and deployment-control layer for `EXEC001_STC_SMT_Cy
 
 ## Related Source Documents
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix|42_level_20_profile_matrix.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `18`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|17_implementation_plan.md]] — score `17`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|18_module_breakdown.md]] — score `17`
+- [[docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix|42_level_20_profile_matrix.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `18`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|17_implementation_plan.md]] — score `17`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|18_module_breakdown.md]] — score `17`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/README|README.md]] — score `17`
 - [[docs/flag_counting/FLAG_COUNTING_CURRENT_CANON|FLAG_COUNTING_CURRENT_CANON.md]] — score `16`
 - [[docs/flag_counting/README|README.md]] — score `16`

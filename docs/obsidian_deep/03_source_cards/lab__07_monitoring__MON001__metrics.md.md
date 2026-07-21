@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/07_monitoring/MON001/metrics.md"
+source_path: "docs/evidence/mon001/2cb2a9127709_metrics.md"
 source_ext: ".md"
 source_size: 0
 empty: true
@@ -14,7 +14,7 @@ entities: ["MON001"]
 
 ## Source
 
-[[lab/07_monitoring/MON001/metrics|lab/07_monitoring/MON001/metrics.md]]
+[[docs/evidence/mon001/2cb2a9127709_metrics|docs/evidence/mon001/2cb2a9127709_metrics.md]]
 
 ## Summary
 

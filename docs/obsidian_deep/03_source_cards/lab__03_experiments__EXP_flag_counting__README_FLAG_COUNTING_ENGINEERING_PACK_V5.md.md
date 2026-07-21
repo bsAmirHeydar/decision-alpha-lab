@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5.md"
+source_path: "docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5.md"
 source_ext: ".md"
 source_size: 1422
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5.md]]
+[[docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5|docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5.md]]
 
 ## Summary
 

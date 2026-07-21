@@ -3,7 +3,7 @@ title: "H0007 — Flag Counting / F1 Start Structure"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md"
+source_path: "docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "1622"
@@ -22,7 +22,7 @@ concepts:
 
 # H0007 — Flag Counting / F1 Start Structure
 
-**Source:** [[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md]]
+**Source:** [[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -49,7 +49,7 @@ H0007 introduces a mechanical grammar for counting the first flag structure, **F
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 

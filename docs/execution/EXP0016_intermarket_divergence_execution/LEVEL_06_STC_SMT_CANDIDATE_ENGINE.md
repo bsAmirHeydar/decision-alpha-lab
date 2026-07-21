@@ -17,4 +17,4 @@ It still does not confirm, consume, trade, simulate, draw, partially close, or h
 
 Primary detailed document:
 
-`lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine.md`
+`docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine.md`

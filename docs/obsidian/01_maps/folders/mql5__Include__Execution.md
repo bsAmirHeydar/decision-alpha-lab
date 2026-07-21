@@ -12,7 +12,7 @@ document_count: "1"
 
 ## Documents
 
-- [[mql5/Include/Execution/README_DAL_ExecRouletteRisk|DAL_ExecRouletteRisk — Roulette Execution Risk Model]] — [[docs/obsidian/03_document_cards/mql5__Include__Execution__README_DAL_ExecRouletteRisk|card]] — `mql5_docs`
+- [[docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk|DAL_ExecRouletteRisk — Roulette Execution Risk Model]] — [[docs/obsidian/03_document_cards/mql5__Include__Execution__README_DAL_ExecRouletteRisk|card]] — `mql5_docs`
 
 ## Folder relationships
 

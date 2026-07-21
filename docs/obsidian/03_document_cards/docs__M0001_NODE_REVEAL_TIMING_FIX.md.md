@@ -40,7 +40,7 @@ In a live-safe L-rule detector, a node located at candle `i` is not knowable at 
 
 ## Concepts
 
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 
 ## Related documents

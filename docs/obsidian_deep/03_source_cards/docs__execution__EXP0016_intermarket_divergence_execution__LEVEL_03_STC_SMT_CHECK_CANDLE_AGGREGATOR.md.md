@@ -18,7 +18,7 @@ entities: ["EXEC001"]
 
 ## Summary
 
-This document mirrors the implementation-level notes for: `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md` Level 03 adds the M1-based check-candle data layer for EXEC001 STC SMT Cycles. It does not add W levels, SMT detection, signal generation, paper trading, drawing, partial close, hard close, or auto trading. Generated Common Files outputs: `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_build_sanity.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_runtime_events.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_time_audit.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_check_candles.csv`
+This document mirrors the implementation-level notes for: `docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md` Level 03 adds the M1-based check-candle data layer for EXEC001 STC SMT Cycles. It does not add W levels, SMT detection, signal generation, paper trading, drawing, partial close, hard close, or auto trading. Generated Common Files outputs: `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_build_sanity.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_runtime_events.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_time_audit.csv` `dal/stc/EXEC001_STC_SMT_Cycles/stc_level03_check_candles.csv`
 
 ## Concepts
 
@@ -36,14 +36,14 @@ EXEC001
 
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY|LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY.md]] — score `16`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING|LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator|24_level_03_check_candle_aggregator.md]] — score `16`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|17_implementation_plan.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|18_module_breakdown.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|19_patch_build_sequence.md]] — score `15`
+- [[docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator|24_level_03_check_candle_aggregator.md]] — score `16`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|17_implementation_plan.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|18_module_breakdown.md]] — score `15`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|19_patch_build_sequence.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|21_first_patch_scope.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|22_level_01_skeleton.md]] — score `15`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|30_level_09_paper_outcome_simulator.md]] — score `15`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|32_level_11_hard_close_simulator.md]] — score `15`
+- [[docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator|32_level_11_hard_close_simulator.md]] — score `15`
 
 ## Obsidian Use
 

@@ -39,7 +39,7 @@ entities: []
 ## Related Source Documents
 
 - [[docs/experience_capture/questions/remaining_v2/by_code/TEST-R02|TEST-R02.md]] — score `10`
-- [[lab/07_monitoring/MON001/metrics|metrics.md]] — score `8`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|metrics.md]] — score `8`
 - [[docs/ai_execution/AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA|AI_ALGORITHM_LAYER_MAP_FOR_EXTREME_ENGINE_FA.md]] — score `6`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `6`
 - [[docs/ai_execution/AMIR_STRUCTURAL_EXPERIENCE_MAP_FA|AMIR_STRUCTURAL_EXPERIENCE_MAP_FA.md]] — score `6`

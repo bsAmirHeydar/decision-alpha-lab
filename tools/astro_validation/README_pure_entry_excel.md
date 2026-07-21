@@ -1,36 +1,17 @@
-# Pure Astro Entry Excel Report
+---
+title: "Redirect — README pure entry excel"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_986FA598C76E751C1DD0CC9B29F896C2
+source_digest: sha256:b699dc94664d189de3e24761c78291e12de961da306e8897426946126836c16f
+canonical_target: docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-Builds a fast batch Excel report from an astro feature CSV without running MT5 ticks.
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel|README pure entry excel]].
 
-Output workbook sheets:
-
-- `RunSummary`: run metadata and counts
-- `EntryWindows`: one row per complete `enter_long` / `enter_short` window
-- `EntryBars`: every bar belonging to those full entry windows
-- `ExitEvents`: first exit warning and resolved paper-exit event per entry window
-
-Default output location for the PowerShell helper:
-
-`%APPDATA%\MetaQuotes\Terminal\Common\Files\astro\reports\nas100_pure_entry_windows.xlsx`
-
-Quick command from the project root:
-
-```powershell
-$COMMON = "$env:APPDATA\MetaQuotes\Terminal\Common\Files"
-python .\tools\astro_validation\astro_pure_entry_excel.py `
-  --csv "$COMMON\astro_nas100_mql.csv" `
-  --out-xlsx "$COMMON\astro\reports\nas100_pure_entry_windows.xlsx" `
-  --family PURE `
-  --also-csv
-```
-
-Or use the helper:
-
-```powershell
-.\tools\astro_validation\build_pure_entry_excel_common.ps1 `
-  -CsvName "astro_nas100_mql.csv" `
-  -OutName "nas100_pure_entry_windows.xlsx" `
-  -Family PURE `
-  -AlsoCsv `
-  -OpenAfter
-```
+Do not edit this redirect as doctrine.

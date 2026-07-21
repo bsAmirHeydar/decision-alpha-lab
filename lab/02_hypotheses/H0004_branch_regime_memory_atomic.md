@@ -1,77 +1,17 @@
 ---
-id: H0004
-status: active_rebuilt
-family: regime_memory
-official_contract: atomic_no_sample_known_time_batches
-created: 2026-06-20
-owner: Decision Alpha Lab
-priority: critical
+title: "Redirect — H0004 branch regime memory atomic"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_45FAD849057FF9216C427F111A1544E2
+source_digest: sha256:f249bda1dea2fc84e1fd85cb5fb5040ff06a9573425939754f909431906a1e8e
+canonical_target: docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
 ---
+# Redirect
 
-# H0004 — Branch Regime Memory
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 branch regime memory atomic]].
 
-## Research question
-
-Do reversal and continuation branch regimes display persistence beyond random ordering when measured by the time at which the regime became knowable?
-
----
-
-## Old formulation
-
-The classic formulation used M0002 branch samples and sorted completed labels into a chronological sequence. This was useful for exploration, but it had a serious live-validity risk: several labels could become known on the same candle and still be ordered as if one came before another.
-
----
-
-## Current formulation
-
-The official H0004 formulation is atomic and no-sample:
-
-1. replay closed candles,
-2. build structural nodes and raw M0001 events from the prefix,
-3. collect events that become knowable at the current candle/time,
-4. group them into one known-time batch,
-5. classify the batch as reversal, continuation, or ambiguous,
-6. compute transitions only between different known-time batches.
-
----
-
-## Null hypothesis
-
-After enforcing known-time batching, reversal and continuation labels do not persist beyond what is expected from random label order under appropriate null models.
-
----
-
-## Alternative hypothesis
-
-After enforcing known-time batching, reversal and continuation labels still display measurable persistence, clustering, and run length beyond random label order.
-
----
-
-## Key failure mode addressed
-
-If several highs/lows become confirmed or resolved on the same candle, they must not be counted as a sequence.
-
-Same known time means simultaneous.
-
----
-
-## Evidence required
-
-A valid H0004 report must include:
-
-- sample calls = 0 for official no-sample mode,
-- M0002 calls = 0 for official no-sample mode,
-- known-time batch count,
-- ambiguous batch count,
-- same-time event count,
-- transition matrix over pure batches,
-- run statistics over pure batches,
-- permutation stress,
-- run shuffle stress,
-- optional stratified permutation.
-
----
-
-## Interpretation
-
-A positive H0004 result does not yet mean an execution edge exists. It means that market state has memory. H0005 and execution EAs must test whether that memory creates usable directional decisions.
+Do not edit this redirect as doctrine.

@@ -41,15 +41,15 @@ M0001
 ## Related Source Documents
 
 - [[docs/architecture|architecture.md]] — score `28`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `25`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `25`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `21`
 - [[docs/M0001_MQL_INPUT_PARAMETER_BRIDGE|M0001_MQL_INPUT_PARAMETER_BRIDGE.md]] — score `20`
 - [[docs/MQL_LIVE_ALL_IN_ONE_APPLY|MQL_LIVE_ALL_IN_ONE_APPLY.md]] — score `20`
 - [[docs/mql_visual_lab|mql_visual_lab.md]] — score `20`
 - [[docs/ui/ARCHITECTURE|ARCHITECTURE.md]] — score `20`
 - [[docs/debug/D0006_H5_LIVE_TOUCH_REPLAY_AUDIT|D0006_H5_LIVE_TOUCH_REPLAY_AUDIT.md]] — score `19`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `19`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `19`
 
 ## Obsidian Use
 

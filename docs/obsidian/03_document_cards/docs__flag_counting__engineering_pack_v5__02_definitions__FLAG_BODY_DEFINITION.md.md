@@ -41,7 +41,7 @@ A flag body is: This body is the same for F1, F2, and F3. F-levels differ by lif
 ## Concepts
 
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

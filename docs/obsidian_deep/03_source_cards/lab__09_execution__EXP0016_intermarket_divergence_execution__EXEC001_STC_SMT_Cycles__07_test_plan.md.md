@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md"
+source_path: "docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md"
 source_ext: ".md"
 source_size: 5371
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md]]
+[[docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan|docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md]]
 
 ## Summary
 
@@ -48,13 +48,13 @@ The test plan ensures the STC SMT Cycles implementation follows the locked speci
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `14`
 - [signals.yaml](../../registry/signals.yaml) — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|report.md]] — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec|02_normalized_strategy_spec.md]] — score `9`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|report.md]] — score `10`
+- [[docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec|02_normalized_strategy_spec.md]] — score `9`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|03_cycle_calendar.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules|04_smt_divergence_rules.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|05_execution_and_risk.md]] — score `9`
+- [[docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules|04_smt_divergence_rules.md]] — score `9`
+- [[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|05_execution_and_risk.md]] — score `9`
 
 ## Obsidian Use
 

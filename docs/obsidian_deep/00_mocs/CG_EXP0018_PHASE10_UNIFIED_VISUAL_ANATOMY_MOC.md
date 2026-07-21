@@ -47,7 +47,7 @@ status: implemented-evidence-package
 - [[EXP0018_P10_Object_Ownership_Map]]
 - [[EXP0018_P10_Chart_Target_Map]]
 - [[EXP0018_P10_Optional_Context_Gate_Map]]
-- [[EXP0018_P10_Release_Gate_Map]]
+- [[docs/evidence/exp0018_p10_release_gate_map/6ffd1a473989_EXP0018_P10_Release_Gate_Map]]
 
 ## Checklists
 - [[EXP0018_P10_Compile_Checklist]]
@@ -56,7 +56,7 @@ status: implemented-evidence-package
 - [[EXP0018_P10_TDO_TWO_Checklist]]
 - [[EXP0018_P10_DST_Checklist]]
 - [[EXP0018_P10_Object_Ownership_Checklist]]
-- [[EXP0018_P10_Release_Checklist]]
+- [[docs/evidence/exp0018_p10_release_checklist/be4f3e42c8c5_EXP0018_P10_Release_Checklist]]
 
 ## Runtime Recovery
 

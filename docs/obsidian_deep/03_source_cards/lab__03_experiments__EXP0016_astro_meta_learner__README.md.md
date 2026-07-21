@@ -46,7 +46,7 @@ EXP0016
 ## Related Source Documents
 
 - [[tools/astro_ml/README|README.md]] — score `33`
-- [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `26`
+- [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|ANTIFRAGILE_LEARNING_DOCTRINE.md]] — score `26`
 - [[mql5/Experts/AstroExecution/README|README.md]] — score `26`
 - [[docs/architecture|architecture.md]] — score `24`
 - [[docs/flag_counting/README|README.md]] — score `24`

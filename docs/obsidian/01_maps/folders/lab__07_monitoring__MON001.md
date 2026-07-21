@@ -12,7 +12,7 @@ document_count: "2"
 
 ## Documents
 
-- [[lab/07_monitoring/MON001/metrics|Metrics]] — [[docs/obsidian/03_document_cards/lab__07_monitoring__MON001__metrics|card]] — `monitoring`
+- [[docs/evidence/mon001/2cb2a9127709_metrics|Metrics]] — [[docs/obsidian/03_document_cards/lab__07_monitoring__MON001__metrics|card]] — `monitoring`
 - [[lab/07_monitoring/MON001/README|Readme]] — [[docs/obsidian/03_document_cards/lab__07_monitoring__MON001__README|card]] — `monitoring`
 
 ## Folder relationships

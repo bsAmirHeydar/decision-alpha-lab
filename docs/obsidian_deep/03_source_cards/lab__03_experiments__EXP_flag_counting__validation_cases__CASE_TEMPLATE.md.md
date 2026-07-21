@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md"
+source_path: "docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md"
 source_ext: ".md"
 source_size: 1212
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE|lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md]]
+[[docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE|docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md]]
 
 ## Summary
 

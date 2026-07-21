@@ -1,84 +1,17 @@
 ---
-title: "Phase 24 — V1 Release and Operating Model"
-tags:
-  - strategy-factory
-  - implementation-roadmap
-  - alpha-lab
-status: canonical
-doc_version: 1.0.0
+title: "Redirect — PHASE 24 V1 RELEASE AND OPERATING MODEL"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_2A81F79FD69ED4BFE427283C04FC9018
+source_digest: sha256:703c17cfc58ef32f2f6c7a64ceed9c53d76f77ec22eabe46d9e1a844c8e96575
+canonical_target: docs/evidence/phase_24_release_operating_model/2a81f79fd69e_PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
 ---
+# Redirect
 
-# Phase 24 — V1 Release and Operating Model
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/phase_24_release_operating_model/2a81f79fd69e_PHASE_24_V1_RELEASE_AND_OPERATING_MODEL|PHASE 24 V1 RELEASE AND OPERATING MODEL]].
 
-## Objective
-
-Package the platform and define its ongoing operating discipline.
-
-## Why This Phase Exists
-
-This phase prevents downstream modules from inventing private assumptions. Its output becomes an explicit dependency for later phases.
-
-## Scope
-
-- release checklist
-- documentation freeze
-- support matrix
-- deprecation policy
-- weekly/monthly operations
-
-## Required Deliverables
-
-- `V1 tag`
-- `release notes`
-- `operator handbook`
-- `backlog for V1.1`
-
-## Implementation Workstreams
-
-1. **Contract and design work** — define semantics before code.
-2. **Reference implementation** — implement the smallest correct behavior.
-3. **Fixture construction** — create normal, boundary, and failure examples.
-4. **Automated verification** — unit, contract, integration, and regression tests.
-5. **Artifact production** — produce machine-readable evidence.
-6. **Documentation and ADRs** — record decisions and unresolved boundaries.
-
-## Test Requirements
-
-- Happy-path fixture.
-- Boundary-time fixture.
-- Missing-input fixture.
-- Duplicate or replay fixture.
-- Version mismatch fixture.
-- Determinism test.
-- Failure-mode test.
-- Integration test with the immediately preceding phase.
-
-## Definition of Done
-
-- [ ] Two pilots complete
-- [ ] Paper stability window passed
-- [ ] Rollback and incident drills complete
-- [ ] Documentation is linked from the Master MOC.
-- [ ] QA report is generated.
-- [ ] Rollback path is documented.
-- [ ] No phase-owned TODO remains hidden in code comments.
-
-## Explicit Non-Goals
-
-- Do not implement unrelated later-phase behavior.
-- Do not add strategy-specific semantics to the kernel.
-- Do not bypass the phase gate to accelerate a pilot.
-
-## Recommended Commit Sequence
-
-```text
-1. docs: freeze phase semantics and ADRs
-2. feat: add contracts and interfaces
-3. feat: add reference implementation
-4. test: add fixtures and failure cases
-5. chore: add artifacts, QA, and phase report
-```
-
-## Exit Gate
-
-The phase exits only when its deliverables are reproducible from a clean checkout and the next phase can consume them without private knowledge.
+Do not edit this redirect as doctrine.

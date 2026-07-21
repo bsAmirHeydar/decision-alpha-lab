@@ -12,7 +12,7 @@ document_count: "2"
 
 ## Documents
 
-- [[lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE|EXP0016 Antifragile Astro Learning Doctrine]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP0016_astro_meta_learner__ANTIFRAGILE_LEARNING_DOCTRINE|card]] — `experiment`
+- [[docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE|EXP0016 Antifragile Astro Learning Doctrine]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP0016_astro_meta_learner__ANTIFRAGILE_LEARNING_DOCTRINE|card]] — `experiment`
 - [[lab/03_experiments/EXP0016_astro_meta_learner/README|EXP0016 Astro Meta Learner]] — [[docs/obsidian/03_document_cards/lab__03_experiments__EXP0016_astro_meta_learner__README|card]] — `experiment`
 
 ## Folder relationships

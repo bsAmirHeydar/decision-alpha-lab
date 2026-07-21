@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md"
+source_path: "docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md"
 source_ext: ".md"
 source_size: 9075
 empty: false
@@ -14,7 +14,7 @@ entities: ["M0001"]
 
 ## Source
 
-[[lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility|lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md]]
+[[docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility|docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md]]
 
 ## Summary
 

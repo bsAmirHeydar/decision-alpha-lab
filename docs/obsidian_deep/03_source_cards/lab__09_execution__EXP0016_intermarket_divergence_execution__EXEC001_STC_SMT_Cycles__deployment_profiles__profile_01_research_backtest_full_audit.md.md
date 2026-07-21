@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md"
+source_path: "docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md"
 source_ext: ".md"
 source_size: 1156
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md]]
+[[docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit|docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md]]
 
 ## Summary
 
@@ -42,13 +42,13 @@ Historical validation with all audit outputs and no broker interaction. Runtime 
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|report.md]] — score `10`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|profile_02_paper_live_observer.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_03_paper_live_broker_audit|profile_03_paper_live_broker_audit.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal|profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_05_auto_trade_full_managed|profile_05_auto_trade_full_managed.md]] — score `9`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|report.md]] — score `10`
+- [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|profile_02_paper_live_observer.md]] — score `9`
+- [[docs/evidence/profile_03_paper_live_broker_audit/b34ade2da6c9_profile_03_paper_live_broker_audit|profile_03_paper_live_broker_audit.md]] — score `9`
+- [[docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal|profile_04_auto_trade_entry_only_rehearsal.md]] — score `9`
+- [[docs/evidence/profile_05_auto_trade_full_managed/39e8f73f460d_profile_05_auto_trade_full_managed|profile_05_auto_trade_full_managed.md]] — score `9`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_02_STC_SMT_TIME_ENGINE|LEVEL_02_STC_SMT_TIME_ENGINE.md]] — score `8`
 
 ## Obsidian Use

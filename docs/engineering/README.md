@@ -23,7 +23,7 @@ This directory is the repository-facing control plane for engineering work. The 
 3. [[ALPHA_LAB_REPOSITORY_CONTRACT|Repository Contract]] — ownership and directory boundaries.
 4. [[ALPHA_LAB_CODE_STYLE_STANDARD|Code Style Standard]] — cross-language implementation rules.
 5. [[ALPHA_LAB_QUALITY_GATE_MATRIX|Quality Gate Matrix]] — phase-entry and phase-exit evidence.
-6. [[ALPHA_LAB_PATCH_RELEASE_STANDARD|Patch and Release Standard]] — ZIP, PowerShell, Git, rollback.
+6. [[docs/evidence/alpha_lab_release_standard/db0cec343c04_ALPHA_LAB_PATCH_RELEASE_STANDARD|Patch and Release Standard]] — ZIP, PowerShell, Git, rollback.
 7. [[ALPHA_LAB_AI_AGENT_CONTRACT|AI Agent Contract]] — bounded AI roles and acceptance.
 8. [[ALPHA_LAB_MQL5_COMPATIBILITY_STANDARD|MQL5 Compatibility Standard]].
 9. [[ALPHA_LAB_PYTHON_RESEARCH_STANDARD|Python Research Standard]].

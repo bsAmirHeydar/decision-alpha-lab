@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md"
+source_path: "docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md"
 source_ext: ".md"
 source_size: 853
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md]]
+[[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md]]
 
 ## Summary
 

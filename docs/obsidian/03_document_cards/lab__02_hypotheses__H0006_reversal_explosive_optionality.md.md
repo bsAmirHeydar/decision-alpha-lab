@@ -3,7 +3,7 @@ title: "H0006 — Node Survival Edge Map"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0006_reversal_explosive_optionality.md"
+source_path: "docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "715"
@@ -21,7 +21,7 @@ concepts:
 
 # H0006 — Node Survival Edge Map
 
-**Source:** [[lab/02_hypotheses/H0006_reversal_explosive_optionality|lab/02_hypotheses/H0006_reversal_explosive_optionality.md]]
+**Source:** [[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -43,15 +43,15 @@ The current H0006 framing is not a win-rate hypothesis. It asks whether raw stru
 
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 
 ## Related documents
 
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
 - [[docs/debug/H6_NODE_SURVIVAL_MAP|H6 Node Survival Map]] — `debug_docs`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|EXP0003 — M0002 Reversal/Continuation Exit Volatility]] — `experiment`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004 — Branch Regime Clustering]] — `hypothesis`
 - [[docs/debug/H6_CANDLE_STREAM_FAST|H6 Candle-Stream Fast Optionality]] — `debug_docs`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007 — Flag Counting / F1 Start Structure]] — `mql_native_docs`
 - [[docs/debug/H6_REACTION_BOX_ZONES|H6 Reaction Box Zones]] — `debug_docs`

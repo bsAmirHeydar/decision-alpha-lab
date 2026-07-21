@@ -3,7 +3,7 @@ title: "Flag Counting V6 Experiment — Archived"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6.md"
+source_path: "docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "483"
@@ -15,7 +15,7 @@ concepts:
 
 # Flag Counting V6 Experiment — Archived
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6.md]]
+**Source:** [[docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6|docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6.md]]
 
 **Category:** `experiment`  
 **Status:** ok  

@@ -48,13 +48,13 @@ EXP0012, H0008
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `14`
 - [signals.yaml](../../registry/signals.yaml) — score `14`
 - [[docs/research/H0009_astro_feature_store_distribution_engineering|H0009_astro_feature_store_distribution_engineering.md]] — score `13`
-- [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|H0008_distribution_engineering_sequence_clusters.md]] — score `13`
+- [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008_distribution_engineering_sequence_clusters.md]] — score `13`
 - [H0008_EXP0012_distribution_engineering.yaml](../../registry/patches/H0008_EXP0012_distribution_engineering.yaml) — score `12`
 - [[docs/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA|AI_NATIVE_EXECUTION_ROADMAP_FA.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V2|FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3|FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md]] — score `12`
 - [[docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4|FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md]] — score `12`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `12`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `12`
 
 ## Obsidian Use
 

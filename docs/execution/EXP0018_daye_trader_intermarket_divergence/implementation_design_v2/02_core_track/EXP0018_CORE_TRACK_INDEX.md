@@ -27,7 +27,7 @@
 - [[PHASE10_TWO_AND_TDO_ANCHOR_RENDERER_DESIGN_PACKET|P10 — رندر Anchorهای TWO و TDO]] — `blocked_by_doctrine`
 - [[PHASE11_HISTORICAL_REPLAY_AND_BACKFILL_ENGINE_DESIGN_PACKET|P11 — موتور بازپخش تاریخی و Backfill]] — `not_started`
 - [[PHASE12_AUDIT_LEDGER_AND_DIAGNOSTICS_DESIGN_PACKET|P12 — دفتر ممیزی و Diagnostics]] — `not_started`
-- [[PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET|P13 — کنترل کیفیت، اعتبارسنجی ناظر و نسخه آزمایشی Core]] — `not_started`
+- [[docs/evidence/p13_core/08fbec8ae46c_PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET|P13 — کنترل کیفیت، اعتبارسنجی ناظر و نسخه آزمایشی Core]] — `not_started`
 ## بسته تفصیلی P00
 
 - [[../07_phase00_doctrine_freeze_v2/00_INDEX|P00 Doctrine Freeze v2 — Index]]

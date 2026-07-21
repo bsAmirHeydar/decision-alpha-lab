@@ -41,7 +41,7 @@ D0010, H0004, M0001, VAL0010
 - [[lab/09_execution/mql5/README|README.md]] — score `23`
 - [[docs/research_lessons_and_failure_modes|research_lessons_and_failure_modes.md]] — score `20`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] — score `20`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `20`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `20`
 - [[README|README.md]] — score `20`
 - [[docs/articles/structural_regime_memory_without_samples|structural_regime_memory_without_samples.md]] — score `18`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `18`

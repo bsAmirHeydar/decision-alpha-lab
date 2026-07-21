@@ -36,7 +36,7 @@ How important is node freshness? Very old nodes may be special or irrelevant. We
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

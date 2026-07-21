@@ -1,19 +1,17 @@
-# Install EXP0017 English Knowledge Base Patch
+---
+title: "Redirect — INSTALL EXP0017 ENGLISH KNOWLEDGE BASE PATCH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_334FEF68DADC67C4D2C4E7166CD88B48
+source_digest: sha256:6915f5881db3d2183b8ec996e7136cfad291ebd3427cb2fe18bcc778cff02eca
+canonical_target: docs/releases/legacy_migration/general/334fef68dadc_INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch adds English documentation for:
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/334fef68dadc_INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH|INSTALL EXP0017 ENGLISH KNOWLEDGE BASE PATCH]].
 
-- Strategy Architect Chapters 01-20.
-- Phase 00 Master Doctrine.
-- Phase 01 Time Anatomy.
-- Full professional implementation roadmap.
-- Obsidian MOCs, document cards, concept notes, decision maps, and checklist.
-
-No MQL5 code is changed in this patch.
-
-## Main Folder
-
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base`
-
-## Suggested Command
-
-Use the PowerShell command from the assistant response to expand, remove the zip, stage the new English documentation, and commit.
+Do not edit this redirect as doctrine.

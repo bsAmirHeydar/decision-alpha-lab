@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions.md"
+source_path: "docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md"
 source_ext: ".md"
 source_size: 1666
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/08_open_questions.md]]
+[[docs/evidence/08_open_questions/18e20583bb82_08_open_questions|docs/evidence/08_open_questions/18e20583bb82_08_open_questions.md]]
 
 ## Summary
 
@@ -38,14 +38,14 @@ The core strategy is locked. The items below are not blockers for the research/p
 
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `10`
-- [[lab/05_validation/VAL001/report|report.md]] — score `10`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `10`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `10`
+- [[docs/evidence/val001/360462a17ab1_report|report.md]] — score `10`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `10`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|06_mql5_architecture_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers|11_algorithm_layers.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|17_implementation_plan.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|18_module_breakdown.md]] — score `9`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|19_patch_build_sequence.md]] — score `9`
+- [[docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers|11_algorithm_layers.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|17_implementation_plan.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown|18_module_breakdown.md]] — score `9`
+- [[docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence|19_patch_build_sequence.md]] — score `9`
 
 ## Obsidian Use
 

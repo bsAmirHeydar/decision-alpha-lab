@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "mql5/Include/Execution/README_DAL_ExecRouletteRisk.md"
+source_path: "docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk.md"
 source_ext: ".md"
 source_size: 4243
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[mql5/Include/Execution/README_DAL_ExecRouletteRisk|mql5/Include/Execution/README_DAL_ExecRouletteRisk.md]]
+[[docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk|docs/releases/legacy_migration/general/1479d43ce853_README_DAL_ExecRouletteRisk.md]]
 
 ## Summary
 

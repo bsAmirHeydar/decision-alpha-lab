@@ -1,63 +1,17 @@
-# EXP0013 Astro Dashboard V9 - Stable In-Place Updates
+---
+title: "Redirect — ASTRO DASHBOARD V9 STABLE IN PLACE UPDATE"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_CE83846C8724542DFD0A2B57E02707E6
+source_digest: sha256:63f72b75ed58cb71fc16b996f93115bd6fd72e26c24b22f59abebe351c8c3eb7
+canonical_target: docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch fixes the most important UI behavior problem:
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE|ASTRO DASHBOARD V9 STABLE IN PLACE UPDATE]].
 
-> The dashboard was fully deleting and rebuilding all objects on every timer refresh.
-
-That made the whole panel feel like it was resetting instead of simply updating the numbers.
-
-## What changed
-
-### Before
-
-Every `OnTimer()` render did:
-
-```text
-Delete all dashboard objects
-Create everything again
-```
-
-This caused:
-
-- flicker
-- full layout reset
-- buttons looking like they refresh constantly
-- visual instability
-- unnecessary object churn
-
-### Now
-
-Normal timer refresh does **in-place update only**:
-
-```text
-same object names
-same layout
-only text / values / bars / colors update
-```
-
-Full cleanup/rebuild only happens when it is actually needed:
-
-- EA init
-- EA deinit
-- chart resize/change
-- user clicks a mode/layout button
-- user toggles text or oscillator panel
-
-## Practical effect
-
-On each candle / timer refresh, the dashboard should remain visually stable.
-Only the metric values, status values, bars, and small oscillator points should update.
-
-## Why this is the right behavior
-
-For this dashboard, the shape/layout is static most of the time.
-The only dynamic part is the astro state for the current candle or live CSV window.
-
-So the rendering model should be:
-
-```text
-layout rebuild = rare
-value update   = frequent
-```
-
-This patch implements that distinction.
+Do not edit this redirect as doctrine.

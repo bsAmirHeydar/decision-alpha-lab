@@ -1,0 +1,8 @@
+# Optional challengers and reporting. The core Strategy Factory uses the
+# repository's existing numpy/pandas/pyarrow/pytest dependencies.
+scikit-learn>=1.4
+scipy>=1.11
+matplotlib>=3.8
+
+# Optional YAML plan specifications. JSON remains dependency-free.
+PyYAML>=6.0

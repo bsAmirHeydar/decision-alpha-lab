@@ -36,11 +36,11 @@ M0001
 
 ## Related Source Documents
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `21`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `21`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `21`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `21`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `19`
 - [[docs/mql_native/M0001_CANDLE_GATED_RUNTIME|M0001_CANDLE_GATED_RUNTIME.md]] — score `14`
-- [[docs/mql_native/M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
+- [[docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT|M0001_EXCEL_AUDIT_REPORT.md]] — score `14`
 - [[docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS|M0001_PROFESSIONAL_VALIDATION_METRICS.md]] — score `14`
 - [[docs/mql_native/M0001_PROJECT_REPORT_SYNC|M0001_PROJECT_REPORT_SYNC.md]] — score `14`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `14`

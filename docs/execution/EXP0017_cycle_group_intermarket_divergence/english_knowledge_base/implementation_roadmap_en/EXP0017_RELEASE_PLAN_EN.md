@@ -1,40 +1,17 @@
-# EXP0017 — Release Plan
+---
+title: "Redirect — EXP0017 RELEASE PLAN EN"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_2B1BD81F1250AAD9DD3E98A8B8F90D32
+source_digest: sha256:459784a8271b75c4c6d13e4f289c9c1b8af00ba23f481bebd2bdc8f5eb76e6f4
+canonical_target: docs/evidence/exp0017_release_plan/2b1bd81f1250_EXP0017_RELEASE_PLAN_EN.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Release A — Observation Foundation
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0017_release_plan/2b1bd81f1250_EXP0017_RELEASE_PLAN_EN|EXP0017 RELEASE PLAN EN]].
 
-- Phase 00 Master Doctrine.
-- Phase 01 Time Anatomy.
-- Phase 02 Symbol Pair Anatomy.
-- Phase 03 Reference Field.
-
-## Release B — Signal Anatomy
-
-- Phase 04 Hunt Anatomy.
-- Phase 05 Divergence Anatomy.
-- Phase 06 Confirmation / Invalidation.
-- Phase 07 Drawing.
-
-## Release C — Statistical Memory
-
-- Phase 08 Signal Ledger.
-- Phase 09 Outcome Engine.
-- Phase 10 Reports.
-- Phase 11 Model Dataset.
-
-## Release D — Ranking and Governance
-
-- Phase 12 Ranking Layer.
-- Phase 13 Decision Promotion Gate.
-
-## Release E — Execution
-
-- Phase 14 Raw Execution.
-- Phase 15 Filtered Execution.
-
-## Release F — AI Analyst
-
-- Phase 16 AI Analyst Layer.
-
-## Non-Negotiable
-
-Execution must not be allowed to precede anatomy. AI must not be allowed to precede statistics. Optimization must not be allowed to contaminate the base sample.
+Do not edit this redirect as doctrine.

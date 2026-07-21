@@ -57,8 +57,8 @@ source_count: 32
 | [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] | H0004, H0005, M0001, M0002 | This report summarizes the project findings from the GOLD M10 H4/H5 logs and the subsequent code-audit discussion. Instrument: GOLD Timeframe: M10 Bars: approxi |
 | [[docs/research-roadmap|research-roadmap.md]] | — | Objective: determine whether decision nodes can be systematically extracted from price. Status: active foundation. Objective: model structural nodes as zones wi |
 | [[docs/research_lessons_and_failure_modes|research_lessons_and_failure_modes.md]] | D0009, D0010, H0004, H0005 | This document records the most important lessons learned during the H0004 and H0005 development process. Completed branch samples are useful for discovery. They |
-| [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] | H0004, H0005, M0001, M0002 | Do reversal and continuation branch regimes display persistence beyond random ordering when measured by the time at which the regime became knowable? The classi |
-| [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] | H0005, M0001 | If the latest known structural regime is reversal or continuation, does it improve the next structural decision in a way that can become executable alpha? The o |
+| [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] | H0004, H0005, M0001, M0002 | Do reversal and continuation branch regimes display persistence beyond random ordering when measured by the time at which the regime became knowable? The classi |
+| [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005_directional_memory_atomic.md]] | H0005, M0001 | If the latest known structural regime is reversal or continuation, does it improve the next structural decision in a way that can become executable alpha? The o |
 
 ## Trace Targets
 

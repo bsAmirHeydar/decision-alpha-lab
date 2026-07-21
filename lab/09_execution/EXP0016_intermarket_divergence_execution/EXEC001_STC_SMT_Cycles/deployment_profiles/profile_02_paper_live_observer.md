@@ -1,48 +1,17 @@
-# Profile 02 — Paper Live Observer
+---
+title: "Redirect — profile 02 paper live observer"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_A5BA94007B51F2BCD885A7FDDDAF2B49
+source_digest: sha256:e84bf6ab512b4b5950a0311cfcdb2fb2886eee021264e7a048a9753e4edf2a20
+canonical_target: docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Intent
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer|profile 02 paper live observer]].
 
-Run the live STC logic without broker interaction.
-
-## Required mode
-
-- Runtime mode: Paper Live.
-
-## Real transports
-
-Disabled:
-
-- Real auto-entry.
-- Real partial close.
-- Real hard close finalizer.
-- Broker close actions.
-
-Broker position manager should normally be off in this profile.
-
-## Alerts
-
-Enable:
-
-- signal alerts;
-- paper entry alerts;
-- paper outcome alerts;
-- partial paper alerts;
-- hard close paper alerts;
-- ambiguity alerts.
-
-Disable replay-on-init unless debugging.
-
-## Drawing
-
-Drawing should normally be enabled so that the operator can visually compare:
-
-- M/W boundaries;
-- W high/low levels;
-- check candle state;
-- entry/SL/TP;
-- partial and hard close markers.
-
-## Acceptance criteria
-
-This profile passes when live alerts match the CSV rows and no real broker action occurs.
-
+Do not edit this redirect as doctrine.

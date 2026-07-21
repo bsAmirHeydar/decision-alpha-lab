@@ -12,6 +12,6 @@ document_count: "1"
 
 ## Documents
 
-- [[licenses/README_LICENSE_ISSUER|Offline License Issuer Folder]] — [[docs/obsidian/03_document_cards/licenses__README_LICENSE_ISSUER|card]] — `license_docs`
+- [[docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER|Offline License Issuer Folder]] — [[docs/obsidian/03_document_cards/licenses__README_LICENSE_ISSUER|card]] — `license_docs`
 
 ## Folder relationships

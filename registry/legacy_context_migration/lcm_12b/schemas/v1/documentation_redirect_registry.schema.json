@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm12b/documentation_redirect_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "phase_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "redirect_loop_count": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "redirect_requirement_count": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "registry_digest": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "registry_id": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "registry_id",
+    "redirect_requirement_count",
+    "redirect_loop_count",
+    "registry_digest"
+  ],
+  "title": "documentation_redirect_registry.schema.json",
+  "type": "object"
+}

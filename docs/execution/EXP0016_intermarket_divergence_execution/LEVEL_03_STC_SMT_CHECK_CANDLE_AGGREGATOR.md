@@ -2,7 +2,7 @@
 
 This document mirrors the implementation-level notes for:
 
-`lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md`
+`docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md`
 
 Level 03 adds the M1-based check-candle data layer for EXEC001 STC SMT Cycles.
 

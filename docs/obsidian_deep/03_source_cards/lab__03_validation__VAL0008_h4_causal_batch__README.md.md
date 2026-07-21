@@ -43,7 +43,7 @@ H0004, VAL0008
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `13`
 - [[docs/reports/2026-06-20_h4_h5_gold_m10_report|2026-06-20_h4_h5_gold_m10_report.md]] — score `13`
 - [[docs/research_lessons_and_failure_modes|research_lessons_and_failure_modes.md]] — score `13`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `13`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004_branch_regime_memory_atomic.md]] — score `13`
 
 ## Obsidian Use
 

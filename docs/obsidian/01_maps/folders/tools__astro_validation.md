@@ -13,7 +13,7 @@ document_count: "2"
 ## Documents
 
 - [[tools/astro_validation/README|Astro Signal Validator]] — [[docs/obsidian/03_document_cards/tools__astro_validation__README|card]] — `tool_docs`
-- [[tools/astro_validation/README_pure_entry_excel|Pure Astro Entry Excel Report]] — [[docs/obsidian/03_document_cards/tools__astro_validation__README_pure_entry_excel|card]] — `tool_docs`
+- [[docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel|Pure Astro Entry Excel Report]] — [[docs/obsidian/03_document_cards/tools__astro_validation__README_pure_entry_excel|card]] — `tool_docs`
 
 ## Folder relationships
 

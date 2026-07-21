@@ -26,7 +26,7 @@ concepts:
 
 ## خلاصه
 
-This document indexes the Level 06 implementation for EXEC001 STC SMT Cycles. Level 06 converts raw touch-only previous-W hunts into audit-only SMT candidate rows. It adds: high-side SMT candidate detection, low-side SMT candidate detection, clean-symbol trade mapping, same-check buy/sell forgetting, largest-stop reference selection using the clean symbol check close as the provisional entry proxy, candidate audit CSV output. It still does not confirm, consume, trade, simulate, draw, partially close, or hard-close positions. Primary detailed document: `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine.md`
+This document indexes the Level 06 implementation for EXEC001 STC SMT Cycles. Level 06 converts raw touch-only previous-W hunts into audit-only SMT candidate rows. It adds: high-side SMT candidate detection, low-side SMT candidate detection, clean-symbol trade mapping, same-check buy/sell forgetting, largest-stop reference selection using the clean symbol check close as the provisional entry proxy, candidate audit CSV output. It still does not confirm, consume, trade, simulate, draw, partially close, or hard-close positions. Primary detailed document: `docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine.md`
 
 ## Headings
 
@@ -44,7 +44,7 @@ This document indexes the Level 06 implementation for EXEC001 STC SMT Cycles. Le
 
 ## Related documents
 
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/27_level_06_smt_candidate_engine|Level 06 — SMT Candidate Engine]] — `experiment`
+- [[docs/evidence/level_06_smt_candidate_engine/97fffdd7f422_27_level_06_smt_candidate_engine|Level 06 — SMT Candidate Engine]] — `experiment`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_03_STC_SMT_CHECK_CANDLE_AGGREGATOR|LEVEL 03 — STC SMT Check Candle Aggregator]] — `execution_docs`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_08_STC_SMT_RISK_PLAN_PAPER_ENTRY|Level 08 STC SMT Risk Plan and Paper Entry]] — `execution_docs`
 - [[docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_09_STC_SMT_PAPER_OUTCOME_SIMULATOR|LEVEL 09 — STC SMT Paper Outcome Simulator]] — `execution_docs`

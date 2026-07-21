@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP0002_mql_native_m0001/report.md"
+source_path: "docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md"
 source_ext: ".md"
 source_size: 688
 empty: false
@@ -14,7 +14,7 @@ entities: ["EXP0002", "M0001"]
 
 ## Source
 
-[[lab/03_experiments/EXP0002_mql_native_m0001/report|lab/03_experiments/EXP0002_mql_native_m0001/report.md]]
+[[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md]]
 
 ## Summary
 

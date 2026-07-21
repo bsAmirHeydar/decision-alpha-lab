@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md"
+source_path: "docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md"
 source_ext: ".md"
 source_size: 989
 empty: false
@@ -14,7 +14,7 @@ entities: ["M0007"]
 
 ## Source
 
-[[lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX|lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md]]
+[[docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX|docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md]]
 
 ## Summary
 

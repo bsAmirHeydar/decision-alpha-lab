@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0004_branch_regime_memory_atomic.md"
+source_path: "docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md"
 source_ext: ".md"
 source_size: 2301
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0004", "H0005", "M0001", "M0002"]
 
 ## Source
 
-[[lab/02_hypotheses/H0004_branch_regime_memory_atomic|lab/02_hypotheses/H0004_branch_regime_memory_atomic.md]]
+[[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md]]
 
 ## Summary
 
@@ -50,7 +50,7 @@ H0004, H0005, M0001, M0002
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `27`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|H0005_contextual_branch_regime_state.md]] — score `27`
 - [[docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER|H0005_R1_SIX_SLOT_TOUCH_LEDGER.md]] — score `27`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `26`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `26`
 - [[docs/articles/structural_regime_memory_without_samples|structural_regime_memory_without_samples.md]] — score `25`
 
 ## Obsidian Use

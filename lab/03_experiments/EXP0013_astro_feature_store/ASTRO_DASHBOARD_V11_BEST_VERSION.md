@@ -1,18 +1,17 @@
-# EXP0013 Astro Dashboard V11 - Best Version
+---
+title: "Redirect — ASTRO DASHBOARD V11 BEST VERSION"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_5F8623D9015329D2EBB62E5351445839
+source_digest: sha256:caffb39fa29ec9790cd9150f311b46989ee9e1681172f3ac007df848fba3284a
+canonical_target: docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This is the most polished dashboard build so far. It keeps the stable in-place update behavior from V9, and improves layout quality beyond V10.
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION|ASTRO DASHBOARD V11 BEST VERSION]].
 
-## What improved
-
-- cleaner and slightly smaller header so all top information fits neatly
-- larger buttons with smaller captions so text stays inside the controls
-- denser but cleaner header status area
-- better dynamic spacing for metric labels, values, buckets, and bars
-- wider reserved label area for the left column so overlap is reduced further
-- more balanced diagnostics panel spacing
-- more polished compact oscillator spacing and history width
-- still updates in place instead of rebuilding the whole UI on every refresh
-
-## Result
-
-This build is meant to be the default premium cockpit version for current EXP0013 live observation work.
+Do not edit this redirect as doctrine.

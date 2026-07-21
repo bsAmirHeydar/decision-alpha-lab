@@ -39,7 +39,7 @@ The exact width of near-death permission is still open and cannot become a blind
 ## Concepts
 
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 
 ## Related documents

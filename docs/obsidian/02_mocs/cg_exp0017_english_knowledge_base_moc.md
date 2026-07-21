@@ -2,7 +2,7 @@
 
 ## Core
 
-- [[README_EXP0017_ENGLISH_KNOWLEDGE_BASE]]
+- [[docs/releases/legacy_migration/general/524435ab3496_README_EXP0017_ENGLISH_KNOWLEDGE_BASE]]
 - [[EXP0017_FULL_IMPLEMENTATION_ROADMAP_EN]]
 
 ## Strategy Architect Chapters

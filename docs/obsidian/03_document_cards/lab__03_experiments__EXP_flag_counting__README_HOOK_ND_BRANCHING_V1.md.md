@@ -3,7 +3,7 @@ title: "Hook / ND Branching V1"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md"
+source_path: "docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "977"
@@ -17,7 +17,7 @@ concepts:
 
 # Hook / ND Branching V1
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1|lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md]]
+**Source:** [[docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1|docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -36,7 +36,7 @@ This experiment now has a dedicated Hook / ND branch-sequence specification. Rea
 - [[docs/obsidian/04_concepts/AI_Agent_Layer|AI Agent Layer]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

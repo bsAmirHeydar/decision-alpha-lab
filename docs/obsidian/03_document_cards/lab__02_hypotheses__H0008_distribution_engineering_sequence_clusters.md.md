@@ -3,7 +3,7 @@ title: "H0008 — Distribution Engineering for Conditional Sequence Extraction"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md"
+source_path: "docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "3152"
@@ -19,7 +19,7 @@ concepts:
 
 # H0008 — Distribution Engineering for Conditional Sequence Extraction
 
-**Source:** [[lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters|lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md]]
+**Source:** [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -51,17 +51,17 @@ Draft / next hypothesis. **Distribution Engineering for Conditional Sequence Ext
 - [[docs/obsidian/04_concepts/Convexity|Convexity]]
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/Known-Time_Causality|Known-Time Causality]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 
 - [[docs/research/H0008_distribution_engineering|H0008 — Distribution Engineering]] — `research_docs`
 - [[docs/articles/distribution_engineering_for_conditional_sequence_extraction|H0008 — Distribution Engineering Instead of Raw Edge Hunting]] — `article_docs`
-- [[lab/02_hypotheses/H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
-- [[lab/02_hypotheses/H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
-- [[lab/02_hypotheses/H0002_structural_node_revisitation|H0002 — Structural Node Territories and Revisitation Dynamics]] — `hypothesis`
-- [[lab/02_hypotheses/H0006_reversal_explosive_optionality|H0006 — Node Survival Edge Map]] — `hypothesis`
-- [[lab/02_hypotheses/H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
+- [[docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic|H0004 — Branch Regime Memory]] — `hypothesis`
+- [[docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic|H0005 — Directional Memory and Execution]] — `hypothesis`
+- [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|H0002 — Structural Node Territories and Revisitation Dynamics]] — `hypothesis`
+- [[docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality|H0006 — Node Survival Edge Map]] — `hypothesis`
+- [[docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure|H0007 — Flag Counting / F1 Start Structure]] — `hypothesis`
 - [[docs/debug/E0008/README|E0008 — MTF Purple Extreme Executor]] — `debug_docs`
 - [[docs/debug/H4_DEEP_H6_OPTIONALITY_REPORT|H4 Deep Atomic Report + H6 Reversal Optionality]] — `debug_docs`
 - [[docs/debug/H6_FAST_ACCURATE_OPTIONALITY|H6 Fast Accurate Optionality Report]] — `debug_docs`

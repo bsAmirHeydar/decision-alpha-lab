@@ -34,13 +34,13 @@ EXP0002, H0001, M0001
 
 ## Related Source Documents
 
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `13`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `13`
 - [[docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE|H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md]] — score `12`
 - [[docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING|H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md]] — score `12`
 - [[docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE|H0007_FLAG_COUNTING_F1_START_STRUCTURE.md]] — score `12`
 - [[docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY|M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md]] — score `12`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `12`
-- [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|H0002_hunt_vs_reject_post_exit_volatility.md]] — score `12`
+- [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|H0002_hunt_vs_reject_post_exit_volatility.md]] — score `12`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
 - [[README|README.md]] — score `12`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `10`

@@ -3,7 +3,7 @@ title: "Phoenix Validation Case Template"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md"
+source_path: "docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md"
 source_ext: ".md"
 category: "experiment"
 source_size_bytes: "1212"
@@ -19,7 +19,7 @@ concepts:
 
 # Phoenix Validation Case Template
 
-**Source:** [[lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE|lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md]]
+**Source:** [[docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE|docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md]]
 
 **Category:** `experiment`  
 **Status:** ok  
@@ -39,7 +39,7 @@ Validation must be run after Level 11.5 export and Level 12 renderer. Missing ex
 - [[docs/obsidian/04_concepts/Execution|Execution]]
 - [[docs/obsidian/04_concepts/F-Counting|F-Counting]]
 - [[docs/obsidian/04_concepts/Hook|Hook]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 - [[docs/obsidian/04_concepts/Structural_Nodes|Structural Nodes]]
 - [[docs/obsidian/04_concepts/Validation|Validation]]
 

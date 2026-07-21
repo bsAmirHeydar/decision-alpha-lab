@@ -54,7 +54,7 @@ NDS training must be layered, cumulative, inspectable, and consolidating. The AI
 - [[docs/experience_capture/answers/EXE-R01/notes_en|notes_en.md]] — score `14`
 - [[docs/experience_capture/answers/NDS-R01/answer_normalized_en|answer_normalized_en.md]] — score `14`
 - [[docs/flag_counting/README|README.md]] — score `14`
-- [[lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `14`
+- [[docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY|README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md]] — score `14`
 
 ## Obsidian Use
 

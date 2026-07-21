@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md"
+source_path: "docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md"
 source_ext: ".md"
 source_size: 6479
 empty: false
@@ -14,7 +14,7 @@ entities: []
 
 ## Source
 
-[[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/05_execution_and_risk.md]]
+[[docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk|docs/evidence/05_execution_risk_position_management_outcomes/e6e53a81ed12_05_execution_and_risk.md]]
 
 ## Summary
 
@@ -47,14 +47,14 @@ Backtest: The strategy confirms at the close of a check candle. Entry price is t
 
 - [[lab/03_experiments/EXP0004_mql_native_m0004/report|report.md]] — score `14`
 - [signals.yaml](../../registry/signals.yaml) — score `14`
-- [[lab/05_validation/VAL_M0001_MQL_NATIVE/report|report.md]] — score `14`
+- [[docs/evidence/val_m0001_mql_native/454e81f9f0b3_report|report.md]] — score `14`
 - [[lab/03_experiments/EXP0003_mql_native_m0002/report|report.md]] — score `12`
-- [[lab/03_experiments/EXP0002_mql_native_m0001/report|report.md]] — score `12`
+- [[docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report|report.md]] — score `12`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/03_cycle_calendar|03_cycle_calendar.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/06_mql5_architecture_plan|06_mql5_architecture_plan.md]] — score `11`
 - [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/13_data_model_and_journals|13_data_model_and_journals.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist|16_implementation_checklist.md]] — score `11`
-- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|17_implementation_plan.md]] — score `11`
+- [[docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist|16_implementation_checklist.md]] — score `11`
+- [[docs/evidence/exec001_stc_smt_cycles_implementation_plan/0d054880f96a_17_implementation_plan|17_implementation_plan.md]] — score `11`
 
 ## Obsidian Use
 

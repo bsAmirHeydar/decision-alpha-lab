@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md`
+`docs/releases/legacy_migration/general/524435ab3496_README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md`
 
 ## Role
 

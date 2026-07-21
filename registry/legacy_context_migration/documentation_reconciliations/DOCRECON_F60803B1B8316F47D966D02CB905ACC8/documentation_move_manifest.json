@@ -1,0 +1,29 @@
+{
+  "all_legacy_paths_exist": true,
+  "all_targets_exist": true,
+  "approved_candidate_count": 656,
+  "claim_ceiling": "LCM_12B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hash_protected_active_compatibility_count": 352,
+  "manifest_digest": "sha256:2f4cd5ad38a4a513be743798075d8e965d9bdeb3e85a22b5ba8089a977d7b5dc",
+  "manifest_id": "DOCMOVEMAN_7A3CC728636A8A0CD11BCE0551C27310",
+  "master_phase": "LCM-12",
+  "move_records_path": "records/documentation_move_records.jsonl",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12B",
+  "policy_active_compatibility_count": 168,
+  "producer": "tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService",
+  "reconciliation_id": "DOCRECON_F60803B1B8316F47D966D02CB905ACC8",
+  "redirect_materialized_count": 136,
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_delete_count": 0,
+  "source_digests": [
+    "sha256:020ea2360275ae066eded754c0879869b5d57058cc961017caa34e23473d5645",
+    "sha256:b1ca25c852780e27e0bfb3aa10a6f4cdde7c360ea0c5f0fcfccadc44d4efb882"
+  ],
+  "target_materialized_count": 656,
+  "validation_status": "PASS"
+}

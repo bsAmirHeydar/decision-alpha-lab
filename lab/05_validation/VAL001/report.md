@@ -1,85 +1,17 @@
 ---
-title: "Val001"
-type: generated_scaffold
-generated_by: alpha_lab_obsidian_builder
-generated_at: 2026-07-06
-source_path: "lab/05_validation/VAL001/report.md"
-category: "validation"
-status: "scaffold"
+title: "Redirect — report"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_360462A17AB17267AA6D96A3FC6E91BF
+source_digest: sha256:be5434c765bc1091a05ba51fb2e7ffed25374c1021c83a2b6b65965bb9fd4007
+canonical_target: docs/evidence/val001/360462a17ab1_report.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
 ---
+# Redirect
 
-# Val001 — Report
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/val001/360462a17ab1_report|report]].
 
-این فایل در نسخه ورودی خالی بود؛ این scaffold برای Obsidian و ادامه کار تحقیقاتی تولید شده است.
-
-## نقش این گزارش
-
-این report باید نتیجه قابل audit مرحله مربوط را ثبت کند: فرضیه، داده، روش، baseline، metric، failure mode و تصمیم نهایی.
-
-## Context
-
-- Source path: `lab/05_validation/VAL001/report.md`
-- Category: `validation`
-- Parent folder: `lab/05_validation/VAL001`
-- Related entities: `VAL001`
-
-## Required sections
-
-### 1. Objective
-
-هدف دقیق این مرحله چیست؟
-
-### 2. Inputs
-
-- symbol / market:
-- timeframe:
-- date range:
-- source data:
-- assumptions:
-
-### 3. Method
-
-روش اجرای تست، replay، audit یا تحلیل را با جزئیات بنویس.
-
-### 4. Metrics
-
-- net R:
-- max drawdown:
-- profit factor:
-- win rate:
-- average R:
-- convex tail / max R:
-- regime coverage:
-- sample size:
-
-### 5. Result
-
-نتیجه خام و بدون تفسیر احساسی.
-
-### 6. Interpretation
-
-آیا نتیجه evidence واقعی دارد یا صرفاً artifact است؟
-
-### 7. Failure modes
-
-- lookahead:
-- sample leakage:
-- parameter sensitivity:
-- outlier dependence:
-- transaction cost sensitivity:
-
-### 8. Decision
-
-- [ ] accept
-- [ ] reject
-- [ ] inconclusive
-- [ ] needs more data
-
-## Related documents
-
-
-## Obsidian links
-
-- [[00_OBSIDIAN_START_HERE|Start Here]]
-- [[docs/obsidian/00_command_center|Command Center]]
-- [[docs/obsidian/01_maps/all_documents_index|All Documents Index]]
+Do not edit this redirect as doctrine.

@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md"
+source_path: "docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md"
 source_ext: ".md"
 source_size: 530
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0003", "M0001", "M0002"]
 
 ## Source
 
-[[lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering|lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md]]
+[[docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering|docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md]]
 
 ## Summary
 
@@ -42,7 +42,7 @@ H0003, M0001, M0002
 - [[docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING|H0004_BRANCH_REGIME_CLUSTERING.md]] — score `23`
 - [[docs/mql_native/MODULE_MAP|MODULE_MAP.md]] — score `23`
 - [[lab/02_hypotheses/H0005_contextual_branch_regime_state|H0005_contextual_branch_regime_state.md]] — score `22`
-- [[lab/02_hypotheses/H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `19`
+- [[docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering|H0004_branch_regime_clustering.md]] — score `19`
 - [[docs/architecture|architecture.md]] — score `18`
 
 ## Obsidian Use

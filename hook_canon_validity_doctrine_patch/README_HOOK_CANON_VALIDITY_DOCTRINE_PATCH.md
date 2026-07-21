@@ -1,52 +1,17 @@
-# Hook Canon Validity Doctrine Patch
+---
+title: "Redirect — README HOOK CANON VALIDITY DOCTRINE PATCH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_CDE7C64F1C1359D1EB38AB35EBD423F0
+source_digest: sha256:b1f80d5a30934ea5dc42a4ae437148186e957ba8a0b032ff5ab3e63faaf5476a
+canonical_target: docs/releases/legacy_migration/general/cde7c64f1c13_README_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-This patch adds the definitive English documentation and Obsidian knowledge layer for the Alpha Lab Hook validity model.
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/cde7c64f1c13_README_HOOK_CANON_VALIDITY_DOCTRINE_PATCH|README HOOK CANON VALIDITY DOCTRINE PATCH]].
 
-It resolves the ambiguity around:
-
-- what a valid Hook is;
-- when a Hook after F3 is valid;
-- when a Hook after Hook is valid;
-- how positive and negative Hook terminals are defined;
-- what valid-only rendering must show;
-- what must be hidden in valid-only mode;
-- how node labels, sequence labels, and cycle arcs must be filtered.
-
-## Scope
-
-Documentation only.
-
-No code is changed.
-
-## Important doctrine
-
-A Hook is production-visible only if it belongs to one of these two families:
-
-1. **Hook After Opposing F3**  
-   A Hook formed from the terminal area of the most recent opposing F3.
-
-2. **Hook After Hook**  
-   A second Hook of the same kind whose origin starts from the terminal/death-near area of a completed previous Hook cycle.
-
-When Hook-2 is valid by the Hook-after-Hook rule, Hook-1 must also be rendered with full detail as its parent companion.
-
-## Install
-
-Expand this patch into the project root.
-
-```powershell
-Expand-Archive -Path .\alpha_lab_hook_canon_validity_doctrine_patch.zip -DestinationPath . -Force
-Remove-Item .\alpha_lab_hook_canon_validity_doctrine_patch.zip
-```
-
-Then open:
-
-```text
-00_HOOK_CANON_VALIDITY_DOCTRINE_START_HERE.md
-```
-
-or in Obsidian:
-
-```text
-docs/obsidian_hook/00_mocs/HOOK_CANON_MOC.md
-```
+Do not edit this redirect as doctrine.

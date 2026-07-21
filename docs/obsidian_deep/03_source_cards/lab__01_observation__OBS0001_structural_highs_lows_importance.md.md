@@ -1,7 +1,7 @@
 
 ---
 type: source_card
-source_path: "lab/01_observation/OBS0001_structural_highs_lows_importance.md"
+source_path: "docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md"
 source_ext: ".md"
 source_size: 2248
 empty: false
@@ -14,7 +14,7 @@ entities: ["H0001"]
 
 ## Source
 
-[[lab/01_observation/OBS0001_structural_highs_lows_importance|lab/01_observation/OBS0001_structural_highs_lows_importance.md]]
+[[docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance|docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md]]
 
 ## Summary
 
@@ -41,8 +41,8 @@ H0001
 
 - [hypotheses.yaml](../../registry/hypotheses.yaml) — score `15`
 - [[docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM|H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md]] — score `11`
-- [[lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `11`
-- [[lab/02_hypotheses/H0002_structural_node_revisitation|H0002_structural_node_revisitation.md]] — score `11`
+- [[docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes|H0001_structural_highs_lows_as_decision_nodes.md]] — score `11`
+- [[docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation|H0002_structural_node_revisitation.md]] — score `11`
 - [[docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README|H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md]] — score `9`
 - [[docs/mql_native/H0001_H0004_RESEARCH_LOCK|H0001_H0004_RESEARCH_LOCK.md]] — score `9`
 - [[docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE|H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE.md]] — score `9`

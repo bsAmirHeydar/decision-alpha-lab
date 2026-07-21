@@ -1,0 +1,70 @@
+{
+  "allowed_next_actions": [
+    "BUILD_DUAL_RUN_HARNESS",
+    "COLLECT_CONSUMER_MISMATCHES",
+    "BIND_CUTOVER_FACING_CONSUMER_DOCUMENTATION"
+  ],
+  "blocked_dimensions": [
+    "OWNER_DECISIONS_FOR_UPSTREAM_CONTRADICTIONS",
+    "RESIDUAL_AMBIGUOUS_OR_UNRESOLVED_LINKS",
+    "BLOCKING_CANONICAL_ORPHAN_REVIEW"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_12B_REFERENCE_ONLY",
+  "completed_gates": [
+    "ALL_APPROVED_TARGETS_MATERIALIZED",
+    "ALL_LEGACY_LOCATORS_RETAINED",
+    "NO_DOCUMENT_DELETED",
+    "ALL_REWRITTEN_DESTINATIONS_EXIST",
+    "NO_CANONICAL_BASENAME_COLLISION",
+    "GENERATED_SOURCE_AND_PRODUCER_BOUND",
+    "GENERATED_AUTHORITY_NOT_ESCALATED",
+    "REDIRECT_LOOP_FREE",
+    "CANONICAL_MOC_EXISTS",
+    "CONTRADICTIONS_PRESERVED"
+  ],
+  "consumer_documentation": {
+    "canonical_moc_path": "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+    "canonical_registry_path": "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8/canonical_knowledge_registry.json",
+    "redirect_registry_path": "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8/documentation_redirect_registry.json"
+  },
+  "deterministic_identity": true,
+  "documentation_registry_digest": "sha256:f943807110463d52b153526227422bba46714c64644c9b1769cc930b22da638e",
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "PRODUCTION_CONSUMER_SWITCH",
+    "DELETE_LEGACY_DOCUMENT",
+    "QUARANTINE_DOCUMENT",
+    "PROMOTE_GENERATED_PROJECTION_TO_AUTHORITY",
+    "SILENTLY_HARMONIZE_CONTRADICTION",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "generated_at": null,
+  "generated_document_registry_digest": "sha256:35b902f7a6e3e1ed0e38b78044892474ed16b920da23b301f91811c4ef7022c6",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:e4116f346c2351d415f41fff605d6c2af88754452ad7ac3cba700820f6a6dc38",
+  "handoff_id": "LCM12BHANDOFF_7A3CC728636A8A0CD11BCE0551C27310",
+  "handoff_type": "LCM12B_TO_LCM13A",
+  "link_report_digest": "sha256:5d7a51bc055f33c907328d68c63ad10709c4f45a8af49ea31b64b30f5a828492",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-12",
+  "move_manifest_digest": "sha256:2f4cd5ad38a4a513be743798075d8e965d9bdeb3e85a22b5ba8089a977d7b5dc",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12B",
+  "producer": "tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService",
+  "reconciliation_id": "DOCRECON_F60803B1B8316F47D966D02CB905ACC8",
+  "redirect_registry_digest": "sha256:a0c10f1f2b5a3b83ecc478a54ee08a5725582e6adef3c156d2fa10d6350d6eb3",
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:020ea2360275ae066eded754c0879869b5d57058cc961017caa34e23473d5645",
+    "sha256:b1ca25c852780e27e0bfb3aa10a6f4cdde7c360ea0c5f0fcfccadc44d4efb882"
+  ],
+  "unknown_dimensions": [
+    "LEGACY_GENERATOR_ORIGINAL_PRODUCER_WHEN_UNDECLARED",
+    "RESIDUAL_ORPHAN_OWNER_DECISION"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,62 +1,17 @@
-# EXP0013 Astro Scale Model for M1
+---
+title: "Redirect — ASTRO M1 SCALE MODEL"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_0800B36F63D2CBA390EF646463DE6249
+source_digest: sha256:d679c865eca4372736b40e5f97543081310b6762708f89934fc293a55e24b4cc
+canonical_target: docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-## Smallest useful astrology scale
+This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL|ASTRO M1 SCALE MODEL]].
 
-Astrological geometry is continuous, but not all bodies matter at the same temporal resolution.
-
-For a one-minute chart, the smallest useful layer is not the slow planets themselves.  
-The smallest useful layer is the **micro timing layer** built from:
-
-- Moon speed / tempo
-- Moon applying aspects
-- Moon hard pressure
-- Moon boundary / phase transition
-- Moon declination intensity
-- Mercury station / retro / noise
-- exactness of applying/separating aspects
-
-## Important limitation
-
-One-minute candles do not mean that the sky meaningfully changes every minute.
-
-The Moon changes fast relative to other bodies, but even the Moon usually changes only slightly per minute.  
-So on M1, astrology should be treated as:
-
-```text
-context / regime / path-quality environment
-```
-
-not as:
-
-```text
-tick-level directional signal
-```
-
-## Fractal layer model
-
-```text
-Macro layer:
-  outer planets, Saturn/Jupiter background, structural pressure, expansion/compression
-
-Regime layer:
-  Mars, Saturn, Jupiter, Mercury, Venus-Mars cohesion
-
-Micro M1 layer:
-  Moon tempo, Moon hard pressure, Moon soft flow, Moon boundary, Mercury noise
-
-Path layer:
-  CleanPath, CleanImpulse, SmoothContinuation, BreakoutFT, PullbackRisk, ChopRisk
-```
-
-## Practical research hypothesis
-
-Astrology may be useful on M1 only if it changes the distribution of path-quality metrics:
-
-- MAE_R
-- pullback_depth_R
-- path_efficiency
-- bars_to_target
-- chop_count
-- opposite_close_count
-
-It should not be trusted as a standalone buy/sell predictor.
+Do not edit this redirect as doctrine.

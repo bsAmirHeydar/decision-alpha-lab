@@ -3,7 +3,7 @@ title: "H0002 Hunt/Reject Draft — Deprecated"
 type: document_card
 generated_by: alpha_lab_obsidian_builder
 generated_at: 2026-07-06
-source_path: "lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md"
+source_path: "docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md"
 source_ext: ".md"
 category: "hypothesis"
 source_size_bytes: "843"
@@ -20,7 +20,7 @@ concepts:
 
 # H0002 Hunt/Reject Draft — Deprecated
 
-**Source:** [[lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility|lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md]]
+**Source:** [[docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility|docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md]]
 
 **Category:** `hypothesis`  
 **Status:** ok  
@@ -42,7 +42,7 @@ This draft is kept only for history. It is not the active H0002 definition. The 
 ## Concepts
 
 - [[docs/obsidian/04_concepts/MQL_Native|MQL Native]]
-- [[docs/obsidian/04_concepts/NDS_Anatomy|NDS Anatomy]]
+- [[docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy|NDS Anatomy]]
 
 ## Related documents
 

@@ -1,44 +1,17 @@
-# Install — Hook Canon Validity Doctrine Patch
+---
+title: "Redirect — INSTALL HOOK CANON VALIDITY DOCTRINE PATCH"
+status: compatibility-redirect
+phase_id: LCM-12B
+claim_ceiling: LCM_12B_REFERENCE_ONLY
+producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+source_document_id: DOC_75EA9203DFB6119A751729F09DC07B03
+source_digest: sha256:c31fc292217a4dcab927f85192fb913480a11c1b656f8f9dbc2eeb671a0b9698
+canonical_target: docs/releases/legacy_migration/general/75ea9203dfb6_INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md
+generated_at: null
+generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
+---
+# Redirect
 
-From the project root in PowerShell:
+This legacy locator is retained for compatibility. The canonical document is [[docs/releases/legacy_migration/general/75ea9203dfb6_INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH|INSTALL HOOK CANON VALIDITY DOCTRINE PATCH]].
 
-```powershell
-Expand-Archive -Path .\alpha_lab_hook_canon_validity_doctrine_patch.zip -DestinationPath . -Force
-Remove-Item .\alpha_lab_hook_canon_validity_doctrine_patch.zip
-```
-
-Then review:
-
-```text
-00_HOOK_CANON_VALIDITY_DOCTRINE_START_HERE.md
-```
-
-Recommended Obsidian entry:
-
-```text
-docs/obsidian_hook/00_mocs/HOOK_CANON_MOC.md
-```
-
-## Suggested commit
-
-```powershell
-git add 00_HOOK_CANON_VALIDITY_DOCTRINE_START_HERE.md `
-        README_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md `
-        INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md `
-        docs/nds_hook_architecture `
-        docs/obsidian_hook
-
-git commit -m "docs(hook): add canonical valid hook doctrine" -m "Add the canonical Hook validity documentation and Obsidian knowledge layer.
-
-This documentation defines the production-valid Hook families, Hook-after-F3 validity, Hook-after-Hook validity, terminal semantics, valid-only rendering policy, node/sequence label visibility, and the implementation contract for the next MQL5 patch.
-
-Production-valid Hook families:
-- Hook After Opposing F3
-- Hook After Hook
-
-When Hook-2 is valid by Hook-after-Hook, Hook-1 is rendered as the required parent companion with full detail.
-
-Valid-only production view must render only valid Hook cycles and the node/sequence labels belonging to those visible Hook cycles. If no valid Hook exists, it draws nothing.
-
-Documentation-only. No MQL5 logic, F-counting logic, Rally logic, Zone logic, execution behavior, broker behavior, order sending, risk sizing, or live trading behavior is changed." 
-```
+Do not edit this redirect as doctrine.
