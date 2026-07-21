@@ -1,0 +1,77 @@
+{
+  "case_digest": "sha256:c740889ad78f2c42177d8193360e5c7bc879d418d6e8d01cded2b163471fc2cb",
+  "case_id": "DRYCASE_122577FA23E9BB3347829F2D5F5B8A1A",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "MARKET",
+      "price": null,
+      "unit": "UNKNOWN"
+    },
+    "expiry": {
+      "kind": "TIME",
+      "value": "2099-01-01T00:00:00Z"
+    },
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_122577FA23E9BB3347829F2D5F5B8A1A",
+    "schema_version": "1.0.0",
+    "side": "BUY",
+    "source_evidence": [
+      "sha256:188c1be87e5a227e1c37178c0aaa3353ed634bed6156826f795126e8aa97dbf1",
+      "sha256:0a746fa67e88854daa836fee86f06ba5b8afb47bcc259e00563b6d071ad2fc33",
+      "sha256:3935c9b711e289f04119032ab8e909ec0788c4284c89ed96829b1d21ac776440",
+      "sha256:67a59105bc059baebfa6c6fe96dc88b67e802080f499a5264ea70cc238d59773",
+      "sha256:77897f213efecd2afb8ff11293b301ea3d204d3a1c42fa90540a1915347bc572",
+      "sha256:9fd6e795cf2662d307e04cfd4264a1a964aef940ecef55417c88b9541c5a069a",
+      "sha256:bb17e6aad18aafb1fb85fea8cf96461e9e3c139a79585d99fe41d83b30be8ad2",
+      "sha256:cd7abefc46cc94f2074376262070472ec1b50108b5cd666ed620e32eaa74781d",
+      "sha256:e9e979216d1685dcedff8821b2cbb1fe728b8eb56b8316fe8cd62b5306889c69",
+      "sha256:ebda3f5786633d93497f65d6205ce7a2f91477931c9c62b6bb9742fefcad5df8"
+    ],
+    "stop": {
+      "price": "99.00",
+      "unit": "PRICE"
+    },
+    "symbol": "EURUSD",
+    "targets": [
+      {
+        "fraction": "1.0",
+        "price": "102.00",
+        "unit": "PRICE"
+      }
+    ],
+    "treatment_package_id": "TREATPKG_BE58E42B1DA2A993AB54B3F20BCC55D2",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_BE58E42B1DA2A993AB54B3F20BCC55D2",
+  "source_package_digest": "sha256:c0f0152e185d5b223212ed53f2d67f8be034b614a758997a1c0db2ec559c34db",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

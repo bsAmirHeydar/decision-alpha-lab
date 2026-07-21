@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4D5488229B07AC1CE8CCFD57B1380613",
+  "authority_result_digest": "sha256:c6a042f13ae9238c541d6b85509bd3362a7a9802cf9276d18ff9744d845c2a69",
+  "authority_result_id": "AUTHNEG_8CE8F59533CE24A1F6C4D3511E01F165",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i15_real_context_tournament/test_i15_boundaries.py",
+  "violations": []
+}

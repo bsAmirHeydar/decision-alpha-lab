@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_37C5D0F74394656447CC564F7DAE861E",
+  "authority_result_digest": "sha256:fc8e91cef07fb7e6bb2e1dab063a9ac621f1b8756b9798ac1c28135c9aa82ec7",
+  "authority_result_id": "AUTHNEG_E50C452B2AF9501771E0EA5BDAED4E84",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGPI_Ledger.mqh",
+  "violations": []
+}

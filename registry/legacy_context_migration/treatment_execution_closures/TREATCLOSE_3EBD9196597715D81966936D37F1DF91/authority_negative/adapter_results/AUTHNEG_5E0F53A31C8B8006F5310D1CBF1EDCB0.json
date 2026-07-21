@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_147C24D5248801676FC30332F206A9BE",
+  "authority_result_digest": "sha256:07a4407b278399c69d10278c5852cce2d18eeb4648ac63990dac4d19f25331dd",
+  "authority_result_id": "AUTHNEG_5E0F53A31C8B8006F5310D1CBF1EDCB0",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_41_continuous_surveillance_retirement/test_mql5_static.py",
+  "violations": []
+}

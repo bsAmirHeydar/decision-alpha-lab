@@ -1,0 +1,46 @@
+{
+  "capital_activation_count": 0,
+  "case_id": "DRYCASE_21AEBA04AFB212A9A9EA19D8F8703AC0",
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "events": [
+    {
+      "reason": "REQUEST_RECEIVED",
+      "sequence": 0,
+      "state": "CREATED"
+    },
+    {
+      "reason": "FAIL_CLOSED_VALIDATION",
+      "sequence": 1,
+      "state": "VALIDATING"
+    },
+    {
+      "reason": "VALIDATED_NO_SUBMISSION",
+      "sequence": 2,
+      "state": "DRY_RUN_ACCEPTED"
+    },
+    {
+      "reason": "SUBMISSION_CAPABILITY_FALSE",
+      "sequence": 3,
+      "state": "EXECUTION_BLOCKED"
+    }
+  ],
+  "final_state": "EXECUTION_BLOCKED",
+  "findings": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_count": 0,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_id": "TREATPKG_17D0FA43E0B27DBE969E51980F0D6E7A",
+  "paper_order_count": 0,
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "replay_digest": "sha256:1f910aaab924d8ba426613c235ef6acd347da8eedf5a25af5e8c80c2ada207be",
+  "replay_id": "DRYREPLAY_75C8C300F02E846F72AEEAF0B2C3C1A4",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:07d70f2274cee0001b5ebe734c30133dc495d74183ff3ad77cf1558b4d2f8664"
+  ],
+  "submission_attempt_count": 0,
+  "validation_status": "PASS"
+}

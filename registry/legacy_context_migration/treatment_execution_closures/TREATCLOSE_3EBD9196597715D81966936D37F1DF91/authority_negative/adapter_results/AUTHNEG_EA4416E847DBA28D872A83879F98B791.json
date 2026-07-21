@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0E772D8B9071B76ADCDF8F3602744FB0",
+  "authority_result_digest": "sha256:8b66999dec98c2341b10dab7ae5d9bd5a54904b8bfe10788b7e90ffa1aaf5be0",
+  "authority_result_id": "AUTHNEG_EA4416E847DBA28D872A83879F98B791",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase07_context/test_sf07_layout.py",
+  "violations": []
+}

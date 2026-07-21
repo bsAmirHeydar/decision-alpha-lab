@@ -1,0 +1,71 @@
+{
+  "$id": "https://alpha-lab.local/lcm10c/dry_run_replay_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10C_REFERENCE_ONLY"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "events": {
+      "type": "array"
+    },
+    "final_state": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "replay_digest": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "submission_attempt_count": {
+      "const": 0
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "replay_id",
+    "case_id",
+    "events",
+    "final_state",
+    "submission_attempt_count",
+    "replay_digest"
+  ],
+  "title": "dry_run_replay_result",
+  "type": "object"
+}

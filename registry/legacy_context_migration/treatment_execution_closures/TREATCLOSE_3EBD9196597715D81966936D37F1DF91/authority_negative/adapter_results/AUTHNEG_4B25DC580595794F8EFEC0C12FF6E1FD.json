@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_28A58C50C58ACD669CF17C09FCF23278",
+  "authority_result_digest": "sha256:c77d4846388e61cd5f5269b9364ebd88988509b4818798fe86f56bf4a06cdc8b",
+  "authority_result_id": "AUTHNEG_4B25DC580595794F8EFEC0C12FF6E1FD",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/acl_os/tests_acl_05/test_registry_and_static_contracts.py",
+  "violations": []
+}

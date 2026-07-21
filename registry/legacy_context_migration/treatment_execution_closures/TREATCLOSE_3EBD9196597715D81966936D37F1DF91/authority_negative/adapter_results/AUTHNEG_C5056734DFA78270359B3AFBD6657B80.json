@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_623CC202416C1E9FDECFD534EA2C75A3",
+  "authority_result_digest": "sha256:6e87c21e520d289c0eec29b711e7e512eb316127b889e5c973f99d1b21f07047",
+  "authority_result_id": "AUTHNEG_C5056734DFA78270359B3AFBD6657B80",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/StrategyFactoryTests/SF18_LiveSafetySelfTest.mq5",
+  "violations": []
+}

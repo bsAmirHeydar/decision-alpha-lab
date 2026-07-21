@@ -1,0 +1,63 @@
+{
+  "case_digest": "sha256:f2804cdb7919bb0eb0e6a8ca3a8c2e3af50b12e2d6b149cf93f2f5897fb339af",
+  "case_id": "DRYCASE_9513178E8F988DF9915B3F1A81BC78B6",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": true
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "UNSPECIFIED",
+      "price": null,
+      "unit": "UNKNOWN"
+    },
+    "expiry": {
+      "kind": "TIME",
+      "value": "2099-01-01T00:00:00Z"
+    },
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_9513178E8F988DF9915B3F1A81BC78B6",
+    "schema_version": "1.0.0",
+    "side": "SELL",
+    "source_evidence": [
+      "sha256:c69c9a4ee9b37bbfd64cc544ea7498c688edea2e5acf7b56066e9faffc3c6319",
+      "sha256:67df97719e60b3c2ab7bef1a2c83f3d47cc9c3fb34b121ceed29936bd71a40b6",
+      "sha256:b41a0e9d01bdb1cd4c10d873abe3dedd56948fe9c550026df526ffc1e487f6b8",
+      "sha256:eeefaae2329b45268640d9f029c20d0f4a2d2cddfe489d73be8b2b05ef72f988",
+      "sha256:f0b781e4ee177e1c4794cbfd0790ba3a35bd9b9df2bd2286414509d1e8bf5528"
+    ],
+    "stop": null,
+    "symbol": "EURUSD",
+    "targets": [],
+    "treatment_package_id": "TREATPKG_0800A6F563EACA65B931DA90E7259967",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_0800A6F563EACA65B931DA90E7259967",
+  "source_package_digest": "sha256:277eb6ed6dc3c67c7b85b6ab613e40aa6df4eb9e5321db5891dcf9d87dcab352",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_06FB6142125F26FCA6C72FDA83ED38BB",
+  "authority_result_digest": "sha256:e24cf0e4670f6ce718818bd442141bbde676067cc8aa7fd7de06e747a7ab6dc8",
+  "authority_result_id": "AUTHNEG_B2FBABA4EE76CF9BCD650376D9F345AC",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/saed_v4_11/check_saed_v4_11_boundaries.py",
+  "violations": []
+}

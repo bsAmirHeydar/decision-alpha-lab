@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_CA49311C5CA01BB04B8B03B5DC2B5E51",
+  "authority_result_digest": "sha256:938196915ed3db7331503b91e7b3ab6b0d3005e848ff97e58aed2bf8bfff10bc",
+  "authority_result_id": "AUTHNEG_5373CF404FC9FE3C004F1F6B42106386",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+  "violations": []
+}

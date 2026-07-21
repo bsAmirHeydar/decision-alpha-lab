@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_AD3D6B87CC4436280D4ED12D96A9020E",
+  "authority_result_digest": "sha256:1eed8ec9ad82a3451dc60f6b4cba8e7b055cdfd6b1b3f0f415c7dc30a16a18bf",
+  "authority_result_id": "AUTHNEG_E15897C9712646C581A86102BF0F211E",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/lcm/lcm_07/mql_scanner.py",
+  "violations": []
+}

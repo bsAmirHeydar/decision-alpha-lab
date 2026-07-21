@@ -1,0 +1,68 @@
+{
+  "case_digest": "sha256:b432d76952c98f369e9d225935e66ebced0974ca65f390dc26f3b4dc0546ae3a",
+  "case_id": "DRYCASE_5424B35214A5E8382B1D085AF403DF54",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "UNSPECIFIED",
+      "price": null,
+      "unit": "UNKNOWN"
+    },
+    "expiry": null,
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_5424B35214A5E8382B1D085AF403DF54",
+    "schema_version": "1.0.0",
+    "side": "SELL",
+    "source_evidence": [
+      "sha256:61a4ebb6015730274d9aaf4df286fb782d4464e25ca93df04ecb8a1112314e1b",
+      "sha256:1ee49d0e0e37855a77f0c09e276109d6b40b18945ef279f87126b3f50eda893c",
+      "sha256:b0c01eefe7d693c6c8f5c833f02fcda8ef2582929a9654766354ba0b83d2e4b7",
+      "sha256:ff1fc135bd17adffc9a148e16d86c930ced93a6c9d8696a68693fdb676c90dba"
+    ],
+    "stop": {
+      "price": "101.00",
+      "unit": "PRICE"
+    },
+    "symbol": "EURUSD",
+    "targets": [
+      {
+        "fraction": "1.0",
+        "price": "98.00",
+        "unit": "PRICE"
+      }
+    ],
+    "treatment_package_id": "TREATPKG_0678B2C8617880E42CAF5E4ADEE69C13",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_0678B2C8617880E42CAF5E4ADEE69C13",
+  "source_package_digest": "sha256:5bf92f57c5f77b39d3d6f844bf06a5139774d63e83ee7ba47b2d28b4c0a1cca9",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

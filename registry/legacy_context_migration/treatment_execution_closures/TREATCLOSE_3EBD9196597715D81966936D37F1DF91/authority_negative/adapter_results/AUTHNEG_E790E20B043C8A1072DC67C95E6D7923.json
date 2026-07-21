@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_77C24D2F48BA83FF67F7E330F1D46C4C",
+  "authority_result_digest": "sha256:3067248e963b88086a56d90a481fee84b5466b339e3d691d3217150b9038e1cb",
+  "authority_result_id": "AUTHNEG_E790E20B043C8A1072DC67C95E6D7923",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/exp0019/check_fp_i04_boundaries.py",
+  "violations": []
+}

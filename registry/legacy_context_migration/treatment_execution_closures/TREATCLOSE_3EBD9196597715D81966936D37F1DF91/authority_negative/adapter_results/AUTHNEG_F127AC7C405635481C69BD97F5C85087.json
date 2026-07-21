@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_AE3829F2BDC12C83048DF594169CD0CE",
+  "authority_result_digest": "sha256:0c3a11724ac778f1a29dfc9b61a56f4ffd5839b7e69f223768b1a21bd678f7aa",
+  "authority_result_id": "AUTHNEG_F127AC7C405635481C69BD97F5C85087",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Research/DAL_AstroSignalWindows.mqh",
+  "violations": []
+}

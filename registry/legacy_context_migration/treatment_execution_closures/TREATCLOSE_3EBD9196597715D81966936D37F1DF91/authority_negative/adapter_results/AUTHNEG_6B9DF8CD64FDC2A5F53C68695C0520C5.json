@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_DE9751D22097B3B949CF09684C02EA02",
+  "authority_result_digest": "sha256:999a5a3e0ffe97a25579ac4707513608e45f02927cf92297e6b193410f97570d",
+  "authority_result_id": "AUTHNEG_6B9DF8CD64FDC2A5F53C68695C0520C5",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase19_monitoring/test_sf19_layout.py",
+  "violations": []
+}

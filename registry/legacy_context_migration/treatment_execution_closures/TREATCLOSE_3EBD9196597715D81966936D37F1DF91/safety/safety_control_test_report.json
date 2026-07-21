@@ -1,0 +1,154 @@
+{
+  "case_count": 11,
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "controls": [
+    {
+      "control_code": "DUPLICATE_DECISION",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "DUPLICATE_DECISION"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:73ff86b29de39ea7de0c8b81f5a1b8d56134b11dfa828830fb26506d8c550e2e",
+      "safety_case_id": "SAFETYCASE_E06741B607F16CAFB896DDD957EB1FAF",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "STALE_QUOTE",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "STALE_QUOTE"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:34d8e9e23442247a96a362d8f7bde4c5b6218d2e93941dec48c475497ecb19eb",
+      "safety_case_id": "SAFETYCASE_B62C419B0C8A6F654905FEB0F10FE086",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "EXCESSIVE_SPREAD",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "EXCESSIVE_SPREAD"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:ca1d7efcebd32df908f93d2c6826bdb38db9bdfb0aeeeae6963c234b3123d855",
+      "safety_case_id": "SAFETYCASE_48C9BE3054595E70E772DA9D6F269593",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "INVALID_TICK_ALIGNMENT",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "INVALID_TICK_ALIGNMENT"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:4d839434b197ba125316e1148fb8407e149b2cfab04f3ebdb0b2acc34e773785",
+      "safety_case_id": "SAFETYCASE_7A273AAEFEAE2530884D3B744EB54D3B",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "INVALID_VOLUME",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "INVALID_VOLUME"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:f72a98163634c1cdce5a02803380bab4b674d27441b5e61a31e8f9c4653bf3ad",
+      "safety_case_id": "SAFETYCASE_43323C327CB7D67BFE7392E5538F1FEB",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "INVALID_STOP_DISTANCE",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "INVALID_STOP_DISTANCE"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:dd054733b34df97f1da5af3d3769cc4f238646208e3e00fce95841f258e901f4",
+      "safety_case_id": "SAFETYCASE_71EB469BA94CD49B99C87A16DEE8AF25",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "CLOSED_SESSION",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "CLOSED_SESSION"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:a415c1f2bf85b92461fed2ac0da45c08d1a5bc2a87cdac3100a0044c4d7f2193",
+      "safety_case_id": "SAFETYCASE_A464119A6E1D7229AE5EFB35618C6831",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "MISSING_QUOTE",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "MISSING_QUOTE"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:7043cee39c74f7cc160cf9810034375095f0fb473c091fc147b3f5e26d5d48e8",
+      "safety_case_id": "SAFETYCASE_86DA07DC2C3CEAF6661EE75A6D8DF970",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "RECONCILIATION_MISMATCH",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "RECONCILIATION_MISMATCH"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:f103e5bae216eed8d52cbc5c70bc2e91f01ace0bf2fafda666753d04e54d6e01",
+      "safety_case_id": "SAFETYCASE_82D211EE0659D7DAFBD1AFE9026C0F8D",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "KILL_SWITCH_ACTIVE",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "KILL_SWITCH_ACTIVE"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:dea0436fa0c9d14560a2809d7d3942c69414a6596788790ade6a941dc978f8d7",
+      "safety_case_id": "SAFETYCASE_E3B568FFE7571A1FA3F3A1F16499397B",
+      "submission_attempt_count": 0
+    },
+    {
+      "control_code": "UNSUPPORTED_ENTRY",
+      "expected_result": "REJECTED",
+      "observed_codes": [
+        "UNSUPPORTED_ENTRY"
+      ],
+      "observed_final_state": "REJECTED",
+      "result": "PASS",
+      "safety_case_digest": "sha256:7ed50bd6e295f617506433c37606c44c1e31b87dac3db47e677d5efabf2fd6f5",
+      "safety_case_id": "SAFETYCASE_AB33D0D77F11CCC6E043B946B75D9EE3",
+      "submission_attempt_count": 0
+    }
+  ],
+  "deterministic_identity": true,
+  "failed_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "passed_count": 11,
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "report_digest": "sha256:f5a8cfa7592db2d1f4adeb2c2c30dc98386bef0db31f88ecbd77a79ab4886794",
+  "report_id": "SAFETYREPORT_26CB6F086B437CAD5263EED7579F6847",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "submission_attempt_count": 0,
+  "validation_status": "PASS"
+}

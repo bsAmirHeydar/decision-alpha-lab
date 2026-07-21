@@ -1,0 +1,53 @@
+{
+  "acceptance": {
+    "capital_authority_created": false,
+    "live_order_authority_created": false,
+    "passed": true,
+    "runtime_authority_created": false,
+    "validation_status": "PASS"
+  },
+  "artifact_inventory": "LCM_10C_ARTIFACT_INVENTORY.csv",
+  "category_counts": {
+    "ACL_REFERENCE": 1,
+    "DOCUMENTATION": 15,
+    "GENERATED_CLOSURE_EVIDENCE": 1780,
+    "MQL5_REFERENCE_IMPLEMENTATION": 5,
+    "OPERATOR_DOCUMENT": 4,
+    "POLICY": 5,
+    "PYTHON_IMPLEMENTATION": 18,
+    "REGISTRY_CONTRACT": 3,
+    "SCHEMA": 9,
+    "TEST": 13
+  },
+  "change_counts": {
+    "ADDED": 1851,
+    "MODIFIED": 2
+  },
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "closure_id": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+  "commit_message": "COMMIT_MESSAGE_LCM_10C.md",
+  "control_file_count": 6,
+  "exact_stage_index": "LCM_10C_FILE_INDEX.txt",
+  "final_indexed_file_count": 1859,
+  "generated_closure": {
+    "dry_run_case_count": 422,
+    "execution_adapter_count": 483,
+    "file_count": 1780,
+    "handoff_digest": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+    "manifest_digest": "sha256:c5c0cd13c523ae93d73fff2e1690d0213826834942f79ffe3d7a808c35fb8404",
+    "path": "registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+    "safety_case_count": 11,
+    "treatment_package_count": 422
+  },
+  "master_phase": "LCM-10",
+  "patch_manifest_digest": "sha256:b5853cf3a98f77cb5c01e8f6bc6d5362bba03026ff0e3a33280512bf24443879",
+  "patch_name": "ALPHA_LAB_LCM_10C_DRY_RUN_PARITY_SAFETY_AUTHORITY_NEGATIVE_CLOSURE_PATCH.zip",
+  "payload_file_count": 1853,
+  "payload_size_bytes": 4777292,
+  "phase_id": "LCM-10C",
+  "qa_report": "LCM_10C_QA_REPORT.json",
+  "repository_root_overlay": true,
+  "schema_version": "1.0.0",
+  "sha256_ledger": "LCM_10C_FILE_HASHES.sha256",
+  "status": "MERGE_READY_REFERENCE_PATCH"
+}

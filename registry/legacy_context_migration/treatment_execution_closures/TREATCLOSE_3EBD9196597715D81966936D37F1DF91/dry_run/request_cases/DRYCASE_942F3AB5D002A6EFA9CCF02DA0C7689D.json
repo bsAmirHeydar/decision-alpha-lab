@@ -1,0 +1,65 @@
+{
+  "case_digest": "sha256:16ea96506435e927334371cbd7786cc384f5f9ae17af3a1d292c62e85a45bb94",
+  "case_id": "DRYCASE_942F3AB5D002A6EFA9CCF02DA0C7689D",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": true
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "UNSPECIFIED",
+      "price": null,
+      "unit": "UNKNOWN"
+    },
+    "expiry": {
+      "kind": "TIME",
+      "value": "2099-01-01T00:00:00Z"
+    },
+    "management": {
+      "partial_exit": true,
+      "trailing": true
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_942F3AB5D002A6EFA9CCF02DA0C7689D",
+    "schema_version": "1.0.0",
+    "side": "SELL",
+    "source_evidence": [
+      "sha256:26a81157a602c8906b34631523de35b707c1b28eee282f5c3f317cf7222e012e",
+      "sha256:32e4af847d3dc70431887521375afc9b1c7f1b5d200e599ff59846da0728473c",
+      "sha256:46e3f9b5e5681546518ec05b69be17fb4969e0af7d63e0b6a5258fea26429e29",
+      "sha256:597f903fb2c10d649c8759040578a1921148efd8c516c6f856aa2158d572afd2",
+      "sha256:6757f76d73fafe559a4447c4df8883514606a279769dccf55e492f3b6245f8ff",
+      "sha256:a003822a4b9ec42093e0a2e1c9696fc7fdb71ab7a7985ad6c994c3ec2e97b3e8",
+      "sha256:e5e0a5e5deb58971cca9dff38adc24185efc708d45c25722115cfc859bb82da3"
+    ],
+    "stop": null,
+    "symbol": "EURUSD",
+    "targets": [],
+    "treatment_package_id": "TREATPKG_D9B500CB67EC3F9F3CE64300C582DA6F",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_D9B500CB67EC3F9F3CE64300C582DA6F",
+  "source_package_digest": "sha256:6a2a9c3ef0febe3cdf4887c1a7286e08bef43b62931f3ad2d40706ac07496dd5",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

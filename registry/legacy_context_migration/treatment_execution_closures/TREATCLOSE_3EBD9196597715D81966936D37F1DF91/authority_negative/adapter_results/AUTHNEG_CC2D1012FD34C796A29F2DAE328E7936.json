@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_3AA7D313C0B998F9ABE9BBB1A8DC2CAD",
+  "authority_result_digest": "sha256:c42d6562a565d480df1ab9200a53552ac9e7799ee1275acfd36c913ffbe8b6a0",
+  "authority_result_id": "AUTHNEG_CC2D1012FD34C796A29F2DAE328E7936",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/tests/test_duplicate_scan.py",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_640A8721BCE4AAC893EBEB4FD12F7582",
+  "authority_result_digest": "sha256:d37c9f6f55bce94ab4ada65cca5439b1ea44aa3d96f836580764c20cc056c371",
+  "authority_result_id": "AUTHNEG_3AEE97F98093D1E1DC9499ADDFDC3283",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/StrategyFactory/SF17_PaperShadowHost.mq5",
+  "violations": []
+}

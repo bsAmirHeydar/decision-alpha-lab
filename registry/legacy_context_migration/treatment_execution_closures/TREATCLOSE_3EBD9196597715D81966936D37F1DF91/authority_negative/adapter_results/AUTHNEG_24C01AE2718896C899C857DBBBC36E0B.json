@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_25EF1357217F5047FA1485B975A1A6B9",
+  "authority_result_digest": "sha256:716f5441f2af86bd019a9e060b025186c85d99d6747fef4c19346e224382610d",
+  "authority_result_id": "AUTHNEG_24C01AE2718896C899C857DBBBC36E0B",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_04_multimodal_view_platform/test_normalization_transforms.py",
+  "violations": []
+}

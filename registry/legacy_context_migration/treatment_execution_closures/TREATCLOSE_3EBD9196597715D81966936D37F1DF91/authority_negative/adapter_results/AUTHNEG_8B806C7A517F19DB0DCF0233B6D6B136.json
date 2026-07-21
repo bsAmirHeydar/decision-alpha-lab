@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_EAC6FBBD7E4F0A733A0129CDAE461159",
+  "authority_result_digest": "sha256:5fbb81b68d9b4322e626b595a08d5ec9286f7bc107b03f488f130eabf3a254db",
+  "authority_result_id": "AUTHNEG_8B806C7A517F19DB0DCF0233B6D6B136",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/stc_smt_deployment/offline_license_keygen.py",
+  "violations": []
+}

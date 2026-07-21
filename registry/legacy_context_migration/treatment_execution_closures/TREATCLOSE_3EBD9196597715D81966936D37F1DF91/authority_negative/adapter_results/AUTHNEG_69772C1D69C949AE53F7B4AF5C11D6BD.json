@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_424301E543D5E953AF99E2AABBF2DE3D",
+  "authority_result_digest": "sha256:20be320f738bea2679b2b194f5e885cb3ddeb65a5b4844c3f2b3349e0e95d422",
+  "authority_result_id": "AUTHNEG_69772C1D69C949AE53F7B4AF5C11D6BD",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_10_baseline_manual_program/test_mql5_static_contract.py",
+  "violations": []
+}

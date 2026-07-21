@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_EA1DFD9820B9B4263FDCA62D099E6BDD",
+  "authority_result_digest": "sha256:dd4f5c57d92b721b909053f463554f60da6112dc9e01fa89e57000e69d604035",
+  "authority_result_id": "AUTHNEG_460F45EB68EA98624AFDDD3B2D869FB7",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/flag_counting/nds_f2_overlap_wider_rr_reprice_contract_qa.py",
+  "violations": []
+}

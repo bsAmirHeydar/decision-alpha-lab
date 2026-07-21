@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2010EB36EAC1791BC110423727ADE7D6",
+  "authority_result_digest": "sha256:e21074be7bb09bf839dab28e29306880e574b1d6760eec66df6c2f738eb2460f",
+  "authority_result_id": "AUTHNEG_F6389310349A06F0E5A48C616D0E1E8C",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Market/SF03_TerminalMarketSource.mqh",
+  "violations": []
+}

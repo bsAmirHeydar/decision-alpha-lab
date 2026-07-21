@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_E9D1FC7202A351813198407597CEDE92",
+  "authority_result_digest": "sha256:985c4530c7e00eb64d6581a1751c61be8abe9951b15056208ce104d8f8c000df",
+  "authority_result_id": "AUTHNEG_DEC8908F311BCC4DA0DD42461428E83D",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/E0007/DAL_E0007PurpleSourceEngine.mqh",
+  "violations": []
+}

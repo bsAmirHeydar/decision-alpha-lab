@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_7AD559AFD457B645E01EC8F904CCE2BE",
+  "authority_result_digest": "sha256:69efab38f7c6ac4a2d04ba601a56f29172ef967bc065899b179115697ec74aae",
+  "authority_result_id": "AUTHNEG_E584B09775E798C1A9D6498ABEB278B4",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/python/fp_i01_compatibility/duplicate_scan.py",
+  "violations": []
+}

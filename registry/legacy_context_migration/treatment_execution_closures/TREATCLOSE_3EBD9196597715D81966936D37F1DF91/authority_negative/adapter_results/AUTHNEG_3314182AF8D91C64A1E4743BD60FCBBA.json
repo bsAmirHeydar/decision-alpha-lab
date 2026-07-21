@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_65B37C507A15615A364D148A6FD69A23",
+  "authority_result_digest": "sha256:54f73af437dd56671291cc2cfaa8ec77efa4b3be16b3adf40ea347725316b547",
+  "authority_result_id": "AUTHNEG_3314182AF8D91C64A1E4743BD60FCBBA",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/stress.py",
+  "violations": []
+}

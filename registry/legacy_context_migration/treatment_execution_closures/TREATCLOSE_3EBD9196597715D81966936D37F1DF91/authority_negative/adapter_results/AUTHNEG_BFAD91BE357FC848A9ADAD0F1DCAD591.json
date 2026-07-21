@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_F9A4010978D8D9DC5457B4BEBACE045E",
+  "authority_result_digest": "sha256:3a5c45a610393b17bc5fe5175cb43c46a7533d6b449e3fcd17caa0883cea4491",
+  "authority_result_id": "AUTHNEG_BFAD91BE357FC848A9ADAD0F1DCAD591",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i02_contexts/test_features.py",
+  "violations": []
+}

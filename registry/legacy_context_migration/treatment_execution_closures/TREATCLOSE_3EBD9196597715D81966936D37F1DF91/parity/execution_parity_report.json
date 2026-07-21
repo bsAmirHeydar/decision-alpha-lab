@@ -1,0 +1,26 @@
+{
+  "capital_activation_count": 0,
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "execution_blocked_count": 165,
+  "failed_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_runtime_trace_parity": "UNKNOWN_WHERE_TRACE_UNAVAILABLE",
+  "live_order_count": 0,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_count": 422,
+  "passed_count": 422,
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "rejected_no_request_count": 257,
+  "report_digest": "sha256:f11483ab282c3cca13c5e056f351d0c89ccf5b55399dd056ed60c52e1a827eb0",
+  "report_id": "PARITYREPORT_26CB6F086B437CAD5263EED7579F6847",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "submission_attempt_count": 0,
+  "supported_parity_scope": "DETERMINISTIC_CONTRACT_REPLAY",
+  "validation_status": "PASS"
+}

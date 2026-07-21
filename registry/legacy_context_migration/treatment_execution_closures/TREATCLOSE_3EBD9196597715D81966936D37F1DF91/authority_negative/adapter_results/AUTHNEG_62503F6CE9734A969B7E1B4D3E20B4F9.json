@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2C124503B8F24CD740C9A8E9554D65E7",
+  "authority_result_digest": "sha256:c5e7d29acb4d11846bc1d0b12f188887010d4b318df2e7cbf38902b03982a9ba",
+  "authority_result_id": "AUTHNEG_62503F6CE9734A969B7E1B4D3E20B4F9",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_market/specs.py",
+  "violations": []
+}

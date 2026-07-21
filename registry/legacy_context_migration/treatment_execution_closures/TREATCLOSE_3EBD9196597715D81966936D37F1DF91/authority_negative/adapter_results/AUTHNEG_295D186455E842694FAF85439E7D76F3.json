@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A1053CE6D795AF3F7F8B0AF06A7AE874",
+  "authority_result_digest": "sha256:6d7e30200e384d915af1dd240f232f3bc2b8ad6aec68d1d6987d4e6eac55bdb7",
+  "authority_result_id": "AUTHNEG_295D186455E842694FAF85439E7D76F3",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I11_VisualSelfTest.mq5",
+  "violations": []
+}

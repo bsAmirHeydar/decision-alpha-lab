@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0483117080894222C7C1642A9B0AFE34",
+  "authority_result_digest": "sha256:bc4b774d2aca0bfe3e90b16d6248d5d7bf24703d48e42eec872d7f0effba7b04",
+  "authority_result_id": "AUTHNEG_6BF2A83FF5DE0D89AC7CA5C2811B095E",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_VolumeModel.mqh",
+  "violations": []
+}

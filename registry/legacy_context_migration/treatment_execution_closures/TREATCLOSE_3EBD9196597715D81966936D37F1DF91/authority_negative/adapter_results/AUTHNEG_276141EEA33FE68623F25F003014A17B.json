@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2C194E36E2B1BEFB509D046F67A1D1C7",
+  "authority_result_digest": "sha256:8ef9b655b1809ad1a401791895f171383b58df48309a1c6a4bc83da27909bb18",
+  "authority_result_id": "AUTHNEG_276141EEA33FE68623F25F003014A17B",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase06_close_confirmation_v2.py",
+  "violations": []
+}

@@ -1,0 +1,69 @@
+{
+  "case_digest": "sha256:2576d58ba00db30b464b21d45f74a8cb00dfcb261eb2e35a0b86988057b7621c",
+  "case_id": "DRYCASE_8AEBF64D98C3F2F73480CC46DD6A182F",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "LIMIT",
+      "price": "100.00",
+      "unit": "PRICE"
+    },
+    "expiry": null,
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_8AEBF64D98C3F2F73480CC46DD6A182F",
+    "schema_version": "1.0.0",
+    "side": "SELL",
+    "source_evidence": [
+      "sha256:b5c8e27765ff91e64684f334bdb2b799d85980f19053db109a4d19d0d98fbf6b",
+      "sha256:1359377c1b681c298ac3d14e0e798e948ed9746030d03191cdfa928d47d530ad",
+      "sha256:1dab0aa1e76ea63db81f51563475b33a42b95906a6e3299569f5dbcce4e8b5cc",
+      "sha256:a38c7a099fabb962229986491ff62a187e8e77cb9e1e748f16103727b74abd39",
+      "sha256:b911ba5f3161bb215ece2009ab89e442728efb6a7188fe8555946955c3db518f"
+    ],
+    "stop": {
+      "price": "101.00",
+      "unit": "PRICE"
+    },
+    "symbol": "EURUSD",
+    "targets": [
+      {
+        "fraction": "1.0",
+        "price": "98.00",
+        "unit": "PRICE"
+      }
+    ],
+    "treatment_package_id": "TREATPKG_2459541E4C36A1201E1CD118FC6D585D",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_2459541E4C36A1201E1CD118FC6D585D",
+  "source_package_digest": "sha256:6ea93bb4cfc6b4fe3525ac0f690354b7cb9468cf1388749cb480abe74f114c31",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

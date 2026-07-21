@@ -1,0 +1,75 @@
+{
+  "allowed_next_actions": [
+    "VISUAL_OBJECT_INVENTORY",
+    "VISUAL_NAMESPACE_CONTRACTS",
+    "VISUAL_LIFECYCLE_CONTRACTS",
+    "READ_ONLY_CANONICAL_RECORD_CONSUMPTION"
+  ],
+  "blocked_dimensions": [
+    "PRODUCTION_BROKER_PARITY",
+    "PAPER_OR_LIVE_ACTIVATION",
+    "LEGACY_CONSUMER_CUTOVER"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "closure_id": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+  "completed_gates": [
+    "DRY_REQUEST_PARITY",
+    "FAIL_CLOSED_SAFETY_CONTROLS",
+    "AUTHORITY_NEGATIVE_ADAPTER_SUITE",
+    "ZERO_SUBMISSION_COUNT",
+    "ZERO_LIVE_ORDER_COUNT",
+    "ZERO_CAPITAL_ACTIVATION_COUNT",
+    "CANONICAL_FORBIDDEN_API_ABSENCE",
+    "RESIDUAL_UNKNOWNS_EXPLICIT"
+  ],
+  "consumer_cutover_allowed": false,
+  "counts": {
+    "authority_negative_pass_count": 483,
+    "capital_activation_count": 0,
+    "dry_run_case_count": 422,
+    "execution_adapter_count": 483,
+    "live_order_count": 0,
+    "parity_pass_count": 422,
+    "safety_case_count": 11,
+    "submission_attempt_count": 0,
+    "treatment_package_count": 422
+  },
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "ORDER_SUBMISSION",
+    "LIVE_ADAPTER_ACTIVATION",
+    "PAPER_BROKER_SUBMISSION",
+    "CAPITAL_ACTIVATION",
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE_OR_DELETE",
+    "UNKNOWN_WAIVER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+  "handoff_id": "LCM10CHANDOFF_26CB6F086B437CAD5263EED7579F6847",
+  "handoff_type": "LCM10C_TO_LCM11A",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-10",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-10C",
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "promotion_authority_created": false,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_delete_allowed": false,
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "source_move_allowed": false,
+  "unknown_dimensions": [
+    "BROKER_RUNTIME_CONSTRAINTS",
+    "AMBIGUOUS_LEGACY_VALUE_SEMANTICS",
+    "FILE_LEDGER_ENTITLEMENT_SEMANTICS",
+    "HUMAN_OWNER_APPROVAL"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "DRYCASE_D08E3053F88768BC232878375F8B7F44",
+  "field_parity": {
+    "entry": "PASS",
+    "expiry": "PASS",
+    "lifecycle": "PASS",
+    "reason_codes": "PASS",
+    "side": "PASS",
+    "stop": "PASS",
+    "symbol": "PASS",
+    "targets": "PASS",
+    "volume_request": "PASS"
+  },
+  "no_request_preserved": true,
+  "package_id": "TREATPKG_B6BDD71E53A2ADECBBF982F66542AC41",
+  "parity_digest": "sha256:d9ed5182d7d36bab9f3eb3f3416dbe0d7e4672801ce787f21fe527968c339eb3",
+  "parity_result_id": "PARITY_D7884DA4B88EC0AC81469A8E574D6B32",
+  "result": "PASS",
+  "submission_count_actual": 0,
+  "submission_count_expected": 0
+}

@@ -1,0 +1,66 @@
+{
+  "case_digest": "sha256:8cefdef38878e0cbfe48c36fcf11367fd917bd8e952e386d853209df2df19896",
+  "case_id": "DRYCASE_9F36B0C0F60E607A5B1B6D2529526178",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "LIMIT",
+      "price": "100.00",
+      "unit": "PRICE"
+    },
+    "expiry": {
+      "kind": "TIME",
+      "value": "2099-01-01T00:00:00Z"
+    },
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_9F36B0C0F60E607A5B1B6D2529526178",
+    "schema_version": "1.0.0",
+    "side": "BUY",
+    "source_evidence": [
+      "sha256:fac66e35492a8058e62d2b38b1a0954da162a2ab4ce4fbbf7ac00226bf8e4204",
+      "sha256:85a202a668423648c424afe95729792e7c9ecc31faff2f168dfb9eb02f7f94f4",
+      "sha256:8c4a67633d2635f7132bde4d8242a3c77edf53eb9f64b1ba4c48d12a198c0749",
+      "sha256:9a01523fd9fb28ba12c7a5e79c70dab59ced7c7f6e7a1986a9d542d7651367dd",
+      "sha256:bf9d6d4d20c99b893dedb9cdcb8be04bf6dd28cf89486048822b0bd9999bcccb"
+    ],
+    "stop": {
+      "price": "99.00",
+      "unit": "PRICE"
+    },
+    "symbol": "EURUSD",
+    "targets": [],
+    "treatment_package_id": "TREATPKG_0398E148617A78D69ACF6DEEE3EC5596",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_0398E148617A78D69ACF6DEEE3EC5596",
+  "source_package_digest": "sha256:6cb05bb6e4dac53d38d807425525ec99f72e410e370a1a2634e755b3856aff81",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_52A8869CDC6910B0575E4CAC3787E81C",
+  "authority_result_digest": "sha256:0368c637f9a0141cc967cb5f854d106a32b37c3883568c6f1c26e9d2421958c5",
+  "authority_result_id": "AUTHNEG_E79CFB51BF4FAFC3CBD925A7C6843FBB",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/DAL_ExecOrders.mqh",
+  "violations": []
+}

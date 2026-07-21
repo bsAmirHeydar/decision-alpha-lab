@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A82F92610324D1BAA4BC40F8A44B5D3A",
+  "authority_result_digest": "sha256:6521b73edeae20c822fc9968cff4fc7d8aa3bbb5ade1dfd9657f58e7c67018ef",
+  "authority_result_id": "AUTHNEG_9D4452DE011367929556794B0095DCB9",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i13_policy_graph/test_i13_attribution_replay.py",
+  "violations": []
+}

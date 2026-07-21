@@ -1,0 +1,61 @@
+{
+  "case_digest": "sha256:2f31c4eb0524d1c4f19ecd701f7531e33ca80513187d8fa100cef35e670c2e1b",
+  "case_id": "DRYCASE_33F901B66776C499F3E36CDBED7A63F0",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": true
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "UNSPECIFIED",
+      "price": null,
+      "unit": "UNKNOWN"
+    },
+    "expiry": null,
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_33F901B66776C499F3E36CDBED7A63F0",
+    "schema_version": "1.0.0",
+    "side": "SELL",
+    "source_evidence": [
+      "sha256:5c4dd569d87fdfc3d4806d54d7104edbad75fe49297cdfb58248dee54d1e0e4e",
+      "sha256:5c501a99f7a78c08439d36b5980a63883cf4b394edaa71995bc77d8a232376c3",
+      "sha256:679348febd2304a2fcd4d091deee39ebd7047c3b40e6885a94b389fb0ff2bef4",
+      "sha256:af489573388d14fdfccaddf9ec1d7be050c45668426f3a041c1f4a0e0624bbc3",
+      "sha256:bab6696d637dc5428cd0ea3bb17b252f40d24f5e434878939f00ed0f43581d49",
+      "sha256:de7eef327c6d543325f16675e0e7d138e974b8ef72f618d6e21862f9e4203f30"
+    ],
+    "stop": null,
+    "symbol": "EURUSD",
+    "targets": [],
+    "treatment_package_id": "TREATPKG_261E79850153C71D166620BE41FEAFEB",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_261E79850153C71D166620BE41FEAFEB",
+  "source_package_digest": "sha256:1870adbfd73bf616756a7486ff52f45bfb1a087f9b4b3a223ce3c9c1cc088cbd",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_261E79850153C71D166620BE41FEAFEB",
+  "authority_result_digest": "sha256:eae2f43bc348882c6c5082ea5ccfe91cea9376f9281d945ae53e6c890f8bfe24",
+  "authority_result_id": "AUTHNEG_24E86908958F4B7501EF68303025977A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/E0006/DAL_E0006ExposureCaps.mqh",
+  "violations": []
+}

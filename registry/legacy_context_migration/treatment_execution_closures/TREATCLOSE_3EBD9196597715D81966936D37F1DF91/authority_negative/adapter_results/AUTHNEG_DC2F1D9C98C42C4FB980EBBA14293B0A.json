@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_88C59F6A0E1C5C376428E3765BE6C99B",
+  "authority_result_digest": "sha256:ea9df0321e64f63d1b8e6f33a4e4235316ef5bf9f2ee055b1d75581c548a68f3",
+  "authority_result_id": "AUTHNEG_DC2F1D9C98C42C4FB980EBBA14293B0A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase03_market/test_mql5_inventory.py",
+  "violations": []
+}

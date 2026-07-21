@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4F2EDDCEC203BB3EB3BC8F4970EB5FBC",
+  "authority_result_digest": "sha256:1a3da8a29f94aaeb800872579a0cf3ad6db9ac683938d8be15efc7904de706d0",
+  "authority_result_id": "AUTHNEG_DC9D297D5D6C81CA94AEA0B83D264E4A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Research/DAL_AstroFeatureStore.mqh",
+  "violations": []
+}

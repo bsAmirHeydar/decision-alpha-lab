@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_14D3EF090D861F5FB4026BE9440A30E7",
+  "authority_result_digest": "sha256:6f8299327cd0dcafd31dc15c9f677d8b88176461c13b85ee6c0febed2cb6017c",
+  "authority_result_id": "AUTHNEG_E7BDB89F2699F62A63C9FB77CD6CC089",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/migration/tests_lcm_08b/test_hostile_boundaries.py",
+  "violations": []
+}

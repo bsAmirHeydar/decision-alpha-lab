@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0197BB6092458D1B3DE46522C61F881D",
+  "authority_result_digest": "sha256:92194e1e110512536268c9963f84618bd0c67a206a2a140de62a2678af8fc1d3",
+  "authority_result_id": "AUTHNEG_429A4D30C5FDED9E958FC73D3DF1090A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/python/saed_v4_complete_search_exposure_ledger/security.py",
+  "violations": []
+}

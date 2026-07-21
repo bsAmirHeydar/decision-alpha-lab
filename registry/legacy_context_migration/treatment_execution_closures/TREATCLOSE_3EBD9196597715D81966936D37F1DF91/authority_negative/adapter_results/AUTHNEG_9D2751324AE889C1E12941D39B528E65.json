@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_684470F25946C869DD09A5E4C6E74417",
+  "authority_result_digest": "sha256:ac288b7a2d012d268c8b6f92d94bee2f1df4340909e523cde632ebf8e59b47c5",
+  "authority_result_id": "AUTHNEG_9D2751324AE889C1E12941D39B528E65",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/StrategyFactory/SF18_MicroLiveHost.mq5",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_CDD2C31388B653F22E330647C83FDA0D",
+  "authority_result_digest": "sha256:50db9ecd9d0a630f6218f3b2afdfb8c3704480151e22891c8982e5ea171000db",
+  "authority_result_id": "AUTHNEG_E2C242B052653B9B11FF1B661DB7B58F",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_RealHardClose.mqh",
+  "violations": []
+}

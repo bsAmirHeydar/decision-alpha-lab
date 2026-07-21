@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_6AE3E8DF1F326EE8590090A28F320E07",
+  "authority_result_digest": "sha256:ee783fe015acac240ce27a1aa6f993b122a5f549a0265fea5603470c28764b9d",
+  "authority_result_id": "AUTHNEG_755F943FC7813910ADB36970DFF2F58B",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase08_divergence_drawing_v2.py",
+  "violations": []
+}

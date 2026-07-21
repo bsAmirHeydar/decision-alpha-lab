@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/lcm10c/authority_negative_test_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adapter_count": {
+      "type": "integer"
+    },
+    "capital_activation_count": {
+      "const": 0
+    },
+    "claim_ceiling": {
+      "const": "LCM_10C_REFERENCE_ONLY"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "failed_count": {
+      "const": 0
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "live_order_count": {
+      "const": 0
+    },
+    "owner": {
+      "type": "string"
+    },
+    "passed_count": {
+      "type": "integer"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adapter_count",
+    "passed_count",
+    "failed_count",
+    "live_order_count",
+    "capital_activation_count"
+  ],
+  "title": "authority_negative_test_report",
+  "type": "object"
+}

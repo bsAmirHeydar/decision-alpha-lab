@@ -1,0 +1,101 @@
+{
+  "authority_created": {
+    "capital": false,
+    "consumer_cutover": false,
+    "live_order": false,
+    "paper_order": false,
+    "promotion": false,
+    "runtime": false
+  },
+  "checks": [
+    {
+      "check": "LCM10C_DIRECT_TESTS",
+      "failed": 0,
+      "passed": 15,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10B_REGRESSION",
+      "failed": 0,
+      "passed": 35,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10A_NON_REBUILD_REGRESSION",
+      "failed": 0,
+      "passed": 23,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM09B_REGRESSION",
+      "failed": 0,
+      "passed": 34,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM_ROADMAP_REFINEMENT_REGRESSION",
+      "failed": 0,
+      "passed": 5,
+      "result": "PASS"
+    },
+    {
+      "check": "SCHEMA_CATALOG",
+      "result": "PASS",
+      "schema_count": 9
+    },
+    {
+      "check": "STATIC_PYTHON",
+      "file_count": 18,
+      "result": "PASS"
+    },
+    {
+      "check": "DRY_RUN_PARITY",
+      "failed_count": 0,
+      "package_count": 422,
+      "result": "PASS"
+    },
+    {
+      "case_count": 11,
+      "check": "SAFETY_CONTROLS",
+      "failed_count": 0,
+      "result": "PASS"
+    },
+    {
+      "adapter_count": 483,
+      "check": "AUTHORITY_NEGATIVE",
+      "failed_count": 0,
+      "result": "PASS"
+    },
+    {
+      "capital_activation_count": 0,
+      "check": "ZERO_AUTHORITY_COUNTS",
+      "live_order_count": 0,
+      "paper_order_count": 0,
+      "result": "PASS",
+      "submission_attempt_count": 0
+    },
+    {
+      "check": "CLEAN_OVERLAY",
+      "result": "PASS",
+      "scope": "LCM-10B accepted baseline plus LCM-10C payload"
+    }
+  ],
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "closure_id": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_BUILD_RECORD_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+  "master_phase": "LCM-10",
+  "output_manifest_digest": "sha256:c5c0cd13c523ae93d73fff2e1690d0213826834942f79ffe3d7a808c35fb8404",
+  "phase_id": "LCM-10C",
+  "qa_digest": "sha256:eda6ba375c8df1587318dd3b8eaddf006f20000b0cda3b38cadaf54cfd705620",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "upstream_regression_exclusions": [
+    {
+      "effect_on_lcm10c_acceptance": "NONE",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py",
+      "reason": "Bounded regression preserves the prior accepted LCM-10A validation convention; full repository rescan remains excluded from patch-time validation."
+    }
+  ]
+}

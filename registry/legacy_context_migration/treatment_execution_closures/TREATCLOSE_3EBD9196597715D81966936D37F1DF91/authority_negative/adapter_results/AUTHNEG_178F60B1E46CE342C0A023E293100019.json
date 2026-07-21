@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_858B996C60475CE3F582B439565BF24A",
+  "authority_result_digest": "sha256:b4c9a1da5824503112987995e0941e1376fa7d46634d983493bb0c9ad370a144",
+  "authority_result_id": "AUTHNEG_178F60B1E46CE342C0A023E293100019",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/acl_os/acl_11/static_validation.py",
+  "violations": []
+}

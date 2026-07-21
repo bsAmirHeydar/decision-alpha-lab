@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_7976616421913B4A287EA1F574B053C4",
+  "authority_result_digest": "sha256:ef8bfb1a6f2d840e748e2e9d68e9f7c6a4476dab3b46a8494651a904b1a70dae",
+  "authority_result_id": "AUTHNEG_FAABEF81426E455FC3B0369637393E96",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_JsonlResultSink.mqh",
+  "violations": []
+}

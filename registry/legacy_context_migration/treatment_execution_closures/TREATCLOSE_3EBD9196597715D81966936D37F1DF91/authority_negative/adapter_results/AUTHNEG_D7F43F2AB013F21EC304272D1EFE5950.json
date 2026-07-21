@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4490B2900A8C3B040F48A434C08BF282",
+  "authority_result_digest": "sha256:26acfa453e933a726ed983d4c99c5866e9c032705599d333cae36e21fbfe53e1",
+  "authority_result_id": "AUTHNEG_D7F43F2AB013F21EC304272D1EFE5950",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/DAL_ExecHypotheticalProfitGate.mqh",
+  "violations": []
+}

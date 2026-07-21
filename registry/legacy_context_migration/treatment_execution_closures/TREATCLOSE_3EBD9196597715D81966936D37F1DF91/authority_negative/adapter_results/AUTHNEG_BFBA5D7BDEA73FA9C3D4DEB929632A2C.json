@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2C2A9525B334744F07F79508207D0226",
+  "authority_result_digest": "sha256:78e2027966f86484e5610509bdf5e41d0cc34f6953d4a2a6357fc0065cc01cef",
+  "authority_result_id": "AUTHNEG_BFBA5D7BDEA73FA9C3D4DEB929632A2C",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh",
+  "violations": []
+}

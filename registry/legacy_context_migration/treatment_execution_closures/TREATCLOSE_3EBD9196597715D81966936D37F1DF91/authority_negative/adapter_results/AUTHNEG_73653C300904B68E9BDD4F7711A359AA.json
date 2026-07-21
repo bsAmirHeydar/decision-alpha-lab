@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_C3F14634A1BC0A5364F3B87D296267FD",
+  "authority_result_digest": "sha256:29110547ffd4a5ee3dfcb838d11a636377f6fc7a76c833c2a870bdbf6634251d",
+  "authority_result_id": "AUTHNEG_73653C300904B68E9BDD4F7711A359AA",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_geometry.py",
+  "violations": []
+}

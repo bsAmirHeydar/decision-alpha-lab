@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_6B154A1D57CEF733ADE6CF071A37C8CF",
+  "authority_result_digest": "sha256:4b0b2ec8e7e0a5bdfbbee8b7d0498a4ec00e62b27528b4c5b40e546d621a18a0",
+  "authority_result_id": "AUTHNEG_B7AD524C4C13A97C8678541683C48232",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_StopModel.mqh",
+  "violations": []
+}

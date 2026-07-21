@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_376646D72C8520518B9E5129C8E13180",
+  "authority_result_digest": "sha256:db685b8f7871062f13934609552923dbf7a5e98d8c084644bf6dacc0fca4cc08",
+  "authority_result_id": "AUTHNEG_2A3DFF16E3EB3EB0F485CEB4C6FE43C6",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/exp0019/check_fp_i04_mql5_static.py",
+  "violations": []
+}

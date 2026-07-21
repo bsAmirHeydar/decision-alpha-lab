@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4DC3778D4B5FC5F041F8A4266D54C278",
+  "authority_result_digest": "sha256:6dcd04398194334797f744275a386ba00361bdccc1932ac619dcb52f4babbad3",
+  "authority_result_id": "AUTHNEG_EA37F9266791EBB55533C48577326E7C",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "product_lab/indicators/gartal_terminal/mql5/experts/GartalNewsDownloaderEA.mq5",
+  "violations": []
+}

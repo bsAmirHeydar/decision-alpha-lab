@@ -1,0 +1,68 @@
+{
+  "case_digest": "sha256:3b065999ca189bfacb7aa9884ec39c665a10722da9dc94792bc4a88be3fef553",
+  "case_id": "DRYCASE_4901C9058F7FAA32EE2F700B6CDBECEE",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "LIMIT",
+      "price": "100.00",
+      "unit": "PRICE"
+    },
+    "expiry": {
+      "kind": "TIME",
+      "value": "2099-01-01T00:00:00Z"
+    },
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_4901C9058F7FAA32EE2F700B6CDBECEE",
+    "schema_version": "1.0.0",
+    "side": "BUY",
+    "source_evidence": [
+      "sha256:9c059e5bd9de183b6f59bb7a643377cfe341094c87d193cc9c961aad04452f09",
+      "sha256:46f0e38f471a585b966660d4ab79ed21dc8fa025ee55343a46c2f077c0453edb",
+      "sha256:7b8935b45f4ad80574c5e697139888cdbad5045ecf50c85498ff6c15217ead82",
+      "sha256:f0fdddfefcf8009da0680e7abed12409ccc24fbe4f049446690536a483ff9aa4"
+    ],
+    "stop": null,
+    "symbol": "EURUSD",
+    "targets": [
+      {
+        "fraction": "1.0",
+        "price": "102.00",
+        "unit": "PRICE"
+      }
+    ],
+    "treatment_package_id": "TREATPKG_3ABB51BB5FFB09C45FC2810BFBD09932",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_3ABB51BB5FFB09C45FC2810BFBD09932",
+  "source_package_digest": "sha256:052c478a30bd2f92e273bce9b6d60a0f1678da82fbd4f4a4e79fb64f9dd17a38",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

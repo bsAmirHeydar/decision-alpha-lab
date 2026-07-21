@@ -1,0 +1,43 @@
+{
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "registry_digest": "sha256:b4d1e4f63d061d4f714ebba425bbb166b726025955400dd698c662540bd7d3bc",
+  "registry_id": "UNKNOWNREG_26CB6F086B437CAD5263EED7579F6847",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "unknown_count": 4,
+  "unknowns": [
+    {
+      "blocking_for": "PRODUCTION_BROKER_PARITY",
+      "dimension": "BROKER_RUNTIME_CONSTRAINTS",
+      "reason": "No live broker evidence required or available in LCM-10C.",
+      "status": "UNKNOWN"
+    },
+    {
+      "blocking_for": "SEMANTIC_ACTIVATION",
+      "dimension": "AMBIGUOUS_LEGACY_VALUE_SEMANTICS",
+      "reason": "LCM-10B explicit-input blockers remain authoritative.",
+      "status": "UNKNOWN"
+    },
+    {
+      "blocking_for": "PERSISTENT_LEDGER_ACTIVATION",
+      "dimension": "FILE_LEDGER_ENTITLEMENT_SEMANTICS",
+      "reason": "Entitlement and multi-process behavior are not proven.",
+      "status": "UNKNOWN"
+    },
+    {
+      "blocking_for": "PAPER_OR_LIVE_ACTIVATION",
+      "dimension": "HUMAN_OWNER_APPROVAL",
+      "reason": "No owner approval is inferred from reference closure.",
+      "status": "UNKNOWN"
+    }
+  ],
+  "validation_status": "PASS_WITH_EXPLICIT_UNKNOWNS"
+}

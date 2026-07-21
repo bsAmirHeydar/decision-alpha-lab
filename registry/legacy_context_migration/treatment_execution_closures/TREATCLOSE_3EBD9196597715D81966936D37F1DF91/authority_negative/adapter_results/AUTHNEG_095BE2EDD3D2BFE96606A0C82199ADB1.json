@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_744C6AB5D2CC642D13F26E40BE346887",
+  "authority_result_digest": "sha256:83099f1477a79e673b72e8e9dacb4eb0b10eb6dcfe6050574b6bd3dbe2ffc9e6",
+  "authority_result_id": "AUTHNEG_095BE2EDD3D2BFE96606A0C82199ADB1",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase04_relationship_registry_v2.py",
+  "violations": []
+}

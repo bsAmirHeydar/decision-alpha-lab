@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_7544C0528D4DD25319F7E2371EE0C053",
+  "authority_result_digest": "sha256:6e7beb24cc12107cef99300f8262be9fac9c1778f8819fad82b22e6ca736b623",
+  "authority_result_id": "AUTHNEG_F37511DC6D24DB2759D292F88CF2BBB3",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i01_contracts/test_static_boundaries.py",
+  "violations": []
+}

@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/lcm10c/closure_disposition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10C_REFERENCE_ONLY"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "disposition": {
+      "type": "string"
+    },
+    "disposition_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "type": "array"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "subject_type": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "disposition_id",
+    "subject_id",
+    "subject_type",
+    "disposition",
+    "reason_codes"
+  ],
+  "title": "closure_disposition",
+  "type": "object"
+}

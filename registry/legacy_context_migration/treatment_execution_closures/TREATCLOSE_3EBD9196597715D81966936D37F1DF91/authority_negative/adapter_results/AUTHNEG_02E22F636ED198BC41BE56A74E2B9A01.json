@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_06A947395FEB21AD44085B3C298190E3",
+  "authority_result_digest": "sha256:3ab86716d4736c33ed3a513ce59f511ed1abc20458001eee307fb356dc6d8557",
+  "authority_result_id": "AUTHNEG_02E22F636ED198BC41BE56A74E2B9A01",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i19_production_operations/test_i19_lease.py",
+  "violations": []
+}

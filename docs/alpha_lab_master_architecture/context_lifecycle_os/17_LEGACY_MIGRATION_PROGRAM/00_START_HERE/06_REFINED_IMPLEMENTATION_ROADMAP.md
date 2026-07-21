@@ -107,3 +107,8 @@ LCM-10A is complete under `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02`. The sourc
 ## LCM-10B implementation closure
 
 LCM-10B is complete under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`. It creates canonical reference Treatment packages and a normalized execution-intent boundary, places every inventoried execution source behind a disabled adapter contract, records legacy containment rather than pretending source movement occurred, and preserves unresolved owner, unit, broker and runtime semantics as blocking evidence. LCM-10 remains open. The next implementation unit is LCM-10C.
+
+
+## LCM-10C implementation closure
+
+LCM-10C is complete under `TREATCLOSE_3EBD9196597715D81966936D37F1DF91`. Deterministic dry-run request parity, fail-closed safety controls and authority-negative adapter proofs close LCM-10 with zero submission, live-order and capital authority. Residual broker/platform evidence remains UNKNOWN. The next implementation unit is LCM-11A.

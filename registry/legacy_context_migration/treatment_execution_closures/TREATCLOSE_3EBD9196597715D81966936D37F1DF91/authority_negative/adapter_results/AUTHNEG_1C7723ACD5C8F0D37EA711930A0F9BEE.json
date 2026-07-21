@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0AFD708BFD357784641FE18DB3AE6D9F",
+  "authority_result_digest": "sha256:2c72bdad005d62c60d873c08711d12d08b91d1a4f0d92a43e75fa9ac53a50c6b",
+  "authority_result_id": "AUTHNEG_1C7723ACD5C8F0D37EA711930A0F9BEE",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Inference/SF15_ModelFileFingerprint.mqh",
+  "violations": []
+}

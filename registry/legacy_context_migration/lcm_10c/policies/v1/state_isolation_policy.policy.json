@@ -1,0 +1,18 @@
+{
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "cross_symbol_state_leak_allowed": false,
+  "deterministic_identity": true,
+  "duplicate_scope": "REQUEST_ID",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_id": "POLICY_17C910448F3BC0EE1E53367F60CD2D2B",
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "reconciliation_scope": "SYMBOL_AND_ADAPTER",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "validation_status": "PASS"
+}

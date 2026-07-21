@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_67CB11FAACB5723131D1F08BB1AFA4A7",
+  "authority_result_digest": "sha256:921c022ccb07789afee9d645496cdc52e66a540b39229d45f7bd88fcb201e4f4",
+  "authority_result_id": "AUTHNEG_243C3211D56351D7C9A0BF12ECEA05D0",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh",
+  "violations": []
+}

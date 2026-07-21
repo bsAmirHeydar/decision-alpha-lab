@@ -1,0 +1,21 @@
+{
+  "acceptance_digest": "sha256:0f23fd211e0e346cd903a3ef296fb32a39bbc55e96050cc9493d40ae253f2f2d",
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "closure_id": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+  "output_manifest_digest": "sha256:c5c0cd13c523ae93d73fff2e1690d0213826834942f79ffe3d7a808c35fb8404",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "receipt_digest": "sha256:da195bb76411fd2a42cdd41c3f3c3155dddccdb66ad5e4beefefe4ee670d26bc",
+  "receipt_id": "RECEIPT_26CB6F086B437CAD5263EED7579F6847",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:c5c0cd13c523ae93d73fff2e1690d0213826834942f79ffe3d7a808c35fb8404",
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_5C381466858337BF86E5CAA0583FDE0A",
+  "authority_result_digest": "sha256:9c37b86401196517f425c2db0aaf146e826477bd730926e496f62e984f9959be",
+  "authority_result_id": "AUTHNEG_1FC59C5D162CE51A66CBA0835C2D7D00",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/ICT/DAL_ICTJournal.mqh",
+  "violations": []
+}

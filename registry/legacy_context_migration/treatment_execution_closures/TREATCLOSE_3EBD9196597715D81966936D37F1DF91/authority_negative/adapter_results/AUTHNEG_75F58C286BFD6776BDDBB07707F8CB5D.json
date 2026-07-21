@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_EDA64EA2C65CAE7B87186EFE3F586FAE",
+  "authority_result_digest": "sha256:0c41457a01bba830637a736e8769e6d7fe5e5b56ca14661a979736f86a496150",
+  "authority_result_id": "AUTHNEG_75F58C286BFD6776BDDBB07707F8CB5D",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/DAL_ExecHeikinAshi.mqh",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_FE5C8EA02D63C2811C5F37E8CAF542CB",
+  "authority_result_digest": "sha256:9e0ca178d4a0a05e3ce014976cb2ef41f77526488dc8a31df6b9b3ee0368f1f8",
+  "authority_result_id": "AUTHNEG_865C5AE1991212BC733047B98A8106A6",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+  "violations": []
+}

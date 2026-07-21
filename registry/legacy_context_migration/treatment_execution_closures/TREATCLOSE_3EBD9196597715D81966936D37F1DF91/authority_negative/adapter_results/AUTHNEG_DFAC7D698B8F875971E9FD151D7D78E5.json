@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_CAD9119758559404D0A905207EAA4284",
+  "authority_result_digest": "sha256:b6a4557de13ee58cef6ad9e3131c354eac565035035b781d09573b6d881bcb41",
+  "authority_result_id": "AUTHNEG_DFAC7D698B8F875971E9FD151D7D78E5",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/acl_os/tests_acl_01/test_compatibility_migration.py",
+  "violations": []
+}

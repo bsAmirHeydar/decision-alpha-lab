@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_C8AB48E7016A8376B3C0785AC700A7FD",
+  "authority_result_digest": "sha256:164a386c9e8c4d18565c059065d68a27b171f79c378314c18aad392eed563f34",
+  "authority_result_id": "AUTHNEG_7A3E356449B483996EF843AA545A6CA7",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/M0001_LiveVisualLab.mq5",
+  "violations": []
+}

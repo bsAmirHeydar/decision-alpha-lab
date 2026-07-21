@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_50A7E8CD336562BA47C4BF2634677103",
+  "authority_result_digest": "sha256:e8de6653a70665beab4cca5aa7f619879953478762c85f3d94d0233a35abddf1",
+  "authority_result_id": "AUTHNEG_BC4CCB5013FBF217A83E8C382231E0C5",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/saed_v4_40/validate_mql5_static.py",
+  "violations": []
+}

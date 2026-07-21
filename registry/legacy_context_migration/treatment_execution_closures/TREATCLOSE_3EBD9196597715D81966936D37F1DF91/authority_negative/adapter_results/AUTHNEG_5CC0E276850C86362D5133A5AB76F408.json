@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_6732B4194D7A6B605A4CCEE51CF02031",
+  "authority_result_digest": "sha256:fbbe14c67006013876077087577b54c3e1e4efe1b39f06f521cce7960317f150",
+  "authority_result_id": "AUTHNEG_5CC0E276850C86362D5133A5AB76F408",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/tests/test_phase_boundaries.py",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2858D4937405ECB85FA8AEDAB903EC5C",
+  "authority_result_digest": "sha256:b3c3e7511c4650a337d59ee776f393982d1012d57066f47facaac0e60e1ca543",
+  "authority_result_id": "AUTHNEG_370293297AA09057E34442C94BE86A10",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+  "violations": []
+}

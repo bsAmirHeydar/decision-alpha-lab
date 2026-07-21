@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_55AB90AB22ABD712DDA9D6DE04A3F51C",
+  "authority_result_digest": "sha256:fa618ffb55be938dc043158581b6dd06050335d1cc33a378ee4fef29b0f4c61b",
+  "authority_result_id": "AUTHNEG_2592D289FC5041CB10ABD0D98711D002",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+  "violations": []
+}

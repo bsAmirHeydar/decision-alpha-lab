@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_17D0FA43E0B27DBE969E51980F0D6E7A",
+  "authority_result_digest": "sha256:c7f03165c12bcab95c5e52d7f6721a0f2f9b76b5c4a2545dbc3035707a8e9125",
+  "authority_result_id": "AUTHNEG_01397860898AD458E08F1A0905468ACC",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_OrderRouter.mqh",
+  "violations": []
+}

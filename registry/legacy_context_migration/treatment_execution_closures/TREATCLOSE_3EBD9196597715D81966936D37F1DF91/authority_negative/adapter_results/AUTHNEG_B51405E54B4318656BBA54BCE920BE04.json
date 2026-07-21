@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A5ED1ABAEFD800A464A6BD5F5B1C17B0",
+  "authority_result_digest": "sha256:12ca960721da1c542947c2587365cfe28cee9e927d218765e5bc8d5d070d6339",
+  "authority_result_id": "AUTHNEG_B51405E54B4318656BBA54BCE920BE04",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Training/SF13_DatasetExporter.mqh",
+  "violations": []
+}

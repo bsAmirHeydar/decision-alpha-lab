@@ -1,0 +1,58 @@
+{
+  "case_digest": "sha256:ade2cf7a5f6751ec0336f792d16aed84f86476f79c2a967f031c8d9d79e5a533",
+  "case_id": "DRYCASE_4CC62C6E64A0BFFA4F50FB1D9F2D61E2",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "LIMIT",
+      "price": "100.00",
+      "unit": "PRICE"
+    },
+    "expiry": null,
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_4CC62C6E64A0BFFA4F50FB1D9F2D61E2",
+    "schema_version": "1.0.0",
+    "side": "BUY",
+    "source_evidence": [
+      "sha256:7d009cffa2ad90b7630398b6862fef8aca310e0a65045ca409e035ba1a04effb",
+      "sha256:1238aea84ccb9ea21f9d9f757437454cebe39f65e6529f3cdf471cdfd8e0820e",
+      "sha256:193488cd8131a7ca51f4b663abf53c5bc56d8313d78a6031eddde31355b54759"
+    ],
+    "stop": null,
+    "symbol": "EURUSD",
+    "targets": [],
+    "treatment_package_id": "TREATPKG_4FD5EFC6A094013683826DE7E70B9CC8",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_4FD5EFC6A094013683826DE7E70B9CC8",
+  "source_package_digest": "sha256:901879f79dae0d77e9b3e66dd6c06a3a92ddfb3d0ec6c1f07cb96c5e493df03f",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

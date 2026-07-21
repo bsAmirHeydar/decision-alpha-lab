@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_51187BC0F28C2367361A29A3E49F2D65",
+  "authority_result_digest": "sha256:656ca2055304fc9b5b1c5515d0614e36794f5974fb3b6d3329a4d3554c2e50fc",
+  "authority_result_id": "AUTHNEG_6A4478F0B06BF6889E58A3CFDA739FB1",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py",
+  "violations": []
+}

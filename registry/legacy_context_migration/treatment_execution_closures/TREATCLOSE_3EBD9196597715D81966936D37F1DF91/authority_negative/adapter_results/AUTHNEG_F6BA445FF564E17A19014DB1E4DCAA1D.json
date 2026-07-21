@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_352494A355FDAC1F6E3ECF1AECB727DF",
+  "authority_result_digest": "sha256:2ac9a584e93eec9d5fcac3bb81b39241049456cfbec75a36890a8da45a8940be",
+  "authority_result_id": "AUTHNEG_F6BA445FF564E17A19014DB1E4DCAA1D",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/migration/tests_lcm_08c/test_static_boundaries.py",
+  "violations": []
+}

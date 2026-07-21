@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_6EE762FD26ABF469EEB9550EB15F2AF2",
+  "authority_result_digest": "sha256:d2af6873bc8f12fbbdf0f94f6851004036eb3b63c65fcfa261521dabb03e7bb2",
+  "authority_result_id": "AUTHNEG_E739C528CAD2BFD6A7495BAC5EFC4D97",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Research/DAL_AstroExecutionJournal.mqh",
+  "violations": []
+}

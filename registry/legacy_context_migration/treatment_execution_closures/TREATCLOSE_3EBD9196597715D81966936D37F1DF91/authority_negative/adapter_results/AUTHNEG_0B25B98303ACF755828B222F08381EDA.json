@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A0C56B02388802F300509A528528AFA0",
+  "authority_result_digest": "sha256:00612cb94cacd9dd9b695c742ca3f071025bae86252ded3e820a498972008159",
+  "authority_result_id": "AUTHNEG_0B25B98303ACF755828B222F08381EDA",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5",
+  "violations": []
+}

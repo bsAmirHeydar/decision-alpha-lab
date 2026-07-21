@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_2FCF3CFA5F24DC375680A004BE5EDD86",
+  "authority_result_digest": "sha256:a2bfbe7b36e40b9e870399b3fb47423e844ecb19f7b499aa06d3d92e3d107203",
+  "authority_result_id": "AUTHNEG_889754205D9F9AF9EE8F813B02CF4349",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase04_plugins/test_sf04_mql5_inventory.py",
+  "violations": []
+}

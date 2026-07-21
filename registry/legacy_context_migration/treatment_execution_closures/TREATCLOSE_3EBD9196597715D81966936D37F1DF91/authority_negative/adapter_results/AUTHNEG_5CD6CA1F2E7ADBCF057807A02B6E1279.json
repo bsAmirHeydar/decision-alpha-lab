@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4B727933B4056FDEAE91E7951340252B",
+  "authority_result_digest": "sha256:274ac18cdfa58089bd4c0c2e99a248db2c976785e712612b89a70d70d12c60e8",
+  "authority_result_id": "AUTHNEG_5CD6CA1F2E7ADBCF057807A02B6E1279",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Execution/E0009/DAL_E0009HTF123HookEngine.mqh",
+  "violations": []
+}

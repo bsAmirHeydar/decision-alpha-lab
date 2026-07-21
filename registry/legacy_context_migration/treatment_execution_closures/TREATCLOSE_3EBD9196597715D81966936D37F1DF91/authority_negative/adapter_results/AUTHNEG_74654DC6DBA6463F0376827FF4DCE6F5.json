@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_FD66F99BF9115F7D1DB1A6E852C66911",
+  "authority_result_digest": "sha256:d774899c501653cb27d75778a03cd2186b5137b57fa340661d271432dd188553",
+  "authority_result_id": "AUTHNEG_74654DC6DBA6463F0376827FF4DCE6F5",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/check_uce_i19_mql5_static.py",
+  "violations": []
+}

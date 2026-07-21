@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_D2AD92C90254746B7D26FA7760A3E497",
+  "authority_result_digest": "sha256:6990db12e6c5de6118e8ea053bdafa80a100c8ce0b418406e5944ec3b0881560",
+  "authority_result_id": "AUTHNEG_BA9352D9E000FBACBD3DD7F2133EC7E8",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/flag_counting/nds_f2_canonical_point2_projection_root_fix_qa.py",
+  "violations": []
+}

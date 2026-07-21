@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_ED80916A2825A02128250BD9826F8E01",
+  "authority_result_digest": "sha256:49573eb8b40a69e56fd15eb19c45f184220ebfb9a3350e836c33f6851ae99a5f",
+  "authority_result_id": "AUTHNEG_D58973B3F2158C3D0A45E2EDF4D076A4",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Scripts/AstroML/ExportRatesForAstroML.mq5",
+  "violations": []
+}

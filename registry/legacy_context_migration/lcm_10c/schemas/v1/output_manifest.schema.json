@@ -1,0 +1,59 @@
+{
+  "$id": "https://alpha-lab.local/lcm10c/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10C_REFERENCE_ONLY"
+    },
+    "closure_id": {
+      "const": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "file_count": {
+      "type": "integer"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "manifest_digest": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closure_id",
+    "file_count",
+    "manifest_digest"
+  ],
+  "title": "output_manifest",
+  "type": "object"
+}

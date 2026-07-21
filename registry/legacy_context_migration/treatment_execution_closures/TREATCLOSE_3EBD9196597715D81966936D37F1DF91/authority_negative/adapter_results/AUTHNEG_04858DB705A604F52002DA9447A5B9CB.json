@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_237A770DA5EB7B0E9E34048E7315F317",
+  "authority_result_digest": "sha256:aeaf3c23b373e9bee372de102b735a822bbc7048c849b154fe0bee3dd892b7b2",
+  "authority_result_id": "AUTHNEG_04858DB705A604F52002DA9447A5B9CB",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_Mql5BrokerAdapter.mqh",
+  "violations": []
+}

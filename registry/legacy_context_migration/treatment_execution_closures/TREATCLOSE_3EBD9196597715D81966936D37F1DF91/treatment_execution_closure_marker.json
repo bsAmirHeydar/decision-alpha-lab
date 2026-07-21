@@ -1,0 +1,19 @@
+{
+  "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+  "closure_id": "TREATCLOSE_3EBD9196597715D81966936D37F1DF91",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "marker_digest": "sha256:2ad81e8b4bcf8f87752a0420e4ae20b1ef706019a6fa5a6624c33d99bdd9f231",
+  "marker_id": "MARKER_26CB6F086B437CAD5263EED7579F6847",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-10C",
+  "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "state": "ACCEPTED_REFERENCE_CLOSURE",
+  "validation_status": "PASS"
+}

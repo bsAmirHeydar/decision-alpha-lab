@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_EC0B4F9F673FB308A9E70FB16490A68A",
+  "authority_result_digest": "sha256:842297517759ab04bad57ef176d8f53d02e57f2259b29da9fd2d063001128bf7",
+  "authority_result_id": "AUTHNEG_D3D26E5D54D41A5DF3D5F2FC9D14F58A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i11_experiments/test_i11_reproducibility.py",
+  "violations": []
+}

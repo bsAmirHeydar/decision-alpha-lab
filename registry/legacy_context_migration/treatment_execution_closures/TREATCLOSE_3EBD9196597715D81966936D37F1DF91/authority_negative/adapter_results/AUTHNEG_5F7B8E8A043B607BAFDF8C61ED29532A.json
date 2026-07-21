@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_30FF75642948C240C3B479F1BBF196CA",
+  "authority_result_digest": "sha256:6f661acfda604da38796a62c55bd85fbdcc1d193070ffb31bb984f50da03d8a9",
+  "authority_result_id": "AUTHNEG_5F7B8E8A043B607BAFDF8C61ED29532A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/tests/test_fp_i05_authority_boundary.py",
+  "violations": []
+}

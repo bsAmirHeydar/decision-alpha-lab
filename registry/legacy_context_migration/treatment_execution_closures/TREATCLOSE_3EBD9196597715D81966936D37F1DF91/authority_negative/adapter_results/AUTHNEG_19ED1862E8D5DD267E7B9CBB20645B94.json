@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_9EDEF6F45AEB8C4B53C2DBC62F1B719F",
+  "authority_result_digest": "sha256:3c3588766ae34b354e8efde05400c7d1e308184debce3ab873a54314149cf7f6",
+  "authority_result_id": "AUTHNEG_19ED1862E8D5DD267E7B9CBB20645B94",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/flag_counting/nds_f2_per_trade_f3_exit_contract_qa.py",
+  "violations": []
+}

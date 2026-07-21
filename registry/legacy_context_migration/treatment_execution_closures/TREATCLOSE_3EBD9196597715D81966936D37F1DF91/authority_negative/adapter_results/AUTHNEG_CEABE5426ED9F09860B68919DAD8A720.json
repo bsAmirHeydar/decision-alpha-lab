@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_11F62EDD76258F6744E95F2C4D8D6B54",
+  "authority_result_digest": "sha256:41ac3e127f0a11d62ef6d33200060fd318d79870b48ca75cfb18c175c48f1292",
+  "authority_result_id": "AUTHNEG_CEABE5426ED9F09860B68919DAD8A720",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/lcm/lcm_07/authority.py",
+  "violations": []
+}

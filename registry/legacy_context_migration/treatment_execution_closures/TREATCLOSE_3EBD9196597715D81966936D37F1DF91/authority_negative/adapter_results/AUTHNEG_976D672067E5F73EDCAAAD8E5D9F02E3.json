@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A0AE2003A05E8EF6742B34DBBE1423EC",
+  "authority_result_digest": "sha256:759f3bbd577ebf99a2a01f7f2003c26cc92b1f20173b04ded9640da519cda08f",
+  "authority_result_id": "AUTHNEG_976D672067E5F73EDCAAAD8E5D9F02E3",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I14/FP_I14_TraceExporter.mqh",
+  "violations": []
+}

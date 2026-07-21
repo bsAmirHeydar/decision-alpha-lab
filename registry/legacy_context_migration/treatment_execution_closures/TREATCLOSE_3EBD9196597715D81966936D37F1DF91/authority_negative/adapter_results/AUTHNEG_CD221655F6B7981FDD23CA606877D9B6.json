@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_15DD37F5B5174BB925BCC02A3046B88F",
+  "authority_result_digest": "sha256:a686ecf5f7c43b6ae3775e8b04bff0fac316fd86c05b8c455136ecc07e5110e4",
+  "authority_result_id": "AUTHNEG_CD221655F6B7981FDD23CA606877D9B6",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/python/fp_i14_diagnostic/constants.py",
+  "violations": []
+}

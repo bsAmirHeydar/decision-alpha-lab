@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_51F499B994C67380419AC3F73D5762AE",
+  "authority_result_digest": "sha256:9d39251f24a121dcb4a3ef57dbcfb6a7fc56ce526dfae361183d0cab27df541c",
+  "authority_result_id": "AUTHNEG_B3E322B1E272BE879676D57D8F9C3035",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsCalendarClient.mqh",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_C67CE7EE8513780ACAD3994A096E4B92",
+  "authority_result_digest": "sha256:4fc7d5f8e74e061f4b1d7c3e7ab899f99f9c5b2473d74612b692583f55d75ce1",
+  "authority_result_id": "AUTHNEG_C622BF661E4BFD9B94C965C785F02945",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "research/exp0017_phase06/tests/test_hotfix011_raw_path_freshness.py",
+  "violations": []
+}

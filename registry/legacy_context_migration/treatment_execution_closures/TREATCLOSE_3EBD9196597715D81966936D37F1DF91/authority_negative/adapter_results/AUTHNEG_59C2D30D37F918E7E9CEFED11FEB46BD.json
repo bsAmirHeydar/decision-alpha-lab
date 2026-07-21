@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_4014A383DA637429FF7CB89461A68614",
+  "authority_result_digest": "sha256:b38e3f85612887cc3aeaab894259cedf7aa2a623c307454ff1115cc5a1c4dc82",
+  "authority_result_id": "AUTHNEG_59C2D30D37F918E7E9CEFED11FEB46BD",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_03_continuous_time_event_model/test_mql5_static.py",
+  "violations": []
+}

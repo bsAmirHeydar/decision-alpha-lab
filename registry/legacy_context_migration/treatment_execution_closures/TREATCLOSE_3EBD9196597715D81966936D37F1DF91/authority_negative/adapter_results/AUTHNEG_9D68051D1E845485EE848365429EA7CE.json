@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0BCB3F98F26DB53E76E8495206FE8573",
+  "authority_result_digest": "sha256:6f878bf618cc347fbc30b06655b15e0684b7de6307cebe515ad0307913a9ef8c",
+  "authority_result_id": "AUTHNEG_9D68051D1E845485EE848365429EA7CE",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i12_promotion/test_i12_boundaries.py",
+  "violations": []
+}

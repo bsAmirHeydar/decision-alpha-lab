@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_77E05D57CE0C86AB132BA046EC607A0B",
+  "authority_result_digest": "sha256:0e9753bc04c2687c5c24415ed32dbc7086a1c9b1a436c1600232fd90a8397118",
+  "authority_result_id": "AUTHNEG_73C907FB6A62B152DBDC7DDF02B0C05A",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/tests/test_fp_i05_references.py",
+  "violations": []
+}

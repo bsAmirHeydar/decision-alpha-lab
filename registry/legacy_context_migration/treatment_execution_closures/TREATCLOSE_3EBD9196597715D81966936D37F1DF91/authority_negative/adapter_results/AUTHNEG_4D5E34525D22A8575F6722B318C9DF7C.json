@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_8B7BED1707472CF91C436A559E386460",
+  "authority_result_digest": "sha256:7fa1406d718c8a97984272de8ca1956d43dc2537b96a5b28b777d315ec09d57f",
+  "authority_result_id": "AUTHNEG_4D5E34525D22A8575F6722B318C9DF7C",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/astro_ml/astro_ml_core.py",
+  "violations": []
+}

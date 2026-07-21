@@ -1,0 +1,8 @@
+"""Read-only ACL-04 reference to accepted LCM-10C closure; grants no authority."""
+from pathlib import Path
+LCM10C_CLOSURE_ID='TREATCLOSE_3EBD9196597715D81966936D37F1DF91'
+LCM10C_CLOSURE_ROOT=Path('registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91')
+PROMOTION_AUTHORITY=False
+RUNTIME_AUTHORITY=False
+LIVE_ORDER_AUTHORITY=False
+CAPITAL_AUTHORITY=False

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_96CEE6E67C9297E65532B3BB594AA8D4",
+  "authority_result_digest": "sha256:9cff969f88b5aedaedc563bc18fdf548185179f316ef3275dcca0a544cd3dc1f",
+  "authority_result_id": "AUTHNEG_0E316DF286639FBCEFF4F04081525D4D",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/flag_counting/nds_f2_canonical_frequency_recovery_contract_qa.py",
+  "violations": []
+}

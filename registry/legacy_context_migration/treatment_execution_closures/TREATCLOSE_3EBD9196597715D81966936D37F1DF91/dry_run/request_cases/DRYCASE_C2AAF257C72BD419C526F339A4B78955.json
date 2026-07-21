@@ -1,0 +1,68 @@
+{
+  "case_digest": "sha256:b4056cc0ebfaa09b5c74494816b38d1f904456976435050c98b61b4d9390410a",
+  "case_id": "DRYCASE_C2AAF257C72BD419C526F339A4B78955",
+  "expected_submission_count": 0,
+  "intent": {
+    "availability_time": "2000-01-01T00:00:00Z",
+    "cancellation": {
+      "enabled": false
+    },
+    "decision_time": "2000-01-01T00:00:00Z",
+    "entry": {
+      "kind": "LIMIT",
+      "price": "100.00",
+      "unit": "PRICE"
+    },
+    "expiry": null,
+    "management": {
+      "partial_exit": false,
+      "trailing": false
+    },
+    "mode": "DRY_RUN",
+    "request_id": "DRYREQ_C2AAF257C72BD419C526F339A4B78955",
+    "schema_version": "1.0.0",
+    "side": "BUY",
+    "source_evidence": [
+      "sha256:6a51f4dbd0669edb2399ff86619c5e4106a0de6f94dbf73c73f0314a61b02c35",
+      "sha256:0c23242adf16ccde0c5def022b1440a384e1388fdcae0ed8b9c1ed4ccb2c7e35",
+      "sha256:68c26a59ff9b792d76971a917aded5a38aabf6a9a50941332653320b92fad48f",
+      "sha256:96cd00b132237448aee5256bf7f97a8dec580e1ff6f6d3d8cff2be0ef8c671b5"
+    ],
+    "stop": {
+      "price": "99.00",
+      "unit": "PRICE"
+    },
+    "symbol": "EURUSD",
+    "targets": [
+      {
+        "fraction": "1.0",
+        "price": "102.00",
+        "unit": "PRICE"
+      }
+    ],
+    "treatment_package_id": "TREATPKG_1FC2BA95B88EF838D045CBC8748D9C56",
+    "volume_request": {
+      "unit": "UNKNOWN",
+      "value": null
+    }
+  },
+  "package_id": "TREATPKG_1FC2BA95B88EF838D045CBC8748D9C56",
+  "source_package_digest": "sha256:f794a471855070121f243e43b52063f98dcf1fc6d7fab70d41b6a1da36ba8e3a",
+  "symbol_fixture": {
+    "ask": "100.01",
+    "bid": "99.99",
+    "freeze_level": "0.02",
+    "kill_switch_active": false,
+    "max_quote_age_ms": 1000,
+    "max_spread": "0.05",
+    "quote_age_ms": 100,
+    "reconciliation_ok": true,
+    "session_open": true,
+    "stops_level": "0.05",
+    "symbol": "EURUSD",
+    "tick_size": "0.01",
+    "volume_max": "100.00",
+    "volume_min": "0.01",
+    "volume_step": "0.01"
+  }
+}

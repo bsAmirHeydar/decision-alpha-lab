@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_CFC05D29F0C9ED3CE098A51ADD819783",
+  "authority_result_digest": "sha256:688ac21fbe1dffe894fb3da02ae5ab8334b14dae9d791e82891d0a27f18213a8",
+  "authority_result_id": "AUTHNEG_16EE011A5F520139EB27FD85E301DFA7",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Debug/D0010_H4AtomicNoSampleRegimeAudit.mq5",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_0A7236942E9F4B446479494D2A617D84",
+  "authority_result_digest": "sha256:46adf78efabb293f8f43da313569547b9aa7b1de94d419a3a49b2dc1acc00425",
+  "authority_result_id": "AUTHNEG_B136336DACF8A799A45EBAAD7E9E0D2C",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/astro_ml/build_cognitive_astro_memory.py",
+  "violations": []
+}

@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_D076F9B9BEE0F01713285E84B9680CD6",
+  "authority_result_digest": "sha256:fde7fc44a4bc7d44a9fa7fc2823c088c80434f08ce27baaf413bbd0b390e4b29",
+  "authority_result_id": "AUTHNEG_EB213D302D0971DDE3D96D126D3D5533",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+  "violations": []
+}

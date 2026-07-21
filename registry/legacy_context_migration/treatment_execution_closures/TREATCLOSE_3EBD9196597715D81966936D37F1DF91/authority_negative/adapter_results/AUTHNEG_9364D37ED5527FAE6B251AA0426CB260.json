@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_33BD83DDEBB17FAB35BDD34EF17E89C0",
+  "authority_result_digest": "sha256:5bc8ecb1ec294ec11cc297af5698f5d97d003b7807008deb09196b31174175cd",
+  "authority_result_id": "AUTHNEG_9364D37ED5527FAE6B251AA0426CB260",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/check_uce_i13_boundaries.py",
+  "violations": []
+}

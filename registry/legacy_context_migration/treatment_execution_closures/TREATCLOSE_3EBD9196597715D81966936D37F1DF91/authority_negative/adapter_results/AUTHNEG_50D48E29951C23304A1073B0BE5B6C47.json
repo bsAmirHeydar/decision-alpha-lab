@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_BE58E42B1DA2A993AB54B3F20BCC55D2",
+  "authority_result_digest": "sha256:3c5a9a5e63664e8e68d666289b417c27f28d800cda0548f502647ca40a98e784",
+  "authority_result_id": "AUTHNEG_50D48E29951C23304A1073B0BE5B6C47",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+  "violations": []
+}

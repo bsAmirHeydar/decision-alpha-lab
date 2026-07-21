@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_3A128505479B8464B2EB6DEA5A4A345B",
+  "authority_result_digest": "sha256:0b8001d506702ea8c3dfe597aa157cd8bdf72d607406579231f3a44eb87ccf10",
+  "authority_result_id": "AUTHNEG_E1EB6A0A8D74545C06AFF2BC0B473504",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase06Export.mqh",
+  "violations": []
+}

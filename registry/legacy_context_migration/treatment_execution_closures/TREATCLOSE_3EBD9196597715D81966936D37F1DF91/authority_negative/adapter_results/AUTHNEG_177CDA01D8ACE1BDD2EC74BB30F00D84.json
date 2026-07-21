@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_7FCDE3AC257502607F93B26C267C78B1",
+  "authority_result_digest": "sha256:f60309c634d6c934298f140a51ca60c5faa814ce545d6523f9c2fb73daac65ac",
+  "authority_result_id": "AUTHNEG_177CDA01D8ACE1BDD2EC74BB30F00D84",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/python/strategy_factory/scaffold.py",
+  "violations": []
+}

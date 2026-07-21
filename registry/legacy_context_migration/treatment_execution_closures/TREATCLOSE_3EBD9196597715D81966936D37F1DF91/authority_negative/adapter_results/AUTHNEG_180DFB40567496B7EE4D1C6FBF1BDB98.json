@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_D5C96285225F6F8CA00CBCBB787A5344",
+  "authority_result_digest": "sha256:61a507b3137b555dcc38b982eae07f082d4d76ede7af8ec2447ca5c30a985b0d",
+  "authority_result_id": "AUTHNEG_180DFB40567496B7EE4D1C6FBF1BDB98",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+  "violations": []
+}

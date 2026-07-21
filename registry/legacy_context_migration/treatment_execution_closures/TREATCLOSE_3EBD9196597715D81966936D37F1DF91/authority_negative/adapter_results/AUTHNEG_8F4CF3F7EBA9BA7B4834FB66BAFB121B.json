@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_F40C3D27426871203460DFF2533A3DB4",
+  "authority_result_digest": "sha256:d054a7e6868788785dee5b2f8bc38fb5b601dad405ba41f94fe51c20a1f0b29d",
+  "authority_result_id": "AUTHNEG_8F4CF3F7EBA9BA7B4834FB66BAFB121B",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/python/strategy_factory/testing/metamorphic.py",
+  "violations": []
+}

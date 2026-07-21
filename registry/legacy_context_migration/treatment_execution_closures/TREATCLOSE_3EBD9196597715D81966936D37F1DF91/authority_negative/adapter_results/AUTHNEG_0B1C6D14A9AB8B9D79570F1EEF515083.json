@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_CA3AC14A52DDAD96B6E08CBF720B4539",
+  "authority_result_digest": "sha256:288064a574054fd59f7ebb5e2672e77128fff0643bda96c7c94f216d01c0f1ad",
+  "authority_result_id": "AUTHNEG_0B1C6D14A9AB8B9D79570F1EEF515083",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/AstroExecution/A0090_AstroOrderShell.mq5",
+  "violations": []
+}

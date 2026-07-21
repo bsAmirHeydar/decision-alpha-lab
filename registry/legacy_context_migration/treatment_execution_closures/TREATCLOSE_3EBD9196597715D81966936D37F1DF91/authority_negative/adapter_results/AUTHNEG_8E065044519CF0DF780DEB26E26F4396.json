@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_5261C6CF56E6EF70268C0ABE34775B11",
+  "authority_result_digest": "sha256:7356081ec8b1cd834ecdeb18c6de0ea353b72fb14d358578f31dc87afae17da9",
+  "authority_result_id": "AUTHNEG_8E065044519CF0DF780DEB26E26F4396",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_06_treatment_dsl/test_mql5_static.py",
+  "violations": []
+}

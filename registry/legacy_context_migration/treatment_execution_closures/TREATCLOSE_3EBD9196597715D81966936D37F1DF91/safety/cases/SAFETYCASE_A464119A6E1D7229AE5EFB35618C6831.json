@@ -1,0 +1,137 @@
+{
+  "assertion": {
+    "control_code": "CLOSED_SESSION",
+    "expected_result": "REJECTED",
+    "observed_codes": [
+      "CLOSED_SESSION"
+    ],
+    "observed_final_state": "REJECTED",
+    "result": "PASS",
+    "safety_case_digest": "sha256:a415c1f2bf85b92461fed2ac0da45c08d1a5bc2a87cdac3100a0044c4d7f2193",
+    "safety_case_id": "SAFETYCASE_A464119A6E1D7229AE5EFB35618C6831",
+    "submission_attempt_count": 0
+  },
+  "input": {
+    "case_digest": "sha256:d1f9c25ad5b9f45f3640e8a4b2bf3c94f773a670813ed871cb5cdeb180c07d4f",
+    "case_id": "SAFETYCASE_A464119A6E1D7229AE5EFB35618C6831",
+    "expected_submission_count": 0,
+    "intent": {
+      "availability_time": "2000-01-01T00:00:00Z",
+      "cancellation": {
+        "enabled": false
+      },
+      "decision_time": "2000-01-01T00:00:00Z",
+      "entry": {
+        "kind": "LIMIT",
+        "price": "100.00",
+        "unit": "PRICE"
+      },
+      "expiry": {
+        "kind": "TIME",
+        "value": "2099-01-01T00:00:00Z"
+      },
+      "management": {
+        "partial_exit": false,
+        "trailing": false
+      },
+      "mode": "DRY_RUN",
+      "request_id": "DRYREQ_C234A632DA773955AD7CEE2148936328",
+      "schema_version": "1.0.0",
+      "side": "SELL",
+      "source_evidence": [
+        "sha256:17fdf1c95695ab5e7ce27ec77aab696e30818cc7f7860701e8eced45db17c23c",
+        "sha256:292f265159ce5fb3ff3ee2645715c68216a5f9f0544c8ec38eed5d4af2e9f2ee",
+        "sha256:4e1881b722083606a7a8be2461d4de931fcb37353aa499456ec6ffdff63671bc",
+        "sha256:58466d23b099b72e04039df4c5a90264f63335bd0172ffa42f0424cff5d3c6e7",
+        "sha256:b2c6595de4bb35861e0b0057483a49c43d041bce6c2168fb3affd6ac775a8180"
+      ],
+      "stop": {
+        "price": "101.00",
+        "unit": "PRICE"
+      },
+      "symbol": "EURUSD",
+      "targets": [
+        {
+          "fraction": "1.0",
+          "price": "98.00",
+          "unit": "PRICE"
+        }
+      ],
+      "treatment_package_id": "TREATPKG_001CBE7189C8D789931D219A22F509BF",
+      "volume_request": {
+        "unit": "UNKNOWN",
+        "value": null
+      }
+    },
+    "package_id": "TREATPKG_001CBE7189C8D789931D219A22F509BF",
+    "source_package_digest": "sha256:80a7b24a5641f0ea59827f3913797a42ab231009461767847644568f4fec57f8",
+    "symbol_fixture": {
+      "ask": "100.01",
+      "bid": "99.99",
+      "freeze_level": "0.02",
+      "kill_switch_active": false,
+      "max_quote_age_ms": 1000,
+      "max_spread": "0.05",
+      "quote_age_ms": 100,
+      "reconciliation_ok": true,
+      "session_open": false,
+      "stops_level": "0.05",
+      "symbol": "EURUSD",
+      "tick_size": "0.01",
+      "volume_max": "100.00",
+      "volume_min": "0.01",
+      "volume_step": "0.01"
+    }
+  },
+  "result": {
+    "capital_activation_count": 0,
+    "case_id": "SAFETYCASE_A464119A6E1D7229AE5EFB35618C6831",
+    "claim_ceiling": "LCM_10C_REFERENCE_ONLY",
+    "deterministic_identity": true,
+    "events": [
+      {
+        "reason": "REQUEST_RECEIVED",
+        "sequence": 0,
+        "state": "CREATED"
+      },
+      {
+        "reason": "FAIL_CLOSED_VALIDATION",
+        "sequence": 1,
+        "state": "VALIDATING"
+      },
+      {
+        "reason_codes": [
+          "CLOSED_SESSION"
+        ],
+        "sequence": 2,
+        "state": "REJECTED"
+      }
+    ],
+    "final_state": "REJECTED",
+    "findings": [
+      {
+        "blocking": true,
+        "code": "CLOSED_SESSION",
+        "details": {},
+        "field": "session_open",
+        "message": "Session is closed"
+      }
+    ],
+    "generated_at": null,
+    "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+    "live_order_count": 0,
+    "owner": "ALPHA_LAB_MIGRATION_OWNER",
+    "package_id": "TREATPKG_001CBE7189C8D789931D219A22F509BF",
+    "paper_order_count": 0,
+    "producer": "tools.strategy_factory.lcm.lcm_10c.service:LCM10CClosureService",
+    "replay_digest": "sha256:4b82b7379d9c7125cdc56f911b3160390b5617ea759d4f4a0e680332ef293168",
+    "replay_id": "DRYREPLAY_D6B048EA4093C00A8E4E378E66466BC6",
+    "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+    "schema_version": "1.0.0",
+    "source_digests": [
+      "sha256:d1f9c25ad5b9f45f3640e8a4b2bf3c94f773a670813ed871cb5cdeb180c07d4f"
+    ],
+    "submission_attempt_count": 0,
+    "validation_status": "PASS"
+  }
+}

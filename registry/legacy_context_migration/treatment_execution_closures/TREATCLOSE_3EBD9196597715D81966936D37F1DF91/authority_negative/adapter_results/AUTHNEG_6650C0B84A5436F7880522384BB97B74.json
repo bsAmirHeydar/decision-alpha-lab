@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_C307A47237760C97B9BB2FC9657177C4",
+  "authority_result_digest": "sha256:d2ba77105c9e96f5523dd012b2b988267c60307c14f8a4f2e9be090beaacf068",
+  "authority_result_id": "AUTHNEG_6650C0B84A5436F7880522384BB97B74",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+  "violations": []
+}

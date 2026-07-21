@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_193FC8EF5A459E8DB604283FB008DBC8",
+  "authority_result_digest": "sha256:2807f3ba403da1c098618df3d5de8db0bcd84cd496146104379bc87ba1a8ebec",
+  "authority_result_id": "AUTHNEG_EF15C558DAE7772AC4A69E85278DBE46",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "tools/strategy_factory/check_sf19_boundaries.py",
+  "violations": []
+}

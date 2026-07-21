@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_1039D0F4C975152D90A68EA23B4BAAFF",
+  "authority_result_digest": "sha256:95806092d0007900ed3039a0753ba44d0e0475c73c3cb4801db63555c4e426f2",
+  "authority_result_id": "AUTHNEG_29899C1ABB9940AC4257122A5C74A04B",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/tests/test_mql5_static.py",
+  "violations": []
+}

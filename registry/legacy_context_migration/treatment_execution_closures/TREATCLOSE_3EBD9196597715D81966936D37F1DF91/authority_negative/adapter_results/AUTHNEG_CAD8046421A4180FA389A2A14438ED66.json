@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_14625B85E2AD2B12D3B6651B5C61BAA2",
+  "authority_result_digest": "sha256:3bf4d37f9a7fc8e138690de1689a138c507e104c9ab1cfa9a27140d4db8cebda",
+  "authority_result_id": "AUTHNEG_CAD8046421A4180FA389A2A14438ED66",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i15_real_context_tournament/test_i15_prospective_decision.py",
+  "violations": []
+}

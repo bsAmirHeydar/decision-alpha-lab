@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_A1C35DC245982B4F952A1AB99E73B2B5",
+  "authority_result_digest": "sha256:bb85ea038c8194229d476d1f062205eb2a6fe3d7313f029a71a9044add9de8c5",
+  "authority_result_id": "AUTHNEG_27290F29FF59315FA4D039BA40264858",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_04_multimodal_view_platform/test_replay_diff_integrity.py",
+  "violations": []
+}

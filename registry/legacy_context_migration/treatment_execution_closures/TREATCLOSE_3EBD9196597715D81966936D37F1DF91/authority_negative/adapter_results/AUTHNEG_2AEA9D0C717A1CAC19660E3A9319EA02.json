@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_B16AB4326DC42BEED4B49A2F7B4532F7",
+  "authority_result_digest": "sha256:679e93a6f5f38ea8da0b0d48e1f8e95895c7bac97fcd1a4a0d7f5f4f24d2af3c",
+  "authority_result_id": "AUTHNEG_2AEA9D0C717A1CAC19660E3A9319EA02",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "lab/11_strategy_factory/phase00_current_state_audit/python/sf_phase00/risks.py",
+  "violations": []
+}

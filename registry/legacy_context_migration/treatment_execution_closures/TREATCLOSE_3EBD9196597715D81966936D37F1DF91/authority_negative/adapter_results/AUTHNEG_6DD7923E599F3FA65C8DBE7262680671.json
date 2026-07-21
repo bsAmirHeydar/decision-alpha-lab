@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_F238E5EFF6B16A433EC79619561B2FCA",
+  "authority_result_digest": "sha256:cbc6476ceeb9be2af91e87f6f64a03100cd5204576bc7154b65fe4c43f516776",
+  "authority_result_id": "AUTHNEG_6DD7923E599F3FA65C8DBE7262680671",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+  "violations": []
+}

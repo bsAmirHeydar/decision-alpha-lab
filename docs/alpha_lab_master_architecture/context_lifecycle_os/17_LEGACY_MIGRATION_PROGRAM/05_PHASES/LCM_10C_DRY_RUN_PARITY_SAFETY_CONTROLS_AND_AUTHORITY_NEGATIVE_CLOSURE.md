@@ -1,7 +1,7 @@
 ---
 title: "LCM-10C — Dry-Run Parity, Safety Controls and Authority-Negative Closure"
-status: proposed-reference
-version: 1.0.0
+status: accepted-reference
+version: 1.1.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-10C
@@ -128,3 +128,8 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Forbidden actions remain live activation and capital use.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation closure — 2026-07-20
+
+LCM-10C is accepted under `TREATCLOSE_3EBD9196597715D81966936D37F1DF91`. All 422 canonical Treatment packages were replayed through deterministic dry-run lifecycle, all 483 disabled adapters passed authority-negative tests, hostile safety controls failed closed, and submission, live-order and capital activation counts remained zero. Broker runtime constraints and unresolved legacy semantics remain explicit UNKNOWNs. Master phase LCM-10 is closed at reference authority only; LCM-11A may begin visual-object inventory without accessing broker state.

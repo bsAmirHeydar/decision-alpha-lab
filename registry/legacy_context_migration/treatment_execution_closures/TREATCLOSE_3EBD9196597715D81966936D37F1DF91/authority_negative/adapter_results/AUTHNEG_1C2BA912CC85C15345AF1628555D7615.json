@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_74AA82004252AEEA596427E6C61E31D8",
+  "authority_result_digest": "sha256:03a3c815b1eb61aba08efde417b0883a832692a8f3852fe403ac905baefa1cc5",
+  "authority_result_id": "AUTHNEG_1C2BA912CC85C15345AF1628555D7615",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+  "violations": []
+}

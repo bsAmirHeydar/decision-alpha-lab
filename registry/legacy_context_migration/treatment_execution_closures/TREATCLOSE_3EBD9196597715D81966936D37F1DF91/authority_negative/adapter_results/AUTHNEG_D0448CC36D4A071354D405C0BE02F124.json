@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_77E9C4A1AC839D080CF6A0643BE6C7C0",
+  "authority_result_digest": "sha256:b985c634ac8baba89eade41f0f82762fc436bcbc23fac3a33510ec6f30e2ff8d",
+  "authority_result_id": "AUTHNEG_D0448CC36D4A071354D405C0BE02F124",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleCheckpoint.mqh",
+  "violations": []
+}

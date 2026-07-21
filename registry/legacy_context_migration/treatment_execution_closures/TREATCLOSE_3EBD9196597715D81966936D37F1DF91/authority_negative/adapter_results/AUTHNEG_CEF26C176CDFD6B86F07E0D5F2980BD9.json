@@ -1,0 +1,24 @@
+{
+  "adapter_id": "EXECADAPTER_E35D0F8B989B5B41DBFBEF31B66CB213",
+  "authority_result_digest": "sha256:6af30f1fd1603a5ee6e0458a0470b657d31f4d2e3b2da43c26164712ae2ad823",
+  "authority_result_id": "AUTHNEG_CEF26C176CDFD6B86F07E0D5F2980BD9",
+  "capital_activation_count": 0,
+  "checks": {
+    "broker_api_not_implemented": true,
+    "context_recompute_false": true,
+    "live_mode_false": true,
+    "paper_mode_false": true,
+    "setup_recompute_false": true,
+    "submission_capability_default_false": true
+  },
+  "live_order_count": 0,
+  "paper_order_count": 0,
+  "result": "PASS",
+  "runtime_attempts": {
+    "DRY_RUN": "ZERO_SUBMISSION",
+    "LIVE": "DENIED",
+    "PAPER": "DENIED"
+  },
+  "source_path": "mql5/Include/Research/DAL_AstroExcelCandleReader.mqh",
+  "violations": []
+}
