@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_mismatch_taxonomy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "automatic_suppression_allowed": {},
+    "classifications": {},
+    "hard_dimensions": {},
+    "taxonomy_digest": {},
+    "taxonomy_id": {}
+  },
+  "required": [
+    "taxonomy_id",
+    "hard_dimensions",
+    "classifications",
+    "automatic_suppression_allowed",
+    "taxonomy_digest"
+  ],
+  "title": "LCM-13A Mismatch Taxonomy",
+  "type": "object"
+}

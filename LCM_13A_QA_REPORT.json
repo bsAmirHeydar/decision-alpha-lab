@@ -1,0 +1,74 @@
+{
+  "acceptance_status": "PASS",
+  "aggregation_rule_count": 0,
+  "blocked_by_domain": {
+    "CONTEXT": 320,
+    "DOCUMENTATION": 352,
+    "SETUP": 60,
+    "VISUAL": 74
+  },
+  "blocked_consumer_count": 806,
+  "capital_activation_count": 0,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "consumer_count": 1419,
+  "deterministic_clean_rebuild_status": "PASS",
+  "direct_test_count": 24,
+  "dual_run_id": "DUALRUN_7302C947E4F606482E1D09A8FF069570",
+  "eligible_by_domain": {
+    "CONTEXT": 1,
+    "DOCUMENTATION": 136,
+    "TREATMENT": 422,
+    "VISUAL": 54
+  },
+  "eligible_consumer_count": 613,
+  "eligible_high_critical_mismatch_count": 0,
+  "excluded_slow_rebuild_tests": [
+    "lab/11_strategy_factory/migration/tests_lcm_10b/test_rebuild.py",
+    "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py"
+  ],
+  "hostile_review_status": "PASS",
+  "input_equality_failure_count": 0,
+  "live_order_count": 0,
+  "master_phase": "LCM-13",
+  "mismatch_dimension_counts": {
+    "DECISION": 2418,
+    "EVENT": 2418,
+    "KNOWN_TIME": 2418,
+    "REASON_CODE": 2418,
+    "REQUEST": 2418,
+    "RESOLVED_LOCATOR": 2418,
+    "STATE": 2418,
+    "VISUAL_ANCHOR": 222
+  },
+  "mismatch_severity_counts": {
+    "HIGH": 16926,
+    "MEDIUM": 222
+  },
+  "order_authority_created": false,
+  "phase_id": "LCM-13A",
+  "production_consumer_switch_count": 0,
+  "qa_report_digest": "sha256:fed9bcaf94d12dca87fc2913cb1ab586adef51c18f2ffda0fdf488fe1830203f",
+  "raw_mismatch_count": 17148,
+  "result_count": 4257,
+  "runtime_authority_created": false,
+  "scenario_count": 4257,
+  "schema_version": "1.0.0",
+  "stable_regression_suites": {
+    "LCM-09B": 34,
+    "LCM-10A_EXCLUDING_FULL_REBUILD": 23,
+    "LCM-10B_EXCLUDING_FULL_REBUILD": 34,
+    "LCM-10C": 15,
+    "LCM-11A": 16,
+    "LCM-11B": 24,
+    "LCM-12A": 20,
+    "LCM-12B": 16,
+    "LCM_ROADMAP_REFINEMENT": 5
+  },
+  "stable_regression_test_count": 187,
+  "submission_attempt_count": 0,
+  "suppressed_mismatch_count": 0,
+  "total_executed_test_count": 211,
+  "validation_status": "PASS",
+  "variance_approval_count": 0
+}

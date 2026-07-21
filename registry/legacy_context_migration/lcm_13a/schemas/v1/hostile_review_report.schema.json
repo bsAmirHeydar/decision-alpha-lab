@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_hostile_review_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "checks": {},
+    "failed_check_count": {},
+    "report_digest": {},
+    "report_id": {},
+    "result": {}
+  },
+  "required": [
+    "report_id",
+    "result",
+    "checks",
+    "failed_check_count",
+    "report_digest"
+  ],
+  "title": "LCM-13A Hostile Review Report",
+  "type": "object"
+}

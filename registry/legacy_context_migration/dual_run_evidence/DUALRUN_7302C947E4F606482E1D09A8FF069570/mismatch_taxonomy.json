@@ -1,0 +1,70 @@
+{
+  "automatic_suppression_allowed": false,
+  "categorical_tolerance_allowed": false,
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "classifications": [
+    "IMPLEMENTATION_DEFECT",
+    "LEGACY_DEFECT",
+    "APPROVED_VARIANCE",
+    "FIXTURE_DEFECT",
+    "ENVIRONMENTAL_VARIANCE",
+    "UPSTREAM_BLOCKER",
+    "UNKNOWN"
+  ],
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hard_dimensions": [
+    "INPUT_DIGEST",
+    "KNOWN_TIME",
+    "STATE",
+    "EVENT",
+    "DECISION",
+    "REQUEST",
+    "VISUAL_ANCHOR",
+    "REASON_CODE",
+    "RESOLVED_LOCATOR",
+    "SIDE_EFFECT_AUTHORITY"
+  ],
+  "master_phase": "LCM-13",
+  "no_tolerance_dimensions": [
+    "INPUT_DIGEST",
+    "KNOWN_TIME",
+    "STATE",
+    "EVENT",
+    "DECISION",
+    "REQUEST",
+    "REASON_CODE",
+    "RESOLVED_LOCATOR",
+    "SIDE_EFFECT_AUTHORITY"
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "producer": "tools.strategy_factory.lcm.lcm_13a.service:LCM13ADualRunService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "severity_order": [
+    "INFO",
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "source_digests": [
+    "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3",
+    "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:e4116f346c2351d415f41fff605d6c2af88754452ad7ac3cba700820f6a6dc38"
+  ],
+  "states": [
+    "OPEN_BLOCKING",
+    "RESOLVED",
+    "APPROVED_VARIANCE",
+    "REJECTED"
+  ],
+  "taxonomy_digest": "sha256:c11722157f1fc4d24d4009c24b134bc6aa991130774b8c72cc38262f049019e2",
+  "taxonomy_id": "MISMATCHTAX_C14E1D631CFC337079747C08955C1608",
+  "timestamp_tolerance_allowed": false,
+  "validation_status": "PASS"
+}

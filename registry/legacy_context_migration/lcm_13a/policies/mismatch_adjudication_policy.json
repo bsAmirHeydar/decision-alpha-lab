@@ -1,0 +1,25 @@
+{
+  "allowed_classifications": [
+    "IMPLEMENTATION_DEFECT",
+    "LEGACY_DEFECT",
+    "APPROVED_VARIANCE",
+    "FIXTURE_DEFECT",
+    "ENVIRONMENTAL_VARIANCE",
+    "UPSTREAM_BLOCKER",
+    "UNKNOWN"
+  ],
+  "automatic_suppression_allowed": false,
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "evidence_required": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "policy_digest": "sha256:10a86d7706a0f840ae398412ec2da6b84cf36ea50b1e50354aa778fdf77b503a",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "reviewer_approval_required": true,
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

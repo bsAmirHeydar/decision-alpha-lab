@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_result_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_id": {},
+    "dimension_results": {},
+    "hard_mismatch_count": {},
+    "input_equality": {},
+    "result_digest": {},
+    "result_id": {},
+    "scenario_id": {},
+    "side_effect_fence": {},
+    "status": {}
+  },
+  "required": [
+    "result_id",
+    "consumer_id",
+    "scenario_id",
+    "input_equality",
+    "dimension_results",
+    "hard_mismatch_count",
+    "side_effect_fence",
+    "status",
+    "result_digest"
+  ],
+  "title": "LCM-13A Result Record",
+  "type": "object"
+}

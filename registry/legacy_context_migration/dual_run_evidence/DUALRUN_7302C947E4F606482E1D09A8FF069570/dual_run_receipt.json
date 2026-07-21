@@ -1,0 +1,28 @@
+{
+  "acceptance_digest": "sha256:b2260f2059f135fffa8fb45c8d4d3959798553710e65af82bb360491abdb2928",
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "consumer_cutover_performed": false,
+  "deterministic_identity": true,
+  "dual_run_id": "DUALRUN_7302C947E4F606482E1D09A8FF069570",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+  "master_phase": "LCM-13",
+  "output_manifest_digest": "sha256:3f710c080e2374c834263f4b06bdb3a0b50c04c00979cc3adbb4985a92103cdc",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "producer": "tools.strategy_factory.lcm.lcm_13a.service:LCM13ADualRunService",
+  "receipt_digest": "sha256:2a0519b05d64fb96c643badca2cb1e8c4f8deaf8a0e424345d9023f93103d9c1",
+  "receipt_id": "RECEIPT_C14E1D631CFC337079747C08955C1608",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3",
+    "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:e4116f346c2351d415f41fff605d6c2af88754452ad7ac3cba700820f6a6dc38"
+  ],
+  "submission_attempt_count": 0,
+  "validation_status": "PASS"
+}

@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_variance_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "approval_count": {},
+    "approvals": {},
+    "registry_digest": {},
+    "registry_id": {}
+  },
+  "required": [
+    "registry_id",
+    "approval_count",
+    "approvals",
+    "registry_digest"
+  ],
+  "title": "LCM-13A Variance Registry",
+  "type": "object"
+}

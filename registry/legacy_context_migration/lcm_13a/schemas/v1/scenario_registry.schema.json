@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_scenario_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_count": {},
+    "dual_run_id": {},
+    "registry_digest": {},
+    "registry_id": {},
+    "scenario_count": {},
+    "scenario_record_path": {}
+  },
+  "required": [
+    "registry_id",
+    "dual_run_id",
+    "scenario_record_path",
+    "consumer_count",
+    "scenario_count",
+    "registry_digest"
+  ],
+  "title": "LCM-13A Scenario Registry",
+  "type": "object"
+}

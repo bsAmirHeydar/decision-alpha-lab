@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_to_lcm-13b_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {},
+    "consumer_counts": {},
+    "dual_run_id": {},
+    "forbidden_actions": {},
+    "handoff_digest": {},
+    "handoff_id": {},
+    "handoff_type": {}
+  },
+  "required": [
+    "handoff_id",
+    "handoff_type",
+    "dual_run_id",
+    "consumer_counts",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "LCM-13A to LCM-13B Handoff",
+  "type": "object"
+}

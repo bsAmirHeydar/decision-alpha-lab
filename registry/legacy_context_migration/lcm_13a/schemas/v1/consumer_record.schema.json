@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_consumer_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_digest": {},
+    "consumer_id": {},
+    "domain": {},
+    "legacy_locator": {},
+    "readiness_state": {},
+    "source_digest": {},
+    "source_identity_id": {}
+  },
+  "required": [
+    "consumer_id",
+    "domain",
+    "source_identity_id",
+    "legacy_locator",
+    "source_digest",
+    "readiness_state",
+    "consumer_digest"
+  ],
+  "title": "LCM-13A Consumer Record",
+  "type": "object"
+}

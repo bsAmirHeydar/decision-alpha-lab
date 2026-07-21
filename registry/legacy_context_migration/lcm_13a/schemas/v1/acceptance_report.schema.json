@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_acceptance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_count": {},
+    "eligible_consumer_count": {},
+    "passed": {},
+    "report_digest": {},
+    "report_id": {},
+    "scenario_count": {}
+  },
+  "required": [
+    "report_id",
+    "passed",
+    "consumer_count",
+    "scenario_count",
+    "eligible_consumer_count",
+    "report_digest"
+  ],
+  "title": "LCM-13A Acceptance Report",
+  "type": "object"
+}

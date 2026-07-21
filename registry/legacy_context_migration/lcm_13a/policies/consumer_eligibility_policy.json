@@ -1,0 +1,22 @@
+{
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "consumer_cutover_performed_in_phase": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "owner_approval_required_before_switch": true,
+  "phase_id": "LCM-13A",
+  "policy_digest": "sha256:142e310b56acfd401b995376dc1b21663250e75293ea92a1f4e1ee54254c6e5d",
+  "required_scenario_kinds": [
+    "HISTORICAL_REPLAY",
+    "CONTROLLED_LIVE_LIKE",
+    "RESTART_REPLAY"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_required_before_switch": true,
+  "schema_version": "1.0.0",
+  "unresolved_high_critical_allowed": false,
+  "validation_status": "PASS"
+}

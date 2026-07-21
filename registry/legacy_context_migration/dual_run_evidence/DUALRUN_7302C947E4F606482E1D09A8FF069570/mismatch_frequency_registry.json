@@ -1,0 +1,41 @@
+{
+  "aggregation_rule_count": 0,
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "dimension_counts": {
+    "DECISION": 2418,
+    "EVENT": 2418,
+    "KNOWN_TIME": 2418,
+    "REASON_CODE": 2418,
+    "REQUEST": 2418,
+    "RESOLVED_LOCATOR": 2418,
+    "STATE": 2418,
+    "VISUAL_ANCHOR": 222
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "producer": "tools.strategy_factory.lcm.lcm_13a.service:LCM13ADualRunService",
+  "raw_mismatch_count": 17148,
+  "raw_records_path": "mismatch_registry.jsonl",
+  "registry_digest": "sha256:47a1106b375a862cbc26d7d64ea0634eb82ec356f70961fb97f6c8df2e27c73b",
+  "registry_id": "MISMATCHFREQ_C14E1D631CFC337079747C08955C1608",
+  "repeated_mismatches_retained": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "severity_counts": {
+    "HIGH": 16926,
+    "MEDIUM": 222
+  },
+  "source_digests": [
+    "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3",
+    "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:e4116f346c2351d415f41fff605d6c2af88754452ad7ac3cba700820f6a6dc38"
+  ],
+  "suppressed_mismatch_count": 0,
+  "validation_status": "PASS"
+}

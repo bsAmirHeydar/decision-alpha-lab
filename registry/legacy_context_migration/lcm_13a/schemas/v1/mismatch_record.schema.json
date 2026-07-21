@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_mismatch_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adjudication_state": {},
+    "classification": {},
+    "consumer_id": {},
+    "dimension": {},
+    "mismatch_digest": {},
+    "mismatch_id": {},
+    "scenario_id": {},
+    "severity": {},
+    "status": {}
+  },
+  "required": [
+    "mismatch_id",
+    "consumer_id",
+    "scenario_id",
+    "dimension",
+    "severity",
+    "classification",
+    "adjudication_state",
+    "status",
+    "mismatch_digest"
+  ],
+  "title": "LCM-13A Mismatch Record",
+  "type": "object"
+}

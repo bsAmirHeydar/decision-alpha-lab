@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_eligibility_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_id": {},
+    "cutover_authorized": {},
+    "eligibility_digest": {},
+    "eligibility_id": {},
+    "eligibility_state": {},
+    "raw_mismatch_count": {}
+  },
+  "required": [
+    "eligibility_id",
+    "consumer_id",
+    "eligibility_state",
+    "raw_mismatch_count",
+    "cutover_authorized",
+    "eligibility_digest"
+  ],
+  "title": "LCM-13A Eligibility Record",
+  "type": "object"
+}

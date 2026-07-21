@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13a/lcm-13a_scenario_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "causal_input": {},
+    "causal_input_digest": {},
+    "consumer_id": {},
+    "input_equality": {},
+    "scenario_digest": {},
+    "scenario_id": {},
+    "scenario_kind": {}
+  },
+  "required": [
+    "scenario_id",
+    "consumer_id",
+    "scenario_kind",
+    "causal_input",
+    "causal_input_digest",
+    "input_equality",
+    "scenario_digest"
+  ],
+  "title": "LCM-13A Scenario Record",
+  "type": "object"
+}

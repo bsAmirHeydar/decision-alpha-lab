@@ -1,0 +1,27 @@
+{
+  "categorical_tolerance_allowed": false,
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "dimensions": [
+    "INPUT_DIGEST",
+    "KNOWN_TIME",
+    "STATE",
+    "EVENT",
+    "DECISION",
+    "REQUEST",
+    "VISUAL_ANCHOR",
+    "REASON_CODE",
+    "RESOLVED_LOCATOR",
+    "SIDE_EFFECT_AUTHORITY"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "policy_digest": "sha256:aec3fab47d285ef9fd704bb24352ea46b513588a7bf14b538ad66ef0f792854d",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "timestamp_tolerance_allowed": false,
+  "validation_status": "PASS"
+}

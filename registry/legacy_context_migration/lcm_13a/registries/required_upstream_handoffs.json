@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "LCM_13A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoffs": [
+    "registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3/handoff/lcm08c_to_lcm09a_handoff.json",
+    "registry/legacy_context_migration/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9/LCM09B_TO_LCM10A_HANDOFF.json",
+    "registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91/LCM10C_TO_LCM11A_HANDOFF.json",
+    "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/LCM11B_TO_LCM12A_HANDOFF.json",
+    "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8/LCM12B_TO_LCM13A_HANDOFF.json"
+  ],
+  "master_phase": "LCM-13",
+  "missing_handoff_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13A",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}
