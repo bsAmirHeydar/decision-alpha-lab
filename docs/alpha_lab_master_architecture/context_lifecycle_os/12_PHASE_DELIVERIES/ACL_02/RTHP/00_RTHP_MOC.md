@@ -1,29 +1,29 @@
 ---
-title: نقشه محتوای کانتکس RTHP
+title: RTHP Context Map of Content
 status: accepted
-version: 1.0.0
-cssclasses: [rtl]
-tags: [rthp, context, acl-02]
+version: 1.0.1
+tags: [rthp, context, acl-02, english]
 ---
-<div dir="rtl">
 
-# کانتکس RTHP
+# RTHP Context Map of Content
 
-این مجموعه نمای Obsidian بسته canonical `CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1` است و صرفاً Context را پوشش می‌دهد.
+This Obsidian collection is the English documentation view of the canonical package `CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1`. It is strictly Context-only and does not define Entry, Treatment, Execution, Risk, Position Sizing, or Profitability semantics.
 
-- [[01_مرز_کانتکس]]
-- [[02_دکترین_و_ناوردایی]]
-- [[03_زمان_و_سایکل‌ها]]
-- [[04_قرارداد_داده]]
-- [[05_سطوح_و_لمس]]
-- [[06_ماشین_حالت]]
-- [[07_خانواده‌های_رابطه]]
-- [[08_هویت_و_تکرار]]
-- [[09_داده_ناقص_و_UNKNOWN]]
-- [[10_پاریتی_تاریخی_و_زنده]]
-- [[11_مرز_نمایش]]
-- [[12_پذیرش_و_فیکسچرها]]
-- [[13_پرووننس_و_نسخه‌بندی]]
-- [[14_هندآف_به_پژوهش]]
+- [[01_Context_Boundary]]
+- [[02_Doctrine_and_Invariants]]
+- [[03_Time_and_Cycles]]
+- [[04_Data_Contract]]
+- [[05_Reference_Levels_and_Touch]]
+- [[06_State_Machine]]
+- [[07_Relationship_Families]]
+- [[08_Identity_and_Deduplication]]
+- [[09_Missing_Data_and_UNKNOWN]]
+- [[10_Historical_Live_Parity]]
+- [[11_Visualization_Boundary]]
+- [[12_Acceptance_and_Fixtures]]
+- [[13_Provenance_and_Versioning]]
+- [[14_Handoff_to_Research]]
 
-</div>
+## Machine-readable authority
+
+`lab/11_strategy_factory/contexts/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1`

@@ -1,24 +1,25 @@
 {
   "canonical_authority": "context_manifest.yaml and contracts/*",
+  "documentation_language": "English",
   "previous_code_authority": "NONE",
   "sources": [
     {
       "authority": "NON_CANONICAL_SOURCE_EVIDENCE",
-      "path": "intake/source/RTHP_RAW_CONTEXT.docx",
-      "role": "RAW_DOMAIN_CONTEXT",
-      "sha256": "sha256:7f31bf49be51da3483787038ede87e1ddc3615c6c6c84c929b08126cc700b45a"
+      "path": "intake/source/RTHP_RAW_CONTEXT_EN.docx",
+      "role": "RAW_DOMAIN_CONTEXT_ENGLISH_TRANSLATION",
+      "sha256": "sha256:1ae141a33f6fb808a76034daae0c46892fb58c1c50d831a03e57793a3ad4b6f4"
     },
     {
       "authority": "SUPPORTING_EVIDENCE",
-      "path": "intake/source/RTHP_CONTEXT_DECISION_QUESTIONNAIRE_FA.pdf",
-      "role": "DECISION_QUESTIONNAIRE",
-      "sha256": "sha256:86c967e1c7ac719e5a1212c0a8bf87ebae139c27306807bb46a9ff135d1325e7"
+      "path": "intake/source/RTHP_CONTEXT_DECISION_QUESTIONNAIRE_EN.pdf",
+      "role": "RESOLVED_DECISION_QUESTIONNAIRE",
+      "sha256": "sha256:909ca0381a9625b743d81a4ce7c29aeaef3afcb79177041eb95f7898223df0cf"
     },
     {
       "authority": "SUPPORTING_EVIDENCE",
-      "path": "intake/source/RTHP_CONTEXT_DECISION_QUESTIONNAIRE_FA.html",
-      "role": "DECISION_QUESTIONNAIRE_SOURCE",
-      "sha256": "sha256:55a5d769bd1c36d88bac429fd3abadf466d8fc9a2193b5428d2f10dc103536cf"
+      "path": "intake/source/RTHP_CONTEXT_DECISION_QUESTIONNAIRE_EN.html",
+      "role": "RESOLVED_DECISION_QUESTIONNAIRE_SOURCE",
+      "sha256": "sha256:4cfacd8736809bb53df5e3c50507c8103e4c10464359f3ce887104bf5bf8cdae"
     }
   ]
 }

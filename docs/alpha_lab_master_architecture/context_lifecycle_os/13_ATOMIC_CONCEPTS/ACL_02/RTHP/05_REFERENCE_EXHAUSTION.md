@@ -1,11 +1,9 @@
 ---
 status: accepted
-cssclasses: [rtl]
+version: 1.0.1
+tags: [rthp, context, atomic-concept, english]
 ---
-<div dir="rtl">
 
-# 05 REFERENCE EXHAUSTION
+# Reference Exhaustion
 
-Touch نماد Protected مرجع scoped را برای رخدادهای آینده exhausted می‌کند.
-
-</div>
+When the protected symbol later touches its corresponding scoped level, the historical divergence remains immutable, its projection resolves, and the scoped reference becomes ineligible for future occurrences.

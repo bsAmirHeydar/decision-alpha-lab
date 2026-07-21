@@ -1,15 +1,17 @@
 {
   "approval_id": "RTHP_SEMANTIC_APPROVAL_V1",
+  "capital_authority_created": false,
   "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
-  "context_version": "1.0.0",
-  "semantic_owner": "AMIR_RTHP_DOMAIN_OWNER",
+  "context_version": "1.0.1",
   "decision": "APPROVE_CANONICAL_CONTEXT_SEMANTICS",
-  "unresolved_domain_ambiguity_count": 0,
-  "unanswered_question_policy": "ACCEPT_ASSISTANT_RECOMMENDED_OPTION",
-  "explicit_owner_answers_override_defaults": true,
+  "documentation_language": "English",
+  "documentation_normalization": "COMPLETE",
   "entry_treatment_execution": "OUT_OF_SCOPE",
+  "explicit_owner_answers_override_defaults": true,
   "independent_review_status": "READY_FOR_INDEPENDENT_REVIEW",
-  "runtime_authority_created": false,
   "order_authority_created": false,
-  "capital_authority_created": false
+  "runtime_authority_created": false,
+  "semantic_owner": "AMIR_RTHP_DOMAIN_OWNER",
+  "unanswered_question_policy": "ACCEPT_ASSISTANT_RECOMMENDED_OPTION",
+  "unresolved_domain_ambiguity_count": 0
 }

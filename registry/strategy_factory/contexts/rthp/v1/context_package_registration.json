@@ -1,13 +1,17 @@
 {
+  "acl02_readiness_digest": "sha256:1a5841b779474bc5d941c93c327156915ec63ca4f9d57a222c2f9ad1efd0e0f6",
   "acl_level": "ACL-02",
-  "artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.0#sha256:2298b1e6c72e45a41d7e90a1e116cf7278390336727a682c19b7776097a9ff11",
+  "artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.1#sha256:7f67c2bafe6f18454ebefb9eedf562db37cbe82e68e271e0917ff5644f80d71a",
   "capital_authority": false,
   "claim_ceiling": "CONTEXT_ONLY",
+  "compiled_digest": "sha256:c814f7f649e16cdfec2923c0ec956eff51302d2be36f1a763e010812c738daf4",
   "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "documentation_language": "English",
+  "official_package_digest": "sha256:996002029ea78d2e3e54bf42d873a110d771a8e7dff9db65ec9ba050dac877e4",
   "order_authority": false,
   "package_root": "lab/11_strategy_factory/contexts/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
   "runtime_authority": false,
-  "source_digest": "sha256:7f31bf49be51da3483787038ede87e1ddc3615c6c6c84c929b08126cc700b45a",
+  "source_digest": "sha256:1ae141a33f6fb808a76034daae0c46892fb58c1c50d831a03e57793a3ad4b6f4",
   "status": "SEMANTICALLY_VALIDATED",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
