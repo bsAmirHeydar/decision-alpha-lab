@@ -1,0 +1,9 @@
+{
+  "consumer_cutover_allowed": false,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:0fc897bf1c4031e6f55172da729c557e38260ba650239231255567eac4672730",
+  "policy_id": "LCM09B_SOURCE_IMMUTABILITY",
+  "schema_version": "1.0.0",
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

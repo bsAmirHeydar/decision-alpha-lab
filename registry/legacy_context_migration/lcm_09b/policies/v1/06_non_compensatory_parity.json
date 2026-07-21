@@ -1,0 +1,9 @@
+{
+  "aggregate_override_forbidden": true,
+  "hard_mismatch_action": "FAIL",
+  "missing_evidence_action": "BLOCK",
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:2f26b0036a2c514f0747759538ac2fde958d8e76fc34c10b1ead98c54c36e4af",
+  "policy_id": "LCM09B_NON_COMPENSATORY_PARITY",
+  "schema_version": "1.0.0"
+}

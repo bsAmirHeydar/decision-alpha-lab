@@ -1,0 +1,48 @@
+{
+  "acl04_regression_test_count": 51,
+  "added_file_count": 247,
+  "artifact_inventory_digest": "sha256:fa763612d0f2ccb265c0998465dc0739b3ebb84ef08b8a2b507b97a0d39e5d7d",
+  "canonical_reference_package_count": 60,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "consumer_cutover_performed": false,
+  "deleted_file_count": 0,
+  "direct_test_count": 34,
+  "downstream_handoff_digest": "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+  "explicitly_blocked_count": 60,
+  "factory_registration_count": 60,
+  "file_index_digest": "sha256:f98ca4a5c83754f64b891f33b41e3eca8a1e987724ff30af4193373319e1fd37",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-09",
+  "metadata_exclusions": {
+    "artifact_inventory": [
+      "LCM_09B_ARTIFACT_INVENTORY.csv",
+      "LCM_09B_FILE_HASHES.sha256",
+      "LCM_09B_PATCH_MANIFEST.json"
+    ],
+    "hash_ledger": [
+      "LCM_09B_FILE_HASHES.sha256"
+    ]
+  },
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "migration_registry_root": "registry/legacy_context_migration/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "modified_file_count": 5,
+  "parity_record_count": 60,
+  "patch_manifest_digest": "sha256:a2a3520bf6d42ef4b2bb6ab20b5e05dfb68c468cb9e936f11402344c9b91412b",
+  "patch_name": "ALPHA_LAB_LCM_09B_SETUP_MIGRATION_FACTORY_BINDING_PARITY_PATCH.zip",
+  "payload_file_count": 252,
+  "phase_id": "LCM-09B",
+  "policy_count": 12,
+  "production_module_count": 23,
+  "promotion_authority_created": false,
+  "qa_digest": "sha256:12b155b9c8f6b6aafbcf9c9326ec3ab39564050576d2484a6cc124e332911381",
+  "reference_ready_count": 0,
+  "runtime_authority_created": false,
+  "schema_count": 22,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "setup_identity_count": 60,
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "upstream_handoff_digest": "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+}

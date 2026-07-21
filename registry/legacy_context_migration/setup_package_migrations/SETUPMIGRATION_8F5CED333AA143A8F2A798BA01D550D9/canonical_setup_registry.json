@@ -1,0 +1,436 @@
+{
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_count": 60,
+  "packages": [
+    {
+      "package_digest": "sha256:3dedebf32cc0afea819e34232e7cec6bfc9a1a0939b2f0af7809d551315041d2",
+      "package_id": "SETUPPKG_46B4DEC958B2EB5B93AE6FAEEF4AAA44",
+      "package_path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1"
+    },
+    {
+      "package_digest": "sha256:e0b6aa12ab8c2c93447da513b1ef87f1dc0536e46f1d775d92f6dfbe8d06e196",
+      "package_id": "SETUPPKG_AEB75F229F2D0875891A210A72F2DEA8",
+      "package_path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROPUREASTROLOGYSIGNALS_98A5C4FA_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROPUREASTROLOGYSIGNALS_98A5C4FA_V1"
+    },
+    {
+      "package_digest": "sha256:2ca4c12b2ccde2b4f367dbf0dcda25ca5b6e7ec4a093032fd755597a04d353a0",
+      "package_id": "SETUPPKG_B23D99AB59B1FBB5908DEC770DD9DF23",
+      "package_path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROSIGNALWINDOWS_50DFCBAC_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROSIGNALWINDOWS_50DFCBAC_V1"
+    },
+    {
+      "package_digest": "sha256:7c97b7d7293e057de445db4cf386bb156a48b4655426991007b5da712a549b61",
+      "package_id": "SETUPPKG_25AC192A4A22D9C1B3605737C1A434C8",
+      "package_path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGC_CONFIRMATIONFIELD_82532776_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGC_CONFIRMATIONFIELD_82532776_V1"
+    },
+    {
+      "package_digest": "sha256:c72087ecd6322e05f65b3ed3265ec696db90bf18cdd039e4b612726f0a5213f7",
+      "package_id": "SETUPPKG_4D4CEA8A0D39C5E7B9CB68F52436855C",
+      "package_path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGX_SIGNALREGISTRY_58362E29_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALREGISTRY_58362E29_V1"
+    },
+    {
+      "package_digest": "sha256:5f83204ddcf53ba1afe574bc141a325155d94f60a6b9ccf208619643d133791c",
+      "package_id": "SETUPPKG_1CDAFAC85B32EDF2D601E3AB041D6DC5",
+      "package_path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1"
+    },
+    {
+      "package_digest": "sha256:247f23eddb04b2c5f2a1f4e3d07e7f7b33b56b2cc058708ff7c34c97ba48ec72",
+      "package_id": "SETUPPKG_42418131756EB393C83E839861067617",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONAUDIT_93D28245_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONAUDIT_93D28245_V1"
+    },
+    {
+      "package_digest": "sha256:4b20579879ceb9494c9dab299be708beda2e62f8e8d174c568ee043dcceb392c",
+      "package_id": "SETUPPKG_EE656EDA96DF58DEA9BEE0C70C4C422C",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONCHECKPOINT_2F6645D9_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONCHECKPOINT_2F6645D9_V1"
+    },
+    {
+      "package_digest": "sha256:27c8adaded43fab8084e6e1077a303b97840b4686d5652cb36ef5665332edc1e",
+      "package_id": "SETUPPKG_12B29E135AD4EA1C05AE1D0C86AE6333",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1"
+    },
+    {
+      "package_digest": "sha256:d24f00d2bb02c6e42c31478772781c9322c49a287cf7cf0dd209e2bfb284f256",
+      "package_id": "SETUPPKG_F20BCFBBF171020CFF79CA77DCFB9F71",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONEVENTS_D15CF629_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONEVENTS_D15CF629_V1"
+    },
+    {
+      "package_digest": "sha256:b4297b2a4506554cf99f05c876f15fb59d6d336fde2f0f73407322cae91b2bc8",
+      "package_id": "SETUPPKG_6B1C18C96B35FA1942D5DB2438E3B738",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSELFTEST_F98BC4B5_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSELFTEST_F98BC4B5_V1"
+    },
+    {
+      "package_digest": "sha256:5675750b28d9ac07d92ea542c8a02bd587c01d2f58c81cd644962ee5045a6eb5",
+      "package_id": "SETUPPKG_303CA53BCD0F7487CC006D1A28BF6C38",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTATEMACHINE_0F51BA14_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTATEMACHINE_0F51BA14_V1"
+    },
+    {
+      "package_digest": "sha256:09dba3eae656e01d2358a7bdb1496e0fe69d7441670c6eb6a8f41f5b6f0abb4d",
+      "package_id": "SETUPPKG_784D0D7E489F52A6A7854258D957597A",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTORE_7FE0BBEE_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTORE_7FE0BBEE_V1"
+    },
+    {
+      "package_digest": "sha256:7fe377e23d7eea0ce6be4f0793931122bdfb3548819ba9b966a997c13661e647",
+      "package_id": "SETUPPKG_C1389BABB4B3946F3D8B24836A18255C",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONTYPES_A5A2F2C3_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONTYPES_A5A2F2C3_V1"
+    },
+    {
+      "package_digest": "sha256:0754ceb412e34b96acf1357334f2e64affe1d165fb8c8333fd3f0fc966ee40ff",
+      "package_id": "SETUPPKG_8DFA4973B3A3C29B8F65C3616522D362",
+      "package_path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1"
+    },
+    {
+      "package_digest": "sha256:b87f70f5ba70c1efe6c14724e2e7caa568857e62e4c1abc0c89ad836d52051c8",
+      "package_id": "SETUPPKG_C5EBD2D58B262BA6FC7106BAEBEA81F1",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CANONICAL_A96B9B03_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CANONICAL_A96B9B03_V1"
+    },
+    {
+      "package_digest": "sha256:ff94e02a7596c666572473efe3e3aab43670ce310e8de31077740aa84483dbc5",
+      "package_id": "SETUPPKG_AEA5D2A3AC9B8C38BB29C26166031493",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CHECKPOINT_8950DDA0_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CHECKPOINT_8950DDA0_V1"
+    },
+    {
+      "package_digest": "sha256:ee86e25c4311c6f56ad422f26223e3a20a7f19a6f959726ee77af120ae4ac1d8",
+      "package_id": "SETUPPKG_6F2B47DC21A1D98B6E192CAA8D837782",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CLI_19E24850_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CLI_19E24850_V1"
+    },
+    {
+      "package_digest": "sha256:e1119bdd049ea1a8b66cbfd5230d79d42b02a13e32ec0a41067cbb3dcb4a5956",
+      "package_id": "SETUPPKG_8F09CC813F0EECC6672C9FB001C6BEE9",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONFIRMATION_C0E2F42C_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFIRMATION_C0E2F42C_V1"
+    },
+    {
+      "package_digest": "sha256:ae476652eb935dd78afeed7a6bf46b922e8a872e455d18e6096ea3bf0fdbad5e",
+      "package_id": "SETUPPKG_07081FB5F29F7A52037D91F18700C046",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONFORMANCE_09F6EC18_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFORMANCE_09F6EC18_V1"
+    },
+    {
+      "package_digest": "sha256:86f2e177011d96a29bfaf799eab3a0c5f9c216918b04fff916d8c971580cb1d7",
+      "package_id": "SETUPPKG_83027AD95555A19A723844D9337C0E78",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1"
+    },
+    {
+      "package_digest": "sha256:e1d78bd43bb38a0b1f248a0a91cd67765fa05537f60db39580da293096ca9537",
+      "package_id": "SETUPPKG_CEDD536E07D5E171972587FDB8840DCB",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONTRACTS_4B6571CE_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONTRACTS_4B6571CE_V1"
+    },
+    {
+      "package_digest": "sha256:c6d1ead36f0b5d69348680ed8fda6fd071c3ac5c309f5506927bdad1fb990031",
+      "package_id": "SETUPPKG_45E4E7E1185C84372045972D21ABD942",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ELIGIBILITY_2F9EFD04_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ELIGIBILITY_2F9EFD04_V1"
+    },
+    {
+      "package_digest": "sha256:b34e607a56185de2ae30163cccfed76945ca8d17642367ed520813b77fe9b7c0",
+      "package_id": "SETUPPKG_5A61BA60C192763300570AAB679EC8E5",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ENGINE_B177D269_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ENGINE_B177D269_V1"
+    },
+    {
+      "package_digest": "sha256:55e5cd52c4dd8e0f453af6606962c4e9fc85d46cae891f2c2aadd34d64ef0333",
+      "package_id": "SETUPPKG_12E9CB83EB1875185E29C08EDAFAEA1D",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ENUMS_774B99BA_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ENUMS_774B99BA_V1"
+    },
+    {
+      "package_digest": "sha256:7dfecf8af47f06909d305f56323b86941bb87ae74f96a26d1069cf9f3e0bd031",
+      "package_id": "SETUPPKG_4ECF9893AEEFE975100AC2FDFB241AFB",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ERRORS_B798F3A9_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ERRORS_B798F3A9_V1"
+    },
+    {
+      "package_digest": "sha256:80a13d9284de8b47597cefd27328c187109a6e0ecc16a5664112a9e115f38b76",
+      "package_id": "SETUPPKG_256E2FBEEF9B2F67B50942F408421372",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_EXP0019_FP_I07_CONFIRMATIONSELFTEST_842ED0F7_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_EXP0019_FP_I07_CONFIRMATIONSELFTEST_842ED0F7_V1"
+    },
+    {
+      "package_digest": "sha256:034b1358930e3f8e5159128ab6eb095deefead4f6b84b036bc96f6346b39ed2a",
+      "package_id": "SETUPPKG_8A8ADB5F5A597ED8615A08CADEF91286",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONPREDICATE_69ADFDA1_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONPREDICATE_69ADFDA1_V1"
+    },
+    {
+      "package_digest": "sha256:916bee773f40ae5879ffc5ddde3ce41c018ea6b036f81388ccea8ad27ffe64e4",
+      "package_id": "SETUPPKG_674D558CE7BFEB55DE6702619444B0BD",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONSTORE_8E0B14AD_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONSTORE_8E0B14AD_V1"
+    },
+    {
+      "package_digest": "sha256:dec848ac30c172d9e1d92ee2117139e12b41a08e01f48938fe389231526073de",
+      "package_id": "SETUPPKG_BBE20799C692D92C7E2B3CE88951632E",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_SIGNALIDENTITY_64EA8DA6_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_SIGNALIDENTITY_64EA8DA6_V1"
+    },
+    {
+      "package_digest": "sha256:2aba149e8300730ddbd928b91c20d7a057d264642ba64d33e53302cfc238e94d",
+      "package_id": "SETUPPKG_194F2752722C9E2117557A1CF58AC480",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I08_WWCONFIRMATION_AFAD14AD_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I08_WWCONFIRMATION_AFAD14AD_V1"
+    },
+    {
+      "package_digest": "sha256:5f64d810c820a43724eb8ca142022abdc45b3484140e040b521dea87d760c67d",
+      "package_id": "SETUPPKG_36CE22B0211F7E21611F7A01051AF941",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_GOLDEN_39FB017A_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_GOLDEN_39FB017A_V1"
+    },
+    {
+      "package_digest": "sha256:a32827564ae56f6d0a91a9bdc6cb47aa225c31a6ed81043a661acb14fb556450",
+      "package_id": "SETUPPKG_4CA98C5222172E362E28E09DFF4C56AE",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_C41D2AEA_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_C41D2AEA_V1"
+    },
+    {
+      "package_digest": "sha256:bb0b7b4cf5647c7900c07b2853176352fda649b41e655af86c10f96ee41e8f05",
+      "package_id": "SETUPPKG_06FF53CDA6A61FDE1965E5B5BE2DA5CE",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_OBSERVATION_6A2CDBCE_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_OBSERVATION_6A2CDBCE_V1"
+    },
+    {
+      "package_digest": "sha256:15ae9f00d5d0528870df8200ebf3a5e168c8bb948ace3a066cdcb952dc93b93f",
+      "package_id": "SETUPPKG_508E33B35A8A12E159BEA82A1EA1B514",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_PROJECTION_DBEBB11C_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_PROJECTION_DBEBB11C_V1"
+    },
+    {
+      "package_digest": "sha256:ff480834d22bcae27d7fe5b16a40c2c2e827e12181ce92d87d0ee20e1ccd52a6",
+      "package_id": "SETUPPKG_9ABA153573473EA31CA02E3324CCF526",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1"
+    },
+    {
+      "package_digest": "sha256:5bf191e8950778555a958438d57b94b621a5a9a664a07b74b2177bc5dbb143c6",
+      "package_id": "SETUPPKG_B6338B100060D66EF88A5829427EC3D6",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_REVISION_46D096C7_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_REVISION_46D096C7_V1"
+    },
+    {
+      "package_digest": "sha256:e0154c0ef8a845a1178801bb450e8480cc3015a780074fb1ee7b3c47fbec17c0",
+      "package_id": "SETUPPKG_4441A9C1B59A5E423DC0803AD892E25F",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_STORE_70E9E382_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_STORE_70E9E382_V1"
+    },
+    {
+      "package_digest": "sha256:9a8a2fe91d0321352d4f54715948cf58308720535fdd85cc807ba71cb2873ccc",
+      "package_id": "SETUPPKG_78F1806FC5BE5258AC540DD60BC9F849",
+      "package_path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_TIMEFRAME_BA9CF994_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_TIMEFRAME_BA9CF994_V1"
+    },
+    {
+      "package_digest": "sha256:c1878276c61cc509d0a2f61bda4d5a02341dc955e41cb973f5b687bcbdc5f53f",
+      "package_id": "SETUPPKG_E13091091E300E8F2FE6C8CE44BD2EFE",
+      "package_path": "canonical_setup_packages/STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2CANONICALPOINT2SETUPADAPTER_7147EC1B_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2CANONICALPOINT2SETUPADAPTER_7147EC1B_V1"
+    },
+    {
+      "package_digest": "sha256:a3cfe81c5f1650f860d87477d47874a09b771803a812ac9483fb19783f0b74ee",
+      "package_id": "SETUPPKG_B78825ECA437DD6DC4EFECA474DA2A64",
+      "package_path": "canonical_setup_packages/STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1"
+    },
+    {
+      "package_digest": "sha256:6f19ca338d5f877d9324f492248995a40446e46d0c197f1bf151175555b92bda",
+      "package_id": "SETUPPKG_7DEA182E849C051BD9F50B537A8C9A3F",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1"
+    },
+    {
+      "package_digest": "sha256:48f9887c1eb7d9544a45e19bc8964b74fb652b18060715282c04040416600860",
+      "package_id": "SETUPPKG_D02F73021A713232F984477BABAFD4E6",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1"
+    },
+    {
+      "package_digest": "sha256:acf689442ff27d7ef72d36bf2eb6dafd7bbefdbddc8b48dead09de32d40fde09",
+      "package_id": "SETUPPKG_81C95AA1AD48F47E4B952526FC92C7DD",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_CANONICAL_47B83967_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_CANONICAL_47B83967_V1"
+    },
+    {
+      "package_digest": "sha256:531f719cac0b18fd78a334ffcbc9576bb23fdcf37ae287a3f9bb3b5075f47e62",
+      "package_id": "SETUPPKG_A7C06016302AC19CC380A3B35B552731",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_CLI_FD3FCAD8_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_CLI_FD3FCAD8_V1"
+    },
+    {
+      "package_digest": "sha256:af07e2717b3c6408794b482dbb4888d57d2ab231135846808ff6cf35c0e6e8a3",
+      "package_id": "SETUPPKG_DBEB5463F9B64F062539CBAC6992C021",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_CONTRACTS_0AF20C40_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_CONTRACTS_0AF20C40_V1"
+    },
+    {
+      "package_digest": "sha256:1eb73c2f735e814c8f5f9a9445d75ec6a80a8cefbe0aed6126e2079b96d3f005",
+      "package_id": "SETUPPKG_F5641A65FFA68D8FD254A0ADD470974D",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_CONTRADICTIONS_D9CB0AB3_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_CONTRADICTIONS_D9CB0AB3_V1"
+    },
+    {
+      "package_digest": "sha256:1252cf4bc6e063a0b3aeb7caffe53dcb39e39736b63cc717498c269269a9ee0d",
+      "package_id": "SETUPPKG_EFA17D9ECEAF17A9FA0383D1C2E97298",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_DIFFERENTIABLE_4119B0CF_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_DIFFERENTIABLE_4119B0CF_V1"
+    },
+    {
+      "package_digest": "sha256:cdae63acdcea292959475b46433d5bf7b04028fb24b8cd29629e490dba893521",
+      "package_id": "SETUPPKG_BEC5CE06BD9AB4092D8A7AB00F0DEA03",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_ERRORS_12B45E0E_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_ERRORS_12B45E0E_V1"
+    },
+    {
+      "package_digest": "sha256:4bf096bcb76e2040fab8e82e54700c2fc841934dc5c4394dbf5e6da63c368d93",
+      "package_id": "SETUPPKG_A1C0829B1C625F5AB6B75F21D4D4DFC7",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_FACTS_B3BE2EFA_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_FACTS_B3BE2EFA_V1"
+    },
+    {
+      "package_digest": "sha256:c29dcfee29dcf277010e94914110b9d03a2debf0f78ce73c3887df84dcbc0d80",
+      "package_id": "SETUPPKG_E9B1ECF12F2E7A78EAB461E1CF561624",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_NUMERICS_2FD4F501_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_NUMERICS_2FD4F501_V1"
+    },
+    {
+      "package_digest": "sha256:cda0360cc2a5704818d50f4e5bc8ace8b22389d833f5afe2fc2d44b7cfd302da",
+      "package_id": "SETUPPKG_6D44110B55A951AE87BADEC1868F9CFF",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_ONTOLOGY_DA7AA3E3_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_ONTOLOGY_DA7AA3E3_V1"
+    },
+    {
+      "package_digest": "sha256:7d9de04254cd1db0da7e0e1606a5680e2d9790b0d403d4f169a7ddd2074c55cb",
+      "package_id": "SETUPPKG_4A60990D06CC4CD64704EA97EB34DC13",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_PREDICATES_32A91599_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_PREDICATES_32A91599_V1"
+    },
+    {
+      "package_digest": "sha256:f79ebf403078e684458e3822ffdd8f9f179dea880607271d4b19109047f5c1cb",
+      "package_id": "SETUPPKG_7B04776AE596A46FD42B3D2965676799",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_PROJECTION_65DF69F8_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_PROJECTION_65DF69F8_V1"
+    },
+    {
+      "package_digest": "sha256:c279bd55a8dfbd8cf22db4ceba3256b735ab75d3fe0928bd3beeb4dbf09ac0f3",
+      "package_id": "SETUPPKG_361503327A5F93AFDDB8816E2CFB0612",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_PROOFS_D59C1A41_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_PROOFS_D59C1A41_V1"
+    },
+    {
+      "package_digest": "sha256:05733b16597c2bbbb5d3099b8096f54ed7e01c1e715099645e96ea835f9f4eef",
+      "package_id": "SETUPPKG_7426DC333E18482C645E39748C54A199",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_REASONER_251DCEE1_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_REASONER_251DCEE1_V1"
+    },
+    {
+      "package_digest": "sha256:c70f7fc93fa7e176556aae07b98a757c1877fa9da4ea6555796f23361d23240d",
+      "package_id": "SETUPPKG_57A108C73D8EC5791D38C1513965D841",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_RULES_EA2F9780_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_RULES_EA2F9780_V1"
+    },
+    {
+      "package_digest": "sha256:5b86ba71fac06da4a86f713b565a9126a8efd39b1899f71369c826b68bfa48c6",
+      "package_id": "SETUPPKG_1A2BB1BB84A27F8E7ACC7B79494F9F36",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_SERVICE_7A2E5EE6_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_SERVICE_7A2E5EE6_V1"
+    },
+    {
+      "package_digest": "sha256:1acd9f8b411c4fb2b3bb6558b6e09f8c4778d3f8e7894b16519bfa8baed4b9b5",
+      "package_id": "SETUPPKG_D670894101B56EA13D57EB965C394682",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_TEMPORAL_1AD7645C_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_TEMPORAL_1AD7645C_V1"
+    },
+    {
+      "package_digest": "sha256:4cc3aa94ce684cb8c3bd33d5e1224bfac5877f665ee502c361c30e834aa86cc6",
+      "package_id": "SETUPPKG_1862B9BC033B39BAA7C8ABDBFC41F8C7",
+      "package_path": "canonical_setup_packages/STP_LAB_OTHER_VERSION_560A6C13_V1.json",
+      "package_status": "REFERENCE_BLOCKED",
+      "setup_id": "STP_LAB_OTHER_VERSION_560A6C13_V1"
+    }
+  ],
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "registry_digest": "sha256:b25baf29c225dbdc6fae1f882fcceafe0267b1e1ae87a21f0b2cbf5bb69fe59c",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+  ],
+  "validation_status": "BLOCKED"
+}

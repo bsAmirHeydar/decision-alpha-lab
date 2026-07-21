@@ -1,0 +1,9 @@
+{
+  "legacy_source_execution_forbidden": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:7afa113bcd67a6a5088fb23c36a5306b4dab812c545639e622cce4f46403298f",
+  "policy_id": "LCM09B_ADAPTER_BOUNDARY",
+  "schema_version": "1.0.0",
+  "source_mutation_forbidden": true,
+  "translation_only": true
+}

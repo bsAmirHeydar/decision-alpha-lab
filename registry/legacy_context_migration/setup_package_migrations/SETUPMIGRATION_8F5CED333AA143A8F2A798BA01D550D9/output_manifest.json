@@ -1,0 +1,407 @@
+{
+  "file_count": 80,
+  "files": [
+    {
+      "path": "LCM09B_TO_LCM10A_HANDOFF.json",
+      "sha256": "sha256:511d90730117c4ef010591cd3008ecf292e1ba1d8a0a38f7e77c6b35e5e5db12",
+      "size_bytes": 5561
+    },
+    {
+      "path": "adapters/setup_adapter_registry.json",
+      "sha256": "sha256:3078d8dc0b209bf09f14e132966f4b3d046a2f94e78abc42b1aeef11f2701959",
+      "size_bytes": 95277
+    },
+    {
+      "path": "blockers/setup_blocker_registry.jsonl",
+      "sha256": "sha256:3d09763d37605cf84beacee47fdd60d07eb428eb3221997a4638da9034e8d898",
+      "size_bytes": 465482
+    },
+    {
+      "path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1.json",
+      "sha256": "sha256:c21f630dbbc25f6c692e0af63a7349469ee4ef24b51d2075d03de28444afcefa",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROPUREASTROLOGYSIGNALS_98A5C4FA_V1.json",
+      "sha256": "sha256:bece2f531ad9e39df6adbca00b86254175cd5dd93eb69a0695372b5297d5a97d",
+      "size_bytes": 2975
+    },
+    {
+      "path": "canonical_setup_packages/STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROSIGNALWINDOWS_50DFCBAC_V1.json",
+      "sha256": "sha256:628979e1ee9304412f2ba62ad3b5b63bf3992af03ceb00a5e52cd898b36f5f77",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGC_CONFIRMATIONFIELD_82532776_V1.json",
+      "sha256": "sha256:9e7de3248adaf7a260634696f4fadccb3ad2383e349513ee574031fc374201dc",
+      "size_bytes": 2974
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGX_SIGNALREGISTRY_58362E29_V1.json",
+      "sha256": "sha256:700fbd0a2628d7788bf3e35a5506e4fc736a08a43a9334f49d542ec26870b02d",
+      "size_bytes": 2978
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1.json",
+      "sha256": "sha256:49ad2dc650b086c7ac089f27a6666e54a9ad0fd56551cb1ced0198f83abb4802",
+      "size_bytes": 2974
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONAUDIT_93D28245_V1.json",
+      "sha256": "sha256:14927b68b8e44bd86905e1bbbe792cfd367ede023da9248ccdaa132bd604f77b",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONCHECKPOINT_2F6645D9_V1.json",
+      "sha256": "sha256:1f68f626e27b1414c1cd208374d2686d6b3a3ca189bfbb5f07d35ccb13cd174b",
+      "size_bytes": 2971
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1.json",
+      "sha256": "sha256:a0fe8619f6bf6e0b391230bcfaf3fefb284c1d0fcb6f496a98feee258b8048fe",
+      "size_bytes": 2963
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONEVENTS_D15CF629_V1.json",
+      "sha256": "sha256:429f0e7726abcef034a10980b83e5e89d050b405887664d55832985e57dfba9b",
+      "size_bytes": 2963
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSELFTEST_F98BC4B5_V1.json",
+      "sha256": "sha256:d9fb5e18c997ce7dd68ae90dd9417f1164c7b2476207e4be0afba5798c8df9a6",
+      "size_bytes": 2967
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTATEMACHINE_0F51BA14_V1.json",
+      "sha256": "sha256:31c70b2ecad4725c67ea064bac8e8f729ffce82ec176603c95e3543df95a8951",
+      "size_bytes": 2975
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTORE_7FE0BBEE_V1.json",
+      "sha256": "sha256:4a29b2b5e6b1d82b0432d600834df9cfe4d78411d5c51cc02f9bfe2b412df5fa",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONTYPES_A5A2F2C3_V1.json",
+      "sha256": "sha256:59e879159ab1db992822674c480abd8ba53abb32a93cb34eeb9ea1c8657f5f18",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1.json",
+      "sha256": "sha256:73068fd1dc8c9b9c524217c33186583eeac8ab088afd2bbd54ed7f931213744e",
+      "size_bytes": 3228
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CANONICAL_A96B9B03_V1.json",
+      "sha256": "sha256:0f3232ffb700aa87fb6756cb418cf26d102e56c77edc4d2c294176e84c47b5a7",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CHECKPOINT_8950DDA0_V1.json",
+      "sha256": "sha256:018dfea91678375574a410aca9b6f3be805a08c87fa539f18e33c4bf44330480",
+      "size_bytes": 2995
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CLI_19E24850_V1.json",
+      "sha256": "sha256:858926020ae132d5bdb2db8a332e2dd475c8c031a049f5293e32cc52323fffb4",
+      "size_bytes": 2981
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONFIRMATION_C0E2F42C_V1.json",
+      "sha256": "sha256:396a75bf9aa71730318967d100d7e21d5a04db3c408848df08e5411984dfab06",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONFORMANCE_09F6EC18_V1.json",
+      "sha256": "sha256:3b681ef0e33adf76f7ca0a91a384cabbff40bda05f6332c5d2d6402e6159f98a",
+      "size_bytes": 2997
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1.json",
+      "sha256": "sha256:98218b658faaf2a679a314004ac29e13455af0e2bd1e60c6a88978a2049f7dd3",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_CONTRACTS_4B6571CE_V1.json",
+      "sha256": "sha256:fa27fb5c88ad00e9bb4067a9aff37068c27102a162e5a7d72629f77c0f2c98dc",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ELIGIBILITY_2F9EFD04_V1.json",
+      "sha256": "sha256:5f4b38e5f1f620e43e4317e37ec905151036965250f685bf4be755672eedc022",
+      "size_bytes": 2991
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ENGINE_B177D269_V1.json",
+      "sha256": "sha256:5d39a220037ae42bfad5547981baf5e7c3fb899cb565032f7912be07d0ee48c1",
+      "size_bytes": 2987
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ENUMS_774B99BA_V1.json",
+      "sha256": "sha256:c623a583c74013278efa5002bb70203b99e9f02b30e5a8e67219662e5ec80489",
+      "size_bytes": 2985
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_ERRORS_B798F3A9_V1.json",
+      "sha256": "sha256:0e2392a2f48179ed284b10b60a77608bcecf2296e81ae252cc10dff50e2b04c9",
+      "size_bytes": 2987
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_EXP0019_FP_I07_CONFIRMATIONSELFTEST_842ED0F7_V1.json",
+      "sha256": "sha256:5a268707476695761ec978b3deda6fc353427bcceb56f05fd223c354e494aea7",
+      "size_bytes": 3004
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONPREDICATE_69ADFDA1_V1.json",
+      "sha256": "sha256:9c9bf25d115929d67cbfe3e41e311c40483c6768fc7a5d857cf670cf34bba73e",
+      "size_bytes": 2998
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONSTORE_8E0B14AD_V1.json",
+      "sha256": "sha256:7e62a8537f42ba9ded631b61522999e4c6103599572ae0fe95727469d6d98bbd",
+      "size_bytes": 2990
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I07_SIGNALIDENTITY_64EA8DA6_V1.json",
+      "sha256": "sha256:a2e8af1c91f8426915a0e74c0df9c0fe8feb6f57a3340c79f9a638ec7b8ef4c7",
+      "size_bytes": 2984
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_FP_I08_WWCONFIRMATION_AFAD14AD_V1.json",
+      "sha256": "sha256:eed4f57767bc24a1e6d88e4c28e5872ebaf67ccc9f4f46107d43a2f479c9b9d6",
+      "size_bytes": 2984
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_GOLDEN_39FB017A_V1.json",
+      "sha256": "sha256:17e3ddfde421858bd52c1bc7c34d3d85b3f3004b282d577b0fc01f12bdde4aee",
+      "size_bytes": 2987
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_C41D2AEA_V1.json",
+      "sha256": "sha256:16683031cd5cd82b7a3c2a9a3918c1ecb4097a527432a633af34552dc7fb1acb",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_OBSERVATION_6A2CDBCE_V1.json",
+      "sha256": "sha256:005499c34b4984377dfa60acabf9fd490c69a8cd9c196ec0261717b45bae8bcf",
+      "size_bytes": 2997
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_PROJECTION_DBEBB11C_V1.json",
+      "sha256": "sha256:63132b00c79278c7391106d0462d966e87649f8f1e47cdfaae6f982ddce31ec3",
+      "size_bytes": 2995
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1.json",
+      "sha256": "sha256:19d869559c5e1cd150db62935f80af302142f409a0c1bcfe7e64126436b2273d",
+      "size_bytes": 2991
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_REVISION_46D096C7_V1.json",
+      "sha256": "sha256:0c2c9d097ebfeeb3f51ff9fd8a94aface3eac63fdd57e6659211de43cc543f31",
+      "size_bytes": 2991
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_STORE_70E9E382_V1.json",
+      "sha256": "sha256:6f50488784e1e1d5f180f3e35468e49da9a0708dc4b760c98e6ff5ddb14e9b4a",
+      "size_bytes": 2985
+    },
+    {
+      "path": "canonical_setup_packages/STP_EXP0019_FAERIE_PROTOCOL_TIMEFRAME_BA9CF994_V1.json",
+      "sha256": "sha256:a764f0d95926318f0e1d35382406bb278e7d57b5110c51132fd242a588bd9216",
+      "size_bytes": 2993
+    },
+    {
+      "path": "canonical_setup_packages/STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2CANONICALPOINT2SETUPADAPTER_7147EC1B_V1.json",
+      "sha256": "sha256:b51e2e4fecd6d28c83de2c550f07e6e397b4d00ab59ba1edf46e11154c279112",
+      "size_bytes": 3004
+    },
+    {
+      "path": "canonical_setup_packages/STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1.json",
+      "sha256": "sha256:8899927c61ab3f59855d3d677eae1f371207629526584adc8ce2a1e893f67ea6",
+      "size_bytes": 2990
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1.json",
+      "sha256": "sha256:119a4c625668c9d12d977ce54c7afeb5b005945a6223e19c69a7f55e19a0a0b1",
+      "size_bytes": 2972
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1.json",
+      "sha256": "sha256:ebe883b85e04b0fe7f1bc97a816c167e0581ba65287f082a1bb2c9bcb327d603",
+      "size_bytes": 2951
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_CANONICAL_47B83967_V1.json",
+      "sha256": "sha256:a18ebffd5db1ba550e44cfcc655733088302b3f70b45280fdc91fb25eb380858",
+      "size_bytes": 2951
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_CLI_FD3FCAD8_V1.json",
+      "sha256": "sha256:41bd47ca151566fbdd3952f784610f06416977568fe32f581698ea92d32db4eb",
+      "size_bytes": 2939
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_CONTRACTS_0AF20C40_V1.json",
+      "sha256": "sha256:46719aaa71ccc8e0e245ed2533a21d43ebaed7334ced1ff45d7ee0d5d87ecd8c",
+      "size_bytes": 2951
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_CONTRADICTIONS_D9CB0AB3_V1.json",
+      "sha256": "sha256:0cf5313059a064fb4d528eda530bc19af75079b5d2f5737bd8d4aedb08ed47d1",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_DIFFERENTIABLE_4119B0CF_V1.json",
+      "sha256": "sha256:e31acb184a83c92ece1c8d1b1bb41066f3f48ae4a905fddd11b580e039733017",
+      "size_bytes": 2961
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_ERRORS_12B45E0E_V1.json",
+      "sha256": "sha256:f811df88904b897a94e93af70dfad2d6ca627e0b38b911578da5edf500839dca",
+      "size_bytes": 2945
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_FACTS_B3BE2EFA_V1.json",
+      "sha256": "sha256:df1fd372fee3721bb94fcbba591024be1656778194d9b76f3f56186672c939ef",
+      "size_bytes": 2943
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_NUMERICS_2FD4F501_V1.json",
+      "sha256": "sha256:51205475256c650050dfea49e84faf50dbd7a9805a09f7766e39122ff99f45c3",
+      "size_bytes": 2949
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_ONTOLOGY_DA7AA3E3_V1.json",
+      "sha256": "sha256:7559278ae55d968f515e637219efd7671dd32fd98ddb336c0d6d474d0eff3bd1",
+      "size_bytes": 2949
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_PREDICATES_32A91599_V1.json",
+      "sha256": "sha256:aaa40182e508e36cb6db50d37a9373661dc8afc74be7c9d80ad2edc63b7388e9",
+      "size_bytes": 2953
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_PROJECTION_65DF69F8_V1.json",
+      "sha256": "sha256:2c8b77901e1bb55e55f1434eebf214c4c72ed46a97dcd8d4376cfc55efd1dbed",
+      "size_bytes": 2953
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_PROOFS_D59C1A41_V1.json",
+      "sha256": "sha256:69c31c463b23af29b1cd9950c9c7ce8e49a064f74ed98b755c6e90f1c265c9d3",
+      "size_bytes": 2945
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_REASONER_251DCEE1_V1.json",
+      "sha256": "sha256:a3f7640421881095289130191a4ebbe56311131c6210de696fcdcce2847bd069",
+      "size_bytes": 2949
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_RULES_EA2F9780_V1.json",
+      "sha256": "sha256:809a8bbf0483e8df080cbf5e2d2c0d4b91aec191142bab11c29da9b9a6aaa62e",
+      "size_bytes": 2943
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_SERVICE_7A2E5EE6_V1.json",
+      "sha256": "sha256:3a02bb656b3b2cc57a10bed2c1cbe2939efafbebf55a14a438449735947e55d3",
+      "size_bytes": 2947
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_TEMPORAL_1AD7645C_V1.json",
+      "sha256": "sha256:10036e21dc7c2f84857b3a9dfb21907c2e46e53347c10741ed1b4a06ac7050b0",
+      "size_bytes": 2949
+    },
+    {
+      "path": "canonical_setup_packages/STP_LAB_OTHER_VERSION_560A6C13_V1.json",
+      "sha256": "sha256:89d150885929e7cd8a42dfad251cce580429f6dc75ed0a26fee05ad4ef5836a7",
+      "size_bytes": 2947
+    },
+    {
+      "path": "canonical_setup_registry.json",
+      "sha256": "sha256:b533185c167c7e2327d9a99132d391384c22dabcc754c25cdba340af2c6d8140",
+      "size_bytes": 24534
+    },
+    {
+      "path": "dependencies/treatment_dependency_inventory_seed.jsonl",
+      "sha256": "sha256:add0ebacae1bc5ddac0c6e24d85b8505ee4db36acf825e2acbcfdc00c4d33f79",
+      "size_bytes": 58537
+    },
+    {
+      "path": "events/setup_migration_event_ledger.json",
+      "sha256": "sha256:b0dc741bd13f3293aa2c0a121e1c246f0c81124bee1bfab8938ffb735ec98374",
+      "size_bytes": 59522
+    },
+    {
+      "path": "factory/setup_factory_registration.json",
+      "sha256": "sha256:e3051d9020d872c5dc8597637101d0f5ebecca63b228d645a95951ab88d6a5e7",
+      "size_bytes": 67185
+    },
+    {
+      "path": "golden/setup_golden_cases.jsonl",
+      "sha256": "sha256:3b7567104a7940f0c1797666346bcc100995c062a90aa57be01fb06781a97889",
+      "size_bytes": 116387
+    },
+    {
+      "path": "golden/setup_golden_traces.jsonl",
+      "sha256": "sha256:526bbdc3e9726b877935b866401ceb8eb936e5d20bb99f5f3e70494f74c51e31",
+      "size_bytes": 103704
+    },
+    {
+      "path": "handoff/lcm09b_to_lcm10a_handoff.json",
+      "sha256": "sha256:511d90730117c4ef010591cd3008ecf292e1ba1d8a0a38f7e77c6b35e5e5db12",
+      "size_bytes": 5561
+    },
+    {
+      "path": "input/lcm09a_binding.json",
+      "sha256": "sha256:5de48c13d0690fd4992a5330a0c223b8d3c9c8cd9a832bfbb34be7058d2fcd39",
+      "size_bytes": 1319
+    },
+    {
+      "path": "parity/setup_parity_registry.json",
+      "sha256": "sha256:1fd54cbda08f6443d1615a328b170733bbb7df7f0568c8009143c04631b40657",
+      "size_bytes": 54986
+    },
+    {
+      "path": "parity/setup_parity_registry.jsonl",
+      "sha256": "sha256:f0a5fe5a88c2ce475ed1c36c114a2914da8deb824eaf6895906aba8e32e8c8cb",
+      "size_bytes": 43631
+    },
+    {
+      "path": "parity/setup_variance_decisions.json",
+      "sha256": "sha256:52a2704c9bef4caba49508615cc0e13e152e4eb1e170714404a1ed491779aef5",
+      "size_bytes": 699
+    },
+    {
+      "path": "provenance/setup_migration_provenance_graph.json",
+      "sha256": "sha256:c96edb962d237f533686cb7fd58686d58eb180bce8fa6d2915800d698c0605f9",
+      "size_bytes": 45645
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:500b55075975b80e43c35265d7dda1a62e6e7342b6977a280ab6d89a43e75f26",
+      "size_bytes": 1600
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:104be3a6caa4c6240b0f5b6eaede401526ca2a6864899ac7e1650da4d2a51465",
+      "size_bytes": 1916
+    },
+    {
+      "path": "reports/portfolio_closure_report.json",
+      "sha256": "sha256:bfec3e26f7fd6b1cc350af7d1747fec615f3948b4ad61a07847422e444184244",
+      "size_bytes": 888
+    },
+    {
+      "path": "required_artifact_locator.json",
+      "sha256": "sha256:a170a2b884a2a6d676f6c8a2f921c507402f4194f90901f58cd5ca0345c6990e",
+      "size_bytes": 2293
+    },
+    {
+      "path": "setup_migration_marker.json",
+      "sha256": "sha256:5c24e16db23a628c6954304eff63bce8dcf470eed6294db98d740acef4c38643",
+      "size_bytes": 848
+    }
+  ],
+  "manifest_digest": "sha256:bf1cb3ab3d3c423d14de2fa9737c5fa96a84e215186ce024743d1d6583d66e5d",
+  "schema_version": "1.0.0"
+}

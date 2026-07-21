@@ -1,0 +1,8 @@
+{
+  "blocked_packages_factory_visible": true,
+  "blocker_suppression_forbidden": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:55932408af21a2a1cf419c6cef4f28ba68437bb1eb9c13e64e960834de0bded7",
+  "policy_id": "LCM09B_BLOCKER_VISIBILITY",
+  "schema_version": "1.0.0"
+}

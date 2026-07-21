@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "event_type": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "payload_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "subject_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "event_id",
+    "sequence",
+    "event_type",
+    "subject_id",
+    "payload_digest",
+    "event_digest"
+  ],
+  "title": "Event record",
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+{
+  "acceptance_gate_passed": true,
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "explicitly_blocked_count": 60,
+  "factory_registration_count": 60,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hard_mismatch_count": 0,
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "non_compensatory_gates": [
+    {
+      "gate": "PORTFOLIO_ACCOUNTING",
+      "result": "PASS"
+    },
+    {
+      "gate": "REFERENCE_PACKAGE_MATERIALIZATION",
+      "result": "PASS"
+    },
+    {
+      "gate": "FACTORY_AUTHORITY_NEGATIVE",
+      "result": "PASS"
+    },
+    {
+      "gate": "PARITY_DISPOSITION",
+      "result": "PASS_BLOCKED_NONCOMPENSATORY"
+    },
+    {
+      "gate": "CONTEXT_CLOCK_NEGATIVE",
+      "result": "PASS"
+    },
+    {
+      "gate": "ORDER_DRAWING_NEGATIVE",
+      "result": "PASS"
+    },
+    {
+      "gate": "TREATMENT_DEPENDENCY_EXPLICIT",
+      "result": "PASS"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_count": 60,
+  "parity_blocked_count": 60,
+  "parity_pass_count": 0,
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reference_ready_count": 0,
+  "report_digest": "sha256:e51e0a1b097e45f5f119a39c44161c0d55ed949973e0620500a3d851d7e1a651",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:b25baf29c225dbdc6fae1f882fcceafe0267b1e1ae87a21f0b2cbf5bb69fe59c",
+    "sha256:42f460d8dc94acf4c0582417c116bfb248569040a268766640c56ed87b9c4b20"
+  ],
+  "validation_status": "BLOCKED"
+}

@@ -1,0 +1,17 @@
+{
+  "blocked_count": 60,
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "decision_digest": "sha256:896439c785c3ef012b5f2075eaad9f572293867a8ce9ea64580d778830c6c273",
+  "decisions": [],
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hard_mismatch_count": 0,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:42f460d8dc94acf4c0582417c116bfb248569040a268766640c56ed87b9c4b20"
+  ],
+  "unknown_count": 0,
+  "validation_status": "BLOCKED"
+}

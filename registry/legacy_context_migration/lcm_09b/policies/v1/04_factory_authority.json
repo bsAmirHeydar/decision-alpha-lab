@@ -1,0 +1,11 @@
+{
+  "capital_authority": false,
+  "factory_port": "ACL04_LEGACY_REFERENCE_PORT_V1",
+  "live_order_authority": false,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:e4b065e5e0315e5c328b8f1a57d3fd4175730de03fb9a68a99333b8d603fe858",
+  "policy_id": "LCM09B_FACTORY_AUTHORITY",
+  "promotion_authority": false,
+  "runtime_authority": false,
+  "schema_version": "1.0.0"
+}

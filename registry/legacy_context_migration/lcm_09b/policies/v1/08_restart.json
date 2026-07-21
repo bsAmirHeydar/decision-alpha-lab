@@ -1,0 +1,8 @@
+{
+  "checkpoint_digest_required": true,
+  "expiry_reconstruction_from_wall_clock_forbidden": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:61caa4046b8d39b1d3a34a44268ec574059c6a211c453439df3db11de69f240a",
+  "policy_id": "LCM09B_RESTART",
+  "schema_version": "1.0.0"
+}

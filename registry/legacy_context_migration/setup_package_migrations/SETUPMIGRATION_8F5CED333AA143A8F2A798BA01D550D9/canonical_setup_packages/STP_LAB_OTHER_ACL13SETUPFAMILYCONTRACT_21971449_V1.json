@@ -1,0 +1,75 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_CB8E60A6D84C2E62FE88BC08166EB3E5",
+    "SETUPBLOCKER_7633F4A2DEE1CB1D99F41B098CACA176",
+    "SETUPBLOCKER_154D8FD17CE9174A7A683E50EFBEBEDE",
+    "SETUPBLOCKER_A68D6D5A60B02BB7A8450F23DB33FBBF",
+    "SETUPBLOCKER_CF0E1651891DCEB9C4ABE9CAB5177C84",
+    "SETUPBLOCKER_1930AD5940BC5FADA17AC98D3FFEE5EE",
+    "SETUPBLOCKER_92DE26DB5A556BAE5E7D7D339FCB5F9C"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_LAB_OTHER",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6f19ca338d5f877d9324f492248995a40446e46d0c197f1bf151175555b92bda",
+  "package_id": "SETUPPKG_7DEA182E849C051BD9F50B537A8C9A3F",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1",
+  "source_binding": {
+    "contract_digest": "sha256:476accfe86b6e5f8666e200e1ef063eeb1b84bb5cd8d2eba722d741c99b6d681",
+    "contract_id": "SETUPCONTRACT_B13F5A8FA6D54A0E731499A8D4BBB9A0",
+    "identity_digest": "sha256:28e244468697344d6991cd36064fd9239e2661e9628e95a537b2bc5f6e41508d",
+    "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL13/ACL13SetupFamilyContract.mqh",
+    "sha256": "sha256:0d3deba33ea7c9a54538b8319748849c16cb93218867ce31a65e3a1cc0581295",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:0d3deba33ea7c9a54538b8319748849c16cb93218867ce31a65e3a1cc0581295",
+    "sha256:476accfe86b6e5f8666e200e1ef063eeb1b84bb5cd8d2eba722d741c99b6d681"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

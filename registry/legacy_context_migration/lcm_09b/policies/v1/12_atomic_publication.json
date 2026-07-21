@@ -1,0 +1,10 @@
+{
+  "broad_git_add_forbidden": true,
+  "clean_overlay_required": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:f35b090acc767dfe0419ba9a0ef9b7e78e22f90b56eb8f66e6864cc21713396a",
+  "policy_id": "LCM09B_ATOMIC_PUBLICATION",
+  "root_relative_index_required": true,
+  "schema_version": "1.0.0",
+  "sha256_ledger_required": true
+}

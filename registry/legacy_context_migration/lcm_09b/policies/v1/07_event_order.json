@@ -1,0 +1,16 @@
+{
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:4e9600367ddcdddd9b5415c024f2de54af2336deeeb99ac63062dfe60576bf7a",
+  "policy_id": "LCM09B_EVENT_ORDER",
+  "priority": [
+    "CANCELLED",
+    "EXPIRED",
+    "INVALIDATED",
+    "CONFIRMED",
+    "TRIGGERED",
+    "ELIGIBLE",
+    "ABSTAINED",
+    "BLOCKED"
+  ],
+  "schema_version": "1.0.0"
+}

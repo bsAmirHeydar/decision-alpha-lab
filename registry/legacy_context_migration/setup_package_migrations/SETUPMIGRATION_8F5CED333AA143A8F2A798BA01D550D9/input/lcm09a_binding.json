@@ -1,0 +1,29 @@
+{
+  "binding_digest": "sha256:d8043e3c710adae8d1566f408fd726477067a09e307c669f4846b90f129f3ba3",
+  "binding_id": "LCM09ABIND_2A336697C79A7638B624775304F72C86",
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "contract_registry_digest": "sha256:7c71edcae872da7a82006061387b7ffddfe90ac924d4d4a6037c0e5b9a2f4817",
+  "forbidden_actions": [
+    "TREAT_PROVISIONAL_FAMILY_AS_SEMANTIC_EQUIVALENCE",
+    "PROMOTE_EMBEDDED_CANDIDATE_TO_SETUP_WITHOUT_IDENTITY_REENTRY",
+    "REFERENCE_BLOCKED_CONTEXT_AS_CANONICAL",
+    "CONSUMER_CUTOVER",
+    "TREATMENT_EXTRACTION_OR_EXECUTION_BOUNDARY_CHANGE",
+    "SOURCE_MOVE_OR_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+  "implementation_authorized_setup_ids": [],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+  ],
+  "validation_status": "BLOCKED"
+}

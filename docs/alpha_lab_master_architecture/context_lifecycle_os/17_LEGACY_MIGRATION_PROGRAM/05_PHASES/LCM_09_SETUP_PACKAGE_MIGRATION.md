@@ -69,4 +69,4 @@ A subphase failure does not authorize skipping to the next partition. The last a
 
 ## Current implementation state
 
-LCM-09A completed as accepted reference under `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891`. LCM-09 remains open pending LCM-09B. No Setup implementation or consumer cutover is authorized by the LCM-09A result.
+LCM-09A completed as accepted reference under `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891`. LCM-09A and LCM-09B are complete as accepted reference gates. The master phase is closed under canonical Setup package accounting: 60 identities are represented and all 60 are explicitly blocked rather than semantically reconstructed. No consumer cutover, promotion, runtime, order or capital authority is authorized. The next bounded phase is LCM-10A.

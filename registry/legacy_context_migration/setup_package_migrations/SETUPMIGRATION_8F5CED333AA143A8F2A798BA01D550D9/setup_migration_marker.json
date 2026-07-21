@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "explicitly_blocked_count": 60,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "marker_digest": "sha256:70e561f60088d3fe7041f7594e2fbbb34c5365235a8be4234ba8c3ab8b68d3b7",
+  "master_phase": "LCM-09",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_count": 60,
+  "phase_id": "LCM-09B",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reference_ready_count": 0,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:b25baf29c225dbdc6fae1f882fcceafe0267b1e1ae87a21f0b2cbf5bb69fe59c"
+  ],
+  "status": "ACCEPTED_REFERENCE",
+  "validation_status": "BLOCKED"
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "context_identity_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "decision_state": {
+      "enum": [
+        "ELIGIBLE",
+        "TRIGGERED",
+        "CONFIRMED",
+        "INVALIDATED",
+        "CANCELLED",
+        "EXPIRED",
+        "ABSTAINED",
+        "BLOCKED"
+      ]
+    },
+    "live_order_authority": {
+      "const": false
+    },
+    "no_trade": {
+      "type": "boolean"
+    },
+    "observed_at": {
+      "type": "string"
+    },
+    "occurrence_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "prior_decision_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "promotion_authority": {
+      "const": false
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "setup_id",
+    "package_id",
+    "occurrence_id",
+    "context_identity_id",
+    "sequence",
+    "decision_state",
+    "reason_codes",
+    "observed_at",
+    "available_at",
+    "prior_decision_digest",
+    "no_trade",
+    "promotion_authority",
+    "runtime_authority",
+    "live_order_authority",
+    "capital_authority",
+    "decision_digest"
+  ],
+  "title": "Setup decision",
+  "type": "object"
+}

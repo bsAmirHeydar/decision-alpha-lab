@@ -1,0 +1,24 @@
+{
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "consumer_cutover_performed": false,
+  "factory_registration_count": 60,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "output_manifest_digest": "sha256:bf1cb3ab3d3c423d14de2fa9737c5fa96a84e215186ce024743d1d6583d66e5d",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_count": 60,
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "receipt_digest": "sha256:844c211ea2bdbd0772d6cd171d3e9d2b1fa9275f7937fe290dd4d5ce36dbe432",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:bf1cb3ab3d3c423d14de2fa9737c5fa96a84e215186ce024743d1d6583d66e5d",
+    "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac"
+  ],
+  "source_move_performed": false,
+  "upstream_handoff_digest": "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+  "validation_status": "PASS"
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "consumer_cutover_performed": {
+      "const": false
+    },
+    "factory_registration_count": {
+      "const": 60,
+      "type": "integer"
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "migration_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "package_count": {
+      "const": 60,
+      "type": "integer"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "semantic_refactor_performed": {
+      "const": false
+    },
+    "source_delete_performed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "source_move_performed": {
+      "const": false
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "migration_id",
+    "upstream_handoff_digest",
+    "output_manifest_digest",
+    "handoff_digest",
+    "package_count",
+    "factory_registration_count",
+    "source_move_performed",
+    "source_delete_performed",
+    "consumer_cutover_performed",
+    "semantic_refactor_performed",
+    "receipt_digest"
+  ],
+  "title": "Migration receipt",
+  "type": "object"
+}

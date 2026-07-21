@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_actions": {
+      "type": "array"
+    },
+    "blocked_dimensions": {
+      "type": "array"
+    },
+    "capital_authority_created": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "completed_gates": {
+      "type": "array"
+    },
+    "consumer_cutover_allowed": {
+      "const": false
+    },
+    "explicitly_blocked_setup_ids": {
+      "type": "array"
+    },
+    "failed_dimensions": {
+      "type": "array"
+    },
+    "forbidden_actions": {
+      "type": "array"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "LCM09B_TO_LCM10A"
+    },
+    "live_order_authority_created": {
+      "const": false
+    },
+    "master_phase": {
+      "const": "LCM-09"
+    },
+    "migration_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "package_registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parity_registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-09B"
+    },
+    "promotion_authority_created": {
+      "const": false
+    },
+    "reference_ready_setup_ids": {
+      "type": "array"
+    },
+    "runtime_authority_created": {
+      "const": false
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "treatment_dependency_seed_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "unknown_dimensions": {
+      "type": "array"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "handoff_id",
+    "phase_id",
+    "master_phase",
+    "migration_id",
+    "upstream_handoff_digest",
+    "package_registry_digest",
+    "parity_registry_digest",
+    "treatment_dependency_seed_digest",
+    "reference_ready_setup_ids",
+    "explicitly_blocked_setup_ids",
+    "completed_gates",
+    "failed_dimensions",
+    "blocked_dimensions",
+    "unknown_dimensions",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "consumer_cutover_allowed",
+    "promotion_authority_created",
+    "runtime_authority_created",
+    "live_order_authority_created",
+    "capital_authority_created",
+    "claim_ceiling",
+    "handoff_digest"
+  ],
+  "title": "LCM09B handoff",
+  "type": "object"
+}

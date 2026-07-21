@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "forbidden_claims": [
+    "ALPHA_PROVEN",
+    "PRODUCTION_READY",
+    "EXECUTION_READY",
+    "CAPITAL_AUTHORIZED"
+  ],
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:c02a87dfeab9df14378b5ed9b429470ccbe0aa9edecdac64b9e01df97911f84c",
+  "policy_id": "LCM09B_CLAIM_CEILING",
+  "schema_version": "1.0.0"
+}

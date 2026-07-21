@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "minProperties": 8,
+      "type": "object"
+    },
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "locator_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "migration_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "migration_id",
+    "artifacts",
+    "locator_digest"
+  ],
+  "title": "LCM09B Required Artifact Locator",
+  "type": "object"
+}

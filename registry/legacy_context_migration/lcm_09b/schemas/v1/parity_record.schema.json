@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_success_cannot_override": {
+      "const": true
+    },
+    "canonical_event_count": {
+      "type": "integer"
+    },
+    "hard_mismatch_count": {
+      "type": "integer"
+    },
+    "legacy_event_count": {
+      "type": "integer"
+    },
+    "mismatches": {
+      "type": "array"
+    },
+    "parity_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parity_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "parity_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "UNKNOWN"
+      ]
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "parity_id",
+    "setup_id",
+    "parity_status",
+    "legacy_event_count",
+    "canonical_event_count",
+    "mismatches",
+    "reason_codes",
+    "hard_mismatch_count",
+    "aggregate_success_cannot_override",
+    "parity_digest"
+  ],
+  "title": "Parity record",
+  "type": "object"
+}

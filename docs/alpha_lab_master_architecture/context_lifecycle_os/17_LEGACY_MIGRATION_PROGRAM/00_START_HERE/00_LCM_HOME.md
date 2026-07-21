@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_08A_CONTEXT_PORTFOLIO_FREEZE_RISK_CLASSIFICATION_AND_PILOT_SELECTION|LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection]].
+The next approved implementation unit is [[LCM_10A_TREATMENT_AND_EXECUTION_CAPABILITY_INVENTORY|LCM-10A — Treatment and Execution Capability Inventory]].
 
 ## Claim ceiling
 
@@ -50,7 +50,7 @@ The program may create migration evidence, canonical packages, compatibility ada
 
 ## Current implementation status
 
-- LCM-00 through LCM-07: implemented reference foundations.
-- Balanced roadmap amendment: documented and machine-registered.
-- LCM-08 through LCM-16: not implemented; governed by the refined roadmap.
-- Next: LCM-08A.
+- LCM-00 through LCM-09: implemented accepted-reference foundations and bounded migrations.
+- LCM-09 closes with 60 canonical fail-closed Setup reference packages, 60 explicit blockers and zero hidden authority.
+- LCM-10 through LCM-16: not implemented; governed by the refined roadmap.
+- Next: LCM-10A.

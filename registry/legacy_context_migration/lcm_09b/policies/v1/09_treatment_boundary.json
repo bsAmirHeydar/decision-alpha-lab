@@ -1,0 +1,9 @@
+{
+  "order_semantics_in_setup_core_forbidden": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:4ff3d06306d19f6298c22caf6b688a3c8cd7d46cdb148b46f725e64df4573967",
+  "policy_id": "LCM09B_TREATMENT_BOUNDARY",
+  "schema_version": "1.0.0",
+  "sizing_semantics_in_setup_core_forbidden": true,
+  "treatment_binding_state": "PENDING_LCM10"
+}

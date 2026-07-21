@@ -1,0 +1,50 @@
+{
+  "attacks": [
+    {
+      "attack": "FACTORY_DEFAULT_CHANGES_SEMANTICS",
+      "evidence": "All registrations are reference-blocked and no candidate compiler path is invoked.",
+      "result": "PASS"
+    },
+    {
+      "attack": "MISSING_NO_TRADE_RECORD",
+      "evidence": "Each blocked package has a deterministic BLOCKED/no-trade golden case.",
+      "result": "PASS"
+    },
+    {
+      "attack": "SETUP_RECOMPUTES_CONTEXT",
+      "evidence": "Evaluator accepts caller-supplied snapshots only and owns no clock.",
+      "result": "PASS"
+    },
+    {
+      "attack": "SUPPRESSION_DELETES_EVIDENCE",
+      "evidence": "Blockers, cases, traces and parity dispositions remain explicit.",
+      "result": "PASS"
+    },
+    {
+      "attack": "EXPIRY_RESTORED_INCORRECTLY",
+      "evidence": "Checkpoint restore is digest-bound; wall-clock reconstruction is absent.",
+      "result": "PASS"
+    },
+    {
+      "attack": "ORDER_OR_DRAWING_AUTHORITY_LEAK",
+      "evidence": "Static boundary scan and false authority fields close these surfaces.",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hostile_review_passed": true,
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "report_digest": "sha256:ebce1099ac790795f58ef7fc64c6a69822401d689e82890c792eb5e55c2b38ad",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+  ],
+  "unresolved_risks": [
+    "All 60 identities remain blocked for semantic owner approval, observed characterization and canonical Context binding.",
+    "MQL5 compiler and runtime parity are not claimed."
+  ],
+  "validation_status": "BLOCKED"
+}

@@ -1,0 +1,1818 @@
+{
+  "adapter_count": 60,
+  "adapters": [
+    {
+      "adapter_digest": "sha256:9cd6ce4b3a0d9a618d1c4eec04e90a54b108dc2ad4b7ba3812d4c1b625ea5722",
+      "adapter_id": "SETUPADAPTER_FC584ADF2A6464584CF0D0D27F4C0072",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1",
+      "source_artifact_path": "tools/astro_validation/astro_signal_validator.py",
+      "source_artifact_sha256": "sha256:efb98b2173c42436622262d157c04368c6cb54f856feb0265c6a373a565d1ee9",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:efb98b2173c42436622262d157c04368c6cb54f856feb0265c6a373a565d1ee9"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e0e7a185a213d887f5bf1d5775d2c4845305a32c56ee2e435f57295c6dabf15b",
+      "adapter_id": "SETUPADAPTER_97A78F9CDE2CAA3BB28BF75D6D76AD2F",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROPUREASTROLOGYSIGNALS_98A5C4FA_V1",
+      "source_artifact_path": "mql5/Include/Research/DAL_AstroPureAstrologySignals.mqh",
+      "source_artifact_sha256": "sha256:032237a1362efdd08bf7c77a5b05317390c0dba9f996fef78482310d0be42cb3",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:032237a1362efdd08bf7c77a5b05317390c0dba9f996fef78482310d0be42cb3"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:22d0864ef70955eec16aaa537ce194006f07d831bb60c7ceb28f6f9e5fc2502d",
+      "adapter_id": "SETUPADAPTER_381BBBC52158913605066177CE6B49B4",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROSIGNALWINDOWS_50DFCBAC_V1",
+      "source_artifact_path": "mql5/Include/Research/DAL_AstroSignalWindows.mqh",
+      "source_artifact_sha256": "sha256:2a0f5473a69126ce3a83e1e476ea470a12b94eaaff0b84c08c8e3fe4ccd5eae1",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:2a0f5473a69126ce3a83e1e476ea470a12b94eaaff0b84c08c8e3fe4ccd5eae1"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:5384a9e2629644f9b580106064b83684239f8ea45ef67e8dc87fcec4f051527b",
+      "adapter_id": "SETUPADAPTER_05DFE77A20F141957B855EFD609B611B",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGC_CONFIRMATIONFIELD_82532776_V1",
+      "source_artifact_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh",
+      "source_artifact_sha256": "sha256:8053d5aed44cc72b7f97868b4a0d9be45b9ba1bc151fc29ce9b5fce4974cca6e",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:8053d5aed44cc72b7f97868b4a0d9be45b9ba1bc151fc29ce9b5fce4974cca6e"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e880cfc3fdf9622d3691410e40d3642245401b126c36729d5b07bf5b7022f18c",
+      "adapter_id": "SETUPADAPTER_D799E03D72A69F42EE78BA9A51BF0749",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALREGISTRY_58362E29_V1",
+      "source_artifact_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_SignalRegistry.mqh",
+      "source_artifact_sha256": "sha256:995cb5d0f1de44aaf8073987cd6aea5f1f1b2c30c4b8cd91587cafdb5c0921f3",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:995cb5d0f1de44aaf8073987cd6aea5f1f1b2c30c4b8cd91587cafdb5c0921f3"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e6307e28c6636fc2435b25017a13f3efa16912c3646a18dfa0cd365b36610d99",
+      "adapter_id": "SETUPADAPTER_B40B66684E945241FC07365C82CCF6CD",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1",
+      "source_artifact_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_SignalSource.mqh",
+      "source_artifact_sha256": "sha256:ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:86fc516ecbf476602881332a7164a2050eaff5dc39c3073c03716a0a1e18d8a0",
+      "adapter_id": "SETUPADAPTER_F95521B307731E76876DFB89435B9578",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONAUDIT_93D28245_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationAudit.mqh",
+      "source_artifact_sha256": "sha256:b5cb3cbc4210e9150fa221dce6e42319b9010bc02249b2a2189860db09ed35a5",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b5cb3cbc4210e9150fa221dce6e42319b9010bc02249b2a2189860db09ed35a5"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:9d856e1962412a7875f417a8f7ebf705feb59f98a5b7593091a64d2b6d72f158",
+      "adapter_id": "SETUPADAPTER_379004C2DD8760D6CADA0A1F9FD1E38E",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONCHECKPOINT_2F6645D9_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationCheckpoint.mqh",
+      "source_artifact_sha256": "sha256:086706e2f0096c8e59200fa06e2258d3dc05f6c0d0e8ddfa88991831b0ec51a3",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:086706e2f0096c8e59200fa06e2258d3dc05f6c0d0e8ddfa88991831b0ec51a3"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:73ff487c7a165e42f2f8c2d91599aa80b75dd4dd2c8bf95dc2027d96f9ef1e11",
+      "adapter_id": "SETUPADAPTER_9D726BCC64F2E8229C80017C995BE559",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationEngine.mqh",
+      "source_artifact_sha256": "sha256:be3efe2b49adb8ae85dbb87d35363f49e57ca51edeef78d2988e414538a5408f",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:be3efe2b49adb8ae85dbb87d35363f49e57ca51edeef78d2988e414538a5408f"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:34f1f5654de75a2d60dd6b8a872f77c5eb139b7fe6f810f5a9c2418db02d9aa1",
+      "adapter_id": "SETUPADAPTER_DA8F79CA60FDB792F3E0D7A5252A4BDF",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONEVENTS_D15CF629_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationEvents.mqh",
+      "source_artifact_sha256": "sha256:882592487b823f9d47d9f05df74ef1299da81dec038dbb0960132de5002e11de",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:882592487b823f9d47d9f05df74ef1299da81dec038dbb0960132de5002e11de"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:8a35f908d9f91b990b604285a4dbc30828e94ae876e10e3ddf607456492214d5",
+      "adapter_id": "SETUPADAPTER_B16760407ABF8CAA1F208462FC312C9A",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSELFTEST_F98BC4B5_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationSelfTest.mqh",
+      "source_artifact_sha256": "sha256:ac0d30b1f034afc2969b986834947fc3acea0ae3bb4d40148eeaa9b49af05084",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ac0d30b1f034afc2969b986834947fc3acea0ae3bb4d40148eeaa9b49af05084"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:9e6ae661564189ce081ed0ca1e0aed9ab38ab76754a9ff8efca4b868b93de2db",
+      "adapter_id": "SETUPADAPTER_489B0B92F1F62B53B9B808EB5F3B834D",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTATEMACHINE_0F51BA14_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationStateMachine.mqh",
+      "source_artifact_sha256": "sha256:480a3fa552cc5ab31b8b07dbce3fd9f06341df290ef7c25e77b1961b1cd49917",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:480a3fa552cc5ab31b8b07dbce3fd9f06341df290ef7c25e77b1961b1cd49917"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:32299d0fdf97215b5ff50679473594f3085ff10aaa0a38ef2644dc80f8e64123",
+      "adapter_id": "SETUPADAPTER_FB93E3BFAD736AC49D508BDCCDBB0F3E",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTORE_7FE0BBEE_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationStore.mqh",
+      "source_artifact_sha256": "sha256:7cdda590382676cd45f3f89226734c7e451cbb3e4438fd9673d8f4ba9b37ccc2",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7cdda590382676cd45f3f89226734c7e451cbb3e4438fd9673d8f4ba9b37ccc2"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:65fabadb44d92aac1b85e87336328e1b9ffe564a855b447c43f1d204891f0a06",
+      "adapter_id": "SETUPADAPTER_8957E08BA5D6F5044148C8FDAA360B95",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONTYPES_A5A2F2C3_V1",
+      "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationTypes.mqh",
+      "source_artifact_sha256": "sha256:257415e73730b7ee166c39a361dcf86269d5a326ed7005f56dbe816da5c63527",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:257415e73730b7ee166c39a361dcf86269d5a326ed7005f56dbe816da5c63527"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:56eea6add4d6644ab800d9657a5681faf0210a6afb2373e2ccea3410eabd2677",
+      "adapter_id": "SETUPADAPTER_AA393C14234ADC34F4261A0BED8E66DD",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "DRAWING_SURFACE_REQUIRES_PROJECTION_SEPARATION",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "ORDER_SURFACE_REQUIRES_BOUNDARY_EXTRACTION",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase06_close_confirmation_v2.py",
+      "source_artifact_sha256": "sha256:ea00eab9fcaa7bf1dd3fff3c29fb9e190b19d4b7f95c133ff31a2705cbbdd8f6",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ea00eab9fcaa7bf1dd3fff3c29fb9e190b19d4b7f95c133ff31a2705cbbdd8f6"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:0418f6b86df827047b907ab83f5e0daa517366027d4fed29b21342ee17df2b32",
+      "adapter_id": "SETUPADAPTER_33E9E1BC68C86C156ADC16B18637D0EA",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CANONICAL_A96B9B03_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/canonical.py",
+      "source_artifact_sha256": "sha256:fcf67a7e61a0b58c2e075649c3571de9b2133a124fadd9b10f3e4bd94a2529be",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:fcf67a7e61a0b58c2e075649c3571de9b2133a124fadd9b10f3e4bd94a2529be"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:26dd2701b8ca538bac57b9de7e59fd2d941a4b8be1c33cbf8dbc76614165004c",
+      "adapter_id": "SETUPADAPTER_207991E4E8E169396CD9145BC2A3BD91",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CHECKPOINT_8950DDA0_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/checkpoint.py",
+      "source_artifact_sha256": "sha256:b8cf66df4ecd1a858bbbb188e680f613d4041b4b3a04a9f6e1572eec2df50a23",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b8cf66df4ecd1a858bbbb188e680f613d4041b4b3a04a9f6e1572eec2df50a23"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:5346a543c4a5c1b1b23bdee8c7abe64c63c2c00ee7766b5c7e6d8f30d6bcd028",
+      "adapter_id": "SETUPADAPTER_E9C5E7A4F891B9AF7E4419BACD22A74B",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CLI_19E24850_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/cli.py",
+      "source_artifact_sha256": "sha256:72c9b0ec009487645b823d8951dbd177cca4db12ae8ac77dc399d338fb0ef6bb",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:72c9b0ec009487645b823d8951dbd177cca4db12ae8ac77dc399d338fb0ef6bb"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:c0c6b09791f101335399fa38fed127bb1e2efc505907500f4371e864b38a3861",
+      "adapter_id": "SETUPADAPTER_94FB0463CB1830B3BBFB5F3385EDA974",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFIRMATION_C0E2F42C_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/confirmation.py",
+      "source_artifact_sha256": "sha256:ddb9fd816cdd6934c8e91a1c7ca8ef86151f5f78ee543f5f958dec9ef4d1c855",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ddb9fd816cdd6934c8e91a1c7ca8ef86151f5f78ee543f5f958dec9ef4d1c855"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e9c9055d7778f149e157c83bb636f5bb23696bce2a0dd023400ae4317286bd9f",
+      "adapter_id": "SETUPADAPTER_DE8EC6E5B29ABEDC512C42879C2A8D72",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFORMANCE_09F6EC18_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/conformance.py",
+      "source_artifact_sha256": "sha256:cf7230fdf57dbf658313b5ee3fc5638322773ac3e4d5a3161681badec7e51584",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:cf7230fdf57dbf658313b5ee3fc5638322773ac3e4d5a3161681badec7e51584"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:4aec2d5dc720662d240ffaff8ce10e9b1b20f4fdad90afa45ba291603b22a6ad",
+      "adapter_id": "SETUPADAPTER_B7074B3F5D083C21239E10BA87CF4B2A",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/constants.py",
+      "source_artifact_sha256": "sha256:09375eb7cf1a292d8ff9c6d734c5dc38e6dd1e2cb36236f91d74a4f556faa14e",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:09375eb7cf1a292d8ff9c6d734c5dc38e6dd1e2cb36236f91d74a4f556faa14e"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:b36b4511b2475971b2b4a7fdd1878e83639b8646249c60354cf2a33370fd99cb",
+      "adapter_id": "SETUPADAPTER_D0611D261612BBA4132E7769C1F53304",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONTRACTS_4B6571CE_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/contracts.py",
+      "source_artifact_sha256": "sha256:eacc8def1040c70b4bd2ea8b22f16876381af531c445d6dfab3b388ef04facf8",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:eacc8def1040c70b4bd2ea8b22f16876381af531c445d6dfab3b388ef04facf8"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:c97513940fa76687bd926f3aa68bc3f1d31e6da2ece36e753f3dbfff46078819",
+      "adapter_id": "SETUPADAPTER_1F3E1AABE354A09D65C2374569159CC1",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ELIGIBILITY_2F9EFD04_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/python/fp_i09_ledger/eligibility.py",
+      "source_artifact_sha256": "sha256:1930446a9d679a481814ab0aa630c5d68b06dde66a615c24bcc80159f48b9546",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1930446a9d679a481814ab0aa630c5d68b06dde66a615c24bcc80159f48b9546"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:1c1b6ce0649053837223895a62bbb432b2e03f6e0992dcdfaad9f3b21ee75ebc",
+      "adapter_id": "SETUPADAPTER_00E94AF9C6E41D3299F826F9F6972512",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ENGINE_B177D269_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/engine.py",
+      "source_artifact_sha256": "sha256:af26a4e579b46f1cfb5171e3c369d60309326529020c11deda75c56a7e10a6ae",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:af26a4e579b46f1cfb5171e3c369d60309326529020c11deda75c56a7e10a6ae"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:d5fbfb587d14ec068e52386f7eae598550d186fed0e1455aeaaf16c05afcbf0d",
+      "adapter_id": "SETUPADAPTER_C588F6A68FA64AB23E8D0D95FB23531F",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ENUMS_774B99BA_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/enums.py",
+      "source_artifact_sha256": "sha256:513012810a88f3f287358207b0938bb90a543923ad97e8ef38320eac2790d77b",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:513012810a88f3f287358207b0938bb90a543923ad97e8ef38320eac2790d77b"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:f3253de8f21ce302f35ece423a5e381de8fba3edbb60a46201cb4793c1d6db1f",
+      "adapter_id": "SETUPADAPTER_0CABCF44C8536F824E866A5F75B0FDD3",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_ERRORS_B798F3A9_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/errors.py",
+      "source_artifact_sha256": "sha256:86eb7f4147064e5e2939663dce4137637f2b473817ef7fdf597abeb3348bb34b",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:86eb7f4147064e5e2939663dce4137637f2b473817ef7fdf597abeb3348bb34b"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:8892c100870b60bfb2ba9e7feae789e0a03cd257b49c5bacb50153092a6136ff",
+      "adapter_id": "SETUPADAPTER_9152E6A8A0F7092CEE742139D4DF6792",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_EXP0019_FP_I07_CONFIRMATIONSELFTEST_842ED0F7_V1",
+      "source_artifact_path": "mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I07_ConfirmationSelfTest.mq5",
+      "source_artifact_sha256": "sha256:1b9201ddb92e90ed6ec3fc7cf4dd94d9e0f53eff427562d6c95ee63905543099",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1b9201ddb92e90ed6ec3fc7cf4dd94d9e0f53eff427562d6c95ee63905543099"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:684541ee58962cda45e17e81f128158917448ceb3aa60a386ef2020c6752a5ff",
+      "adapter_id": "SETUPADAPTER_FB5A0958653400816CCDE92385C7BED6",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONPREDICATE_69ADFDA1_V1",
+      "source_artifact_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07/FP_I07_ConfirmationPredicate.mqh",
+      "source_artifact_sha256": "sha256:195cc422b338808e98d5bbe26c2c54b209014ca9f106892499e27a41ca16fe3b",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:195cc422b338808e98d5bbe26c2c54b209014ca9f106892499e27a41ca16fe3b"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:f31882f3ffd31d940d88aef0728d1fa83d76abf7274781e4603314dc4bedaa2b",
+      "adapter_id": "SETUPADAPTER_7F29EBF6D91EEAF5E8916285666EE144",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONSTORE_8E0B14AD_V1",
+      "source_artifact_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07/FP_I07_ConfirmationStore.mqh",
+      "source_artifact_sha256": "sha256:1ab8f601987e1677de02c744992e4957d5f983d935b6f34ae353a9a15a508b85",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1ab8f601987e1677de02c744992e4957d5f983d935b6f34ae353a9a15a508b85"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:7ebfdb3636dc488b3d84e1c0aa34e411b75c8ab0ba709753f4446096b6357085",
+      "adapter_id": "SETUPADAPTER_789B7A42DF446C5D63A3F3CD53E3BDF0",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_SIGNALIDENTITY_64EA8DA6_V1",
+      "source_artifact_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07/FP_I07_SignalIdentity.mqh",
+      "source_artifact_sha256": "sha256:25ad7f00364df117c1ee6fa1dd92056389d4f6850af08e16c91b0d46fae44ad3",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:25ad7f00364df117c1ee6fa1dd92056389d4f6850af08e16c91b0d46fae44ad3"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:1f47bbfa8e01174b404f39d8813c65a3352cf2a837d0034ef0e642fafbe6a6fa",
+      "adapter_id": "SETUPADAPTER_78A5FD225AF382323C4E2E5C234E1546",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I08_WWCONFIRMATION_AFAD14AD_V1",
+      "source_artifact_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I08/FP_I08_WWConfirmation.mqh",
+      "source_artifact_sha256": "sha256:7b6122b8f5e526a6ac1120fc38b2ea95bfcedcfabd1632fdec8602f16693dbb7",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7b6122b8f5e526a6ac1120fc38b2ea95bfcedcfabd1632fdec8602f16693dbb7"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:75bc885e6935f0f659d8fe96ffb4226549b43f5ac8ba46d631d8b4cc1279565d",
+      "adapter_id": "SETUPADAPTER_0AA705AE984DA8C92175EEB8AC20EAF2",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_GOLDEN_39FB017A_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/golden.py",
+      "source_artifact_sha256": "sha256:5509da4c13975a1ed8528c0603aa91e5479708def3e06c8cf2589b4bd5f60832",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:5509da4c13975a1ed8528c0603aa91e5479708def3e06c8cf2589b4bd5f60832"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:4a2788b5861306d63889a4742ed950d8b015832a7bb9c9209e6b308f6a10b716",
+      "adapter_id": "SETUPADAPTER_973D4AF8C0A4F8931546DB51B9C4D890",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_C41D2AEA_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/lifecycle.py",
+      "source_artifact_sha256": "sha256:9b3068158b4bdec8ee319e611a2d3b7215d84608ed98b3350cbf45e384f47163",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:9b3068158b4bdec8ee319e611a2d3b7215d84608ed98b3350cbf45e384f47163"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:7a65650ede4460f04a2d8d1f49bf5df93b05b70a4da6e22a68f299f72c0d426c",
+      "adapter_id": "SETUPADAPTER_4001473154DC52AC9056DD9EA50E1A02",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_OBSERVATION_6A2CDBCE_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/observation.py",
+      "source_artifact_sha256": "sha256:ce0585dcde1e81222668b4fcae0add91e7c0b764a0830e2e1a0692c1a25a4ce1",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ce0585dcde1e81222668b4fcae0add91e7c0b764a0830e2e1a0692c1a25a4ce1"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:99c05e084b869e8c1b7b4b7927ee4830b6306c2616056bb6a8a917a252c384ac",
+      "adapter_id": "SETUPADAPTER_09AAB8E18D4D91D13AB18610B279CD68",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_PROJECTION_DBEBB11C_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/projection.py",
+      "source_artifact_sha256": "sha256:eae1f0388097e03df3efd8f6b85c818747af0c4538683fb8c855a7ea10764f7d",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:eae1f0388097e03df3efd8f6b85c818747af0c4538683fb8c855a7ea10764f7d"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:b221c297dd839b78481f94a77bde24cb4182f1ad32d42b5bfb9706cce8c76bea",
+      "adapter_id": "SETUPADAPTER_541B6955C47E1EC0A3E834FE3C711D2E",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/registry.py",
+      "source_artifact_sha256": "sha256:f79b2e0cedce9b4f9fdc8cba56bf9342f67154552a2ac36d3f095551216a5384",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:f79b2e0cedce9b4f9fdc8cba56bf9342f67154552a2ac36d3f095551216a5384"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:da69d03d24758239afdd6e47c10c7ef62c5ddc92793c723fb6cc73d39f1d0c45",
+      "adapter_id": "SETUPADAPTER_A3008C065410FBEE5467D8358C486F76",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_REVISION_46D096C7_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/revision.py",
+      "source_artifact_sha256": "sha256:7d71c2a536f88ca0d1b4b77592dfc3cf33205c2444cbee686a399b7c915eda59",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7d71c2a536f88ca0d1b4b77592dfc3cf33205c2444cbee686a399b7c915eda59"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:b27bbed8deb74be020643b9b1460954d447e7e5ee3089296620ec6d90835508a",
+      "adapter_id": "SETUPADAPTER_B1A61E1FEBA7F759BF98CBBAB9CF2099",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_STORE_70E9E382_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/store.py",
+      "source_artifact_sha256": "sha256:324bdf2d4c5347c2226970efd9d5c4dce8c376f4c98955578e578b10a8714933",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:324bdf2d4c5347c2226970efd9d5c4dce8c376f4c98955578e578b10a8714933"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:61b3174edeb3b511f846d253df274f87592be88cfb30a264d4b5536091276f7e",
+      "adapter_id": "SETUPADAPTER_58DB3AF3E6E8C198434BDD21D03E182E",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_TIMEFRAME_BA9CF994_V1",
+      "source_artifact_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/timeframe.py",
+      "source_artifact_sha256": "sha256:ed5b9fd65843587b7589e0b45be38ec41ac051d9a20f2e72fe72ff52d437c131",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ed5b9fd65843587b7589e0b45be38ec41ac051d9a20f2e72fe72ff52d437c131"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:307c4f671927087c828e57dbafb0cd706c1fc2c94a39b7bf24dfcdfabd5f34e1",
+      "adapter_id": "SETUPADAPTER_7474410E4F3F37FA3A0C79CDB8529E6C",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2CANONICALPOINT2SETUPADAPTER_7147EC1B_V1",
+      "source_artifact_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh",
+      "source_artifact_sha256": "sha256:d6ae1146381ff8a9104f945df49cdb8d073700b3f19245aa70df2ded2bc89c24",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:d6ae1146381ff8a9104f945df49cdb8d073700b3f19245aa70df2ded2bc89c24"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:36a7a8e85882340dec78f6fc1da0aa8017df072528a3dc78d5021d2227d7c02e",
+      "adapter_id": "SETUPADAPTER_5F702F65D6F7942DCB6719D73F5AB272",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1",
+      "source_artifact_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "source_artifact_sha256": "sha256:ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:552618973de550cd981c8f249192444f795ab74a3afb4250927e2d43050d6392",
+      "adapter_id": "SETUPADAPTER_99911066F646F465BC93C91158C6CA24",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1",
+      "source_artifact_path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL13/ACL13SetupFamilyContract.mqh",
+      "source_artifact_sha256": "sha256:0d3deba33ea7c9a54538b8319748849c16cb93218867ce31a65e3a1cc0581295",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:0d3deba33ea7c9a54538b8319748849c16cb93218867ce31a65e3a1cc0581295"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:7f62ddfe1856ecf5482e6a68cf273997516dd592acdde9a1234e9c01752039e8",
+      "adapter_id": "SETUPADAPTER_9BC28FBE45F78F445848D0A561E37636",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/authority.py",
+      "source_artifact_sha256": "sha256:6aac678cdef852bf277f705f37118fceae500acd3415793b50e07c6ddb020d3f",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:6aac678cdef852bf277f705f37118fceae500acd3415793b50e07c6ddb020d3f"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e94ae617126769a51d2d78a29ce34aac3c4e04e950e49c68b19cbbf7d59f36a1",
+      "adapter_id": "SETUPADAPTER_A1F94077B9761647EC3F1BB6B5491362",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_CANONICAL_47B83967_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/canonical.py",
+      "source_artifact_sha256": "sha256:e04c4de8a29a734ea81c898f60b007612fb5d1d41fe4dd93b032376af1d173ae",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:e04c4de8a29a734ea81c898f60b007612fb5d1d41fe4dd93b032376af1d173ae"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:3de0a0ba8407f4ee7e1bc1b75f3cb27619c66d52ac5cbba636ff957b2cbadfa4",
+      "adapter_id": "SETUPADAPTER_6E3447A0228188E23765893F6EF41BC5",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_CLI_FD3FCAD8_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/cli.py",
+      "source_artifact_sha256": "sha256:b0972a3507319d635975b2ba18e60b91ab0aa5fb44e482fa3c26c4a790ac7e43",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b0972a3507319d635975b2ba18e60b91ab0aa5fb44e482fa3c26c4a790ac7e43"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:49b24fc2a3c132bb720531be74f41d4824689376b6649d92cd4d108cf32d8b53",
+      "adapter_id": "SETUPADAPTER_7236FEFC320EF5B6B3A5B4B231CE17C9",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_CONTRACTS_0AF20C40_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/contracts.py",
+      "source_artifact_sha256": "sha256:bb3013069ab0eb248028c03c219054bbb256958caf65d417193f3654f30ba31d",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:bb3013069ab0eb248028c03c219054bbb256958caf65d417193f3654f30ba31d"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:ce76ddb86683c6f2fedd638090ea032473269eab9dc4a41508fc537ff2752ce2",
+      "adapter_id": "SETUPADAPTER_A72FC650A14670A408C896C9DA55CA31",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_CONTRADICTIONS_D9CB0AB3_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/contradictions.py",
+      "source_artifact_sha256": "sha256:076116951e3017527caa1e940dbc9383cc68b41aeb074cccf94b563dd8c94849",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:076116951e3017527caa1e940dbc9383cc68b41aeb074cccf94b563dd8c94849"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:0876801ad73cce7643bc27f47c0a7b5bd6e0b20921957166a3b8c70ad4f2882f",
+      "adapter_id": "SETUPADAPTER_056D8C9FEBC1485AB210828D9CA6AF42",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_DIFFERENTIABLE_4119B0CF_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/differentiable.py",
+      "source_artifact_sha256": "sha256:170c7d3191cdd451d60fd5bc788e4c2b27afc7a37d48377010f823e7843547d9",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:170c7d3191cdd451d60fd5bc788e4c2b27afc7a37d48377010f823e7843547d9"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:2424fc16d76948053b7ec7a5034def389c6e0d7ac526d3db0b258cddf5453cc5",
+      "adapter_id": "SETUPADAPTER_3B891BF8B89E23D2E1596D6D16B46D43",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_ERRORS_12B45E0E_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/errors.py",
+      "source_artifact_sha256": "sha256:ebfaa7da8488051f668ff585cb4e5ce50af41489818e64e51589305a8eaea9b8",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ebfaa7da8488051f668ff585cb4e5ce50af41489818e64e51589305a8eaea9b8"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:17289aaf2894446a57ddbd6d47bbd5ee6b141b70d7bec3693313cb9e9d42386d",
+      "adapter_id": "SETUPADAPTER_0F2CBB8655B5FDE7CAFE0C4ECCC5E8DA",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_FACTS_B3BE2EFA_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/facts.py",
+      "source_artifact_sha256": "sha256:beb8c471ecc1b17a3e317edc4010d16b0579dd5a7096ab5c386ea671f911a3d7",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:beb8c471ecc1b17a3e317edc4010d16b0579dd5a7096ab5c386ea671f911a3d7"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:e329fe176b1864081b251e0c8f7064a8609677e948e2e8d53c3a8bedeb69352c",
+      "adapter_id": "SETUPADAPTER_593C24BD66B212B0C6384827738FBD34",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_NUMERICS_2FD4F501_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/numerics.py",
+      "source_artifact_sha256": "sha256:e56af521b9f6921c4b72f615c4e84f070b08440b668670ee8dc0fa8df95ecb31",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:e56af521b9f6921c4b72f615c4e84f070b08440b668670ee8dc0fa8df95ecb31"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:f8caf5f053f1d55f156942714579a88db91e8a4ffee059d05636a485bb5e764a",
+      "adapter_id": "SETUPADAPTER_3E276829EEB6FB3DD84BE76529E3D48D",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_ONTOLOGY_DA7AA3E3_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/ontology.py",
+      "source_artifact_sha256": "sha256:ab91ece86ec03220bc88e49ad95fdeb0ff5dfa5b17c787533ba1c2dae6d33b94",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ab91ece86ec03220bc88e49ad95fdeb0ff5dfa5b17c787533ba1c2dae6d33b94"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:d13e95da2271433d43e2f2bd148f893f5615a7b141daaea269e74f598be3edcf",
+      "adapter_id": "SETUPADAPTER_FB0CD8A78A6041CF53B86AA5A6B52B85",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_PREDICATES_32A91599_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/predicates.py",
+      "source_artifact_sha256": "sha256:00eaca1838c9eae5934808d3a550fda4e467d39b3036de1c0ddf11f7ff63e2d4",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:00eaca1838c9eae5934808d3a550fda4e467d39b3036de1c0ddf11f7ff63e2d4"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:4ccc6a5247604014c844617b4e501e9ec38eab290d60897ec8ad8fc12abd3f2c",
+      "adapter_id": "SETUPADAPTER_6B1522BEB90148E9AEA617AFDF875B4C",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_PROJECTION_65DF69F8_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/projection.py",
+      "source_artifact_sha256": "sha256:24d1f4adfcbe415489d8fd2ab3bc5f7986c5b04ac5e5e85f5fdcbfddcfae8aac",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:24d1f4adfcbe415489d8fd2ab3bc5f7986c5b04ac5e5e85f5fdcbfddcfae8aac"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:d1b711b1a27c8773fbb22f1113abce82de0884c9680bcee5d2a08a080c9fe702",
+      "adapter_id": "SETUPADAPTER_B9A743BEFFECE6A21A2DB70BFB5252E9",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_PROOFS_D59C1A41_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/proofs.py",
+      "source_artifact_sha256": "sha256:ff52e445683f9232396a5fbc255bfe650b28afc1e52db33a87a47168dc3060ca",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ff52e445683f9232396a5fbc255bfe650b28afc1e52db33a87a47168dc3060ca"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:2d7fde326379e49b89b28f923d1cee9a56c4a9a33744a12b93049f5e905149e5",
+      "adapter_id": "SETUPADAPTER_FD740FFA5EC8848859FA45C3C60EBBBD",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_REASONER_251DCEE1_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/reasoner.py",
+      "source_artifact_sha256": "sha256:49b4e5b0fa9c4b83ac81555d55b0c5ee8607f012cec00e3e5b8c0e82c171978e",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:49b4e5b0fa9c4b83ac81555d55b0c5ee8607f012cec00e3e5b8c0e82c171978e"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:3641532d92fc8e4f8d822d3d2147cf551f82d1899c7841351ee938e29612e8fc",
+      "adapter_id": "SETUPADAPTER_4C6133B21F4AF43E6DEFB7A708134F90",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_RULES_EA2F9780_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/rules.py",
+      "source_artifact_sha256": "sha256:fc1109b19b165c32f85d72bc61bb4953f0ce7a83f6627521314e4260d37d540f",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:fc1109b19b165c32f85d72bc61bb4953f0ce7a83f6627521314e4260d37d540f"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:2257e090ef8e2f80b1b72026b27b52e32fff407e08fdac7735ad9dae012a9054",
+      "adapter_id": "SETUPADAPTER_E0075E19387F7D4FE7121F8BB4CF0665",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_SERVICE_7A2E5EE6_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/service.py",
+      "source_artifact_sha256": "sha256:5543a5bfb8deb25301bd5f3ce8792cc58594c358be846e4e0387cf181a07a50f",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:5543a5bfb8deb25301bd5f3ce8792cc58594c358be846e4e0387cf181a07a50f"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:49ea113fb99ef5b255663af49519fcda3ea242794ab59ee8dd74548e938da811",
+      "adapter_id": "SETUPADAPTER_EAB1E5961B50BC02E1CEF63E43DC07D2",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_TEMPORAL_1AD7645C_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/temporal.py",
+      "source_artifact_sha256": "sha256:540128e38d1c7fb924bf32240124b15ef61700994abaf2cdd5c12ef6443d9335",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:540128e38d1c7fb924bf32240124b15ef61700994abaf2cdd5c12ef6443d9335"
+      ],
+      "validation_status": "BLOCKED"
+    },
+    {
+      "adapter_digest": "sha256:cdb45cc63f3efefa7f85f6a4a4d31f239f1335fb0889c761f3f782c8e6c0c8a7",
+      "adapter_id": "SETUPADAPTER_02C524A3E4456B05B59D0C3F3CCFCA3E",
+      "adapter_status": "REFERENCE_BLOCKED",
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "executes_legacy_source": false,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "input_contract": "LEGACY_EVIDENCE_RECORD_V1",
+      "output_contract": "LCM09B_SETUP_DECISION_V1",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "reason_codes": [
+        "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+        "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+        "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+        "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+        "NAMED_HUMAN_OWNER_PENDING",
+        "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+        "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+      ],
+      "schema_version": "1.0.0",
+      "setup_id": "STP_LAB_OTHER_VERSION_560A6C13_V1",
+      "source_artifact_path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/version.py",
+      "source_artifact_sha256": "sha256:af1db0115d337bdce9cee1d6e18adc3e9906ab6547efbdfe8ad80800b1c71b19",
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:af1db0115d337bdce9cee1d6e18adc3e9906ab6547efbdfe8ad80800b1c71b19"
+      ],
+      "validation_status": "BLOCKED"
+    }
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "registry_digest": "sha256:e2a4b156aa36272764b40922391b33c704e1d6cdaf2a78d49972e283d6bcb612",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+  ],
+  "validation_status": "BLOCKED"
+}

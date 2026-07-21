@@ -1,0 +1,79 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_83328E6445EFE2FC037CC1F9213FF444",
+    "SETUPBLOCKER_38EEDD258CBAAF44D00E8C2DF3673DF1",
+    "SETUPBLOCKER_F5DFCC5A2076B6B9E3A8CE939A9C195C",
+    "SETUPBLOCKER_1E2EFE7E68D1E9F77BB986A64B23ECBE",
+    "SETUPBLOCKER_D0FF9913446228239A2A91C6E7B4C964",
+    "SETUPBLOCKER_375F15FF0E91CC512B09D8BB043E17E3",
+    "SETUPBLOCKER_3E4EBA638DAE845188551491998F2325",
+    "SETUPBLOCKER_8B10DC93F9CD424A508CD95BF9ECACE7",
+    "SETUPBLOCKER_5B91E052BA4D301BF0F7D482CF86DAE0"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_EXP0018_DAYE_TRADER",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0754ceb412e34b96acf1357334f2e64affe1d165fb8c8333fd3f0fc966ee40ff",
+  "package_id": "SETUPPKG_8DFA4973B3A3C29B8F65C3616522D362",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "DRAWING_SURFACE_REQUIRES_PROJECTION_SEPARATION",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "ORDER_SURFACE_REQUIRES_BOUNDARY_EXTRACTION",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1",
+  "source_binding": {
+    "contract_digest": "sha256:589039f702da1c0b05483c35a4183aae36bc927c9745c9758f3806c103423a6d",
+    "contract_id": "SETUPCONTRACT_598952C7CA88C9E2CCEB94B5FB58CE4E",
+    "identity_digest": "sha256:d38865c2638f9f7ed724403a110a02be71838b7e8536ab9f9f5e8941fb284b38",
+    "path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase06_close_confirmation_v2.py",
+    "sha256": "sha256:ea00eab9fcaa7bf1dd3fff3c29fb9e190b19d4b7f95c133ff31a2705cbbdd8f6",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:ea00eab9fcaa7bf1dd3fff3c29fb9e190b19d4b7f95c133ff31a2705cbbdd8f6",
+    "sha256:589039f702da1c0b05483c35a4183aae36bc927c9745c9758f3806c103423a6d"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

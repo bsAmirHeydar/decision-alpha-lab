@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "migration_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "record_count": {
+      "const": 60
+    },
+    "records": {
+      "items": {
+        "type": "object"
+      },
+      "maxItems": 60,
+      "minItems": 60,
+      "type": "array"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "migration_id",
+    "record_count",
+    "records",
+    "registry_digest"
+  ],
+  "title": "LCM09B Parity Registry",
+  "type": "object"
+}

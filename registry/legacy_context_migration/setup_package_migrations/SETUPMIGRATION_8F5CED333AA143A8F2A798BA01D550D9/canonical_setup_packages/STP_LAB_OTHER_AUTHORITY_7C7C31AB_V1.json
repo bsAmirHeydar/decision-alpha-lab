@@ -1,0 +1,75 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_0792F26F0C27B90F1E5D194F816D0405",
+    "SETUPBLOCKER_4B455078EEC66EA0307D29F38C84464E",
+    "SETUPBLOCKER_7D174BC7841272AB5C6E64D6EA719240",
+    "SETUPBLOCKER_9F346159796D4D8D6FFEC7AD1750272A",
+    "SETUPBLOCKER_4F8AD69BD22D1D4B089CD6D19AB9FDB1",
+    "SETUPBLOCKER_69D2ED6AF4D8E0235A59C5E64DB02E2C",
+    "SETUPBLOCKER_A3E2D1FB2485664A52B9E7F8096833A3"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_LAB_OTHER",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:48f9887c1eb7d9544a45e19bc8964b74fb652b18060715282c04040416600860",
+  "package_id": "SETUPPKG_D02F73021A713232F984477BABAFD4E6",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1",
+  "source_binding": {
+    "contract_digest": "sha256:580c5772b59d776066ae876b3a54ea28d55fef2397e41e74dd532f878e087cad",
+    "contract_id": "SETUPCONTRACT_2CF98D5C27E52E1FD62925826F98BE33",
+    "identity_digest": "sha256:8157225a3e15c2420a9e82a849a850f2911787783f7bdb715e7e86fd56382064",
+    "path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/authority.py",
+    "sha256": "sha256:6aac678cdef852bf277f705f37118fceae500acd3415793b50e07c6ddb020d3f",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:6aac678cdef852bf277f705f37118fceae500acd3415793b50e07c6ddb020d3f",
+    "sha256:580c5772b59d776066ae876b3a54ea28d55fef2397e41e74dd532f878e087cad"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

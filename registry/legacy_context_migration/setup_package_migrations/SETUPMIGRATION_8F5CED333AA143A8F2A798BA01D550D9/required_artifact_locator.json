@@ -1,0 +1,48 @@
+{
+  "artifacts": {
+    "LCM09B_TO_LCM10A_HANDOFF.json": {
+      "digest": "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+      "path": "LCM09B_TO_LCM10A_HANDOFF.json"
+    },
+    "canonical_setup_packages": "canonical_setup_packages/",
+    "setup_adapter_registry.json": {
+      "digest": "sha256:e2a4b156aa36272764b40922391b33c704e1d6cdaf2a78d49972e283d6bcb612",
+      "path": "adapters/setup_adapter_registry.json"
+    },
+    "setup_factory_registration.json": {
+      "digest": "sha256:5da75ea038ac9a54a81e3d12b5d1623d445c1860188cc872b5c504c473135fc4",
+      "path": "factory/setup_factory_registration.json"
+    },
+    "setup_golden_cases.jsonl": {
+      "digest": "sha256:296950ddf740eee071859f89d938d1f6aa4aa104d9969e2d5a990cc09c24b6e8",
+      "path": "golden/setup_golden_cases.jsonl"
+    },
+    "setup_golden_traces.jsonl": {
+      "digest": "sha256:6489be520d4a3dc37f81f00e6fac4d7d0efb039d69626a29e2c40fecc8e309ea",
+      "path": "golden/setup_golden_traces.jsonl"
+    },
+    "setup_parity_registry.json": {
+      "digest": "sha256:8fd117477254f92b4e02f0eac194ae5d62f1c5cd0c6d979cc30d1f507a9f4328",
+      "path": "parity/setup_parity_registry.json"
+    },
+    "setup_variance_decisions.json": {
+      "digest": "sha256:896439c785c3ef012b5f2075eaad9f572293867a8ce9ea64580d778830c6c273",
+      "path": "parity/setup_variance_decisions.json"
+    }
+  },
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "locator_digest": "sha256:8dc9f6a4c64d1759cdc58d0aca414fb30f34e0630ee2d125180963789e347ea2",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:b25baf29c225dbdc6fae1f882fcceafe0267b1e1ae87a21f0b2cbf5bb69fe59c",
+    "sha256:5da75ea038ac9a54a81e3d12b5d1623d445c1860188cc872b5c504c473135fc4",
+    "sha256:8fd117477254f92b4e02f0eac194ae5d62f1c5cd0c6d979cc30d1f507a9f4328",
+    "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac"
+  ],
+  "validation_status": "PASS"
+}

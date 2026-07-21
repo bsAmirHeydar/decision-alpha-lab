@@ -1,8 +1,8 @@
 ---
 title: "LCM-09B — Setup Migration, Setup Factory Binding and Behavioral Parity"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-20
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-09B
 master_phase: LCM-09
@@ -133,3 +133,9 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Forbidden actions: order routing, capital activation, broad consumer cutover.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Current implementation state
+
+LCM-09B completed as accepted reference under `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9`. All 60 frozen Setup identities are represented by canonical fail-closed reference packages and read-only Setup Factory registrations. Zero Setup identities were silently implementation-authorized: all 60 remain explicitly blocked because the LCM-09A handoff supplied no implementation-authorized identity and mandatory owner, observed-characterization, canonical Context and Treatment evidence remains unresolved.
+
+The phase closes portfolio accounting, package materialization, authority-negative Factory binding, blocker-preserving parity disposition and the Treatment dependency seed. It performs no consumer cutover, source move/delete, semantic reconstruction, MQL5 runtime parity, order routing or capital activation. The bounded handoff to LCM-10A is `sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac`.

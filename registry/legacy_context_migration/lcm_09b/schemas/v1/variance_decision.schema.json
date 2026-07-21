@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_count": {
+      "type": "integer"
+    },
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hard_mismatch_count": {
+      "const": 0,
+      "type": "integer"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "unknown_count": {
+      "type": "integer"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "decisions",
+    "hard_mismatch_count",
+    "blocked_count",
+    "unknown_count",
+    "decision_digest"
+  ],
+  "title": "Variance decisions",
+  "type": "object"
+}

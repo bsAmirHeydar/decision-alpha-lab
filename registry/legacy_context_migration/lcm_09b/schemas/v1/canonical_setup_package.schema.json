@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_boundary": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "capital_authority": {
+          "const": false
+        },
+        "consumer_cutover_authorized": {
+          "const": false
+        },
+        "live_order_authority": {
+          "const": false
+        },
+        "promotion_authority": {
+          "const": false
+        },
+        "runtime_authority": {
+          "const": false
+        }
+      },
+      "required": [
+        "promotion_authority",
+        "runtime_authority",
+        "live_order_authority",
+        "capital_authority",
+        "consumer_cutover_authorized"
+      ],
+      "title": "authority",
+      "type": "object"
+    },
+    "blocker_ids": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "context_binding": {
+      "type": "object"
+    },
+    "executable_reference": {
+      "type": "boolean"
+    },
+    "family_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "package_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "package_status": {
+      "enum": [
+        "REFERENCE_READY",
+        "REFERENCE_BLOCKED",
+        "RETIRED"
+      ]
+    },
+    "package_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rules": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "cancellation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "confirmation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "eligibility": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "entitlement": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "expiry": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "invalidation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "trigger": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "eligibility",
+        "trigger",
+        "confirmation",
+        "invalidation",
+        "cancellation",
+        "expiry",
+        "abstention",
+        "entitlement"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "source_binding": {
+      "type": "object"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "treatment_binding": {
+      "type": "object"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "package_id",
+    "setup_id",
+    "family_id",
+    "package_version",
+    "package_status",
+    "executable_reference",
+    "source_binding",
+    "context_binding",
+    "treatment_binding",
+    "rules",
+    "reason_codes",
+    "blocker_ids",
+    "authority_boundary",
+    "package_digest"
+  ],
+  "title": "LCM09B Canonical Setup Package",
+  "type": "object"
+}

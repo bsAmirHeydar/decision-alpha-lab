@@ -1,0 +1,9 @@
+{
+  "mandatory_unknown_action": "REFERENCE_BLOCKED",
+  "no_trade_first_class": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:08a2c8eef9b3a7f02709230e123424a5db4ec2010cce83d60255173ee9eb43ea",
+  "policy_id": "LCM09B_FAIL_CLOSED_UNKNOWN",
+  "prose_reconstruction_forbidden": true,
+  "schema_version": "1.0.0"
+}

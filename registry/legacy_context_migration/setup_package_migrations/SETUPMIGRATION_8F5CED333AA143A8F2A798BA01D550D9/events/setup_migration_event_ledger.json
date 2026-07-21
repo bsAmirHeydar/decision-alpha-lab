@@ -1,0 +1,1096 @@
+{
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "event_count": 60,
+  "events": [
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:acfc63cb101ad03b0d3f2b1929fbbb96f3bd2a81ce2d0d100de5c53b50fe265a",
+      "event_id": "SETUPMIGEVENT_A9797E793C6E3DD7A0BC67C4F9D36366",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:3dedebf32cc0afea819e34232e7cec6bfc9a1a0939b2f0af7809d551315041d2",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 1,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:efb98b2173c42436622262d157c04368c6cb54f856feb0265c6a373a565d1ee9"
+      ],
+      "subject_id": "STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:4cd2ff0b742d3bc7cb98ffa1c8ff03590e0f83b7487ea3e434b2af4225dc61f6",
+      "event_id": "SETUPMIGEVENT_D8D3471553B103B30DB8553DB3DD4C51",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:e0b6aa12ab8c2c93447da513b1ef87f1dc0536e46f1d775d92f6dfbe8d06e196",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 2,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:032237a1362efdd08bf7c77a5b05317390c0dba9f996fef78482310d0be42cb3"
+      ],
+      "subject_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROPUREASTROLOGYSIGNALS_98A5C4FA_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:4af6be1be9dbb13baf04279ce25b37d9f5e0ed47303cdf849054b6735bb6727a",
+      "event_id": "SETUPMIGEVENT_436D7B052453955D48D585C3F026FB40",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:2ca4c12b2ccde2b4f367dbf0dcda25ca5b6e7ec4a093032fd755597a04d353a0",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 3,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:2a0f5473a69126ce3a83e1e476ea470a12b94eaaff0b84c08c8e3fe4ccd5eae1"
+      ],
+      "subject_id": "STP_ASTRO_RESEARCH_EXECUTION_DAL_ASTROSIGNALWINDOWS_50DFCBAC_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:364cc0c6298d90acc9fa1073cd675f0dd9a0be9698a5eab38ce2d8d36def9861",
+      "event_id": "SETUPMIGEVENT_AC10183C5185AF59E37A2A957E39AA05",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:7c97b7d7293e057de445db4cf386bb156a48b4655426991007b5da712a549b61",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 4,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:8053d5aed44cc72b7f97868b4a0d9be45b9ba1bc151fc29ce9b5fce4974cca6e"
+      ],
+      "subject_id": "STP_EXP0017_CYCLE_GROUP_CGC_CONFIRMATIONFIELD_82532776_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:87f3f1b47a460c9d4147b920b80d0569e06d4ec16aea4a6fc5afc80524f0c50e",
+      "event_id": "SETUPMIGEVENT_A516701F367F66444F9B9BC88235E6FA",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c72087ecd6322e05f65b3ed3265ec696db90bf18cdd039e4b612726f0a5213f7",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 5,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:995cb5d0f1de44aaf8073987cd6aea5f1f1b2c30c4b8cd91587cafdb5c0921f3"
+      ],
+      "subject_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALREGISTRY_58362E29_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:b741ba6a74a4ce41d0099450ba1f39099722701b3a1da4c51f78474cb5ed3a95",
+      "event_id": "SETUPMIGEVENT_63FDFF4BF7DD036EAAC75BF052759F61",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:5f83204ddcf53ba1afe574bc141a325155d94f60a6b9ccf208619643d133791c",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 6,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f"
+      ],
+      "subject_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:010cd936ee0feb9943122d321e6eb2a01c461f97a91a4be236cd5a7434d0de7f",
+      "event_id": "SETUPMIGEVENT_0104BECDC02BAF71730695EAADA463A6",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:247f23eddb04b2c5f2a1f4e3d07e7f7b33b56b2cc058708ff7c34c97ba48ec72",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 7,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b5cb3cbc4210e9150fa221dce6e42319b9010bc02249b2a2189860db09ed35a5"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONAUDIT_93D28245_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:e3781fce3681fb8a3885bf54f8297e6e9f5edb5305af1ec5a59d2d8010337d46",
+      "event_id": "SETUPMIGEVENT_1A4A096FA0E6A34BC2A1D43F6ED42A9B",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:4b20579879ceb9494c9dab299be708beda2e62f8e8d174c568ee043dcceb392c",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 8,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:086706e2f0096c8e59200fa06e2258d3dc05f6c0d0e8ddfa88991831b0ec51a3"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONCHECKPOINT_2F6645D9_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:25bcffb824e81d929e59781b31c882b5475dd3f0ff4aaff28a882dbca65b67c7",
+      "event_id": "SETUPMIGEVENT_275BCB3EEA30C3EC9FC3D16678A5CE1E",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:27c8adaded43fab8084e6e1077a303b97840b4686d5652cb36ef5665332edc1e",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 9,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:be3efe2b49adb8ae85dbb87d35363f49e57ca51edeef78d2988e414538a5408f"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:c93536ea04124bb3df7448cd225e942a8cf4bcd41619180fb88d488238e3178e",
+      "event_id": "SETUPMIGEVENT_ED70047EA81DCC4462C11ECE005FE0D5",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:d24f00d2bb02c6e42c31478772781c9322c49a287cf7cf0dd209e2bfb284f256",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 10,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:882592487b823f9d47d9f05df74ef1299da81dec038dbb0960132de5002e11de"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONEVENTS_D15CF629_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:e4ab425c15db1332a197a5b488bf79a165cdfd8850bcb8aa4fb99a57b6fa9804",
+      "event_id": "SETUPMIGEVENT_A79718B2C759C7CEF08C3DEDF19657C6",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:b4297b2a4506554cf99f05c876f15fb59d6d336fde2f0f73407322cae91b2bc8",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 11,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ac0d30b1f034afc2969b986834947fc3acea0ae3bb4d40148eeaa9b49af05084"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSELFTEST_F98BC4B5_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:d8dab124fda2f0a5ede4aadbdb0f5c753d52bca1905320883543d18b01cd7d89",
+      "event_id": "SETUPMIGEVENT_91670928A895394D2E41739C38E58622",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:5675750b28d9ac07d92ea542c8a02bd587c01d2f58c81cd644962ee5045a6eb5",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 12,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:480a3fa552cc5ab31b8b07dbce3fd9f06341df290ef7c25e77b1961b1cd49917"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTATEMACHINE_0F51BA14_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:6454053df3f6641939e5be68774e8e520b6699e3413998e9f2cb65efcc62f486",
+      "event_id": "SETUPMIGEVENT_CD3A3CE68C4B630460601853A24693AC",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:09dba3eae656e01d2358a7bdb1496e0fe69d7441670c6eb6a8f41f5b6f0abb4d",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 13,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7cdda590382676cd45f3f89226734c7e451cbb3e4438fd9673d8f4ba9b37ccc2"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONSTORE_7FE0BBEE_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:2c5a0d56dd24dd4c559674884542a66213c2b645b212ea5168394b564c475744",
+      "event_id": "SETUPMIGEVENT_E953B152D9CC95D1E41787DB66C04CE6",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:7fe377e23d7eea0ce6be4f0793931122bdfb3548819ba9b966a997c13661e647",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 14,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:257415e73730b7ee166c39a361dcf86269d5a326ed7005f56dbe816da5c63527"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONTYPES_A5A2F2C3_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:eb5f7e11279519cf96e4e1d697acb8d3bf4f031df02289c689109e4ef2a56432",
+      "event_id": "SETUPMIGEVENT_734D7690ABD42D7BAF5836857B94A568",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:0754ceb412e34b96acf1357334f2e64affe1d165fb8c8333fd3f0fc966ee40ff",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 15,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ea00eab9fcaa7bf1dd3fff3c29fb9e190b19d4b7f95c133ff31a2705cbbdd8f6"
+      ],
+      "subject_id": "STP_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE06_CLOSE_CONFIRMAT_0FFF8052_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:360b88cf5a5d21ba6da3110e22b1418f13ade630077ae0ce2f61dd93fda3090b",
+      "event_id": "SETUPMIGEVENT_5A64834FCA07BAC9174409445BC91B8F",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:b87f70f5ba70c1efe6c14724e2e7caa568857e62e4c1abc0c89ad836d52051c8",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 16,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:fcf67a7e61a0b58c2e075649c3571de9b2133a124fadd9b10f3e4bd94a2529be"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CANONICAL_A96B9B03_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:7a5e6d2c4851d31763f8323b7ba8129a810d0599bc2486573c0b5a09d1c72987",
+      "event_id": "SETUPMIGEVENT_092802F44A2B3B8851497F9C62FC70FA",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:ff94e02a7596c666572473efe3e3aab43670ce310e8de31077740aa84483dbc5",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 17,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b8cf66df4ecd1a858bbbb188e680f613d4041b4b3a04a9f6e1572eec2df50a23"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CHECKPOINT_8950DDA0_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f7d1a7c589858db9eb5022fccdcf987c5860c0d5179b3c3b4f67dd3f2c1f0f87",
+      "event_id": "SETUPMIGEVENT_47AEB73EEFA49DBC1141F912967E8A97",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:ee86e25c4311c6f56ad422f26223e3a20a7f19a6f959726ee77af120ae4ac1d8",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 18,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:72c9b0ec009487645b823d8951dbd177cca4db12ae8ac77dc399d338fb0ef6bb"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CLI_19E24850_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f0a6cd80a0a86712d5518ab7be1bc2f23bb47f4c7f93a30650e0e6a51d1496db",
+      "event_id": "SETUPMIGEVENT_9FB327470A665DA298F9993012699F99",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:e1119bdd049ea1a8b66cbfd5230d79d42b02a13e32ec0a41067cbb3dcb4a5956",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 19,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ddb9fd816cdd6934c8e91a1c7ca8ef86151f5f78ee543f5f958dec9ef4d1c855"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFIRMATION_C0E2F42C_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f137a0cc56296b940cfbd7c6c2c2a451f1cd810f9f01e9a1dab72b94ca852db9",
+      "event_id": "SETUPMIGEVENT_FF4FDAAA7BAEF7C80141AA8FB6F1C029",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:ae476652eb935dd78afeed7a6bf46b922e8a872e455d18e6096ea3bf0fdbad5e",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 20,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:cf7230fdf57dbf658313b5ee3fc5638322773ac3e4d5a3161681badec7e51584"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CONFORMANCE_09F6EC18_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:466fd42497415c1ac04ad6d31a2271844568680037a12bc68a65281106a2093b",
+      "event_id": "SETUPMIGEVENT_BC1D0D532DB3E4802E2D2BD81CFBD5AF",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:86f2e177011d96a29bfaf799eab3a0c5f9c216918b04fff916d8c971580cb1d7",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 21,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:09375eb7cf1a292d8ff9c6d734c5dc38e6dd1e2cb36236f91d74a4f556faa14e"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:fa8bc4b9523d5c87c3d708228519ce8a48052907ac6f97e3627f61508b62bff7",
+      "event_id": "SETUPMIGEVENT_46732A04BF88500F8ECC0B4D3F3F2966",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:e1d78bd43bb38a0b1f248a0a91cd67765fa05537f60db39580da293096ca9537",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 22,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:eacc8def1040c70b4bd2ea8b22f16876381af531c445d6dfab3b388ef04facf8"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_CONTRACTS_4B6571CE_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:d4dfc40c2357e1c59e5379fe66642cc99083217bb4322a804474dec7aabb3c9a",
+      "event_id": "SETUPMIGEVENT_953837086163455BB22A2DAFE2F3C9C9",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c6d1ead36f0b5d69348680ed8fda6fd071c3ac5c309f5506927bdad1fb990031",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 23,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1930446a9d679a481814ab0aa630c5d68b06dde66a615c24bcc80159f48b9546"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_ELIGIBILITY_2F9EFD04_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:99356da2b1c6ea3f04662c6074aa67b806651bdac1de55f0e898caa6ac930935",
+      "event_id": "SETUPMIGEVENT_ED8206447135C056F235A9810358C2D0",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:b34e607a56185de2ae30163cccfed76945ca8d17642367ed520813b77fe9b7c0",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 24,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:af26a4e579b46f1cfb5171e3c369d60309326529020c11deda75c56a7e10a6ae"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_ENGINE_B177D269_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:d3ae743eabf363903331115f17e9ecdaaa66ec647abb69df3a6e37bc848da977",
+      "event_id": "SETUPMIGEVENT_09B17A5F0C5482FCC3ECAFDE85EA1716",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:55e5cd52c4dd8e0f453af6606962c4e9fc85d46cae891f2c2aadd34d64ef0333",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 25,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:513012810a88f3f287358207b0938bb90a543923ad97e8ef38320eac2790d77b"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_ENUMS_774B99BA_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:fb549595a8ba093a192c718232f73b2780299db17208fe2d16f75c733743dd50",
+      "event_id": "SETUPMIGEVENT_E97E8075A7FE3E7446FF82F501887BAC",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:7dfecf8af47f06909d305f56323b86941bb87ae74f96a26d1069cf9f3e0bd031",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 26,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:86eb7f4147064e5e2939663dce4137637f2b473817ef7fdf597abeb3348bb34b"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_ERRORS_B798F3A9_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:9d3e3879426c08cb6c1f303657533b279bb16d694675041d336f947f4230e773",
+      "event_id": "SETUPMIGEVENT_A7F02B9648F3CB1A9310AF4038CF319F",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:80a13d9284de8b47597cefd27328c187109a6e0ecc16a5664112a9e115f38b76",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 27,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1b9201ddb92e90ed6ec3fc7cf4dd94d9e0f53eff427562d6c95ee63905543099"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_EXP0019_FP_I07_CONFIRMATIONSELFTEST_842ED0F7_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:45b89617b1e0a6cf71cf0612ddb38532917218d3aa13464a73b182dc5bc316c4",
+      "event_id": "SETUPMIGEVENT_891E3A59894C5CB02274F34E96B3708E",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:034b1358930e3f8e5159128ab6eb095deefead4f6b84b036bc96f6346b39ed2a",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 28,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:195cc422b338808e98d5bbe26c2c54b209014ca9f106892499e27a41ca16fe3b"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONPREDICATE_69ADFDA1_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:536d2d06cfbb08e7330d10aecd30c227ef5751e32dd1e47fa62ae306d7f7302d",
+      "event_id": "SETUPMIGEVENT_FCD6806633E271F79519FFB3D6432877",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:916bee773f40ae5879ffc5ddde3ce41c018ea6b036f81388ccea8ad27ffe64e4",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 29,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:1ab8f601987e1677de02c744992e4957d5f983d935b6f34ae353a9a15a508b85"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_CONFIRMATIONSTORE_8E0B14AD_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:ac423c36c6a048a257bb9061b21c9e3924abb42fd68cb29ef9f89fc7fe418da3",
+      "event_id": "SETUPMIGEVENT_058EC30F130FBCD96688132EAD35B7C4",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:dec848ac30c172d9e1d92ee2117139e12b41a08e01f48938fe389231526073de",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 30,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:25ad7f00364df117c1ee6fa1dd92056389d4f6850af08e16c91b0d46fae44ad3"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I07_SIGNALIDENTITY_64EA8DA6_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:43916625285c5d000137a0ec51c85ccd9271c1c6a657372fe8f275aa38e81284",
+      "event_id": "SETUPMIGEVENT_42AF13055521F4570344249EB34685CC",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:2aba149e8300730ddbd928b91c20d7a057d264642ba64d33e53302cfc238e94d",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 31,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7b6122b8f5e526a6ac1120fc38b2ea95bfcedcfabd1632fdec8602f16693dbb7"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_FP_I08_WWCONFIRMATION_AFAD14AD_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:2754f527fc42ac82222e5eb97cb768c057a2636ebe42d7c7a830891728f1c4c9",
+      "event_id": "SETUPMIGEVENT_E5E1C4497DF865DBD330B2A68C407521",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:5f64d810c820a43724eb8ca142022abdc45b3484140e040b521dea87d760c67d",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 32,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:5509da4c13975a1ed8528c0603aa91e5479708def3e06c8cf2589b4bd5f60832"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_GOLDEN_39FB017A_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:6e0f3672ed50f5eabdd3844971df4704d8032f5a148206c99f20cee57b389fbb",
+      "event_id": "SETUPMIGEVENT_73EB6A1D12B2AC8469A97F7FBFE91D55",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:a32827564ae56f6d0a91a9bdc6cb47aa225c31a6ed81043a661acb14fb556450",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 33,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:9b3068158b4bdec8ee319e611a2d3b7215d84608ed98b3350cbf45e384f47163"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_C41D2AEA_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:5e5aca27d8b3822aa821e14bd2809cc2f4312fed740feec37adabb7d80a2b017",
+      "event_id": "SETUPMIGEVENT_4C38F251B755E28441DA6433BBA0AC76",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:bb0b7b4cf5647c7900c07b2853176352fda649b41e655af86c10f96ee41e8f05",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 34,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ce0585dcde1e81222668b4fcae0add91e7c0b764a0830e2e1a0692c1a25a4ce1"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_OBSERVATION_6A2CDBCE_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:06902a06a854e70b0a61bbca03d8be16612b27e76c58be4b06c548c12c5518d2",
+      "event_id": "SETUPMIGEVENT_8965E3E0B780897101119D9A8983C1D1",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:15ae9f00d5d0528870df8200ebf3a5e168c8bb948ace3a066cdcb952dc93b93f",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 35,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:eae1f0388097e03df3efd8f6b85c818747af0c4538683fb8c855a7ea10764f7d"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_PROJECTION_DBEBB11C_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:8769b106253fe1b0df15273cdb0408cca59bd356431a15f5650e785ad62b91e9",
+      "event_id": "SETUPMIGEVENT_E5F18F96D694B91E48E69C9B96360C9D",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:ff480834d22bcae27d7fe5b16a40c2c2e827e12181ce92d87d0ee20e1ccd52a6",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 36,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:f79b2e0cedce9b4f9fdc8cba56bf9342f67154552a2ac36d3f095551216a5384"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:a2d419eeb149372dfd5bceca84359f120de0f95a201dfd2426711f00c185c5bb",
+      "event_id": "SETUPMIGEVENT_D28DBFB2B2999905E0FC3AA7F10DAB73",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:5bf191e8950778555a958438d57b94b621a5a9a664a07b74b2177bc5dbb143c6",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 37,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:7d71c2a536f88ca0d1b4b77592dfc3cf33205c2444cbee686a399b7c915eda59"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_REVISION_46D096C7_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:ce6fda7e87b07031265d5db4235ad429483e3dc4598415d73be592566f11119c",
+      "event_id": "SETUPMIGEVENT_814D0063AA1DAD3EAFCED7FDE693523E",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:e0154c0ef8a845a1178801bb450e8480cc3015a780074fb1ee7b3c47fbec17c0",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 38,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:324bdf2d4c5347c2226970efd9d5c4dce8c376f4c98955578e578b10a8714933"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_STORE_70E9E382_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:e1c50c0ece27bb8a53b66cd3291e61fd3ac64e470b57b7ee4c0ec8c2c8c2a1b7",
+      "event_id": "SETUPMIGEVENT_101F38441E7CD4E79C2A749A5821BE0F",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:9a8a2fe91d0321352d4f54715948cf58308720535fdd85cc807ba71cb2873ccc",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 39,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ed5b9fd65843587b7589e0b45be38ec41ac051d9a20f2e72fe72ff52d437c131"
+      ],
+      "subject_id": "STP_EXP0019_FAERIE_PROTOCOL_TIMEFRAME_BA9CF994_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:fcc22198028a72bf3cd73f3b1b6f81fea4977d7a55e9b3096e37109ed2ce2d6f",
+      "event_id": "SETUPMIGEVENT_CDB253DBAC92D8979EC886F18B0E2658",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c1878276c61cc509d0a2f61bda4d5a02341dc955e41cb973f5b687bcbdc5f53f",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 40,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:d6ae1146381ff8a9104f945df49cdb8d073700b3f19245aa70df2ded2bc89c24"
+      ],
+      "subject_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2CANONICALPOINT2SETUPADAPTER_7147EC1B_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:aefc139a54eecb56abb6ee9da139f8bb4d8fcce0accdbf43bff72ad5826d9006",
+      "event_id": "SETUPMIGEVENT_87A4E315CD7C265583A64E619878B45E",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:a3cfe81c5f1650f860d87477d47874a09b771803a812ac9483fb19783f0b74ee",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 41,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977"
+      ],
+      "subject_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f058ef5161ccc0ce1bdb4c9f760cb9142dec2a251117eb02214520d051bc0dd6",
+      "event_id": "SETUPMIGEVENT_C1E9D0DA849B19FAF2E29D6A8FDC709A",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:6f19ca338d5f877d9324f492248995a40446e46d0c197f1bf151175555b92bda",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 42,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:0d3deba33ea7c9a54538b8319748849c16cb93218867ce31a65e3a1cc0581295"
+      ],
+      "subject_id": "STP_LAB_OTHER_ACL13SETUPFAMILYCONTRACT_21971449_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f71523e62cbc2a2a4b6840bdad1df33f210a252af16525c6851a96c7042c9b6f",
+      "event_id": "SETUPMIGEVENT_B4A42C66C96A39A44586F659F381479F",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:48f9887c1eb7d9544a45e19bc8964b74fb652b18060715282c04040416600860",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 43,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:6aac678cdef852bf277f705f37118fceae500acd3415793b50e07c6ddb020d3f"
+      ],
+      "subject_id": "STP_LAB_OTHER_AUTHORITY_7C7C31AB_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:ba19d4389a73dcd0a7102c20125ebfbb39283bd492751d41b87b704a6dcc0995",
+      "event_id": "SETUPMIGEVENT_D1FADE2FAD91D57E0DF70136BA6E8A9A",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:acf689442ff27d7ef72d36bf2eb6dafd7bbefdbddc8b48dead09de32d40fde09",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 44,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:e04c4de8a29a734ea81c898f60b007612fb5d1d41fe4dd93b032376af1d173ae"
+      ],
+      "subject_id": "STP_LAB_OTHER_CANONICAL_47B83967_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:131d75da2d2b4845b077741ed8dd90d4164a35cccc8ca50f888ac83292a51fe9",
+      "event_id": "SETUPMIGEVENT_39644B9AFF738B0B2A1BA8D83A29C25B",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:531f719cac0b18fd78a334ffcbc9576bb23fdcf37ae287a3f9bb3b5075f47e62",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 45,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:b0972a3507319d635975b2ba18e60b91ab0aa5fb44e482fa3c26c4a790ac7e43"
+      ],
+      "subject_id": "STP_LAB_OTHER_CLI_FD3FCAD8_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:b958303a56aa196f9ca96f846ce6fc316c267b82dc1acd104e45e643700a5f00",
+      "event_id": "SETUPMIGEVENT_DBBD81213C8CD43E89B701884D17888D",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:af07e2717b3c6408794b482dbb4888d57d2ab231135846808ff6cf35c0e6e8a3",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 46,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:bb3013069ab0eb248028c03c219054bbb256958caf65d417193f3654f30ba31d"
+      ],
+      "subject_id": "STP_LAB_OTHER_CONTRACTS_0AF20C40_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:f6c4bbb3b3ee9826bcd7f4d677deb5fd1f9296418094d10cb3cb9442ad2cc2c6",
+      "event_id": "SETUPMIGEVENT_6D54CA01891E07E562215928A6C379E7",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:1eb73c2f735e814c8f5f9a9445d75ec6a80a8cefbe0aed6126e2079b96d3f005",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 47,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:076116951e3017527caa1e940dbc9383cc68b41aeb074cccf94b563dd8c94849"
+      ],
+      "subject_id": "STP_LAB_OTHER_CONTRADICTIONS_D9CB0AB3_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:861662020f4c0880f009559c28e04c48e07bf4cff5401dfbfb436c78a906034b",
+      "event_id": "SETUPMIGEVENT_76FC7EB17FF87192C88A6D8EB3D0B9B2",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:1252cf4bc6e063a0b3aeb7caffe53dcb39e39736b63cc717498c269269a9ee0d",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 48,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:170c7d3191cdd451d60fd5bc788e4c2b27afc7a37d48377010f823e7843547d9"
+      ],
+      "subject_id": "STP_LAB_OTHER_DIFFERENTIABLE_4119B0CF_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:93670e5fa48a1318e42355aab91f14da7a2227da1e5f3012782d554adec35428",
+      "event_id": "SETUPMIGEVENT_1FC47E12938D24D3EF6B79BDAD6D8A6C",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:cdae63acdcea292959475b46433d5bf7b04028fb24b8cd29629e490dba893521",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 49,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ebfaa7da8488051f668ff585cb4e5ce50af41489818e64e51589305a8eaea9b8"
+      ],
+      "subject_id": "STP_LAB_OTHER_ERRORS_12B45E0E_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:931bda766280c6afa3a387c0c34763e2848ee063f01063c42490a850e484b0dc",
+      "event_id": "SETUPMIGEVENT_36ECB8D0BAF751715811EFD2FDEFDC9C",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:4bf096bcb76e2040fab8e82e54700c2fc841934dc5c4394dbf5e6da63c368d93",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 50,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:beb8c471ecc1b17a3e317edc4010d16b0579dd5a7096ab5c386ea671f911a3d7"
+      ],
+      "subject_id": "STP_LAB_OTHER_FACTS_B3BE2EFA_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:1ca9fc04c80d2b0c9173824930f2f53f47aec1e0c41a7822af4f283e2da30a2a",
+      "event_id": "SETUPMIGEVENT_6D84D6A0A217F4924F2191524890A750",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c29dcfee29dcf277010e94914110b9d03a2debf0f78ce73c3887df84dcbc0d80",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 51,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:e56af521b9f6921c4b72f615c4e84f070b08440b668670ee8dc0fa8df95ecb31"
+      ],
+      "subject_id": "STP_LAB_OTHER_NUMERICS_2FD4F501_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:fef1ac5114fb628a7854f94b08218a4fd8935e0e6d9125694481bfb714e95ecc",
+      "event_id": "SETUPMIGEVENT_04C98E8E27B1341040B491A929352738",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:cda0360cc2a5704818d50f4e5bc8ace8b22389d833f5afe2fc2d44b7cfd302da",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 52,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ab91ece86ec03220bc88e49ad95fdeb0ff5dfa5b17c787533ba1c2dae6d33b94"
+      ],
+      "subject_id": "STP_LAB_OTHER_ONTOLOGY_DA7AA3E3_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:5829ac0d67177a2421e57ed2e027e399921d6f0612c866363de41fffcc13c846",
+      "event_id": "SETUPMIGEVENT_510DF9B18308810BD89EB933315451ED",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:7d9de04254cd1db0da7e0e1606a5680e2d9790b0d403d4f169a7ddd2074c55cb",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 53,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:00eaca1838c9eae5934808d3a550fda4e467d39b3036de1c0ddf11f7ff63e2d4"
+      ],
+      "subject_id": "STP_LAB_OTHER_PREDICATES_32A91599_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:28b4dd9fa43d7fc991467539f42c083260a27fd4ea15a9b2375ff24fd4acd849",
+      "event_id": "SETUPMIGEVENT_211A1A6964C4156E9D22046FBD7B42ED",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:f79ebf403078e684458e3822ffdd8f9f179dea880607271d4b19109047f5c1cb",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 54,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:24d1f4adfcbe415489d8fd2ab3bc5f7986c5b04ac5e5e85f5fdcbfddcfae8aac"
+      ],
+      "subject_id": "STP_LAB_OTHER_PROJECTION_65DF69F8_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:7155bcdb07063428c81f4deb8ca16e25142d5c115c42da1d5d53d285c4eedebf",
+      "event_id": "SETUPMIGEVENT_40992C08E723D78B9A02A5769D5649B1",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c279bd55a8dfbd8cf22db4ceba3256b735ab75d3fe0928bd3beeb4dbf09ac0f3",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 55,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:ff52e445683f9232396a5fbc255bfe650b28afc1e52db33a87a47168dc3060ca"
+      ],
+      "subject_id": "STP_LAB_OTHER_PROOFS_D59C1A41_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:b5df39efce9f48bb7e0f45a8d203468312773871e2a552e6ff450bd6fe75507e",
+      "event_id": "SETUPMIGEVENT_42D1219236F319F62DF1E339215A6AE2",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:05733b16597c2bbbb5d3099b8096f54ed7e01c1e715099645e96ea835f9f4eef",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 56,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:49b4e5b0fa9c4b83ac81555d55b0c5ee8607f012cec00e3e5b8c0e82c171978e"
+      ],
+      "subject_id": "STP_LAB_OTHER_REASONER_251DCEE1_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:3d04960280de24e00d8bb93679d2b1d5618ec5709bc6a2c390a4661146b3b899",
+      "event_id": "SETUPMIGEVENT_BF88671D049CA4A0D00D52A4406BA73C",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:c70f7fc93fa7e176556aae07b98a757c1877fa9da4ea6555796f23361d23240d",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 57,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:fc1109b19b165c32f85d72bc61bb4953f0ce7a83f6627521314e4260d37d540f"
+      ],
+      "subject_id": "STP_LAB_OTHER_RULES_EA2F9780_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:330ac851e0b4ec46b2e29a31eaa2233f0db8c30e6264bf244dd4f706b415d24f",
+      "event_id": "SETUPMIGEVENT_4931A3EB543D3BD9826B41F3C87663C6",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:5b86ba71fac06da4a86f713b565a9126a8efd39b1899f71369c826b68bfa48c6",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 58,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:5543a5bfb8deb25301bd5f3ce8792cc58594c358be846e4e0387cf181a07a50f"
+      ],
+      "subject_id": "STP_LAB_OTHER_SERVICE_7A2E5EE6_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:63397d1e01b0673e5229bbd92c05d300231062ef46ccd8f365fa94cb0c6d38b5",
+      "event_id": "SETUPMIGEVENT_A0727EC37ABEC8863ED633EB9CE4D059",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:1acd9f8b411c4fb2b3bb6558b6e09f8c4778d3f8e7894b16519bfa8baed4b9b5",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 59,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:540128e38d1c7fb924bf32240124b15ef61700994abaf2cdd5c12ef6443d9335"
+      ],
+      "subject_id": "STP_LAB_OTHER_TEMPORAL_1AD7645C_V1",
+      "validation_status": "BLOCKED"
+    },
+    {
+      "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+      "event_digest": "sha256:ad9250cbc9fcb70f2629bce9b07459e164eb5eeb2eabb1d07827f8af6b18cb68",
+      "event_id": "SETUPMIGEVENT_E6E198ACD9FEE82499FA990DA6A37144",
+      "event_type": "REFERENCE_PACKAGE_MATERIALIZED_BLOCKED",
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "payload_digest": "sha256:4cc3aa94ce684cb8c3bd33d5e1224bfac5877f665ee502c361c30e834aa86cc6",
+      "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+      "schema_version": "1.0.0",
+      "sequence": 60,
+      "source_digests": [
+        "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+        "sha256:af1db0115d337bdce9cee1d6e18adc3e9906ab6547efbdfe8ad80800b1c71b19"
+      ],
+      "subject_id": "STP_LAB_OTHER_VERSION_560A6C13_V1",
+      "validation_status": "BLOCKED"
+    }
+  ],
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "ledger_digest": "sha256:175621a72d8442a43102f3197d6276d8f181ed2b0b1920be4cf65b8a405da7df",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb"
+  ],
+  "validation_status": "BLOCKED"
+}

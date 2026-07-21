@@ -93,3 +93,8 @@ The Context portfolio is fully accounted under `CTXWAVECLOSE_D14965CFA16DD2B417D
 
 
 LCM-09A is complete as an evidence and contract-freeze gate. The Setup portfolio is fully accounted but no Setup is implementation-eligible because owner approval, observed characterization, canonical Context binding and LCM-10 Treatment binding remain unresolved. LCM-09B must preserve these blockers non-compensatorily.
+
+
+## LCM-09B implementation closure
+
+LCM-09B is complete under `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9`. Because LCM-09A authorized zero identity-level implementations, LCM-09B correctly avoids inventing Setup semantics. It materializes blocked canonical reference packages, binds them to a read-only Setup Factory reference port with all authority false, preserves no-trade and UNKNOWN evidence, closes portfolio accounting, and seeds LCM-10A Treatment dependencies. The next implementation unit is LCM-10A.

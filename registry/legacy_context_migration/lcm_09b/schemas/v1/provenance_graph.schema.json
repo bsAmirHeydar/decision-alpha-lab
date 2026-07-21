@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "type": "array"
+    },
+    "graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "graph_id",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "title": "Provenance graph",
+  "type": "object"
+}

@@ -1,0 +1,75 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_B5CDF10D6EE22857A5D342407984F244",
+    "SETUPBLOCKER_0011972F32A3CFB50CD32BEF3DCDA4D8",
+    "SETUPBLOCKER_81D9C629159AF9E13CB5DC0B63A066D6",
+    "SETUPBLOCKER_97E74AFDDBFE1F0B06B2F6414D56B94E",
+    "SETUPBLOCKER_7ED8E5C2030BFD5BDD3A1B35DF7637DE",
+    "SETUPBLOCKER_7C07593C08DB5D3811A0363F5BD5EBE3",
+    "SETUPBLOCKER_7ED52C3C7DB64233A7D2758215CE9927"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_EXP0017_CYCLE_GROUP",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5f83204ddcf53ba1afe574bc141a325155d94f60a6b9ccf208619643d133791c",
+  "package_id": "SETUPPKG_1CDAFAC85B32EDF2D601E3AB041D6DC5",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_EXP0017_CYCLE_GROUP_CGX_SIGNALSOURCE_BDCFD97A_V1",
+  "source_binding": {
+    "contract_digest": "sha256:72964fdd9f61c75f0ea158b76f1f173b542372d232a66fe66f53869b49adc2d1",
+    "contract_id": "SETUPCONTRACT_76FF96CE87306653D17BA9B6E58852AB",
+    "identity_digest": "sha256:55174fa12aed0481252b03b93942a32ab99f3dd0736181154b0dd7ea7a14d03a",
+    "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_SignalSource.mqh",
+    "sha256": "sha256:ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f",
+    "sha256:72964fdd9f61c75f0ea158b76f1f173b542372d232a66fe66f53869b49adc2d1"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

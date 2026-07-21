@@ -31,8 +31,8 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | LCM-08A | Context Portfolio Freeze, Risk Classification and Pilot Selection | No |
 | LCM-08B | Pilot Context Migration, Compatibility Adapter and Behavioral Parity | Accepted reference; no cutover |
 | LCM-08C | Context Wave Migration and Context Portfolio Closure | Accepted reference; portfolio accounted with explicit blockers |
-| LCM-09A | Setup Inventory, Family Registry and Canonical Contract Freeze | No |
-| LCM-09B | Setup Migration, Setup Factory Binding and Behavioral Parity | No |
+| LCM-09A | Setup Inventory, Family Registry and Canonical Contract Freeze | Yes |
+| LCM-09B | Setup Migration, Setup Factory Binding and Behavioral Parity | Yes |
 | LCM-10A | Treatment and Execution Capability Inventory | No |
 | LCM-10B | Treatment Package Extraction and Execution Boundary Construction | No |
 | LCM-10C | Dry-Run Parity, Safety Controls and Authority-Negative Closure | No |
@@ -84,3 +84,8 @@ LCM-08C closure `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3` completes refere
 
 
 LCM-09A freeze `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891` accounts for all 60 LCM-03 Setup identities, records 117 unresolved embedded candidates, freezes 60 blocked reference contracts, and issues bounded LCM-09B handoff `sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb`.
+
+
+## LCM-09B accepted reference checkpoint
+
+LCM-09B migration `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9` materializes all 60 frozen identities as canonical fail-closed reference packages, registers all 60 through the read-only ACL-04 legacy reference port, records 60 blocked parity dispositions with zero hard mismatch waiver, and issues the bounded LCM-10A handoff `sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac`.

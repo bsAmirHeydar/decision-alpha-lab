@@ -1,0 +1,75 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_F63915D5C07F66EA4F6E1C32B2BE8B8C",
+    "SETUPBLOCKER_CDA66B82A1F15A027B6013D630ADE305",
+    "SETUPBLOCKER_8C53F6B16981B6FE4508C3711B7377A8",
+    "SETUPBLOCKER_FDE5B8D20B292450788E04E420D66BA6",
+    "SETUPBLOCKER_A5439A5BEDCB8A6740C12325E724904B",
+    "SETUPBLOCKER_698A752D848A72A8E6F360175821B764",
+    "SETUPBLOCKER_1C43CED60F35DA13310BD54FFAEC64BF"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_EXP0019_FAERIE_PROTOCOL",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:86f2e177011d96a29bfaf799eab3a0c5f9c216918b04fff916d8c971580cb1d7",
+  "package_id": "SETUPPKG_83027AD95555A19A723844D9337C0E78",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_CONSTANTS_8FD39BAF_V1",
+  "source_binding": {
+    "contract_digest": "sha256:534835d5bd8fd4a7bba41fb9ca6efa5aefe02c54522ea07f253b7866e0c28dbe",
+    "contract_id": "SETUPCONTRACT_E8AD45744355727DB48A624A9720299B",
+    "identity_digest": "sha256:284d920addbd6ab61e1826fe3149eaccee14139fa093e5f7bf9ec85d84f55cfd",
+    "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/constants.py",
+    "sha256": "sha256:09375eb7cf1a292d8ff9c6d734c5dc38e6dd1e2cb36236f91d74a4f556faa14e",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:09375eb7cf1a292d8ff9c6d734c5dc38e6dd1e2cb36236f91d74a4f556faa14e",
+    "sha256:534835d5bd8fd4a7bba41fb9ca6efa5aefe02c54522ea07f253b7866e0c28dbe"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

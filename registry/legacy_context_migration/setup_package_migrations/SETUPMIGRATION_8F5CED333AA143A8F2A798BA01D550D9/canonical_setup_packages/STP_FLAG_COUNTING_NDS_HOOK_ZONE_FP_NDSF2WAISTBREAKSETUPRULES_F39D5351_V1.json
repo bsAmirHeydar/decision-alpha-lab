@@ -1,0 +1,75 @@
+{
+  "authority_boundary": {
+    "capital_authority": false,
+    "consumer_cutover_authorized": false,
+    "live_order_authority": false,
+    "promotion_authority": false,
+    "runtime_authority": false
+  },
+  "blocker_ids": [
+    "SETUPBLOCKER_AA818B13550D1231AC69641F2D2E4492",
+    "SETUPBLOCKER_BF8A802405257E9F41FEB7CD434B0B35",
+    "SETUPBLOCKER_989B8DB765C153BAFF611A7594747E08",
+    "SETUPBLOCKER_FEA131DFB539705CBA6FE7A4DE1D3D08",
+    "SETUPBLOCKER_774AC1680F74826E3DC157A6162DCD42",
+    "SETUPBLOCKER_E33384FF11D89970DCB927CF2A7E892E",
+    "SETUPBLOCKER_2447F941D8CC76F8E877AE711265096B"
+  ],
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "context_binding": {
+    "allowed_context_identity_ids": [],
+    "context_recomputation": false,
+    "independent_context_clock": false,
+    "state": "BLOCKED"
+  },
+  "executable_reference": false,
+  "family_id": "SETUPFAMILY_FLAG_COUNTING_NDS_HOOK_ZONE",
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a3cfe81c5f1650f860d87477d47874a09b771803a812ac9483fb19783f0b74ee",
+  "package_id": "SETUPPKG_B78825ECA437DD6DC4EFECA474DA2A64",
+  "package_status": "REFERENCE_BLOCKED",
+  "package_version": "1.0.0",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reason_codes": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "LCM09B_UPSTREAM_IMPLEMENTATION_NOT_AUTHORIZED",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "rules": {
+    "abstention": null,
+    "cancellation": null,
+    "confirmation": null,
+    "eligibility": null,
+    "entitlement": null,
+    "expiry": null,
+    "invalidation": null,
+    "trigger": null
+  },
+  "schema_version": "1.0.0",
+  "setup_id": "STP_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTBREAKSETUPRULES_F39D5351_V1",
+  "source_binding": {
+    "contract_digest": "sha256:7927151f1a8d3b5c824c67cd01a4e099bab448f940fbca69cd9a851c9d441709",
+    "contract_id": "SETUPCONTRACT_4167B464B771401734711B32722AE8C7",
+    "identity_digest": "sha256:837dac4a4fb062c70328ce1398f85cdd61ede1fe88bb3bd39689a0e35fb68030",
+    "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+    "sha256": "sha256:ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977",
+    "source_delete_performed": false,
+    "source_move_performed": false
+  },
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977",
+    "sha256:7927151f1a8d3b5c824c67cd01a4e099bab448f940fbca69cd9a851c9d441709"
+  ],
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10",
+    "treatment_semantics_in_setup_core": false
+  },
+  "validation_status": "BLOCKED"
+}

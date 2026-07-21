@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "file_count": {
+      "type": "integer"
+    },
+    "files": {
+      "type": "array"
+    },
+    "manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "file_count",
+    "files",
+    "manifest_digest"
+  ],
+  "title": "Output manifest",
+  "type": "object"
+}

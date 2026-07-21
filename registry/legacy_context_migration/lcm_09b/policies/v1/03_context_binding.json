@@ -1,0 +1,9 @@
+{
+  "blocked_context_reference_forbidden": true,
+  "context_recomputation_forbidden": true,
+  "independent_context_clock_forbidden": true,
+  "phase_id": "LCM-09B",
+  "policy_digest": "sha256:e39d1f8a8c9750a9221dbd6b507fcee2e90d2283946933c248e5d565dc728a50",
+  "policy_id": "LCM09B_CONTEXT_BINDING",
+  "schema_version": "1.0.0"
+}

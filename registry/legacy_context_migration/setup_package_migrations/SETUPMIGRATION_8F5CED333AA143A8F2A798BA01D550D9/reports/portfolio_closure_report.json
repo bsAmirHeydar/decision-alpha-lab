@@ -1,0 +1,20 @@
+{
+  "canonical_reference_package_count": 60,
+  "claim_ceiling": "LCM_09B_REFERENCE_ONLY",
+  "closure_status": "CLOSED_REFERENCE_ACCOUNTING",
+  "explicitly_blocked_count": 60,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "migration_id": "SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService",
+  "reference_ready_count": 0,
+  "report_digest": "sha256:65f5cab617004c403f110c3a35010415513714e6b8f309664ac1be289a2da4b8",
+  "schema_version": "1.0.0",
+  "setup_identity_count": 60,
+  "source_digests": [
+    "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+    "sha256:b25baf29c225dbdc6fae1f882fcceafe0267b1e1ae87a21f0b2cbf5bb69fe59c"
+  ],
+  "unaccounted_count": 0,
+  "validation_status": "BLOCKED"
+}

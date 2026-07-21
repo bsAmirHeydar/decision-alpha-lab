@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocker_code": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "blocker_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "blocker_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_09B_REFERENCE_ONLY"
+    },
+    "details": {
+      "type": "object"
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolution_owner": {
+      "type": "string"
+    },
+    "resolution_state": {
+      "enum": [
+        "OPEN",
+        "DEFERRED_TO_LCM10",
+        "CLOSED"
+      ]
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,191}$",
+      "type": "string"
+    },
+    "severity": {
+      "const": "BLOCKER"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "source_phase": {
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "UNKNOWN",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_time_semantics",
+    "owner",
+    "claim_ceiling",
+    "validation_status",
+    "blocker_id",
+    "setup_id",
+    "blocker_code",
+    "severity",
+    "source_phase",
+    "resolution_owner",
+    "resolution_state",
+    "details",
+    "blocker_digest"
+  ],
+  "title": "Blocker record",
+  "type": "object"
+}
