@@ -1,0 +1,319 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 32,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_00AAE0D373AD9984D3903797E6CAF72C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0018_p10_release_gate_map/6ffd1a473989_EXP0018_P10_Release_Gate_Map.md",
+      "restore_locator": "docs/obsidian_deep/03_decision_maps/EXP0018_P10_Release_Gate_Map.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:72677390db65bb78eb99f740161b0e6eaf2707bd5acbd4ebe17960ebb0ceca42",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_0308E58EA59AB6F953B8EFBFA8EF8FF2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/48f01201c914_INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md",
+      "restore_locator": "INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:0ef5bba3832943a69fa8019f057b83277a298accb81ca28023424e5e0a7e5aa2",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_15652BC10723520F0F5D1FED6FDB3F23",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/7b4b41f76e34_INSTALL_NDS_F2_OVERLAP_WIDER_RR_REPRICE_PATCH.md",
+      "restore_locator": "INSTALL_NDS_F2_OVERLAP_WIDER_RR_REPRICE_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:20d8b3be3a8d8c5744861d876eab162ee9a9759c1fa4b300248aa4f3b1f73a47",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1C448D4BE2C5B9657B51D015EB039269",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/619a9452c197_INSTALL_HOOK_VALIDITY_PATCH.md",
+      "restore_locator": "docs/root_archive/install_guides/INSTALL_HOOK_VALIDITY_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f4ec957bb3415a12a1dd6af157200390cebcd8173fd17503cfe7ee77c190680a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1EC05A2DBCFF586793B00516EFF3C234",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/1e9ac67bd5e5_README_ZONE_AF_PATCH.md",
+      "restore_locator": "alpha_lab_zone_af_patch/README_ZONE_AF_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8673aa2eaf6a6c7711574979a56d02edfdc52bb4ce3204ab6925c9069556c957",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1F38BF09E9D2D8FD32C8F2EAFB0D2A04",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/folder_map_lab_03_experiments_exp_flag_counting_release_profiles/d3226076c6d5_lab__03_experiments__EXP_flag_counting__release_profiles.md",
+      "restore_locator": "docs/obsidian/01_maps/folders/lab__03_experiments__EXP_flag_counting__release_profiles.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:67097c3a646a6c5430b9c5c7cef7d3cb744832eace25ed04264e4cbf92841ec3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1FBF973831BDCF0791569E47A7256668",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/4637a70e30e0_INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md",
+      "restore_locator": "INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:62d5a9c65df8ce72df4a7a5831aeec21469a43dad4f3531f12a56d233ab2bf57",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_35107E2BE3336E4377E269FA3F6C3203",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/nds_phase_53_lightweight_backtest_runtime_audit/a5a07ff463b7_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md",
+      "restore_locator": "NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f75253156c8c1db1c1956f2157e2c87c843a35a0941837ceed62490f278ab74b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_38417F3E2942D32773B47479652CDBA0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0018_p10_release_checklist/be4f3e42c8c5_EXP0018_P10_Release_Checklist.md",
+      "restore_locator": "docs/obsidian_deep/04_checklists/EXP0018_P10_Release_Checklist.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:9420467aacf662c020cfb09b3ee3ba44a16c6aaa3dfbf3943064660101f3418a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4AC2510AEE1DB6F279AA318E8B34F653",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/d6ea79caa91c_INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md",
+      "restore_locator": "INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:04b8a64a6e02fb111dccaf654079c5e3a231614c425e992ef9b6a4ccb41f499f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_54FD46BBC4346A25AF09356B2D8C1283",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/4b2173a964e5_INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md",
+      "restore_locator": "INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2982eecbec76fcd6229250c86e37198fcb1f35817bab80e33c45deaa7b47f0e0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_5A9C1EAA9B59C21CE17BF7162E6D6A8B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0017_release_plan/2b1bd81f1250_EXP0017_RELEASE_PLAN_EN.md",
+      "restore_locator": "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/implementation_roadmap_en/EXP0017_RELEASE_PLAN_EN.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4056d77115defed6d63fbf8209987f2a68e6437347b7062bef58a10dd529f437",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6A189DF72DB08F1074109CBADAA9ED4D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/release_application_protocol/9f8ab22f3dfb_release_application_protocol.md",
+      "restore_locator": "docs/process/release_application_protocol.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d42383a2094b77b5a0013ca97567f06b3f126cfc0826f2571398c77221a8759c",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6A89BB1A13D3E4242AFE24402823226A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/524435ab3496_README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md",
+      "restore_locator": "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:079d5dc636a7d42804dca79f7b1b369aea2172884be059965546c04d083cd1d8",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6B9FA17AFCE5AB3B77646D8CE5DDEEBF",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/ead29bd0cb93_INSTALL_ZONE_AF_PATCH.md",
+      "restore_locator": "alpha_lab_zone_af_patch/INSTALL_ZONE_AF_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:63dbd95d9ba18c2464970c5eee09c949e769ff495600ecc53d498bb9f47799a6",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_73564B8635633051772DCDD5208F6337",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/334fef68dadc_INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md",
+      "restore_locator": "INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fb1770aca67a72568fd58d6253baf26487b759959a3a894aea8f1ee0718f3a63",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_758A6E93DCC3ECB2B0079257575503C1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy.md",
+      "restore_locator": "docs/obsidian/04_concepts/NDS_Anatomy.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2ef2068e95834b1ec01009d0e08f375a737c052efcfe0c39c929433febd7b29e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_75A6C1852A66111395FCBAEC9B6085B1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/document_card_exp0017_release_plan_en/3060b1abee2f_docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md",
+      "restore_locator": "docs/obsidian/03_document_cards/docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:486d3ea28c86213f4670c6c468279ecdf173fefb7bccfe5ba94339788b8e6734",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7871A51B79DAFA13A4982B6C5302FD09",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/190d82ab6c56_INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md",
+      "restore_locator": "INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:98143e486942458e3aacc1bb9353c09002354411b71b49387b611387ef6d52d9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_867BDAD6997B88D55E9B5FAD50328AF8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/nds_f2_overlap_wider_minimum_rr_entry_repricing_audit/82e0306d3778_NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md",
+      "restore_locator": "NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3ff91c3ac5525a8b603ba9310898ceee921d90edb1f68224742f848e70af0f27",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_98E8B3E99720F38F0E5F4CFA3E7DE2CA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0018_qa_release_moc/01e98cd24d46_CG_EXP0018_QA_RELEASE_MOC.md",
+      "restore_locator": "docs/obsidian_deep/00_mocs/CG_EXP0018_QA_RELEASE_MOC.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:77bbc1293dc33fabc8901235ea6a7d40324e41c7903a555a210c7e8985d1165b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_99A24539BA2543D89A9B14E9392B7EC4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/alpha_lab_release_standard/db0cec343c04_ALPHA_LAB_PATCH_RELEASE_STANDARD.md",
+      "restore_locator": "docs/engineering/ALPHA_LAB_PATCH_RELEASE_STANDARD.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:24558f98ed20dfd84c893c80572767a5b3f80a4f7e66127b462180f33099419a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_9ABDA176430A37AB597E2596F3539747",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md",
+      "restore_locator": "docs/mql_native/M0001_JSON_AUDIT_REPORT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:79e2752b0159255ea2c99d50976aa4f097edbb7fcb25ed43bfa85fe00b09feb9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_9C3174F4CE8E2D4B8C0F6FB1D6AA8323",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/40d0db79538e_INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md",
+      "restore_locator": "INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a3ed450b264f4bf1433d6c5393b9eff1f1bdc5657b3abcdf6a668cf4278db863",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_9E70960248D7A7DAE51A429AEB77AA50",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/73d53aeadb30_INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "restore_locator": "INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:916274158977054d0c697952eb45b3f199e9488799d269473ac7dfec9fa10b15",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B50D002C21D94DF88E17627828D81B14",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0017_en_release_plan/9a13f54eddd1_EXP0017_EN_Release_Plan.md",
+      "restore_locator": "docs/obsidian_deep/01_concepts/EXP0017_EN_Release_Plan.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:24ec3b1807e7097584a7e432998d97867bc43d41575f1dccc3f1c9792ea57d85",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B7F77AE1F6145E065A0EDD270F544125",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/47993903422f_README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "restore_locator": "README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3d43b4b36c8686dca05a0afd71a2ab10209515c9626ef2a36ca9e7bcac765b8d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_BC0D9F1E4A571CF329E2BAC5B4C791A4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/p13_core/08fbec8ae46c_PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md",
+      "restore_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/02_core_track/PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6213ce2dbca321f605ff6b62a7a610b86b32cadce6e3273d94050997c316fd70",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C546BB97542CF8784513473AA5781973",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/release/f4de35a542eb_EXP0018_TEST_AND_RELEASE_MAP.md",
+      "restore_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/01_master_maps/EXP0018_TEST_AND_RELEASE_MAP.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8e8a5628c0ee133083ea04b7b3843afcf3b0354e3a2c2a4f9160a01dec656054",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C5F5AF6C84A3AA5F2A9B37C8BB73D7FD",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/m0001_excel_audit/ff999bc7279e_M0001_EXCEL_AUDIT_REPORT.md",
+      "restore_locator": "docs/mql_native/M0001_EXCEL_AUDIT_REPORT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fabdfa1dd714d7f4b295479265a83cf78977fb1be480d16434b50bdede0059e7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D50F5B7DD5C0FB702FF5F8737DA155C6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/release_gates/70fb9d51d4be_EXP0018_RELEASE_GATE_MATRIX_V2.md",
+      "restore_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/06_qa_and_supervision/EXP0018_RELEASE_GATE_MATRIX_V2.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:90a8afac609f629600d3a35d0216c7acbbb7c25c537b8c34cb54ed55ecb87440",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_DD4B1C66BE946C0A30719702CDC720C8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/release_versioning_plan/aa54c1fa30e1_11_RELEASE_AND_VERSIONING_PLAN.md",
+      "restore_locator": "docs/strategy_factory_implementation_roadmap/11_RELEASE_AND_VERSIONING_PLAN.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f4396c8415089fcb6c2ff2e9f9b2345f2d1598b6e7e32f0e456c2261588b3584",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:d89ecdeabdeb6506278b7806ed7c87c70d0198b3d075c519f3f26ea60314a09c",
+  "rollback_package_id": "WAVEROLLBACK_7A51F2346F203E6DC879DD918745EB99",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_B6CD725B4E65249F068E34DCDD2B789C"
+}

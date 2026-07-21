@@ -1,0 +1,193 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 18,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_1B3F6672A9F9106FBEC6E74CCB49BFAC",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_81919F4A149FF7D8C01AB0764FAD33C6.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:67ff89a70c47f0128a3680790466e6a5eb6676319dcee9aa1870c67c8f962adb",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_384DF9D073CC11A39453192BFC6671FF",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8DDE1B6FB03EBEB260E1313E230E8DA3.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:bfde597a131edd4cd7aea942155ce2a7641f61f8445a2faffc8cb9cb4f35cf18",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3D24BEDB5B707F1BEFB4AA7706C03E64",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8ACBBC79FAC276435BB7883AC89764E1.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:55583c49f7c2c87feecd375bf59fbb9fdce153f30bf6d5a9baea5661c76f9cda",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4C5BEFEF8A5F6BFB3C43342BE0650599",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_1407956375108D07D1BB55FB32E5D02A.json",
+      "restore_locator": "research/exp0017_phase12_5/python/phase12_5_pipeline_integrity.py::write_outputs",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6c8ba6415431e8fce63311250f9622c571b36bb15e29bb3603967b5538c03642",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4F631CD131F75A3D4E27E9B5CD46700A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_FD3DC74746E154524193F2E4075ED1DB.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ad5e689ce40e13ffeb6260acfa75234f0b0fed8e015d38377bd7616b975952b3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_580E1A412CD74FC190C0CE808E3F2FD3",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8C6151563DC7B4FCFEDAFC06ACD90009.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1a3cb40c54e6ec0b9244960b535efa9fe93d65ea8f861cacbfe9f09846c01bbc",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_5ABCDFA548ECA2D268755F092ABD065C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_4910A78E81E1E322ABB1ACA7158F4FDB.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d5d31835c99b14a363cad4a374555adc3435100ab0dd23c7a54e456ec2507fdc",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_60BB7C3770458463025C93D1A3875C89",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D6E225C78E0558B11DDC70A3319190AB.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8ff8b7f3ffc95a419b177900c1c362dfffeeef9cfe3995b82fe45fe38ae993b4",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6464DCF69648EABE3F40ADBF8EC2F367",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_26FC937844F2D6F2479A12004597C81D.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3cf81efce6c298cbaf6aee025dd33af4a8a0ac9892485f01c6d436239aebbbe8",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6E52A2AEFF41C46A422FB6BDEB006E50",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D3BA1CF48E2FF7511CDEED6704FF90FD.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/source_scanner.py::scan",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3a35a520eb9e51f74e7a69cce20ad9a3eca521fc9e77e80604aa4827d22bfa75",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_79F38A6017617F53298EE39D5BC39588",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D4086BCED740D502EDC954EAD9BF35C3.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e374b84c2c60afdefec06b55cf0f82a4233958e6069e0df19c930014ac408e43",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_822871D25CEA62775DB4CEEF198426BC",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_21A27DD0819A2169E28E74915B99F863.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6f79e28a7dfa1005c17d0c1ea2ca3f83290b2c6096b5d25abe52cce6f8a2be3c",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_8FA34F920EFBEBCD9C63DA6593B8D8C9",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_0342426FA518EDE526FBCD881D0405DD.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d0562c1c6cdc18a96d91aa997fe7e1a2dce616618206887410a7ea52f27271e4",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_981A40194197F7F16C36F0A6AE025CE5",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_7489D76CFAE3101FF85468FBA0EB5864.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:0d63bec6c7c6581c2620e2e34747ac14165a53f68a7c0e2f655090f378a11db5",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_CCEF9A17B89C6006AF18543E84EB78EF",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_4BCC05E1B726CF6BA3BBF351EB2D1092.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/source_scanner.py::scan",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:0adc8f0833355b111959c7c74b3321389fcb59f6c6f7d394c01c48d39649b685",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D3119E13FF0D847D3C73F2095BEF1E17",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8896F2DEC754894E9BDFE75020C3AEC1.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c945dd524a6aae0812e1a8de60afb8891a605b20b90ffd628a12beec489342d0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FBDE027CD60F22357125AA10DC57DF0C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8F3DCDB4A9F2A780E0832AFCCFAC8C9B.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:20011425ef24b65c15cd9473689e16b58e8ab45b9e7332fa5523d2cfbe26d2f7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FFEEB03CB56C19A1F3333239DD2B8B40",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_231DC58DC29BE07F15729F10B4F7A01E.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ac6614642a8786efe99d00cdb904ce5d6aa272d45a43ecb965035487947f0b55",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:cfe8a4dd12c2e13011b769636051eafb9cd5f2717b62e4d7b75b66ffff60a8c4",
+  "rollback_package_id": "WAVEROLLBACK_055070E3FD5F1F7DC2D0B0A60FCCA4B6",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_FD1FF0EE13262922EDC4DCBB03A957D6"
+}

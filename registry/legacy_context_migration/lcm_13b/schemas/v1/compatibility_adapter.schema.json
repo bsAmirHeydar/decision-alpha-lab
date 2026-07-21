@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/compatibility_adapter.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adapter_digest": {},
+    "adapter_id": {},
+    "adapter_type": {},
+    "consumer_id": {},
+    "phase_id": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "adapter_id",
+    "consumer_id",
+    "adapter_type",
+    "adapter_digest"
+  ],
+  "title": "Compatibility Adapter",
+  "type": "object"
+}

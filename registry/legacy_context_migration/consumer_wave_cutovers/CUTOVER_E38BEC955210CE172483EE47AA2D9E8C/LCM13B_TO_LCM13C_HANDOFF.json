@@ -1,0 +1,74 @@
+{
+  "allowed_next_actions": [
+    "RUN_REPRESENTATIVE_AND_HIGH_RISK_ROLLBACK_REHEARSALS",
+    "VERIFY_FORWARD_REAPPLICATION_DETERMINISM",
+    "VERIFY_PERSISTENT_STATE_OWNERSHIP",
+    "CLASSIFY_WAVE_CLOSURE"
+  ],
+  "blocked_dimensions": [
+    "BLOCKED_CONSUMERS_REMAIN_ON_LEGACY",
+    "PRODUCTION_RUNTIME_CUTOVER_NOT_AUTHORIZED"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "completed_gates": [
+    "EXACT_ELIGIBLE_CONSUMER_SET_ONLY",
+    "BOUNDED_WAVE_PLANS",
+    "REFERENCE_OWNER_APPROVAL",
+    "ROLLBACK_PACKAGE_PREVERIFIED",
+    "CANONICAL_LOCATOR_RESOLUTION",
+    "POST_SWITCH_HEALTH_PASS",
+    "BLOCKED_CONSUMERS_REMAIN_LEGACY",
+    "ZERO_SOURCE_DELETION",
+    "ZERO_RUNTIME_ORDER_CAPITAL_AUTHORITY"
+  ],
+  "consumer_cutover_performed": true,
+  "cutover_consumer_count": 613,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "cutover_receipt_digest": "sha256:edefb24c1faff917c3185f8c7eab3becd02884b20c9819ee9428201ac7950266",
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "DELETE_LEGACY_SOURCE",
+    "QUARANTINE_LEGACY_SOURCE",
+    "REMOVE_COMPATIBILITY_ADAPTER_BEFORE_CLOSURE",
+    "ENABLE_ORDER_SUBMISSION",
+    "ENABLE_CAPITAL_AUTHORITY",
+    "CUTOVER_BLOCKED_CONSUMER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:8c354445672d3fe114ad44aed25c88ce2f82497ac14b41037e975913ce8ea1f1",
+  "handoff_id": "LCM13BHANDOFF_80EFC47EC146589DA8FA06F4DD6110D2",
+  "handoff_type": "LCM13B_TO_LCM13C",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "remaining_legacy_consumer_count": 806,
+  "residual_risks": [
+    "TRANSITIONAL_COMPATIBILITY_ADAPTERS_REQUIRE_LCM13C_REVIEW",
+    "HIGH_RISK_TREATMENT_WAVES_REQUIRE_ROLLBACK_REHEARSAL"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+  "rollback_rehearsal_performed": false,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "source_handoff_digest": "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+  "unknown_dimensions": [
+    "LIVE_PLATFORM_ENVIRONMENTAL_PARITY",
+    "PERSISTENT_RUNTIME_STATE_ROLLBACK_BEFORE_LCM13C"
+  ],
+  "validation_status": "PASS",
+  "wave_count": 27,
+  "wave_registry_digest": "sha256:60ddb0fadf02143d92ff96e23df42056f8158cd5a7232fe8d5291a4ed7ecd013"
+}

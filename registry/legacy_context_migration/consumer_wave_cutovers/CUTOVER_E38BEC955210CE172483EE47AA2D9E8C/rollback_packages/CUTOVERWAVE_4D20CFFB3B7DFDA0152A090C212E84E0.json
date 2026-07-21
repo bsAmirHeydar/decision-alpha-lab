@@ -1,0 +1,319 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 32,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_198F11078369C90FFF39FDB114004548",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/6424fa772e7b_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e762f141dd8295300948e3fba79b91df54070228ae78a72ce3469bee9cd9349d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2A8430DF1ADA755D0B8468F284B04ADD",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:13d282dc180ccb4ae91832f4f28c9e75b7fa8958eb8af3b9612769079274b982",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2DE12DDE1A8841A94108AA420672ECEE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md",
+      "restore_locator": "lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ebff21730f0fe6e8ff632f0cdf7bd674957637c6fa54394dd4100b4ddb9f925d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_468A36A952167FE64EF0446E5FF3FCFB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:41d60dcf970a948ad7a5a750dabf832c5de941223553f9b8391ad9c158ec02cd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_47A0AFD4F6A6FFCCEA806E84C4F2DE5F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1e9db8e06a7dd69e0f5346bcb194c4c770ec6096204d78ab7702f5a496f2a01f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_68A0AB643F6AD52A30067E83D6D36DBB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b3edb50249c6eed08c582725b6566bc66e3bd20127e6d721ff7ab61cdf92d7c5",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6CA2745E89383C2CBBEA73E7D18C18EF",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/6eaf017e6904_README_VNEXT.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_VNEXT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:987dce5fdb45b50f2b8d06ade5611e19ed9ef052320ed093a5cb94fb952778f3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6ED772F89ECC4DC91C31C49CEEA722D2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_tester_open_error_3_fix/5686a01d77c7_ASTRO_TESTER_OPEN_ERROR_3_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TESTER_OPEN_ERROR_3_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:331279daafdcd19530c660725f662839c0b1a8f10030f78d9c71ce4cb24889fd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6F52076E45A2F6D40B91DCA84828A499",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_layout_cleanup/fdcb3b9b6858_ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V4_LAYOUT_CLEANUP_GUIDE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:242293b35c14da4d8894a2339766a6cb5cce517b896076b1e81b4b6960dec903",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_71DD05CC6F58A87859B4671C9D08CFE4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/40b0c8ecc98c_README_HOOK_ND_BRANCHING_V1.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_HOOK_ND_BRANCHING_V1.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1c469cd74718ffb2655bfc73fcb443b2e0f60173f5c3dc88c8528eb9ab0a5951",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_722CF0A2F4FDD04EE5234433D80A4608",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c1070b9011a7848023fc8c760ec538362e1d0d4fd7977df2d3b801dc2efe3328",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7D6428E8B939392DFB3B19B8E6AFA2F6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:033f3f6bdd63b1fc8e5e21c1bcb5ffe914f17e750bb09f30ac92f385b452bf73",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_83BE0422B74F599CD9A18ED1C85DBB27",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_unified_dashboard_ea_display_update_fix/da2c2a4d4bf4_ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d0a8ebc6cf8813324adcdae4162f2afd98e738b3c084a61a15bb9dd0128e58ba",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_858FC5817E68B932F0A5AB44EB3A181F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d655ed5e5b50bbad6f050294de7a6853c55c5bc70e1520550c486280bc0e8332",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_8E889CE85AD87DEF5E33900F62401A58",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:be33e3e72381e4b90d8936cca5c87b1ba8668223b95d08a0a32c7a477bd34ec0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_8F6C577EAEBD4C4966699CDEA6129E67",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:56a77e7cff1216118cbecbc483d5758062c07ee0f7f792aab7a9216782636a55",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_91B1F7B9582CF4543AAE391AC851718E",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/astro_timing_doctrine/e8dec3f797a0_ASTRO_TIMING_DOCTRINE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIMING_DOCTRINE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:671508bb313efb2aa2d6e5f07b7af478c596bd39c635083f00b47a6a6f2e81ce",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_93ED59434DFA14F85C6C6FAFA9DF884C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_PATH_SCREEN.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:46d380a284c0277cdef190961af381612bf19a84dc250285a33ea5d56af684b6",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_972C887CC7E10B80524656B2E4289769",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/96f5820c0e0f_README_FLAG_COUNTING_V6.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_V6.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:525a8c2abfc4c9c8770c1003e5b55068567805826ba5180abdef0e7b7f5e4906",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A2451216DA703BD4B260FF5DA61B7F50",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_pro_clean_layout/45e4e980b219_ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V5_PRO_CLEAN_GUIDE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3ae8b5d19fde3eeb74802073392362f1f5dd08bf2b51aa0031fb8b1567ecdd8d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A6C6A13024AC0A5ED0A1F63F8B77BBFB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a8c8a5013deda4c742f4a666e66ef6e54855bbe880b21db256a26a15dde47ce7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_AAFF8CF4F8137521862A23FBD89BC96E",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3928b755891b45b73996e7821ef8ce53b5704c0abae6149c72b0737901667bb1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B6781E2E9EF2CBECC2F2C8AEF7152DE4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:59d83959e0cb28c7c05a8f951576b0199e76ce8fa4e929faf34ae7cf4da57eff",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B6F63CF869B945D65362593847E87E4A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/ba8d54697788_README_FLAG_COUNTING_ENGINEERING_PACK_V5.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_ENGINEERING_PACK_V5.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c59fd5b439e0fd493720c6b9c01c5fb94d671ed73ba4965f6bdb6229f9a0beaa",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B9348AB529BE5EBC274D23A4656407F3",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/run_exp0013_astro_fractal_oscillator_through_tester_host/6ea0f9de36e9_RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR_TESTER_HOST.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:49461aa101d04a32a268dd7e89a499014b845f0272cac386ef47d93097e2bca4",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C4274E0B1E09D78ED9D10143FE572B62",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:814a09205cf18b3d26b95b3f062ab2224829a0e71c7c1c3c819272c8d786ec8a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D5ED91EF3D13F9F2C42460C27F7C9FDA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e561278eec0b63a7f05125d2f33a217c924b07714888fe34825131a92ec1b934",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_E2E010F448E7F809CE6D63A3C7293784",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_only_execution_contract/b50b0013f3c9_ASTRO_ONLY_EXECUTION_CONTRACT.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_CONTRACT.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2649e963438f7e32aa5c6a3f504737b28d3fc576af6767aad9151fdc1cff7636",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_E7A3ED1190E69F71582522872CC791BD",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_fractal_m1_oscillator_guide/497686de5688_ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_FRACTAL_M1_OSCILLATOR_GUIDE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:39e1995dc8ae88e14e073829e652bf7bc8e1da3669d86a18bc4a39e899d2308d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_E955383EFE014E26C293E04290CCEE02",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/0d840c62852d_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md",
+      "restore_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6733cc5fd3af619c3fddef92c671cfd7684d5977322fb67f05d2328f2592905f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_EDC866ED65EED5D1267E3D84581BA84F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e1013096da76940c9e5a2ae7e50e4dadc87cf0e29900c145a7601b33ac6c4b0e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FF9FC379DEDFFDA09B305E9B040FCE2E",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fb4007f092609a72ef5f727c74f559bdb4de92ac912ffbd1aff2db6aa0c3a38d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:17b320dec4f61c182f85d547e0798b6c8e71ee493f8d99120f2fbf79e601dfd4",
+  "rollback_package_id": "WAVEROLLBACK_AAB06861102B22997388D5523ADD0E15",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_4D20CFFB3B7DFDA0152A090C212E84E0"
+}

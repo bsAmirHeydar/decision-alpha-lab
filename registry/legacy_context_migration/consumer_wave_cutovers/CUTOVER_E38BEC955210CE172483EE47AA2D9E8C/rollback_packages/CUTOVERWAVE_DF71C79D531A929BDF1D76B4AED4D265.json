@@ -1,0 +1,193 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 18,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_2C759FAE7223721A1A6F112DDFE58474",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_CFAAE6BE9BBB0EDD7297B67E65CBC660.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawMarker",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c60e9e1393471b5c62620924716210f1b4fed2e0e5996261a3fcef908030d11f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3920D76556504565281940F3EBD3C3BD",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_4ABA181AA0382EF978683E3BE58D0190.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1ba6543118f7c2ba0514516d075a5b6a24c842a304b6957d992d2f06b2c57d5d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3BB964A846E1270B31A43D14A53ED3F6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_59693DF6400383DFBDD84D68AE94EAAC.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawVLine",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:081af21ddc5149156f080f85c26c82cace92ec5a4af6facab4208e61989583ab",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3F2C0562210D29C8A06A98A4B67B4E91",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_49598A13F5779B4B199E8A61D138ADF1.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4ad09e9ce45b84632953d1a48e66d4a4d294fe6ffeebafb41894e309121c037f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_5025DB7E8D9DD5AE54E9AFEDA703ACC8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_AB12C8699CBDB0BAC91D6AD09BC72D91.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawTrend",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a4f0f51e84af1b6d4e10128031c36cf185050874f9e2c735a108749600556ded",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_588310D536841E87BDD14CF170D36F15",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_E2628F19FDA8D0E0AAE33CCF778C4135.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c529d377740b8597dcfda4464a012472a9adf681a7b2dbe150baff762492a067",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_71FC91BEF84FBC7F4EBFF608D94C5F1C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_7C499D0CF987017F8D8BCC957DDCEED4.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4f0a94ff299cb78708e9cb681c0339326ffa9b909094005e92426da587ff1191",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7C2568F5C80663007F7829BF6062627A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_7871FBB8E30C6BE2322432A648DDF85C.json",
+      "restore_locator": "mql5/Include/M0001/DAL_M0001Visual.mqh::DAL_M0001DrawSummary",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:43ee3af9d7a2e6c73d6530fc8ce12b30a45bfbbb66c93560fd811b382a7fb119",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_87CCD921E8DE1478C41296AC817669EA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_94823F9984CC32B83A3200F2CDB329A7.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawVertical",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:9fa61de02d3e6f218ec66d6a9cfed598179b1c06e8b37f286151ff721462c340",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_88FDA43D447E756E644AF847A79CD84C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_2F66E3F2969127E13C1D3FBE6924924D.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:bd7c987a6bf0b3ef8bfc345adfdba3f26bd0c4eab167f61d53c1bd87cfb791be",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_959A01A520B77E8D6736E11CB0AD1897",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_B940CADB58B186C5BAC110DF9652E75F.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:de7afef69d04aa9605e5dc2df4cd4b9d656b1433e6cd3ed897f85ccbf3251945",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_9A3903318F0CD0647100ED801D9CF488",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_CBC25C39F686CCE5111A12772994DB23.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawText",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:da56a00c762b2fcdae7d6a9e550646f57d413ab9df055c52578f9e0f80da128a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_BB9DD4E5CC45ECCF2BFEDC9099BEAFEA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_6F0B396086365D752F0672E59991EF85.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4d8fd8db0603bd9fb4284f0dca6cfec9b77dffccf180492b57f95ffb431c0651",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C904336A9B27E7D974331F6590C1937B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_6720B565457A47DFCBF69583FE0932D3.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawRect",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:12611a3a70600a86e67525c21cfead4b372747a7fbd8cb7a69735933ef00c074",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_DB8FA76D17BACA3FF58CF40C45F7BCFB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_B2C869D695BFCAB28DFC44D9A7BCEE07.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/tests/test_health_dashboard.py::test_dashboard_rows",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:613e077a3d3346806c437d5ed2f162d0722a277756616ecfffa031d4c909755b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_ED5C9E43B8A14283605BE4D73B358F03",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_5FAEF4E970AF48109C44671ADF4A317E.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawText",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a10230a35de76ca58864f8d57da20d904801a4b43014c84e5f4f81d18cba0876",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FB35FFA6537E1869A41A17C7A132CAC1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_E1C322D6074AFE4152D9EF3882F05732.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawLabel",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b0af6892737e5c6edb528b9eab0d8347efa34c85ead0a16bee89abe9c9988e26",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FCEFCA4C1A10A84938004D45E2A87C94",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_E16B710685F7AC39597C08A807F72FB2.json",
+      "restore_locator": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawTrend",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8ea5bf2d8d6b36fc7e3572fabeab3670d5df3d8488795ffedf97ce4abd0052e9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:de5d40fa36ccc83c861faa9606262eefc8ae455119df14715e39877f567855b6",
+  "rollback_package_id": "WAVEROLLBACK_B9EE31D10F8BBE9DB7106554F06E8046",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_DF71C79D531A929BDF1D76B4AED4D265"
+}

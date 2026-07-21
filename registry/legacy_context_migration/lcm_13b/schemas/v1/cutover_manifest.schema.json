@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/cutover_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_ids": {},
+    "cutover_manifest_digest": {},
+    "cutover_manifest_id": {},
+    "phase_id": {},
+    "schema_version": {},
+    "wave_id": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "cutover_manifest_id",
+    "wave_id",
+    "consumer_ids",
+    "cutover_manifest_digest"
+  ],
+  "title": "Cutover Manifest",
+  "type": "object"
+}

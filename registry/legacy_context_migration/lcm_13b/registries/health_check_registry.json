@@ -1,0 +1,16 @@
+{
+  "all_non_compensatory": true,
+  "checks": [
+    "EXACT_CONSUMER_SET",
+    "CANONICAL_LOCATOR_RESOLVES",
+    "LEGACY_FALLBACK_RETAINED",
+    "DUAL_RUN_EVIDENCE_BOUND",
+    "ZERO_NEW_HIGH_CRITICAL_MISMATCH",
+    "ZERO_SIDE_EFFECT_AUTHORITY",
+    "ZERO_SOURCE_DELETION",
+    "WAVE_ATOMICITY"
+  ],
+  "phase_id": "LCM-13B",
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

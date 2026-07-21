@@ -1,0 +1,74 @@
+{
+  "blast_radius": "LOW",
+  "capital_authority": false,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 8,
+  "consumer_ids": [
+    "CONSUMER_0B35A06B37FCC99FA8A2FB5E2B959A6E",
+    "CONSUMER_32376160378A81093FCCC109C7792D3D",
+    "CONSUMER_A840AD7630E745C64628A81887DF256A",
+    "CONSUMER_B818AFE6533A25FF94BB266B0AD6DE53",
+    "CONSUMER_D534E65CA6B7C32ECA48784EDE765CCE",
+    "CONSUMER_EA76E4A75D358891711E408C1FC8C027",
+    "CONSUMER_F13EFA8F49FB1317A4A7E84B205EB09D",
+    "CONSUMER_F476B9085D403D9130808E0F589EF990"
+  ],
+  "dependency_families": [
+    "DOCUMENTATION::lab/09_execution/EXP0016_intermarket_divergence_execution",
+    "DOCUMENTATION::lab/core/CP0001_structural_nodes",
+    "DOCUMENTATION::licenses",
+    "DOCUMENTATION::mql5/Include/Execution",
+    "DOCUMENTATION::tools/astro_validation/README_pure_entry_excel.md"
+  ],
+  "deterministic_identity": true,
+  "domain": "DOCUMENTATION",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "health_signals": [
+    "CANONICAL_RESOLUTION_PASS",
+    "LEGACY_FALLBACK_RETAINED",
+    "ZERO_POST_SWITCH_HIGH_CRITICAL_MISMATCH",
+    "ZERO_SIDE_EFFECT_FENCE_BREACH"
+  ],
+  "live_order_authority": false,
+  "master_phase": "LCM-13",
+  "max_consumer_count": 32,
+  "observation_window": "THREE_BOUND_DUAL_RUN_SCENARIOS_PLUS_POST_SWITCH_RESOLUTION_CHECK",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "partial_wave_allowed": false,
+  "phase_id": "LCM-13B",
+  "preconditions": [
+    "UPSTREAM_HANDOFF_DIGEST_MATCH",
+    "ELIGIBILITY_STATE_APPROVED",
+    "REFERENCE_OWNER_APPROVAL_PRESENT",
+    "ROLLBACK_PACKAGE_PREVERIFIED",
+    "FRESH_IMMUTABLE_DUAL_RUN_EVIDENCE",
+    "CANONICAL_TARGET_EXISTS",
+    "WORKING_TREE_EXACT_OR_RECORDED"
+  ],
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_triggers": [
+    "ANY_NEW_HIGH_OR_CRITICAL_MISMATCH",
+    "INPUT_DIGEST_DIVERGENCE",
+    "SIDE_EFFECT_FENCE_BREACH",
+    "LOCATOR_RESOLUTION_FAILURE",
+    "PARTIAL_WAVE_APPLICATION",
+    "CANONICAL_TARGET_MISSING"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "source_deletion_authorized": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "switch_mechanism": "REFERENCE_LOCATOR_BINDING_CANONICAL_PRIMARY_LEGACY_FALLBACK",
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58",
+  "wave_plan_digest": "sha256:f44bf486a61833f2900c6e480a48e3c704e54881f01542a416b23e2a15058b00",
+  "wave_sequence": 5
+}

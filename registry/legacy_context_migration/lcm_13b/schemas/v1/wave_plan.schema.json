@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/wave_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_ids": {},
+    "domain": {},
+    "phase_id": {},
+    "schema_version": {},
+    "wave_id": {},
+    "wave_plan_digest": {},
+    "wave_sequence": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "wave_id",
+    "wave_sequence",
+    "domain",
+    "consumer_ids",
+    "wave_plan_digest"
+  ],
+  "title": "Wave Plan",
+  "type": "object"
+}

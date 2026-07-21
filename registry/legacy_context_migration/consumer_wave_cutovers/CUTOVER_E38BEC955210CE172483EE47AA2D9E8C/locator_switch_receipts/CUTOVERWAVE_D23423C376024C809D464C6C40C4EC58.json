@@ -1,0 +1,43 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 8,
+  "consumer_ids": [
+    "CONSUMER_0B35A06B37FCC99FA8A2FB5E2B959A6E",
+    "CONSUMER_32376160378A81093FCCC109C7792D3D",
+    "CONSUMER_A840AD7630E745C64628A81887DF256A",
+    "CONSUMER_B818AFE6533A25FF94BB266B0AD6DE53",
+    "CONSUMER_D534E65CA6B7C32ECA48784EDE765CCE",
+    "CONSUMER_EA76E4A75D358891711E408C1FC8C027",
+    "CONSUMER_F13EFA8F49FB1317A4A7E84B205EB09D",
+    "CONSUMER_F476B9085D403D9130808E0F589EF990"
+  ],
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "cutover_manifest_digest": "sha256:7dbc9feb9d83545be702f20e048ae4d65c85bf82a2177b6eeeaaca898452e3db",
+  "deterministic_identity": true,
+  "failed_switch_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "health_report_digest": "sha256:93606f777e7a8a496d873ee6ec6bf6d79130fc039b13d65a6859777f5047e947",
+  "legacy_source_retained_count": 8,
+  "locator_switch_receipt_digest": "sha256:a428d4349ab60ba0c478d3840ba257b73f2d8edcda90e191193704d25373fc17",
+  "locator_switch_receipt_id": "WAVERECEIPT_67D2E965C8822D6660B538911EE704A6",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "partial_switch_count": 0,
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "receipt_status": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:baa865d844bc0567d99358bb35f955bef040f1dedee7a917b71884116eb7feb3",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "switch_count": 8,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58"
+}

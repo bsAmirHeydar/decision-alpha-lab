@@ -1,0 +1,11 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "legacy_source_deletion_allowed": false,
+  "order_submission_allowed": false,
+  "phase_id": "LCM-13B",
+  "production_runtime_cutover_allowed": false,
+  "reference_locator_cutover_allowed": true,
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

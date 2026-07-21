@@ -1,0 +1,29 @@
+{
+  "active_binding_count": 613,
+  "canonical_primary_count": 613,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_fallback_retained_count": 613,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "production_consumer_source_change_count": 0,
+  "records_path": "records/active_consumer_bindings.jsonl",
+  "registry_digest": "sha256:382f799daabe7b5ceded77a518442cd76eeef128a9594fb8fc74f4dccbf23ba6",
+  "registry_id": "LOCATORREGISTRY_95803B2612707CD613C486D5EF313EE0",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "switch_records_path": "records/locator_switch_records.jsonl",
+  "validation_status": "PASS"
+}

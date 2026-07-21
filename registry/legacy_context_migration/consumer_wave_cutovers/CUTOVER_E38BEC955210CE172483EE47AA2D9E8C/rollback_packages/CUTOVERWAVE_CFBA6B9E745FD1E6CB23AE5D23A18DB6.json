@@ -1,0 +1,157 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 14,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_1CD238B996A52EB232A703EA40323C0D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_638DE648505CC964C1591F9BCCB1F65D.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_27/validate_saed_v4_27_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e75f5877745467155d3a216b9f113e05527baccf58a030fb25c02e48fccf5fa9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2E0573EF449D6A3188D9600A370B85E7",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_37A3D9115CA0A6C8D9BF08F793A777C0.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_28/validate_saed_v4_28_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6dc93548b3d7c926e607e1a25a8788c980affd402217bb09c510bffbe7d6e097",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_30228153C544E865D1647928B2D8D787",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_AF700120A562A7659C589309692D79FE.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_05/validate_saed_v4_05_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:467a1f18ce27725e1da23139274f2a45a0ca6ccd63d69efbdf9ae13415cdfc94",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7125FD2A68C2B9BE32F8925E773D2166",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FB690F1435CD832BE80BDE9A8BF7D002.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_09/check_saed_v4_09_boundaries.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4893f5c68e5f9d199ce348011528b848856646d969709709aee258edd985ccbd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7D7AF7A4001D7F9F781024BB1B8D0A14",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_19972B8F6A1EE0007C8B9456D6C925C3.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_23/validate_saed_v4_23_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:26cb211620987c64647edb49943945a8d0b4f5225f3830e807158bf20a63f438",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_810DA552CB4DA8A9D9FF9A950DEFBE22",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_A16BF0C78D49872A8FC86AF79BA78C2F.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_15/validate_saed_v4_15_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:978713f10d544bcd5fa585dd506751f78f88e441513778a8bb997f11f9a1ee58",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_90A4B78A0EEC4F45A35D016DD5DA1D06",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_6C13AB002729FA6A16D35093C245D8BD.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_33/check_saed_v4_33_boundaries.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3178af368bc3bb451b7e5e6151cee63300d69bacc6a103a04de8c2572bf350f1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_99ECF4F8AD1DA91C2B90901C79188DFA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_11F62EDD76258F6744E95F2C4D8D6B54.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_07/authority.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fb2299a8d3981335a68efc4ac69cfc2a370bdd132927a5e70f537eee9483d306",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A4DF6351F423EE5CD68619E872FB545A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_22676B4C7B141D8D389F168EFCC3925E.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_16/validate_saed_v4_16_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8a6ff53a62ad0c35c97145fb439dd961d51bf90ec4314776c03bc81153594158",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C77D2D711052FA6B107B8A30D2C3AEF2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_99C7FBA69C5C5532A9E3AFAC91D5DDA2.json",
+      "restore_locator": "tools/strategy_factory/lcm/lcm_09b/service.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:389827340792a6b980d05498eedc91b0e6a528ecee6ea018e49e44a5df63fdc0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F46942E3AF2127A7EC3B6D6691346F82",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C18D72A4E96CB219A4FF992EB54F9E25.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_28/check_saed_v4_28_boundaries.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2a2072ddeaaf9075aa27ecceb3ab9f2c0be66c44780db4e9075518741a1f3149",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F68FA37CAD3B83CF3395B23B6E610FCE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0A68C5FA9071483909CEDAE94E8C1757.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_32/validate_saed_v4_32_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a29e9df69db831f87abe867a2f613ccdc4dc53a18ce65f94716dee49dc23c88f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F8BEC8B0D6F15F317EE288D1B757B97B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_05BB912F54A815768475773757291BAA.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_14/validate_saed_v4_14_mql5_static.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:5a30e7c2867b785c53d35de960f6b71c5bc562d9b0e9efdb4263db58b60ce6b3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FBC46B5C0E2A1DF73F8BF98260CF67D6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_6EF7D172D6E5AC13BF4AA46A08BD2460.json",
+      "restore_locator": "tools/strategy_factory/saed_v4_32/check_saed_v4_32_boundaries.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:77b2c635059baf1aaa00aab8d779189f1e52c1378df5fdd094d4b19f50faef44",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:af97b32d6bb0765370e014fe2b25649fa9299501c1fcecb2035eec47d1619bfb",
+  "rollback_package_id": "WAVEROLLBACK_D51031F554E311E68B56E9ECE280AA05",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_CFBA6B9E745FD1E6CB23AE5D23A18DB6"
+}

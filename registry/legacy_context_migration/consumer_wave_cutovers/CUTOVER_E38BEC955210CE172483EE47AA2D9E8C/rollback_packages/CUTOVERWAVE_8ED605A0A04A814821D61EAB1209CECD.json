@@ -1,0 +1,247 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 24,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_00F0734813603E7557122B2D9E3D1BEE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_A0C56B02388802F300509A528528AFA0.json",
+      "restore_locator": "mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:0af2c3f9a8d4a0a44279c9d3b67d0764f64eaac3c07dfdfc53afa2d2c8a5f4fd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_06015DDE9EEF5A438770DACED7D83550",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_071C2567E45391C20817E730E2469C14.json",
+      "restore_locator": "mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f7d15681d2851d743151a88cd3d509e40c30d44bce001e705675495f437922e7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_0C14B5194EC589189DF0F908145A8AA5",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D5C96285225F6F8CA00CBCBB787A5344.json",
+      "restore_locator": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:023c9f5b2be37f0dd14c62cad85d38ec126d2ab96acef28e6465bbcd258552cb",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_11CF6BECE496216E674ED21F92E15B73",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F86D818438D7E79446B251AD15F2BCD8.json",
+      "restore_locator": "mql5/Experts/Research/EXP0012_DistributionClusterMiner_Demo.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3a2f62b1a4182e057725b6025184071789e0ee42ffd6a89bfe4769ad01500ac2",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2BC62C109096EE61F6B0AE46300360C0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_355E7BC9822BD5186A4A26A3A51135B8.json",
+      "restore_locator": "mql5/Experts/StrategyFactory/SF03_MarketServicesDiagnostic.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2743307f9ae4a42172cb9c4104b339b83ecdd30401b91d996dc082155377df30",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3687469063CAF7C45304BD419BD06E4B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_9FAA9B12AB572FCAE0AED7DC93F8A2D6.json",
+      "restore_locator": "mql5/Experts/Execution/E0008_MTFPurpleExtremeExecutor.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ddb0b369fca23a17f6f9878f0471fe734b2e4c7d1547c77f71002d78005313b7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_394D81FE659876BA5BCF0D77A31D1A3F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_623CC202416C1E9FDECFD534EA2C75A3.json",
+      "restore_locator": "mql5/Experts/StrategyFactoryTests/SF18_LiveSafetySelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d9d34e8cd4bc73fda1866ed06429adad80a81f7b623ad0404b646ba1a92ed1d2",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_42C319247804F36C14587B14B8B80C41",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_BAA7217594193C8FE2EA57176F1236C0.json",
+      "restore_locator": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ada405fd2f1518f7beafd3b4d9e7f64f17c74d2ba5033798111b0bfe64552d90",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_46EB3F49323256DA390E814982CFF843",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D45735B30060B9A8ABC2BB3E9EDE37BB.json",
+      "restore_locator": "mql5/Experts/StrategyFactoryTests/SF10_ResearchHarnessSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:394999330abcfdf9f19f51551c847a1037d0cd521b72e595452ac53465ca7316",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4C654E98BA3544FA2C152DEEFC979AA9",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EB735A9AC0C560D82168CCBA98F18BF8.json",
+      "restore_locator": "mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I15_PaperSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f8dc03a850ef143df481ccb4715fd81fcfe1825d54a207b096aeb9b42c3b3661",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_535670AABE97E754310C77B1DBF3BF6C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_B5A7AE24398CA5C06BB21A86E0AA824B.json",
+      "restore_locator": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:712312ea67120f04a2e78f968ff3ca66c1dd36208b3d6f54fd2f96828d6175fd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_57CCE715BE3B10438758CF2C76212D2A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_55AB90AB22ABD712DDA9D6DE04A3F51C.json",
+      "restore_locator": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:7a5d7f45beeedc224ae2d34d90d4f72d1ee8651f09f2341065a45e91455bd6f9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6AB2CA56A33BCDF89E4458F8CDF7EDB4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_E0D176429B70A97B5CE2A2FC01EBDA8F.json",
+      "restore_locator": "mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:895c11dc7779b9e07693786cd0babfb07b3c5fcef64d70d14d2992948b430088",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6DC0F7540AA56C2B4816B6FEA7EF05A3",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_014910846905879CF052F00F1051DB0D.json",
+      "restore_locator": "mql5/Experts/StrategyFactory/UCE_I03_TreatmentAtomsDiagnostic.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:99194ded035a3505e3beff951c6657032e68768ccc2f9cf624aa44f6f025166a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7566781097ACD54A8680C50E61B59AE5",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_64A0842087B0B623BF15F3D8C92D813A.json",
+      "restore_locator": "mql5/Experts/StrategyFactoryTests/SF03_MarketServicesSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:850b78148d9e3187254c468e4c6261250f32d1fad523239e80945f72dc71b3e3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7B82ACFA0C40F6268B28240ED0B8C365",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_BE58E42B1DA2A993AB54B3F20BCC55D2.json",
+      "restore_locator": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:812cd4b515f29524c51bc27ff68218b326e54520fa15123806d7b57bb79228ab",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7DE9CBB291AAE3174223D5F363DE4CA4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_8C953BA6AE0945F1164AD2BF6F5B53DB.json",
+      "restore_locator": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:08cb0d7826412dc67809a8cb8daf5fcd7daa6eeb5728cb6cb0114246fe81d0d0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_8FE59D17FC4A53707248167264448BB1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C307A47237760C97B9BB2FC9657177C4.json",
+      "restore_locator": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d9f5c972324553542b76b9faa7a0a8c02373a35f3f6474b3dc236f59c2aa9aea",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A9E842ECABEEEF49632BE85F4D089049",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A5762135E56D5E22D564643D0EC154.json",
+      "restore_locator": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:57c612d2c2f0690d7905e5523558d04f2f7541fc647ca4bf1c31653fce9281ea",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C72F01DFAAF15E169BCAAB5555FC9553",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_5BE4883032DCCA7979747B8A7676D072.json",
+      "restore_locator": "mql5/Experts/Execution/E0007_PurpleSourceExtremeExecutor.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a24a8ad01483d6f86b47bc4dab96c2cb635a98c213bb670b7e1ae388e0e1c2a1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_CDFAF94E8817B30D410A397B0D2DBCC5",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_CA49311C5CA01BB04B8B03B5DC2B5E51.json",
+      "restore_locator": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ee52f0237bdef6f391947aeea624923414be87d8b8e9c6f7e1933becd9729761",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_CF922CBFC281C2ED28C8677D9DD70D40",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C8AB48E7016A8376B3C0785AC700A7FD.json",
+      "restore_locator": "mql5/Experts/M0001_LiveVisualLab.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:aa063d8e92bff1708530c51d9e23c21750eb743989c171f704424f5bfb7727e1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_DC4C09A852C7FF378E6B4AF4941E6EFD",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FE5C8EA02D63C2811C5F37E8CAF542CB.json",
+      "restore_locator": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:29920089e9e137b0c6c1d52f7df62f17b8b7b46b19a170f5f8d76d83a6054125",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FC287D7DB3966A89A04418CA63B5D501",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D076F9B9BEE0F01713285E84B9680CD6.json",
+      "restore_locator": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c2949160bf07946471d786a150a544ea3fa5872a478593b8ab3ae5d799ba07d9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:fc5025681b3c9b7b1faf4522f5fe9be9baa0ca49de629de809184b954085095b",
+  "rollback_package_id": "WAVEROLLBACK_274ED4DACEF98A9E394965F4F00AFF15",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_8ED605A0A04A814821D61EAB1209CECD"
+}

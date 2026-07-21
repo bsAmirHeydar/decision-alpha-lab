@@ -1,0 +1,83 @@
+{
+  "binding_digests": [
+    "sha256:03907042a4f097a3adc0ec299e40099c838f826408b7991f3063a03bd541eadd",
+    "sha256:38c787302875c69ff5f940155e4171c4eba97a1e996024e98efb3966d7b701b0",
+    "sha256:e13788944997f49aa99262cad70c47c5257db4b8b99a66dafa6bc613116a2793",
+    "sha256:beda53cbc5de601b6a5dd839104f43af7531e25b4bd7cd6f2909083331e49917",
+    "sha256:443a627105751e4fbfc8781919ac28aa8d2f2eec67a0a67e5db75a43a8eb663c",
+    "sha256:80b2e37f7b2edb583379700f1efe2f19788d1d936d7d685cf71b6fdb1a543469",
+    "sha256:59c1310e0c082f71c9ae94967ce97dcc1203ed8220ca46ec34843d7b67adff77",
+    "sha256:a87bf6a0dd15ccf785f7f544d7269c6aa7cd0598fafedb72fc8da8b9beda6d3f"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "compatibility_adapter_digests": [
+    "sha256:f33d4a904ff96f3223cbfb0b6b9f003ded2836681ea132aa2d8ee8949dcb4331",
+    "sha256:1ca577fc56bb44876c42c8d93b6d242e51f0bba3c071c8cef5b5d496e638433c",
+    "sha256:a2177a51383bcf8cee3968a9f88c3e5d9a1ee1068d7dc66bb1acfde177e2ae58",
+    "sha256:0443b3978776ba133cb705e8e7ea0589eae3b0d3e94c439db9af78b1f6cbfe89",
+    "sha256:e8af06d9d23a44e34715781d2dd028be12405cdd987a818a49ca150b7481deea",
+    "sha256:1228ea758b2403a81f413dbca02a80db830a5022d6bc62a863ff3a5f2241a431",
+    "sha256:d26ad2773474de91e7a371ace44b7a1632dd6f57797937621f324086801ffe55",
+    "sha256:042dab8259a1b3e694b9b005af7c2065604429f68a510afddf674f455010a6e7"
+  ],
+  "configuration_default_change_count": 0,
+  "consumer_count": 8,
+  "consumer_ids": [
+    "CONSUMER_0B35A06B37FCC99FA8A2FB5E2B959A6E",
+    "CONSUMER_32376160378A81093FCCC109C7792D3D",
+    "CONSUMER_A840AD7630E745C64628A81887DF256A",
+    "CONSUMER_B818AFE6533A25FF94BB266B0AD6DE53",
+    "CONSUMER_D534E65CA6B7C32ECA48784EDE765CCE",
+    "CONSUMER_EA76E4A75D358891711E408C1FC8C027",
+    "CONSUMER_F13EFA8F49FB1317A4A7E84B205EB09D",
+    "CONSUMER_F476B9085D403D9130808E0F589EF990"
+  ],
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "cutover_manifest_digest": "sha256:7dbc9feb9d83545be702f20e048ae4d65c85bf82a2177b6eeeaaca898452e3db",
+  "cutover_manifest_id": "WAVEMANIFEST_67D2E965C8822D6660B538911EE704A6",
+  "dependency_families": [
+    "DOCUMENTATION::lab/09_execution/EXP0016_intermarket_divergence_execution",
+    "DOCUMENTATION::lab/core/CP0001_structural_nodes",
+    "DOCUMENTATION::licenses",
+    "DOCUMENTATION::mql5/Include/Execution",
+    "DOCUMENTATION::tools/astro_validation/README_pure_entry_excel.md"
+  ],
+  "deterministic_identity": true,
+  "domain": "DOCUMENTATION",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_source_delete_count": 0,
+  "live_order_authority_created": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "partial_commit": false,
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:baa865d844bc0567d99358bb35f955bef040f1dedee7a917b71884116eb7feb3",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "source_file_change_count": 0,
+  "switch_record_digests": [
+    "sha256:286acc78ecb0bdc3ca66543ce31dd67faf2d276a4f866a6dcbe124b99d177325",
+    "sha256:2d05ff36f60fb9ebe56b2d469a0d78c76f0b62a95d5bbf31bc10162376cc38a9",
+    "sha256:253cb9a8dbcce49b2a96496a02d0cc9aca7ba5eb9b2b72b1d5a78b8b156a289a",
+    "sha256:cbfd725bfd5f4c69dc5025a989f248a2c1ce2f50affde94b039f792d8336704f",
+    "sha256:0ad1fb7223515d1c87f9abbb15dee292f32868a33fdf75be01c036268cd91f5e",
+    "sha256:79132ab334285c11f736f3046211ad87753d9ad491d429c000ed59cfe7db4127",
+    "sha256:2df6ec9bb2a37e3f5bc6dbe1789223cac14d01438decf7667fd1efb060a4c9c3",
+    "sha256:a8fd63c12bb5342c41837fb4dd809ca1a84cb48b093514904a28e7495bae38ab"
+  ],
+  "switch_status": "APPLIED_REFERENCE_LOCATOR_PLANE",
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58",
+  "wave_sequence": 5
+}

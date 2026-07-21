@@ -1,0 +1,8 @@
+{
+  "approval_scope": "EXACT_ELIGIBLE_REFERENCE_LOCATOR_PLANE_ONLY",
+  "phase_id": "LCM-13B",
+  "production_approval_is_separate": true,
+  "required_approval": "REFERENCE_MIGRATION_OWNER_DIRECTIVE",
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

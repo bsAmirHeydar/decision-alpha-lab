@@ -1,0 +1,12 @@
+{
+  "event_types": [
+    "WAVE_PLANNED",
+    "PRE_CUTOVER_VALIDATION_PASSED",
+    "LOCATOR_SWITCH_APPLIED",
+    "POST_CUTOVER_HEALTH_PASSED",
+    "WAVE_COMMITTED"
+  ],
+  "phase_id": "LCM-13B",
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

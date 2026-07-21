@@ -1,0 +1,247 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 24,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_226D66299793153D9114FDC4453531DB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_AA8EE70AF27CF61EDFDD5A05659E61AD.json",
+      "restore_locator": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3be76d022cf2208508a3ee96c0efd311f981a61074ba975ef87102a36f58dd37",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_22C780B25C8B72B4881EFAA087760A4D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A64DC0CBB15113C13B9DFAC044C92F.json",
+      "restore_locator": "product_lab/indicators/gartal_terminal/mql5/GartalTerminal.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6d29c20f98918b73e42d3e4dfd597422d48fe51f748e3488053090fd4e5ca34e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2CE773917DF5BBE14ED39FBE671E4FF0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_31A13D105BC2FB978A5279CE6E1C68DA.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:15d13f9a99071554ec6173d72b64072e2177db21c55804b32a7881cfe12a751c",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3C173A5933F437DD9B387389D85F2A66",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_51187BC0F28C2367361A29A3E49F2D65.json",
+      "restore_locator": "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:88b88ba68159a255cd4c331435f7c677b6b6b2c4361dbc165fa07994aadcef29",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4566D5D10AAAE88886ACFE77F684C864",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_46C51BD8799DA879AF8F346A9D357B6C.json",
+      "restore_locator": "research/exp0017_phase12_5/python/phase12_5_pipeline_integrity.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b026c0fb3af1c3e0f7ab4324dd599a32c8526be692fa0e3eb48477325e4c7303",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_54D3F5042660836C923BE2FFB75F6871",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_A1053CE6D795AF3F7F8B0AF06A7AE874.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I11_VisualSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1ef04e3d957ccabef5fe8877b7cdf96d3911d230c8ae419b740e61bd645e1f4f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_666A1A88BE6C55C769BF90EC9B0D0370",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D2AD92C90254746B7D26FA7760A3E497.json",
+      "restore_locator": "tools/flag_counting/nds_f2_canonical_point2_projection_root_fix_qa.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:14be8c48db97cae17291f2f047013d25fe893607d65b2af90b0d6ce71fdc0081",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_668E217B1711BCCBE6755C2E9E0F4DB6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_306242E897BD327422DFD30A5211E5F7.json",
+      "restore_locator": "tools/astro_ml/fetch_mt5_rates.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:77ba0cf001ea5c1b395a53b7f0501dae2a5d89d69e4ee83139a0f3011db88050",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7615369C28E798E88B41E5E2912DB887",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_4FD9E925D950CCC46770E35F199D3F12.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I13_ReleaseSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a4a5f13194bf944e95739ac01260f1c9f982a1d32225b13aa8d5d934f89fa61f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_78C514BA0BE1C3DE8010F5531B1E8374",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2347E79CD470AE5A3F3B04972D2978D2.json",
+      "restore_locator": "tools/flag_counting/nds_f2_dual_exit_contract_qa.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d0b40b62eb07a63154fdcdec9ac44260c81a55f0617bd735ea393b7b79132a16",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_79AEB2C979C929E0A252315F707C7A89",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_35B08D4B7F1CC76FB4601B4BC7C6A503.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:cc11ba56421500921ad11bd4f5d2d37e2dd8c3f4f09b3ad77a7833a4038b3677",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7A3D779914D9E7E6E5A458BCA0849EA4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F238E5EFF6B16A433EC79619561B2FCA.json",
+      "restore_locator": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fea43a3a5aaaf11fff2bb4c3c14afedb9031a2f121df29e0a986af62c2432d9f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7C513ED0B6C1201294BDDB094087A57C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F905FD4A5F925711311197B37C70F3FE.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ad3934994cb5454ada117b2c4207a7c3aae87ea69d73223aa1117da3d183c411",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_85451AABF296295D9FA5A7FB95A70F03",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_5C4F0D2CA19ED7A35ED49B54E45AD087.json",
+      "restore_locator": "tools/exp0019/check_fp_i02_boundaries.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:74558fee0b21d22c7a4d2e819da5437cf3fb4ff412c4de5762e77f6d98ac2e13",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_90FDB03129A041312E74766150CE4BBA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C67CE7EE8513780ACAD3994A096E4B92.json",
+      "restore_locator": "research/exp0017_phase06/tests/test_hotfix011_raw_path_freshness.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:59186af85962f1d70a72ebd8a1e56f6c8930c860eec896478c3a8b3aa71f167e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A7AE16809BA809339B5B2B68879C9F59",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_96CEE6E67C9297E65532B3BB594AA8D4.json",
+      "restore_locator": "tools/flag_counting/nds_f2_canonical_frequency_recovery_contract_qa.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:9f090b5ec83e68b7339d278863649b7abf55ce6e1f991944ef9abb9762fed205",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_ACBF7167C099BB8215F14FA7C58CA5C1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_7A5472D2AC9CC13BE3366E13676A0458.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I10_IndicatorSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:028076a9bb17ccda5e42dff46e08946af35648bf63e5321105178d305f42a9df",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B6A7DD841ECF485F9734084F502F993F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_8B7BED1707472CF91C436A559E386460.json",
+      "restore_locator": "tools/astro_ml/astro_ml_core.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:de57c6e63e78b302965e1dfe332ef616f0b710e1c2b664786221841ad0331f93",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C01D1CF7DC146086D07CE106C0D43444",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_ED80916A2825A02128250BD9826F8E01.json",
+      "restore_locator": "mql5/Scripts/AstroML/ExportRatesForAstroML.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d10a88551c75b0ad162de9fa31d5c33be59fd6cd383d65a0660de82d670d660a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C9115983F9D6C7C93D24AABFDED2599A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_BAB9B6FE1E2BAFE74AEFD9F03F96D387.json",
+      "restore_locator": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f5f35836f7b88f7af0bf5f1023975681522b0c20f6af385f8dd117983d1dddd7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_CDB9F04429D0943524BFA6EED7F154AE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0A7236942E9F4B446479494D2A617D84.json",
+      "restore_locator": "tools/astro_ml/build_cognitive_astro_memory.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1b4a1fd7fe51924ec107f477a8665c8d5970da4f6effd77827989e4e8ed58ea0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_ECA04D43859DE931904E6E2A9186F9DF",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_84CDD0CDE40410C598631E0451A1C575.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I12_OperatorUXSelfTest.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fd199680166fccbbbc0e10510f15ae34734d9f8be954ca0d6a430897f77f1554",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FAA90F51E5A385478C7ACB33DCF264D3",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_AD887C74FDE15A190868ADC323B12D6A.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f3b987e8c1b283bc97871e53aa4c48b4344473db2349810e892ef4620e1b33ce",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FF925B3E8DAF57FD9531E201F2DB503A",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_50C0EB4108016A51732F75E0CD71AA72.json",
+      "restore_locator": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsInputs.mqh",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:263b227cc14036313ae0738659fbaf61c507f75093ef218f9b348551c3acc683",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:988c7723715f4af5e004ff00eff03da531eceab8d5fdb2122d97ffaae806f1e1",
+  "rollback_package_id": "WAVEROLLBACK_841C7152FA2B98A948C925BFD99D80EA",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_7997A8AD1BDF1E68FA5B36831AC01B43"
+}

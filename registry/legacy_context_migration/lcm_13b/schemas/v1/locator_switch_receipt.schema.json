@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/locator_switch_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_ids": {},
+    "locator_switch_receipt_digest": {},
+    "locator_switch_receipt_id": {},
+    "phase_id": {},
+    "receipt_status": {},
+    "schema_version": {},
+    "wave_id": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "locator_switch_receipt_id",
+    "wave_id",
+    "consumer_ids",
+    "receipt_status",
+    "locator_switch_receipt_digest"
+  ],
+  "title": "Locator Switch Receipt",
+  "type": "object"
+}

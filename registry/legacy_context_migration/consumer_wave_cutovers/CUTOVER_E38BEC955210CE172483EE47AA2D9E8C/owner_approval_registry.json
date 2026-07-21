@@ -1,0 +1,32 @@
+{
+  "approval_basis": "EXPLICIT_MIGRATION_OWNER_DIRECTIVE_TO_IMPLEMENT_NEXT_PHASE",
+  "approval_digest": "sha256:060142dcfdc7cea8e50194d4c3fc6c12ea1556ab472515cccbdc86707070939f",
+  "approval_id": "CUTOVERAPPROVAL_2313FC398F31266D4C14F65C766B4F36",
+  "approval_kind": "REFERENCE_REPOSITORY_LOCATOR_CUTOVER",
+  "approval_scope": "LCM13B_REFERENCE_LOCATOR_PLANE_EXACT_ELIGIBLE_CONSUMERS_ONLY",
+  "approval_state": "APPROVED_REFERENCE_SCOPE_ONLY",
+  "approved_consumer_count": 613,
+  "approved_consumer_registry_digest": "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+  "capital_approval": false,
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_approval": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "production_runtime_approval": false,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_deletion_approval": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "validation_status": "PASS"
+}

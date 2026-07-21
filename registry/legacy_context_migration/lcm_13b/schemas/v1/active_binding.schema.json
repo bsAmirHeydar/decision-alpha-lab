@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/active_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "active_locator": {},
+    "binding_digest": {},
+    "binding_id": {},
+    "consumer_id": {},
+    "cutover_state": {},
+    "phase_id": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "binding_id",
+    "consumer_id",
+    "active_locator",
+    "cutover_state",
+    "binding_digest"
+  ],
+  "title": "Active Binding",
+  "type": "object"
+}

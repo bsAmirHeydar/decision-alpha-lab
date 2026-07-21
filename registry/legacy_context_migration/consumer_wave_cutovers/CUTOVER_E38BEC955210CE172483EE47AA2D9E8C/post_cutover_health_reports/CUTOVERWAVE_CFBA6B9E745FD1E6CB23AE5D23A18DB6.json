@@ -1,0 +1,75 @@
+{
+  "canonical_resolution_pass_count": 14,
+  "checks": [
+    {
+      "check": "EXACT_CONSUMER_SET",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_LOCATOR_RESOLVES",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "LEGACY_FALLBACK_RETAINED",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "DUAL_RUN_EVIDENCE_BOUND",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "ZERO_NEW_HIGH_CRITICAL_MISMATCH",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "ZERO_SIDE_EFFECT_AUTHORITY",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "ZERO_SOURCE_DELETION",
+      "non_compensatory": true,
+      "status": "PASS"
+    },
+    {
+      "check": "WAVE_ATOMICITY",
+      "non_compensatory": true,
+      "status": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 14,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "dual_run_scenario_evidence_count": 42,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "health_report_digest": "sha256:d220bfc949ed03d15ae507d5ef09e941d7b404268d77c7055c690596fd9491a9",
+  "health_report_id": "WAVEHEALTH_D51031F554E311E68B56E9ECE280AA05",
+  "legacy_fallback_retained_count": 14,
+  "master_phase": "LCM-13",
+  "observation_status": "PASS",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "post_switch_high_critical_mismatch_count": 0,
+  "post_switch_mismatch_count": 0,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_triggered": false,
+  "schema_version": "1.0.0",
+  "side_effect_fence_breach_count": 0,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_CFBA6B9E745FD1E6CB23AE5D23A18DB6"
+}

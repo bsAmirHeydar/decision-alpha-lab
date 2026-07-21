@@ -1,0 +1,193 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 18,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_11AC3D3F93967D8793A2E53E5C5826A2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_661B36805728D0A18C5BBD19E42D0C2C.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f9411dfff8a4b15788aaf69447f46bce954e9ea8967e3253e17562de0a784ecd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_15C80DA989B6106036ED6BE03D6B0729",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_3AA868020FC9705D2226D296A4BE3437.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ddd1e2799870b411ed1d061265fab2624cc1f773d3364743c3a04e0f51297780",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_187F09302E3AC2F523F3CC246ECAFB65",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_AB105E5FBB4F98606A2C735896F8ED3C.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:7768b2c6dd1eb4e395d5bf0a76bd8208322a743aab11a680ef9a38dca727ccdf",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1F9BCC16F2F71E1608A481977EB10956",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_8036DF7488CBD0458B2D87567E4A1DBD.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:cc3cf21ec7642cb07883d49d5a044cc8c9252b825dcc3a9bd094529d665c230b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2DF896BC18A7000506938555752CC8B7",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_B7FF3CDF0991251970F89ECF15A1249D.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:681e4b762d430a22107d552a0c39fbd62d9ccc016ad50daf6425e53962b00861",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_32105B092A6ED7D10654F726577B2B36",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_6B92D46E76C785767EFA47FF7B964944.json",
+      "restore_locator": "mql5/Indicators/Research/EXP0013_AstroRawAxesOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c089165bc10f1f7cf8176f6d28e1f49b6a52e3a32f0a5aa53bd83edc07c43fb8",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_34785C934F2702E3C6DD58E2BA695A31",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_AC5FA0065826A6DFDF365C9D60E8AA0B.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I10_IndicatorSelfTest.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:22a981719c6f4f4b4fa31337ff681ad14fd98247e353a3471bb72ff0c4638249",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_39DCCB0DDFDC09ABC7A9E9FB0763259B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_A74AF30E993133DF9F5EFA584AA71869.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:958512b1511be51cb323f8125c6499eb8bef8eaceff92e380905ec588019f937",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_43F9B6F4655CCD50A54A482ABF3D66F2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_129219E53501648ED52761545F9B607C.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c88b9039a4cbd5771034ce53186ff26b0088ee1b69b85cdc310cc9dc3d68658e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_46A21ED39FC3FEF4EE7330B72BC69A1B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_07C0EC3ECF972B3AECDFDCA381C4385C.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a2246fdfe651560f95b7d8ae48dcde8ae57f18431bf527d6cd1634a04227430a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4AD8494DE6D8D1622ACCE98EDE113EB2",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D52AEEE806FB9E88B2D0BCAC348427C5.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:83fc69ee7cfd2238985fbc9a07af0e7c8261ab7a28ee29638d2f738d4fe5551c",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6B642C254547AF259CF91AD9F08A70D1",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_5CAB957E583CD74B9D07B2B4787B9BE2.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8be8104d2d1edb67ac110276cc04dd17d893193b4b27b0bc7426e02e193e234b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7068DB374EB632B6460545DABFF0C0B8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D87D45396F00EE776F9D6C56DB13B6FD.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1a1b2202b5e573c25680eadec1613a56778f6887f44ff632250847078d09b484",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_79297061ACCA6103F76452741C58439D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_5D676F50A21DF63B01CC80119DFE3999.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:508a2120130cb8221b90ab8b035876863a1c98f7abf5ef197c00696e087f7d27",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C31A4F34608D8EE173019ECE85503B9B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_31182C7271A6014426C19F837A43C42E.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e86b7e8a0a3f0cbf0c52cfcc54ae9a98a72612610345d27c1d878d40df74de9f",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C70751705C269F89DDF631E723112717",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_40BCD35A070D69DF637130D0D6060362.json",
+      "restore_locator": "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3492a5c8ab68ee6de7eb939f518bf2adc58205a67b9afa242cedd86d44b99076",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D1B9134FDAA00725CDDBA578CCFF260E",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_0B234C255A3D6241AC4B921D2835BC17.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e314b7c1d44dd061b277e4bfd72b6a9569df59e7be2a5cdda2309f4d9daafa11",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D468A4694341BDD4FF861E2E698F3054",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_6E86A6F15A48FDEFB4061D0733D48635.json",
+      "restore_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e83494ca8651774d3d7c85c4a336cb822692b2a746b6b7512d597af18cb38973",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:c2489b15a4584c25775a8d5957fed00c56457241df857db595042579305f0e93",
+  "rollback_package_id": "WAVEROLLBACK_BBAD7C15AA6F188183C6234687A5DAEC",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_19A268AC69C14C411100EE6BF7732638"
+}

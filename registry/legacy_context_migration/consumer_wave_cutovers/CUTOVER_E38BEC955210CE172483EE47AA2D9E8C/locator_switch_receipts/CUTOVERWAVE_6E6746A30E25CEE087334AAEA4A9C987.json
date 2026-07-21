@@ -1,0 +1,36 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 1,
+  "consumer_ids": [
+    "CONSUMER_6D553F6038C64A31FCAFD1D6CE844D0C"
+  ],
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "cutover_manifest_digest": "sha256:02781176646e9d4b95809b04dff84f9832fdc4844460ef2d51b66a02beea88ef",
+  "deterministic_identity": true,
+  "failed_switch_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "health_report_digest": "sha256:ab9786d7bfc7695e3cefceb042514ce88866aac00ef8dd3c9743491185f9a6c7",
+  "legacy_source_retained_count": 1,
+  "locator_switch_receipt_digest": "sha256:4a53b0722630cfa41c5dd463d8557205925167793ac9e548b0980fd3e5f220a8",
+  "locator_switch_receipt_id": "WAVERECEIPT_BE8C7D27587CE26ECB2B5166365CA1A8",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "partial_switch_count": 0,
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "receipt_status": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:bf8e45fa297d68441b728958ed1323657e16b40f17b4ac261295305b7c53412e",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "switch_count": 1,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_6E6746A30E25CEE087334AAEA4A9C987"
+}

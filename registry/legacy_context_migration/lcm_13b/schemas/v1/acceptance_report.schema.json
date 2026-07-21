@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/acceptance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "completed_gates": {},
+    "passed": {},
+    "phase_id": {},
+    "report_digest": {},
+    "report_id": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "report_id",
+    "passed",
+    "completed_gates",
+    "report_digest"
+  ],
+  "title": "Acceptance Report",
+  "type": "object"
+}

@@ -1,0 +1,247 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 24,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_16DC025355977C8C7F6F1A95287509C4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_5F2E2DF24810CB37EAA46BD19A878924.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/simulator.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e7ddc59d9b883af648b3066c6bc83b4a3b28a8412cf86d7ec9a16043b35b2d40",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1953302552C9B90503BC51F59410E143",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_614DAF356F7131FA712D88285E40A89B.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_neutralization.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f91d7f4a14b8e95a69627f035f319d635cb05cd9c6053123342cd0d8c6544374",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_30D49793DDA8CE08A5949A7D436DDA04",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_698BB30EE45697A40EF3E3A6EB271485.json",
+      "restore_locator": "lab/11_strategy_factory/migration/tests_lcm_07/test_static_delivery.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:59e982bab857784dbea7ca09b82449cabe450c849b593a2ab4c1b617e4b7fd55",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_34FC181396CA8BE358CD344AE388F214",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_B69DF5842E5D36B260B0EFE98B4CA7A7.json",
+      "restore_locator": "lab/11_strategy_factory/acl_os/tests_acl_04/test_constraints_baselines.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ff9b2011254afa086cc607e8e250719803e714b9c4aadecaee1c859d98505efc",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3B15457E499472B08B90AD7CD6EC9112",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_138A5E5489ADE7D7587658F92F7C00D2.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_sizing.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b389b52bf172abca00df78af8ec477c2a69079525576753b09d1ea1904c989b0",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3ED54D2CDC23FE8223D0704612BFBE45",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_93D7838468791B8E3854495B77A17DD1.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/tests/test_layout.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:44bfc202d2e31e41089b9476e458b851d7f430f549d5d3b9bf8b846d0c7baedd",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_435962FD846580962C1DA2F2FB29660D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_47B51DDF864F591350F57F89EC8E27A7.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/contracts.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f08a8ee3a898ffee6c83a132d5ecf4834593418af24b5dd146dbe5a95493a855",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4A0CFBFE08B3624325AE442D54D7743D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C3F14634A1BC0A5364F3B87D296267FD.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_geometry.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:78629a6b011eb8e15cf53a75a1ad70eb5c0236b11fcf7fcaf874d947be6ac4aa",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_523749CC825AEDD4601BF183D2A3FF59",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_29A27A1AEC6E6B09AD0C1CFCEDC4B299.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/position.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:22e34d14670212f9eb529003647a5621d88cc2cb3b7baf9a82d17e4a8073c130",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_52DB435A32C19EC1D53DE28AA6B40859",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_15F597C22751B47FA56D26AA4AC0AEC4.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/python/fp_i04_data/bar_validation.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:263a2cd170700bcf583253adae96865a0fe11531fd64db33d9bc1cdb923bb1b7",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_544EF790D46E23DA1D3464E8FF84161B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_494045A8A5A2D2E95784101EEF22508D.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/python/fp_i11_visual/contracts.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:24ec7129f16298e8a90b286ddeedcd967e288472279df4740a8bb2b735f2185e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_5D77A83DF612A260FA6854DB4CBC02D7",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2B895BA3A3706470475B524E24124EAB.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/contracts.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b3ab0f1a87e4b758b43123b421404b2ae8f97e0146e5d3aec3329e9781407de9",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6AC06D9733DFF8D9107BAA160D44FDE6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F66893D5476293F6E116D055918A90F4.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/sizing.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fb8977113d971e92f7b53a9f4caf1af289ddef5dfade8d5648f4c6bde6ea36bc",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_71964D9AB42902732C22FCCD328EA8FE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_55533C759C44BAE754E60147775860CC.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/reconciliation.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a9914e41b64cf0934c19f0fdcec5bd97880dbbbc63173fd300ad1246bf381c51",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7503CA8CE11E6B4B8DD83E96D4F987E8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_ADB03497AA66988605C99314271D76F9.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/enums.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ec6f2a1cf47ecec788f49bac805cabaa9ca992433b386fcf58062250e529251b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_7F23879BEC7846894C573C52E488D97B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0D55F01F202C54797C884D0D56C8CFD5.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_reconciliation.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b82df88dd7dee48bad15fb1aa953186a2276f2a01b76b3a4555e8677bfd25945",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_832D6B272DC17FE18AAAA4A5E7C0A481",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_1BED7270633D5895ED4CE7A613556922.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/python/fp_i04_data/contracts.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d4753a3780e3d04cc867d08acaaaa4d9a7cef943ad22eb3d6c6c34bd7fced218",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_8A78E35F84AF40890446C602820FCBFB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_77E05D57CE0C86AB132BA046EC607A0B.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/tests/test_fp_i05_references.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:964b356ea2041c0bbb23125002b6cd21b608c38d01f0f7a3fa873050ad25e783",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_CCEFF422C3531B57C5A2BBC3C3A035F6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C7676DAAF58931C3CA530482864E3AFB.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/python/fp_i11_visual/layout.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:6dc936ad92cea97769bef739f5abcfcf6c9ad71ccf541f572de0237fe5b0a742",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_D8BF302A71BB898DFD05BCDB711F9FDB",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2F892FDB3B314A768735220B8D3BAF9C.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/python/fp_i05_reference/reference_engine.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:5b0320420d85fdc447778502928b6a9623f1456f5441aae584999199a35f9eeb",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F0C482992642FBF224AD914E9A284DDA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0E27CEFDD9C397C1654E755267830613.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/enums.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f206f9b54575b0b8e2bff31352f4c46a085638f698c9e13fb2aead714793d33a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F44ED9943310B8A650D68260BD647940",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_31CD1E29D350022098826C669F834A7F.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/geometry.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4b1f7e52790aab6b07cbf5c7c9b662da48336707896b7886f0091d8a6f3c2b00",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_F4C241EAC8455AC4F01522363F2D7A8F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_8069DF196144A535B22382F45769A38B.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_authority_boundary.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:9c72cf772c138f42372ecb5498bfbd1372a321adc7aead69ee7866dd6c1b626e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FCC4C628602B29085A6A1622D26A023D",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_89D4AF3AE4D93F9ECFA09C3999F06621.json",
+      "restore_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/reason_codes.py",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:4f0b1f0ff279d50117f13ddda5228f189e9953c5b2716b4a11c22bbcfd2be5b1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:23a2e27117e2882635f31664f92328b20fa8b4175573bcc3926b81370cb66839",
+  "rollback_package_id": "WAVEROLLBACK_9784025AC13BCDA9914C7AE98FEE37D5",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_FD5B2D7161E40551B5958B77F37D04F0"
+}

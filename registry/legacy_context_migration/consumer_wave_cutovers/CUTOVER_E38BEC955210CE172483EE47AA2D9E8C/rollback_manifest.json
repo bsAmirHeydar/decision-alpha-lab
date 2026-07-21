@@ -1,0 +1,166 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 613,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "legacy_source_delete_count": 0,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "restore_persistent_state": true,
+  "restore_source_configuration_locator": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+  "rollback_manifest_id": "CUTOVERROLLBACK_95803B2612707CD613C486D5EF313EE0",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "validation_status": "PASS",
+  "wave_count": 27,
+  "wave_rollback_packages": [
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:d89ecdeabdeb6506278b7806ed7c87c70d0198b3d075c519f3f26ea60314a09c",
+      "wave_id": "CUTOVERWAVE_B6CD725B4E65249F068E34DCDD2B789C"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:a2702647bdae59c740c0bcd12a97034433e66e3814ebfe46995c40c2f00816da",
+      "wave_id": "CUTOVERWAVE_1031C3FE1BAD4FCF2E4C2736C4FABE4E"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:17b320dec4f61c182f85d547e0798b6c8e71ee493f8d99120f2fbf79e601dfd4",
+      "wave_id": "CUTOVERWAVE_4D20CFFB3B7DFDA0152A090C212E84E0"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:1cabc31936ac05079b4330886a00931747609e77be516c70201d5b48270e1c66",
+      "wave_id": "CUTOVERWAVE_67EF3930E92262125693BB38876000FC"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:baa865d844bc0567d99358bb35f955bef040f1dedee7a917b71884116eb7feb3",
+      "wave_id": "CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:de5d40fa36ccc83c861faa9606262eefc8ae455119df14715e39877f567855b6",
+      "wave_id": "CUTOVERWAVE_DF71C79D531A929BDF1D76B4AED4D265"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:c2489b15a4584c25775a8d5957fed00c56457241df857db595042579305f0e93",
+      "wave_id": "CUTOVERWAVE_19A268AC69C14C411100EE6BF7732638"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:cfe8a4dd12c2e13011b769636051eafb9cd5f2717b62e4d7b75b66ffff60a8c4",
+      "wave_id": "CUTOVERWAVE_FD1FF0EE13262922EDC4DCBB03A957D6"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:bf8e45fa297d68441b728958ed1323657e16b40f17b4ac261295305b7c53412e",
+      "wave_id": "CUTOVERWAVE_6E6746A30E25CEE087334AAEA4A9C987"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:23a2e27117e2882635f31664f92328b20fa8b4175573bcc3926b81370cb66839",
+      "wave_id": "CUTOVERWAVE_FD5B2D7161E40551B5958B77F37D04F0"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:1a72074c92a77970927a81cc8a060c5550d902aa960ccdfbc180e7b0a692af56",
+      "wave_id": "CUTOVERWAVE_41E4CC53FE3E215B755A50807BD138CB"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:01f76e58113fb6127ee8dcf6a67475f21f98aac63ff2d242481362947984d853",
+      "wave_id": "CUTOVERWAVE_BA0AD32057723D99C3D1FEDC68FC46C9"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:3fa53ba275f618abb58b768c46523d179003c4db2e7beba3b65ebc6dc01ef644",
+      "wave_id": "CUTOVERWAVE_6A941B7ED132F123C22F0F3ED3ED3A44"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:3d4e36924215faa8ec477672a51948ab608858263972de960d9813732e6e31b5",
+      "wave_id": "CUTOVERWAVE_B5976FDB2B8B6312428FD4BDE6F5046F"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:fa8755523421e84c942f438a387be6cddbd9a1adfca655c6a76eddd0b1552141",
+      "wave_id": "CUTOVERWAVE_411698A7E82E98468CD0505B4CE88EC8"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:fc5025681b3c9b7b1faf4522f5fe9be9baa0ca49de629de809184b954085095b",
+      "wave_id": "CUTOVERWAVE_8ED605A0A04A814821D61EAB1209CECD"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:909d5a9cfed13da84d297955276ab8be071ba135db92f3e8f27d9fa5750c12c0",
+      "wave_id": "CUTOVERWAVE_AECC07087C26D5FA9DFCA2DB4AADDA90"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:108941e1bb00ed3e49622804b0123b2a772bc4df3bd69d19d9cec80b0784efdf",
+      "wave_id": "CUTOVERWAVE_D24146E420E073F5F8AA21C59E0DF61E"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:dffce3683ac105f897b963a00ffbda5a23e5745f92b464fcc42af600ce0af60f",
+      "wave_id": "CUTOVERWAVE_18CF9989FA03E2FF9FCD79C15460FADD"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:f77d42784f6877feb08350b56f911c6ffd8e823ecba37dd28a1983449c4147d3",
+      "wave_id": "CUTOVERWAVE_235290FC84B96314A860A347039032FA"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:aa0fe46a65684167fec2b29b72ca6f9f74b71bbc5e5b3503131b59c71fab1e1e",
+      "wave_id": "CUTOVERWAVE_7B7A0881620EE6EB50D87AD5123FB07C"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:431e28801762cb3fd71381e50c2db614842b482b45a4f58d3af7bdfe6c6a936d",
+      "wave_id": "CUTOVERWAVE_55713879F175CEDFA397E30D3D1EFCB3"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:b52bb8842d8090f08ede2074eff50eb5481cc1851fdd9b65b27b95be8997252d",
+      "wave_id": "CUTOVERWAVE_CB8C92B41D177A2173F2335F0E73466B"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:2b98ca276aff5342f7f5b3bb2936cef6950c52d4b030afead61a9fa95d1ddf8f",
+      "wave_id": "CUTOVERWAVE_E3A644DC5787CBC54B3E78BC0913FB06"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:988c7723715f4af5e004ff00eff03da531eceab8d5fdb2122d97ffaae806f1e1",
+      "wave_id": "CUTOVERWAVE_7997A8AD1BDF1E68FA5B36831AC01B43"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:aa9d3ead856bce48dc0aba2e5df2664312ccc7dd025fc181391a41fd38912626",
+      "wave_id": "CUTOVERWAVE_6A43A4A5B2A19FE852AEDE4718220397"
+    },
+    {
+      "preverified": true,
+      "rollback_package_digest": "sha256:af97b32d6bb0765370e014fe2b25649fa9299501c1fcecb2035eec47d1619bfb",
+      "wave_id": "CUTOVERWAVE_CFBA6B9E745FD1E6CB23AE5D23A18DB6"
+    }
+  ]
+}

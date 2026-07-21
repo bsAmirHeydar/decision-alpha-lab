@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm13b/health_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "checks": {},
+    "health_report_digest": {},
+    "health_report_id": {},
+    "observation_status": {},
+    "phase_id": {},
+    "schema_version": {},
+    "wave_id": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "health_report_id",
+    "wave_id",
+    "checks",
+    "observation_status",
+    "health_report_digest"
+  ],
+  "title": "Health Report",
+  "type": "object"
+}

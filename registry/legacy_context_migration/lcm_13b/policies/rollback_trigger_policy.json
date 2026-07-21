@@ -1,0 +1,15 @@
+{
+  "automatic_reference_rollback": true,
+  "phase_id": "LCM-13B",
+  "production_runtime_action": false,
+  "schema_version": "1.0.0",
+  "triggers": [
+    "ANY_NEW_HIGH_OR_CRITICAL_MISMATCH",
+    "INPUT_DIGEST_DIVERGENCE",
+    "SIDE_EFFECT_FENCE_BREACH",
+    "LOCATOR_RESOLUTION_FAILURE",
+    "PARTIAL_WAVE_APPLICATION",
+    "CANONICAL_TARGET_MISSING"
+  ],
+  "validation_status": "PASS"
+}

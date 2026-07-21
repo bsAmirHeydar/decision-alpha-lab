@@ -1,0 +1,319 @@
+{
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "consumer_count": 32,
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_revert_only_sufficient": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "preverified": true,
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "records": [
+    {
+      "consumer_id": "CONSUMER_04B970C8747ECDBA68BD5D6EDDFA5BF9",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0006_node_survival_edge_map/067470759816_H0006_reversal_explosive_optionality.md",
+      "restore_locator": "lab/02_hypotheses/H0006_reversal_explosive_optionality.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:aa3c25cb475f1d1912d976f80030199c4bc53792c7e3d5c3fa8703b1a9db5938",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_06186B51E208D45CA977B84E0F79C59E",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_raw_axes_oscillator/d4d1fb06e8fa_ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_AXES_OSCILLATOR_GUIDE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:385b9b0362ee31e13b7fddc4fa759a842d5f79728e202406e95a0bd9ff23f848",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_0CB36CA4357390D551B24EFF55CE0885",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1641d1ea9ea567d65f1ba5e56df5c692094e07a879d93bf906aea1e7556041d6",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_0D2AC757B131BE3BD36195F545EA29C9",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b06fb0b43b93e115afdb4b4691e4b8840b8c27d81f82da2091b6797ec7f7c29a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1DE37073F49ECFAEC670C9A70A584A7F",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0004_branch_regime_memory/45fad849057f_H0004_branch_regime_memory_atomic.md",
+      "restore_locator": "lab/02_hypotheses/H0004_branch_regime_memory_atomic.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:12a22ae82011f611cbed83236a5a452db0afe09ecb4382e3c72421c6fea0f8f6",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1FA578536E78524DE3C9CF7043C8FE78",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md",
+      "restore_locator": "lab/03_experiments/EXP0002_mql_native_m0001/report.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:fa86497bb7a0a2d2318247991958d29d48a000a8a526651f53c37452b96ba7de",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_1FC0A02B4230F2972B633782657C11EC",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_pure_astro_signal_algorithms/7e6eca7a86f8_ASTRO_PURE_SIGNAL_ALGORITHMS.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PURE_SIGNAL_ALGORITHMS.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:c19fc25aa7d6d160fcea8ffeebd5556f4c9c3dd2574b49bd0a8637d490d10125",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2105E483453848D93711D8A9D1D93AB3",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_scale_model_m1/0800b36f63d2_ASTRO_M1_SCALE_MODEL.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_M1_SCALE_MODEL.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:8a8fe98b80794f187ab3575a1d8715dbb00b2e2a9dccecdda4391fea2dde7230",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_225CC469478C5C80E203E005C9798EE6",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:ed476f8f69d53a69b2b92e979c4c76f533cb985c8fbd64deb0f7ee9f9c0b792d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_226A6679F199127D1104EDE145FB4A2C",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:69098e9781e7ad814b27894a99b19aec34bfd655f4477ad867f804b02c07feee",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2512387695ED0E1D99D147064D087DDE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/phase_24_release_operating_model/2a81f79fd69e_PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md",
+      "restore_locator": "docs/strategy_factory_implementation_roadmap/phases/PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:a0d6e7add6c7cf8b4d9c03aafa00fa4c7baf5ce5805a829dae8bb70e4d25e90e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_28F407F459EF157CBB03DC7FBAA37F80",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/75ea9203dfb6_INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+      "restore_locator": "hook_canon_validity_doctrine_patch/INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f3ef5d7a523b2c0e93d5f18e62add6161308835ad9629864624bcfb5870f8c00",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_2F4069153A58FBC806D19A7D8A6252A0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/295e21e2051a_INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+      "restore_locator": "f_canonical_logic_integration_patch/INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:5e54243dd6dba3e2df7b7f159d8e29d6f66dd5a133bad3e4ec2f4282c9126de3",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_35511865614D2162EC98BFC94E9BD430",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/4225ea569e6d_README_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+      "restore_locator": "f_canonical_logic_integration_patch/README_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:1fc05957bfeedf334c82a561f51a6d476da0451b22e401f361c8bada01ab5688",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_382D044D5F921DD240534959AE7314DE",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md",
+      "restore_locator": "lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d80995d73bbf345d587fbedfdaa73558ea3f52a7af61a273d386ada7ad80714a",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_3DF8A99FB018CCEC2F86587B3B09E972",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_raw_sky_compile_fix/cc710a086588_ASTRO_RAW_SKY_V14_COMPILE_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_V14_COMPILE_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:954773d5821a581e04c6a359ab44309087d2fc5b6625d9aad50f47dbbd8abdf5",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_444A946C6811106FC21A093A3EC506E7",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/releases/legacy_migration/general/cde7c64f1c13_README_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+      "restore_locator": "hook_canon_validity_doctrine_patch/README_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:80b1251aa8bf493e86afc5c28694bc0dc8f2ea9032a1d05d45e2c9dad49dd9b1",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_469C68AE6375356331881E3F223D8753",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_visual_polish/884be8b774a1_ASTRO_DASHBOARD_V7_VISUAL_POLISH.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V7_VISUAL_POLISH.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:5fa96a35086eafd5174a56d52de2526eebd5a0cbf6ecfbaa41523ad1a30ca7eb",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_4880C3734B23EC3A05741A0AC1EF29DA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:9a3645d8e8a127ad895b3fd7de032ad4d8316e0d6f4d536f9a2cc837b78112ed",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_55536508AAC780DBECFC2053B0754153",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0005_directional_memory_execution/57d9666c6533_H0005_directional_memory_atomic.md",
+      "restore_locator": "lab/02_hypotheses/H0005_directional_memory_atomic.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:bf625744403bc90b0335f990f28e44856145cfea5b06c5c9c3c40c26bc7302c5",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_587BE9E92856FFD3594B98E4960145C0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:cdb863eb8d03f75596b3a53876e15c535d002c8de6d4ead40382c076dbde5ddf",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_5AB88F09A71D78DE89C869FA6F6C5124",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:36b6065cf049d8717215deff36eeddea2469e0e12c3233a5d929600b9c63ba6d",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_60E3F2372E658D01C1FA2DB0CB812EA4",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0013_raw_sky_tabbed_ui_natal_doctrine/4417b5ea0f1c_ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md",
+      "restore_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:d18047bab1ec18d3c6bb10e6d820dd8299d0060af81426e1ffca04ee19f128aa",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_66516D1C9DAB1BCCEDE53A2CDC0D5083",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0002_structural_node_territories_revisitation_dynamics/0117ab4487f7_H0002_structural_node_revisitation.md",
+      "restore_locator": "lab/02_hypotheses/H0002_structural_node_revisitation.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3c7e7566fd3d300384acbb9b5510b69017b384b00549d4ed490dba722f3db067",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_6B44913FEDA79C0CDE45106FCE88BD58",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md",
+      "restore_locator": "lab/01_observation/OBS0001_structural_highs_lows_importance.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:3f18c8fad8899aecf16b389b20d38f47edc6859b4c1bdf688a022122a101cd74",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_825075C9E6C278A22DECAF50C27CE0EA",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md",
+      "restore_locator": "lab/02_hypotheses/H0004_branch_regime_clustering.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e4c623283acf62202bdba6ca0eb894ae549e3b1b53cf9d34b3763f52331902d2",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_A32D3464BFF68B26649D27A877B13713",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md",
+      "restore_locator": "lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b205cc40f3f6df7f30813e3b3ddbc9af4558b00eec7773a3dff116295b5e626b",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_B2B75708943726058F44F8BF4F107E16",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md",
+      "restore_locator": "lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:e6f656f6d1aef7759e428cf5325be90ccf2e994506d0cc399323f2baf92cc376",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C4B0EFD0DA9ADB1220F346954BE848A8",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0000_sample/58c8a635ff91_report.md",
+      "restore_locator": "lab/03_experiments/EXP0000_sample/report.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:2fe130ed12bd0e8397df46e6e6be4402fcbe2fdb25dfdd6a9550318fdf1dbd53",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_C895AE592A458D8E3F31C56C23DF131B",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md",
+      "restore_locator": "lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:98d18e176da95e7a072bb343392c6b501db69e4322dd44455c29710baca9593e",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_DFEAD3478D4DF4037A391FD2833E4EF7",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md",
+      "restore_locator": "lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:f83f9358449e8659354faca03f1d074384f7bc58ce19517e745fbd10c6db4d54",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    },
+    {
+      "consumer_id": "CONSUMER_FD2B831C24195BAB9C9B3A20112845D0",
+      "persistent_state_action": "RESTORE_BOUND_LOCATOR_STATE_AND_CLEAR_REFERENCE_BINDING",
+      "remove_active_locator": "docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md",
+      "restore_locator": "lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md",
+      "restore_resolution_mode": "LEGACY_PRIMARY",
+      "rollback_record_digest": "sha256:b537e0fee7199eabb9ec4e7b1026c21b234608dca24a2502ffeae33208f887e6",
+      "verification": "REPLAY_THREE_BOUND_SCENARIOS_AND_COMPARE_BASELINE_DIGEST"
+    }
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_package_digest": "sha256:a2702647bdae59c740c0bcd12a97034433e66e3814ebfe46995c40c2f00816da",
+  "rollback_package_id": "WAVEROLLBACK_09FE55F55E2B100B6E241BFB494B2E5F",
+  "schema_version": "1.0.0",
+  "source_deletion_required": false,
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "state_restore_required": true,
+  "validation_status": "PASS",
+  "wave_id": "CUTOVERWAVE_1031C3FE1BAD4FCF2E4C2736C4FABE4E"
+}

@@ -1,0 +1,57 @@
+{
+  "attempts": [
+    {
+      "attack": "UNLISTED_TRANSITIVE_CONSUMER",
+      "evidence": "EXACT_ELIGIBILITY_AND_WAVE_COVERAGE_SET_EQUALITY",
+      "result": "PASS"
+    },
+    {
+      "attack": "COMPATIBILITY_WRAPPER_PERMANENT_ARCHITECTURE",
+      "evidence": "ALL_ADAPTERS_TRANSITION_ONLY_WITH_LCM13C_REVIEW",
+      "result": "PASS"
+    },
+    {
+      "attack": "CONFIGURATION_DEFAULT_CHANGE",
+      "evidence": "ZERO_SOURCE_AND_DEFAULT_CHANGE_COUNTS",
+      "result": "PASS"
+    },
+    {
+      "attack": "PARTIAL_WAVE_COMMIT",
+      "evidence": "ALL_WAVES_ATOMIC_AND_COMPLETE",
+      "result": "PASS"
+    },
+    {
+      "attack": "LOW_FREQUENCY_MISMATCH_DISCARDED",
+      "evidence": "RAW_POST_CUTOVER_REGISTRY_RETAINED_ZERO_SUPPRESSION",
+      "result": "PASS"
+    },
+    {
+      "attack": "LIVE_AUTHORITY_SNEAK_PATH",
+      "evidence": "AUTHORITY_FALSE_IN_BINDINGS_MANIFESTS_AND_HEALTH_REPORTS",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_13B_REFERENCE_ONLY",
+  "cutover_id": "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C",
+  "deterministic_identity": true,
+  "failed_non_compensatory_gate_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13B",
+  "producer": "tools.strategy_factory.lcm.lcm_13b.service:LCM13BConsumerWaveCutoverService",
+  "report_digest": "sha256:e1c079d5ac2aa3985ab960aac19b1c6c1d98344b423a322c97b7dd8bacebf5b2",
+  "report_id": "HOSTILEREVIEW_95803B2612707CD613C486D5EF313EE0",
+  "result": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:ec2e8cd30696e604aa34e3ecbae3a6f4a20ed76dfde5889939d143c21876f530",
+    "sha256:74f063a499513fc65b6f24745705854d4efb5d6f526e56175003890f0f1e1e97",
+    "sha256:9d9f68a79ae41a827f4ef1aaf35dd595220576eb9abca82b2593791d1f6b22d8",
+    "sha256:7e94997069135002359c71b8c5324a5d2c897b5ed13b0a2d7becdcb770042c2f",
+    "sha256:f2beb9647981e3bf1fb3d5d479dd093af171e6b2cf9ed1ccfa0a4a9740bf56f7"
+  ],
+  "validation_status": "PASS"
+}
