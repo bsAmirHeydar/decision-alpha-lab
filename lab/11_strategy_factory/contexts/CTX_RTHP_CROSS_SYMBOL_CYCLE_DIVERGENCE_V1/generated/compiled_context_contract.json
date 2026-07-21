@@ -1,5 +1,5 @@
 {
-  "compiled_digest": "sha256:c814f7f649e16cdfec2923c0ec956eff51302d2be36f1a763e010812c738daf4",
+  "compiled_digest": "sha256:1ed578f7a7b132820d68b18d38c982e73e44e9332ec3bf9ba245824291fc615b",
   "contracts": {
     "acceptance_gates": {
       "gates": [
@@ -158,39 +158,88 @@
       "counterexample_policy": "Every semantic amendment must add or update positive, negative, and ambiguous immutable fixtures before approval.",
       "examples": [
         {
-          "example_id": "POS_HIGH_A_ONLY",
-          "expected_classification": "CONFIRMED_BEARISH_DIVERGENCE",
-          "fixture_ref": "fixtures/golden/POS_HIGH_A_ONLY.json",
-          "kind": "POSITIVE",
-          "known_time_annotation": "Both symbols expose the same M15 confirmation close and only the primary High is touched."
+          "example_id": "AMB_STALE_PRIMARY",
+          "expected_classification": "UNCONFIRMED_STALE_PRIMARY",
+          "fixture_ref": "fixtures/golden/AMB_STALE_PRIMARY.json",
+          "kind": "AMBIGUOUS",
+          "known_time_annotation": "Missing synchronized primary data transitions the Context to UNCONFIRMED."
         },
         {
-          "example_id": "POS_LOW_B_ONLY",
-          "expected_classification": "CONFIRMED_BULLISH_DIVERGENCE",
-          "fixture_ref": "fixtures/golden/POS_LOW_B_ONLY.json",
-          "kind": "POSITIVE",
-          "known_time_annotation": "Both symbols expose the same M15 confirmation close and only the secondary Low is touched."
+          "example_id": "AMB_STALE_SECONDARY",
+          "expected_classification": "UNCONFIRMED_STALE_SECONDARY",
+          "fixture_ref": "fixtures/golden/AMB_STALE_SECONDARY.json",
+          "kind": "AMBIGUOUS",
+          "known_time_annotation": "Missing synchronized secondary data transitions the Context to UNCONFIRMED."
+        },
+        {
+          "example_id": "NEG_BASIS_MISMATCH",
+          "expected_classification": "INVALID_PRICE_BASIS_MISMATCH",
+          "fixture_ref": "fixtures/golden/NEG_BASIS_MISMATCH.json",
+          "kind": "NEGATIVE",
+          "known_time_annotation": "A basis mismatch has no detector transition and cannot create an occurrence."
         },
         {
           "example_id": "NEG_BOTH_HIGH",
           "expected_classification": "NO_EVENT_BOTH_TOUCHED",
           "fixture_ref": "fixtures/golden/NEG_BOTH_HIGH.json",
           "kind": "NEGATIVE",
-          "known_time_annotation": "Both corresponding High levels are touched by the common confirmation close."
+          "known_time_annotation": "The protected High is touched before confirmation, terminating in BOTH_SIDES_TOUCHED."
         },
         {
           "example_id": "NEG_NONE_LOW",
           "expected_classification": "NO_EVENT_NONE_TOUCHED",
           "fixture_ref": "fixtures/golden/NEG_NONE_LOW.json",
           "kind": "NEGATIVE",
-          "known_time_annotation": "Neither corresponding Low level is touched by the common confirmation close."
+          "known_time_annotation": "No touch transition is available at the synchronized cut; state remains UNTOUCHED_BOTH."
         },
         {
-          "example_id": "AMB_STALE_SECONDARY",
-          "expected_classification": "UNCONFIRMED_STALE_DATA",
-          "fixture_ref": "fixtures/golden/AMB_STALE_SECONDARY.json",
-          "kind": "AMBIGUOUS",
-          "known_time_annotation": "The secondary observation belongs to an earlier cut and is retained only as stale evidence."
+          "example_id": "NONSEQUENTIAL_M15",
+          "expected_classification": "CONFIRMED_NONSEQUENTIAL_M15",
+          "fixture_ref": "fixtures/golden/NONSEQUENTIAL_M15.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "Non-sequential M15 relationship follows the same canonical state path with distinct cycle identity."
+        },
+        {
+          "example_id": "PARTIAL_HISTORY",
+          "expected_classification": "CONFIRMED_PARTIAL_HISTORY",
+          "fixture_ref": "fixtures/golden/PARTIAL_HISTORY.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "Partial but nonzero reference history may confirm while carrying partial sufficiency metadata."
+        },
+        {
+          "example_id": "POS_HIGH_A_ONLY",
+          "expected_classification": "CONFIRMED_BEARISH_DIVERGENCE",
+          "fixture_ref": "fixtures/golden/POS_HIGH_A_ONLY.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "One High-side touch followed by synchronized exclusive-or confirmation."
+        },
+        {
+          "example_id": "POS_LOW_B_ONLY",
+          "expected_classification": "CONFIRMED_BULLISH_DIVERGENCE",
+          "fixture_ref": "fixtures/golden/POS_LOW_B_ONLY.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "One Low-side touch followed by synchronized exclusive-or confirmation."
+        },
+        {
+          "example_id": "RESTART_DEDUP",
+          "expected_classification": "CONFIRMED_RESTART_DEDUP",
+          "fixture_ref": "fixtures/golden/RESTART_DEDUP.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "A repeated confirmation after the immutable occurrence does not create another transition."
+        },
+        {
+          "example_id": "SEQUENTIAL_M15",
+          "expected_classification": "CONFIRMED_SEQUENTIAL_M15",
+          "fixture_ref": "fixtures/golden/SEQUENTIAL_M15.json",
+          "kind": "POSITIVE",
+          "known_time_annotation": "Sequential M15 relationship follows the first-touch and confirmation path."
+        },
+        {
+          "example_id": "ZERO_HISTORY",
+          "expected_classification": "INSUFFICIENT_HISTORY",
+          "fixture_ref": "fixtures/golden/ZERO_HISTORY.json",
+          "kind": "NEGATIVE",
+          "known_time_annotation": "Zero reference history has no confirmation transition and remains unconfirmed at the detector level."
         }
       ],
       "minimum_per_class": 1
@@ -361,12 +410,15 @@
       ]
     },
     "occurrence": {
-      "confirmation_rule": "A candidate becomes an immutable occurrence only when both symbols expose the same M15 confirmation-close identity and exactly one corresponding level is touched.",
-      "deduplication_rule": "A stable identity over all declared identity fields suppresses duplicate emission during replay, restart, and repeated hunter touches.",
+      "confirmation_rule": "A candidate becomes an immutable occurrence only when both symbols expose the same M15 confirmation-close identity and exactly one corresponding level is touched. The ACL-03 anchor_time is the canonical alias of confirmation_close_time, and direction is the canonical alias of intrinsic relation_polarity.",
+      "deduplication_rule": "A stable identity over all declared identity fields suppresses duplicate emission during replay, restart, and repeated hunter touches. anchor_time equals confirmation_close_time, direction equals relation_polarity, and subject_key equals symbol_pair_id; these aliases add compiler interoperability and do not add new domain meaning.",
       "expiry_rule": "A later protected-symbol touch after confirmation transitions the scoped reference to REFERENCE_EXHAUSTED without deleting the historical occurrence.",
       "identity_fields": [
         "context_id",
         "context_version",
+        "anchor_time",
+        "direction",
+        "subject_key",
         "symbol_pair_id",
         "cycle_definition_version",
         "signal_family",
@@ -385,7 +437,7 @@
         "CONFIRMATION_BEFORE_LATER_REFERENCE_EXHAUSTION"
       ],
       "revision_policy": "APPEND_NEW_REVISION",
-      "start_rule": "The earliest tick-size-normalized touch of exactly one symbol-local reference level creates one candidate state for the registered family, reference, pair, and level side."
+      "start_rule": "The earliest tick-size-normalized touch of exactly one symbol-local reference level creates one candidate state for the registered family, reference, pair, and level side. The ACL-03 subject_key is the canonical alias of symbol_pair_id."
     },
     "ontology": {
       "entities": [
@@ -936,10 +988,10 @@
     }
   },
   "manifest": {
-    "artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.1#sha256:7f67c2bafe6f18454ebefb9eedf562db37cbe82e68e271e0917ff5644f80d71a",
+    "artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2#sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37",
     "classification": "RESTRICTED",
     "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
-    "context_version": "1.0.1",
+    "context_version": "1.0.2",
     "contracts": {
       "acceptance_gates": "contracts/acceptance_gates.yaml",
       "amendments": "governance/amendment_policy.yaml",
@@ -968,7 +1020,9 @@
       "cycle-divergence",
       "context-only",
       "acl-02",
-      "english"
+      "english",
+      "acl-03-ready",
+      "compiled-identity-aliases"
     ]
   }
 }

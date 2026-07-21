@@ -1,0 +1,9 @@
+{
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "extension_count": 0,
+  "extensions": [],
+  "findings": [],
+  "passed": true,
+  "resolution_digest": "sha256:ddb50cf40a98efacfc265d0bcc92349fc923c876ae38c034c39f7b0c4ac5cfeb",
+  "schema_version": "1.0.0"
+}

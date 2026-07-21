@@ -1,0 +1,121 @@
+{
+  "acyclic_required": true,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "edges": [
+    {
+      "edge_id": "EDGE_5405F140B7FB8F99A064",
+      "from_node": "SOURCE",
+      "relation": "PLANS",
+      "to_node": "PLAN"
+    },
+    {
+      "edge_id": "EDGE_64B651E1E76389D3C33A",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "DETECTOR"
+    },
+    {
+      "edge_id": "EDGE_9D02247F331A78E4F1FD",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "OCCURRENCE"
+    },
+    {
+      "edge_id": "EDGE_BE8C37AE53AADA88C51A",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "KNOWN_TIME"
+    },
+    {
+      "edge_id": "EDGE_8362977AD18919B7C4F9",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "FEATURE"
+    },
+    {
+      "edge_id": "EDGE_FB6B540B0C758B56D076",
+      "from_node": "DETECTOR",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_E12FC34C1A23DAA5E6BC",
+      "from_node": "OCCURRENCE",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_ECD47FD912E6E306DA34",
+      "from_node": "KNOWN_TIME",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_4F39CEDBB8A84846A5CD",
+      "from_node": "REPLAY",
+      "relation": "EVIDENCES",
+      "to_node": "ONBOARDING"
+    },
+    {
+      "edge_id": "EDGE_3AF8B00580122B01DB87",
+      "from_node": "FEATURE",
+      "relation": "EVIDENCES",
+      "to_node": "ONBOARDING"
+    },
+    {
+      "edge_id": "EDGE_74F13E951DF200241063",
+      "from_node": "ONBOARDING",
+      "relation": "BOUNDS",
+      "to_node": "HANDOFF"
+    }
+  ],
+  "lineage_digest": "sha256:e3f95325b2eb9ba3e95074928da82ac0d521c609c6c71036834a7e501e500642",
+  "nodes": [
+    {
+      "digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+      "kind": "SOURCE_SNAPSHOT",
+      "node_id": "SOURCE"
+    },
+    {
+      "digest": "sha256:c910f0e5d8df2ccd3ba2942de82fff0e0823456b7616546c7199f732a33ea275",
+      "kind": "COMPILER_PLAN",
+      "node_id": "PLAN"
+    },
+    {
+      "digest": "sha256:643d1e6aedaaef33c73de4b04fd23d94ba291af8a0e8f9e9942e73059c9334fb",
+      "kind": "DETECTOR_IR",
+      "node_id": "DETECTOR"
+    },
+    {
+      "digest": "sha256:22029214ddc97c8e94c65e23120de8e484f05afb884c617fc615d96b104d485b",
+      "kind": "OCCURRENCE_IR",
+      "node_id": "OCCURRENCE"
+    },
+    {
+      "digest": "sha256:1a80fa97f50f0e92ab9f2e3f03b6b435ccd17d5451a64d7568754cb87398c09f",
+      "kind": "KNOWN_TIME_IR",
+      "node_id": "KNOWN_TIME"
+    },
+    {
+      "digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+      "kind": "FEATURE_BINDING_IR",
+      "node_id": "FEATURE"
+    },
+    {
+      "digest": "sha256:90406ce7bab33c8d166af3370c99aa7904b2952773c5fc3033fd4ee27db7c59f",
+      "kind": "GOLDEN_REPLAY",
+      "node_id": "REPLAY"
+    },
+    {
+      "digest": "sha256:4f328ce14246ba492921120031b55c8cb331146911c0d504110f08410fee855f",
+      "kind": "ONBOARDING_REPORT",
+      "node_id": "ONBOARDING"
+    },
+    {
+      "digest": "sha256:cf815b88e49e527c849ac08dcab894b1c51b10f44ee409d2addcf52bafebf739",
+      "kind": "ACL04_HANDOFF",
+      "node_id": "HANDOFF"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

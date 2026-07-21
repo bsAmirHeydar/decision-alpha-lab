@@ -1,0 +1,24 @@
+{
+  "artifact_digests": {
+    "mql5_mirror": "sha256:fb70beb7910c6000b3b082b268f0b3414072bf39ef6807a7bca59ba11408fe98",
+    "readiness_matrix": "sha256:aa1bd14c4e01c52694ef500bd8269a28817ca580a1b135294cb03509f3fcbc1f",
+    "saed_binding": "sha256:7cfece5d25d9d7e55caebd702ef247e6cad1eeaa7947bb86f7e3ed14a8197013",
+    "twin_seed": "sha256:03149f7cd9c1956250a2240e82300614fc80e4ccafdc24949efc0a3ad8287b09",
+    "ucee_binding": "sha256:516168ef55e6dc3a8451e0f6eb32144c4fd4d4f9283b0af37ec34d7d9cef7d63"
+  },
+  "artifacts": {
+    "mql5_mirror": "rthp_mql5_static_mirror.json",
+    "readiness_matrix": "rthp_acl03_readiness_matrix.json",
+    "saed_binding": "rthp_saed_binding.json",
+    "twin_seed": "rthp_context_twin_seed.json",
+    "ucee_binding": "rthp_ucee_binding.json"
+  },
+  "bundle_digest": "sha256:5a6152bcfb76b436d8e486bd6f4169d24beb1c78fd45fd7272277fd213cd6a48",
+  "capital_activation_allowed": false,
+  "compilation_receipt_digest": "sha256:b672d236c2fc73ed4c4193e4f3532b4973e2ee75c32f4bcf85b2cc92adb878b8",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "live_order_submission_allowed": false,
+  "schema_version": "1.0.0",
+  "source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18"
+}

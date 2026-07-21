@@ -1,0 +1,309 @@
+{
+  "case_count": 12,
+  "failed_count": 0,
+  "passed_count": 12,
+  "replay_digest": "sha256:90406ce7bab33c8d166af3370c99aa7904b2952773c5fc3033fd4ee27db7c59f",
+  "results": [
+    {
+      "case_id": "GOLD_82CED42A09EAC89FBD6B",
+      "expected_terminal_state": "UNCONFIRMED",
+      "final_state": "UNCONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:3ebe238b906cbdf474cc1e06d22882477e7207a5a24a183ffe38ae07059aa8fe",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "MISSING_SYNCHRONIZED_DATA",
+          "index": 0,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "UNCONFIRMED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_DAFE3CCFF2C61C380AD3"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_79EE65408B67C0DB5A01",
+      "expected_terminal_state": "UNCONFIRMED",
+      "final_state": "UNCONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:62e1a9ae9f8ca6166b7b1429d29f2a71d6a55c48f1ffd58edcba38d36be00a0e",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "MISSING_SYNCHRONIZED_DATA",
+          "index": 0,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "UNCONFIRMED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_DAFE3CCFF2C61C380AD3"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_3F23B5127074AE335668",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "final_state": "UNTOUCHED_BOTH",
+      "passed": true,
+      "result_digest": "sha256:7417e5ad6cf4cbe47be2511c5d675ecca4438a04e9ba618a9bd2f15a3d1b1a9e",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "PRICE_BASIS_MISMATCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "UNTOUCHED_BOTH",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_F7FE3313377074191D26",
+      "expected_terminal_state": "BOTH_SIDES_TOUCHED",
+      "final_state": "BOTH_SIDES_TOUCHED",
+      "passed": true,
+      "result_digest": "sha256:9d6aef8f1762ba31a0f605c74afc35aedfca3f545412d51127e10d749d2fe181",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:06:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "PROTECTED_SYMBOL_TOUCH_BEFORE_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:08:00-05:00",
+          "state_after": "BOTH_SIDES_TOUCHED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_585B444A47C858A85403"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_DC1F5EF4A97A60115E13",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "final_state": "UNTOUCHED_BOTH",
+      "passed": true,
+      "result_digest": "sha256:0d524dd3ab81824ddb29ef092a76773b6b77161533622b765612b7b336390c4a",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "NO_TOUCH_AT_SYNCHRONIZED_CUT",
+          "index": 0,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "UNTOUCHED_BOTH",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_8A099CCE6601740A347A",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:6778fce823506794c15b0a82f9ebc8ada273ac03dbe8a1d43094bce73d7adcdf",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:06:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_59B1B875AE57FDEFA39E",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:00f447b9cdf522850a344eaeec506000f42cbf5a88e90cd1c671dd2aa956d5f3",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:06:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_63667A06EF8BBF8D44BC",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:82ef2ccc1ecc4b5a2ea7701427cc5b352a86fc6582bebc15842464ee01bdff43",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:05:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:05:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_B0476994C125D0F0B30A",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:511293d0a3320696a80fccfe9164ccbf22f7a6e6d5f235105c8b1f446eb828c1",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:08:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_EA8DAFC0D8C6ED0EDBE7",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:31db5951dddb376c39fc339866a13d8d614224a5f182dc8f633fda3b0697daef",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:06:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 2,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "DIVERGENCE_CONFIRMED",
+          "transition_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_4524BB3C16E8192B81B6",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "final_state": "DIVERGENCE_CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:fd97d0428d9e2a1b8da7e953bd047498be5ab14561745fcc7f917d7a8971953b",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "index": 0,
+          "known_time": "2026-01-05T10:08:00-05:00",
+          "state_after": "ONE_SIDE_TOUCHED",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": "TR_93F4C662591215222D93"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "index": 1,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "DIVERGENCE_CONFIRMED",
+          "state_before": "ONE_SIDE_TOUCHED",
+          "transition_id": "TR_0B8EE3CE0E40F953207E"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_A0C072D6D3B3F026CEC7",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "final_state": "UNTOUCHED_BOTH",
+      "passed": true,
+      "result_digest": "sha256:0447192194fb6a0d9d3369edd6b480b351eb1aa2fa452c6be57300cbbea24afc",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "INSUFFICIENT_HISTORY",
+          "index": 0,
+          "known_time": "2026-01-05T10:15:00-05:00",
+          "state_after": "UNTOUCHED_BOTH",
+          "state_before": "UNTOUCHED_BOTH",
+          "transition_id": null
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0.0"
+}

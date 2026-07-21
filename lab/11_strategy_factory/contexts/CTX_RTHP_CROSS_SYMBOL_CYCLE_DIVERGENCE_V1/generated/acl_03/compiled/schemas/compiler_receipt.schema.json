@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "CONTEXT_COMPILATION_REFERENCE_ONLY"
+    },
+    "context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "source_digest",
+    "plan_digest",
+    "output_manifest_digest",
+    "claim_ceiling"
+  ],
+  "type": "object"
+}

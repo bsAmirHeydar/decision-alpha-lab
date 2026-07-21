@@ -1,0 +1,8 @@
+{
+  "action": "ACL03_COMPILE_CONTEXT",
+  "capital_activation_allowed": false,
+  "decision": "ALLOW",
+  "live_order_submission_allowed": false,
+  "permit_id": "PERMIT_RTHP_ACL03_COMPILE_V1",
+  "subject_artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2#sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37"
+}

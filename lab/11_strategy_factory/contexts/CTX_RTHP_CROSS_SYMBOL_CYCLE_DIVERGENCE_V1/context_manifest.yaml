@@ -1,13 +1,12 @@
 schema_version: 1.0.0
 context_id: CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1
-artifact_id: al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.1#sha256:7f67c2bafe6f18454ebefb9eedf562db37cbe82e68e271e0917ff5644f80d71a
-context_version: 1.0.1
+artifact_id: al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2#sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37
+context_version: 1.0.2
 status: SEMANTICALLY_VALIDATED
 owners_file: owners.yaml
 classification: RESTRICTED
-description: Deterministic English-language cross-symbol Context occurrence created
-  when exactly one symbol touches its corresponding versioned cycle reference level
-  at a synchronized M15 evaluation cut.
+description: Deterministic English-language cross-symbol Context occurrence created when exactly one symbol touches its corresponding
+  versioned cycle reference level at a synchronized M15 evaluation cut.
 contracts:
   doctrine: doctrine/context_doctrine.md
   glossary: doctrine/glossary.yaml
@@ -32,3 +31,5 @@ tags:
 - context-only
 - acl-02
 - english
+- acl-03-ready
+- compiled-identity-aliases

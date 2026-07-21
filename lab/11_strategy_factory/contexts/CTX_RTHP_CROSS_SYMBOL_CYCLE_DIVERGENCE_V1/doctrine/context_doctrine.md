@@ -1,7 +1,7 @@
 ---
 title: RTHP Cross-Symbol Cycle Divergence Context Doctrine
 status: semantically-validated
-version: 1.0.0
+version: 1.0.2
 ---
 # RTHP Context Doctrine
 
@@ -19,3 +19,8 @@ The polarity labels may correlate with future directional changes over research-
 
 ## Non-goals
 This package excludes Entry, Treatment, Execution, Stop, Target, Risk, Position Sizing, order submission, capital activation, profitability classification, and win-rate claims.
+
+
+## ACL-03 identity projection
+
+The central compiler projects three generic identity aliases without changing RTHP semantics. `anchor_time` is the synchronized M15 confirmation close, `direction` is the intrinsic Bullish/Bearish Context polarity, and `subject_key` is the registered symbol-pair identity. These aliases are not predictive claims and are never trading instructions.

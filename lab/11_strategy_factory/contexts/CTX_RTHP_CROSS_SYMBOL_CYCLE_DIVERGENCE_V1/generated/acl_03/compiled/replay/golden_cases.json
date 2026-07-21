@@ -1,0 +1,293 @@
+{
+  "cases": [
+    {
+      "case_digest": "sha256:b68b20c0fc843e7d6fc87dea83adf49ceffea4fc7b685b44b7db659791626cc9",
+      "case_id": "GOLD_82CED42A09EAC89FBD6B",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "MISSING_SYNCHRONIZED_DATA",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "AMB_STALE_PRIMARY",
+      "expected_classification": "UNCONFIRMED_STALE_PRIMARY",
+      "expected_terminal_state": "UNCONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "AMBIGUOUS",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/AMB_STALE_PRIMARY.json"
+    },
+    {
+      "case_digest": "sha256:ee4d27feec0619c22fa16c7292040e762040b14ceed2b13640f35f20d052a4f9",
+      "case_id": "GOLD_79EE65408B67C0DB5A01",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "MISSING_SYNCHRONIZED_DATA",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "AMB_STALE_SECONDARY",
+      "expected_classification": "UNCONFIRMED_STALE_SECONDARY",
+      "expected_terminal_state": "UNCONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "AMBIGUOUS",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/AMB_STALE_SECONDARY.json"
+    },
+    {
+      "case_digest": "sha256:59ce5655d6695facb68c7b0f8c334584e7e70b76fb3e2575b717dfb3d1239c6b",
+      "case_id": "GOLD_3F23B5127074AE335668",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "PRICE_BASIS_MISMATCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "NEG_BASIS_MISMATCH",
+      "expected_classification": "INVALID_PRICE_BASIS_MISMATCH",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "NEGATIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/NEG_BASIS_MISMATCH.json"
+    },
+    {
+      "case_digest": "sha256:e393dcff01c9a68cb49e6fb1b49e8509734ea96b5de4a5f1f5b843229ff73364",
+      "case_id": "GOLD_F7FE3313377074191D26",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:06:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "PROTECTED_SYMBOL_TOUCH_BEFORE_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:08:00-05:00"
+        }
+      ],
+      "example_id": "NEG_BOTH_HIGH",
+      "expected_classification": "NO_EVENT_BOTH_TOUCHED",
+      "expected_terminal_state": "BOTH_SIDES_TOUCHED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "NEGATIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/NEG_BOTH_HIGH.json"
+    },
+    {
+      "case_digest": "sha256:af69c896a1d3c1287471c333586a3979975440304df027d18b140d93f795bb3c",
+      "case_id": "GOLD_DC1F5EF4A97A60115E13",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "NO_TOUCH_AT_SYNCHRONIZED_CUT",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "NEG_NONE_LOW",
+      "expected_classification": "NO_EVENT_NONE_TOUCHED",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "NEGATIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/NEG_NONE_LOW.json"
+    },
+    {
+      "case_digest": "sha256:b8e5c4136794c5e08d10cd0be12db6bebf5ad0b25381cf4d3fd2ee55109f9a16",
+      "case_id": "GOLD_8A099CCE6601740A347A",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:06:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "NONSEQUENTIAL_M15",
+      "expected_classification": "CONFIRMED_NONSEQUENTIAL_M15",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/NONSEQUENTIAL_M15.json"
+    },
+    {
+      "case_digest": "sha256:228e55023d4cc057fa859239f0a7f17c735957914c862572da3444ccaf68f128",
+      "case_id": "GOLD_59B1B875AE57FDEFA39E",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:06:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "PARTIAL_HISTORY",
+      "expected_classification": "CONFIRMED_PARTIAL_HISTORY",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/PARTIAL_HISTORY.json"
+    },
+    {
+      "case_digest": "sha256:7a25619dbf18ed57aff3445e1036e6fdf8714c589ab52048985827ad4d433fbd",
+      "case_id": "GOLD_63667A06EF8BBF8D44BC",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:05:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:05:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "POS_HIGH_A_ONLY",
+      "expected_classification": "CONFIRMED_BEARISH_DIVERGENCE",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/POS_HIGH_A_ONLY.json"
+    },
+    {
+      "case_digest": "sha256:21ad31790e8ab13e1b8503fb8f6b4acb05384a872187990417f2ae575bba0d86",
+      "case_id": "GOLD_B0476994C125D0F0B30A",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:08:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "POS_LOW_B_ONLY",
+      "expected_classification": "CONFIRMED_BULLISH_DIVERGENCE",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/POS_LOW_B_ONLY.json"
+    },
+    {
+      "case_digest": "sha256:506de08e5303b2103a07bd883978590359c4aa8bf7c1eb5374b2a48aa0e49153",
+      "case_id": "GOLD_EA8DAFC0D8C6ED0EDBE7",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:06:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:06:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "RESTART_DEDUP",
+      "expected_classification": "CONFIRMED_RESTART_DEDUP",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/RESTART_DEDUP.json"
+    },
+    {
+      "case_digest": "sha256:12f4e479c109387bd132946bf959f17ab9e9653b16d1ce64f6a1f597c74ef1c8",
+      "case_id": "GOLD_4524BB3C16E8192B81B6",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:08:00-05:00",
+          "event": "FIRST_SYMBOL_TOUCH",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:08:00-05:00"
+        },
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "SEQUENTIAL_M15",
+      "expected_classification": "CONFIRMED_SEQUENTIAL_M15",
+      "expected_terminal_state": "DIVERGENCE_CONFIRMED",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/SEQUENTIAL_M15.json"
+    },
+    {
+      "case_digest": "sha256:b43ce9318ccff6930b632a982beb10b0f6761267c824d3751da91f1e9d45c72f",
+      "case_id": "GOLD_A0C072D6D3B3F026CEC7",
+      "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+      "events": [
+        {
+          "decision_time": "2026-01-05T10:15:00-05:00",
+          "event": "INSUFFICIENT_HISTORY",
+          "guard_result": true,
+          "known_time": "2026-01-05T10:15:00-05:00"
+        }
+      ],
+      "example_id": "ZERO_HISTORY",
+      "expected_classification": "INSUFFICIENT_HISTORY",
+      "expected_terminal_state": "UNTOUCHED_BOTH",
+      "initial_state": "UNTOUCHED_BOTH",
+      "kind": "NEGATIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/golden/ZERO_HISTORY.json"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

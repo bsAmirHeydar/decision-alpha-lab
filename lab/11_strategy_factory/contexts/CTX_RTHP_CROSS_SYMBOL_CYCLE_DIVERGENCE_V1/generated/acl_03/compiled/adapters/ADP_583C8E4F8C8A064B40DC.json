@@ -1,0 +1,22 @@
+{
+  "adapter_id": "ADP_583C8E4F8C8A064B40DC",
+  "adapter_kind": "CALENDAR",
+  "calendar_id": "RTHP_AMERICA_NEW_YORK_CALENDAR_V1",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "NONE",
+    "network_egress": "DENY_BY_DEFAULT",
+    "order_submission": false,
+    "secret_access": "NONE"
+  },
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "contract_digest": "sha256:c61c9928d343466d2916a8d3a8b319bdefbb0ee8e221ddfaba5a50361b19c73d",
+  "implementation_status": "CONTRACT_ONLY",
+  "required_methods": [
+    "resolve_session",
+    "normalize_time",
+    "is_open",
+    "next_boundary"
+  ],
+  "schema_version": "1.0.0"
+}

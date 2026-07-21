@@ -8,6 +8,8 @@ from .compiler import compile_package
 from .fixtures import validate_fixtures
 from .patch_verify import verify
 from .validation import validate_package
+from .acl03_onboarding import compile_rthp_acl03
+from .acl03_bindings import validate_rthp_acl03_bundle
 
 
 def main(argv=None) -> int:
@@ -24,6 +26,19 @@ def main(argv=None) -> int:
     command.add_argument("--package-root", required=True)
     command.add_argument("--output", required=True)
 
+    command = sub.add_parser("compile-acl03")
+    command.add_argument("--package-root", required=True)
+    command.add_argument("--compiled-root", required=True)
+    command.add_argument("--binding-root", required=True)
+    command.add_argument("--authority-permit", required=True)
+    command.add_argument("--semantic-approval", required=True)
+    command.add_argument("--acl02-readiness", required=True)
+
+    command = sub.add_parser("validate-acl03")
+    command.add_argument("--package-root", required=True)
+    command.add_argument("--compiled-root", required=True)
+    command.add_argument("--binding-root", required=True)
+
     command = sub.add_parser("verify-patch")
     command.add_argument("--repo-root", required=True)
     command.add_argument("--hash-ledger", required=True)
@@ -34,6 +49,17 @@ def main(argv=None) -> int:
         result = validate_package(Path(args.package_root))
     elif args.cmd == "validate-fixtures":
         result = validate_fixtures(Path(args.package_root))
+    elif args.cmd == "compile-acl03":
+        result = compile_rthp_acl03(
+            Path(args.package_root),
+            Path(args.compiled_root),
+            Path(args.binding_root),
+            Path(args.authority_permit),
+            Path(args.semantic_approval),
+            Path(args.acl02_readiness),
+        )
+    elif args.cmd == "validate-acl03":
+        result = validate_rthp_acl03_bundle(Path(args.package_root), Path(args.compiled_root), Path(args.binding_root))
     elif args.cmd == "verify-patch":
         result = verify(Path(args.repo_root), Path(args.hash_ledger))
     else:

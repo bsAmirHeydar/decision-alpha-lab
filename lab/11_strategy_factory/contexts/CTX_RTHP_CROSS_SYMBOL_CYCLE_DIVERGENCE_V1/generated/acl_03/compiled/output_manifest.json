@@ -1,0 +1,145 @@
+{
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "entries": [
+    {
+      "bytes": 24,
+      "content_digest": "sha256:62420075caa8f0e9456fd47069a4a246d46153a3e4471eeb8f2cdb8ac3950d4a",
+      "relative_path": ".acl03_generated_root"
+    },
+    {
+      "bytes": 939,
+      "content_digest": "sha256:6b7d078b529fd85f0ed40153b43dc5a67abd2173f0327abc2d79dd2a06ef5d48",
+      "relative_path": "adapters/ADP_40F3A4A83010B898B5BF.json"
+    },
+    {
+      "bytes": 656,
+      "content_digest": "sha256:21cb2bcf2d5f30674939b85512fd9a3dd124983dfe86f27a40dbd0f7ff969aa3",
+      "relative_path": "adapters/ADP_583C8E4F8C8A064B40DC.json"
+    },
+    {
+      "bytes": 668,
+      "content_digest": "sha256:c7c6566c9d6addab13140d890ae67973cc04d9fec789b5afa4bf1ab723001cfc",
+      "relative_path": "adapters/ADP_76E27E7A77BD882D6BCD.json"
+    },
+    {
+      "bytes": 935,
+      "content_digest": "sha256:b2d59d4b9b2571d7b01fcbcaee2335341c6d1a756d35bf206e2a51f76a8ded25",
+      "relative_path": "adapters/ADP_8723382332B74C935790.json"
+    },
+    {
+      "bytes": 658,
+      "content_digest": "sha256:9d41d18070ca49dcdb904a5b3c003afee57a6207e41b29cf9a77dc44b9a117f6",
+      "relative_path": "adapters/ADP_B5D46143D2DB17F74779.json"
+    },
+    {
+      "bytes": 1534,
+      "content_digest": "sha256:821c4f0eeca9aeb2e8647c65ad4ea9e1716209ea290d3b2d2f78a074cd0a5c21",
+      "relative_path": "docs/ACL03_ONBOARDING_REPORT.md"
+    },
+    {
+      "bytes": 213,
+      "content_digest": "sha256:05394e928d71d93555eb628cf39461cf7fdc9e27fdfaefb8e918ce2d13196fe3",
+      "relative_path": "docs/GENERATED_FILES.md"
+    },
+    {
+      "bytes": 1252,
+      "content_digest": "sha256:47d75fab8ace2940ed25d2e978d39d82783964b89773435eb19d33e0527dab0d",
+      "relative_path": "handoff/acl04_handoff.json"
+    },
+    {
+      "bytes": 4216,
+      "content_digest": "sha256:fbdf3b30201efc7db927999bd9155471036f10b05977dbc6846805ccd66e23df",
+      "relative_path": "ir/detector_ir.json"
+    },
+    {
+      "bytes": 1605,
+      "content_digest": "sha256:84a39331338a29b4ff2549a42281a0820ce00c1a60754ee5a95a669cad617e27",
+      "relative_path": "ir/feature_binding_ir.json"
+    },
+    {
+      "bytes": 1834,
+      "content_digest": "sha256:cbc9e3b26ce0ebde1e1ebeb519779ba89d58b0fce6cde8a97183fbec563529a3",
+      "relative_path": "ir/known_time_ir.json"
+    },
+    {
+      "bytes": 2391,
+      "content_digest": "sha256:44f1fee54447ba0f8af2fd3f5f59c09e4cb5ec7b1818f4f69ee3d065f292c224",
+      "relative_path": "ir/occurrence_ir.json"
+    },
+    {
+      "bytes": 3360,
+      "content_digest": "sha256:48944b636c3942fe9dec4bd67d912315176dd1977b26e2efbd56e2ae906ba704",
+      "relative_path": "lineage/lineage_graph.json"
+    },
+    {
+      "bytes": 4124,
+      "content_digest": "sha256:1f715c1a62cd606f0abd7d1bbd373aa87eb937d8c1cf3c663803b08e948a58e8",
+      "relative_path": "plan/compiler_plan.json"
+    },
+    {
+      "bytes": 11009,
+      "content_digest": "sha256:aa69871c11ad59bc48b9df18e7b1bcfd1bf305b86d15c8166e48b82d47a1befa",
+      "relative_path": "replay/golden_cases.json"
+    },
+    {
+      "bytes": 10995,
+      "content_digest": "sha256:e9fa6c8512376fbd42a34e0668eb9b585fe54a9f2431ce328d95f86aa3b61b84",
+      "relative_path": "replay/golden_replay_result.json"
+    },
+    {
+      "bytes": 573,
+      "content_digest": "sha256:aa3562feeb62e07daf03bbff33db6b141b30a01f36d5e216231e1cc86318f255",
+      "relative_path": "reports/compatibility_report.json"
+    },
+    {
+      "bytes": 50,
+      "content_digest": "sha256:fa5ce8a4cf23dab845aa39ac21183e57e77777145af48c2fe6b856c34f8c6b3b",
+      "relative_path": "reports/compilation_findings.json"
+    },
+    {
+      "bytes": 271,
+      "content_digest": "sha256:ec3e6b5694fefe2adb1faec431bf6886d14fb75501d3b4e0fda5c86cf658caa0",
+      "relative_path": "reports/extension_resolution.json"
+    },
+    {
+      "bytes": 2175,
+      "content_digest": "sha256:a65ff0c7e57fda1bdfa5b2a2631278cd1f4635e02952bb327bdf26f100af7dc6",
+      "relative_path": "reports/onboarding_report.json"
+    },
+    {
+      "bytes": 550,
+      "content_digest": "sha256:d2c40bf7acce5eee37f4ba7338e7776de93f1a9305ed02d95fe52ec5a343c3fd",
+      "relative_path": "reports/security_boundary_report.json"
+    },
+    {
+      "bytes": 728,
+      "content_digest": "sha256:db36b70fea7a3eabe81e4277492ee238f48e3bb5be5200964b5304998d0be77f",
+      "relative_path": "schemas/compiler_receipt.schema.json"
+    },
+    {
+      "bytes": 526,
+      "content_digest": "sha256:1e85b5a3260ec43367f2619e1f192cc43695cacb740536a1cac54ca82371ad62",
+      "relative_path": "schemas/detector_event.schema.json"
+    },
+    {
+      "bytes": 562,
+      "content_digest": "sha256:a640de6ed0c75d13cbb2f5be02d6d773a61cdc7e3899333ea52f703da7dff001",
+      "relative_path": "schemas/feature_record.schema.json"
+    },
+    {
+      "bytes": 691,
+      "content_digest": "sha256:546386e2db0254e7fa78a60287fd6d37f903f7250e98f7e008a087369c330d1b",
+      "relative_path": "schemas/occurrence_identity.schema.json"
+    },
+    {
+      "bytes": 9156,
+      "content_digest": "sha256:c68e5c14398ccfb0c79f4b2e0695bdf46bcf7e9a1469422011cd3fb8c19c0b9f",
+      "relative_path": "source/source_snapshot.json"
+    }
+  ],
+  "entry_count": 27,
+  "manifest_digest": "sha256:619a7fe35fca96c1e3b141cfee2d2b3a4487153b304506ef4886fc7f41d0ced1",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18"
+}

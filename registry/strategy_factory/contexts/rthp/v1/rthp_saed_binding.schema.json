@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_kind": {
+      "const": "SAED_CONTEXT_DIGITAL_TWIN_SEED"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "binding_id",
+    "binding_kind",
+    "context_id",
+    "context_version",
+    "twin_seed_digest",
+    "allowed_operations",
+    "forbidden_operations",
+    "binding_digest"
+  ],
+  "type": "object"
+}

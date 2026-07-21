@@ -1,0 +1,22 @@
+{
+  "adapter_id": "ADP_76E27E7A77BD882D6BCD",
+  "adapter_kind": "FEATURE_VIEW",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "DECLARED_OUTPUT_ONLY",
+    "network_egress": "NONE",
+    "order_submission": false,
+    "secret_access": "NONE"
+  },
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "contract_digest": "sha256:52daada2e1a5bafa053baaac31340db282c237c2787bbafce801ec005f048b97",
+  "implementation_status": "CONTRACT_ONLY",
+  "required_methods": [
+    "materialize",
+    "validate_known_time",
+    "missingness_vector",
+    "freshness_vector"
+  ],
+  "schema_version": "1.0.0",
+  "view_id": "RTHP_REFERENCE_STATE_VIEW"
+}

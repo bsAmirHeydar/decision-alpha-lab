@@ -1,9 +1,18 @@
 {
+  "events": [
+    {
+      "decision_time": "2026-01-05T10:15:00-05:00",
+      "event": "MISSING_SYNCHRONIZED_DATA",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:15:00-05:00"
+    }
+  ],
   "expected": {
     "evaluation_status": "UNCONFIRMED",
     "event_created": false,
     "polarity": null
   },
+  "expected_terminal_state": "UNCONFIRMED",
   "input": {
     "active_cycle_id": "ACTIVE_6",
     "available_reference_count": 12,

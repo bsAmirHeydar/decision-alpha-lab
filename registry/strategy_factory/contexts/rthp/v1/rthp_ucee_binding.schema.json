@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_kind": {
+      "const": "UCEE_CONTEXT_FEATURE_SOURCE"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "research_entry_ready": {
+      "const": false
+    }
+  },
+  "required": [
+    "binding_id",
+    "binding_kind",
+    "context_id",
+    "context_version",
+    "available_context_views",
+    "research_entry_ready",
+    "research_entry_blockers",
+    "binding_digest"
+  ],
+  "type": "object"
+}

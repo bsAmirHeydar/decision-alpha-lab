@@ -1,0 +1,63 @@
+{
+  "calendar_id": "RTHP_AMERICA_NEW_YORK_CALENDAR_V1",
+  "clock_skew_tolerance_ms": 0,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "future_revision_allowed": false,
+  "guards": [
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_B626B77AD14DCB5243B2",
+      "left_clock": "event_time",
+      "operator": "<=",
+      "right_clock": "observation_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_42B7DD18B03A70DA3F24",
+      "left_clock": "observation_time",
+      "operator": "<=",
+      "right_clock": "known_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_52B669D8C5D250F6539D",
+      "left_clock": "known_time",
+      "operator": "<=",
+      "right_clock": "decision_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_01B3C5CC51020B5E4CA8",
+      "left_clock": "decision_time",
+      "operator": "<=",
+      "right_clock": "maturity_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_22828320EE8F7FE40D30",
+      "left_clock": "maturity_time",
+      "operator": "<=",
+      "right_clock": "correction_time"
+    }
+  ],
+  "known_time_ir_digest": "sha256:1a80fa97f50f0e92ab9f2e3f03b6b435ccd17d5451a64d7568754cb87398c09f",
+  "late_data_policy": "APPEND_CORRECTION",
+  "schema_version": "1.0.0",
+  "source_guards": [
+    {
+      "freshness_slo_ms": 0,
+      "future_revision_allowed": false,
+      "known_time_field": "known_time",
+      "missingness_policy": "QUARANTINE",
+      "source_id": "PRIMARY_SYMBOL_TICKS"
+    },
+    {
+      "freshness_slo_ms": 0,
+      "future_revision_allowed": false,
+      "known_time_field": "known_time",
+      "missingness_policy": "QUARANTINE",
+      "source_id": "SECONDARY_SYMBOL_TICKS"
+    }
+  ],
+  "timezone": "America/New_York"
+}

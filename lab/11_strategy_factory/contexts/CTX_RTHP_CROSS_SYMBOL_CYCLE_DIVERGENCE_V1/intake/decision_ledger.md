@@ -13,3 +13,8 @@ All questionnaire items without an explicit owner answer adopt the assistant's r
 ## Final authority rule
 
 This ledger is decision evidence. Canonical authority belongs to `context_manifest.yaml` and the versioned contracts referenced by it.
+
+
+## ACL-03 interoperability decision
+
+The generic compiler fields are bound without changing domain semantics: `anchor_time=confirmation_close_time`, `direction=relation_polarity`, and `subject_key=symbol_pair_id`. The mapping is an interoperability projection only.

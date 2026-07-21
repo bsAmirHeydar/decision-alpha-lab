@@ -1,0 +1,41 @@
+{
+  "append_only": true,
+  "confirmation_rule": "A candidate becomes an immutable occurrence only when both symbols expose the same M15 confirmation-close identity and exactly one corresponding level is touched. The ACL-03 anchor_time is the canonical alias of confirmation_close_time, and direction is the canonical alias of intrinsic relation_polarity.",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "deduplication_rule": "A stable identity over all declared identity fields suppresses duplicate emission during replay, restart, and repeated hunter touches. anchor_time equals confirmation_close_time, direction equals relation_polarity, and subject_key equals symbol_pair_id; these aliases add compiler interoperability and do not add new domain meaning.",
+  "expiry_rule": "A later protected-symbol touch after confirmation transitions the scoped reference to REFERENCE_EXHAUSTED without deleting the historical occurrence.",
+  "identity_recipe": {
+    "algorithm": "SHA256_CANONICAL_JSON",
+    "namespace": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2",
+    "ordered_fields": [
+      "context_id",
+      "context_version",
+      "anchor_time",
+      "direction",
+      "subject_key",
+      "symbol_pair_id",
+      "cycle_definition_version",
+      "signal_family",
+      "active_cycle_id",
+      "reference_cycle_id",
+      "level_side",
+      "hunter_symbol",
+      "protected_symbol",
+      "first_touch_time",
+      "confirmation_close_time"
+    ],
+    "revision_policy": "APPEND_NEW_REVISION"
+  },
+  "invalidation_rule": "If both corresponding levels are touched before confirmation, the candidate transitions to BOTH_SIDES_TOUCHED and no divergence occurrence is created.",
+  "occurrence_ir_digest": "sha256:22029214ddc97c8e94c65e23120de8e484f05afb884c617fc615d96b104d485b",
+  "occurrence_type_id": "OCC_TYPE_3D35FC4B00B6FE0823EE",
+  "precedence": [
+    "BOTH_SIDES_TOUCH_BEFORE_XOR_CONFIRMATION",
+    "DATA_QUARANTINE_BEFORE_CONFIRMATION",
+    "CONFIRMATION_BEFORE_LATER_REFERENCE_EXHAUSTION"
+  ],
+  "revision_policy": "APPEND_NEW_REVISION",
+  "schema_version": "1.0.0",
+  "start_rule": "The earliest tick-size-normalized touch of exactly one symbol-local reference level creates one candidate state for the registered family, reference, pair, and level side. The ACL-03 subject_key is the canonical alias of symbol_pair_id."
+}

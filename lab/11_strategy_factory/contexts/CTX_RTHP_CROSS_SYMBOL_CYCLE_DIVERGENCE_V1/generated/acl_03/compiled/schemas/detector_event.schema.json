@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "event": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "guard_result": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event",
+    "known_time",
+    "decision_time"
+  ],
+  "type": "object"
+}

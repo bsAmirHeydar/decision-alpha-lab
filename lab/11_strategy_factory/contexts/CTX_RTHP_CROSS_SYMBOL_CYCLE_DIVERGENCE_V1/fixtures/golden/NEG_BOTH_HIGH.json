@@ -1,9 +1,24 @@
 {
+  "events": [
+    {
+      "decision_time": "2026-01-05T10:06:00-05:00",
+      "event": "FIRST_SYMBOL_TOUCH",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:06:00-05:00"
+    },
+    {
+      "decision_time": "2026-01-05T10:08:00-05:00",
+      "event": "PROTECTED_SYMBOL_TOUCH_BEFORE_CONFIRMATION",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:08:00-05:00"
+    }
+  ],
   "expected": {
     "evaluation_status": "NO_EVENT",
     "event_created": false,
     "polarity": null
   },
+  "expected_terminal_state": "BOTH_SIDES_TOUCHED",
   "input": {
     "active_cycle_id": "ACTIVE_3",
     "available_reference_count": 12,

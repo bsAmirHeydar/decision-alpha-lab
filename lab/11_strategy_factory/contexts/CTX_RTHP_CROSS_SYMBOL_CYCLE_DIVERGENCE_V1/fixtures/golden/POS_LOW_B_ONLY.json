@@ -1,9 +1,24 @@
 {
+  "events": [
+    {
+      "decision_time": "2026-01-05T10:08:00-05:00",
+      "event": "FIRST_SYMBOL_TOUCH",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:08:00-05:00"
+    },
+    {
+      "decision_time": "2026-01-05T10:15:00-05:00",
+      "event": "SYNCHRONIZED_M15_XOR_CONFIRMATION",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:15:00-05:00"
+    }
+  ],
   "expected": {
     "evaluation_status": "CONFIRMED",
     "event_created": true,
     "polarity": "BULLISH_DIVERGENCE"
   },
+  "expected_terminal_state": "DIVERGENCE_CONFIRMED",
   "input": {
     "active_cycle_id": "ACTIVE_2",
     "available_reference_count": 12,

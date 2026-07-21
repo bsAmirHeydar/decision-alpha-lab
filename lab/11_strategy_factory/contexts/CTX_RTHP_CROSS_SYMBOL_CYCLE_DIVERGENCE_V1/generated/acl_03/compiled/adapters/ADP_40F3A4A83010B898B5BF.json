@@ -1,0 +1,27 @@
+{
+  "adapter_id": "ADP_40F3A4A83010B898B5BF",
+  "adapter_kind": "DATA_SOURCE",
+  "artifact_ref": "al://alpha-lab/data/source/RTHP_SECONDARY_TICKS@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "DECLARED_CACHE_ONLY",
+    "network_egress": "DENY_BY_DEFAULT",
+    "order_submission": false,
+    "secret_access": "NAMED_SECRET_ONLY"
+  },
+  "classification": "RESTRICTED",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "contract_digest": "sha256:60c0b14231b632f8743518bc7cf0218c527fec9528e5ae3cef767f215c46ab87",
+  "freshness_slo_ms": 0,
+  "implementation_status": "CONTRACT_ONLY",
+  "known_time_field": "known_time",
+  "required_methods": [
+    "read_snapshot",
+    "fingerprint",
+    "validate_schema",
+    "validate_known_time",
+    "health"
+  ],
+  "schema_version": "1.0.0",
+  "source_id": "SECONDARY_SYMBOL_TICKS"
+}

@@ -1,0 +1,50 @@
+{
+  "bindings": [
+    {
+      "binding_id": "FVB_E39D66876C1164BD2D87",
+      "fields": [
+        "event_id",
+        "family",
+        "polarity",
+        "level_side",
+        "hunter_symbol",
+        "protected_symbol",
+        "first_touch_time",
+        "confirmation_close_time",
+        "data_status",
+        "lifecycle_state"
+      ],
+      "freshness_vector": "REQUIRED",
+      "kind": "EVENT_STREAM",
+      "known_time_safe": true,
+      "missingness_vector": "REQUIRED",
+      "runtime_order": 0,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_event.schema.json",
+      "view_id": "RTHP_EVENT_VIEW"
+    },
+    {
+      "binding_id": "FVB_7AAD51C708143EE60371",
+      "fields": [
+        "reference_cycle_id",
+        "family",
+        "level_side",
+        "state",
+        "exhaustion_time"
+      ],
+      "freshness_vector": "REQUIRED",
+      "kind": "TABULAR",
+      "known_time_safe": true,
+      "missingness_vector": "REQUIRED",
+      "runtime_order": 1,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
+      "view_id": "RTHP_REFERENCE_STATE_VIEW"
+    }
+  ],
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "feature_binding_ir_digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+  "feature_order_frozen": true,
+  "fusion_policy": "Join only by registered symbol-pair identity, family scope, cycle identities, and equal synchronized confirmation-close identity.",
+  "missing_view_policy": "MASK_AND_ABSTAIN",
+  "schema_version": "1.0.0"
+}

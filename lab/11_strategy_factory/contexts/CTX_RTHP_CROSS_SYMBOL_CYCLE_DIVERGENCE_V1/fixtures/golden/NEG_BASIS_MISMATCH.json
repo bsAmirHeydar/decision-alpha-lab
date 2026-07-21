@@ -1,9 +1,18 @@
 {
+  "events": [
+    {
+      "decision_time": "2026-01-05T10:15:00-05:00",
+      "event": "PRICE_BASIS_MISMATCH",
+      "guard_result": true,
+      "known_time": "2026-01-05T10:15:00-05:00"
+    }
+  ],
   "expected": {
     "evaluation_status": "INVALID_PRICE_BASIS_MISMATCH",
     "event_created": false,
     "polarity": null
   },
+  "expected_terminal_state": "UNTOUCHED_BOTH",
   "input": {
     "active_cycle_id": "ACTIVE_7",
     "available_reference_count": 12,

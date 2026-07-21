@@ -1,15 +1,22 @@
 {
+  "acl03_identity_aliases": {
+    "anchor_time": "confirmation_close_time",
+    "direction": "relation_polarity",
+    "subject_key": "symbol_pair_id"
+  },
   "additional_touch_tolerance_ticks": 0,
   "all_signal_families_are_context_events": true,
   "boundary": "CONTEXT_ONLY",
   "confirmation_timeframe": "M15",
   "confirmed_event_on_stale": false,
-  "decision_digest": "sha256:4800c236ef4cd5f138657b37fa319161d798536cb56b5ddac25bf9166911ee7a",
+  "context_version": "1.0.2",
+  "decision_digest": "sha256:b220eec27f16a2b7f0676b9f114aab40c49ea832c010b7e0770c716018a862ac",
   "decision_registry_version": "1.0.0",
   "default_lookback": 12,
   "entry_treatment_execution": "OUT_OF_SCOPE",
   "explicit_answers_override_defaults": true,
   "high_side_polarity": "BEARISH_DIVERGENCE",
+  "independent_review_status": "APPROVED",
   "interval_semantics": "HALF_OPEN",
   "lookback_unit": "AVAILABLE_COMPLETED_TRADING_CYCLES",
   "low_side_polarity": "BULLISH_DIVERGENCE",

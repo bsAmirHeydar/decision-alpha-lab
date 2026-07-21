@@ -1,0 +1,265 @@
+{
+  "compiler_version": "1.0.0",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "files": [
+    {
+      "bytes": 266,
+      "digest": "sha256:1867f3264b3e0f9fa7e3146b1fad4b5b12339388a677a9c5f8cf7fdc85d772d8",
+      "path": "AGENTS.md"
+    },
+    {
+      "bytes": 948,
+      "digest": "sha256:4b302df5cebaa2acc38e68173380b693f3f13e51a247b82314a8fbb065c26368",
+      "path": "README.md"
+    },
+    {
+      "bytes": 178,
+      "digest": "sha256:b0edf5b3b137e24a848e58a24106fe2196fbc83860751fce4ef418a07330fe5b",
+      "path": "adapters/README.md"
+    },
+    {
+      "bytes": 1363,
+      "digest": "sha256:2cc701398ca703617b90c9f4b35b3f0cdd2c0417a3addf8dcf1c8fbc498f11a0",
+      "path": "context_manifest.yaml"
+    },
+    {
+      "bytes": 878,
+      "digest": "sha256:e2f883b82ca56467f22ee13520a4da6012bec261cf98f9c435faae02d9fe09ec",
+      "path": "contracts/acceptance_gates.yaml"
+    },
+    {
+      "bytes": 605,
+      "digest": "sha256:48343b8737e0c27e66059046542410d467cf7ef5db863ac6be1151b79ff077bc",
+      "path": "contracts/calendar_contract.yaml"
+    },
+    {
+      "bytes": 1537,
+      "digest": "sha256:7a31803b8b736324eccd3a516e70f3be4c76cdafb81b7eaff087975f6b95b760",
+      "path": "contracts/causal_clock.yaml"
+    },
+    {
+      "bytes": 842,
+      "digest": "sha256:637ed4ab7f0ad54b0f27e1521c174620c2f9f71d8527162f3ab4150a41879969",
+      "path": "contracts/cycle_registry.yaml"
+    },
+    {
+      "bytes": 1509,
+      "digest": "sha256:e89eeaaf534b8a2abfca311b84bf529e4139c3fa8d1db52c27ab5eb290ead995",
+      "path": "contracts/data_contract.yaml"
+    },
+    {
+      "bytes": 861,
+      "digest": "sha256:715a20aabf74408ebdea3cf977651c8bb4a308cde3d3a345d11018f99114b1eb",
+      "path": "contracts/feature_views.yaml"
+    },
+    {
+      "bytes": 574,
+      "digest": "sha256:f5d99c2218b87c249d9d72c3e3733e627a3b53b11976d6ecd41029133f9df669",
+      "path": "contracts/historical_live_parity.yaml"
+    },
+    {
+      "bytes": 410,
+      "digest": "sha256:a05ed5bb219675b35144abd1f0ae19667e159472de12919f876d98246b6c9c27",
+      "path": "contracts/lookback_policy.yaml"
+    },
+    {
+      "bytes": 531,
+      "digest": "sha256:c94f74b3f493246f462adb90e5a6537008ee3df55b37108a3a474bebb88f7500",
+      "path": "contracts/missingness_and_unknown.yaml"
+    },
+    {
+      "bytes": 1733,
+      "digest": "sha256:f0043cd316256087b8705b326f862c63b22d6e7c37a92328e90ccc00dd371035",
+      "path": "contracts/occurrence_contract.yaml"
+    },
+    {
+      "bytes": 2113,
+      "digest": "sha256:86f47961e0700817a2e1d8397d72a80fba2f968caebee1ac5d61ab04be6e6483",
+      "path": "contracts/ontology.yaml"
+    },
+    {
+      "bytes": 203,
+      "digest": "sha256:c083ab2b137aff31b41a7ed74f6feb2ae05a98174cd901f6aaedd8b3533ec34d",
+      "path": "contracts/price_basis_contract.yaml"
+    },
+    {
+      "bytes": 1249,
+      "digest": "sha256:8823bcb62576a99937e65f04d7ec3d83650dfa2875f4d9fa35ede43daf2d022b",
+      "path": "contracts/reference_contract.yaml"
+    },
+    {
+      "bytes": 336,
+      "digest": "sha256:5fa2d2cd4fd59aa764bed7b5e56dea74593ce4eff33ee857ac50cf5dd3ea7974",
+      "path": "contracts/revision_policy.yaml"
+    },
+    {
+      "bytes": 600,
+      "digest": "sha256:b4c7e27c13f31788fbbb3408414fd917a6d7593cd00c7a6d1bda3877ee250868",
+      "path": "contracts/rthp_extension_manifest.yaml"
+    },
+    {
+      "bytes": 640,
+      "digest": "sha256:ef53064b7809f869979bb1fa3dcb03376237fedd2458c6b9a45316939def3219",
+      "path": "contracts/scope.yaml"
+    },
+    {
+      "bytes": 1020,
+      "digest": "sha256:13ebf48f1d729a1b33e9f48a826bb9b233ba45b8ac9e5a28f1b24c94acd7233a",
+      "path": "contracts/signal_family_registry.yaml"
+    },
+    {
+      "bytes": 1604,
+      "digest": "sha256:005b4ebda322fbfe490e91b16a0d92f6ecdfb390b8be95e3724d9baca7d69334",
+      "path": "contracts/state_machine.yaml"
+    },
+    {
+      "bytes": 487,
+      "digest": "sha256:56e9dce3f13091e28ee1b679d69da97a36a055a5329227952a47919fb846a673",
+      "path": "contracts/symbol_pair_contract.yaml"
+    },
+    {
+      "bytes": 303,
+      "digest": "sha256:e6ef5c745416784d8b8b7d201ad129fa902bc27f4e3ae81d780a874d6ec16a7f",
+      "path": "contracts/touch_contract.yaml"
+    },
+    {
+      "bytes": 370,
+      "digest": "sha256:bfd44ff42685caf2c0befa7089fef660978a940d379ce27fae7dab45ae562546",
+      "path": "contracts/treatment_envelope.yaml"
+    },
+    {
+      "bytes": 207,
+      "digest": "sha256:8c5f5c9087875ffba05ee67b31f0f272697e7d627c3d42f35b7c067fd2fb8181",
+      "path": "contracts/visual_projection_boundary.yaml"
+    },
+    {
+      "bytes": 2177,
+      "digest": "sha256:01f85ec5f748aa516d1b59a16be618911e11999f6b9ddbb5c516758d87f232c3",
+      "path": "doctrine/context_doctrine.md"
+    },
+    {
+      "bytes": 2980,
+      "digest": "sha256:b39eeef69966eda81fa63dba1859bbe3efd19df6ca174f3c01655cf783f962f6",
+      "path": "doctrine/glossary.yaml"
+    },
+    {
+      "bytes": 3297,
+      "digest": "sha256:75192897fb198e8bb3f9eb243abf53f52f05782f8c28beef52691e26554169d1",
+      "path": "fixtures/example_catalog.yaml"
+    },
+    {
+      "bytes": 1163,
+      "digest": "sha256:e72c69def5fb151a74b512d28ee07efb3faf366eb4b788952689fe25786b94dd",
+      "path": "fixtures/golden/AMB_STALE_PRIMARY.json"
+    },
+    {
+      "bytes": 1166,
+      "digest": "sha256:2136cc085498d3000465591e877a775037764fc7ebc1d7bf67941910197534a2",
+      "path": "fixtures/golden/AMB_STALE_SECONDARY.json"
+    },
+    {
+      "bytes": 1169,
+      "digest": "sha256:298ca599384df59cde79ee2fc0f4e052e4b391381af0ffa065eda294bfcf0ead",
+      "path": "fixtures/golden/NEG_BASIS_MISMATCH.json"
+    },
+    {
+      "bytes": 1370,
+      "digest": "sha256:cc243dabe1fbbbd4128703e15fb7dfb94b085bd20c4d1121ef4037e03f09c502",
+      "path": "fixtures/golden/NEG_BOTH_HIGH.json"
+    },
+    {
+      "bytes": 1128,
+      "digest": "sha256:c483371a4dca1e58f7f8b9df559ff2474cd8152703eca3b8f30c1a9319cdedc7",
+      "path": "fixtures/golden/NEG_NONE_LOW.json"
+    },
+    {
+      "bytes": 1375,
+      "digest": "sha256:f9d457099e9dd3525f57bfbd662b687bb3d9b4b0c441ab319b43aaaf706e057b",
+      "path": "fixtures/golden/NONSEQUENTIAL_M15.json"
+    },
+    {
+      "bytes": 1360,
+      "digest": "sha256:253fa651816ae40309032ec8a30658054fc47406d07ff2f44c8322fdbde620f6",
+      "path": "fixtures/golden/PARTIAL_HISTORY.json"
+    },
+    {
+      "bytes": 1359,
+      "digest": "sha256:23d0c266c61c6f925b73a3272d84e646eb38fa3c5044bcdf1e87d8a5ddcc09ff",
+      "path": "fixtures/golden/POS_HIGH_A_ONLY.json"
+    },
+    {
+      "bytes": 1357,
+      "digest": "sha256:5083f047be91cb31b33e00e32308d75802c96fd37b4da2ff243ac557e3b8819e",
+      "path": "fixtures/golden/POS_LOW_B_ONLY.json"
+    },
+    {
+      "bytes": 1549,
+      "digest": "sha256:db24670329669e0af8a3dac8d2ad15da2fb10bdef0a80e2c4e9843b9971611c0",
+      "path": "fixtures/golden/RESTART_DEDUP.json"
+    },
+    {
+      "bytes": 1371,
+      "digest": "sha256:f01e170bbb4e8bc8ef5c93049d163389a5e91e5e3d5553e8979d0896a73d495b",
+      "path": "fixtures/golden/SEQUENTIAL_M15.json"
+    },
+    {
+      "bytes": 1133,
+      "digest": "sha256:e39673a9694f567afe25462c95b9b85fd1d01605a766c06e55165859baff1dba",
+      "path": "fixtures/golden/ZERO_HISTORY.json"
+    },
+    {
+      "bytes": 604,
+      "digest": "sha256:3a1ba806e07f289334fe8fade2bab1ae8885897cde81396e33e36f6ffb8efe51",
+      "path": "governance/amendment_policy.yaml"
+    },
+    {
+      "bytes": 577,
+      "digest": "sha256:d9afa18567a33de976404008912d2f2fb54095ab5f39c32e26bbcc33ee760d1a",
+      "path": "governance/authority_permit.json"
+    },
+    {
+      "bytes": 1345,
+      "digest": "sha256:96cf46b28482c1c64ca2fb9c3be8e3ee5c897faff911735edcf49e43ae0aa29f",
+      "path": "governance/independent_context_review.json"
+    },
+    {
+      "bytes": 1453,
+      "digest": "sha256:a81959dc5f975c1868ba4773cf626a20d347a0b2591456e6255e2efba7a8ed91",
+      "path": "governance/independent_context_review.md"
+    },
+    {
+      "bytes": 851,
+      "digest": "sha256:632a3ea86c6ca457bccee8d5af479329499549bf0308379d04dfe0f3637bd849",
+      "path": "governance/semantic_approval.json"
+    },
+    {
+      "bytes": 368,
+      "digest": "sha256:b95ad57829803006fa4fcd746497e0ad01c8936071079d4adc4ca589e583ad2c",
+      "path": "handoff/RTHP_CONTEXT_TO_RESEARCH_HANDOFF.md"
+    },
+    {
+      "bytes": 445,
+      "digest": "sha256:cfbd9444139e91631a9a209e79718569c8366a700e5669e1d7da508dd2783a98",
+      "path": "handoff/research_boundary.yaml"
+    },
+    {
+      "bytes": 347,
+      "digest": "sha256:13812a5a43814469d6bcaffb842d79513bf83fa2003dc77933c7ac5898b32914",
+      "path": "owners.yaml"
+    },
+    {
+      "bytes": 517,
+      "digest": "sha256:d89a9da1a300411a0e6fae2ccda2ee0ff3dcc423e8e51d2930e90a5ce390ed54",
+      "path": "security/security_profile.yaml"
+    },
+    {
+      "bytes": 225,
+      "digest": "sha256:4c27defa7517e9ae7a366cdc27c1125dc5b9ee100e419e4797b9a49fbedd860a",
+      "path": "tests/README.md"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+  "source_package_digest": "sha256:0049d8a46560962c4aeb5a8eb748e765ff519174e0367fe3db79d893a741bd80"
+}

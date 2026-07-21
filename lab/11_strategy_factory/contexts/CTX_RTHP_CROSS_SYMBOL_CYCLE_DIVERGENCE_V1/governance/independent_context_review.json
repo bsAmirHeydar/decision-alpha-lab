@@ -1,0 +1,37 @@
+{
+  "capital_authority_created": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "decision": "APPROVE",
+  "findings": [],
+  "identity_aliases": {
+    "anchor_time": "confirmation_close_time",
+    "direction": "relation_polarity",
+    "subject_key": "symbol_pair_id"
+  },
+  "order_authority_created": false,
+  "review_conclusion": "The package is semantically complete and eligible for exact ACL-03 source freezing and compilation.",
+  "review_digest": "sha256:157976550b9fda0c700d2121dfed414178d7aff08e059050a5798159ce35b1d4",
+  "review_id": "RTHP_INDEPENDENT_CONTEXT_REVIEW_ACL03_V1",
+  "reviewed_dimensions": [
+    "context_boundary",
+    "source_decision_fidelity",
+    "cycle_semantics",
+    "touch_semantics",
+    "missing_data_policy",
+    "state_machine_determinism",
+    "occurrence_identity",
+    "known_time_safety",
+    "historical_live_parity",
+    "entry_treatment_execution_exclusion",
+    "english_normalization"
+  ],
+  "reviewer_id": "ALPHA_LAB_INDEPENDENT_CONTEXT_REVIEWER_AGENT",
+  "reviewer_is_semantic_owner": false,
+  "reviewer_role": "independent_reviewer",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "scope": "ACL02_SEMANTIC_PACKAGE_AND_ACL03_COMPILER_READINESS",
+  "semantic_change_detected": false,
+  "unresolved_domain_ambiguity_count": 0
+}

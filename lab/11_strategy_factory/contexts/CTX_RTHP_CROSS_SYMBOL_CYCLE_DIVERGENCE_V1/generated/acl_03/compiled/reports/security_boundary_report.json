@@ -1,0 +1,17 @@
+{
+  "claim_ceiling": "REFERENCE_SECURITY_CONTROLS_ONLY",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "controls": {
+    "adapter_least_privilege": true,
+    "dynamic_execution_reject": true,
+    "network_access_during_compile": false,
+    "secret_scan": true,
+    "source_symlink_reject": true,
+    "source_write_during_compile": false
+  },
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "schema_version": "1.0.0",
+  "security_report_digest": "sha256:5c84342e9019e591e54aa30f22a9b2c31aa92778d1644cfae0fc74645f383c0b"
+}

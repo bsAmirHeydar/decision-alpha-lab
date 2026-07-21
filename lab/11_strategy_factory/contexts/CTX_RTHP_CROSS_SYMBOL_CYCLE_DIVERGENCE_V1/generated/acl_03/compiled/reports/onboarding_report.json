@@ -1,0 +1,86 @@
+{
+  "allowed_next_actions": [
+    "IMPLEMENT_REGISTERED_ADAPTERS",
+    "ADD_DOMAIN_GOLDEN_CASES",
+    "REQUEST_ACL04_SETUP_SEARCH_AUTHORITY"
+  ],
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "decision": "COMPILED_WITH_OBLIGATIONS",
+  "gates": {
+    "adapter_contracts": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "adapter_implementation": {
+      "passed": false,
+      "reason_codes": [
+        "ACL03_ADAPTER_IMPLEMENTATION_REQUIRED"
+      ]
+    },
+    "authority_bound": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "external_data_qualification": {
+      "passed": false,
+      "reason_codes": [
+        "ACL14_REAL_CONTEXT_EVIDENCE_REQUIRED"
+      ]
+    },
+    "golden_replay": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "ir_compiled": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "live_activation": {
+      "passed": false,
+      "reason_codes": [
+        "ACL11_RUNTIME_PARITY_REQUIRED",
+        "ACL12_SECURITY_HARDENING_REQUIRED",
+        "ACL14_CAPITAL_AUTHORIZATION_REQUIRED"
+      ]
+    },
+    "research_entry": {
+      "passed": false,
+      "reason_codes": [
+        "ACL04_SETUP_FACTORY_REQUIRED",
+        "ACL05_IMMUTABLE_BATCH_REQUIRED"
+      ]
+    },
+    "source_frozen": {
+      "passed": true,
+      "reason_codes": []
+    }
+  },
+  "generated_artifact_count": 33,
+  "highest_state": "CONTEXT_COMPILED",
+  "live_order_submission_allowed": false,
+  "open_obligations": [
+    {
+      "code": "ACL03_ADAPTER_IMPLEMENTATION_REQUIRED",
+      "subject_ids": [
+        "ADP_8723382332B74C935790",
+        "ADP_40F3A4A83010B898B5BF",
+        "ADP_583C8E4F8C8A064B40DC",
+        "ADP_B5D46143D2DB17F74779",
+        "ADP_76E27E7A77BD882D6BCD"
+      ]
+    },
+    {
+      "code": "ACL04_DUAL_SETUP_FACTORY_REQUIRED",
+      "subject_ids": []
+    },
+    {
+      "code": "ACL05_IMMUTABLE_BATCH_REQUIRED",
+      "subject_ids": []
+    }
+  ],
+  "report_digest": "sha256:4f328ce14246ba492921120031b55c8cb331146911c0d504110f08410fee855f",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,34 @@
+{
+  "allowed_operations": [
+    "READ_CONTEXT_OCCURRENCES",
+    "READ_REFERENCE_STATES",
+    "VALIDATE_KNOWN_TIME"
+  ],
+  "available_context_views": [
+    "RTHP_EVENT_VIEW",
+    "RTHP_REFERENCE_STATE_VIEW"
+  ],
+  "binding_digest": "sha256:516168ef55e6dc3a8451e0f6eb32144c4fd4d4f9283b0af37ec34d7d9cef7d63",
+  "binding_id": "RTHP_UCEE_BINDING_3D35FC4B00B6FE0823EE",
+  "binding_kind": "UCEE_CONTEXT_FEATURE_SOURCE",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "feature_binding_ir_digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+  "forbidden_operations": [
+    "ALTER_CONTEXT_SEMANTICS",
+    "INVENT_CONTEXT_FIELDS",
+    "CREATE_UNAPPROVED_LABELS",
+    "TRAIN_BEFORE_ACL05",
+    "SUBMIT_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "implementation_status": "CONTRACT_READY",
+  "live_order_submission_allowed": false,
+  "research_entry_blockers": [
+    "ACL04_DUAL_SETUP_FACTORY_REQUIRED",
+    "ACL05_IMMUTABLE_BATCH_REQUIRED"
+  ],
+  "research_entry_ready": false,
+  "schema_version": "1.0.0"
+}

@@ -2,11 +2,11 @@
   "action": "ACL02_EVALUATE_CONTEXT",
   "capital_activation_allowed": false,
   "decision": "ALLOW",
-  "decision_id": "DEC_RTHP_ACL02_EVALUATE_V1",
+  "decision_id": "DEC_RTHP_ACL02_EVALUATE_V1_0_2",
   "expires_at": "2099-01-01T00:00:00Z",
   "issued_at": "2026-07-21T00:00:00Z",
   "live_order_submission_allowed": false,
-  "policy_digest": "sha256:2298b1e6c72e45a41d7e90a1e116cf7278390336727a682c19b7776097a9ff11",
-  "subject_artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.0#sha256:2298b1e6c72e45a41d7e90a1e116cf7278390336727a682c19b7776097a9ff11",
+  "policy_digest": "sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37",
+  "subject_artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2#sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37",
   "tenant_id": "alpha-lab"
 }

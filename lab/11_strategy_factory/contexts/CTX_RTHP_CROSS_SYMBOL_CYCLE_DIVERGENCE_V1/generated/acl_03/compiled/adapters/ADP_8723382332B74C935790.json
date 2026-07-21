@@ -1,0 +1,27 @@
+{
+  "adapter_id": "ADP_8723382332B74C935790",
+  "adapter_kind": "DATA_SOURCE",
+  "artifact_ref": "al://alpha-lab/data/source/RTHP_PRIMARY_TICKS@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "DECLARED_CACHE_ONLY",
+    "network_egress": "DENY_BY_DEFAULT",
+    "order_submission": false,
+    "secret_access": "NAMED_SECRET_ONLY"
+  },
+  "classification": "RESTRICTED",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "contract_digest": "sha256:170427aa121c6fc8513249a74c45bef81947c3e11f5122409f99648ce04ce2ed",
+  "freshness_slo_ms": 0,
+  "implementation_status": "CONTRACT_ONLY",
+  "known_time_field": "known_time",
+  "required_methods": [
+    "read_snapshot",
+    "fingerprint",
+    "validate_schema",
+    "validate_known_time",
+    "health"
+  ],
+  "schema_version": "1.0.0",
+  "source_id": "PRIMARY_SYMBOL_TICKS"
+}

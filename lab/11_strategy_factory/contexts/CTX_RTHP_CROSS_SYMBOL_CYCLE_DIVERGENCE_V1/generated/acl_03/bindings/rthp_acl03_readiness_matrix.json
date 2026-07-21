@@ -1,0 +1,35 @@
+{
+  "acl03_decision": "COMPILED_WITH_OBLIGATIONS",
+  "acl04_handoff_digest": "sha256:cf815b88e49e527c849ac08dcab894b1c51b10f44ee409d2addcf52bafebf739",
+  "allowed_next_actions": [
+    "IMPLEMENT_REGISTERED_ADAPTERS",
+    "ADD_DOMAIN_GOLDEN_CASES",
+    "REQUEST_ACL04_SETUP_SEARCH_AUTHORITY"
+  ],
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_AND_ONBOARDING_REFERENCE_ONLY",
+  "compilation_receipt_digest": "sha256:b672d236c2fc73ed4c4193e4f3532b4973e2ee75c32f4bcf85b2cc92adb878b8",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "gates": {
+    "acl04_setup_authority": "NOT_GRANTED",
+    "acl05_research_batch": "NOT_CREATED",
+    "adapter_runtime_qualification": "PENDING",
+    "authority_binding": "PASS",
+    "detector_ir": "PASS",
+    "feature_binding_ir": "PASS",
+    "golden_replay": "PASS",
+    "independent_review": "PASS",
+    "known_time_ir": "PASS",
+    "live_activation": "FORBIDDEN",
+    "occurrence_ir": "PASS",
+    "saed_seed_contract": "PASS",
+    "security_boundary": "PASS",
+    "source_freeze": "PASS",
+    "ucee_context_source_contract": "PASS"
+  },
+  "highest_state": "CONTEXT_COMPILED",
+  "live_order_submission_allowed": false,
+  "matrix_digest": "sha256:aa1bd14c4e01c52694ef500bd8269a28817ca580a1b135294cb03509f3fcbc1f",
+  "schema_version": "1.0.0"
+}

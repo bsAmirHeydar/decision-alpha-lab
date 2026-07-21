@@ -1,0 +1,36 @@
+{
+  "accepted_inputs": [
+    "ACL03_DETECTOR_IR",
+    "ACL03_OCCURRENCE_IR",
+    "ACL03_KNOWN_TIME_IR",
+    "ACL03_FEATURE_BINDING_IR"
+  ],
+  "allowed_operations": [
+    "BUILD_CONTEXT_TWIN",
+    "MATERIALIZE_KNOWN_TIME_SAFE_VIEWS",
+    "REGISTER_CONTEXT_LINEAGE"
+  ],
+  "binding_digest": "sha256:7cfece5d25d9d7e55caebd702ef247e6cad1eeaa7947bb86f7e3ed14a8197013",
+  "binding_id": "RTHP_SAED_BINDING_3D35FC4B00B6FE0823EE",
+  "binding_kind": "SAED_CONTEXT_DIGITAL_TWIN_SEED",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "emitted_contracts": [
+    "RTHP_CONTEXT_DIGITAL_TWIN_SEED",
+    "RTHP_EVENT_VIEW",
+    "RTHP_REFERENCE_STATE_VIEW"
+  ],
+  "forbidden_operations": [
+    "TRAIN_MODEL",
+    "CREATE_LABEL",
+    "DEFINE_TREATMENT",
+    "SUBMIT_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "implementation_status": "CONTRACT_AND_SEED_READY",
+  "live_order_submission_allowed": false,
+  "qualification_status": "ADAPTER_IMPLEMENTATION_REQUIRED",
+  "schema_version": "1.0.0",
+  "twin_seed_digest": "sha256:03149f7cd9c1956250a2240e82300614fc80e4ccafdc24949efc0a3ad8287b09"
+}

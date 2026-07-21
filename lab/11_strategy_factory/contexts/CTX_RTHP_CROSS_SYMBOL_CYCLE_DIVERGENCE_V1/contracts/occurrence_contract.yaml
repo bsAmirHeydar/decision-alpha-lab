@@ -1,8 +1,33 @@
-identity_fields: [context_id, context_version, symbol_pair_id, cycle_definition_version, signal_family, active_cycle_id, reference_cycle_id, level_side, hunter_symbol, protected_symbol, first_touch_time, confirmation_close_time]
-start_rule: The earliest tick-size-normalized touch of exactly one symbol-local reference level creates one candidate state for the registered family, reference, pair, and level side.
-confirmation_rule: A candidate becomes an immutable occurrence only when both symbols expose the same M15 confirmation-close identity and exactly one corresponding level is touched.
-invalidation_rule: If both corresponding levels are touched before confirmation, the candidate transitions to BOTH_SIDES_TOUCHED and no divergence occurrence is created.
-expiry_rule: A later protected-symbol touch after confirmation transitions the scoped reference to REFERENCE_EXHAUSTED without deleting the historical occurrence.
-deduplication_rule: A stable identity over all declared identity fields suppresses duplicate emission during replay, restart, and repeated hunter touches.
+identity_fields:
+- context_id
+- context_version
+- anchor_time
+- direction
+- subject_key
+- symbol_pair_id
+- cycle_definition_version
+- signal_family
+- active_cycle_id
+- reference_cycle_id
+- level_side
+- hunter_symbol
+- protected_symbol
+- first_touch_time
+- confirmation_close_time
+start_rule: The earliest tick-size-normalized touch of exactly one symbol-local reference level creates one candidate state
+  for the registered family, reference, pair, and level side. The ACL-03 subject_key is the canonical alias of symbol_pair_id.
+confirmation_rule: A candidate becomes an immutable occurrence only when both symbols expose the same M15 confirmation-close
+  identity and exactly one corresponding level is touched. The ACL-03 anchor_time is the canonical alias of confirmation_close_time,
+  and direction is the canonical alias of intrinsic relation_polarity.
+invalidation_rule: If both corresponding levels are touched before confirmation, the candidate transitions to BOTH_SIDES_TOUCHED
+  and no divergence occurrence is created.
+expiry_rule: A later protected-symbol touch after confirmation transitions the scoped reference to REFERENCE_EXHAUSTED without
+  deleting the historical occurrence.
+deduplication_rule: A stable identity over all declared identity fields suppresses duplicate emission during replay, restart,
+  and repeated hunter touches. anchor_time equals confirmation_close_time, direction equals relation_polarity, and subject_key
+  equals symbol_pair_id; these aliases add compiler interoperability and do not add new domain meaning.
 revision_policy: APPEND_NEW_REVISION
-precedence: [BOTH_SIDES_TOUCH_BEFORE_XOR_CONFIRMATION, DATA_QUARANTINE_BEFORE_CONFIRMATION, CONFIRMATION_BEFORE_LATER_REFERENCE_EXHAUSTION]
+precedence:
+- BOTH_SIDES_TOUCH_BEFORE_XOR_CONFIRMATION
+- DATA_QUARANTINE_BEFORE_CONFIRMATION
+- CONFIRMATION_BEFORE_LATER_REFERENCE_EXHAUSTION

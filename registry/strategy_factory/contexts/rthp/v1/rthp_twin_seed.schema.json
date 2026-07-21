@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "immutable_semantics": {
+      "const": true
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "seed_id",
+    "context_id",
+    "context_version",
+    "source_snapshot_digest",
+    "detector_ir_digest",
+    "occurrence_ir_digest",
+    "known_time_ir_digest",
+    "feature_binding_ir_digest",
+    "immutable_semantics",
+    "seed_digest"
+  ],
+  "type": "object"
+}

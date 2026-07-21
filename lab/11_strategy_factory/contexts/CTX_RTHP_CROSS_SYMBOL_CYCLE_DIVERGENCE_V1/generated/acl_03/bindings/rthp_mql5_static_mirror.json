@@ -1,0 +1,19 @@
+{
+  "capital_access_allowed": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "detector_ir_digest": "sha256:643d1e6aedaaef33c73de4b04fd23d94ba291af8a0e8f9e9942e73059c9334fb",
+  "implementation_status": "STATIC_DIAGNOSTIC_MIRROR_READY",
+  "known_time_ir_digest": "sha256:1a80fa97f50f0e92ab9f2e3f03b6b435ccd17d5451a64d7568754cb87398c09f",
+  "mirror_digest": "sha256:fb70beb7910c6000b3b082b268f0b3414072bf39ef6807a7bca59ba11408fe98",
+  "mirror_id": "RTHP_MQL5_STATIC_MIRROR_3D35FC4B00B6FE0823EE",
+  "mirror_scope": [
+    "IDENTITY_ALIAS_CONSTANTS",
+    "CLAIM_CEILING",
+    "IR_DIGEST_PINNING"
+  ],
+  "occurrence_ir_digest": "sha256:22029214ddc97c8e94c65e23120de8e484f05afb884c617fc615d96b104d485b",
+  "order_submission_allowed": false,
+  "runtime_detector_implemented": false,
+  "schema_version": "1.0.0"
+}
