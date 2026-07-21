@@ -1,0 +1,365 @@
+{
+  "claim_ceiling": "LCM_13C_REFERENCE_ONLY",
+  "closure_id": "CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F",
+  "deterministic_identity": true,
+  "file_count": 68,
+  "files": [
+    {
+      "path": "LCM13C_TO_LCM14A_HANDOFF.json",
+      "sha256": "sha256:00538fc6c4a02b2b7d5fd614e6b6eeb51f596ba99a5f781dd670a4c917926fad",
+      "size_bytes": 3427
+    },
+    {
+      "path": "closure_event_ledger.jsonl",
+      "sha256": "sha256:9c0ed8b88aa8c3edce38c99c8f6a557681eda36cf07c73530d394b5628e6e85b",
+      "size_bytes": 213624
+    },
+    {
+      "path": "cutover_closure_receipt.json",
+      "sha256": "sha256:6c82c371b06b1212ae49f6c306fd43cb2b75cdc39eb935872d2ed046aa135728",
+      "size_bytes": 2216
+    },
+    {
+      "path": "cutover_closure_registry.json",
+      "sha256": "sha256:095a8d7de1220ec690a7cddd0446b903a8efc3c6914131d4ffb864217abaa8cc",
+      "size_bytes": 1316
+    },
+    {
+      "path": "deprecation_candidate_registry.json",
+      "sha256": "sha256:3fc4aad44363cf12b0a0e1a8f6aac858e7e47fbcad33c64b77fd1861c06ccc76",
+      "size_bytes": 1271
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_1031C3FE1BAD4FCF2E4C2736C4FABE4E.json",
+      "sha256": "sha256:9d4e572abef520161685d5dd5880873c392a3cf9b97ac0cd350b266315f988da",
+      "size_bytes": 1654
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_18CF9989FA03E2FF9FCD79C15460FADD.json",
+      "sha256": "sha256:b45cd74a9d9e26973da6c45cee8c820c2b8324003a3657c1d39d494fd2d6ea10",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_19A268AC69C14C411100EE6BF7732638.json",
+      "sha256": "sha256:c7f600657a2d46fc6b801c726ca5a7ae56de5e1a9e92fdd01f1f7100c7722c31",
+      "size_bytes": 1647
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_235290FC84B96314A860A347039032FA.json",
+      "sha256": "sha256:b65c822f99110cbb42ec98b05bfeb9c30ec1e011105fae29bbd5b54b5ae8a4d0",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_411698A7E82E98468CD0505B4CE88EC8.json",
+      "sha256": "sha256:ef0247cff6e963c7d9cfc6b1948be907382efc12cf868c01928eb1294bbc1736",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_41E4CC53FE3E215B755A50807BD138CB.json",
+      "sha256": "sha256:3b5cc4fcd4a98c72a570c9c9667ed013c90188f4b079594d1e99d8d72c70e493",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_4D20CFFB3B7DFDA0152A090C212E84E0.json",
+      "sha256": "sha256:61f059f73c21d7054b2e1b3279bcc029475bd73be9d7b97627f78a8e77a4121a",
+      "size_bytes": 1654
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_55713879F175CEDFA397E30D3D1EFCB3.json",
+      "sha256": "sha256:3450e54dda3bb83ed7314ae6111277bbd481e15631461c7736ec25193b204d44",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_67EF3930E92262125693BB38876000FC.json",
+      "sha256": "sha256:c372e26b9ce29005a1b40a45fe523ae3783b9c7929afc06b4bac1ae603f2f5e0",
+      "size_bytes": 1654
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_6A43A4A5B2A19FE852AEDE4718220397.json",
+      "sha256": "sha256:0490c8b005ccdb05e277c74ea552216b12841fc9f3f99fb2a1448e32e907ebf0",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_6A941B7ED132F123C22F0F3ED3ED3A44.json",
+      "sha256": "sha256:00962d451c4cee8d723f57ff0cf89cd374ed3414d1f4149795c9671380da07f2",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_6E6746A30E25CEE087334AAEA4A9C987.json",
+      "sha256": "sha256:4382811859cc0da08511bf5d963f4c4467e4c9efce0550215bbd24d48e7cb54b",
+      "size_bytes": 1647
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_7997A8AD1BDF1E68FA5B36831AC01B43.json",
+      "sha256": "sha256:e48408e2b419e7e09e134676e101fd52d58c091409e6179a998c7055ab70f021",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_7B7A0881620EE6EB50D87AD5123FB07C.json",
+      "sha256": "sha256:443eaa856ee591161604c5f7784207fd414bb4b2a7e2968abe1d3ae4670d6f28",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_8ED605A0A04A814821D61EAB1209CECD.json",
+      "sha256": "sha256:57cc859b148c2adfe30a61f4b6dd5fc8000ad4e7af75194c302aad930ee7e82b",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_AECC07087C26D5FA9DFCA2DB4AADDA90.json",
+      "sha256": "sha256:88fc490e4b25a30a6eb924c6897a1aee77f3e637284300e6d5a953284ef8a4c9",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_B5976FDB2B8B6312428FD4BDE6F5046F.json",
+      "sha256": "sha256:a93a4183a44e3f5c644c3b89f596c4f2b27975f661465a306cfcd2e89de75558",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_B6CD725B4E65249F068E34DCDD2B789C.json",
+      "sha256": "sha256:b6bf432299b555a6057a9f6997030d634d7e62d7a0789023ff5385c2ca1a7578",
+      "size_bytes": 1654
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_BA0AD32057723D99C3D1FEDC68FC46C9.json",
+      "sha256": "sha256:7d46072d171b26e32034b91f18410347c46a02f3c4ca8ce555a4b323c4a5db7d",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_CB8C92B41D177A2173F2335F0E73466B.json",
+      "sha256": "sha256:565b561d9d3c8f0bdcffea6530bb965f137aa4a0826c1905b171c4567e2e83c4",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_CFBA6B9E745FD1E6CB23AE5D23A18DB6.json",
+      "sha256": "sha256:cb9cc18a59970898d8753b04308919b4a070e4e4a5602976e0c2b10a8f6d98e4",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58.json",
+      "sha256": "sha256:123bf1742dd026c11c5117b1000cba052ed06bfa2018d88bbbb7a82b67e625b6",
+      "size_bytes": 1653
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_D24146E420E073F5F8AA21C59E0DF61E.json",
+      "sha256": "sha256:f0005d8df793340964715767c2a521ca572de95447918182d790323af6107fb4",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_DF71C79D531A929BDF1D76B4AED4D265.json",
+      "sha256": "sha256:2702cfc1747a5dcd7f58a397057dcc9899e149ce89fa3ddc7d8274de69d1e462",
+      "size_bytes": 1647
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_E3A644DC5787CBC54B3E78BC0913FB06.json",
+      "sha256": "sha256:0f7bdc142cec3c90ddb7d8243879878871d31ba1fc440860d2e85d4e89cde81a",
+      "size_bytes": 1651
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_FD1FF0EE13262922EDC4DCBB03A957D6.json",
+      "sha256": "sha256:3330a7988706d036f9cb9cef49b15c1e70766a189db23ace11255619faad9bf2",
+      "size_bytes": 1647
+    },
+    {
+      "path": "forward_recovery_reports/CUTOVERWAVE_FD5B2D7161E40551B5958B77F37D04F0.json",
+      "sha256": "sha256:4ab072e2c16b5122c1fbddb5b813033768a43a82bd46cadd133a4fc6fdf7fa15",
+      "size_bytes": 1651
+    },
+    {
+      "path": "records/cutover_closure_records.jsonl",
+      "sha256": "sha256:f45c0305cd2fe1764b91fb30e4374545805199cde00d71805fb86fc34a75baab",
+      "size_bytes": 43387
+    },
+    {
+      "path": "records/deprecation_candidate_records.jsonl",
+      "sha256": "sha256:f59ca448f447a513873094bf5165c79ff96b1360b9b7866c56870f8bdc43b6b0",
+      "size_bytes": 1111595
+    },
+    {
+      "path": "records/state_recovery_records.jsonl",
+      "sha256": "sha256:a2ae6f96e30805cfa802066e495111592b1a391047f8f054a7451bd803ee4130",
+      "size_bytes": 214716
+    },
+    {
+      "path": "remaining_legacy_blocker_registry.json",
+      "sha256": "sha256:a5b6822bdddde2ada32dc66886a8dc7cdbdc1dda6db7f8cafb555a08f8fef47b",
+      "size_bytes": 64946
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:0242ac11ea700ce16e43a4bd659bebaf8b39611a4ce73aa77bb9d0ced4654eb1",
+      "size_bytes": 1476
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:2a56b189d603ad5f6f91ea838734423724e18dae3bf649728081ee7ada531870",
+      "size_bytes": 1946
+    },
+    {
+      "path": "residual_cutover_risk.md",
+      "sha256": "sha256:617392fa106ea8e41341d0230cf8b0eff1b97ac33addd6bab0d13cbf179b4862",
+      "size_bytes": 386
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:81999061075d2212a610363fa1460c8a8b79e164ab0335957b11a7b84ceca8a0",
+      "size_bytes": 1541
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_1031C3FE1BAD4FCF2E4C2736C4FABE4E.json",
+      "sha256": "sha256:f98a77582ee3b3cc51098e87a6fa2a08912d7654e2e4619b1fb320e2041f2e91",
+      "size_bytes": 1834
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_18CF9989FA03E2FF9FCD79C15460FADD.json",
+      "sha256": "sha256:4a73adbc269d452e3cfb594bf5dfe3f8a79428e22fff10d0be7563aa467f8ca4",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_19A268AC69C14C411100EE6BF7732638.json",
+      "sha256": "sha256:c5ebea0d56f6a7e3914e5cab4e29e465702ab4133d243bb1efa8c64b1eff057b",
+      "size_bytes": 1827
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_235290FC84B96314A860A347039032FA.json",
+      "sha256": "sha256:c893775e5fc35a1d0baab8a12b585de1fc169084457b4af7a0cf511316bd0a9b",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_411698A7E82E98468CD0505B4CE88EC8.json",
+      "sha256": "sha256:6e31da3f1decfe3d696baf32d473c5332b00872c380585352026ef7c7bab1723",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_41E4CC53FE3E215B755A50807BD138CB.json",
+      "sha256": "sha256:d25f7f96dce25f9410b6f0279f762e106c69410c1b108ddc3036cdfca614c032",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_4D20CFFB3B7DFDA0152A090C212E84E0.json",
+      "sha256": "sha256:4438bb81a735d848cf625bca0d5d87026379c4b133a87c8be1b6a21224a7dcd9",
+      "size_bytes": 1834
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_55713879F175CEDFA397E30D3D1EFCB3.json",
+      "sha256": "sha256:346821658b6c67f9095809905d5c4afd8d9305961a3db9e7bfd8628351dbe6f1",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_67EF3930E92262125693BB38876000FC.json",
+      "sha256": "sha256:07d051978f2452b81b1c5157e9c1389e7c9914656438d8d3310911eef0d313c2",
+      "size_bytes": 1834
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_6A43A4A5B2A19FE852AEDE4718220397.json",
+      "sha256": "sha256:c24230826ba4a0f46e6b225ee2c7534896570ac25c77b9ed01cd04f9108fd6e7",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_6A941B7ED132F123C22F0F3ED3ED3A44.json",
+      "sha256": "sha256:91a5659791c95adf1244011a7bef9289ba0d081898c5131f11293a4f27af97b2",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_6E6746A30E25CEE087334AAEA4A9C987.json",
+      "sha256": "sha256:80b1fb79e37fee3fab3693e798aa905fd61bf574c3c3d13546c4efe45a923251",
+      "size_bytes": 1827
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_7997A8AD1BDF1E68FA5B36831AC01B43.json",
+      "sha256": "sha256:91d3354bdfb0b820138c53c362f91fe14736849cdfcafdffecb2289637895215",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_7B7A0881620EE6EB50D87AD5123FB07C.json",
+      "sha256": "sha256:0603f6602ae2282e66008ed5a739e49ae3a7e4aef5cbbd22df7a9cc0fb10fd03",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_8ED605A0A04A814821D61EAB1209CECD.json",
+      "sha256": "sha256:e150d19f29938a1c9543d02ef594112d38a6cb65115cd00e28150d0bc20162a2",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_AECC07087C26D5FA9DFCA2DB4AADDA90.json",
+      "sha256": "sha256:36ccd5f142547ebeac0917b41f79e0b69f114255739e14909720aade8926a35f",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_B5976FDB2B8B6312428FD4BDE6F5046F.json",
+      "sha256": "sha256:e06c0dc770e311a8a27d3248e7a786d2adc65b0a54011488b3f2b1e20b5d937e",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_B6CD725B4E65249F068E34DCDD2B789C.json",
+      "sha256": "sha256:47c50e3e6c0669754720e504e97aad851685c2574b1d123756de3ce55b36d341",
+      "size_bytes": 1834
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_BA0AD32057723D99C3D1FEDC68FC46C9.json",
+      "sha256": "sha256:946ecf59b8dabe75a117cbc7d32f93abf9d57739ac6f3f7babe2b3576ea9cad7",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_CB8C92B41D177A2173F2335F0E73466B.json",
+      "sha256": "sha256:3c5806affad749da8a48a1eb89ce21253eec8e4f06ac2d7e1b1c7cb2d68da287",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_CFBA6B9E745FD1E6CB23AE5D23A18DB6.json",
+      "sha256": "sha256:94eeea5d4a361864ef6adfda07b06c171e49503fbf0b92e9b0388d25ab60fef9",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_D23423C376024C809D464C6C40C4EC58.json",
+      "sha256": "sha256:fe23a3de87d12917c6953b6a3cc3c891dc2ea42041b560bd62fc4439b6125ea4",
+      "size_bytes": 1833
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_D24146E420E073F5F8AA21C59E0DF61E.json",
+      "sha256": "sha256:06014b89adb513237805463f610c7b589fbe1d2119f0d7c5dfa54cb964030a46",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_DF71C79D531A929BDF1D76B4AED4D265.json",
+      "sha256": "sha256:cc8f92224cb549f6d06adadfcb363f50ffa34a2eec2f8316b7c6016911ca7d94",
+      "size_bytes": 1827
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_E3A644DC5787CBC54B3E78BC0913FB06.json",
+      "sha256": "sha256:e7528e21ed6058f7ef83456bc0967fc4faf2b69a7cdbd1f1acb829d1c4ef1025",
+      "size_bytes": 1831
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_FD1FF0EE13262922EDC4DCBB03A957D6.json",
+      "sha256": "sha256:dc1253739597688ea273487063bf2aa50b14028ce7d06e86e93f1c314fb77050",
+      "size_bytes": 1827
+    },
+    {
+      "path": "rollback_rehearsal_reports/CUTOVERWAVE_FD5B2D7161E40551B5958B77F37D04F0.json",
+      "sha256": "sha256:8cb687fb5f25f19d286ebda3f770d026f7f1484db92e098aed61645129eb4408",
+      "size_bytes": 1831
+    },
+    {
+      "path": "state_recovery_registry.json",
+      "sha256": "sha256:eb3317f1ad77cb8322373221939123653634811728c657743d3ff3acf122b12d",
+      "size_bytes": 1321
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "output_manifest_digest": "sha256:6a33a2b179e893d9c33b7b708da737e4d99208311067f348f73c251f653af13b",
+  "output_manifest_id": "LCM13COUTPUT_C6CC7AD33BEB0ADD761BC414B1839761",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13C",
+  "producer": "tools.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:8c354445672d3fe114ad44aed25c88ce2f82497ac14b41037e975913ce8ea1f1",
+    "sha256:edefb24c1faff917c3185f8c7eab3becd02884b20c9819ee9428201ac7950266",
+    "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+    "sha256:60ddb0fadf02143d92ff96e23df42056f8158cd5a7232fe8d5291a4ed7ecd013"
+  ],
+  "validation_status": "PASS"
+}

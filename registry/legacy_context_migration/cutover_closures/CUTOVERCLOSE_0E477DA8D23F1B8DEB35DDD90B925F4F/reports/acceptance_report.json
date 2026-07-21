@@ -1,0 +1,37 @@
+{
+  "blocked_dimensions": [
+    "LIVE_PLATFORM_ENVIRONMENTAL_PARITY_NOT_OBSERVED"
+  ],
+  "claim_ceiling": "LCM_13C_REFERENCE_ONLY",
+  "closure_id": "CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F",
+  "consumer_count": 613,
+  "deterministic_identity": true,
+  "event_count": 189,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-13",
+  "non_compensatory_gate_failures": [],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "passed": true,
+  "phase_id": "LCM-13C",
+  "producer": "tools.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService",
+  "reference_rehearsal_only": true,
+  "remaining_legacy_consumer_count": 806,
+  "reopen_required_count": 0,
+  "report_digest": "sha256:567a7f7f2aec2990acf9176624d4c3ad9b2483aed36fa1202acb9127c42ef313",
+  "report_id": "LCM13CACCEPT_C6CC7AD33BEB0ADD761BC414B1839761",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:8c354445672d3fe114ad44aed25c88ce2f82497ac14b41037e975913ce8ea1f1",
+    "sha256:edefb24c1faff917c3185f8c7eab3becd02884b20c9819ee9428201ac7950266",
+    "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+    "sha256:60ddb0fadf02143d92ff96e23df42056f8158cd5a7232fe8d5291a4ed7ecd013"
+  ],
+  "state_record_count": 162,
+  "unknown_dimensions": [
+    "LIVE_RUNTIME_STATE_NOT_MUTATED_OR_OBSERVED"
+  ],
+  "validation_status": "PASS",
+  "wave_count": 27
+}

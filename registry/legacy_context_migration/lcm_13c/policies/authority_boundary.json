@@ -1,0 +1,16 @@
+{
+  "allowed_actions": [
+    "REFERENCE_ROLLBACK_REHEARSAL",
+    "REFERENCE_FORWARD_RECOVERY",
+    "STATE_OWNERSHIP_ACCOUNTING",
+    "CUTOVER_CLOSURE"
+  ],
+  "capital_authority": false,
+  "claim_ceiling": "LCM_13C_REFERENCE_ONLY",
+  "deletion_authority": false,
+  "live_order_authority": false,
+  "phase_id": "LCM-13C",
+  "quarantine_authority": false,
+  "runtime_authority": false,
+  "schema_version": "1.0.0"
+}

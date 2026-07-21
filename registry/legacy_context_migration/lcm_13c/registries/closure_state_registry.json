@@ -1,0 +1,10 @@
+{
+  "non_compensatory_rule": "ANY_FAILED_MANDATORY_REVERSIBILITY_GATE_REQUIRES_REOPEN",
+  "phase_id": "LCM-13C",
+  "schema_version": "1.0.0",
+  "states": [
+    "CLOSED",
+    "CLOSED_WITH_RESIDUAL_RISK",
+    "REOPEN_REQUIRED"
+  ]
+}

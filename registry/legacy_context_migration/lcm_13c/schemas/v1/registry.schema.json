@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm-13c/registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "closure_id": {},
+    "deterministic_identity": {},
+    "generated_at": {},
+    "generated_time_semantics": {},
+    "master_phase": {},
+    "owner": {},
+    "phase_id": {},
+    "producer": {},
+    "registry_digest": {},
+    "registry_id": {},
+    "reviewer": {},
+    "schema_version": {},
+    "source_digests": {},
+    "validation_status": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "registry_id",
+    "closure_id",
+    "registry_digest"
+  ],
+  "title": "registry",
+  "type": "object"
+}

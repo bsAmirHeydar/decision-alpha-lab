@@ -1,8 +1,8 @@
 ---
 title: "LCM-13C — Rollback Drill and Cutover Closure"
-status: proposed-reference
+status: implemented-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-13C
 master_phase: LCM-13
@@ -121,3 +121,14 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - No deletion authority.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Implemented result
+
+- Closure ID: `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F`.
+- 27 rollback rehearsal reports and 27 deterministic forward-recovery reports.
+- 613 switched consumers covered exactly; 806 blocked consumers remain unchanged on legacy.
+- 162 state recovery records across six required state planes.
+- 189 ordered closure events with no aggregation or suppression.
+- Closure states: 27 `CLOSED_WITH_RESIDUAL_RISK`, zero `REOPEN_REQUIRED`.
+- 613 deprecation candidates passed to LCM-14A with compatibility windows mandatory.
+- No live mutation, quarantine, deletion, runtime, live-order or capital authority created.

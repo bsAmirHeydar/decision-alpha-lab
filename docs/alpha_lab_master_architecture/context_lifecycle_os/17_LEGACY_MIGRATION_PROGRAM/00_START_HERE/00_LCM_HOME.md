@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_10C_DRY_RUN_PARITY_SAFETY_CONTROLS_AND_AUTHORITY_NEGATIVE_CLOSURE|LCM-10C — Dry-Run Parity, Safety Controls and Authority-Negative Closure]].
+The next approved implementation unit is [[LCM_14A_DEPRECATION_REGISTRY_AND_COMPATIBILITY_REDIRECTS|LCM-14A — Deprecation Registry and Compatibility Redirects]].
 
 ## Claim ceiling
 
@@ -50,9 +50,10 @@ The program may create migration evidence, canonical packages, compatibility ada
 
 ## Current implementation status
 
-- LCM-00 through LCM-09: implemented accepted-reference foundations and bounded migrations.
-- LCM-09 closes with 60 canonical fail-closed Setup reference packages, 60 explicit blockers and zero hidden authority.
-- LCM-10A: accepted reference inventory.
-- LCM-10B: accepted reference package extraction and disabled execution boundary under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`.
-- LCM-10C through LCM-16: not implemented; governed by the refined roadmap.
-- Next: LCM-10C.
+- LCM-00 through LCM-12: implemented accepted-reference foundations and bounded migrations.
+- LCM-13A: accepted dual-run evidence.
+- LCM-13B: accepted controlled cutover for 613 consumers in 27 waves; 806 remain explicit blockers.
+- LCM-13C: accepted closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F` with 162 state-plane records, 189 ordered events and zero reopened waves.
+- LCM-13 is closed at the reference-only claim ceiling.
+- LCM-14 through LCM-16 remain governed by the refined roadmap.
+- Next: LCM-14A.

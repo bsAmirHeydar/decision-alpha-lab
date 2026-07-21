@@ -1,8 +1,8 @@
 ---
 title: "LCM-13 — Wave Cutover, Dual Run and Consumer Switch"
-status: proposed-reference
+status: implemented-reference
 version: 2.0.0
-updated: 2026-07-19
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-13
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
@@ -66,3 +66,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+## Accepted master-phase closure
+
+LCM-13 is accepted at the reference-only claim ceiling through closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F`. The consolidated gate switches 613 eligible consumers in 27 bounded waves, leaves 806 blocked consumers explicit on legacy, verifies rollback and deterministic forward recovery for every completed wave, and accounts for six persistent-state planes per wave. All 27 waves are `CLOSED_WITH_RESIDUAL_RISK`; none are `REOPEN_REQUIRED`. The only permitted next action is LCM-14A deprecation registration and minimal compatibility redirects; quarantine and deletion remain forbidden.

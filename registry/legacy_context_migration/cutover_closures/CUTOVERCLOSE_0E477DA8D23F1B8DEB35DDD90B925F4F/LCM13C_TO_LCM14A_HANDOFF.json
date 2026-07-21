@@ -1,0 +1,77 @@
+{
+  "acceptance_report_digest": "sha256:567a7f7f2aec2990acf9176624d4c3ad9b2483aed36fa1202acb9127c42ef313",
+  "allowed_next_actions": [
+    "REGISTER_EXACT_DEPRECATION_CANDIDATES",
+    "BUILD_MINIMAL_TIME_BOUNDED_COMPATIBILITY_REDIRECTS",
+    "SCAN_ACTIVE_REFERENCES",
+    "VERIFY_WARNINGS_WITHOUT_BEHAVIOR_CHANGE"
+  ],
+  "blocked_dimensions": [
+    "LIVE_PLATFORM_ENVIRONMENTAL_PARITY_NOT_OBSERVED"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_13C_REFERENCE_ONLY",
+  "closed_with_residual_risk_count": 27,
+  "closure_id": "CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F",
+  "closure_registry_digest": "sha256:4fc16885b47e5f882730751676da36cf77ce730169d97de08f5d7f6013ef2ae2",
+  "completed_gates": [
+    "EXACT_ROLLBACK_PACKAGE_COVERAGE",
+    "LEGACY_LOCATOR_RESTORE_PLAN_VERIFIED",
+    "DETERMINISTIC_FORWARD_REAPPLICATION_VERIFIED",
+    "SIX_STATE_PLANES_PER_WAVE_ACCOUNTED",
+    "ZERO_REOPEN_REQUIRED_WAVES",
+    "BLOCKED_CONSUMERS_REMAIN_LEGACY",
+    "ZERO_RUNTIME_ORDER_CAPITAL_QUARANTINE_DELETION_AUTHORITY"
+  ],
+  "deletion_authority_created": false,
+  "deprecation_candidate_count": 613,
+  "deprecation_registry_digest": "sha256:2d11bde15d20ed928bc0bba8c6cf771f1cbffe14cfdf898c6971ae51e69cf91b",
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "QUARANTINE_LEGACY_SOURCE",
+    "DELETE_LEGACY_SOURCE",
+    "REMOVE_COMPATIBILITY_BEFORE_LCM14A_DECISION",
+    "ENABLE_RUNTIME_AUTHORITY",
+    "ENABLE_ORDER_SUBMISSION",
+    "ENABLE_CAPITAL_AUTHORITY",
+    "DEPRECATE_BLOCKED_CONSUMER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555",
+  "handoff_id": "LCM13CHANDOFF_C6CC7AD33BEB0ADD761BC414B1839761",
+  "handoff_type": "LCM13C_TO_LCM14A",
+  "hostile_review_report_digest": "sha256:61c7a9b3ae31099690007396249c3f7aaf5d17772bbf8786c18c64fc6f3abd34",
+  "live_order_authority_created": false,
+  "live_state_mutation_performed": false,
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13C",
+  "producer": "tools.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService",
+  "quarantine_authority_created": false,
+  "reference_rehearsal_only": true,
+  "remaining_legacy_consumer_count": 806,
+  "remaining_legacy_registry_digest": "sha256:e7836bc3e2827bcc2f5b1e421a253b8f39eb2b9f244d2b22d4c5b7ec77ee2e6c",
+  "reopen_required_count": 0,
+  "residual_risks": [
+    "LIVE_PLATFORM_ENVIRONMENTAL_PARITY_NOT_OBSERVED",
+    "COMPATIBILITY_ADAPTER_WINDOW_REMAINS_OPEN"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:49110123a28f877d83af7416e713fcfb6b91e8fce2f5e05634b041c8ba3802af",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:8c354445672d3fe114ad44aed25c88ce2f82497ac14b41037e975913ce8ea1f1",
+    "sha256:edefb24c1faff917c3185f8c7eab3becd02884b20c9819ee9428201ac7950266",
+    "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+    "sha256:60ddb0fadf02143d92ff96e23df42056f8158cd5a7232fe8d5291a4ed7ecd013"
+  ],
+  "state_registry_digest": "sha256:544722c8e0b8e90b8132ccfbf22aae69cba0db4f264df0a4ca3c6137e83b157d",
+  "unknown_dimensions": [
+    "LIVE_RUNTIME_STATE_NOT_MUTATED_OR_OBSERVED"
+  ],
+  "validation_status": "PASS",
+  "wave_count": 27
+}

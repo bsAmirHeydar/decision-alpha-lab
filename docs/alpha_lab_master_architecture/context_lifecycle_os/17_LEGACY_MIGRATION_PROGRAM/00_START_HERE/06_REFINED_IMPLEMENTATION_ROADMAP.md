@@ -77,7 +77,7 @@ Changing subphase order, merging partitions, adding a fourth planned partition, 
 
 ## Immediate next action
 
-Implement LCM-08A only. It freezes the Context portfolio and pilot decision; it does not migrate a Context.
+Implement LCM-14A only. It may register exact deprecation candidates and time-bounded compatibility redirects; it may not quarantine or delete legacy artifacts.
 
 ## LCM-08B accepted reference
 
@@ -121,3 +121,19 @@ LCM-11A is complete under `VISINV_B28F18FA1713109D58BC932384901AA4`. The reposit
 ## LCM-11B implementation closure
 
 LCM-11B is complete under `VISMIG_0938A2A7868358466B7B877BD1E5251D`. Canonical event-only visualizers, style separation, deterministic multi-chart isolation, contract-golden fixtures, restart/backfill scenarios, visual parity, exact reversible cutover records and authority-negative proofs are published. Fifty-four surfaces are active in the reference harness and seventy-four remain explicit blockers; no production source mutation or legacy deletion occurs. LCM-11 is closed at the reference claim ceiling. The next implementation unit is LCM-12A.
+
+## LCM-12 implementation closure
+
+LCM-12A and LCM-12B complete documentation authority mapping, duplicate proof, Obsidian reconciliation, relocation and documentation closure without destructive deletion.
+
+## LCM-13A implementation closure
+
+LCM-13A establishes the deterministic dual-run harness and append-only mismatch registry for all identified consumers without switching authority.
+
+## LCM-13B implementation closure
+
+LCM-13B completes controlled reference-locator cutover for 613 eligible consumers in 27 bounded waves while preserving 806 blocked consumers on legacy and retaining exact rollback packages.
+
+## LCM-13C implementation closure
+
+LCM-13C is complete under `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F`. All 27 waves have deterministic rollback and forward-recovery evidence, 162 state-plane records, 189 ordered closure events, zero reopened waves and explicit residual environmental risk. The bounded LCM-14A handoff is `sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555`. LCM-13 is closed; the next implementation unit is LCM-14A.

@@ -1,8 +1,8 @@
 ---
 title: "LCM-13B — Controlled Consumer Wave Cutover"
-status: proposed-reference
+status: implemented-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-13B
 master_phase: LCM-13
@@ -126,3 +126,11 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: rollback rehearsal and closure.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Implemented result
+
+LCM-13B is accepted under `CUTOVER_E38BEC955210CE172483EE47AA2D9E8C`: 613 eligible consumers are bound to canonical reference locators in 27 bounded waves, 806 blocked consumers remain on legacy, and every wave has an exact rollback package and closure handoff to LCM-13C.
+
+## Downstream closure status
+
+LCM-13C consumed the exact LCM-13B handoff and closed the rollback-rehearsal obligation under `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F`. This does not retroactively expand LCM-13B authority.

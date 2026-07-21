@@ -1,0 +1,54 @@
+{
+  "attacks": [
+    {
+      "attack": "ROLLBACK_ONLY_TESTED_ON_FILES",
+      "result": "PASS_STATE_PLANES_EXPLICIT"
+    },
+    {
+      "attack": "LEGACY_LOCATOR_NO_LONGER_RESOLVES",
+      "result": "PASS_ALL_PRIOR_TARGETS_DIGESTED"
+    },
+    {
+      "attack": "CANONICAL_LOCATOR_NOT_REAPPLICABLE",
+      "result": "PASS_ALL_ACTIVE_TARGETS_DIGESTED"
+    },
+    {
+      "attack": "PERSISTENT_ENTITLEMENT_DUPLICATED",
+      "result": "PASS_SINGLE_BINDING_AND_ADAPTER_OWNERSHIP"
+    },
+    {
+      "attack": "VISUAL_OBJECT_OWNER_SURVIVES_WRONG_NAMESPACE",
+      "result": "PASS_VISUAL_STATE_PLANE_CONTRACT"
+    },
+    {
+      "attack": "GIT_REVERT_MISREPRESENTED_AS_RUNTIME_RECOVERY",
+      "result": "PASS_EXPLICITLY_FALSE"
+    },
+    {
+      "attack": "QUARANTINE_OR_DELETION_AUTHORITY_SMUGGLED",
+      "result": "PASS_ZERO_AUTHORITY"
+    }
+  ],
+  "claim_ceiling": "LCM_13C_REFERENCE_ONLY",
+  "closure_id": "CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "high_critical_findings": [],
+  "master_phase": "LCM-13",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-13C",
+  "producer": "tools.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService",
+  "report_digest": "sha256:61c7a9b3ae31099690007396249c3f7aaf5d17772bbf8786c18c64fc6f3abd34",
+  "report_id": "LCM13CHOSTILE_C6CC7AD33BEB0ADD761BC414B1839761",
+  "result": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:8c354445672d3fe114ad44aed25c88ce2f82497ac14b41037e975913ce8ea1f1",
+    "sha256:edefb24c1faff917c3185f8c7eab3becd02884b20c9819ee9428201ac7950266",
+    "sha256:91b3eb8b5da143bcb63451c0926e75a0c24b13d5ee831c0956c0d64dab8a52a9",
+    "sha256:60ddb0fadf02143d92ff96e23df42056f8158cd5a7232fe8d5291a4ed7ecd013"
+  ],
+  "validation_status": "PASS"
+}

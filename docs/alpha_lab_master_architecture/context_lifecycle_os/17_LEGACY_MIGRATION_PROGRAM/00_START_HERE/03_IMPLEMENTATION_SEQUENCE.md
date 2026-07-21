@@ -40,9 +40,9 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | LCM-11B | Multi-Chart Isolation, Visual Parity and Visualizer Cutover | No |
 | LCM-12A | Documentation Authority, Duplicate Analysis and Canonical Mapping | No |
 | LCM-12B | Obsidian Reconciliation, Relocation and Documentation Closure | No |
-| LCM-13A | Dual-Run Harness and Mismatch Registry | No |
-| LCM-13B | Controlled Consumer Wave Cutover | No |
-| LCM-13C | Rollback Drill and Cutover Closure | No |
+| LCM-13A | Dual-Run Harness and Mismatch Registry | Accepted reference |
+| LCM-13B | Controlled Consumer Wave Cutover | Accepted reference; 27 bounded waves |
+| LCM-13C | Rollback Drill and Cutover Closure | Accepted reference; LCM-13 closed |
 | LCM-14A | Deprecation Registry and Compatibility Redirects | No |
 | LCM-14B | Quarantine, Observation and Retirement Eligibility | Move to quarantine only |
 | LCM-15A | Deletion Candidate Inventory and Reference Proof | No |
@@ -76,7 +76,7 @@ These categories may not be combined merely to reduce patch count.
 
 ## Next implementation unit
 
-[[LCM_08A_CONTEXT_PORTFOLIO_FREEZE_RISK_CLASSIFICATION_AND_PILOT_SELECTION|LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection]].
+[[LCM_14A_DEPRECATION_REGISTRY_AND_COMPATIBILITY_REDIRECTS|LCM-14A — Deprecation Registry and Compatibility Redirects]].
 
 ## LCM-08 reference closure
 
@@ -98,3 +98,7 @@ LCM-10A inventory `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02` closes the baselin
 ## LCM-10B accepted reference checkpoint
 
 LCM-10B migration `TREATMIG_DCC2F1F7B74985D72A783020843C6B51` converts all 1,109 inventoried Treatment atoms into 422 deterministic canonical reference packages, constructs 483 disabled execution-adapter contracts, preserves 382 explicit blockers, and binds all 60 canonical Setups to a Treatment package or blocker. The bounded handoff permits LCM-10C dry-run parity and authority-negative testing only.
+
+## LCM-13C accepted reference closure
+
+LCM-13C closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F` binds the exact LCM-13B handoff and rehearses rollback plus deterministic forward recovery for all 27 completed waves and all 613 switched consumers. It accounts for six persistent-state planes per wave, retains 189 ordered closure events, leaves all 806 blocked consumers unchanged on legacy, and emits the bounded LCM-14A handoff `sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555`. LCM-13 is closed at `LCM_13C_REFERENCE_ONLY`; quarantine and deletion remain forbidden.

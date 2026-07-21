@@ -1,0 +1,17 @@
+{
+  "git_revert_only_sufficient": false,
+  "live_state_mutation_permitted": false,
+  "phase_id": "LCM-13C",
+  "policy_id": "LCM13C_ROLLBACK_REHEARSAL_POLICY",
+  "rehearsal_mode": "REFERENCE_ONLY_NON_MUTATING",
+  "required_state_planes": [
+    "PERSISTENT_FILES",
+    "GLOBAL_VARIABLES",
+    "CHART_OBJECTS",
+    "CACHES",
+    "GENERATED_REGISTRIES",
+    "ENTITLEMENTS"
+  ],
+  "schema_version": "1.0.0",
+  "wave_scope": "ALL_COMPLETED_LCM13B_WAVES"
+}
