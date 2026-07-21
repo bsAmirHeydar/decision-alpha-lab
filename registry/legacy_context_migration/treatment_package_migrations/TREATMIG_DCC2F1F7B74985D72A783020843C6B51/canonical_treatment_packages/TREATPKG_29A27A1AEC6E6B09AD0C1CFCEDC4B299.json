@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_91FCC9C9C6C1ACE7D8C55501E831FC63"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_7F1852D5BE7D487E8146B14E2B16CAEC",
+    "EXECCAP_BE6155B89E337910EBB605ACB49FFEE2"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ab0bda016f1445baed5b7302f6deef92a353c6b60a7bbcc6e9c909c8ec4377cc",
+      "atom_id": "TREATATOM_91FCC9C9C6C1ACE7D8C55501E831FC63",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "ticks=(close_price-position.average_entry)/spec.tick_size",
+          "line_digest": "sha256:62f7b740c3211cd4718d74382ce744936d885b561f0da1044da6c9f00e40b33a",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:962e22091546ad627fbc7a6d1573b3dc5d93c2308edc112efedb329c8da50e77",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_CA39CBCC182D48788ED62C1E88CDC372"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e74d6881e319d56ebeb4a2c16c3b35bf28df9bcbf527263e93fe0c99d7145df1",
+    "sha256:ab0bda016f1445baed5b7302f6deef92a353c6b60a7bbcc6e9c909c8ec4377cc"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/position.py",
+  "source_sha256": "sha256:e74d6881e319d56ebeb4a2c16c3b35bf28df9bcbf527263e93fe0c99d7145df1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A33BE72B1A7D353AA6513907535D1B3D",
+  "treatment_package_id": "TREATPKG_29A27A1AEC6E6B09AD0C1CFCEDC4B299",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

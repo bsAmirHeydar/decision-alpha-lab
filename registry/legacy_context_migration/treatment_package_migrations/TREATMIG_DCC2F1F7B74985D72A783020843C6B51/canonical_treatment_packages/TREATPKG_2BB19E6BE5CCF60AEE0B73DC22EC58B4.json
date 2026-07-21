@@ -1,0 +1,111 @@
+{
+  "atom_ids": [
+    "TREATATOM_1B44901B0E9B14E8088692E3CB8E562B",
+    "TREATATOM_25079553AEDB90021D1923F57A0C906D",
+    "TREATATOM_A2EBA028193D8AB7E5EB093031DCA95D",
+    "TREATATOM_E6F1DBE7D812D2A6CD130C2DBAB4477B"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:99cf8649106ec5575e955e963206f7cbed73462e4bd7a29cad7618abb5ac6c12",
+      "atom_id": "TREATATOM_1B44901B0E9B14E8088692E3CB8E562B",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI03_BuildFixedRTarget(const UCEI03_BuildContext &c,const UCEI03_Invocation &i,const double risk_points,const double reward_multiple,UCEI03_TargetPlan &p,string &error){double entry=UCEI03_EntryExecutable(c.price,c.side);double distance=risk_points*c.price.point*reward_multiple;double raw=c.side==UCEI03_LONG?ent",
+          "line_digest": "sha256:a8f3d78123a53e851b6f8c87172141ec3322c820decd22138d58d25b8fb6e17c",
+          "line_number": 6
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:330c45abd4b6ffcf9b8a061f8edd29d8a9e24b9df9c736c7f460f2be5f107003",
+      "atom_id": "TREATATOM_25079553AEDB90021D1923F57A0C906D",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI03_BuildStructuralStop(const UCEI03_BuildContext &c,const UCEI03_Invocation &i,const double buffer_points,UCEI03_StopPlan &p,string &error){double raw=c.side==UCEI03_LONG?c.structural_stop-buffer_points*c.price.point:c.structural_stop+buffer_points*c.price.point;double entry=UCEI03_EntryExecutable(c.price,c.si",
+          "line_digest": "sha256:b5c0f455cf8ad4be854f598e7e47432bc262ac0c5812594f9ff724028abf6c3d",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:72b4810a7344bb832caf999006c1391af5ffa85fb60d27ee80c9c7e70b1dd08f",
+      "atom_id": "TREATATOM_A2EBA028193D8AB7E5EB093031DCA95D",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "void UCEI03_BuildRunnerTarget(const UCEI03_Invocation &i,UCEI03_TargetPlan &p){p.invocation_id=i.invocation_id;ArrayResize(p.legs,1);p.legs[0].has_target_price=false;p.legs[0].target_price=0.0;p.legs[0].quantity_fraction=1.0;p.legs[0].activation_r=0.0;p.legs[0].is_runner=true;p.no_fixed_target=true;p.metadata_json=\"{\\\"",
+          "line_digest": "sha256:e9ee83f4c745ad671f06bcaf1f99e4b76f03ca87269b60429b39bd73448c25b0",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5f160f7d0afb0f747ca4eccc0dd34f10dc5887fc8fb99ea7c2cbae0df481b708",
+      "atom_id": "TREATATOM_E6F1DBE7D812D2A6CD130C2DBAB4477B",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI03_BuildFixedDistanceStop(const UCEI03_BuildContext &c,const UCEI03_Invocation &i,const double points,UCEI03_StopPlan &p,string &error){double entry=UCEI03_EntryExecutable(c.price,c.side);double raw=c.side==UCEI03_LONG?entry-points*c.price.point:entry+points*c.price.point;p.invocation_id=i.invocation_id;p.has_",
+          "line_digest": "sha256:9945f9b1de930b6a0f9e12a117cb9077ec6139252ec813c553db40652077d8e8",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ceb2e01fa061cf95e925a672663035b4c0c817b42183d612c4b5aecb527f10a5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a09700ead5ef599286bb16ef77230a6d5e4dd7c5ded2525ccb7228a78a146b49",
+    "sha256:330c45abd4b6ffcf9b8a061f8edd29d8a9e24b9df9c736c7f460f2be5f107003",
+    "sha256:5f160f7d0afb0f747ca4eccc0dd34f10dc5887fc8fb99ea7c2cbae0df481b708",
+    "sha256:72b4810a7344bb832caf999006c1391af5ffa85fb60d27ee80c9c7e70b1dd08f",
+    "sha256:99cf8649106ec5575e955e963206f7cbed73462e4bd7a29cad7618abb5ac6c12"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_StopTargetAtoms.mqh",
+  "source_sha256": "sha256:a09700ead5ef599286bb16ef77230a6d5e4dd7c5ded2525ccb7228a78a146b49",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_11A2885B8154C59CD1A0C31D71D65DC6",
+  "treatment_package_id": "TREATPKG_2BB19E6BE5CCF60AEE0B73DC22EC58B4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

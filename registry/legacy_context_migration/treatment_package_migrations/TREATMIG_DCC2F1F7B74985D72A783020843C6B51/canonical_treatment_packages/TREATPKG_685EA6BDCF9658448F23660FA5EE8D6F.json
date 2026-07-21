@@ -1,0 +1,188 @@
+{
+  "atom_ids": [
+    "TREATATOM_06B82E324AD12894117FABDC37F752AD",
+    "TREATATOM_8F58B9A654EE2EAC1505224BC492C2AE",
+    "TREATATOM_AB4CDD56A9724FECEA33EC71E1EA73D8",
+    "TREATATOM_D0E828CEB7F4ACB882BB44FB28FBDCAE",
+    "TREATATOM_E4EBDBEF02BD149DCC59617FAF636708"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "RECONCILIATION",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_0914DB154B9EF85958509960D050159C",
+    "EXECCAP_6378B5D91DCFBAA8EAB00E5E1CDE0D3B",
+    "EXECCAP_764ED630EEF315E29EAB699FF6E65825",
+    "EXECCAP_7820323A5FC1A61CF4E690243FE3066C",
+    "EXECCAP_7994C15E835762E78D449927E5F67A61",
+    "EXECCAP_9A4397D4542BBC415CECAA6EE5785B3C",
+    "EXECCAP_B3633B4AF4C49AC4F74518559BBBAD17"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:593da12a311dead683614c4920814ec8a9621864477b78e1a53dd6cd578b4e5d",
+      "atom_id": "TREATATOM_06B82E324AD12894117FABDC37F752AD",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) == cfg.magic &&",
+          "line_digest": "sha256:6bd48d0024fc2d6c8aad2c5ddd83461abee455b9ca97767cd1173d53a6173eff",
+          "line_number": 149
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != cfg.magic) continue;",
+          "line_digest": "sha256:51416f8365cb3599c1a84dd9e350381b9afdefe130923d1dc6e2e172a5275a76",
+          "line_number": 182
+        },
+        {
+          "excerpt": "if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) return false;",
+          "line_digest": "sha256:bdade2a62acd098db141e907791c1616ab6df773cfb7bd8d348e87b84efde7cf",
+          "line_number": 231
+        },
+        {
+          "excerpt": "request.magic = (ulong)cfg.magic;",
+          "line_digest": "sha256:64a4f68f5360e97033b03788fbe8deae5a1d46cfd5fc41aa4964cba26f1ac393",
+          "line_number": 240
+        },
+        {
+          "excerpt": "request.magic = (ulong)cfg.magic;",
+          "line_digest": "sha256:64a4f68f5360e97033b03788fbe8deae5a1d46cfd5fc41aa4964cba26f1ac393",
+          "line_number": 672
+        },
+        {
+          "excerpt": "g_fp_nds_hook_trade.SetExpertMagicNumber((ulong)cfg.magic);",
+          "line_digest": "sha256:78d6ae294511fa17f33f4511af2f9a2e88c4af3572a31d614ae0ea4141fcffe5",
+          "line_number": 696
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e5ae180fc0e80ef127e084ada5aa90675d95b3b845ca6e7f64737ddd131de05f",
+      "atom_id": "TREATATOM_8F58B9A654EE2EAC1505224BC492C2AE",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "HistorySelect(0, TimeCurrent());",
+          "line_digest": "sha256:c6ec88ed3cd460859425829002f4960b5221bb8bb04449b8d86cdfe7b543eba4",
+          "line_number": 172
+        },
+        {
+          "excerpt": "for(int i=PositionsTotal()-1; i>=0; i--)",
+          "line_digest": "sha256:37fdb9a5a04d0e0c852e83d3b7f9012a52d2d61f9067ab8f0da6c8567e0e6e6a",
+          "line_number": 178
+        },
+        {
+          "excerpt": "if(ctx.order_ticket == 0 || !OrderSelect(ctx.order_ticket)) return false;",
+          "line_digest": "sha256:daf6c3be8cf4314b6b44715b758e9228c076923c09e8861f8dc1e4422f8457ec",
+          "line_number": 230
+        },
+        {
+          "excerpt": "bool order_active = (ctx.order_ticket > 0 && OrderSelect(ctx.order_ticket));",
+          "line_digest": "sha256:31cb812930b5d71c3a6f60207df6203312a8d5a95ee740a2769199df6fd14165",
+          "line_number": 714
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1427993f3277f24b107dcadba4aad926387112e475b70fe3fd4dc76c727724c0",
+      "atom_id": "TREATATOM_AB4CDD56A9724FECEA33EC71E1EA73D8",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "request.sl = current_sl;",
+          "line_digest": "sha256:69a890d483c7c0840619c3b2de09df6040e1fb66ce6b232dbf04a56fe45e2f10",
+          "line_number": 673
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8915261f914d41b1a59d7af173f13863feab9f7f94439d9ca390d790f3af2271",
+      "atom_id": "TREATATOM_D0E828CEB7F4ACB882BB44FB28FBDCAE",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "request.tp = ctx.dynamic_target_price;",
+          "line_digest": "sha256:97c24ce6893df47e6bf2f24e6445c0e359ec99fd909e6fc7c3f9bd3cc52e6011",
+          "line_number": 674
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8ffac7d463045c0e3c16a9f47b594ddd13c2a730844dafd3741e1537507d34d7",
+      "atom_id": "TREATATOM_E4EBDBEF02BD149DCC59617FAF636708",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);",
+          "line_digest": "sha256:00a5dc0fd58557651fa23c4b03fd824ee2ed4bde34c4f806739aa36572a46f4e",
+          "line_number": 302
+        },
+        {
+          "excerpt": "double point = SymbolInfoDouble(ctx.symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:e2e3c80c95ee646e6b0b4f5e336a44c5f5fd77b55117777e509411b0583762b3",
+          "line_number": 649
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d85c78a9b375dae6e4daec4a286d025d654c267ae5fb5a88fc72445792caa9b5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_12CDC8EFC05617F15A717D866D00BB65",
+    "RISKASM_54AAEA66CC4974C3DE9A193EE654959F",
+    "RISKASM_EAFF4AFBCE8AAA3B2710EEFCF707A26E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0ec8c6d19f302a90c5dadddab56b62763b93d588f2564adb394e58b2446a305b",
+    "sha256:1427993f3277f24b107dcadba4aad926387112e475b70fe3fd4dc76c727724c0",
+    "sha256:593da12a311dead683614c4920814ec8a9621864477b78e1a53dd6cd578b4e5d",
+    "sha256:8915261f914d41b1a59d7af173f13863feab9f7f94439d9ca390d790f3af2271",
+    "sha256:8ffac7d463045c0e3c16a9f47b594ddd13c2a730844dafd3741e1537507d34d7",
+    "sha256:e5ae180fc0e80ef127e084ada5aa90675d95b3b845ca6e7f64737ddd131de05f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
+  "source_sha256": "sha256:0ec8c6d19f302a90c5dadddab56b62763b93d588f2564adb394e58b2446a305b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_ADC11E3ADFE66809864B8840BB3B9800",
+  "treatment_package_id": "TREATPKG_685EA6BDCF9658448F23660FA5EE8D6F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

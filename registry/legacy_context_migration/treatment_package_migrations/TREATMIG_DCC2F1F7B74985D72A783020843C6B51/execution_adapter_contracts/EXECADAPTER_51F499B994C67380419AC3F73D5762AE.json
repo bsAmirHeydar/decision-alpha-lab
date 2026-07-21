@@ -1,0 +1,45 @@
+{
+  "adapter_digest": "sha256:9ce195983613109569a69d259faa5efe6e0cd812ad580fd1a1e3c94acac7af03",
+  "adapter_id": "EXECADAPTER_51F499B994C67380419AC3F73D5762AE",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_3E43F8CF9B72CDF35ACA480BEB8D4AD2",
+    "EXECCAP_803D92EFBE709B177E4808E6F686D5CF",
+    "EXECCAP_FC6450E763AA630A1CB06D28850EC720"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:428f5abb49541dba571a114bb62ccb17e5ef111d8dd513dd955d1229369d8174"
+  ],
+  "source_move_performed": false,
+  "source_path": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsCalendarClient.mqh",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

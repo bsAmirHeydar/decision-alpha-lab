@@ -1,0 +1,81 @@
+{
+  "atom_ids": [
+    "TREATATOM_E9EE38A406C236BC197ABF52CA7D7060",
+    "TREATATOM_FEC9B23464FCF15E4E5A6D19581E3AF4"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:01c7506ce7f4d76dfe88f05a2bb29cb22778fd38afded8a2606933162df0ecbf",
+      "atom_id": "TREATATOM_E9EE38A406C236BC197ABF52CA7D7060",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "(\"FP_RC_CONFIRMATION_DEADLINE_MISSED\", ReasonCategory.LIFECYCLE, Severity.WARNING, \"Confirmation candle closed outside owning session\", \"expired style\", True, True),",
+          "line_digest": "sha256:55ea0c27affa9bac7c7d8d809beb738628f5e270c16f6e51f9249ab445819625",
+          "line_number": 36
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5cceba641107383a34ec94486d1d9d8143bd4c0bdbc7fcb684255fa8f80203b0",
+      "atom_id": "TREATATOM_FEC9B23464FCF15E4E5A6D19581E3AF4",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "(\"FP_RC_CANCELLED_BY_SECOND_TOUCH\", ReasonCategory.LIFECYCLE, Severity.WARNING, \"Protected symbol touched before confirmation\", \"cancelled style\", True, True),",
+          "line_digest": "sha256:1d3c38f3ba0e134c2f06dd73b5cb55e25818baa8cc91a82fb26e23080a660731",
+          "line_number": 43
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f9e3654314b213a73a21d500c9a9cf059fef6d49de2513991047ff11f9f4aa14",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_001DE4969DB637486B0D47DEA86795E3",
+    "RISKASM_96A79F1F8D8329B1D96D591014DE0F8F",
+    "RISKASM_9CC1AFA1BBE846740A05ABCD8896EC95"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a284336929397b30adfb280c5cb9e5e86d1585e9dc55ea1b75b083ca60e25016",
+    "sha256:01c7506ce7f4d76dfe88f05a2bb29cb22778fd38afded8a2606933162df0ecbf",
+    "sha256:5cceba641107383a34ec94486d1d9d8143bd4c0bdbc7fcb684255fa8f80203b0"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/reason_codes.py",
+  "source_sha256": "sha256:a284336929397b30adfb280c5cb9e5e86d1585e9dc55ea1b75b083ca60e25016",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AC23DB4F84858E21E7CA5082576AAE0E",
+  "treatment_package_id": "TREATPKG_89D4AF3AE4D93F9ECFA09C3999F06621",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

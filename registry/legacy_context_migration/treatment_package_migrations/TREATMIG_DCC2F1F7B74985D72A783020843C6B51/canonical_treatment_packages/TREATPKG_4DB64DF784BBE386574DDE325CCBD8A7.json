@@ -1,0 +1,87 @@
+{
+  "atom_ids": [
+    "TREATATOM_E9B6B70D8A5A576CE61364DD06AFDC18"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_05DFC050AA1FDF0136E24CB26D284593",
+    "EXECCAP_E61953828EF22E7C6A6783E2D87EE04B"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:49e803d7a1e20adc8ec007c3fcf28e60be084dd5e00fb1e33ddd810ec79b68a7",
+      "atom_id": "TREATATOM_E9B6B70D8A5A576CE61364DD06AFDC18",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "\"server_write_time\", \"strategy_id\", \"run_id\", \"symbol1\", \"symbol2\", \"magic_number\",",
+          "line_digest": "sha256:ba0b720aef58df997f345750210dc6a4abca0f0864e74423ce0bc529179b9e9c",
+          "line_number": 104
+        },
+        {
+          "excerpt": "STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, cfg.magic_number,",
+          "line_digest": "sha256:f9e39b6e8e9e416840ac2f8491c7c0577c229db7579a92388aeaf4f5f64c2293",
+          "line_number": 111
+        },
+        {
+          "excerpt": "STC_WritePersistenceField(h, \"magic_number\", IntegerToString(cfg.magic_number));",
+          "line_digest": "sha256:2d744317911f0b72764bcffe909f112ef06568629007df65ade36c36692e19e1",
+          "line_number": 150
+        },
+        {
+          "excerpt": "string stored_magic = STC_SnapshotValue(keys, values, count, \"magic_number\", \"\");",
+          "line_digest": "sha256:a7092dd9be7a763abb8f19adcd99b006c0706401afb3da03d28f9d972762a8fd",
+          "line_number": 242
+        },
+        {
+          "excerpt": "if(stored_strategy != cfg.strategy_id || stored_symbol1 != cfg.symbol1 || stored_symbol2 != cfg.symbol2 || stored_magic != IntegerToString(cfg.magic_number) || stored_check != IntegerToString(cfg.check_minutes))",
+          "line_digest": "sha256:5dc44866d4cd0b43bba4262b69bc76b08193e7d0de6cfc1c953c5b3884285d69",
+          "line_number": 253
+        },
+        {
+          "excerpt": "state.persistence_restore_note = \"snapshot belongs to different strategy/symbol/magic/check setup\";",
+          "line_digest": "sha256:ef5709e3f2257c8a6c8f79fb61f3e4161942f86ceed3777a086f20201cd31d8d",
+          "line_number": 256
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5057f2bbc3b9af14daadfbc1efbcf618bbb9f0ed8db31d3992cad785cd3f9bec",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c6f8ffb9b3b17c4430cd5bbcad65b500b162ad2d874260744f0fee82aed94a30",
+    "sha256:49e803d7a1e20adc8ec007c3fcf28e60be084dd5e00fb1e33ddd810ec79b68a7"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Persistence.mqh",
+  "source_sha256": "sha256:c6f8ffb9b3b17c4430cd5bbcad65b500b162ad2d874260744f0fee82aed94a30",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F3358E5300EEEC9ADB3426665681FFA1",
+  "treatment_package_id": "TREATPKG_4DB64DF784BBE386574DDE325CCBD8A7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

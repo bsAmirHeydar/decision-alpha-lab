@@ -1,0 +1,62 @@
+{
+  "atom_ids": [
+    "TREATATOM_212507CB232BF5CB037F96A7D654E104"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:3bc916f14f3d86af4720397d22227a92b1277402d8aea0693e2cbe0a39c6d894",
+      "atom_id": "TREATATOM_212507CB232BF5CB037F96A7D654E104",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "class TransformKind(str,Enum): IDENTITY='identity'; MIDPOINT='midpoint'; SPREAD='spread'; DIFFERENCE='difference'; RATIO='ratio'; LOG_RETURN='log_return'; BOOLEAN_AND='boolean_and'; BOOLEAN_OR='boolean_or'; CONCAT='concat'; VECTOR='vector'; AGE_SECONDS='age_seconds'",
+          "line_digest": "sha256:90a21af0745980fd21115217f72bb9832d4ff7bf0ee1f023a1e1c1ff02eaa345",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:83d2eeade24cc674080db4f3a16239c467c395fc34a0fb0b7316b5f0efa0b2bb",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_643D1AEADE94D60B3F0D8B6DD150C3C0",
+    "RISKASM_9E7FEBBA0BBB25CAF3D0C610E5020399"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b92f8dfd55905beb2492f6f3b7412031c3eff5af892a42b3aa43d073ffae1b98",
+    "sha256:3bc916f14f3d86af4720397d22227a92b1277402d8aea0693e2cbe0a39c6d894"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_multimodal_views/enums.py",
+  "source_sha256": "sha256:b92f8dfd55905beb2492f6f3b7412031c3eff5af892a42b3aa43d073ffae1b98",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_EA6C7F74DFE8799CF2F61E1A862DFC67",
+  "treatment_package_id": "TREATPKG_119115B4A116AB7EF9578F41C216FABB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

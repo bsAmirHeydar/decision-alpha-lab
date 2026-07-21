@@ -1,0 +1,39 @@
+{
+  "adapter_digest": "sha256:b9bc2a483811cbc4f4bc887e58c96883d6dc996a1d032ef5dc376ad567a7e2df",
+  "adapter_id": "EXECADAPTER_51CBDC288C6C721B9171DC2A7DF44845",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "READ_BROKER_CONSTRAINTS"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_96F2343FA74CD7776DB8C1AF6A3B8224"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6fe86d81da5c4e8766cc7ae1d174982288cd2012790d4ba9517de57a07dd88ab"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_SymbolResolver.mqh",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

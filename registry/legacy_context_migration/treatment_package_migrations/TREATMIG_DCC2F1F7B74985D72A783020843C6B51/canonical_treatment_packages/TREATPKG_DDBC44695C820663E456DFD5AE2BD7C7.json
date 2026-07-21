@@ -1,0 +1,211 @@
+{
+  "atom_ids": [
+    "TREATATOM_0C6098292D10C4AC245A673385422889",
+    "TREATATOM_2B85635D100AFB53D80468CC06035D4D",
+    "TREATATOM_3E42AC93B0FDFB2006B35782570979E4",
+    "TREATATOM_75472123B93BD34CFB8538F71D29A233",
+    "TREATATOM_CBC88E8F4B7DC33041B3811BE8CA699C"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_33FCA637F7C1CC84F9FB0233D1AFBF00",
+    "EXECCAP_DDE687A773B0DE452A7174399D42DE87"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1eb6744e6038cf8170a646b06d1f92a3449008c4dfa971f96a4bc7841adfac1e",
+      "atom_id": "TREATATOM_0C6098292D10C4AC245A673385422889",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "paper.stop_price = signal.selected_reference_price;",
+          "line_digest": "sha256:c8cdb8f5b53a44fdc7753423863beb994a465058b948dd8e9a42fd40d8e78aee",
+          "line_number": 183
+        },
+        {
+          "excerpt": "paper.risk_distance_price = paper.entry_price - paper.stop_price;",
+          "line_digest": "sha256:bc83d9957da11db7674f0f7afc4f77ef32d828e2a68059e9ce369b31d894b4b5",
+          "line_number": 185
+        },
+        {
+          "excerpt": "paper.risk_distance_price = paper.stop_price - paper.entry_price;",
+          "line_digest": "sha256:7fcf4c8fe696f5f3080d28322aab5c95dda0f6c085d6ebe7e045908b98b93f84",
+          "line_number": 187
+        },
+        {
+          "excerpt": "if(paper.entry_price <= 0.0 || paper.stop_price <= 0.0 || paper.risk_distance_price <= 0.0)",
+          "line_digest": "sha256:5d6f639833a68f0fa525971d56b89f02157ab9aebd72ddcae27206fbf9a9fdec",
+          "line_number": 189
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bf2b361407311eb50100364b6188c4cb94c8a891237ff3e8a2e2d96d7710e92c",
+      "atom_id": "TREATATOM_2B85635D100AFB53D80468CC06035D4D",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "paper.risk_percent = cfg.risk_percent;",
+          "line_digest": "sha256:fe444f00c917d22b8fa942c96a6dbebb3c1a4bd08b05bdf9e5e7c7519669fada",
+          "line_number": 115
+        },
+        {
+          "excerpt": "paper.risk_money = paper.equity_snapshot * cfg.risk_percent / 100.0;",
+          "line_digest": "sha256:314d18ee2b79e90d43c92a4a9a11b65b89d335614539c108efdb63e84c0d30bd",
+          "line_number": 116
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9f3359548af50ec90e613add8c996ec6fcaf11929b0eca0512799e7560078979",
+      "atom_id": "TREATATOM_3E42AC93B0FDFB2006B35782570979E4",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "paper.entry_price = STC_SymbolOpenForEntry(entry_check, signal.trade_symbol, cfg);",
+          "line_digest": "sha256:e02ee654f317efd3fbfb21e16a1a49ac662d04036be7c211ea377b93d3336936",
+          "line_number": 182
+        },
+        {
+          "excerpt": "paper.risk_distance_price = paper.entry_price - paper.stop_price;",
+          "line_digest": "sha256:bc83d9957da11db7674f0f7afc4f77ef32d828e2a68059e9ce369b31d894b4b5",
+          "line_number": 185
+        },
+        {
+          "excerpt": "paper.risk_distance_price = paper.stop_price - paper.entry_price;",
+          "line_digest": "sha256:7fcf4c8fe696f5f3080d28322aab5c95dda0f6c085d6ebe7e045908b98b93f84",
+          "line_number": 187
+        },
+        {
+          "excerpt": "if(paper.entry_price <= 0.0 || paper.stop_price <= 0.0 || paper.risk_distance_price <= 0.0)",
+          "line_digest": "sha256:5d6f639833a68f0fa525971d56b89f02157ab9aebd72ddcae27206fbf9a9fdec",
+          "line_number": 189
+        },
+        {
+          "excerpt": "paper.take_profit_price = paper.entry_price + paper.reward_distance_price;",
+          "line_digest": "sha256:7846f66c84920800760498735c56d37f136c670943f6dae377fde5535b07f947",
+          "line_number": 199
+        },
+        {
+          "excerpt": "paper.take_profit_price = paper.entry_price - paper.reward_distance_price;",
+          "line_digest": "sha256:f4358c59b5c4cd9f1c53c47c7b6d31957394a4b6e007b6130754e8ff0578756b",
+          "line_number": 201
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6ad94cc4af7b4db6d13736b02dcc531459a6146bbb51ec817abe6171cfc945ec",
+      "atom_id": "TREATATOM_75472123B93BD34CFB8538F71D29A233",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double &tick_size,",
+          "line_digest": "sha256:12342872a14753c43d3393553bc5f1abb476058eb5092c44921a97e54e1d220a",
+          "line_number": 62
+        },
+        {
+          "excerpt": "tick_size = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_SIZE);",
+          "line_digest": "sha256:ccfccac71d2523452405322cb0c0fac893e7f91cbc2d57b828674417aeedc042",
+          "line_number": 68
+        },
+        {
+          "excerpt": "STC_LoadSymbolTradeSpecs(signal.trade_symbol, paper.tick_size, paper.tick_value, paper.broker_min_volume, paper.broker_max_volume, paper.broker_volume_step);",
+          "line_digest": "sha256:fd91fe42b817d2cadbcd203e1e920d255514004ad7b662b5841cd4d97bc8d351",
+          "line_number": 203
+        },
+        {
+          "excerpt": "if(paper.tick_size > 0.0 && paper.tick_value > 0.0)",
+          "line_digest": "sha256:f3076418edfe0f04e56b5730f476cbfce0102cec329d92a7b6c6d8dacbe69418",
+          "line_number": 205
+        },
+        {
+          "excerpt": "money_per_price_unit = paper.tick_value / paper.tick_size;",
+          "line_digest": "sha256:f988ef1558d38748878e343d570aeb1ba8891ae6c9fef1c4aa44d1cb45b5c44f",
+          "line_number": 207
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7e98c27d7ff754e7b4512131f3329c82de4ecad476e659e8ea3a2a5001298f52",
+      "atom_id": "TREATATOM_CBC88E8F4B7DC33041B3811BE8CA699C",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "paper.take_profit_price = paper.entry_price + paper.reward_distance_price;",
+          "line_digest": "sha256:7846f66c84920800760498735c56d37f136c670943f6dae377fde5535b07f947",
+          "line_number": 199
+        },
+        {
+          "excerpt": "paper.take_profit_price = paper.entry_price - paper.reward_distance_price;",
+          "line_digest": "sha256:f4358c59b5c4cd9f1c53c47c7b6d31957394a4b6e007b6130754e8ff0578756b",
+          "line_number": 201
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a41c6429b263a1f20179f6bdef6fecb9290a10cdacfa17a908da1a1133d9e95d",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_3969B617719793794E4855B7D9C83220",
+    "RISKASM_743CB8932FB5BF362F2C0C87F81ECE09",
+    "RISKASM_D8210FB25902ADF7837087198F63EE7D",
+    "RISKASM_E5A4A59798F234699FF6767DA8A16C81",
+    "RISKASM_F529827346002459A3E0F714827CD476",
+    "RISKASM_FF48E5534A85E9878CED228CF3691FDC"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:8bc41657c0f0e275f395c1f03e43b7b2783eec9058077e5e2cc6b834a392bcc1",
+    "sha256:1eb6744e6038cf8170a646b06d1f92a3449008c4dfa971f96a4bc7841adfac1e",
+    "sha256:6ad94cc4af7b4db6d13736b02dcc531459a6146bbb51ec817abe6171cfc945ec",
+    "sha256:7e98c27d7ff754e7b4512131f3329c82de4ecad476e659e8ea3a2a5001298f52",
+    "sha256:9f3359548af50ec90e613add8c996ec6fcaf11929b0eca0512799e7560078979",
+    "sha256:bf2b361407311eb50100364b6188c4cb94c8a891237ff3e8a2e2d96d7710e92c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Paper.mqh",
+  "source_sha256": "sha256:8bc41657c0f0e275f395c1f03e43b7b2783eec9058077e5e2cc6b834a392bcc1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_87D3049A8FC2AB78E9D843090D5A199B",
+  "treatment_package_id": "TREATPKG_DDBC44695C820663E456DFD5AE2BD7C7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

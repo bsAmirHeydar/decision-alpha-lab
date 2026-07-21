@@ -1,0 +1,147 @@
+{
+  "atom_ids": [
+    "TREATATOM_20A54B338B2FC86DBAF1C46CF4087017",
+    "TREATATOM_39655BB940B15911EA9D8DFD8817D83E",
+    "TREATATOM_55DC78A3BDD0398DA0DDFD40BA2D9179",
+    "TREATATOM_B7997A5D74581B0893B9B1205D882971"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "PARTIAL_EXIT",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8bc0ac309acbf4b5b49e239d85dfc0371945adcc4541eac0e1dac41188ad97ac",
+      "atom_id": "TREATATOM_20A54B338B2FC86DBAF1C46CF4087017",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "return PathSnapshot(treatment.treatment_id,PathState.DRAFT,0,treatment.decision_time_ms,treatment.decision_time_ms,active_stop_price=treatment.stop.stop_price)",
+          "line_digest": "sha256:28c3140de6b63be4ffa8924db82ce1e368305989d5d5f0c8a5cc35abcf563a40",
+          "line_number": 22
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5e7737682cd2f892d3e76bd24c410aa6d49b27441b8eef474953385d0e0a617a",
+      "atom_id": "TREATATOM_39655BB940B15911EA9D8DFD8817D83E",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "PathState.PENDING:{PathEventType.TRIGGER:PathState.TRIGGERED,PathEventType.FILL:PathState.PARTIALLY_FILLED,PathEventType.CANCEL:PathState.CANCELED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.REJECT:PathState.REJECTED},",
+          "line_digest": "sha256:3d763a5a12dbf777b7d019c1cfd5d4760c5e9aac5eb13bed0ddb370b2b90f311",
+          "line_number": 11
+        },
+        {
+          "excerpt": "PathState.TRIGGERED:{PathEventType.FILL:PathState.PARTIALLY_FILLED,PathEventType.CANCEL:PathState.CANCELED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.REJECT:PathState.REJECTED},",
+          "line_digest": "sha256:2ebaa590aae641677a19825df276a4388ff2485e5109a8b290d6d50362540dd6",
+          "line_number": 12
+        },
+        {
+          "excerpt": "PathState.PARTIALLY_FILLED:{PathEventType.FILL:PathState.PARTIALLY_FILLED,PathEventType.SCALE:PathState.SCALED,PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.CANCEL:Path",
+          "line_digest": "sha256:b5fd66cc2bb1845c9158ece1a8a30e924b21274efddf20a6801f8aacd9917ac9",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2440c4f36f21f04a77477e86c01816f8b30bf8892234d350189eca256914a0be",
+      "atom_id": "TREATATOM_55DC78A3BDD0398DA0DDFD40BA2D9179",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "elif e.event_type is PathEventType.PARTIAL_EXIT:",
+          "line_digest": "sha256:fa756bd49e0e677721c8308d29f7a6fa7f8d06876e2cd0fcfd43ad1ddf3dfd6a",
+          "line_number": 37
+        },
+        {
+          "excerpt": "if qty<=0 or qty>=openf+Decimal('0.0000000001'): raise PathTransitionError('invalid_partial_exit','partial exit must be positive and no greater than open fraction')",
+          "line_digest": "sha256:78be497574c64f0d4c8960af687b036eb3ccfb4b22e6ffab4a4a627bfa59a68f",
+          "line_number": 38
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4d78897d79b133c07f3d0c1bfdcd1d210681a53f66bf56747525edb47fdc876f",
+      "atom_id": "TREATATOM_B7997A5D74581B0893B9B1205D882971",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "PathState.PARTIALLY_FILLED:{PathEventType.FILL:PathState.PARTIALLY_FILLED,PathEventType.SCALE:PathState.SCALED,PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.CANCEL:Path",
+          "line_digest": "sha256:b5fd66cc2bb1845c9158ece1a8a30e924b21274efddf20a6801f8aacd9917ac9",
+          "line_number": 13
+        },
+        {
+          "excerpt": "PathState.OPEN:{PathEventType.SCALE:PathState.SCALED,PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.CLOSE:PathState.CLOSED},",
+          "line_digest": "sha256:9da1902afe536ee7b786eea012679f9ee3c9ccb73688e829841790c94ef88aae",
+          "line_number": 14
+        },
+        {
+          "excerpt": "PathState.SCALED:{PathEventType.SCALE:PathState.SCALED,PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.CLOSE:PathState.CLOSED},",
+          "line_digest": "sha256:ba7e788ef487a2bd5d04aedf74388faf49e5b1a744de0a2f2e4d66d236ac1e04",
+          "line_number": 15
+        },
+        {
+          "excerpt": "PathState.PARTIALLY_EXITED:{PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.SCALE:PathState.SCALED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.CLOSE:PathState",
+          "line_digest": "sha256:022f6a759573f17783b666ebd752129c67bc8ccb46fef57a1293733586df7e5f",
+          "line_number": 16
+        },
+        {
+          "excerpt": "PathState.TRAILED:{PathEventType.TRAIL_UPDATE:PathState.TRAILED,PathEventType.PARTIAL_EXIT:PathState.PARTIALLY_EXITED,PathEventType.STOP_HIT:PathState.STOPPED,PathEventType.TARGET_HIT:PathState.TARGETED,PathEventType.TIMEOUT:PathState.TIMED_OUT,PathEventType.CLOSE:PathState.CLOSED},",
+          "line_digest": "sha256:6995b9825032722ce5944657cc7dded22518feafab2935ab1c1dad7b77e09b17",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:64733e3cd97a24c33b05b33612b6b612b72767aee64aa8ef4c0ff274c4e6e126",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7dcd30917947ca998b29fdd18d9cf231d2712f7e2972ab71798433eb66260c03",
+    "sha256:2440c4f36f21f04a77477e86c01816f8b30bf8892234d350189eca256914a0be",
+    "sha256:4d78897d79b133c07f3d0c1bfdcd1d210681a53f66bf56747525edb47fdc876f",
+    "sha256:5e7737682cd2f892d3e76bd24c410aa6d49b27441b8eef474953385d0e0a617a",
+    "sha256:8bc0ac309acbf4b5b49e239d85dfc0371945adcc4541eac0e1dac41188ad97ac"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatment_compiler_v3/state_machine.py",
+  "source_sha256": "sha256:7dcd30917947ca998b29fdd18d9cf231d2712f7e2972ab71798433eb66260c03",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D122DC2F248343D26C8382BDEBDA71E8",
+  "treatment_package_id": "TREATPKG_705F7E76A69918E8F7B3C761166D049A",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,96 @@
+{
+  "atom_ids": [
+    "TREATATOM_9E8E402CC55F09275F2345CC45427E9B",
+    "TREATATOM_DE9E87B2B32603B4A9A7A5F7345B6E13"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:efe10d5b5a2e58d9fa819767633c7b9954167318dd361eba2f879adc9ee23fb8",
+      "atom_id": "TREATATOM_9E8E402CC55F09275F2345CC45427E9B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "CUCEI05CostModel cm; UCEI05_CostBreakdown unit=cm.Estimate(p,s,q,g,1.0); double price_unit=MathAbs(e.entry_exec-e.stop_exec)*(s.tick_value_loss/s.tick_size); double per_lot=(price_unit+unit.total_cash)*MathMax(1.0,p.reserve_multiplier); if(per_lot<=0.0){e.reason_code=\"invalid_unit_risk\";return false;}",
+          "line_digest": "sha256:dc8eb21153a08cbd7ae7571ae938a480f80cab1706a3ed707517f2609d6bff53",
+          "line_number": 10
+        },
+        {
+          "excerpt": "e.costs=cm.Estimate(p,s,q,g,e.volume); e.price_loss_cash=MathAbs(e.entry_exec-e.stop_exec)*(s.tick_value_loss/s.tick_size)*e.volume; e.maximum_loss_cash=(e.price_loss_cash+e.costs.total_cash)*MathMax(1.0,p.reserve_multiplier);",
+          "line_digest": "sha256:77817b5ed5e358621e2d58006cf80b55830b4672bb11a4c2c8310cac1ed24e62",
+          "line_number": 12
+        },
+        {
+          "excerpt": "while(e.volume>=s.volume_min && e.maximum_loss_cash>b.approved_cash+1e-8){e.volume=bc.FloorVolume(e.volume-s.volume_step,s); if(e.volume<s.volume_min)break; e.costs=cm.Estimate(p,s,q,g,e.volume); e.price_loss_cash=MathAbs(e.entry_exec-e.stop_exec)*(s.tick_value_loss/s.tick_size)*e.volume; e.maximum_loss_cash=(e.price_l",
+          "line_digest": "sha256:3168b2b50e5a057d9b009b7ab5d7ad0e793670635ce2b41795c99bfc7852331d",
+          "line_number": 13
+        },
+        {
+          "excerpt": "if(e.volume<s.volume_min){e.reason_code=\"risk_budget_below_minimum_volume\";return false;} e.target_gross_cash=g.has_target?MathAbs(e.target_exec-e.entry_exec)*(s.tick_value_profit/s.tick_size)*e.volume:0.0; e.target_net_cash=e.target_gross_cash-e.costs.total_cash; e.accepted=true;e.reason_code=\"ok\";return true;",
+          "line_digest": "sha256:aaababef48128088ce5e22822f521ed38b079ff43b491fa4aba4c5c454186b3d",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1df787ca8bbccbab4b16ac4bd7fcffb12ede8c96008cf8bbdc113fda31177da9",
+      "atom_id": "TREATATOM_DE9E87B2B32603B4A9A7A5F7345B6E13",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "while(e.volume>=s.volume_min && e.maximum_loss_cash>b.approved_cash+1e-8){e.volume=bc.FloorVolume(e.volume-s.volume_step,s); if(e.volume<s.volume_min)break; e.costs=cm.Estimate(p,s,q,g,e.volume); e.price_loss_cash=MathAbs(e.entry_exec-e.stop_exec)*(s.tick_value_loss/s.tick_size)*e.volume; e.maximum_loss_cash=(e.price_l",
+          "line_digest": "sha256:3168b2b50e5a057d9b009b7ab5d7ad0e793670635ce2b41795c99bfc7852331d",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:698930a196ef0c12b8a6c9a9f21638eada996a0c387df45c44c46d9337d07a73",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_043D66BE36CE3EF4772D5CA356D90A0E",
+    "RISKASM_175923BEA2ADE47435C456993D51F879",
+    "RISKASM_CF611632E1AE8B9A8CD9142E81FE7D43"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6dab57a677902bd8b613990511c81fe88346c29b7363e8f817960fbb82c3c7a9",
+    "sha256:1df787ca8bbccbab4b16ac4bd7fcffb12ede8c96008cf8bbdc113fda31177da9",
+    "sha256:efe10d5b5a2e58d9fa819767633c7b9954167318dd361eba2f879adc9ee23fb8"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Economics/UCEI05_MaximumLossSolver.mqh",
+  "source_sha256": "sha256:6dab57a677902bd8b613990511c81fe88346c29b7363e8f817960fbb82c3c7a9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_3B423AF5CB9864E4CA5AB716B4A11CE2",
+  "treatment_package_id": "TREATPKG_F94D48490347C7C9C7E189054AD0DC87",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

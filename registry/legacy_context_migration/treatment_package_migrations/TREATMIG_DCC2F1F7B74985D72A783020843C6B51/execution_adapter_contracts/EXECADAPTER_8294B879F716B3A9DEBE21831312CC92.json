@@ -1,0 +1,42 @@
+{
+  "adapter_digest": "sha256:0197aff31db052bca2c0490fa64133cf2b409249a88c2eef2ed455e3ab41f944",
+  "adapter_id": "EXECADAPTER_8294B879F716B3A9DEBE21831312CC92",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_B065917175218B45D1ACB9A2E0A6EB47",
+    "EXECCAP_F5FB7C2BE09085B8323FE721E3CDF171"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:06cf24490b78979ef46802015d7d6d114a47b51755ad13618bb1dfb52d87c7bc"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGRK_Ledger.mqh",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

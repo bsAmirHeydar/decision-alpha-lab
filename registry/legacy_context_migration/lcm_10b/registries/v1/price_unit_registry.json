@@ -1,0 +1,24 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "entries": {
+    "ABSOLUTE_PRICE": "BROKER_QUOTED_PRICE",
+    "PERCENT": "FRACTIONAL_PERCENT",
+    "POINTS": "SYMBOL_POINT_UNITS",
+    "TICKS": "SYMBOL_TICK_UNITS",
+    "UNSPECIFIED": "BLOCKING_UNKNOWN"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "record_count": 5,
+  "registry_digest": "sha256:0dc7844a008683ca7bc9c50457b66d3365ced6f1fc47d957db50060a93e4e114",
+  "registry_name": "price_unit_registry",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

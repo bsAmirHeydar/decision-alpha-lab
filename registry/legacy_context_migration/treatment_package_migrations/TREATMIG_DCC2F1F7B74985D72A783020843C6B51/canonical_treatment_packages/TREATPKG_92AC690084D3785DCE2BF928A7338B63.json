@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_B970297D7210F6A7575EEE542B1AFD4D"
+  ],
+  "atom_types": [
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:eae053aea9ea87079d7ef078894ac4e9f6f43eef080c039ec1ea7e9d7b103565",
+      "atom_id": "TREATATOM_B970297D7210F6A7575EEE542B1AFD4D",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "SF01_MarketTimestamp exit_time;",
+          "line_digest": "sha256:ef48117e26e0e3d1296034f1fc86bc9a0ce7c6ec2e2412b61d021df04b960960",
+          "line_number": 24
+        },
+        {
+          "excerpt": "IntegerToString(o.exit_time.utc_epoch_milliseconds)+\"|\"+SF01_CanonicalDouble(o.exit_price)+\"|\"+",
+          "line_digest": "sha256:e1f66cd35af9043ecf5ce1373588c329bdab3587772a480c16c0cb58531bbe93",
+          "line_number": 51
+        },
+        {
+          "excerpt": "if(o.filled && (o.fill_price<=0.0||o.exit_price<=0.0||o.exit_time.utc_epoch_milliseconds<o.fill_time.utc_epoch_milliseconds))",
+          "line_digest": "sha256:1cddb33760aa0c64f0bc393895afe4a0ebd3f0368fb14e677f81f11ae212b2e6",
+          "line_number": 74
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e13adb73017f6079264fb2ebaae01217639f25b9e6eafdba3afa972de96beccb",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c23497480f3d3d3540a05d0b63c6cb0fbe6b5c370391b2e87dc2f7b8058c1c65",
+    "sha256:eae053aea9ea87079d7ef078894ac4e9f6f43eef080c039ec1ea7e9d7b103565"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Outcome/SF09_OutcomeRecord.mqh",
+  "source_sha256": "sha256:c23497480f3d3d3540a05d0b63c6cb0fbe6b5c370391b2e87dc2f7b8058c1c65",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F11BF1F5B39CA0814D6FB1B069B33FF5",
+  "treatment_package_id": "TREATPKG_92AC690084D3785DCE2BF928A7338B63",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

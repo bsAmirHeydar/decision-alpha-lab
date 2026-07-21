@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_CC0D1A66C7E23E1A00D26CA9B1BC98E1"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:04112ff1bdf94e6aed2f6796418fa6f57109429ad704a42a23d7a21205d3b77e",
+      "atom_id": "TREATATOM_CC0D1A66C7E23E1A00D26CA9B1BC98E1",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "UCEI05_CostBreakdown c; ZeroMemory(c); double value_per_price=s.tick_value_loss/s.tick_size*volume; c.spread_cash=(q.ask-q.bid)*value_per_price;",
+          "line_digest": "sha256:d63e0473543b27a5c5b70d2d2570a27739227322e26da63da85b07be8bd70730",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e1546623700afd50df2e927d93e5162f43b1ddff1fe59fd62c5ca5f150ce93ec",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1E258677A91A51221DDDF2B27E5F860E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:77731f498ca9845e90c5db40a549ca1feba959aa31a979cf3047923673263d84",
+    "sha256:04112ff1bdf94e6aed2f6796418fa6f57109429ad704a42a23d7a21205d3b77e"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Economics/UCEI05_CostModel.mqh",
+  "source_sha256": "sha256:77731f498ca9845e90c5db40a549ca1feba959aa31a979cf3047923673263d84",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_594835B284755CE293905BD2207E29FE",
+  "treatment_package_id": "TREATPKG_5D51B31A202408BF51FF23DDF3632B1C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

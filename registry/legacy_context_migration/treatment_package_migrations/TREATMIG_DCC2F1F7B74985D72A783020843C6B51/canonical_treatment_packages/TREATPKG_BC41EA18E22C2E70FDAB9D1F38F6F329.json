@@ -1,0 +1,198 @@
+{
+  "atom_ids": [
+    "TREATATOM_2873775F8811AEF89757085B184697D1",
+    "TREATATOM_2C5CC071BE770D7E779D916F9D36F5EB",
+    "TREATATOM_2E1F4D24A6D77295B1A649D2E38DF1DA",
+    "TREATATOM_3533AA0C24717E995922C1878B51DBD5",
+    "TREATATOM_52B927B62DF2A1A5984DCAB7A2E121C6",
+    "TREATATOM_6E815059F43A2C5C252F58255A11EBBD",
+    "TREATATOM_709BEE205ECB14C4884AE1B3BFE8F0EB",
+    "TREATATOM_9FDBDD9E7755EBD5A237E1F343A2857E"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "EXPIRY",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:04b417f318c8fa07712355b8531bd3842560dcb17c06b219a892e4de8227202f",
+      "atom_id": "TREATATOM_2873775F8811AEF89757085B184697D1",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "SF17_PaperOrder o;o.order_id=SF01_StableId(\"pord\",m_run_id+\"|\"+intent.intent_id+\"|\"+intent.intent_hash+\"|\"+SF17_DerivePolicyHash(m_policy));o.intent_id=intent.intent_id;o.intent_hash=intent.intent_hash;o.symbol=intent.symbol;o.direction=intent.direction;o.order_kind=intent.order_kind;o.state=SF17_ORDER_WORKING;o.reques",
+          "line_digest": "sha256:43140afefc6f533f29b1026b9c95032e6ea89e07743841b86757a22bf4fda4bf",
+          "line_number": 50
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1160b24fa2d246c1751aa3d05b41e74c871c3a129fea2fe867a403040a816a67",
+      "atom_id": "TREATATOM_2C5CC071BE770D7E779D916F9D36F5EB",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "if(m_order_count>=SF17_MAX_ORDERS){error=\"order capacity\";return false;}string intent_error;if(!SF16_ValidateIntent(intent,intent_error)){error=\"invalid intent:\"+intent_error;return false;}if(intent.authority!=SF16_AUTHORITY_PAPER_ELIGIBLE&&!m_policy.allow_research_only_intents){error=\"research-only authority\";return f",
+          "line_digest": "sha256:79c31a1f3425af8417af0ce5a271a2919cd062b9e2f3555d491f80c628a956a3",
+          "line_number": 49
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:27a0f3609a9992068ce724ee7f642eaa9949df0ec5aff28f4a5a5a804af3b2e9",
+      "atom_id": "TREATATOM_2E1F4D24A6D77295B1A649D2E38DF1DA",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "int pi=FindPosition(f.position_id);if(pi<0){if(m_position_count>=SF17_MAX_POSITIONS)return false;pi=m_position_count++;SF17_PositionRecord p;p.position_id=f.position_id;p.intent_id=o.intent_id;p.symbol=o.symbol;p.direction=o.direction;p.state=SF17_POSITION_OPEN;p.volume=volume;p.average_entry_price=price;p.stop_price=o",
+          "line_digest": "sha256:669459562b0219dfa4d477095de9ed3a3cecfacc0467e9266808671023780098",
+          "line_number": 35
+        },
+        {
+          "excerpt": "for(int i=0;i<m_position_count;i++){SF17_PositionRecord p=m_positions[i];if(p.symbol!=q.symbol||p.state!=SF17_POSITION_OPEN)continue;const bool stop=p.direction==1?q.bid<=p.stop_price:q.ask>=p.stop_price;const bool target=p.has_target&&(p.direction==1?q.bid>=p.target_price:q.ask<=p.target_price);if(!stop&&!target)conti",
+          "line_digest": "sha256:4a40fba38132fc450089ef1b64ff3e9b3f3294954abc0ab6f6d7ee51b2c4d845",
+          "line_number": 41
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0c4711369d3fe3ba58bbea22128704259f16080de2ceccdf6d79c9cb442f6a90",
+      "atom_id": "TREATATOM_3533AA0C24717E995922C1878B51DBD5",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "bool OnQuote(const SF17_QuoteObservation &q,const long now_utc_msc,string &error){if(!SF17_ValidateQuote(q,error))return false;if(now_utc_msc-q.time_utc_msc>m_policy.maximum_quote_age_milliseconds){m_telemetry.stale_quotes++;error=\"stale quote\";return false;}for(int i=0;i<m_order_count;i++){SF17_PaperOrder o=m_orders[i",
+          "line_digest": "sha256:8d33f61c9cdc48c3dde5fad004dc40de026ef6d65bffe50f5bfe6f7c04f3a070",
+          "line_number": 52
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:ab4025b0f1e45a61af58268e4b1ffe848251c097d8c37ee03d64fd3e76ced9dc",
+      "atom_id": "TREATATOM_52B927B62DF2A1A5984DCAB7A2E121C6",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "SF17_PaperOrder o;o.order_id=SF01_StableId(\"pord\",m_run_id+\"|\"+intent.intent_id+\"|\"+intent.intent_hash+\"|\"+SF17_DerivePolicyHash(m_policy));o.intent_id=intent.intent_id;o.intent_hash=intent.intent_hash;o.symbol=intent.symbol;o.direction=intent.direction;o.order_kind=intent.order_kind;o.state=SF17_ORDER_WORKING;o.reques",
+          "line_digest": "sha256:43140afefc6f533f29b1026b9c95032e6ea89e07743841b86757a22bf4fda4bf",
+          "line_number": 50
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3042dba31087d4692eb48dc538b87956c3789d5e8c5ef7c0228f608ac91c5179",
+      "atom_id": "TREATATOM_6E815059F43A2C5C252F58255A11EBBD",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double EntryPrice(const SF17_PaperOrder &o,const SF17_QuoteObservation &q)const",
+          "line_digest": "sha256:e8c7e992d64c75af2464c85fd57a10ce23451296016f3a54369516a14020d809",
+          "line_number": 19
+        },
+        {
+          "excerpt": "const double price=EntryPrice(o,q),old=o.filled_volume;o.filled_volume+=volume;o.remaining_volume=MathMax(0.0,o.requested_volume-o.filled_volume);o.average_fill_price=(o.average_fill_price*old+price*volume)/o.filled_volume;o.state=o.remaining_volume<=1e-12?SF17_ORDER_FILLED:SF17_ORDER_PARTIALLY_FILLED;o.updated_at_utc_",
+          "line_digest": "sha256:50645ab07d45ddac1fcf32be678be5f2866a67443c7771b4c58c4b97eccf8be5",
+          "line_number": 32
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4bffbe0b09d18d0ff46120b0e043eacd0bf2d237e97a7da08b0b57680ee39b55",
+      "atom_id": "TREATATOM_709BEE205ECB14C4884AE1B3BFE8F0EB",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "int pi=FindPosition(f.position_id);if(pi<0){if(m_position_count>=SF17_MAX_POSITIONS)return false;pi=m_position_count++;SF17_PositionRecord p;p.position_id=f.position_id;p.intent_id=o.intent_id;p.symbol=o.symbol;p.direction=o.direction;p.state=SF17_POSITION_OPEN;p.volume=volume;p.average_entry_price=price;p.stop_price=o",
+          "line_digest": "sha256:669459562b0219dfa4d477095de9ed3a3cecfacc0467e9266808671023780098",
+          "line_number": 35
+        },
+        {
+          "excerpt": "for(int i=0;i<m_position_count;i++){SF17_PositionRecord p=m_positions[i];if(p.symbol!=q.symbol||p.state!=SF17_POSITION_OPEN)continue;const bool stop=p.direction==1?q.bid<=p.stop_price:q.ask>=p.stop_price;const bool target=p.has_target&&(p.direction==1?q.bid>=p.target_price:q.ask<=p.target_price);if(!stop&&!target)conti",
+          "line_digest": "sha256:4a40fba38132fc450089ef1b64ff3e9b3f3294954abc0ab6f6d7ee51b2c4d845",
+          "line_number": 41
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:36b5cce99c3b3624825f6202ebe68330ef0ce1e368bfae83b5105d07faaf770c",
+      "atom_id": "TREATATOM_9FDBDD9E7755EBD5A237E1F343A2857E",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "SF17_PaperOrder o;o.order_id=SF01_StableId(\"pord\",m_run_id+\"|\"+intent.intent_id+\"|\"+intent.intent_hash+\"|\"+SF17_DerivePolicyHash(m_policy));o.intent_id=intent.intent_id;o.intent_hash=intent.intent_hash;o.symbol=intent.symbol;o.direction=intent.direction;o.order_kind=intent.order_kind;o.state=SF17_ORDER_WORKING;o.reques",
+          "line_digest": "sha256:43140afefc6f533f29b1026b9c95032e6ea89e07743841b86757a22bf4fda4bf",
+          "line_number": 50
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:39e99ce6dc1007f1639dadff4a45567fc2d6a9194f9691d3e2876617a8259921",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_905717C3B2CD6416315D3F39F4EBF80A"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d34ac12dc08a5290eda69015a8c71d5714b279e073efc0c6d06304d145d9d546",
+    "sha256:04b417f318c8fa07712355b8531bd3842560dcb17c06b219a892e4de8227202f",
+    "sha256:0c4711369d3fe3ba58bbea22128704259f16080de2ceccdf6d79c9cb442f6a90",
+    "sha256:1160b24fa2d246c1751aa3d05b41e74c871c3a129fea2fe867a403040a816a67",
+    "sha256:27a0f3609a9992068ce724ee7f642eaa9949df0ec5aff28f4a5a5a804af3b2e9",
+    "sha256:3042dba31087d4692eb48dc538b87956c3789d5e8c5ef7c0228f608ac91c5179",
+    "sha256:36b5cce99c3b3624825f6202ebe68330ef0ce1e368bfae83b5105d07faaf770c",
+    "sha256:4bffbe0b09d18d0ff46120b0e043eacd0bf2d237e97a7da08b0b57680ee39b55",
+    "sha256:ab4025b0f1e45a61af58268e4b1ffe848251c097d8c37ee03d64fd3e76ced9dc"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Execution/SF17_PaperExecutionEngine.mqh",
+  "source_sha256": "sha256:d34ac12dc08a5290eda69015a8c71d5714b279e073efc0c6d06304d145d9d546",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F343CD6B363D6FD36C018ED0B2E0AEB6",
+  "treatment_package_id": "TREATPKG_BC41EA18E22C2E70FDAB9D1F38F6F329",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

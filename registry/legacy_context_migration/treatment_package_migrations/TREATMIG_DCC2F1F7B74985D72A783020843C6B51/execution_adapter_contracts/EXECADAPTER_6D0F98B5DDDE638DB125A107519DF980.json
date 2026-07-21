@@ -1,0 +1,42 @@
+{
+  "adapter_digest": "sha256:316952176d62853f83284b6751ac4ee3ef06bf0c5560b7319d0eec44ddff5738",
+  "adapter_id": "EXECADAPTER_6D0F98B5DDDE638DB125A107519DF980",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_5B97875088EF5B04BF49A32B48EF2A6B",
+    "EXECCAP_A5FA701C1A66330A547BAE15E60EEE50"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:1fd5709169ce82e2410696e58c8d213c8c2783d35e00241c13e3ab1dba1e70b5"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_RelationshipAudit.mqh",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

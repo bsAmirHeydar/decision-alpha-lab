@@ -1,0 +1,70 @@
+{
+  "atom_ids": [
+    "TREATATOM_15257E5BB5445510075C635D0D50D4F4"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_13B7DF85B054E46E87542C8C9CA1BA08",
+    "EXECCAP_1EC3CB7386C11F59CCBEAA0FAB8D409B",
+    "EXECCAP_6ECBEAF156CBD32514750743B549C144",
+    "EXECCAP_B78A68E30369568889C2C17A4B154A8B",
+    "EXECCAP_CE02074582AF7923D7E87E5B69CB339E"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c0ccfde63817c505a9b8ec54647249d635abcad7859adf4449ccc6a174a7e8ff",
+      "atom_id": "TREATATOM_15257E5BB5445510075C635D0D50D4F4",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "\"trade.Buy(\",",
+          "line_digest": "sha256:e5e3d994fdafeed6e0af45ff5b4b5cc46528ce0f4568ec7a4aa4ca6cef04d818",
+          "line_number": 10
+        },
+        {
+          "excerpt": "\"trade.Sell(\",",
+          "line_digest": "sha256:da7cd5292b08512ddc447e22f6a436b389de42cc06f85653e90aa09edbf9279e",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e4353ab729fa0466a6b71bd3fa89b9353bbdfd1fe5381b5a404784fcdebdbe1e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7559e241b3dfbf4f31aa08dcb200eaeb1217672002d3fc2d8364995c118ef336",
+    "sha256:c0ccfde63817c505a9b8ec54647249d635abcad7859adf4449ccc6a174a7e8ff"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i11_experiments/test_i11_boundaries.py",
+  "source_sha256": "sha256:7559e241b3dfbf4f31aa08dcb200eaeb1217672002d3fc2d8364995c118ef336",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_ECF10924F85B195ECC9B8F1CE0B4FDB7",
+  "treatment_package_id": "TREATPKG_7E5020548D74ACDF63D53FFFEDF88498",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

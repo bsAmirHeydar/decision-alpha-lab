@@ -1,0 +1,62 @@
+{
+  "atom_ids": [
+    "TREATATOM_94B1E209D18E41EBA182977B1384D413"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_400DE1B75FB33F2126BEBF671130727C",
+    "EXECCAP_51DFBD2BDB51758C9CF3D754365BB203"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:e265facddd2723f5d4a77419b6a08be05fca5dc1f27b5c98a619291fa30dd462",
+      "atom_id": "TREATATOM_94B1E209D18E41EBA182977B1384D413",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "raise PolicyError(\"permit expiry invalid\")",
+          "line_digest": "sha256:3e21e7e78cc41d2e45b0969598f727a9239d8ad96788b2d2198e09a133d8185a",
+          "line_number": 60
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9fa99d086cee2f51ead01527c877f0f59581473557c7c2bdb783f1161d0a09b3",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b2a799019e93a77c6bc861c6ddfccf2ef0c47493646073bf9ecaceb958eeced4",
+    "sha256:e265facddd2723f5d4a77419b6a08be05fca5dc1f27b5c98a619291fa30dd462"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/lcm/lcm_06/authority.py",
+  "source_sha256": "sha256:b2a799019e93a77c6bc861c6ddfccf2ef0c47493646073bf9ecaceb958eeced4",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_1BF605BAFF6B7F9EFC7CAC4C61CE01DB",
+  "treatment_package_id": "TREATPKG_D7F9FBFC8CAD66C99DE3AEBE1EFDDD8D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

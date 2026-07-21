@@ -1,0 +1,81 @@
+{
+  "$id": "https://alpha-lab.local/lcm10b/provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10B_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "graph_digest": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "node_count",
+    "edge_count",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "title": "provenance_graph",
+  "type": "object"
+}

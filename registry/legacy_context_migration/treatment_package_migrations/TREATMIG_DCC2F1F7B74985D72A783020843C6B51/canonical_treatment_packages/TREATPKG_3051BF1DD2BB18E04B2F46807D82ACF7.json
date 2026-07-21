@@ -1,0 +1,86 @@
+{
+  "atom_ids": [
+    "TREATATOM_57DA1B8CBC6AD4769ED8ED187008AEA3",
+    "TREATATOM_97E6FF5A67AA34B983C50484A35CECD6"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_695928AEFBA03DB760FB49371C97B0D5"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:60602dc9c0a6997068b730df1ca23fdf8780e30a486826470d0afa64636e7902",
+      "atom_id": "TREATATOM_57DA1B8CBC6AD4769ED8ED187008AEA3",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "if(cfg.risk_percent <= 0.0) error = error + \"risk_percent must be positive; \";",
+          "line_digest": "sha256:db1dff9fb95be5ccd624cca6f2672237d01616d9a96ceb2c8b7b240f284416b6",
+          "line_number": 202
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f3f2527a1789af7009ddc68432bb7572c9591795bbfe9f1c8e401737f047d00a",
+      "atom_id": "TREATATOM_97E6FF5A67AA34B983C50484A35CECD6",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "string key = \"DAL_STC_LOCK_\" + account + \"_\" + terminal + \"_\" + cfg.strategy_id + \"_\" + cfg.symbol1 + \"_\" + cfg.symbol2 + \"_\" + IntegerToString(cfg.magic_number);",
+          "line_digest": "sha256:bd95d8d741d3382f675af44eb78206e5e6c28754e99a2d2250daa6fc5a00f3b9",
+          "line_number": 86
+        },
+        {
+          "excerpt": "if(cfg.magic_number <= 0) error = error + \"magic_number must be positive; \";",
+          "line_digest": "sha256:44225d1ac7451de53edc0b556a06f29d4a326a42eb472eb63c61901bbaa9abf2",
+          "line_number": 204
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:61ec52732da6179c829d8a547e87be449355912fadf599015d865ebb410fdaf3",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_97E47F1D284B1A51E16A441FFAD098C7"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:603accabc9260662d5368880ed7ef3be75bb76a7d886af2e457be99bfd36735f",
+    "sha256:60602dc9c0a6997068b730df1ca23fdf8780e30a486826470d0afa64636e7902",
+    "sha256:f3f2527a1789af7009ddc68432bb7572c9591795bbfe9f1c8e401737f047d00a"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Utils.mqh",
+  "source_sha256": "sha256:603accabc9260662d5368880ed7ef3be75bb76a7d886af2e457be99bfd36735f",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_DCED1C60AFAB683F278B0B39F9D37EF0",
+  "treatment_package_id": "TREATPKG_3051BF1DD2BB18E04B2F46807D82ACF7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

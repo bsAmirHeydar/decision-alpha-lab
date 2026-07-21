@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_B9FB6B950DC9A1FA3B719547F8D8D313"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:af617e612e7bd98e803204bbe8f9acd703f96df230bd3daed04583d65e29ce98",
+      "atom_id": "TREATATOM_B9FB6B950DC9A1FA3B719547F8D8D313",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "string UCEI03_KindName(const ENUM_UCEI03_ATOM_KIND v){switch(v){case UCEI03_ENTRY:return \"entry\";case UCEI03_STOP:return \"stop\";case UCEI03_TARGET:return \"target\";case UCEI03_TRAILING:return \"trailing\";case UCEI03_MANAGEMENT:return \"management\";case UCEI03_SIZING:return \"sizing\";}return \"unknown\";}",
+          "line_digest": "sha256:75b4a48516172318b3d6e62e37944258624bf511e3d2bdf212eb15bff4914bda",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:088d3283f51473bad07a3cdd327a8d7c82ffc248a77aab4b7bdce24086fc6cad",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:69b241366ec239f5989d2e7b129af75ce75d7faf3577d07e35901c1d594329c8",
+    "sha256:af617e612e7bd98e803204bbe8f9acd703f96df230bd3daed04583d65e29ce98"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_Enums.mqh",
+  "source_sha256": "sha256:69b241366ec239f5989d2e7b129af75ce75d7faf3577d07e35901c1d594329c8",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_EE148614BF84DF73619CE665D6223EC1",
+  "treatment_package_id": "TREATPKG_21E03BD9DFECD35E7F161497D0A95FCE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

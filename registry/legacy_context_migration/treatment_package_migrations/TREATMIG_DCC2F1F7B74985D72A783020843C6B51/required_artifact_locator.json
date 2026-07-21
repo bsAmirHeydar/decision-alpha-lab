@@ -1,0 +1,40 @@
+{
+  "artifacts": {
+    "canonical_treatment_packages": {
+      "count": 422,
+      "path": "canonical_treatment_packages"
+    },
+    "capability_guard_policy": {
+      "path": "guards/capability_guard_policy.json"
+    },
+    "execution_adapter_contracts": {
+      "count": 483,
+      "path": "execution_adapter_contracts"
+    },
+    "execution_intent_schema": {
+      "path": "contracts/execution_intent_schema.json"
+    },
+    "forbidden_api_boundary_report": {
+      "path": "reports/forbidden_api_boundary_report.json"
+    },
+    "handoff": {
+      "path": "handoff/lcm10b_to_lcm10c_handoff.json"
+    },
+    "legacy_execution_adapter_registry": {
+      "path": "compatibility/legacy_execution_adapter_registry.json"
+    }
+  },
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "locator_digest": "sha256:cdb8b32b87907448830205903d9a499a98cc7894d7172fd433cfc49167bd542a",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e"
+  ],
+  "validation_status": "PASS"
+}

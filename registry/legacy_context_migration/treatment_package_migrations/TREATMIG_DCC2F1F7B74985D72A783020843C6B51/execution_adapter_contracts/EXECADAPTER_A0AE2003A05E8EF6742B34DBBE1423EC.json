@@ -1,0 +1,42 @@
+{
+  "adapter_digest": "sha256:20d376e728e5ecc1744e30dd6e80271c44eb33c325f442f0237c98d86c0f7256",
+  "adapter_id": "EXECADAPTER_A0AE2003A05E8EF6742B34DBBE1423EC",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_0605B427B16AA7214141E6E147D3F6FD",
+    "EXECCAP_F0275640C268582D98BFC00FCFC3A1C6"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d59a0555ba64b9bafcf205d777007cc012912f39ecf75aea731eb2b10a1cd655"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I14/FP_I14_TraceExporter.mqh",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

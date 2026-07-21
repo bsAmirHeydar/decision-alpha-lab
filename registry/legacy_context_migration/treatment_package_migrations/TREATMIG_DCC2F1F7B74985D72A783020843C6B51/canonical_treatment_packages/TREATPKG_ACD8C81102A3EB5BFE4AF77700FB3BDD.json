@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_E1B5419818DC731797AACA2E2A52D3CC"
+  ],
+  "atom_types": [
+    "SESSION_GATE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9685ddd404f5fe8a0577f8e3bd3e7901fb2be6e3472b30cae5254ae469ccbfce",
+      "atom_id": "TREATATOM_E1B5419818DC731797AACA2E2A52D3CC",
+      "atom_type": "SESSION_GATE",
+      "intent_field": "session_constraint",
+      "source_evidence": [
+        {
+          "excerpt": "struct ALPortfolioCapacity { string candidate_id; double max_risk; double fill_ratio; double spread_bps; double impact_bps; bool market_open; };",
+          "line_digest": "sha256:f2ab212301d90dd492b91e46ea6d32d1f43077f8527fa6afbe993bb948aeebec",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4d989d7239397e134dd14175d92ea784da61ad9285a773ea2240e6baa33cde47",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:02537549afcba9c19da767f8bc29bc6c7fa1232cfd82a4be3bf42d14d8029abd",
+    "sha256:9685ddd404f5fe8a0577f8e3bd3e7901fb2be6e3472b30cae5254ae469ccbfce"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Portfolio/PortfolioCapacity.mqh",
+  "source_sha256": "sha256:02537549afcba9c19da767f8bc29bc6c7fa1232cfd82a4be3bf42d14d8029abd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_98FC78B92FAABB7F1290C8313142BE08",
+  "treatment_package_id": "TREATPKG_ACD8C81102A3EB5BFE4AF77700FB3BDD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

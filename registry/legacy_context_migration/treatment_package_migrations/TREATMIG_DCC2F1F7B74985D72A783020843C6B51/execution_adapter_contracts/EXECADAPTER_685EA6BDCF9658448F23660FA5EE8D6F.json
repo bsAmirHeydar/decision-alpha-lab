@@ -1,0 +1,57 @@
+{
+  "adapter_digest": "sha256:635ff2ef595815b9dc8d4715543ae97349f347ac712f8691a2f509ccd00bd6a8",
+  "adapter_id": "EXECADAPTER_685EA6BDCF9658448F23660FA5EE8D6F",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CLOSE_POSITION",
+    "CREATE_REQUEST_INTENT",
+    "READ_BROKER_CONSTRAINTS",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_POSITION_CLOSE",
+    "BROKER_REQUEST_BUILD",
+    "BROKER_STATE_HISTORY",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_RAW",
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_0914DB154B9EF85958509960D050159C",
+    "EXECCAP_6378B5D91DCFBAA8EAB00E5E1CDE0D3B",
+    "EXECCAP_764ED630EEF315E29EAB699FF6E65825",
+    "EXECCAP_7820323A5FC1A61CF4E690243FE3066C",
+    "EXECCAP_7994C15E835762E78D449927E5F67A61",
+    "EXECCAP_9A4397D4542BBC415CECAA6EE5785B3C",
+    "EXECCAP_B3633B4AF4C49AC4F74518559BBBAD17"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0ec8c6d19f302a90c5dadddab56b62763b93d588f2564adb394e58b2446a305b"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_685EA6BDCF9658448F23660FA5EE8D6F"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

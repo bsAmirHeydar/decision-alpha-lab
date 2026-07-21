@@ -1,0 +1,116 @@
+{
+  "atom_ids": [
+    "TREATATOM_5A8A058F7C16AA6D55BCE5DA4E0D9EF9",
+    "TREATATOM_64D69D920FC2F3736EBE6D1021FB2B0A",
+    "TREATATOM_996A0F8BB54FC99A28ADBB4B88E52E20",
+    "TREATATOM_F29BAEB805204B2D5AFE4404F9B916E6"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:00c3b3de1b6141a61792490b9f5e644201116ebb7707f0e900f38fd9c03587b3",
+      "atom_id": "TREATATOM_5A8A058F7C16AA6D55BCE5DA4E0D9EF9",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI03_TargetLeg{bool has_target_price;double target_price;double quantity_fraction;double activation_r;bool is_runner;};",
+          "line_digest": "sha256:0b766767b54212eea4c9133f3d877f6c6c69b4720fcea221062db8e6ab8e8a68",
+          "line_number": 16
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5d1fd76308136e912afab40447b74d16922f78fa7d1eb4a3aa03e08fc0b9bd6f",
+      "atom_id": "TREATATOM_64D69D920FC2F3736EBE6D1021FB2B0A",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI03_ValidatePriceEnvironment(const UCEI03_PriceEnvironment &p,string &error){if(p.bid<=0.0||p.ask<=0.0||p.ask<p.bid){error=\"invalid executable quote\";return false;}if(p.point<=0.0||p.tick_size<=0.0){error=\"invalid point or tick size\";return false;}error=\"\";return true;}",
+          "line_digest": "sha256:cb3ac3f8c2343bd635492d202e2329369f96f4d76308baa9846f445a6053939f",
+          "line_number": 22
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:24517789f04d912c7e59b8dabc10c05384270cde8e74aff9412cabb2bf40adcf",
+      "atom_id": "TREATATOM_996A0F8BB54FC99A28ADBB4B88E52E20",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI03_PriceEnvironment{double bid;double ask;double point;double tick_size;int digits;long quote_time_ms;int stops_level_points;int freeze_level_points;};",
+          "line_digest": "sha256:a9561cadb9f10617c1a7c795c16779a1c5c8e2f9edffd9d12a8673f22e400f23",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9b0f8db3d91b4002b7a54d215901e088cf631cf1021b4d3a94eae70b178f447d",
+      "atom_id": "TREATATOM_F29BAEB805204B2D5AFE4404F9B916E6",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI03_StopPlan{string invocation_id;bool has_price_stop;double stop_price;double distance;bool has_time_exit;long time_exit_ms;bool has_catastrophic;double catastrophic_price;string metadata_json;string plan_id;};",
+          "line_digest": "sha256:501f771330d754b5c4601aac60ccd440036636ac0b5ee449b434561230f11e0d",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8c7bc3c4fdb92db8d90330ce1f0e9ec173d6b14296936d578134d9a70e8fe5e5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_55E6EBE5B3339669085D7290026F3262",
+    "RISKASM_C5066656360EBD5D79FD3088D44D61BF",
+    "RISKASM_C585739F8C38D82DBF31FF9DF8D94D0D"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:496cc0daa70d7d2f60b5e699b39f23cca8a87f0eff2043dec4b11d3780ae9c7a",
+    "sha256:00c3b3de1b6141a61792490b9f5e644201116ebb7707f0e900f38fd9c03587b3",
+    "sha256:24517789f04d912c7e59b8dabc10c05384270cde8e74aff9412cabb2bf40adcf",
+    "sha256:5d1fd76308136e912afab40447b74d16922f78fa7d1eb4a3aa03e08fc0b9bd6f",
+    "sha256:9b0f8db3d91b4002b7a54d215901e088cf631cf1021b4d3a94eae70b178f447d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_Contracts.mqh",
+  "source_sha256": "sha256:496cc0daa70d7d2f60b5e699b39f23cca8a87f0eff2043dec4b11d3780ae9c7a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C25F855BC22D2F91DC0F6820178339C6",
+  "treatment_package_id": "TREATPKG_9815A33552DF683894EBFA257E349D7F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

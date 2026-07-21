@@ -1,0 +1,96 @@
+{
+  "atom_ids": [
+    "TREATATOM_E46A09447D75C3F076013D8647706DE9",
+    "TREATATOM_FCB802425058ED196EDE7C0BE7E652FC"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_D7812862737BE7AEBA1CB760F1CEC2EF"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6e47c35266686774282122b1b994516bd8e4dd824ee4f3bda801be7c74c8d5ad",
+      "atom_id": "TREATATOM_E46A09447D75C3F076013D8647706DE9",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "bool BuildMarketEntry(const SCGXExecutionConfig &config,const string symbol,const ECGCSignalDirection direction,MqlTick &tick,double &entry_price,string &reason)",
+          "line_digest": "sha256:dbac0aa0b9adfea11a475a995571ad27f13adcb8ed2c27ed2f429ef480c62fdb",
+          "line_number": 26
+        },
+        {
+          "excerpt": "entry_price=tick.ask;",
+          "line_digest": "sha256:02caf408b15a966020421a17ef0b1b9c836a47bafa3704be9a37fb7d4b597eeb",
+          "line_number": 66
+        },
+        {
+          "excerpt": "entry_price=tick.bid;",
+          "line_digest": "sha256:9fe1fa2689fc9e6509a05a7a4ed65a6d6c481682b530c5bb273192e5bd70b16a",
+          "line_number": 68
+        },
+        {
+          "excerpt": "entry_price=CGX_NormalizePrice(symbol,entry_price);",
+          "line_digest": "sha256:87398cb7f36e466970d12c3fe0f1f6140243ac40b37b9d2560d646c627feda2d",
+          "line_number": 75
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:be8bfd12c0c6b9c3f98904b66096a445dce553cc01839243a4bce5f4ed1bdecb",
+      "atom_id": "TREATATOM_FCB802425058ED196EDE7C0BE7E652FC",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point=SymbolInfoDouble(symbol,SYMBOL_POINT);",
+          "line_digest": "sha256:2e07a11c5f020b0d5f7cf4e856578fcedd45b017a51ef17ae5d0df70d3914cca",
+          "line_number": 52
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:72831bc778dd64c92bc2aca4d317f2df8488d1df1750afe032ab3a35a5893281",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_73CB90257ED3B3C041E5FE4F80CF5A97"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e7eb5330f0fc71b143da355675a1f7ab479ef6817b49aa362a3167f1a18ed36c",
+    "sha256:6e47c35266686774282122b1b994516bd8e4dd824ee4f3bda801be7c74c8d5ad",
+    "sha256:be8bfd12c0c6b9c3f98904b66096a445dce553cc01839243a4bce5f4ed1bdecb"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_EntryModel.mqh",
+  "source_sha256": "sha256:e7eb5330f0fc71b143da355675a1f7ab479ef6817b49aa362a3167f1a18ed36c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E2222BD8D65215D6992E5CA51E27A6EF",
+  "treatment_package_id": "TREATPKG_E696A2FF890F07C2E11CCBC9FF7ECA60",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,55 @@
+{
+  "adapter_digest": "sha256:8a8c9ebcb08505c86ac025df999bffc95e8f4b21ede1d2ac4a283428a0c5239e",
+  "adapter_id": "EXECADAPTER_15CA8270EEC8A06ADF7DA947CDCB82B0",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CLOSE_POSITION",
+    "READ_ACCOUNT_STATE",
+    "READ_FILE_LEDGER",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_ACCOUNT_STATE",
+    "BROKER_POSITION_CLOSE",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_CTRADE",
+    "FILE_LEDGER_READ"
+  ],
+  "capability_ids": [
+    "EXECCAP_184B3DE4DCA25005EC1381E61FA01CAF",
+    "EXECCAP_1E0E5A44AEDF9C51D2D5E0BDB24EE4FD",
+    "EXECCAP_95FA247ACB216A99B95166C8E42EB3C5",
+    "EXECCAP_9BF82BC7331719583C8F2BD491E4BF8A",
+    "EXECCAP_CF3102F73152B0DF173E9B48F5879987",
+    "EXECCAP_E35E60B7D7EFBC81462E235610A46B7C"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:396e606d89729c52491a9dc61809d2f6264d6bfacde3e2d4a817600d49768b06"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/flag_counting/nds_hook_trade_contract_qa.py",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_15CA8270EEC8A06ADF7DA947CDCB82B0"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

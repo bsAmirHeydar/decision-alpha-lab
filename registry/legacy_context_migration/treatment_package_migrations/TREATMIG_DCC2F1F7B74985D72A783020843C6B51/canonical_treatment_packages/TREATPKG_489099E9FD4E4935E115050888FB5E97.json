@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_98F62A7A9017380BD678A36D97057256",
+    "TREATATOM_C77A12DFFCF8E3EAAB9CE28242A05684"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:b3c23d2b75e4d7393fbc3838a2f1f0cebeb732a629382a7204af9b1ceda1205b",
+      "atom_id": "TREATATOM_98F62A7A9017380BD678A36D97057256",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI05_SymbolSpec { string symbol; int digits; double point; double tick_size; double tick_value_profit; double tick_value_loss; double contract_size; double volume_min; double volume_max; double volume_step; int stops_level_points; int freeze_level_points; double leverage; double margin_per_lot; long known_time",
+          "line_digest": "sha256:b6455325c6356ce88ad504ea06d2d4876b8637407073dcf612350139cb069675",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:08a89e2b59cf1866601e415edd2bb1eefa848d8539aa93a61660b94c562b153c",
+      "atom_id": "TREATATOM_C77A12DFFCF8E3EAAB9CE28242A05684",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI05_SymbolSpec { string symbol; int digits; double point; double tick_size; double tick_value_profit; double tick_value_loss; double contract_size; double volume_min; double volume_max; double volume_step; int stops_level_points; int freeze_level_points; double leverage; double margin_per_lot; long known_time",
+          "line_digest": "sha256:b6455325c6356ce88ad504ea06d2d4876b8637407073dcf612350139cb069675",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d6d96106ea160bb050304a9a6964207b8a77b572b30f23fae62b81c6ccf073b4",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_15600AD34BB9029947AF1FF832523EBD",
+    "RISKASM_23C009A26638221964E4CFD1CF2D22BF",
+    "RISKASM_7F39B454B58BB1ED7B3E54A1C190551B",
+    "RISKASM_8E8972EDDBE7515FDAC2287AB60C5238"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2123a66b9abe26e92f43ac8f00a9e720fb1d8ff5075fcb2a3c3ec4cd43769a23",
+    "sha256:08a89e2b59cf1866601e415edd2bb1eefa848d8539aa93a61660b94c562b153c",
+    "sha256:b3c23d2b75e4d7393fbc3838a2f1f0cebeb732a629382a7204af9b1ceda1205b"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Economics/UCEI05_Contracts.mqh",
+  "source_sha256": "sha256:2123a66b9abe26e92f43ac8f00a9e720fb1d8ff5075fcb2a3c3ec4cd43769a23",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C720EC6C0A533930B634A58A622B1948",
+  "treatment_package_id": "TREATPKG_489099E9FD4E4935E115050888FB5E97",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

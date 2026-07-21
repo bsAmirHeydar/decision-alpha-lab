@@ -1,0 +1,21 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "consumer_cutover": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_translation": "DRY_REFERENCE_ONLY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:e7252cf93d7c0346b3a083eaabb5cf63f50d863abd5b7a9d58093fd7f1841d5d",
+  "policy_id": "LCM10BPOLICY_E0FCE80AE48406234B73BA9F4725825F",
+  "policy_name": "compatibility_containment_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_delete": false,
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "source_move": false,
+  "validation_status": "PASS"
+}

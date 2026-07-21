@@ -1,0 +1,102 @@
+{
+  "atom_ids": [
+    "TREATATOM_4A94E1515358AD0219888520E1301368",
+    "TREATATOM_53B561D263D2B346D9559333A9643C5C",
+    "TREATATOM_6199B9AF73F62D25F530E18878162B85"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_PRICE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:fbe6833422f68a9fcd5cb02d19b7464fdd9c24b7614c6834436c9cf647ea026e",
+      "atom_id": "TREATATOM_4A94E1515358AD0219888520E1301368",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "if abs(fill_slippage_price)>abs(plan.geometry.worst_case_entry-plan.geometry.planned_entry)+1e-12: raise ValueError(\"fill slippage exceeds configured budget\")",
+          "line_digest": "sha256:3a2af5902b4f38d1bb10497dd68d06a34f4d622a4b49a15b4349552782bd3ab6",
+          "line_number": 49
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:875d2790b4f04b5c3ecb5bf0f9472e31d426589992124a12e81b33ec1b44f0d0",
+      "atom_id": "TREATATOM_53B561D263D2B346D9559333A9643C5C",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "entry=plan.geometry.planned_entry + (fill_slippage_price if plan.direction==TradeDirection.BUY else -fill_slippage_price)",
+          "line_digest": "sha256:e602bfb8eb3346483dcead807948f5ea8080de41e30adc592f6a7fd08374645a",
+          "line_number": 48
+        },
+        {
+          "excerpt": "if abs(fill_slippage_price)>abs(plan.geometry.worst_case_entry-plan.geometry.planned_entry)+1e-12: raise ValueError(\"fill slippage exceeds configured budget\")",
+          "line_digest": "sha256:3a2af5902b4f38d1bb10497dd68d06a34f4d622a4b49a15b4349552782bd3ab6",
+          "line_number": 49
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b78abfacb47e6c17348bd760c7adaf6bb89efa648221ad93392a01925d1fe67f",
+      "atom_id": "TREATATOM_6199B9AF73F62D25F530E18878162B85",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "order=transition_order(order,OrderState.CANCELLED,now+4,(\"FP_PAPER_ORDER_CANCELLED\",)); ledger.append(LedgerEventType.ORDER_CANCELLED,order.order_id,now+4,{\"order\":order.order_hash})",
+          "line_digest": "sha256:99ba60b9ffc4343ae7db5dd8fc697a6d7aa1d66d0564de16d5f2077a69ee7959",
+          "line_number": 44
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a58f354a810bf40a18aeeebcca1079e879ec227a2a7f7e87bcdc0dbb47ad733f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_A4CA6C48B463171E8577304294583764"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2fce3840e8fb5dd6779844bf749e4e17bf94f280b489d4dec953c1a96c1e65cc",
+    "sha256:875d2790b4f04b5c3ecb5bf0f9472e31d426589992124a12e81b33ec1b44f0d0",
+    "sha256:b78abfacb47e6c17348bd760c7adaf6bb89efa648221ad93392a01925d1fe67f",
+    "sha256:fbe6833422f68a9fcd5cb02d19b7464fdd9c24b7614c6834436c9cf647ea026e"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/simulator.py",
+  "source_sha256": "sha256:2fce3840e8fb5dd6779844bf749e4e17bf94f280b489d4dec953c1a96c1e65cc",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_46F16E3ED104B298048D9A64C6F3082B",
+  "treatment_package_id": "TREATPKG_5F2E2DF24810CB37EAA46BD19A878924",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

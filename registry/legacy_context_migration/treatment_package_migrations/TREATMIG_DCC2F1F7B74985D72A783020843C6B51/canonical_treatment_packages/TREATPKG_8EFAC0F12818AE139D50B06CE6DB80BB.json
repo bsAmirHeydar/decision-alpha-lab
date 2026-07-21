@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_80A92C549A529E9BED54A7D8B7CB10DF"
+  ],
+  "atom_types": [
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:919c3adb74fb5df96bb0d180a01698c48d9a464994c426bfa8c880c8a594dc38",
+      "atom_id": "TREATATOM_80A92C549A529E9BED54A7D8B7CB10DF",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "void Initial(const UCEI04_CompiledTreatment &t,UCEI04_PathSnapshot &s){s.treatment_id=t.treatment_id;s.state=UCEI04_DRAFT;s.last_sequence=0;s.last_event_time_ms=t.decision_time_ms;s.last_known_time_ms=t.decision_time_ms;s.filled_fraction=0.0;s.open_fraction=0.0;s.exited_fraction=0.0;s.has_average_entry=false;s.average_",
+          "line_digest": "sha256:8e36f662328a50a443f708c11fb1b7c433cd2cfdc6ea852bc54aaac43f1f4d3e",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5a58cb6b2e66ed654ae57fc27fd57509647abb4488dfc57e47a82cd3afed0536",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:5023ab726a3f3fe29bdc6c270fd6ec75e9a31e08cfcf77167d56ffc1d297f0f9",
+    "sha256:919c3adb74fb5df96bb0d180a01698c48d9a464994c426bfa8c880c8a594dc38"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentCompiler/UCEI04_PathStateMachine.mqh",
+  "source_sha256": "sha256:5023ab726a3f3fe29bdc6c270fd6ec75e9a31e08cfcf77167d56ffc1d297f0f9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_7B11B6DC8064F8AF0C28C2587EC44DBF",
+  "treatment_package_id": "TREATPKG_8EFAC0F12818AE139D50B06CE6DB80BB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

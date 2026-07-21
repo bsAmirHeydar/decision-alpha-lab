@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_C7BD45B17AB7455FF67AE74E666F381C"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:38fb0fafd16465a4fd33fee2ea1f7779b4ffa95f934964c34160f4a6cde37e1e",
+      "atom_id": "TREATATOM_C7BD45B17AB7455FF67AE74E666F381C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int spread;",
+          "line_digest": "sha256:7541cd100a33e2f52ebc370fa4e30a575dd8ec8f9a97d839755ccd60be778f36",
+          "line_number": 12
+        },
+        {
+          "excerpt": "bars[i].spread = rates[src].spread;",
+          "line_digest": "sha256:fbb1ea20f8cae7298be94c97e1f466c9dec9de9ad5ae769b45e2328bd502216c",
+          "line_number": 58
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f708f6f9cdeb169e4c4d005e9be7ceef66b39dea617a533de819deeaeadc6604",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_79517FD7966BC85F02709C1B3F5CBAA3"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:017dbf31b50e0e7d942788e3d5292e970e870be4ffa5b47abf41fd58721efb1f",
+    "sha256:38fb0fafd16465a4fd33fee2ea1f7779b4ffa95f934964c34160f4a6cde37e1e"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Market/DAL_Bars.mqh",
+  "source_sha256": "sha256:017dbf31b50e0e7d942788e3d5292e970e870be4ffa5b47abf41fd58721efb1f",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_52E7B735FA773973EF2CA2389025810D",
+  "treatment_package_id": "TREATPKG_2B8CD87B73157B85E71137F78B94B00F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,7 +1,7 @@
 ---
 title: "LCM-10B — Treatment Package Extraction and Execution Boundary Construction"
-status: proposed-reference
-version: 1.0.0
+status: accepted-reference
+version: 1.1.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-10B
@@ -131,3 +131,10 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: dry-run/paper simulation and authority-negative tests only.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation closure — 2026-07-20
+
+LCM-10B is accepted as a bounded reference implementation under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`. The delivery packages all 1,109 observed Treatment atoms into 422 deterministic, source-bound canonical reference packages; constructs 483 disabled execution-adapter contracts; publishes a versioned normalized execution-intent contract; accounts for all 60 canonical Setup identities through package bindings or explicit blockers; and preserves every legacy broker-capable source as unmoved containment evidence.
+
+No live or paper submission path, runtime authority, consumer cutover, capital authority, source move or deletion is created. The only authorized successor is LCM-10C dry-run parity, safety-control validation and authority-negative closure.

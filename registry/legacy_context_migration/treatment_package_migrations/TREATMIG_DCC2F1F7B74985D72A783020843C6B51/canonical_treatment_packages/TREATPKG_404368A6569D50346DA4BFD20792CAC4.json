@@ -1,0 +1,163 @@
+{
+  "atom_ids": [
+    "TREATATOM_4CC63C286F350F7DB5C582056CB1F242",
+    "TREATATOM_506CAB82E8A8E87B7CA51F4ABB18B5BC",
+    "TREATATOM_AD226B36A26012AF9194BE0AD7D5F893",
+    "TREATATOM_B54987ED7DC7E0079D3E5574FF30E473",
+    "TREATATOM_C05287BC864259D29D0F7D82BF0BD9C2",
+    "TREATATOM_DA6B73CF6AC6B32C9442ED063A741102"
+  ],
+  "atom_types": [
+    "PARTIAL_EXIT",
+    "STOP_LOSS",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c1234acac3b785121f7deb214910f4d7144694ec0c4a731ee751dee1e3dce3ec",
+      "atom_id": "TREATATOM_4CC63C286F350F7DB5C582056CB1F242",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "if target.no_fixed_target and built[TreatmentKind.TRAILING][1].mode=='none':",
+          "line_digest": "sha256:b9e9d0bac0649cb583ed99a54a43284abb61a6068f1a470fabb8eae9757d97db",
+          "line_number": 86
+        },
+        {
+          "excerpt": "raise CompilationError('runner_without_termination','runner requires trailing or an explicit terminal management rule')",
+          "line_digest": "sha256:706c4cc61f74459964dc1a15c4fb1071d2291d970e5974380c123414fc4b528a",
+          "line_number": 89
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:922dfcacff2fbcf6ffb5b993d4d59f0157ed1b62b693e470517b43ae17b31a75",
+      "atom_id": "TREATATOM_506CAB82E8A8E87B7CA51F4ABB18B5BC",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "sel,plan=built[TreatmentKind.TRAILING]; add('management','configure_trailing',sel,plan,500,plan.to_dict())",
+          "line_digest": "sha256:e1255e865dca6d8ccc92135065e9aab751e242fcd21f945805313c1d2a6e233a",
+          "line_number": 100
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b0fc3246f988b94ee0f325254b3e5692412610dc8a9e35d42b4c94b2542a683c",
+      "atom_id": "TREATATOM_AD226B36A26012AF9194BE0AD7D5F893",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "for role in (TreatmentKind.ENTRY,TreatmentKind.STOP,TreatmentKind.TARGET,TreatmentKind.TRAILING,TreatmentKind.SIZING):",
+          "line_digest": "sha256:609e14eede70c9fe74d54cf55dde849cbfaab5cc3500a00f060bd3a29d0abfaf",
+          "line_number": 53
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d9406ff18a9ee3ef0592b834e07adb7387deb896be8739dc424bda31d9732aad",
+      "atom_id": "TREATATOM_B54987ED7DC7E0079D3E5574FF30E473",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "partial=sum((r.quantity_fraction for _,p in management for r in p.rules if r.rule_type in ('partial_exit_at_r','scale_out')),start=0)",
+          "line_digest": "sha256:994647b1596470d4baa14199991639bc915dd3cee2c27d0f5c4d5da0c49866ff",
+          "line_number": 84
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5e30162a483ce9ae01118c2ef552e52d3499645b03aa3d9acc86b8573bbb3db9",
+      "atom_id": "TREATATOM_C05287BC864259D29D0F7D82BF0BD9C2",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "if stop.stop_price is not None:",
+          "line_digest": "sha256:f5f4cc53c8b75ffbb5ec160ad82dbbe1aa7a20ef58361410579e0d32e67aefed",
+          "line_number": 80
+        },
+        {
+          "excerpt": "if context.side.value=='long' and any(stop.stop_price>=p for p in anchors): raise CompilationError('invalid_stop_side','long stop must be below every entry leg')",
+          "line_digest": "sha256:78b708c9d42db6e275eb33eeff87be47e8e0ad92ac3dfa68aabf6d53edf52901",
+          "line_number": 82
+        },
+        {
+          "excerpt": "if context.side.value=='short' and any(stop.stop_price<=p for p in anchors): raise CompilationError('invalid_stop_side','short stop must be above every entry leg')",
+          "line_digest": "sha256:e3843bf780bc00f31727c27ee087f017c385ec6cee2602353504e108603b635a",
+          "line_number": 83
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:fd5149bf41aa13ae3c073f5f103bb2d48c1cd731e62f26b06ed53d734601fa53",
+      "atom_id": "TREATATOM_DA6B73CF6AC6B32C9442ED063A741102",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "built[TreatmentKind.ENTRY][1],built[TreatmentKind.STOP][1],built[TreatmentKind.TARGET][1],built[TreatmentKind.TRAILING][1],tuple(p for _,p in management),built[TreatmentKind.SIZING][1],",
+          "line_digest": "sha256:1bb84529a127e598e8d2bb6367b600dc8850ec459626cc6c5700fdb2778a0aa2",
+          "line_number": 43
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a3a798419021d66226c472bb6d1248311ebeb8abd90f74c9a798ecd114ffa053",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_CEF96EBD910C0A8A1D9A363188A548D0"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:12236b97aefe95d04e998845a3173ec50a2d977064ff048f133f8fde7243d31e",
+    "sha256:5e30162a483ce9ae01118c2ef552e52d3499645b03aa3d9acc86b8573bbb3db9",
+    "sha256:922dfcacff2fbcf6ffb5b993d4d59f0157ed1b62b693e470517b43ae17b31a75",
+    "sha256:b0fc3246f988b94ee0f325254b3e5692412610dc8a9e35d42b4c94b2542a683c",
+    "sha256:c1234acac3b785121f7deb214910f4d7144694ec0c4a731ee751dee1e3dce3ec",
+    "sha256:d9406ff18a9ee3ef0592b834e07adb7387deb896be8739dc424bda31d9732aad",
+    "sha256:fd5149bf41aa13ae3c073f5f103bb2d48c1cd731e62f26b06ed53d734601fa53"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatment_compiler_v3/compiler.py",
+  "source_sha256": "sha256:12236b97aefe95d04e998845a3173ec50a2d977064ff048f133f8fde7243d31e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_70CC203581680193C0671922FA071349",
+  "treatment_package_id": "TREATPKG_404368A6569D50346DA4BFD20792CAC4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

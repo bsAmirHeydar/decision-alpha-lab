@@ -1,0 +1,122 @@
+{
+  "atom_ids": [
+    "TREATATOM_55E217F479098240974D4D750AF51BF3",
+    "TREATATOM_8673FB23EFC15816CE880E72A56AF9B3"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_6F5F6978D4A45969E4296C30F0F35224"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:bd9fcdbf27ae0509141ff22b83f1928caca68647f038e4c3b5e0f6b5beb9e803",
+      "atom_id": "TREATATOM_55E217F479098240974D4D750AF51BF3",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double &stop_price,",
+          "line_digest": "sha256:b597e706b9a558a33a006bb95acc776b4689ac883126aaea9dfadc5b562d0078",
+          "line_number": 226
+        },
+        {
+          "excerpt": "stop_price = 0.0;",
+          "line_digest": "sha256:428e8e45371607b284829f67db77fbe9622e0b74a0fa58e1a9dc07854bdc02c3",
+          "line_number": 230
+        },
+        {
+          "excerpt": "stop_price = NormalizeDouble(level - buffer, digits);",
+          "line_digest": "sha256:ef4bfae60daf0475c473f23146be091fa6258c3e6ff81ba3dc125f20712fecfd",
+          "line_number": 314
+        },
+        {
+          "excerpt": "stop_price = NormalizeDouble(level + spread_price + buffer, digits);",
+          "line_digest": "sha256:e5f1af7ebeb95248040086eb878a6a4d3095195086815320536db66ff1ecbace",
+          "line_number": 316
+        },
+        {
+          "excerpt": "+ \"*stop=\" + DoubleToString(stop_price, digits);",
+          "line_digest": "sha256:073f60ccf164b8d4a8b2f4b61964d75f1fb405d311b23a1f499589f80cf62c60",
+          "line_number": 324
+        },
+        {
+          "excerpt": "double &stop_price,",
+          "line_digest": "sha256:b597e706b9a558a33a006bb95acc776b4689ac883126aaea9dfadc5b562d0078",
+          "line_number": 335
+        },
+        {
+          "excerpt": "stop_price,",
+          "line_digest": "sha256:31ec16b40db192df6c723f42e59055887c49669e376eb29ca39b49f1a23fecba",
+          "line_number": 345
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0eecab3f24a7715305b4deca5d216f68769380305232fada78b414cfb68bd570",
+      "atom_id": "TREATATOM_8673FB23EFC15816CE880E72A56AF9B3",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fe3f2b0452a2a65b0d9c7e74a4232df8386761b478a25e95c2403da5cef8b1d1",
+          "line_number": 246
+        },
+        {
+          "excerpt": "int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);",
+          "line_digest": "sha256:00a5dc0fd58557651fa23c4b03fd824ee2ed4bde34c4f806739aa36572a46f4e",
+          "line_number": 250
+        },
+        {
+          "excerpt": "+ \"*spread=\" + DoubleToString(spread_price, digits)",
+          "line_digest": "sha256:19427635e2a1b28527289006940178e40ec2b88d585e7f1112299e1eeb227cbc",
+          "line_number": 322
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:90eadb628b7f530b432aa9824ea961d799659bb3a93fbc815f5519e3ac9737ec",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_15825CD12076BCC9265536B50255C4C6",
+    "RISKASM_D9FA39E782600F6C317C536C35EDDB3C"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b551fee4007dcf4bdc4445344467a303e0ec2621ea7d7c7703e8076eae2e09d4",
+    "sha256:0eecab3f24a7715305b4deca5d216f68769380305232fada78b414cfb68bd570",
+    "sha256:bd9fcdbf27ae0509141ff22b83f1928caca68647f038e4c3b5e0f6b5beb9e803"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/DAL_ExecHeikinAshi.mqh",
+  "source_sha256": "sha256:b551fee4007dcf4bdc4445344467a303e0ec2621ea7d7c7703e8076eae2e09d4",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_EF136D1F64218DB517D91D7244B98318",
+  "treatment_package_id": "TREATPKG_EDA64EA2C65CAE7B87186EFE3F586FAE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

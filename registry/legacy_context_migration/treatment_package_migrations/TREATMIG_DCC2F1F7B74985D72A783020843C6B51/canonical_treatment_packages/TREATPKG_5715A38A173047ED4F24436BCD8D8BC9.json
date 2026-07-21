@@ -1,0 +1,96 @@
+{
+  "atom_ids": [
+    "TREATATOM_A5E2015E2F5FA9CB620962DFAA5AC2DF",
+    "TREATATOM_C3C904097E4B71D58AAA6E20E061104B"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_76178A702F5B65C522C6B43A2F13FA63"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7b725dca71786f97b422622e8edcc91a8a15ce540d1b2a59c9cbb2afd9fc5736",
+      "atom_id": "TREATATOM_A5E2015E2F5FA9CB620962DFAA5AC2DF",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "if(!DAL_M0001IntervalIntersectsVisualWindow(visual, e.entry_time, e.exit_time))",
+          "line_digest": "sha256:abe2a90662d8ef7dd5e2cadad556c5606e71a30ebc7756792312953a77b7a70a",
+          "line_number": 373
+        },
+        {
+          "excerpt": "DAL_DrawRectangle(id + \"_BOX\", e.entry_time, e.territory_upper, e.exit_time, e.territory_lower, DAL_RtvColor(e.rtv), true, false);",
+          "line_digest": "sha256:b937c28b01b998547ef1a307139451fd9de39f1d20955413335d6d1224017837",
+          "line_number": 379
+        },
+        {
+          "excerpt": "DAL_DrawTextLabel(id + \"_RTV\", e.exit_time, e.territory_upper, DAL_M0001RtvLabelText(e), DAL_M0001RtvLabelColor(e), 8);",
+          "line_digest": "sha256:223c727f109ae98962b4c1020ae4ef65f6ee186f49aca66f4cbddb2fbf8f84c8",
+          "line_number": 388
+        },
+        {
+          "excerpt": "DAL_DrawTextLabel(id + \"_HUNT\", e.exit_time, e.node_price, \"HUNT\", clrRed, 8);",
+          "line_digest": "sha256:69b0d927729e930f018c8502695a5d212cd55b26334611a6e61acc77bae7d484",
+          "line_number": 391
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f429510505ee4188e629615739915c9e24cbfd3aeffc9be0276ddc65407cab3a",
+      "atom_id": "TREATATOM_C3C904097E4B71D58AAA6E20E061104B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:bcdccc28da813c915a6677eb7338ff66b24c0c065f85f9bc0cd9838015e3573a",
+          "line_number": 82
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:440330933dcbbfd27475d49a747de1c4ef62e3df57b566dd5d959a049f9371bf",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_4280B10B9098626799810706CAA19922"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c0aac8afdff5a66e769c55e54793200b0019ab044117eb930b88e3cb8b282c04",
+    "sha256:7b725dca71786f97b422622e8edcc91a8a15ce540d1b2a59c9cbb2afd9fc5736",
+    "sha256:f429510505ee4188e629615739915c9e24cbfd3aeffc9be0276ddc65407cab3a"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/M0001/DAL_M0001Visual.mqh",
+  "source_sha256": "sha256:c0aac8afdff5a66e769c55e54793200b0019ab044117eb930b88e3cb8b282c04",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_BAC3476733F1D0C0744F4CC486322AC3",
+  "treatment_package_id": "TREATPKG_5715A38A173047ED4F24436BCD8D8BC9",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

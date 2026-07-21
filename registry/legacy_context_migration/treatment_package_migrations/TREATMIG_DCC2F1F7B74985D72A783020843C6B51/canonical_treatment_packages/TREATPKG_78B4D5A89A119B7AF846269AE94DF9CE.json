@@ -1,0 +1,129 @@
+{
+  "atom_ids": [
+    "TREATATOM_176B3DE12DFC3909B4F992DF43F399A9",
+    "TREATATOM_5419032328B34337DBD8BFAC48D5CA0C",
+    "TREATATOM_7821589CDFB7D48EB2CF86300AB5C3CB",
+    "TREATATOM_A632C54B1CFF67B639A8BF979F00AF2A",
+    "TREATATOM_C899A012726446937BE2B7810C5D472F"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4abf85f26178a4f17bfdd7ceb9143896fab2bba02442178bf2bdbcf1248f5da1",
+      "atom_id": "TREATATOM_176B3DE12DFC3909B4F992DF43F399A9",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "bool SAEDV408SpecValid(const SAEDV408ExecutionSpec &x){if(x.action_class!=0)return true;return (x.entry_price-x.stop_price)*x.direction>0.0 && x.partial_fraction>=0.0 && x.partial_fraction<=1.0;}",
+          "line_digest": "sha256:f4725b8e396082f7c8a8b8a07e7e87d72cc6b2066f651bca6a7f06344c8d886b",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2c00ef03ee5d62ad2df914b64be6d5e46e112018056292a71665cd26d46da3b5",
+      "atom_id": "TREATATOM_5419032328B34337DBD8BFAC48D5CA0C",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "struct SAEDV408ExecutionSpec{string node_id;int action_class;int direction;double entry_price;double stop_price;double target_price;long entry_expiration_ms;long maximum_holding_ms;double partial_fraction;};",
+          "line_digest": "sha256:0c594ddf46f83d9ceb6b2fad9788b66a2916cbbdc4b12d1e53cb16b8bcf52015",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6fe89a2a1d3a47d03fd774c8f653afc407e5d27bc1672ce4fb1e5ec457ab57da",
+      "atom_id": "TREATATOM_7821589CDFB7D48EB2CF86300AB5C3CB",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "struct SAEDV408ExecutionSpec{string node_id;int action_class;int direction;double entry_price;double stop_price;double target_price;long entry_expiration_ms;long maximum_holding_ms;double partial_fraction;};",
+          "line_digest": "sha256:0c594ddf46f83d9ceb6b2fad9788b66a2916cbbdc4b12d1e53cb16b8bcf52015",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7afdf326be8aa53dc69f228b4173f0a5be68ece8adff2034f6ca7ecdbefbe946",
+      "atom_id": "TREATATOM_A632C54B1CFF67B639A8BF979F00AF2A",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "struct SAEDV408ExecutionSpec{string node_id;int action_class;int direction;double entry_price;double stop_price;double target_price;long entry_expiration_ms;long maximum_holding_ms;double partial_fraction;};",
+          "line_digest": "sha256:0c594ddf46f83d9ceb6b2fad9788b66a2916cbbdc4b12d1e53cb16b8bcf52015",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bb4c4434b8b969d66056baf565b5ad5ee729e0be817a94fcce9de46fea6dfb82",
+      "atom_id": "TREATATOM_C899A012726446937BE2B7810C5D472F",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "bool SAEDV408SpecValid(const SAEDV408ExecutionSpec &x){if(x.action_class!=0)return true;return (x.entry_price-x.stop_price)*x.direction>0.0 && x.partial_fraction>=0.0 && x.partial_fraction<=1.0;}",
+          "line_digest": "sha256:f4725b8e396082f7c8a8b8a07e7e87d72cc6b2066f651bca6a7f06344c8d886b",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:620b1db3a0d205cb8e7d5d7851726df587c6bb313c8aade588bb8d54b5335057",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:9d8f920f4f34a75bc7d0fef67acc63064c43ad9017cbcc1c02c86dec88258678",
+    "sha256:2c00ef03ee5d62ad2df914b64be6d5e46e112018056292a71665cd26d46da3b5",
+    "sha256:4abf85f26178a4f17bfdd7ceb9143896fab2bba02442178bf2bdbcf1248f5da1",
+    "sha256:6fe89a2a1d3a47d03fd774c8f653afc407e5d27bc1672ce4fb1e5ec457ab57da",
+    "sha256:7afdf326be8aa53dc69f228b4173f0a5be68ece8adff2034f6ca7ecdbefbe946",
+    "sha256:bb4c4434b8b969d66056baf565b5ad5ee729e0be817a94fcce9de46fea6dfb82"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/SAEDV4OutcomeCube/SAEDV4OutcomeCubeSpec.mqh",
+  "source_sha256": "sha256:9d8f920f4f34a75bc7d0fef67acc63064c43ad9017cbcc1c02c86dec88258678",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C0BFDF4CDD2344332694CAC138A620EA",
+  "treatment_package_id": "TREATPKG_78B4D5A89A119B7AF846269AE94DF9CE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

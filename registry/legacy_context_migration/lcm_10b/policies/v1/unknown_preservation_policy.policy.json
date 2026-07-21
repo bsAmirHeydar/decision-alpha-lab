@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "missing_owner_approval": "BLOCK",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:b16d597a4bd6c6ed96d455ba6703f39691f2fa94cd4f6bc453f37932930b10ee",
+  "policy_id": "LCM10BPOLICY_862F7626CAC80643D30D3A898274E6BA",
+  "policy_name": "unknown_preservation_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "unknown_to_pass": false,
+  "untranslatable_fields": "BLOCK_AFFECTED_PATH",
+  "validation_status": "PASS"
+}

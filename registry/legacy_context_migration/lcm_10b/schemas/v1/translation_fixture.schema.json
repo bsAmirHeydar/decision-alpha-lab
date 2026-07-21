@@ -1,0 +1,81 @@
+{
+  "$id": "https://alpha-lab.local/lcm10b/translation_fixture.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10B_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "expected_status": {
+      "type": "string"
+    },
+    "fixture_digest": {
+      "type": "string"
+    },
+    "fixture_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "legacy_request": {
+      "type": "object"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "fixture_id",
+    "package_id",
+    "legacy_request",
+    "expected_status",
+    "fixture_digest"
+  ],
+  "title": "translation_fixture",
+  "type": "object"
+}

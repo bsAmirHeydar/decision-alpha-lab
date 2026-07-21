@@ -1,0 +1,317 @@
+{
+  "atom_ids": [
+    "TREATATOM_3D579ADD0901EA63C2B814473D160FF5",
+    "TREATATOM_59F05919A772DD2D20AEBFCC8053FB6F",
+    "TREATATOM_5C05216E2854960B082A4F5E6A3C2806"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:fcfca5aeb77ccefe448860ec532663e902190a43d991aea2293fd021e1910641",
+      "atom_id": "TREATATOM_3D579ADD0901EA63C2B814473D160FF5",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 76
+        },
+        {
+          "excerpt": "p.entry_price = 0.0;",
+          "line_digest": "sha256:e046be8642f742047bd6eac258a4e0da86247c02fafe2872cb9af5d501af4f4c",
+          "line_number": 313
+        },
+        {
+          "excerpt": "double DAL_M0005FavorableMoveFromEntry(const DALBar &bar, const int direction, const double entry_price)",
+          "line_digest": "sha256:52f7b51278538e92d316dd4013c9aeb3a9a4796d0682437f1961c0af00433568",
+          "line_number": 543
+        },
+        {
+          "excerpt": "return bar.high - entry_price;",
+          "line_digest": "sha256:035fb45a9c14636ae94cf9042a5952dee87e0014b68cab789a52f3d1240fdf0e",
+          "line_number": 546
+        },
+        {
+          "excerpt": "return entry_price - bar.low;",
+          "line_digest": "sha256:cda668f33b0424399dfcf27c531f68888c38c88ef74e3de77ad5cb36e80b8505",
+          "line_number": 547
+        },
+        {
+          "excerpt": "double DAL_M0005AdverseMoveFromEntry(const DALBar &bar, const int direction, const double entry_price)",
+          "line_digest": "sha256:c2d145e53318c0ef503fe2c36b0dba0754d20f804bf657e8d0e4de2ddeb4fa16",
+          "line_number": 550
+        },
+        {
+          "excerpt": "return entry_price - bar.low;",
+          "line_digest": "sha256:9f21ce98916fd9e8839345935d5cc7731e935109a9a07138ef079039e45c04b5",
+          "line_number": 553
+        },
+        {
+          "excerpt": "return bar.high - entry_price;",
+          "line_digest": "sha256:a6d2f23aa289d8b5bf0ea2d575b4a4bb68a86394675f5441ced15124aca9e0ec",
+          "line_number": 554
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 563
+        },
+        {
+          "excerpt": "double fm = DAL_M0005FavorableMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:8d2a56468df90b6b9ffa047f0321ca9058425ddecc9255b46f4e7aa3486547f4",
+          "line_number": 581
+        },
+        {
+          "excerpt": "double am = DAL_M0005AdverseMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:09fe29b68764ba83dbf46d406b3f0bee74238ab564b23d9bbc544e5194735a6c",
+          "line_number": 582
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 602
+        },
+        {
+          "excerpt": "double fm = DAL_M0005FavorableMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:8d2a56468df90b6b9ffa047f0321ca9058425ddecc9255b46f4e7aa3486547f4",
+          "line_number": 620
+        },
+        {
+          "excerpt": "double am = DAL_M0005AdverseMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:09fe29b68764ba83dbf46d406b3f0bee74238ab564b23d9bbc544e5194735a6c",
+          "line_number": 621
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 757
+        },
+        {
+          "excerpt": "favorable = bars[i].high - entry_price;",
+          "line_digest": "sha256:41c5a29bb54e75e33c2dd8e161e1a20eeaff9cc7d5c32c1c2461c9d42a96906a",
+          "line_number": 776
+        },
+        {
+          "excerpt": "adverse = entry_price - bars[i].low;",
+          "line_digest": "sha256:5053b23f5169d097013c59b860d2175b46f9ebe63f9cee597d3201c182ad01f2",
+          "line_number": 777
+        },
+        {
+          "excerpt": "favorable = entry_price - bars[i].low;",
+          "line_digest": "sha256:3cf7e39251f2b6dd7bd09326408ddcae187b8df05aac7174208347b99aaf34ee",
+          "line_number": 781
+        },
+        {
+          "excerpt": "adverse = bars[i].high - entry_price;",
+          "line_digest": "sha256:b14bb02b92df646455d387398b7caacd26db325b7beea0115b07e80e54872c59",
+          "line_number": 782
+        },
+        {
+          "excerpt": "net_move = bars[end].close - entry_price;",
+          "line_digest": "sha256:38279db48e9d99ced070f865c93280bd8152cfe02fb681dc0bdd783ed9dc5a30",
+          "line_number": 788
+        },
+        {
+          "excerpt": "net_move = entry_price - bars[end].close;",
+          "line_digest": "sha256:331fc3d8589f8ef6d641679b02ade5d3f883d49834e3f9ff3a51788687ce3174",
+          "line_number": 790
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 857
+        },
+        {
+          "excerpt": "double favorable = DAL_M0005FavorableMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:eaafdad54deb702c0cdbf0233294e31ef135e52c5ebf918a20d8061fe716f4d9",
+          "line_number": 880
+        },
+        {
+          "excerpt": "double adverse = DAL_M0005AdverseMoveFromEntry(bars[i], direction, entry_price);",
+          "line_digest": "sha256:88151b783184bfa11a329c1d34bf0023e923b87d9f007dfba95e48107507f039",
+          "line_number": 881
+        },
+        {
+          "excerpt": "result_r = (bars[end].close - entry_price) / stop_distance;",
+          "line_digest": "sha256:de99be2b4328ff637947e750c05a9c488e0aed1f9fc04cbbda19dc28c19f2e7b",
+          "line_number": 914
+        },
+        {
+          "excerpt": "result_r = (entry_price - bars[end].close) / stop_distance;",
+          "line_digest": "sha256:834b015a1d5065359f44afef61838a1c0c9030f5fde68729660a21545cd3ce44",
+          "line_number": 916
+        },
+        {
+          "excerpt": "path.entry_price = bars[path.entry_index].close;",
+          "line_digest": "sha256:483cbca0e0fbb9b2e630361fe9419d7b1a47a2b86d5e27ddd5429f7135b71347",
+          "line_number": 963
+        },
+        {
+          "excerpt": "DAL_M0005ComputeExcursions(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.mfe, path.mae, path.net_move);",
+          "line_digest": "sha256:cd1696a1c7eeb82cdce393a6067b0d0e6cef3e976e2876f722a0ec92aff28338",
+          "line_number": 976
+        },
+        {
+          "excerpt": "path.stop_distance = MathAbs(path.entry_price - path.adaptive_stop_price);",
+          "line_digest": "sha256:a99eab984c6ff97c73c32b20ef5f4e7ee17cd3461e74a1d19e39c73cea6e1c34",
+          "line_number": 980
+        },
+        {
+          "excerpt": "double base_stop_distance = MathAbs(path.entry_price - path.base_stop_price);",
+          "line_digest": "sha256:f673d46d3a315a0932d2e5db841b67df8bf7e3fa3acfa0255ec1a6cc92ad3857",
+          "line_number": 981
+        },
+        {
+          "excerpt": "path.target_distance_zone = path.target_index >= path.entry_index ? DAL_M0005SafeDiv(MathAbs(bars[MathMin(path.target_index, bars_count - 1)].close - path.entry_price), path.zone_width) : 0.0;",
+          "line_digest": "sha256:58b0e581b1cee04c5c8f2659539ae339a1293e7016945db2b771c7969e6acc7d",
+          "line_number": 986
+        },
+        {
+          "excerpt": "DAL_M0005ComputeFixedRewardTradeR(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, 1.0, config.reversal_same_bar_stop_first, path.trade_tp1_r, path.trade_tp1_hit_target, path.trade_tp1_hit_stop, path.trade_tp1_forced_exit, path.trade_tp1_same_bar);",
+          "line_digest": "sha256:44e0c84d7e8cc2aae6926c8d1da54d5f1ad0c059578276bec5bb7e18289490f8",
+          "line_number": 990
+        },
+        {
+          "excerpt": "DAL_M0005ComputeFixedRewardTradeR(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, 2.0, config.reversal_same_bar_stop_first, path.trade_tp2_r, path.trade_tp2_hit_target, path.trade_tp2_hit_stop, path.trade_tp2_forced_exit, path.trade_tp2_same_bar);",
+          "line_digest": "sha256:d91f062dc47b64e3e233b3c291251b3d77d9fd97b87c064c6dfd70fcd9edf54f",
+          "line_number": 991
+        },
+        {
+          "excerpt": "DAL_M0005ComputeFirstHitOrder(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.zone_width, path.first_mfe10_index, path.first_mae10_index, path.mfe10_before_mae10, path.mae10_before_mfe10);",
+          "line_digest": "sha256:1c99a38a09e887609828456772dc1eed043321c4511fba3d54eccf747acae90f",
+          "line_number": 993
+        },
+        {
+          "excerpt": "DAL_M0005ComputeFirstHitOrderByDistance(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, path.first_mfe1r_index, path.first_mae1r_index, path.mfe1r_before_mae1r, path.mae1r_before_mfe1r);",
+          "line_digest": "sha256:4e6bf0cb601389eb2745d6a9b2f15d7a868dcf7f20e20bb7671fe676f7334061",
+          "line_number": 994
+        },
+        {
+          "excerpt": "DAL_M0005ComputeExcursions(bars, bars_count, path.entry_index, path.exit_index, -path.direction, path.entry_price, fm, fa, fn);",
+          "line_digest": "sha256:d26a8c37828026a24a43f2e0e6de4b50e75bd3f7f026286c2fdb2a5f80c00e37",
+          "line_number": 1006
+        },
+        {
+          "excerpt": "double entry_price = bars[path.entry_index].close;",
+          "line_digest": "sha256:83f8ba28744617989bf66b9adab2b3bc6db83c8ae39e88cfbe5780e637300f3e",
+          "line_number": 1102
+        },
+        {
+          "excerpt": "double favorable_move_zone = DAL_M0005SafeDiv(DAL_M0005FavorableMoveFromEntry(bars[b], path.direction, entry_price), zone_width);",
+          "line_digest": "sha256:6f8b117fc80754802350dcb01e69f2bb49ecc138953e379230bd0b520870748e",
+          "line_number": 1126
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f4a7b6c34c11bc76a54423fe698c8545198e61bca65731f566869de7b508fac4",
+      "atom_id": "TREATATOM_59F05919A772DD2D20AEBFCC8053FB6F",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "bool DAL_M0005IsAdverseBeyondStop(const double adverse_price, const double stop_price, const int direction)",
+          "line_digest": "sha256:cf3060828973e40c4f83b3c013d6c79381957d1bb5c28a5369ac7c138f2e46fb",
+          "line_number": 522
+        },
+        {
+          "excerpt": "return adverse_price < stop_price;",
+          "line_digest": "sha256:a9534059945e48620b2eb1a60fa7676b7b2c8e74284d134b776f360f2caaec2c",
+          "line_number": 525
+        },
+        {
+          "excerpt": "return adverse_price > stop_price;",
+          "line_digest": "sha256:f1a37ac987b2b757efff562d8829e9c5b6fd5f0b66cb42003facdba54b9976bb",
+          "line_number": 526
+        },
+        {
+          "excerpt": "bool DAL_M0005StopTouched(const DALBar &bar, const double stop_price, const int direction, const bool use_wick)",
+          "line_digest": "sha256:254749713392cdf03d8cb60f163cb300597576382298aafcc6f084056ecc6265",
+          "line_number": 529
+        },
+        {
+          "excerpt": "return use_wick ? (bar.low <= stop_price) : (bar.close <= stop_price);",
+          "line_digest": "sha256:2290a77e066523481bcca8bdfd7c69ce5ff785da497a1d22aface8bc686b1917",
+          "line_number": 532
+        },
+        {
+          "excerpt": "return use_wick ? (bar.high >= stop_price) : (bar.close >= stop_price);",
+          "line_digest": "sha256:239942aa94562c694c67864293451e686dbfc45cafe55b8ae6d6a356054f5d53",
+          "line_number": 533
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:543f3ad6d8af124c0a0c4c56fa48b12c268a0596a832bd7a2cc1d42fecaaf9c1",
+      "atom_id": "TREATATOM_5C05216E2854960B082A4F5E6A3C2806",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "datetime exit_time;",
+          "line_digest": "sha256:fcfaed998a62fa18b242bad0f1732f4ee19f974b84aed37ce265120c5aa3e19e",
+          "line_number": 75
+        },
+        {
+          "excerpt": "p.exit_time = 0;",
+          "line_digest": "sha256:ae9f2bb7f51a97e169de6f1a014fa9a8fb911e3f01225ea49d63140aa9836484",
+          "line_number": 312
+        },
+        {
+          "excerpt": "path.exit_time = bars[path.exit_index].time;",
+          "line_digest": "sha256:d946bb159ed5b38e822766eb924df243f961ff3d3fd9d35594d75980f379e75b",
+          "line_number": 962
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8421d45bdfb05ddee57d4093d27356dea2e4b998e02818c059d42e6b2e45ba1d",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_D2942CD1E326E835EEE9B5C113EBBF02"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:11475792b4030b4c3d1ab0e00b765471539a15be0a966dff3a4415c8d22ecb7e",
+    "sha256:543f3ad6d8af124c0a0c4c56fa48b12c268a0596a832bd7a2cc1d42fecaaf9c1",
+    "sha256:f4a7b6c34c11bc76a54423fe698c8545198e61bca65731f566869de7b508fac4",
+    "sha256:fcfca5aeb77ccefe448860ec532663e902190a43d991aea2293fd021e1910641"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/M0005/DAL_M0005Reports.mqh",
+  "source_sha256": "sha256:11475792b4030b4c3d1ab0e00b765471539a15be0a966dff3a4415c8d22ecb7e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A05278FEB87EF77CD52810985EEF5C84",
+  "treatment_package_id": "TREATPKG_4FA9E8B3BB8F2F291F8116C4F5BA4804",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

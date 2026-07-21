@@ -1,0 +1,43 @@
+{
+  "attacks": [
+    {
+      "attack": "ROUTER_ADDS_FILTERS",
+      "evidence": "Router API has no Context/Setup input and no filter callback",
+      "result": "PASS"
+    },
+    {
+      "attack": "STOP_TARGET_UNITS_MIXED",
+      "evidence": "Units explicit or blocked",
+      "result": "PASS"
+    },
+    {
+      "attack": "MISSING_LIMIT_BECOMES_MARKET",
+      "evidence": "ENTRY_KIND_REQUIRED",
+      "result": "PASS"
+    },
+    {
+      "attack": "ADAPTER_DEFAULTS_LIVE",
+      "evidence": "All adapter contracts false-default",
+      "result": "PASS"
+    },
+    {
+      "attack": "PORTFOLIO_RISK_SMUGGLED_INTO_TREATMENT",
+      "evidence": "Risk sizing separated and not inferred",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hostile_review_passed": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "report_digest": "sha256:f5d504b5488f4919a503bf7269c664e58a74bdf0b9b811e9da0fe583855753f5",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:fb9c2cd56b50da3bb8aa3713eeda2b9ff04a7b846bd9a6c00aaed23b4d5d7e17"
+  ],
+  "validation_status": "PASS"
+}

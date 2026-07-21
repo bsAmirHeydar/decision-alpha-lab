@@ -1,0 +1,46 @@
+{
+  "adapter_digest": "sha256:a7d436934914ae2ceb07dc0a6c50d0640bb06e66b297199073bb0bbabc50b44a",
+  "adapter_id": "EXECADAPTER_0A7236942E9F4B446479494D2A617D84",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_214A6BE3F07B1E62C19D0F0E31706F3C",
+    "EXECCAP_2163353F3C12D23491CB51116691D18D",
+    "EXECCAP_7DFF16876072FD0F3A4F8DD65212E1FD",
+    "EXECCAP_90CC4B67401802A0418DC340DA37E64D"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f9681901863e4577e36845d78ccf790209f10c93b13f30fb1b687e56b7f54ebc"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/astro_ml/build_cognitive_astro_memory.py",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_0A7236942E9F4B446479494D2A617D84"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

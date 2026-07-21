@@ -1,0 +1,160 @@
+{
+  "atom_ids": [
+    "TREATATOM_E1CD462B067190831FFB89B43DDC3CE7",
+    "TREATATOM_E58AD041D0C453D33209EAFF448D8670"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:052e72a98561006c78724dcc3c7966a23b15ca805acf4e9e3a46ccfe76b5ac77",
+      "atom_id": "TREATATOM_E1CD462B067190831FFB89B43DDC3CE7",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "planned_entry=quote.ask if winner.direction==TradeDirection.BUY else quote.bid",
+          "line_digest": "sha256:e13de8e5066e5e448bac79645a56f264661efc5ffb0fad40c125228e15428775",
+          "line_number": 12
+        },
+        {
+          "excerpt": "worst=planned_entry+risk.max_slippage_price if winner.direction==TradeDirection.BUY else planned_entry-risk.max_slippage_price",
+          "line_digest": "sha256:e66af0d09e79ece8400aba93fe2665a9a0a7056ebb9382a171ec09a2e1eb39e2",
+          "line_number": 17
+        },
+        {
+          "excerpt": "if winner.direction==TradeDirection.BUY and adjusted>=planned_entry: reasons.append(\"FP_PAPER_BUY_STOP_NOT_BELOW_ENTRY\")",
+          "line_digest": "sha256:a5ca93dc6c638da9aa3c43970f4496c9aa75d1320206c95acb62cddd852f0943",
+          "line_number": 18
+        },
+        {
+          "excerpt": "if winner.direction==TradeDirection.SELL and adjusted<=planned_entry: reasons.append(\"FP_PAPER_SELL_STOP_NOT_ABOVE_ENTRY\")",
+          "line_digest": "sha256:ea1669293cf524e9f416948958fe4a2dcd87fe7ec5791b953ede1862bf320407",
+          "line_number": 19
+        },
+        {
+          "excerpt": "base_distance=abs(planned_entry-adjusted)",
+          "line_digest": "sha256:0fe034c3609c4faf2dcfec18855035affd1a39688677bfdf1f9204bd865347ae",
+          "line_number": 25
+        },
+        {
+          "excerpt": "target=planned_entry + (base_distance*risk.target_r_multiple if winner.direction==TradeDirection.BUY else -base_distance*risk.target_r_multiple)",
+          "line_digest": "sha256:9cd16fe6f3ce5ba0bb7a82077d6a3a00f17b92c4fafe141e8f222de6c2b5acc4",
+          "line_number": 26
+        },
+        {
+          "excerpt": "if winner.direction==TradeDirection.BUY and target<=planned_entry: reasons.append(\"FP_PAPER_BUY_TARGET_INVALID\")",
+          "line_digest": "sha256:5e848dc237237b7e822573c2f456aacb2c41080733f41c1d2f82ed0545530f19",
+          "line_number": 28
+        },
+        {
+          "excerpt": "if winner.direction==TradeDirection.SELL and target>=planned_entry: reasons.append(\"FP_PAPER_SELL_TARGET_INVALID\")",
+          "line_digest": "sha256:7577f81c80563043c925015bf32c6f0b26cda0c12fc8398cdb4fe7511316d5a9",
+          "line_number": 29
+        },
+        {
+          "excerpt": "payload={\"direction\":winner.direction,\"symbol\":winner.protected_symbol,\"quote\":quote.quote_id,\"entry\":planned_entry,\"worst\":worst,\"raw\":raw,\"spread\":spread,\"adjusted\":adjusted,\"target\":target,\"distance\":distance,\"minimum\":minimum,\"risk\":risk.config_hash,\"reasons\":sorted(reasons)}",
+          "line_digest": "sha256:7f30442a8ffd88b1b06d37ac22ef53d64069f1318ebd9799dc34b2485e22f12a",
+          "line_number": 31
+        },
+        {
+          "excerpt": "return RiskGeometry(gid,status,winner.direction,winner.protected_symbol,quote.quote_id,planned_entry,worst,raw,spread,adjusted,target,distance,abs(target-planned_entry),minimum,tuple(sorted(reasons)),gh)",
+          "line_digest": "sha256:d50d4151d9c57b4868fc717dea2ca78c40ab1a8c78e7bf97ff8d8d4317c5ba8e",
+          "line_number": 33
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:48b3c2b4a9b4d2e558cff751ab0e2677e5241ff6481f21025e441d621c347cfc",
+      "atom_id": "TREATATOM_E58AD041D0C453D33209EAFF448D8670",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "spread=quote.spread",
+          "line_digest": "sha256:08efc91040a9e2f7410bb1a2ecedae73682560aabf478229b81db775d19152d2",
+          "line_number": 13
+        },
+        {
+          "excerpt": "adjusted=raw if winner.direction==TradeDirection.BUY else raw+spread",
+          "line_digest": "sha256:e0660ea18d8aa8e59776d09de3d5025feb5a73642f13dcf9a7dc160673a2b700",
+          "line_number": 15
+        },
+        {
+          "excerpt": "adjusted=_round_stop(adjusted,spec.tick_size,winner.direction)",
+          "line_digest": "sha256:7542c4e15f3a2fe0a194cfecf2cb9b54dd8227445697bda6e402511addce6d94",
+          "line_number": 16
+        },
+        {
+          "excerpt": "if winner.direction==TradeDirection.SELL and spread<=0: reasons.append(\"FP_PAPER_SPREAD_SNAPSHOT_UNAVAILABLE\")",
+          "line_digest": "sha256:7e6a1fb5ece568466a828ff0402ae7507dd05faab7bd9aa6e5b92480d94af741",
+          "line_number": 20
+        },
+        {
+          "excerpt": "minimum=max(spec.stops_level_price,spec.freeze_level_price,spec.tick_size)",
+          "line_digest": "sha256:bec97835413682ad68cc8a5af275b4be932836b3fa0b689a78d4df132c5986c4",
+          "line_number": 22
+        },
+        {
+          "excerpt": "target=_round_target(target,spec.tick_size,winner.direction)",
+          "line_digest": "sha256:5e3be3ef10bc6759d235a38f331cf134f89499daeb03a7142e3ada0b6d7aae9f",
+          "line_number": 27
+        },
+        {
+          "excerpt": "payload={\"direction\":winner.direction,\"symbol\":winner.protected_symbol,\"quote\":quote.quote_id,\"entry\":planned_entry,\"worst\":worst,\"raw\":raw,\"spread\":spread,\"adjusted\":adjusted,\"target\":target,\"distance\":distance,\"minimum\":minimum,\"risk\":risk.config_hash,\"reasons\":sorted(reasons)}",
+          "line_digest": "sha256:7f30442a8ffd88b1b06d37ac22ef53d64069f1318ebd9799dc34b2485e22f12a",
+          "line_number": 31
+        },
+        {
+          "excerpt": "return RiskGeometry(gid,status,winner.direction,winner.protected_symbol,quote.quote_id,planned_entry,worst,raw,spread,adjusted,target,distance,abs(target-planned_entry),minimum,tuple(sorted(reasons)),gh)",
+          "line_digest": "sha256:d50d4151d9c57b4868fc717dea2ca78c40ab1a8c78e7bf97ff8d8d4317c5ba8e",
+          "line_number": 33
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c58dd390e22f158845288a4b2e4492cd28d5ebfa16766de996a183efcaabe5dd",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_8C77182C08311D411A0AA0FFA4E9FB09",
+    "RISKASM_BDCD8885C22892007C813E7BCBACD9AE"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:03d772cc5d6b791b3cb806a8046f2078634ee57d2e0654f62386f7a9a2d707c2",
+    "sha256:052e72a98561006c78724dcc3c7966a23b15ca805acf4e9e3a46ccfe76b5ac77",
+    "sha256:48b3c2b4a9b4d2e558cff751ab0e2677e5241ff6481f21025e441d621c347cfc"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/geometry.py",
+  "source_sha256": "sha256:03d772cc5d6b791b3cb806a8046f2078634ee57d2e0654f62386f7a9a2d707c2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5CE74E5F79086A60B7B3AF1FAA74A033",
+  "treatment_package_id": "TREATPKG_31CD1E29D350022098826C669F834A7F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

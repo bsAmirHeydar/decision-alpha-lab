@@ -101,4 +101,9 @@ LCM-09B is complete under `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9`. Bec
 
 ## LCM-10A implementation closure
 
-LCM-10A is complete under `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02`. The source portfolio, Treatment atoms, execution capabilities, broker reachability, authority boundaries, risk assumptions, Setup dependencies, security restrictions and explicit UNKNOWNs are deterministically accounted. No source behavior or authority changed. The next implementation unit is LCM-10B.
+LCM-10A is complete under `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02`. The source portfolio, Treatment atoms, execution capabilities, broker reachability, authority boundaries, risk assumptions, Setup dependencies, security restrictions and explicit UNKNOWNs are deterministically accounted. No source behavior or authority changed. The next implementation unit is LCM-10C.
+
+
+## LCM-10B implementation closure
+
+LCM-10B is complete under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`. It creates canonical reference Treatment packages and a normalized execution-intent boundary, places every inventoried execution source behind a disabled adapter contract, records legacy containment rather than pretending source movement occurred, and preserves unresolved owner, unit, broker and runtime semantics as blocking evidence. LCM-10 remains open. The next implementation unit is LCM-10C.

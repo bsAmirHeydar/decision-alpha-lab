@@ -1,0 +1,47 @@
+{
+  "adapter_digest": "sha256:bdc2f4a3979a1ba25a6811f0bbf5648b81ca10bd58d31aea5bc5e7cbc246f422",
+  "adapter_id": "EXECADAPTER_CA3AC14A52DDAD96B6E08CBF720B4539",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CLOSE_POSITION",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_POSITION_CLOSE",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_CTRADE"
+  ],
+  "capability_ids": [
+    "EXECCAP_1A105772B114C100B80F3E074473FC4A",
+    "EXECCAP_286F23F451A09111AFAA802CD5F2DC85",
+    "EXECCAP_4452A4B0FB5F86DFFCA6A471773C9101"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:30693fbf1fe8d1efb5344d6bc6b5cc1faf29ea1dee4a84f46663d5d307eded95"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/AstroExecution/A0090_AstroOrderShell.mq5",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_CA3AC14A52DDAD96B6E08CBF720B4539"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

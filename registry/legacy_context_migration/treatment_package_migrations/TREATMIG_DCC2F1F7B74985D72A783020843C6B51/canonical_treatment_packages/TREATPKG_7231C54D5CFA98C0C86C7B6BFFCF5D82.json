@@ -1,0 +1,153 @@
+{
+  "atom_ids": [
+    "TREATATOM_333CAC06BB93CDEECDB66EB07B2BF1F7",
+    "TREATATOM_953037B8FA1556C35849EEB3CD6BE9FC",
+    "TREATATOM_C23C2A52D52006DD2EC2FF5CEC685BCA",
+    "TREATATOM_C7DD900A7453EE190D5553426EB8E92C"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:0f798d7c71be21ed410b3a973f774a300969621083c623ffadc6120c8726a927",
+      "atom_id": "TREATATOM_333CAC06BB93CDEECDB66EB07B2BF1F7",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "long magic;",
+          "line_digest": "sha256:cd9af9c0a9ee400bf138c2dffc06cf7f5020a13dca572ca49d207eaac158e33a",
+          "line_number": 231
+        },
+        {
+          "excerpt": "r.magic = 0;",
+          "line_digest": "sha256:740e0c15bece8c0737bce5b65babbd57edae5ae262c633653d72a4eabbc3d9a8",
+          "line_number": 432
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a6565336b821ac7d5a56d5243974971ec9c1cc8949b1a1c402d622fd70ef9af4",
+      "atom_id": "TREATATOM_953037B8FA1556C35849EEB3CD6BE9FC",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 198
+        },
+        {
+          "excerpt": "r.entry_price = 0.0;",
+          "line_digest": "sha256:b07f8b638dba4cba2aaee4a2a774e8bd6097416068c52aa9ecb3601c4b240d11",
+          "line_number": 401
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c184e31b2d63b6d9cf083a8e86307e35d2333eb6dd6fb845cdb83ae876c391a2",
+      "atom_id": "TREATATOM_C23C2A52D52006DD2EC2FF5CEC685BCA",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_price;",
+          "line_digest": "sha256:3d9441f24e91ecba7625507d1b4e4a3cfd4f0b9a7fde3a1cf8a9a44a4595f394",
+          "line_number": 199
+        },
+        {
+          "excerpt": "double sl;",
+          "line_digest": "sha256:6545e8a4907188ee89745bcdde96c278f705f882798eb7aa0980854a34af1650",
+          "line_number": 228
+        },
+        {
+          "excerpt": "r.stop_price = 0.0;",
+          "line_digest": "sha256:2f0bcb498bdd298948863d7ba69fcb8068917ad03c8661a2eb903a830f075505",
+          "line_number": 402
+        },
+        {
+          "excerpt": "r.sl = 0.0;",
+          "line_digest": "sha256:c7175df1bc94f49b20942875de64af303423add712f8261ecb151d0ebae8366f",
+          "line_number": 429
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c1b02b07aaa6cef6301d2ab2ab4defa5f457e158daa3454908d2cf73dc302f25",
+      "atom_id": "TREATATOM_C7DD900A7453EE190D5553426EB8E92C",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double target_price;",
+          "line_digest": "sha256:12caefd465b68de14a3e89510a2926ebc73d14ad5cf36e5c18bed1a8e54ec112",
+          "line_number": 200
+        },
+        {
+          "excerpt": "double tp;",
+          "line_digest": "sha256:788a3a03207945c4c8c510d118a2328d277cf877e40ada48bf9ee4ff24358b62",
+          "line_number": 229
+        },
+        {
+          "excerpt": "r.target_price = 0.0;",
+          "line_digest": "sha256:0bdecd5d7f69d0ef9f4fea30d9e762fa007c220c57cb25c99df8518e0f0f70e0",
+          "line_number": 403
+        },
+        {
+          "excerpt": "r.tp = 0.0;",
+          "line_digest": "sha256:e3f4a8f3a81e778496ea9c8a72a77a6d02e7ef783990542540187ac920293f8e",
+          "line_number": 430
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0b1782de0c11024728dfb0d728bb4b9328334c96cef599bf453540f41c0d4b58",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:360da95736c1c052775735e6ad9ced8e52a48c3c50bc5a677e29b1a5a830abb9",
+    "sha256:0f798d7c71be21ed410b3a973f774a300969621083c623ffadc6120c8726a927",
+    "sha256:a6565336b821ac7d5a56d5243974971ec9c1cc8949b1a1c402d622fd70ef9af4",
+    "sha256:c184e31b2d63b6d9cf083a8e86307e35d2333eb6dd6fb845cdb83ae876c391a2",
+    "sha256:c1b02b07aaa6cef6301d2ab2ab4defa5f457e158daa3454908d2cf73dc302f25"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSEntryTypes.mqh",
+  "source_sha256": "sha256:360da95736c1c052775735e6ad9ced8e52a48c3c50bc5a677e29b1a5a830abb9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_58D8F3F645922C6FAE963BEC175B548E",
+  "treatment_package_id": "TREATPKG_7231C54D5CFA98C0C86C7B6BFFCF5D82",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

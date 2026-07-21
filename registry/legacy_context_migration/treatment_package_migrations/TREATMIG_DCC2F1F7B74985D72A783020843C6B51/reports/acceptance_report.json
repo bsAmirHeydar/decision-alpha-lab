@@ -1,0 +1,69 @@
+{
+  "acceptance_gate_passed": true,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "counts": {
+    "blocked_setup_count": 57,
+    "bound_setup_count": 3,
+    "execution_adapter_count": 483,
+    "legacy_adapter_record_count": 483,
+    "legacy_broker_mutation_path_count": 184,
+    "packaged_atom_count": 1109,
+    "setup_binding_count": 60,
+    "treatment_atom_count": 1109,
+    "treatment_blocker_count": 382,
+    "treatment_package_count": 422
+  },
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_authority_created": false,
+  "non_compensatory_gates": [
+    {
+      "gate": "UPSTREAM_HANDOFF_DIGEST",
+      "result": "PASS"
+    },
+    {
+      "gate": "ALL_TREATMENT_ATOMS_PACKAGED",
+      "result": "PASS"
+    },
+    {
+      "gate": "ALL_EXECUTION_SOURCES_ADAPTER_OR_BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "gate": "EXECUTION_INTENT_VERSIONED",
+      "result": "PASS"
+    },
+    {
+      "gate": "SUBMISSION_DEFAULT_FALSE",
+      "result": "PASS"
+    },
+    {
+      "gate": "CANONICAL_FORBIDDEN_API_ABSENCE",
+      "result": "PASS"
+    },
+    {
+      "gate": "SETUP_BINDINGS_PACKAGE_OR_BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "gate": "SOURCE_BEHAVIOR_UNCHANGED",
+      "result": "PASS"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "promotion_authority_created": false,
+  "report_digest": "sha256:b62b20a87aec4ed65bbb1c4ca3cfe86f70ea34503a0bde3fec4722118e62b8fc",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_behavior_changed": false,
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b",
+    "sha256:fb9c2cd56b50da3bb8aa3713eeda2b9ff04a7b846bd9a6c00aaed23b4d5d7e17",
+    "sha256:f5d504b5488f4919a503bf7269c664e58a74bdf0b9b811e9da0fe583855753f5"
+  ],
+  "validation_status": "PASS"
+}

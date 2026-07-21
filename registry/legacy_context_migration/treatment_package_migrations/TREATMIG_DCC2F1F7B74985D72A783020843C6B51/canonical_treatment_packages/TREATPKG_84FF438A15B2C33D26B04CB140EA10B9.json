@@ -1,0 +1,113 @@
+{
+  "atom_ids": [
+    "TREATATOM_0A87D11E0C4305AF85C055452F3562AD",
+    "TREATATOM_38030AC09973C7B47168C4D72C8A9123",
+    "TREATATOM_85467C99AEA8D2BA418D1D8C474B5AAB",
+    "TREATATOM_896432318E8E5B7B3114AD5D0724BCF8"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:483ebb56493a863fa998022cd2af2967a33749d5243097b8db3321ab011faaaa",
+      "atom_id": "TREATATOM_0A87D11E0C4305AF85C055452F3562AD",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){bool ok=true;string error;CUCEI03Catalog catalog;ok=Assert(catalog.Build(error),\"catalog build \"+error)&&ok;ok=Assert(catalog.Count()==50,\"catalog count\")&&ok;ok=Assert(catalog.entry.Count()==8&&catalog.stop.Count()==8&&catalog.target.Count()==7&&catalog.trailing.Count()==10&&catalog.management.Count()==8&",
+          "line_digest": "sha256:2d20abcb6296c33e3b72c9538c7685b284d098736eb0d8af5faa85c24804826a",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:88c085c66f0241cac9e96f0021701b72ab18b08acabe78642ef6808dcb90f4ba",
+      "atom_id": "TREATATOM_38030AC09973C7B47168C4D72C8A9123",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){bool ok=true;string error;CUCEI03Catalog catalog;ok=Assert(catalog.Build(error),\"catalog build \"+error)&&ok;ok=Assert(catalog.Count()==50,\"catalog count\")&&ok;ok=Assert(catalog.entry.Count()==8&&catalog.stop.Count()==8&&catalog.target.Count()==7&&catalog.trailing.Count()==10&&catalog.management.Count()==8&",
+          "line_digest": "sha256:2d20abcb6296c33e3b72c9538c7685b284d098736eb0d8af5faa85c24804826a",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:533ed9f46909224def05635bcda9d68ea85582cb546c81c173cde23bb25a3832",
+      "atom_id": "TREATATOM_85467C99AEA8D2BA418D1D8C474B5AAB",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){bool ok=true;string error;CUCEI03Catalog catalog;ok=Assert(catalog.Build(error),\"catalog build \"+error)&&ok;ok=Assert(catalog.Count()==50,\"catalog count\")&&ok;ok=Assert(catalog.entry.Count()==8&&catalog.stop.Count()==8&&catalog.target.Count()==7&&catalog.trailing.Count()==10&&catalog.management.Count()==8&",
+          "line_digest": "sha256:2d20abcb6296c33e3b72c9538c7685b284d098736eb0d8af5faa85c24804826a",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7fa7b228e2d45606b0e60848bd9d9450f7eeaf07ca39ef1b2e15ae017a5cf4ce",
+      "atom_id": "TREATATOM_896432318E8E5B7B3114AD5D0724BCF8",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){bool ok=true;string error;CUCEI03Catalog catalog;ok=Assert(catalog.Build(error),\"catalog build \"+error)&&ok;ok=Assert(catalog.Count()==50,\"catalog count\")&&ok;ok=Assert(catalog.entry.Count()==8&&catalog.stop.Count()==8&&catalog.target.Count()==7&&catalog.trailing.Count()==10&&catalog.management.Count()==8&",
+          "line_digest": "sha256:2d20abcb6296c33e3b72c9538c7685b284d098736eb0d8af5faa85c24804826a",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8e5db690971aa796eb6bf9ba12165697e13c078a449a0a1fdab99edc862f5749",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4951b8594f6240918569ef35d2d8872ae6e33f5718669802253b2ed5070525c9",
+    "sha256:483ebb56493a863fa998022cd2af2967a33749d5243097b8db3321ab011faaaa",
+    "sha256:533ed9f46909224def05635bcda9d68ea85582cb546c81c173cde23bb25a3832",
+    "sha256:7fa7b228e2d45606b0e60848bd9d9450f7eeaf07ca39ef1b2e15ae017a5cf4ce",
+    "sha256:88c085c66f0241cac9e96f0021701b72ab18b08acabe78642ef6808dcb90f4ba"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactoryTests/UCE_I03_TreatmentAtomsSelfTest.mq5",
+  "source_sha256": "sha256:4951b8594f6240918569ef35d2d8872ae6e33f5718669802253b2ed5070525c9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_DF20AB676850BCA7BDF67F0A1806380C",
+  "treatment_package_id": "TREATPKG_84FF438A15B2C33D26B04CB140EA10B9",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

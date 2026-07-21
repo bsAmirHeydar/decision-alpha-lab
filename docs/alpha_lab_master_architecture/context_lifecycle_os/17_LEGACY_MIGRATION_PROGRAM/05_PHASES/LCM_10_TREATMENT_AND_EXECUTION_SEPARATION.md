@@ -69,4 +69,4 @@ A subphase failure does not authorize skipping to the next partition. The last a
 
 ## Current master-phase state
 
-LCM-10A is accepted. LCM-10 remains open because package extraction, disabled execution boundary construction and dry-run parity are reserved for LCM-10B and LCM-10C. The next authorized implementation unit is LCM-10B.
+LCM-10A and LCM-10B are accepted. LCM-10 remains open because dry-run parity, safety-control validation and authority-negative closure are reserved for LCM-10C. LCM-10B migration `TREATMIG_DCC2F1F7B74985D72A783020843C6B51` packages all observed Treatment atoms and installs disabled-by-default execution boundaries without cutover or submission authority. The next authorized implementation unit is LCM-10C.

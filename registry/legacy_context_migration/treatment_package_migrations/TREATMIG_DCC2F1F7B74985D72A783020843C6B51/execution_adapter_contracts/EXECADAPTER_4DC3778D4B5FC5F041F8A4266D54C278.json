@@ -1,0 +1,42 @@
+{
+  "adapter_digest": "sha256:1ebf4b4bd097bacd7cc2d7783d53b385fc1820a128051ec939d3062fb2be477d",
+  "adapter_id": "EXECADAPTER_4DC3778D4B5FC5F041F8A4266D54C278",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_4C1949ED85B5EA76DC22008E38258DF1",
+    "EXECCAP_F9E0EC6B9A3ECC66C074C743AF11AA2A"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e50c55289901dcffc0146fe5dc40978eae9c3e1cf7812c2fb7822693563fa975"
+  ],
+  "source_move_performed": false,
+  "source_path": "product_lab/indicators/gartal_terminal/mql5/experts/GartalNewsDownloaderEA.mq5",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

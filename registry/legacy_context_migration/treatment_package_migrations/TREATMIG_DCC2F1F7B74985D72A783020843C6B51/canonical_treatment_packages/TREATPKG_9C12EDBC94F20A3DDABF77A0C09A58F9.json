@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_9CD16B1084607E1CD086F052AA8C40DC",
+    "TREATATOM_B3ECF35B09F1E640F29FB14F6BD805DC"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4769b86a29c2d1edb98d81997a7716b674bfa69028dc49f4d0d65e605b1e76fb",
+      "atom_id": "TREATATOM_9CD16B1084607E1CD086F052AA8C40DC",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "class ReservationState(str,Enum): RESERVED='reserved'; ADJUSTED='adjusted'; PARTIALLY_CONSUMED='partially_consumed'; CONSUMED='consumed'; RELEASED='released'; CANCELLED='cancelled'; RECONCILED='reconciled'",
+          "line_digest": "sha256:86660c67993fc09731f63f4dacf1ea86cb3e36d33585d9ee457b93e9fc9ec5c6",
+          "line_number": 13
+        },
+        {
+          "excerpt": "class LedgerAction(str,Enum): RESERVE='reserve'; ADJUST='adjust'; CONSUME='consume'; RELEASE='release'; CANCEL='cancel'; RECONCILE='reconcile'",
+          "line_digest": "sha256:e1ea09464cdda77d325d74274b523f3e6b49b9cbc89226090339d672f0a3ac9a",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bc9d358a4dd012020bb2f7c76d90e874d9e48cc95376f495b81dd2472300cdc7",
+      "atom_id": "TREATATOM_B3ECF35B09F1E640F29FB14F6BD805DC",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "class PriceRoundingRole(str,Enum): ENTRY='entry'; PROTECTIVE_STOP='protective_stop'; PROFIT_TARGET='profit_target'; TRAILING_STOP='trailing_stop'",
+          "line_digest": "sha256:d8683c9ada0b4e84a79422ddbfe87cb90cfff3cb6e9c853947e09e17dc7359a4",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:fc5ed2822411841600fcb20fd897b81bd3b12fb8a67255bd3f8347298fca6ee0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:952c0658b5f85a3ce8e09e5f0aaf5d528146daacaf66906aa109412f13aa6716",
+    "sha256:4769b86a29c2d1edb98d81997a7716b674bfa69028dc49f4d0d65e605b1e76fb",
+    "sha256:bc9d358a4dd012020bb2f7c76d90e874d9e48cc95376f495b81dd2472300cdc7"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/enums.py",
+  "source_sha256": "sha256:952c0658b5f85a3ce8e09e5f0aaf5d528146daacaf66906aa109412f13aa6716",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_1D5F8D59399CDEB0B0EB63B4FC585176",
+  "treatment_package_id": "TREATPKG_9C12EDBC94F20A3DDABF77A0C09A58F9",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

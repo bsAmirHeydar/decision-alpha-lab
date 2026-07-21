@@ -1,0 +1,202 @@
+{
+  "atom_ids": [
+    "TREATATOM_49B34F60B1886B45368514F94D787563",
+    "TREATATOM_9B3EE82E68A08D9CDAFF3DD3E9F0CFD6",
+    "TREATATOM_BE267E1DCB682E8DD7D108667BF04EA3",
+    "TREATATOM_CB226042D16515B78A5C070E9C6C7FDC"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_161552C2FF25AA0ED3F7497AEB7A3F42"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:abcbd357f7a074cef79c9dec57b9bd2ec41252b4dd59882e1e52392bdd359fff",
+      "atom_id": "TREATATOM_49B34F60B1886B45368514F94D787563",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "const double spread,",
+          "line_digest": "sha256:670e4cda6ba37356f2ae7b4ba985e67a8aa9e481a9a3fc044754b0f1ab63dda7",
+          "line_number": 45
+        },
+        {
+          "excerpt": "plan.spread = spread;",
+          "line_digest": "sha256:deffd0e8059890860f15ba2aedb226b453e7bdcf7f1d95961ac35c07348aa47f",
+          "line_number": 93
+        },
+        {
+          "excerpt": "plan.entry = upper + spread * MathMax(0.0, pricing.buy_entry_spread_mult);",
+          "line_digest": "sha256:99574c63698a1c2211c9e4d828f935535c017394093f55825181c5ec2857e045",
+          "line_number": 99
+        },
+        {
+          "excerpt": "plan.sl = raw_stop + spread * MathMax(0.0, pricing.sell_stop_spread_mult);",
+          "line_digest": "sha256:606039710447f561987511a2edeecc653b803cb066bf8020dda545da4e78f920",
+          "line_number": 119
+        },
+        {
+          "excerpt": "plan.tp = (reward_r > 0.0 ? plan.entry - plan.risk_distance * reward_r + spread * MathMax(0.0, pricing.sell_tp_spread_mult) : 0.0);",
+          "line_digest": "sha256:24fbbb931bbf55462ba383a4e7222caaec6d8a3cbef4aee6ee2914afbd49c11f",
+          "line_number": 121
+        },
+        {
+          "excerpt": "int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);",
+          "line_digest": "sha256:00a5dc0fd58557651fa23c4b03fd824ee2ed4bde34c4f806739aa36572a46f4e",
+          "line_number": 130
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0c09e56acdca7e3f979384942609204d643cd2482c30f2196cfa0bd75ad4ba11",
+      "atom_id": "TREATATOM_9B3EE82E68A08D9CDAFF3DD3E9F0CFD6",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "plan.entry = upper + spread * MathMax(0.0, pricing.buy_entry_spread_mult);",
+          "line_digest": "sha256:99574c63698a1c2211c9e4d828f935535c017394093f55825181c5ec2857e045",
+          "line_number": 99
+        },
+        {
+          "excerpt": "plan.risk_distance = MathAbs(plan.entry - plan.sl);",
+          "line_digest": "sha256:eec92d4c8a32592e7fba351ddbcba0ff7de5b99a4f866e0b18fe357229525d61",
+          "line_number": 106
+        },
+        {
+          "excerpt": "plan.tp = (reward_r > 0.0 ? plan.entry + plan.risk_distance * reward_r : 0.0);",
+          "line_digest": "sha256:99824fca75f174df7de6bce22a7f3e2a9b23de084ef5be3ab17c6d0270386e91",
+          "line_number": 107
+        },
+        {
+          "excerpt": "plan.entry = lower;",
+          "line_digest": "sha256:11da323960215227935e6dbe71e0a1c8e1f50f119e0c7d6ddf729cb6c61c22a9",
+          "line_number": 112
+        },
+        {
+          "excerpt": "plan.risk_distance = MathAbs(plan.entry - plan.sl);",
+          "line_digest": "sha256:eec92d4c8a32592e7fba351ddbcba0ff7de5b99a4f866e0b18fe357229525d61",
+          "line_number": 120
+        },
+        {
+          "excerpt": "plan.tp = (reward_r > 0.0 ? plan.entry - plan.risk_distance * reward_r + spread * MathMax(0.0, pricing.sell_tp_spread_mult) : 0.0);",
+          "line_digest": "sha256:24fbbb931bbf55462ba383a4e7222caaec6d8a3cbef4aee6ee2914afbd49c11f",
+          "line_number": 121
+        },
+        {
+          "excerpt": "plan.entry = NormalizeDouble(plan.entry, digits);",
+          "line_digest": "sha256:b08dd549aac6ca3d784b7b07e9163b4c78e829d08734849ce5fbdf2af5672acd",
+          "line_number": 131
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:99b43af8c98bad0277fd52bb4368235d12bf26e9e457ff4a624e0d953e1c297e",
+      "atom_id": "TREATATOM_BE267E1DCB682E8DD7D108667BF04EA3",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "plan.sl = (pricing.stop_anchor == DAL_E0006_STOP_NODE_PRICE ? node.price : lower);",
+          "line_digest": "sha256:096a6d2663874433f14c660cd99ff284a0fb22a4e9e91f8d0b116c753f1c9775",
+          "line_number": 105
+        },
+        {
+          "excerpt": "plan.risk_distance = MathAbs(plan.entry - plan.sl);",
+          "line_digest": "sha256:eec92d4c8a32592e7fba351ddbcba0ff7de5b99a4f866e0b18fe357229525d61",
+          "line_number": 106
+        },
+        {
+          "excerpt": "plan.sl = raw_stop + spread * MathMax(0.0, pricing.sell_stop_spread_mult);",
+          "line_digest": "sha256:606039710447f561987511a2edeecc653b803cb066bf8020dda545da4e78f920",
+          "line_number": 119
+        },
+        {
+          "excerpt": "plan.risk_distance = MathAbs(plan.entry - plan.sl);",
+          "line_digest": "sha256:eec92d4c8a32592e7fba351ddbcba0ff7de5b99a4f866e0b18fe357229525d61",
+          "line_number": 120
+        },
+        {
+          "excerpt": "plan.sl = NormalizeDouble(plan.sl, digits);",
+          "line_digest": "sha256:3211687442dddec9b83fca277034d7aa737222e4456abe1c41b7226aff0aaf84",
+          "line_number": 132
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:fdc8b42ac9da0c710a47e7c052d087cd66d71b882cf08a9e80c6c355f1e10e73",
+      "atom_id": "TREATATOM_CB226042D16515B78A5C070E9C6C7FDC",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "plan.tp = (reward_r > 0.0 ? plan.entry + plan.risk_distance * reward_r : 0.0);",
+          "line_digest": "sha256:99824fca75f174df7de6bce22a7f3e2a9b23de084ef5be3ab17c6d0270386e91",
+          "line_number": 107
+        },
+        {
+          "excerpt": "plan.tp = (reward_r > 0.0 ? plan.entry - plan.risk_distance * reward_r + spread * MathMax(0.0, pricing.sell_tp_spread_mult) : 0.0);",
+          "line_digest": "sha256:24fbbb931bbf55462ba383a4e7222caaec6d8a3cbef4aee6ee2914afbd49c11f",
+          "line_number": 121
+        },
+        {
+          "excerpt": "plan.tp = NormalizeDouble(plan.tp, digits);",
+          "line_digest": "sha256:7be3eff4e70ef2e23c041f57ea35d80a6d7367fc4b9b3fc9cbd1c83918516a3f",
+          "line_number": 133
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6e8987d31138d25a5a8af781bdcc97c347b55f6596709e958ee6b019eb9ae089",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_8E06A591CB82B7EBFF48C8B63C64FAEA"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b3cf630b8f2400687250f1d76b2182e45dd1242c5121f331370141362eeab84d",
+    "sha256:0c09e56acdca7e3f979384942609204d643cd2482c30f2196cfa0bd75ad4ba11",
+    "sha256:99b43af8c98bad0277fd52bb4368235d12bf26e9e457ff4a624e0d953e1c297e",
+    "sha256:abcbd357f7a074cef79c9dec57b9bd2ec41252b4dd59882e1e52392bdd359fff",
+    "sha256:fdc8b42ac9da0c710a47e7c052d087cd66d71b882cf08a9e80c6c355f1e10e73"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/E0006/DAL_E0006ZonePricing.mqh",
+  "source_sha256": "sha256:b3cf630b8f2400687250f1d76b2182e45dd1242c5121f331370141362eeab84d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C89BA8E09B6C5530797B07FCA9314AAD",
+  "treatment_package_id": "TREATPKG_2610345BEE23A6D73CECAC2BD451FCAA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

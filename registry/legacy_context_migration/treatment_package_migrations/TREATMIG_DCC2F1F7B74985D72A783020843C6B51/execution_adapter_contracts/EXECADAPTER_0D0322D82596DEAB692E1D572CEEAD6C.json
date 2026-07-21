@@ -1,0 +1,47 @@
+{
+  "adapter_digest": "sha256:216a407412fa4e546386c36d3dbf2aa57ed5faaa5c893df84fe9cd9f1decaef9",
+  "adapter_id": "EXECADAPTER_0D0322D82596DEAB692E1D572CEEAD6C",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_SUBMIT_CTRADE",
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_0674ABF5E42694441343F476DDCEB55F",
+    "EXECCAP_A6B7C8F247C4C1E31BF6DC8B5600E605",
+    "EXECCAP_B1BE2A252EBF986B8CCD15DACB1A34DB",
+    "EXECCAP_E114A860063FF271F1A38B9F91A1F6FC"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a44412386b850e3e4b2d6ddd7654c221b8adcc306b73145facaf92dfa3cca2dd"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/saed_v4_26/validate_saed_v4_26_mql5_static.py",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

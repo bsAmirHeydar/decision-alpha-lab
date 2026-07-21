@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_8FCC54E322A2DDDB18E0DA93ABBE47B8"
+  ],
+  "atom_types": [
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_2B0528092496CBA300823A2015BB002F",
+    "EXECCAP_36B6C1F02D3D723A6D976A688E38C85B"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:dc2860b089846e1c2773d76d75dc5bd394eba9230c107d0b4cec8fdc1ce9fd0f",
+      "atom_id": "TREATATOM_8FCC54E322A2DDDB18E0DA93ABBE47B8",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "if(o.exit_time > 0)",
+          "line_digest": "sha256:b384b2f9783f607542a613e0e677a76cb4b4a546cf56e9147ce9343d80b117d6",
+          "line_number": 525
+        },
+        {
+          "excerpt": "s.last_exit_time = o.exit_time;",
+          "line_digest": "sha256:52808b615694f21cb10a5ca93df24446bed969c9564e977d857d77fcf9f171ad",
+          "line_number": 526
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4b3f89dd0318a1d2d5c47c6d18e4330438886e667ee35daf1f72fb1b18b8ed44",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_FB7FA311B04BE9B18284A4FB5955C8CA"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:068a33b960291351c23f9e99ed4b042b8bb2528723d786c919110af5e5d1a00c",
+    "sha256:dc2860b089846e1c2773d76d75dc5bd394eba9230c107d0b4cec8fdc1ce9fd0f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Research/DAL_DistributionClusterMiner.mqh",
+  "source_sha256": "sha256:068a33b960291351c23f9e99ed4b042b8bb2528723d786c919110af5e5d1a00c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_BE4599450DA7E550D0D86671856BECE3",
+  "treatment_package_id": "TREATPKG_12FB406DACF3E5AF90E505267D8A7228",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

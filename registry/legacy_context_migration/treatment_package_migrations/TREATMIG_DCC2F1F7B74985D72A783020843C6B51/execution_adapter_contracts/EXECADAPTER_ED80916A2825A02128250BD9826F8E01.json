@@ -1,0 +1,44 @@
+{
+  "adapter_digest": "sha256:43fb44f9d8b2de219a097f744f52887a96d4b92be8b1208134c3a1f11bd4b239",
+  "adapter_id": "EXECADAPTER_ED80916A2825A02128250BD9826F8E01",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_8E35539AF708AF2483740E786D3CD216",
+    "EXECCAP_BCB027CEDEC03BEED87582B59B466416"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e92bbc867bb47efbf80252475498c57e932d7acdf8c8283864b96f57a73f9345"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Scripts/AstroML/ExportRatesForAstroML.mq5",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_ED80916A2825A02128250BD9826F8E01"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

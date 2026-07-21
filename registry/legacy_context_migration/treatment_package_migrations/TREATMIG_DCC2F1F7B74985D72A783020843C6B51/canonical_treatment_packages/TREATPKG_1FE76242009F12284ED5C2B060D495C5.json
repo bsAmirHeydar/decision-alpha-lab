@@ -1,0 +1,100 @@
+{
+  "atom_ids": [
+    "TREATATOM_771986E8B16A50695901519318750420",
+    "TREATATOM_7F9CBE9E65ED0307357E29E82BD0DEAA",
+    "TREATATOM_8BF62144B8CF677DC023430D5D45183E"
+  ],
+  "atom_types": [
+    "EXPIRY",
+    "PARTIAL_EXIT",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:26d4bfb7204ae51dd23e27ab1641d4fc5fbf01811ef096103866c4beb90d2ce2",
+      "atom_id": "TREATATOM_771986E8B16A50695901519318750420",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "class PathEventKind(IntEnum): REGISTERED=1; ACTIVATED=2; FILLED=3; FAVORABLE_EXTREME=4; ADVERSE_EXTREME=5; TARGET_TOUCH=6; STOP_TOUCH=7; PARTIAL_EXIT=8; TIME_EXIT=9; EXPIRED=10; AMBIGUOUS=11; CLOSED=12",
+          "line_digest": "sha256:e2efdc3564a2edbcc1107345fc2f9ae63b87bade3f2c68e096d30f706d7bd05c",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8af8d122a7ab98176ed89494041208810a181d56a2a92908bcc91bb1c5a2ee54",
+      "atom_id": "TREATATOM_7F9CBE9E65ED0307357E29E82BD0DEAA",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "class RuntimeState(IntEnum): EMPTY=0; REGISTERED=1; WAITING_ACTIVATION=2; PENDING_FILL=3; FILLED=4; PARTIAL=5; CLOSED=6; EXPIRED=7; INVALIDATED=8; AMBIGUOUS=9; REJECTED=10",
+          "line_digest": "sha256:dce3104d8152e1019b9d347d62c353d5f0c154da9f24dbba53b9139544344e53",
+          "line_number": 4
+        },
+        {
+          "excerpt": "class PathEventKind(IntEnum): REGISTERED=1; ACTIVATED=2; FILLED=3; FAVORABLE_EXTREME=4; ADVERSE_EXTREME=5; TARGET_TOUCH=6; STOP_TOUCH=7; PARTIAL_EXIT=8; TIME_EXIT=9; EXPIRED=10; AMBIGUOUS=11; CLOSED=12",
+          "line_digest": "sha256:e2efdc3564a2edbcc1107345fc2f9ae63b87bade3f2c68e096d30f706d7bd05c",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:78c41f534f7af12b9805776f09a2d44c8217596f865e1ccaec1a098882cf73b5",
+      "atom_id": "TREATATOM_8BF62144B8CF677DC023430D5D45183E",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "class PathEventKind(IntEnum): REGISTERED=1; ACTIVATED=2; FILLED=3; FAVORABLE_EXTREME=4; ADVERSE_EXTREME=5; TARGET_TOUCH=6; STOP_TOUCH=7; PARTIAL_EXIT=8; TIME_EXIT=9; EXPIRED=10; AMBIGUOUS=11; CLOSED=12",
+          "line_digest": "sha256:e2efdc3564a2edbcc1107345fc2f9ae63b87bade3f2c68e096d30f706d7bd05c",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e3556069861aa37e6784b918efc20108bbe72a2fc13fb7ab6d90f3e3ae46da33",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:54fa39041cc8eb81349b7f054032c7b45e1dd76151eae4555ce04375d13c6bd1",
+    "sha256:26d4bfb7204ae51dd23e27ab1641d4fc5fbf01811ef096103866c4beb90d2ce2",
+    "sha256:78c41f534f7af12b9805776f09a2d44c8217596f865e1ccaec1a098882cf73b5",
+    "sha256:8af8d122a7ab98176ed89494041208810a181d56a2a92908bcc91bb1c5a2ee54"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_outcome/enums.py",
+  "source_sha256": "sha256:54fa39041cc8eb81349b7f054032c7b45e1dd76151eae4555ce04375d13c6bd1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0E7BBF96A966DD62EB29EB7701DE3AB7",
+  "treatment_package_id": "TREATPKG_1FE76242009F12284ED5C2B060D495C5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,55 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "entries": {
+    "CANCEL_ORDER": {
+      "broker_mutation": true,
+      "dry_reference": false
+    },
+    "CLOSE_POSITION": {
+      "broker_mutation": true,
+      "dry_reference": false
+    },
+    "CREATE_REQUEST_INTENT": {
+      "broker_mutation": false,
+      "dry_reference": true
+    },
+    "EMIT_DRY_RUN_RECORD": {
+      "broker_mutation": false,
+      "dry_reference": true
+    },
+    "MODIFY_ORDER": {
+      "broker_mutation": true,
+      "dry_reference": false
+    },
+    "MODIFY_POSITION": {
+      "broker_mutation": true,
+      "dry_reference": false
+    },
+    "RECONCILE_BROKER_STATE": {
+      "broker_mutation": false,
+      "dry_reference": false
+    },
+    "SUBMIT_ORDER": {
+      "broker_mutation": true,
+      "dry_reference": false
+    },
+    "TRANSLATE_LEGACY_REQUEST": {
+      "broker_mutation": false,
+      "dry_reference": true
+    }
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "record_count": 9,
+  "registry_digest": "sha256:8a7718731b1a5fb45b0ac751a0b2220e27a74a8eb1d827ab2d5557063083ec2f",
+  "registry_name": "adapter_capability_registry",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

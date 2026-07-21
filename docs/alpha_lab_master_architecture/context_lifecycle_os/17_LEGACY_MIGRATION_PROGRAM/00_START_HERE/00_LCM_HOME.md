@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_10B_TREATMENT_PACKAGE_EXTRACTION_AND_EXECUTION_BOUNDARY_CONSTRUCTION|LCM-10B — Treatment Package Extraction and Execution Boundary Construction]].
+The next approved implementation unit is [[LCM_10C_DRY_RUN_PARITY_SAFETY_CONTROLS_AND_AUTHORITY_NEGATIVE_CLOSURE|LCM-10C — Dry-Run Parity, Safety Controls and Authority-Negative Closure]].
 
 ## Claim ceiling
 
@@ -52,6 +52,7 @@ The program may create migration evidence, canonical packages, compatibility ada
 
 - LCM-00 through LCM-09: implemented accepted-reference foundations and bounded migrations.
 - LCM-09 closes with 60 canonical fail-closed Setup reference packages, 60 explicit blockers and zero hidden authority.
-- LCM-10A: accepted reference inventory; LCM-10 remains open.
-- LCM-10B through LCM-16: not implemented; governed by the refined roadmap.
-- Next: LCM-10B.
+- LCM-10A: accepted reference inventory.
+- LCM-10B: accepted reference package extraction and disabled execution boundary under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`.
+- LCM-10C through LCM-16: not implemented; governed by the refined roadmap.
+- Next: LCM-10C.

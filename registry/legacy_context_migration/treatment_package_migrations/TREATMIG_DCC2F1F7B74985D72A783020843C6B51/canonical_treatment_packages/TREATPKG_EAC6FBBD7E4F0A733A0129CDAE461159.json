@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_3013454F033D2A9F23E3451897D87810"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_1357E84D342EDF830EF5D8A53094C0CD",
+    "EXECCAP_C32DA2980AAA734CEEDC6CFFF424DE78",
+    "EXECCAP_F8E7EFB03246000B244100212447508A"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:a1d013ee0755eed71a5866f623cc293910e14c586c149d94956f5f5325a3f896",
+      "atom_id": "TREATATOM_3013454F033D2A9F23E3451897D87810",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "ap.add_argument(\"--expires\", type=int, required=True, help=\"YYYYMMDD expiry date\")",
+          "line_digest": "sha256:f53afcb88657abc104813d038b9988102f8e970b126416e83f096c81c3c596a8",
+          "line_number": 284
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:92ff51f8b2191a0bcb1c97eee4ced0f3f32caf0254ee075fa24081985fc70145",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:1dee2a4876e7da719fda74198f4ec5b68547bdda83d926a093690aadf7ed92ea",
+    "sha256:a1d013ee0755eed71a5866f623cc293910e14c586c149d94956f5f5325a3f896"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/stc_smt_deployment/offline_license_keygen.py",
+  "source_sha256": "sha256:1dee2a4876e7da719fda74198f4ec5b68547bdda83d926a093690aadf7ed92ea",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_9BEAFD163E7E928C0CBD86FBA93A11A5",
+  "treatment_package_id": "TREATPKG_EAC6FBBD7E4F0A733A0129CDAE461159",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

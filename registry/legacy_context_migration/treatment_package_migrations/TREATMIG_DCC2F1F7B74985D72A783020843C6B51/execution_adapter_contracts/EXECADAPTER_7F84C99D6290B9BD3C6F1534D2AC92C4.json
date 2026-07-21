@@ -1,0 +1,60 @@
+{
+  "adapter_digest": "sha256:6f97585b87aebac2fbaf56be5e789b272e0acdf601159fe29f7895c23fd65d23",
+  "adapter_id": "EXECADAPTER_7F84C99D6290B9BD3C6F1534D2AC92C4",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CREATE_REQUEST_INTENT",
+    "MUTATE_FILE_LEDGER",
+    "READ_ACCOUNT_STATE",
+    "READ_FILE_LEDGER",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_ACCOUNT_STATE",
+    "BROKER_REQUEST_BUILD",
+    "BROKER_STATE_HISTORY",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_05181940B6D225E095CAEEABC672C920",
+    "EXECCAP_3891959E7F5418CB493169B4BF8A85CC",
+    "EXECCAP_439B3210653EA7AE23329EC576A04F43",
+    "EXECCAP_8E83FC4A3D46A3638885EEAFB18ACA19",
+    "EXECCAP_8FB0232E4AB03A71F11AC34E89A09677",
+    "EXECCAP_9840292223893968B2E22BA4A2AA1D91",
+    "EXECCAP_A8E4FD7F1B640F97545D5B0358B1403C",
+    "EXECCAP_ECB54BF0891BE77E40027822A3BED829"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:13bb71dac43d8679aaf5b34ff0658ae2c3a10be601af7ea37231857126242983"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_7F84C99D6290B9BD3C6F1534D2AC92C4"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

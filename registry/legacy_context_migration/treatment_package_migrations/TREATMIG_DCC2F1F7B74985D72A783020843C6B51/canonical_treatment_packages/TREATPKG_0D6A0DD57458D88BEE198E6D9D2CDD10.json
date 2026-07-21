@@ -1,0 +1,118 @@
+{
+  "atom_ids": [
+    "TREATATOM_78F8D5A2D1072394E7C8D34406494705",
+    "TREATATOM_8159DD07BFB3BCF0A7C61053F32F5CCD",
+    "TREATATOM_D79EE9BABC81972CE2BE137D0F67A804",
+    "TREATATOM_ED4EA6A9CE0B8312F1354DB99C42837D"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d8bf73f2b38476e94d90601698dd057f2dbc7baf3dc24d120c5dd0d740d9413f",
+      "atom_id": "TREATATOM_78F8D5A2D1072394E7C8D34406494705",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI06_TreatmentSibling{string treatment_id;string treatment_family_id;int side;int entry_style;double entry_price;bool has_entry_price;double stop_price;double target_price;bool has_target;double trail_distance;bool has_trail;long entry_expiry_ms;long exit_horizon_ms;double volume;double cash_per_price_unit;dou",
+          "line_digest": "sha256:80ab4bc1aa21ea276b9183363338f26c0891c92d63310315366be332b85a6efa",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:cad1f97ffd18f77ee428787dd81d54fa87993c5876cbc1592820e70154cd3d83",
+      "atom_id": "TREATATOM_8159DD07BFB3BCF0A7C61053F32F5CCD",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI06_TreatmentSibling{string treatment_id;string treatment_family_id;int side;int entry_style;double entry_price;bool has_entry_price;double stop_price;double target_price;bool has_target;double trail_distance;bool has_trail;long entry_expiry_ms;long exit_horizon_ms;double volume;double cash_per_price_unit;dou",
+          "line_digest": "sha256:80ab4bc1aa21ea276b9183363338f26c0891c92d63310315366be332b85a6efa",
+          "line_number": 7
+        },
+        {
+          "excerpt": "struct UCEI06_OutcomeCell{string cell_id;string opportunity_id;string treatment_id;string scenario_key;long horizon_ms;UCEI06_OUTCOME_STATE state;UCEI06_TERMINAL_REASON terminal_reason;UCEI06_MaturityEvidence maturity;long entry_time_ms;long exit_time_ms;double entry_price;double exit_price;double filled_fraction;doubl",
+          "line_digest": "sha256:c78e06d6666da7e6798c36f77365ce351228c805ef8e3074f22dc635bdc94cd0",
+          "line_number": 10
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:aabaf635e59e23e57c7ccfd23255ff82b11a48470332be1fe49fff848c1776a1",
+      "atom_id": "TREATATOM_D79EE9BABC81972CE2BE137D0F67A804",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI06_TreatmentSibling{string treatment_id;string treatment_family_id;int side;int entry_style;double entry_price;bool has_entry_price;double stop_price;double target_price;bool has_target;double trail_distance;bool has_trail;long entry_expiry_ms;long exit_horizon_ms;double volume;double cash_per_price_unit;dou",
+          "line_digest": "sha256:80ab4bc1aa21ea276b9183363338f26c0891c92d63310315366be332b85a6efa",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a3bb084a178fb7a0c9ab901eef9458a7fb2ec01de5fd1f8174b1eb1e61f30849",
+      "atom_id": "TREATATOM_ED4EA6A9CE0B8312F1354DB99C42837D",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "struct UCEI06_TreatmentSibling{string treatment_id;string treatment_family_id;int side;int entry_style;double entry_price;bool has_entry_price;double stop_price;double target_price;bool has_target;double trail_distance;bool has_trail;long entry_expiry_ms;long exit_horizon_ms;double volume;double cash_per_price_unit;dou",
+          "line_digest": "sha256:80ab4bc1aa21ea276b9183363338f26c0891c92d63310315366be332b85a6efa",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1d4a797fe621bc1afc6dee4dc5d0a3662340910e7ca80fe4153b482c7bffc78e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e812378029ebd8b58092cfe10f7b80682354c6c3d58b29213943e1827eb5c701",
+    "sha256:a3bb084a178fb7a0c9ab901eef9458a7fb2ec01de5fd1f8174b1eb1e61f30849",
+    "sha256:aabaf635e59e23e57c7ccfd23255ff82b11a48470332be1fe49fff848c1776a1",
+    "sha256:cad1f97ffd18f77ee428787dd81d54fa87993c5876cbc1592820e70154cd3d83",
+    "sha256:d8bf73f2b38476e94d90601698dd057f2dbc7baf3dc24d120c5dd0d740d9413f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/OutcomeDataset/UCEI06_Contracts.mqh",
+  "source_sha256": "sha256:e812378029ebd8b58092cfe10f7b80682354c6c3d58b29213943e1827eb5c701",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F1897DF5AB89D7AC1E4110BF35146920",
+  "treatment_package_id": "TREATPKG_0D6A0DD57458D88BEE198E6D9D2CDD10",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

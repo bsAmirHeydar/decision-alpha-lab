@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_7B899A67FACBDC7C3CA47D6FF958416E"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_0F05B87F75E889A4DC0B67BA4D1F6A94"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:a1b4106d52b24978dda55953fc8bb43ca1d4b8caa5966780744398d1c5ce8304",
+      "atom_id": "TREATATOM_7B899A67FACBDC7C3CA47D6FF958416E",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "report.expired = false;",
+          "line_digest": "sha256:3343b264f8a94cec6f70b530e63e3866fe05a9240a37700ec94887d09638579c",
+          "line_number": 162
+        },
+        {
+          "excerpt": "report.expired = (time_ok && report.expires_at > 0 && now > report.expires_at);",
+          "line_digest": "sha256:7dda03f983ba8d9c06e83f3c834e6687d15eff734fc5e6c3a394bdb01321e54e",
+          "line_number": 166
+        },
+        {
+          "excerpt": "report.reason = (report.expired ? \"expired\" : \"expiry_time_unavailable\");",
+          "line_digest": "sha256:3b7cb4a9c4d48a09177265f3e93c804c51bb1f84952f90278bfe06c3bc85d845",
+          "line_number": 196
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:da89d98c6d34e8ae87f88bad10c21c9a2a921e23764fe48820d0018b955b0bf4",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f21865a6be148fa50fe951364f7185dac47b5154c1d732f5889a84c8987e4a53",
+    "sha256:a1b4106d52b24978dda55953fc8bb43ca1d4b8caa5966780744398d1c5ce8304"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh",
+  "source_sha256": "sha256:f21865a6be148fa50fe951364f7185dac47b5154c1d732f5889a84c8987e4a53",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_721907B5307574FECA4E249353BBAAA1",
+  "treatment_package_id": "TREATPKG_1DD62065F607C3BB4DC88A3CD15394EE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

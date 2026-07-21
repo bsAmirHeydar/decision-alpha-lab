@@ -1,0 +1,198 @@
+{
+  "atom_ids": [
+    "TREATATOM_0B817CED174239F914CE082AE88BF2C2",
+    "TREATATOM_40EDDD5A796FDE3AC567B0B0C6874AEF",
+    "TREATATOM_BC93BCC0E878AC5A7B44FB895613EC26",
+    "TREATATOM_C9F3DA4BCFBC6305BF3E732E1FC7C3D6"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_6C5D9DD9B4940E8CDAB8BB3C6828AB50"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:105eaa4a6e9e9faf85f27cb0709263803433f53da96a5341462c03c78b14b7d3",
+      "atom_id": "TREATATOM_0B817CED174239F914CE082AE88BF2C2",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point=SymbolInfoDouble(plan.trade_symbol,SYMBOL_POINT);",
+          "line_digest": "sha256:9d0427f842bde69131e666539b0e0eab643ab585104a08cd336de4f990d1747d",
+          "line_number": 58
+        },
+        {
+          "excerpt": "double point=SymbolInfoDouble(plan.trade_symbol,SYMBOL_POINT);",
+          "line_digest": "sha256:9d0427f842bde69131e666539b0e0eab643ab585104a08cd336de4f990d1747d",
+          "line_number": 169
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8b2a2e760c56e6ecdc7f3da1801e68bad44f6a90d1a29ad8527ff4654e7c1009",
+      "atom_id": "TREATATOM_40EDDD5A796FDE3AC567B0B0C6874AEF",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "plan.magic_number=0;",
+          "line_digest": "sha256:d2672f4c5166f95ded063374083b64674c6cca94e77bada024f107fd7491c24c",
+          "line_number": 52
+        },
+        {
+          "excerpt": "plan.magic_number=m_config.magic_base+group_index;",
+          "line_digest": "sha256:d2fe94ad294309c991133a0eb32c9e30e962d9c466665e23ef02a00436c17e9f",
+          "line_number": 124
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6c94091e0900162db30800cf884c8de2fc411b1bfd0a5a2a21caf2d7b27afb30",
+      "atom_id": "TREATATOM_BC93BCC0E878AC5A7B44FB895613EC26",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "plan.stop_loss=0.0;",
+          "line_digest": "sha256:a5d6a2efb378f3b842259c384a8b046251e08da27e23824a6273957d24d1b149",
+          "line_number": 43
+        },
+        {
+          "excerpt": "if(!(plan.stop_loss<plan.planned_entry_price && plan.take_profit>plan.planned_entry_price))",
+          "line_digest": "sha256:e7d89469a81d379270ba41cb68bec17ebe986c7fdb45381b04781d9e456e15e6",
+          "line_number": 69
+        },
+        {
+          "excerpt": "if((plan.planned_entry_price-plan.stop_loss)<min_distance || (plan.take_profit-plan.planned_entry_price)<min_distance)",
+          "line_digest": "sha256:6d82130f813d3bf970074af61e31e424a9a0a0aab29cccbe48cb4ea0f34d1d6e",
+          "line_number": 74
+        },
+        {
+          "excerpt": "if(!(plan.stop_loss>plan.planned_entry_price && plan.take_profit<plan.planned_entry_price))",
+          "line_digest": "sha256:f1982925687185f1180aa43ff95e0a25fd14f4de8d78443e5510781e77bae942",
+          "line_number": 82
+        },
+        {
+          "excerpt": "if((plan.stop_loss-plan.planned_entry_price)<min_distance || (plan.planned_entry_price-plan.take_profit)<min_distance)",
+          "line_digest": "sha256:fc890ad3a55f8c957b6a081108138e9f41fa3f1890a1e7922c5e55599382d78f",
+          "line_number": 87
+        },
+        {
+          "excerpt": "if(!m_stop_model.Build(m_config,candle,signal.direction,plan.planned_entry_price,plan.spread_price,plan.stop_loss,reason))",
+          "line_digest": "sha256:70b3e0bb7d5f03b3588b25169c0504ff1f61967b9d720e747ac89dcf05238e67",
+          "line_number": 173
+        },
+        {
+          "excerpt": "plan.stop_distance=MathAbs(plan.planned_entry_price-plan.stop_loss);",
+          "line_digest": "sha256:ad1d131ad67bbff5331dedab5c39f96e3f419c8e8656e6a0daffaff5344e7959",
+          "line_number": 178
+        },
+        {
+          "excerpt": "plan.stop_loss,",
+          "line_digest": "sha256:dbcd02550654aae7dae5bdcd16e081e0ff39af7590852de8018a91eac18be2ec",
+          "line_number": 186
+        },
+        {
+          "excerpt": "plan.stop_loss,",
+          "line_digest": "sha256:dbcd02550654aae7dae5bdcd16e081e0ff39af7590852de8018a91eac18be2ec",
+          "line_number": 205
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:14b5e2f479138b952fa59ece936706422390267fd17499b61dbf907333733e37",
+      "atom_id": "TREATATOM_C9F3DA4BCFBC6305BF3E732E1FC7C3D6",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "plan.take_profit=0.0;",
+          "line_digest": "sha256:bb83331f15a0b1187a49565441b032080be47db8d8c9145fb095a0420ed23d4f",
+          "line_number": 46
+        },
+        {
+          "excerpt": "if(!(plan.stop_loss<plan.planned_entry_price && plan.take_profit>plan.planned_entry_price))",
+          "line_digest": "sha256:e7d89469a81d379270ba41cb68bec17ebe986c7fdb45381b04781d9e456e15e6",
+          "line_number": 69
+        },
+        {
+          "excerpt": "if((plan.planned_entry_price-plan.stop_loss)<min_distance || (plan.take_profit-plan.planned_entry_price)<min_distance)",
+          "line_digest": "sha256:6d82130f813d3bf970074af61e31e424a9a0a0aab29cccbe48cb4ea0f34d1d6e",
+          "line_number": 74
+        },
+        {
+          "excerpt": "if(!(plan.stop_loss>plan.planned_entry_price && plan.take_profit<plan.planned_entry_price))",
+          "line_digest": "sha256:f1982925687185f1180aa43ff95e0a25fd14f4de8d78443e5510781e77bae942",
+          "line_number": 82
+        },
+        {
+          "excerpt": "if((plan.stop_loss-plan.planned_entry_price)<min_distance || (plan.planned_entry_price-plan.take_profit)<min_distance)",
+          "line_digest": "sha256:fc890ad3a55f8c957b6a081108138e9f41fa3f1890a1e7922c5e55599382d78f",
+          "line_number": 87
+        },
+        {
+          "excerpt": "plan.take_profit,",
+          "line_digest": "sha256:7ab4e6cc32c0a74ad268dde1ea6d62b94c62726e510fc2e17fac4935707ae79f",
+          "line_number": 188
+        },
+        {
+          "excerpt": "plan.target_distance=MathAbs(plan.take_profit-plan.planned_entry_price);",
+          "line_digest": "sha256:e6429c77a7024c7d2271702c36e7b0908b4fd37ba7edb5c788f7e2dfff860e40",
+          "line_number": 194
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:76868c60192c757ba61e64db39ea31b2bf8588313df7c6012fe79bc112bc9429",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_403535652C3E20E17361546A276C83EA",
+    "RISKASM_4E54E21D9485E150001051791728B84E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:acf50762831b74dd028de4159d8585c02dac7cb0b3d9ccfcef327b15889ae765",
+    "sha256:105eaa4a6e9e9faf85f27cb0709263803433f53da96a5341462c03c78b14b7d3",
+    "sha256:14b5e2f479138b952fa59ece936706422390267fd17499b61dbf907333733e37",
+    "sha256:6c94091e0900162db30800cf884c8de2fc411b1bfd0a5a2a21caf2d7b27afb30",
+    "sha256:8b2a2e760c56e6ecdc7f3da1801e68bad44f6a90d1a29ad8527ff4654e7c1009"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh",
+  "source_sha256": "sha256:acf50762831b74dd028de4159d8585c02dac7cb0b3d9ccfcef327b15889ae765",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D0A71EBEF1CEF5F418B7F9FE4EE6B9F4",
+  "treatment_package_id": "TREATPKG_67CB11FAACB5723131D1F08BB1AFA4A7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

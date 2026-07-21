@@ -1,0 +1,133 @@
+{
+  "atom_ids": [
+    "TREATATOM_5D5528572303E8E3D10C6B63B2F46E42",
+    "TREATATOM_5F8589D2950BB9552C806B3E7F7E533F",
+    "TREATATOM_7BC0E79884EF6C8660965593B7D5AF7E",
+    "TREATATOM_C990A51483D577048E29B744604CEF46",
+    "TREATATOM_DD88F6D5C43DBC050660A6AF17866B8C"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:00cf0de2d749cf0290d0768da02b1f5c7ed16a2bddf655aea4c2775e3608a17a",
+      "atom_id": "TREATATOM_5D5528572303E8E3D10C6B63B2F46E42",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double take_profit;",
+          "line_digest": "sha256:40d45decabd36fb202c401b544e5938b2a30e25f7ba6ce4e42024db7fe31325e",
+          "line_number": 168
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:abc4d0c1b458beffafa683ae0c79a2a5c5ac13d0ca7e07df2ea665eb503d0d54",
+      "atom_id": "TREATATOM_5F8589D2950BB9552C806B3E7F7E533F",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int deviation_points;",
+          "line_digest": "sha256:7fd37ccf7f931c7c3bed9f634d169667a830d0f24b6d36219de78edc4878cede",
+          "line_number": 102
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:241d2876e5229518195c100134bbda6f530bd03a6a8debdc531d15b1d64f0eee",
+      "atom_id": "TREATATOM_7BC0E79884EF6C8660965593B7D5AF7E",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "double risk_percent_equity;",
+          "line_digest": "sha256:60d037faf1b3c70072b4ad5a828e504d17450ae8d4da2d0b380519597cb9e4cb",
+          "line_number": 97
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:eb0ff66a8d1a893463397d4be4e98fa5796219d83ccf6e1b6faef370cc0e7334",
+      "atom_id": "TREATATOM_C990A51483D577048E29B744604CEF46",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_loss;",
+          "line_digest": "sha256:08d29aa369efe2c11a623ab291eb50543f644dd514307abcd8910df24db056d9",
+          "line_number": 165
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a8df3e3e517399235ad390691401f1106982d7f7b71134ad3e2dae4dc995df65",
+      "atom_id": "TREATATOM_DD88F6D5C43DBC050660A6AF17866B8C",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "long magic_number;",
+          "line_digest": "sha256:6225d8c2dd621a65c140be76fa953888e501fc7ec48a40a3bc9ebd1b2e8741af",
+          "line_number": 174
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8d6274285c54f7340631649dbd2ef7750c5e4a23239b8247481360339fc7353d",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_13FF1280045EECEF3F28AB10BDE0D9D5"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:64b5454412d380c383427c16dc0bac7e2ff7c00f226a7e469f63116c0a95e6b2",
+    "sha256:00cf0de2d749cf0290d0768da02b1f5c7ed16a2bddf655aea4c2775e3608a17a",
+    "sha256:241d2876e5229518195c100134bbda6f530bd03a6a8debdc531d15b1d64f0eee",
+    "sha256:a8df3e3e517399235ad390691401f1106982d7f7b71134ad3e2dae4dc995df65",
+    "sha256:abc4d0c1b458beffafa683ae0c79a2a5c5ac13d0ca7e07df2ea665eb503d0d54",
+    "sha256:eb0ff66a8d1a893463397d4be4e98fa5796219d83ccf6e1b6faef370cc0e7334"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Types.mqh",
+  "source_sha256": "sha256:64b5454412d380c383427c16dc0bac7e2ff7c00f226a7e469f63116c0a95e6b2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_07B48CAF55D8CAF7F5044C6183E6C054",
+  "treatment_package_id": "TREATPKG_C0BE7D62C3BA2200FFE65A600C85D1F2",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

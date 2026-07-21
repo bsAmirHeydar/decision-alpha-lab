@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_CE34CEBB1E2CDD00BDE5674B2BCFDD44"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f9f725ff77f5c73024a659d5d99c13050ef13813c49823bb0e114991195f8c4d",
+      "atom_id": "TREATATOM_CE34CEBB1E2CDD00BDE5674B2BCFDD44",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "service,specs=service_and_specs();v=service.build_view(next(s for s in specs if s.view_name=='price_view'),request());m={x.feature_id:x.value for x in v.features};assert m['mid']==20000.25;assert m['spread']==0.5",
+          "line_digest": "sha256:9bc5d9b42660e20f7fbd4e383a2dcb825e8c404746b2c180145282f8c0898dc0",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:7ecef6af902253a69b6e758416d87e2bc3716ce0ed94d5d9db63c33711934c1f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_F640B625CA3BCF289A7C06709932591B"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e377512b91ff9c21cb2a4e28ce568560541e69dec19a1981429964c773ed6b3c",
+    "sha256:f9f725ff77f5c73024a659d5d99c13050ef13813c49823bb0e114991195f8c4d"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_04_multimodal_view_platform/test_build_golden_views.py",
+  "source_sha256": "sha256:e377512b91ff9c21cb2a4e28ce568560541e69dec19a1981429964c773ed6b3c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_16922FFC54740D05CFA864A57241634C",
+  "treatment_package_id": "TREATPKG_7348EFD308B53202662520E7B13B78D5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

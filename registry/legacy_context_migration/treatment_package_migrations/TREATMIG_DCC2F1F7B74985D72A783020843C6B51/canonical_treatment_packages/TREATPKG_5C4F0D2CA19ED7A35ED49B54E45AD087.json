@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_BD6018AA0B4BF05E4B46FFE7E9337D5D"
+  ],
+  "atom_types": [
+    "RECONCILIATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_4A6F75E0738D21EB8B99C363110A15B1",
+    "EXECCAP_519F1953DF2D2C5868F7C9C70A374C57",
+    "EXECCAP_76E01B586413B3D53E6E0046292E5D6F",
+    "EXECCAP_E7191766E9E3E5FE6D26F7C1A3B59052"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:528a7ce28712f2c7625b49ccf284db455e69fb3dab13a61c76431687250a0887",
+      "atom_id": "TREATATOM_BD6018AA0B4BF05E4B46FFE7E9337D5D",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "'ObjectCreate', 'CopyRates(', 'CopyTicks(', 'HistorySelect(', 'SymbolInfoTick(',",
+          "line_digest": "sha256:1761a93e7eebca8701edd9bc1635287e5075b4c15cd420827215b4ecb47dd9dc",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4a913cc21964dd10f61613618ba4c48075969e3266eefcfdbb7be6d0de9910b9",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:362a581310573fda157101be3c406923f844de79f0d3b06b9e1d58fc1fc44032",
+    "sha256:528a7ce28712f2c7625b49ccf284db455e69fb3dab13a61c76431687250a0887"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/exp0019/check_fp_i02_boundaries.py",
+  "source_sha256": "sha256:362a581310573fda157101be3c406923f844de79f0d3b06b9e1d58fc1fc44032",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C0FEFCD843397FEF5200DA422DC22F04",
+  "treatment_package_id": "TREATPKG_5C4F0D2CA19ED7A35ED49B54E45AD087",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

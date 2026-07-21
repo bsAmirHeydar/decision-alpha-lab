@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_602A8898BB55B060FA91402413F66639",
+    "TREATATOM_73E300259DA9C278FDBCE1DE5345F56B"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c62d515d25a11ef0bbde8c31f13e1acc14558552cdecf45f900edf8539a060d2",
+      "atom_id": "TREATATOM_602A8898BB55B060FA91402413F66639",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "r=build_fixture_registry();m=build_reference_matrix(r);e,s,f=fixture(2);out=CandidateEngine(r,m).build(e,s,f,8);assert out;assert all(x.stop.stop_price>x.entry.requested_price for x in out);assert all((not x.exit_plan.has_price_target) or x.exit_plan.target_price<x.entry.requested_price for x in out)",
+          "line_digest": "sha256:b2c15a2039415e60d0058d914aeed417b0aee5d993879e3416564c02d04b198e",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:71b3142977e9d40708ab029435f08b7e82601729f0af76795829af26c6ea7ac4",
+      "atom_id": "TREATATOM_73E300259DA9C278FDBCE1DE5345F56B",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "r=build_fixture_registry();m=build_reference_matrix(r);e,s,f=fixture(2);out=CandidateEngine(r,m).build(e,s,f,8);assert out;assert all(x.stop.stop_price>x.entry.requested_price for x in out);assert all((not x.exit_plan.has_price_target) or x.exit_plan.target_price<x.entry.requested_price for x in out)",
+          "line_digest": "sha256:b2c15a2039415e60d0058d914aeed417b0aee5d993879e3416564c02d04b198e",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:82aa95f7ecc2b9be4cd578438db90c4cad3bf3132359a3a3c3a8bb9cea2cfa94",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d26ec2c647c70c8d016d422b463d51f1e37efac0cf9220e999e1726ef6dd20fd",
+    "sha256:71b3142977e9d40708ab029435f08b7e82601729f0af76795829af26c6ea7ac4",
+    "sha256:c62d515d25a11ef0bbde8c31f13e1acc14558552cdecf45f900edf8539a060d2"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase08_candidate/test_sf08_engine.py",
+  "source_sha256": "sha256:d26ec2c647c70c8d016d422b463d51f1e37efac0cf9220e999e1726ef6dd20fd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_2BE1080F4CA299FE9E74D9887739C0CD",
+  "treatment_package_id": "TREATPKG_376A90A001F1356B40DA0CBBF516F0DD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

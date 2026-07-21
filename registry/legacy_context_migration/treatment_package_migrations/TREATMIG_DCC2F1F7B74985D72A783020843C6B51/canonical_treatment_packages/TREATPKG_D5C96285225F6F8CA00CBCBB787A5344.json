@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_EDEE519B9E9B07BC07D070A5CBDE81E5"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_993EDE1E6D8CA5535E4D45103E693A17"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6140cec6db94eed357ee31ab7986356fe7090e3a2edb0caa4ee2c05cfdbcf4fa",
+      "atom_id": "TREATATOM_EDEE519B9E9B07BC07D070A5CBDE81E5",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "cfg.magic = InpF2BTMagic;",
+          "line_digest": "sha256:062baa579c75a376fe0a84bd14779de3797e4c2f78074e68c302cee86d7fd30e",
+          "line_number": 260
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2c05122f078996d7f73d7874cb931773feb5b2c097b7c574bec7772d06fa5fff",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a6cb682d125b870378f7b58da4edd772d03a9998fa7f3dc3c7ea0794779b616c",
+    "sha256:6140cec6db94eed357ee31ab7986356fe7090e3a2edb0caa4ee2c05cfdbcf4fa"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+  "source_sha256": "sha256:a6cb682d125b870378f7b58da4edd772d03a9998fa7f3dc3c7ea0794779b616c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_260E3C3D3239771EED3B12C06C60F9E3",
+  "treatment_package_id": "TREATPKG_D5C96285225F6F8CA00CBCBB787A5344",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

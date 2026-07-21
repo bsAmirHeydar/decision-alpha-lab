@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_A0993F9A6E7578615F9DED3FAAA1B6FE"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_214A6BE3F07B1E62C19D0F0E31706F3C",
+    "EXECCAP_2163353F3C12D23491CB51116691D18D",
+    "EXECCAP_7DFF16876072FD0F3A4F8DD65212E1FD",
+    "EXECCAP_90CC4B67401802A0418DC340DA37E64D"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:b7b2bb52daa3527be0fcc9aa07d1f32bf1a4dd35670f909d93c5472617d063ff",
+      "atom_id": "TREATATOM_A0993F9A6E7578615F9DED3FAAA1B6FE",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "banned_exact = {\"open\", \"high\", \"low\", \"close\", \"time\", \"datetime\", \"broker_time\", \"utc_time\", \"tick_volume\", \"volume\", \"spread\", \"real_volume\"}",
+          "line_digest": "sha256:9491bbd93e3176f665e90e20573af3a555e474a1ca1fdef5943961b7a3d10387",
+          "line_number": 49
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2e51a2600def3f471aa1dd69b5dd556c92d2c85abbbfe5170a3174e0ef2f3f1a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_D75CA4A2561B79452BAF55E2084AB3E0"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f9681901863e4577e36845d78ccf790209f10c93b13f30fb1b687e56b7f54ebc",
+    "sha256:b7b2bb52daa3527be0fcc9aa07d1f32bf1a4dd35670f909d93c5472617d063ff"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/astro_ml/build_cognitive_astro_memory.py",
+  "source_sha256": "sha256:f9681901863e4577e36845d78ccf790209f10c93b13f30fb1b687e56b7f54ebc",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AAF478AD70A5B6D113E46422CB632EC2",
+  "treatment_package_id": "TREATPKG_0A7236942E9F4B446479494D2A617D84",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

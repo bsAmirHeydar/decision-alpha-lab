@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_81735F2FCE3C829D767605259CE6DB86"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_14FA3354FCA6227201C8C4579E7AA5AC",
+    "EXECCAP_7A0C4D84F09BA2F7640C63D4C84432E7",
+    "EXECCAP_8DC0D526CA3977E4A36B0F3C8CC600CC",
+    "EXECCAP_E79E8B43B7747CF4678053ACBD1A04BC"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9b5299ec63c91601b9156e402fb86b208d630b195d517208846597c4d6e3a821",
+      "atom_id": "TREATATOM_81735F2FCE3C829D767605259CE6DB86",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "FORBIDDEN=[\"OrderSend(\",\"CTrade \",\"trade.Buy(\",\"trade.Sell(\",\"WebRequest(\",\"production_authority = true\",\"promotion_authority = true\"]",
+          "line_digest": "sha256:8950c0375cecebf3a11d6cb218aac7b84435a074f6015cd98880ef612e3a5804",
+          "line_number": 2
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8cbaeea479e46e4068d8025d57bd0de65d458a1d87cbfdc428beb18d3ab47234",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0c990e90351955b1578695c8e88fe84c2cf53a8ca72737cf9634960ac0b3fecf",
+    "sha256:9b5299ec63c91601b9156e402fb86b208d630b195d517208846597c4d6e3a821"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/saed_v4_28/check_saed_v4_28_boundaries.py",
+  "source_sha256": "sha256:0c990e90351955b1578695c8e88fe84c2cf53a8ca72737cf9634960ac0b3fecf",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_7017219429C5ACDA2B75AE42DD25A2CC",
+  "treatment_package_id": "TREATPKG_C18D72A4E96CB219A4FF992EB54F9E25",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

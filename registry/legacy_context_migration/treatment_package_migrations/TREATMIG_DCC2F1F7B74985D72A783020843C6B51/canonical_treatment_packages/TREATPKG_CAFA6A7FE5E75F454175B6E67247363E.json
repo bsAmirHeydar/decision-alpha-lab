@@ -1,0 +1,111 @@
+{
+  "atom_ids": [
+    "TREATATOM_C7B7F2900E770AB01C6F2C7F960FED97",
+    "TREATATOM_CEF75EEDBAC5E84DE4BF8FB3158E2A90",
+    "TREATATOM_E1EA42779B53C369DC4D19546555E216",
+    "TREATATOM_E8709AF9100E7CA77FC656D437254DC6"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8af4d513d217de449dcce64c8d17c2ca57d2fe12d552a52320d6cb904d4e4ae0",
+      "atom_id": "TREATATOM_C7B7F2900E770AB01C6F2C7F960FED97",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "string SF17_PositionCanonical(const SF17_PositionRecord &p){return p.position_id+\"|\"+p.intent_id+\"|\"+p.symbol+\"|\"+IntegerToString(p.direction)+\"|\"+IntegerToString((int)p.state)+\"|\"+SF01_CanonicalDouble(p.volume)+\"|\"+SF01_CanonicalDouble(p.average_entry_price)+\"|\"+SF01_CanonicalDouble(p.stop_price)+\"|\"+SF01_CanonicalDou",
+          "line_digest": "sha256:8a3b1ffe99fdd885f6d05c72b9abb08b85ae17d517e56e603b1f8649a44c72d4",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8e1a167aa55d456c35ecc382989d461c9d04cc2e624bffd4b75b8bd2a37bc471",
+      "atom_id": "TREATATOM_CEF75EEDBAC5E84DE4BF8FB3158E2A90",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "string SF17_PositionCanonical(const SF17_PositionRecord &p){return p.position_id+\"|\"+p.intent_id+\"|\"+p.symbol+\"|\"+IntegerToString(p.direction)+\"|\"+IntegerToString((int)p.state)+\"|\"+SF01_CanonicalDouble(p.volume)+\"|\"+SF01_CanonicalDouble(p.average_entry_price)+\"|\"+SF01_CanonicalDouble(p.stop_price)+\"|\"+SF01_CanonicalDou",
+          "line_digest": "sha256:8a3b1ffe99fdd885f6d05c72b9abb08b85ae17d517e56e603b1f8649a44c72d4",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c7323fd246af27324987a1e297341367f4eb9b988573d436d057998c87ad440d",
+      "atom_id": "TREATATOM_E1EA42779B53C369DC4D19546555E216",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "struct SF17_PositionRecord{string position_id;string intent_id;string symbol;int direction;ENUM_SF17_POSITION_STATE state;double volume;double average_entry_price;double stop_price;double target_price;bool has_target;long opened_at_utc_msc;long closed_at_utc_msc;double average_exit_price;double realized_gross_price_uni",
+          "line_digest": "sha256:a7ec8982ad3a92e912f11717bac5a0bd686817eb47e08d765acd3d2e672df12c",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b630f264bd260e72c3a2c9b2284eb12f60ddd68ac7cf2551e62ce9291c1fa1d6",
+      "atom_id": "TREATATOM_E8709AF9100E7CA77FC656D437254DC6",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "struct SF17_PositionRecord{string position_id;string intent_id;string symbol;int direction;ENUM_SF17_POSITION_STATE state;double volume;double average_entry_price;double stop_price;double target_price;bool has_target;long opened_at_utc_msc;long closed_at_utc_msc;double average_exit_price;double realized_gross_price_uni",
+          "line_digest": "sha256:a7ec8982ad3a92e912f11717bac5a0bd686817eb47e08d765acd3d2e672df12c",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c901d0966d1b99092a0f501b36571c4ca61503ca07390b7c55aeb946eedf3dac",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4e1f2f75053cb15cd91082df59aa7f98496af5881810afa8fb6f76d803539a81",
+    "sha256:8af4d513d217de449dcce64c8d17c2ca57d2fe12d552a52320d6cb904d4e4ae0",
+    "sha256:8e1a167aa55d456c35ecc382989d461c9d04cc2e624bffd4b75b8bd2a37bc471",
+    "sha256:b630f264bd260e72c3a2c9b2284eb12f60ddd68ac7cf2551e62ce9291c1fa1d6",
+    "sha256:c7323fd246af27324987a1e297341367f4eb9b988573d436d057998c87ad440d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Execution/SF17_PositionRecord.mqh",
+  "source_sha256": "sha256:4e1f2f75053cb15cd91082df59aa7f98496af5881810afa8fb6f76d803539a81",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8AA87A06C5E84E84C63EBD873D9DE845",
+  "treatment_package_id": "TREATPKG_CAFA6A7FE5E75F454175B6E67247363E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

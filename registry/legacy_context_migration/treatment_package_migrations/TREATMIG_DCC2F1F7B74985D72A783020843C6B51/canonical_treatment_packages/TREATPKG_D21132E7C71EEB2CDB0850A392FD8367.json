@@ -1,0 +1,95 @@
+{
+  "atom_ids": [
+    "TREATATOM_3521DFE32384DE43A239D3402E4C4E17",
+    "TREATATOM_84519B98FBF1FE7D430B434800D95BCC",
+    "TREATATOM_A42EBBF0F30371048502F5743867BDCB"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4bcf6c69e22329f393ae8c0f4d7fef4b4f02f6dc7629e8453a72c7ecde4cbd02",
+      "atom_id": "TREATATOM_3521DFE32384DE43A239D3402E4C4E17",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" stop=\" + DoubleToString(report.setup.stop_price, _Digits);",
+          "line_digest": "sha256:37af8176e73e74a6b277cd1526ed128c79843ed7f4a5b70ec8e304d3158e0b5e",
+          "line_number": 52
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:20614326c13b76fb617b3ab48e0a076ce3e8db3a6431fd3d253f7f70c52988fe",
+      "atom_id": "TREATATOM_84519B98FBF1FE7D430B434800D95BCC",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" entry=\" + DoubleToString(report.setup.entry_price, _Digits);",
+          "line_digest": "sha256:b351c22c4dccade965bd548386b7f2f0b560e3bd699f40228e838a40e8d2b074",
+          "line_number": 51
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bea9aa60da4925f028bfa33368c016d1f06e8d40e51aa8f4a367198b207be86d",
+      "atom_id": "TREATATOM_A42EBBF0F30371048502F5743867BDCB",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" target=\" + DoubleToString(report.setup.target_price, _Digits);",
+          "line_digest": "sha256:8654ccd119d801885e960f5db83a5815f01fecdcacf3fb53de86796efaebc49c",
+          "line_number": 53
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d56ae3e75e16fa30527d68ad5594f5e671d81b6481e0e8181e60b27fb6fe1ef5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:91d6f62a4299d71752f86f567e28436c92a97e4fe822f6f3d1bf4900a45efb3c",
+    "sha256:20614326c13b76fb617b3ab48e0a076ce3e8db3a6431fd3d253f7f70c52988fe",
+    "sha256:4bcf6c69e22329f393ae8c0f4d7fef4b4f02f6dc7629e8453a72c7ecde4cbd02",
+    "sha256:bea9aa60da4925f028bfa33368c016d1f06e8d40e51aa8f4a367198b207be86d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh",
+  "source_sha256": "sha256:91d6f62a4299d71752f86f567e28436c92a97e4fe822f6f3d1bf4900a45efb3c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5C8047CFB363F9EF560AA9D5BAF923A0",
+  "treatment_package_id": "TREATPKG_D21132E7C71EEB2CDB0850A392FD8367",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

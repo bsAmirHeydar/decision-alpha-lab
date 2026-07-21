@@ -1,0 +1,126 @@
+{
+  "atom_ids": [
+    "TREATATOM_5B101CF1E4C35BCA8238F71EF6C6C4DC",
+    "TREATATOM_CDDB24BF822E5DDAE60626AFD2D73DDB",
+    "TREATATOM_F5E5948E8F956765D9B2D9840CD07ED8"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_MARKET",
+    "RECONCILIATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_1A105772B114C100B80F3E074473FC4A",
+    "EXECCAP_286F23F451A09111AFAA802CD5F2DC85",
+    "EXECCAP_4452A4B0FB5F86DFFCA6A471773C9101"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f78272949603ceb0d10102b36a56dadf18e9e25ed9bdc724a959202da72b7e2d",
+      "atom_id": "TREATATOM_5B101CF1E4C35BCA8238F71EF6C6C4DC",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "for(int i = PositionsTotal() - 1; i >= 0; i--)",
+          "line_digest": "sha256:5927652124a9a574d1bd9b8de33941cf0dba795daab2acfa0752d5a0905eb90f",
+          "line_number": 49
+        },
+        {
+          "excerpt": "for(int i = PositionsTotal() - 1; i >= 0; i--)",
+          "line_digest": "sha256:5927652124a9a574d1bd9b8de33941cf0dba795daab2acfa0752d5a0905eb90f",
+          "line_number": 67
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3663ba47856abe33c73a5d9b63c63f9f7def91260f15b6d579663a43d98dbcf4",
+      "atom_id": "TREATATOM_CDDB24BF822E5DDAE60626AFD2D73DDB",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "g_trade.Buy(InpLots, _Symbol);",
+          "line_digest": "sha256:04fe690a0c7795c8ef90dbd9f6435620c29d3e8b6e1f933808e8adba42a51b48",
+          "line_number": 104
+        },
+        {
+          "excerpt": "g_trade.Sell(InpLots, _Symbol);",
+          "line_digest": "sha256:52255bd9ca27f960d4c5fee548f9e2b97b2f82a3f70b969caf5f6d68b9eb6361",
+          "line_number": 106
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c460b7c758c518f2c2d2bb78cea1d08e27148c789f3b58c2e38fe6e6a62a3c3c",
+      "atom_id": "TREATATOM_F5E5948E8F956765D9B2D9840CD07ED8",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "bool DAL_AstroShell_HasPosition(const string symbol, const long magic, int &position_type)",
+          "line_digest": "sha256:c825c4ad100f3f606b95ff4937cda11d1cb40dfc07fecb47be2b71cc2788b4cb",
+          "line_number": 47
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != magic)",
+          "line_digest": "sha256:80e7c6e83643d4afa9a76b4d762d5c7e820b8810d0575cd5d0aae1bf59bdbb93",
+          "line_number": 56
+        },
+        {
+          "excerpt": "void DAL_AstroShell_CloseAll(const string symbol, const long magic)",
+          "line_digest": "sha256:84cea675b61c5a348c6529fe18f9a1785200a177ebd0b6a43bdbacbe6706a022",
+          "line_number": 65
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != magic)",
+          "line_digest": "sha256:80e7c6e83643d4afa9a76b4d762d5c7e820b8810d0575cd5d0aae1bf59bdbb93",
+          "line_number": 74
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:665aa3c8a1b277d01c9503de821bc7bf02d70352f6704d6f12de1a54582f02fd",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_63D4A41736F7B4D3FB77B40265F55C50"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:30693fbf1fe8d1efb5344d6bc6b5cc1faf29ea1dee4a84f46663d5d307eded95",
+    "sha256:3663ba47856abe33c73a5d9b63c63f9f7def91260f15b6d579663a43d98dbcf4",
+    "sha256:c460b7c758c518f2c2d2bb78cea1d08e27148c789f3b58c2e38fe6e6a62a3c3c",
+    "sha256:f78272949603ceb0d10102b36a56dadf18e9e25ed9bdc724a959202da72b7e2d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/AstroExecution/A0090_AstroOrderShell.mq5",
+  "source_sha256": "sha256:30693fbf1fe8d1efb5344d6bc6b5cc1faf29ea1dee4a84f46663d5d307eded95",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_280E858CB2FDA300E43CAA1E4B5EB649",
+  "treatment_package_id": "TREATPKG_CA3AC14A52DDAD96B6E08CBF720B4539",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,124 @@
+{
+  "atom_ids": [
+    "TREATATOM_CC10F8BB994B844C137E74E1CFF36B25"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_09DA1CCD592D41E14888478A694FB04A",
+    "EXECCAP_AFDFB8224242CC37B93C3A91AE27649A"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:fc83975b411927f178055ee1f679481d540ac3db224df321eee84e9317027c07",
+      "atom_id": "TREATATOM_CC10F8BB994B844C137E74E1CFF36B25",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "h += \",symbol_digits,symbol_point,symbol_tick_size,symbol_stops_level_points,min_stop_distance_price\";",
+          "line_digest": "sha256:e5ec61801c8a6fee0ac5a9672011c5c29470d83aaf495931ceab0afc1542657f",
+          "line_number": 21
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.request_price, r.symbol_digits);",
+          "line_digest": "sha256:9752aaff15d4efe1e8e88f86b7a10b3cc4dfcf30e611c22e4b7da820a223abb9",
+          "line_number": 52
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.request_sl, r.symbol_digits);",
+          "line_digest": "sha256:87df1ca1b997587f73eb151ce48f9863be9ced553a08063930a30cc31b2ae8b6",
+          "line_number": 53
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.request_tp, r.symbol_digits);",
+          "line_digest": "sha256:495e8b46debb87c1519f5a1a5945b17b9c2c5ff7b7b6df9314d79041f3ba75b4",
+          "line_number": 54
+        },
+        {
+          "excerpt": "s += \",\" + IntegerToString(r.symbol_digits);",
+          "line_digest": "sha256:57d38d915210426a69afc5cd6183c9718729c5322660397eb75195d630c24c08",
+          "line_number": 56
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.symbol_point, r.symbol_digits);",
+          "line_digest": "sha256:458886754423d9d147e34c72bb86982e55414384e536b45fbb49f78f7730d8d9",
+          "line_number": 57
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.symbol_tick_size, r.symbol_digits);",
+          "line_digest": "sha256:07ca3deddb141cbf5527ab59d94adb8d7c08879e87410b3d9d976da6a6be91bb",
+          "line_number": 58
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.min_stop_distance_price, r.symbol_digits);",
+          "line_digest": "sha256:7a3f91f29a7dec92d4111a8c5de95293f67e7d4bef777706a375678e9e966794",
+          "line_number": 60
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.normalized_price, r.symbol_digits);",
+          "line_digest": "sha256:d220ad37bc43eaa9f5a72ca3a35c26d1c1b1a79b93a3ef8dac72016eabe8eddb",
+          "line_number": 62
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.normalized_sl, r.symbol_digits);",
+          "line_digest": "sha256:0379dbe8a991eec7d8aa605411dcffbd444b91fe9d7ee14d5f9c1e314f3c6344",
+          "line_number": 63
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.normalized_tp, r.symbol_digits);",
+          "line_digest": "sha256:786e8a13b37e35b7cd418792a06c52bfc92a4ea872259eb952660eade816ade7",
+          "line_number": 64
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.stop_distance_price, r.symbol_digits);",
+          "line_digest": "sha256:f08021cef251db734bd8200b90c4b70e757dcb8d64344b74a5e0ec8c966852a4",
+          "line_number": 74
+        },
+        {
+          "excerpt": "s += \",\" + DoubleToString(r.target_distance_price, r.symbol_digits);",
+          "line_digest": "sha256:0efe91e17e22e72cb73e065efe955d9917e617120aaaa25ed034ca284bebf264",
+          "line_number": 75
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2847cc68eb396c53c4e53509587d046e5de9c83c991bebcc23a7305adc6cd6f8",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_EA45235B86E4BB7E1D7D31EA66C9C477"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:cb218baa2a2a08d9051739823924425efc547a9d369895f8cd53272f9aeb7016",
+    "sha256:fc83975b411927f178055ee1f679481d540ac3db224df321eee84e9317027c07"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_BrokerValidatorExport.mqh",
+  "source_sha256": "sha256:cb218baa2a2a08d9051739823924425efc547a9d369895f8cd53272f9aeb7016",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A1ACB96DE8FAF3307AB188F28C958530",
+  "treatment_package_id": "TREATPKG_CE59A6E936E015A6433F96C49F732A24",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,92 @@
+{
+  "atom_ids": [
+    "TREATATOM_8D34E7351C8E9E6F0D621C6C29B21DE6",
+    "TREATATOM_9499BFAE2CE3189DEE276683D1064258"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_62236E362A648DF74FD12348572E22BD",
+    "EXECCAP_E8F55801D976AD6A9AC8F878F92031E1"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f56a27fae28008d9b807896196a011ca0fe364fbcfd44668d49271a10648c678",
+      "atom_id": "TREATATOM_8D34E7351C8E9E6F0D621C6C29B21DE6",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "\"direction\",\"side\",\"clean_symbol\",\"hunter_symbol\",\"confirmation_broker\",\"confirmation_ny\",\"entry_broker\",\"entry_price\",\"stop_price\",\"stop_points\",",
+          "line_digest": "sha256:fdd7395b66c71a5f95a4748ef57cdce7dc8f7c313ce8db862305c353dbea3009",
+          "line_number": 90
+        },
+        {
+          "excerpt": "DirectionText(row.direction),SideText(row.side),row.clean_symbol,row.hunter_symbol,T(row.confirmation_time_broker),T(row.confirmation_time_ny),T(row.entry_time_broker),row.entry_price,row.stop_price,row.stop_distance_points,",
+          "line_digest": "sha256:2dfa04888689e0e05d43f48b35c00a72d9aab797850b9ecdc2868cf4628d16db",
+          "line_number": 115
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:76d7d257cf2eb753d6dd46dba1bf2d899d9981f7722cdfef9530fdb98147e8d9",
+      "atom_id": "TREATATOM_9499BFAE2CE3189DEE276683D1064258",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "\"direction\",\"side\",\"clean_symbol\",\"hunter_symbol\",\"confirmation_broker\",\"confirmation_ny\",\"entry_broker\",\"entry_price\",\"stop_price\",\"stop_points\",",
+          "line_digest": "sha256:fdd7395b66c71a5f95a4748ef57cdce7dc8f7c313ce8db862305c353dbea3009",
+          "line_number": 90
+        },
+        {
+          "excerpt": "DirectionText(row.direction),SideText(row.side),row.clean_symbol,row.hunter_symbol,T(row.confirmation_time_broker),T(row.confirmation_time_ny),T(row.entry_time_broker),row.entry_price,row.stop_price,row.stop_distance_points,",
+          "line_digest": "sha256:2dfa04888689e0e05d43f48b35c00a72d9aab797850b9ecdc2868cf4628d16db",
+          "line_number": 115
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:598177f7d5b4658f5beafff1c209eae5e955b134c6b3bb6fc17b8742284cf248",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_F1A3E283D631F31A753F126876DF725C"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c06b8fe36041a68ffb92b2fa220a41d88d27ee159a3d5e5c3e669160411a9c99",
+    "sha256:76d7d257cf2eb753d6dd46dba1bf2d899d9981f7722cdfef9530fdb98147e8d9",
+    "sha256:f56a27fae28008d9b807896196a011ca0fe364fbcfd44668d49271a10648c678"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGO_Ledger.mqh",
+  "source_sha256": "sha256:c06b8fe36041a68ffb92b2fa220a41d88d27ee159a3d5e5c3e669160411a9c99",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_EDDB10904FE7CEBB99C48E36EAF5C3CF",
+  "treatment_package_id": "TREATPKG_ADF6DC7F8669137E00BF6B75CB312E72",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

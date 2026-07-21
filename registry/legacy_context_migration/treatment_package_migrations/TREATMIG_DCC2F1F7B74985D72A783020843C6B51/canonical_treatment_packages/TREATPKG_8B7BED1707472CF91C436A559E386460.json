@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_1120F3ACE126676EE2CDAE596FA1E86C"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_1940AEFEB02C564B9A60F86612E2E83D",
+    "EXECCAP_2A1C0A3818E88069A3E62CDC951FDD28",
+    "EXECCAP_2DC4E105FA36C8770C79EDD25F2DD727",
+    "EXECCAP_581A55822B5272407B09551A04E0BBDB",
+    "EXECCAP_DAD5BB739CD4F9A1413D09CB2C304352",
+    "EXECCAP_DDA1785D3D2491CC11E3B5C3FB0735EC",
+    "EXECCAP_EA3C089A6307C0B76F01321EBB0CAA7E",
+    "EXECCAP_F33A1C1333010973BC3076B8D1008948",
+    "EXECCAP_F8BF01E6440200A2DE3F6E63ABAD86A5"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:125a389f549fb33d6857006a1e5558f2421938330230d084657f7ba8a1ca3cef",
+      "atom_id": "TREATATOM_1120F3ACE126676EE2CDAE596FA1E86C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "\"tick_volume\", \"volume\", \"real_volume\", \"spread\", \"source_file\", \"row_id\",",
+          "line_digest": "sha256:f2b313b6d5536e9f51b4c0d2fbb7f618602d90500d509770580775c450488406",
+          "line_number": 67
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:70d7ed71986aaddb0647c0b245ad30b6f8eb865055f36924136fcd6a8d2857a6",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_BB569FA7196A7BBA3ED524FEBE3C3488"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7c2575fad08f8993fb4c2d5dcd05308181d6ca72ed16022c14179ca52d827d5b",
+    "sha256:125a389f549fb33d6857006a1e5558f2421938330230d084657f7ba8a1ca3cef"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/astro_ml/astro_ml_core.py",
+  "source_sha256": "sha256:7c2575fad08f8993fb4c2d5dcd05308181d6ca72ed16022c14179ca52d827d5b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_DA779979C1B2A56127258A86AC79A1F4",
+  "treatment_package_id": "TREATPKG_8B7BED1707472CF91C436A559E386460",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

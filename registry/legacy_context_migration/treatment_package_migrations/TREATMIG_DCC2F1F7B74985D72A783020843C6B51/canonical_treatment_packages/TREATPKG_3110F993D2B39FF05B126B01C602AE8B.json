@@ -1,0 +1,88 @@
+{
+  "atom_ids": [
+    "TREATATOM_4662CCB0CE2677E0746F22BA2F4B2CF0",
+    "TREATATOM_97572209F0D1556DB3C6DA5D594C029B"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:37f98a744481aaeac66c6cf07fcea9fd9c12a0f99462e66bf7f5ce5a74e20bc2",
+      "atom_id": "TREATATOM_4662CCB0CE2677E0746F22BA2F4B2CF0",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "struct FP_I15_SymbolSpec { string symbol; double tick_size; double tick_value_loss; double volume_min; double volume_max; double volume_step; double stops_level_price; double freeze_level_price; };",
+          "line_digest": "sha256:bc402f7cd70dccf82aadc67bdfb9a45ee12f6d9c2ac177f5b7bda79a239465a2",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:436a94756c106dd5a89fc540daccf2d58ec5372875a300bb28b99364e656817e",
+      "atom_id": "TREATATOM_97572209F0D1556DB3C6DA5D594C029B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "struct FP_I15_SymbolSpec { string symbol; double tick_size; double tick_value_loss; double volume_min; double volume_max; double volume_step; double stops_level_price; double freeze_level_price; };",
+          "line_digest": "sha256:bc402f7cd70dccf82aadc67bdfb9a45ee12f6d9c2ac177f5b7bda79a239465a2",
+          "line_number": 5
+        },
+        {
+          "excerpt": "struct FP_I15_Geometry { FP_I15_GEOMETRY_STATUS status; double entry; double worst_entry; double raw_stop; double spread; double adjusted_stop; double target; double stop_distance; string reason_code; };",
+          "line_digest": "sha256:1ad87b413e8e361f769ecdcdc158d2a107a343038a2aa9ef02e6a8a5dbfa9751",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:af8b076a914c3f1c644f0032028aa999d38a8ed1fc0d29749dc45414dbfca8b7",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_06DDA38EA3856589C9614AC2B0374BB8",
+    "RISKASM_38771E7593839DA1FA816C11915AC6CC",
+    "RISKASM_86A0E2F00E012F1A36A079CCC8C68FE6",
+    "RISKASM_896B14579C014AE0844AAE1C765A3D8D",
+    "RISKASM_AB1741DF82C1073AAEE1D74401F72420"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:72eb095f0228382e969e840561a881a245a1b5eef7d743072e44b5568c3a5e6c",
+    "sha256:37f98a744481aaeac66c6cf07fcea9fd9c12a0f99462e66bf7f5ce5a74e20bc2",
+    "sha256:436a94756c106dd5a89fc540daccf2d58ec5372875a300bb28b99364e656817e"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I15/FP_I15_Contracts.mqh",
+  "source_sha256": "sha256:72eb095f0228382e969e840561a881a245a1b5eef7d743072e44b5568c3a5e6c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_10EFCA3E49A7F9A7BF3C9C486329B8CC",
+  "treatment_package_id": "TREATPKG_3110F993D2B39FF05B126B01C602AE8B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

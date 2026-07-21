@@ -1,0 +1,76 @@
+{
+  "atom_ids": [
+    "TREATATOM_F1F878C45A49E276C800F7F0AC71A1C2"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ee5d7044f8ccf5642020e24f2a8bbc89499cc1b2626db58868d66cecc39dd8f2",
+      "atom_id": "TREATATOM_F1F878C45A49E276C800F7F0AC71A1C2",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "spread=float(profile[\"median_spread_bps\"])/2.0",
+          "line_digest": "sha256:4592f8f04a69c5eea22fc8bffc1dc42e85feb3f8d1898c4ae508ebab62a962b7",
+          "line_number": 11
+        },
+        {
+          "excerpt": "depth_penalty=max(0.0,abs(float(order_units))/float(profile[\"depth_units\"])-1.0)*spread*0.5",
+          "line_digest": "sha256:fc929cf63dce76722d463f3ec6c58414d6671aa1d4ea4a036bea6c2d327eb6a0",
+          "line_number": 15
+        },
+        {
+          "excerpt": "expected=spread+temporary+permanent+depth_penalty",
+          "line_digest": "sha256:ff30bae14c6b089d68ae9c81a06cbfd5d6a97fd6a67705abf8fe306e102a1c1d",
+          "line_number": 16
+        },
+        {
+          "excerpt": "return seal({\"phase\":\"SAED_V4_37\",\"instrument_id\":profile[\"instrument_id\"],\"order_units\":float(q(order_units)),\"side\":side,\"urgency\":float(q(urgency)),\"participation_rate\":float(q(participation)),\"half_spread_bps\":float(q(spread)),\"temporary_impact_bps\":float(q(temporary)),\"permanent_impact_bps\":float(q(permanent)),\"de",
+          "line_digest": "sha256:b1878ca1add973657931889d21cb0fdc4d171fc686972dd5a1ce373700c60387",
+          "line_number": 18
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2881450a12a6daa38fb41e528474923180c78d2b9373d6b61294f47459a81f8e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_51E4B15DCD50517F2B107219F976C41A"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:377678fe466569e1386e42fdf2cb36644d3279b1e2c0df007babf2e14cafca15",
+    "sha256:ee5d7044f8ccf5642020e24f2a8bbc89499cc1b2626db58868d66cecc39dd8f2"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_portfolio_execution_economics/impact.py",
+  "source_sha256": "sha256:377678fe466569e1386e42fdf2cb36644d3279b1e2c0df007babf2e14cafca15",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_7BEE865032F56C72B6A6B9AD44F5FD21",
+  "treatment_package_id": "TREATPKG_85BB3E4632DDDB8AEA20E6CD9E386A3B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

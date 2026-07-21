@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_0194B2BE8A9344118B9E0A836F6B00BC"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:332bf8ddf7e73d7180dd481bf2597dfe0d98c8790a2a8d2ffecabc22dd823579",
+      "atom_id": "TREATATOM_0194B2BE8A9344118B9E0A836F6B00BC",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "class TreatmentKind(str,Enum): ENTRY='entry'; STOP='stop'; TARGET='target'; TRAILING='trailing'; MANAGEMENT='management'; SIZING='sizing'",
+          "line_digest": "sha256:c2487dc69b38b704e7d0e8a7be1461346679b18de09ef27ab647952915d6f8d7",
+          "line_number": 2
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9420d0787ad80a26a769eab7203b1fb7a6f3ba3ff57b4364d2ed722baafae692",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:3988944626d887209c3160c88d5d4cec953964d000f2d600f1f8a678e4cf0f13",
+    "sha256:332bf8ddf7e73d7180dd481bf2597dfe0d98c8790a2a8d2ffecabc22dd823579"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatments_v3/enums.py",
+  "source_sha256": "sha256:3988944626d887209c3160c88d5d4cec953964d000f2d600f1f8a678e4cf0f13",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_656A7EB624D66F23AF6394DDFFD8721A",
+  "treatment_package_id": "TREATPKG_392AA85665B97176C1FE97B5C5BC0DD2",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

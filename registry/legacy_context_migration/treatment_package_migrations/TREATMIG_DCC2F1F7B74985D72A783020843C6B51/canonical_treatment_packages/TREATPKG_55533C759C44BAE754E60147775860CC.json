@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_40F374AA7654187E07FBB6E528F7B1F9"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ee13887b2e7d7bd747148de8dc38a60c02480edf2e5a0ee25b3d07d031534cf8",
+      "atom_id": "TREATATOM_40F374AA7654187E07FBB6E528F7B1F9",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "loss=(distance/spec.tick_size)*spec.tick_value_loss_per_lot*position.volume",
+          "line_digest": "sha256:04294a015f734dd7c6e44410ce36fa0af3df593a2200c1c0c443f71b5c6e3bc1",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:485489fbeb0d44138c12fd8a9a675f640828d3a6aa85e0462d5e3550e7c3e20a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_721736A1733E6DEFDE41E1BE5DECC267"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:374e9e2e71ca0e3a44d3ddeb12aad70693716c391598a406b2a579400ba63e10",
+    "sha256:ee13887b2e7d7bd747148de8dc38a60c02480edf2e5a0ee25b3d07d031534cf8"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/reconciliation.py",
+  "source_sha256": "sha256:374e9e2e71ca0e3a44d3ddeb12aad70693716c391598a406b2a579400ba63e10",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_35596CE3572E89E1E01412C57F934A6A",
+  "treatment_package_id": "TREATPKG_55533C759C44BAE754E60147775860CC",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

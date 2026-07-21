@@ -1,0 +1,3 @@
+from tools.strategy_factory.lcm.lcm_10b.execution_intent import build_execution_intent,validate_execution_intent
+def test_explicit_buy_limit_intent_passes(sample_package):
+ r={"decision_id":"D1","side":"BUY","symbol":"EURUSD","decision_time":"2026-01-01T10:00:00Z","availability_time":"2026-01-01T10:00:01Z","entry":{"kind":"LIMIT","price":"1.1000"},"stop":{"kind":"HARD","price":"1.0950"},"targets":[{"price":"1.1100","fraction":"1"}],"volume_request":{"mode":"EXPLICIT","value":"0.1","unit":"LOTS"}};i=build_execution_intent(sample_package,r);assert i["validation_status"]=="PASS";assert validate_execution_intent(i)["passed"];assert i["submission_requested"] is False

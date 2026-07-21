@@ -1,0 +1,95 @@
+{
+  "atom_ids": [
+    "TREATATOM_49226DE52E7AC9D0ABA030D075893E1C",
+    "TREATATOM_60490A6EB36A47D3F5C887CFED79C725",
+    "TREATATOM_81EE29AE116DC7E41394BFF2909C20EE"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4daa955fa92306cbd4e0c76b6240dab936b4723cb186d941a9a759e6b4578a1a",
+      "atom_id": "TREATATOM_49226DE52E7AC9D0ABA030D075893E1C",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "SF16_ExecutionIntent FixtureIntent(){SF16_ExecutionIntent i;i.intent_id=\"intent_sf17\";i.batch_id=\"batch\";i.candidate_id=\"candidate\";i.candidate_hash=\"candidate_hash\";i.context_frame_id=\"context\";i.strategy_id=\"reference\";i.strategy_version=\"1.0.0\";i.symbol=\"TEST\";i.group_id=\"indices\";i.direction=1;i.runtime_generation_",
+          "line_digest": "sha256:eafa45a26d990acb08b9b0b3000c49b6b7e3c19901ee86c5ab3f3403291e5fa4",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0d359892b254f9d1c82b253f04d7a157be034094d77184ca3a0be75092a2b2f1",
+      "atom_id": "TREATATOM_60490A6EB36A47D3F5C887CFED79C725",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "SF16_ExecutionIntent FixtureIntent(){SF16_ExecutionIntent i;i.intent_id=\"intent_sf17\";i.batch_id=\"batch\";i.candidate_id=\"candidate\";i.candidate_hash=\"candidate_hash\";i.context_frame_id=\"context\";i.strategy_id=\"reference\";i.strategy_version=\"1.0.0\";i.symbol=\"TEST\";i.group_id=\"indices\";i.direction=1;i.runtime_generation_",
+          "line_digest": "sha256:eafa45a26d990acb08b9b0b3000c49b6b7e3c19901ee86c5ab3f3403291e5fa4",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bac227f315532683e623009bd14a7416a4dbff7ff3da70c8dc6082e642d678ce",
+      "atom_id": "TREATATOM_81EE29AE116DC7E41394BFF2909C20EE",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "SF16_ExecutionIntent FixtureIntent(){SF16_ExecutionIntent i;i.intent_id=\"intent_sf17\";i.batch_id=\"batch\";i.candidate_id=\"candidate\";i.candidate_hash=\"candidate_hash\";i.context_frame_id=\"context\";i.strategy_id=\"reference\";i.strategy_version=\"1.0.0\";i.symbol=\"TEST\";i.group_id=\"indices\";i.direction=1;i.runtime_generation_",
+          "line_digest": "sha256:eafa45a26d990acb08b9b0b3000c49b6b7e3c19901ee86c5ab3f3403291e5fa4",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1569c7a26218196f191fdf8d329f3fddb83f1f3e07a29f3f58518ac3ab455ef8",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b5884253175d3bcef06a92a8881c507bab8bbc9a21ee0718360739b24f62b036",
+    "sha256:0d359892b254f9d1c82b253f04d7a157be034094d77184ca3a0be75092a2b2f1",
+    "sha256:4daa955fa92306cbd4e0c76b6240dab936b4723cb186d941a9a759e6b4578a1a",
+    "sha256:bac227f315532683e623009bd14a7416a4dbff7ff3da70c8dc6082e642d678ce"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactoryTests/SF17_PaperExecutionSelfTest.mq5",
+  "source_sha256": "sha256:b5884253175d3bcef06a92a8881c507bab8bbc9a21ee0718360739b24f62b036",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_33CA777B4E1F937E036403671D9A42E0",
+  "treatment_package_id": "TREATPKG_66AEF09E767F17609020AA049406F104",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

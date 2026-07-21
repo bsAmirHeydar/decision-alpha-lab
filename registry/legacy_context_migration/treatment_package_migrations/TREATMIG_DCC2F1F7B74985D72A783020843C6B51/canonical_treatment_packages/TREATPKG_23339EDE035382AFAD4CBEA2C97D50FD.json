@@ -1,0 +1,207 @@
+{
+  "atom_ids": [
+    "TREATATOM_17AF78068D7C00F31C5C8091D72175CD",
+    "TREATATOM_5965799E75350901FDCFF8E2711FE68B",
+    "TREATATOM_781EABCDA523DB2A992DE15122FB43CF",
+    "TREATATOM_E02C31F1F30BAC9E92591B5E68FE9832",
+    "TREATATOM_F4A3E9410560B52FE4B66747DE2D041D"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_MARKET",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_4273957A50F542A71DA01CF9F4E1C40A",
+    "EXECCAP_97EB86220F4D7659F6AAA9D25B30F62A",
+    "EXECCAP_FD17827144652CED9797E86DF78CCA8A"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:66bf90377bb5a7a1489470dea652fcbc475bb341334a92d9efc9bf226e783364",
+      "atom_id": "TREATATOM_17AF78068D7C00F31C5C8091D72175CD",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_reference_price\", \"stop_price\", \"take_profit_price\", \"risk_distance_price\", \"risk_money\", \"theoretical_volume\", \"requested_total_volume\", \"sent_total_volume\",",
+          "line_digest": "sha256:c500909d43301e62f92fb4a2b33f2b64ecc2492b8a143464e232baedd5a48398",
+          "line_number": 74
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_reference_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.risk_money, 2), DoubleToString(audit.theoretical_volume, 8), DoubleToString(audit.requested_total_volume, 8), DoubleToString",
+          "line_digest": "sha256:3190638481459b349a974bb7757cdcb5bf86f922f39880d854104845a44fe537",
+          "line_number": 84
+        },
+        {
+          "excerpt": "audit.stop_price = paper.stop_price;",
+          "line_digest": "sha256:01708ce3d46f712b497685bbb8dd5bbbab2a5e6c290fa6ac119114b2dc09aadb",
+          "line_number": 118
+        },
+        {
+          "excerpt": "ok = trade.Buy(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:dde418544bedb1db24a2d2be129d6d655d303ac53a2141caf56d00ee976721e3",
+          "line_number": 160
+        },
+        {
+          "excerpt": "ok = trade.Sell(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:5efbbbae10c1a35d12e1dd58cc073e45aee567dff975efc387bcbb379fac73fe",
+          "line_number": 162
+        },
+        {
+          "excerpt": "audit.rule_note = \"One or more magic-number real entry orders were sent with STC SL/TP. Remaining unsent volume, if any, is recorded in this audit row.\";",
+          "line_digest": "sha256:3b8eca40b0971548a849f9c82eb2f5f091e485cae623df3ed2ad4263c879e9f0",
+          "line_number": 262
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3c7086672e6378302381e7b7aa3e54df2fdc3b7e95ba65fc743a22654ac5c3ee",
+      "atom_id": "TREATATOM_5965799E75350901FDCFF8E2711FE68B",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_reference_price\", \"stop_price\", \"take_profit_price\", \"risk_distance_price\", \"risk_money\", \"theoretical_volume\", \"requested_total_volume\", \"sent_total_volume\",",
+          "line_digest": "sha256:c500909d43301e62f92fb4a2b33f2b64ecc2492b8a143464e232baedd5a48398",
+          "line_number": 74
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_reference_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.risk_money, 2), DoubleToString(audit.theoretical_volume, 8), DoubleToString(audit.requested_total_volume, 8), DoubleToString",
+          "line_digest": "sha256:3190638481459b349a974bb7757cdcb5bf86f922f39880d854104845a44fe537",
+          "line_number": 84
+        },
+        {
+          "excerpt": "audit.take_profit_price = paper.take_profit_price;",
+          "line_digest": "sha256:f5bdc5ab2a6949241bae2f7b487c7a08806bb631b7773ce9fc22d14b2a31186a",
+          "line_number": 119
+        },
+        {
+          "excerpt": "ok = trade.Buy(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:dde418544bedb1db24a2d2be129d6d655d303ac53a2141caf56d00ee976721e3",
+          "line_number": 160
+        },
+        {
+          "excerpt": "ok = trade.Sell(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:5efbbbae10c1a35d12e1dd58cc073e45aee567dff975efc387bcbb379fac73fe",
+          "line_number": 162
+        },
+        {
+          "excerpt": "audit.rule_note = \"One or more magic-number real entry orders were sent with STC SL/TP. Remaining unsent volume, if any, is recorded in this audit row.\";",
+          "line_digest": "sha256:3b8eca40b0971548a849f9c82eb2f5f091e485cae623df3ed2ad4263c879e9f0",
+          "line_number": 262
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2a5291cbd812355a470f2de9b2e5098a85e9a0bab95742e5d6ebdfe63f495e8d",
+      "atom_id": "TREATATOM_781EABCDA523DB2A992DE15122FB43CF",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "\"server_write_time\", \"ny_time\", \"stc_day_id\", \"runtime_mode\", \"run_id\", \"symbol1\", \"symbol2\", \"magic\",",
+          "line_digest": "sha256:44669481e84fcd983f7b882c7a5452fc51f02941119acca96bb8c5a7a33182fb",
+          "line_number": 71
+        },
+        {
+          "excerpt": "STC_TimeText(audit.server_time), STC_TimeText(audit.ny_time), audit.stc_day_id, STC_RuntimeModeText(cfg.runtime_mode), cfg.run_id, cfg.symbol1, cfg.symbol2, IntegerToString(cfg.magic_number),",
+          "line_digest": "sha256:27891e035bb4ef4a571b4762bcc3f7f038e48c5adf781540656eb01ea1d52762",
+          "line_number": 81
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(cfg.magic_number);",
+          "line_digest": "sha256:57d4dc41f585396cda14ba9db5ca7dc97ccff59ac8ee3c87d94b5736bc71e456",
+          "line_number": 154
+        },
+        {
+          "excerpt": "audit.rule_note = \"One or more magic-number real entry orders were sent with STC SL/TP. Remaining unsent volume, if any, is recorded in this audit row.\";",
+          "line_digest": "sha256:3b8eca40b0971548a849f9c82eb2f5f091e485cae623df3ed2ad4263c879e9f0",
+          "line_number": 262
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:37663cb1c1e05f06884593da4f8ccc7c70e79ea467bfbba7018d0df17728fafe",
+      "atom_id": "TREATATOM_E02C31F1F30BAC9E92591B5E68FE9832",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "audit.entry_reference_price = paper.entry_price;",
+          "line_digest": "sha256:dcdae95eaa50fc110bd0afa8d16a0bf4c570ebfe7f5cf5a0e25546a142ea378f",
+          "line_number": 117
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7dfffbb7e30a8d4979c4a351d4bf5111257d3fc097b2c33d6c5e6809545c07e2",
+      "atom_id": "TREATATOM_F4A3E9410560B52FE4B66747DE2D041D",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "ok = trade.Buy(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:dde418544bedb1db24a2d2be129d6d655d303ac53a2141caf56d00ee976721e3",
+          "line_number": 160
+        },
+        {
+          "excerpt": "ok = trade.Sell(volume, audit.trade_symbol, 0.0, audit.stop_price, audit.take_profit_price, comment);",
+          "line_digest": "sha256:5efbbbae10c1a35d12e1dd58cc073e45aee567dff975efc387bcbb379fac73fe",
+          "line_number": 162
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:82b12223d40cb0514798fa274fd4afe2b07319631d63241727eaaad7745edeb5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_FFE7F4BCE9CD8BCA0EE287F4A37F0AE0"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:65cdc9e2e3a18c1abf2092d27023901a7da0c3a2ef0238a8ddd734feb6348cc0",
+    "sha256:2a5291cbd812355a470f2de9b2e5098a85e9a0bab95742e5d6ebdfe63f495e8d",
+    "sha256:37663cb1c1e05f06884593da4f8ccc7c70e79ea467bfbba7018d0df17728fafe",
+    "sha256:3c7086672e6378302381e7b7aa3e54df2fdc3b7e95ba65fc743a22654ac5c3ee",
+    "sha256:66bf90377bb5a7a1489470dea652fcbc475bb341334a92d9efc9bf226e783364",
+    "sha256:7dfffbb7e30a8d4979c4a351d4bf5111257d3fc097b2c33d6c5e6809545c07e2"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_AutoEntry.mqh",
+  "source_sha256": "sha256:65cdc9e2e3a18c1abf2092d27023901a7da0c3a2ef0238a8ddd734feb6348cc0",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_EBA5A7BFFEC115C8126D1F913CC20E6A",
+  "treatment_package_id": "TREATPKG_23339EDE035382AFAD4CBEA2C97D50FD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

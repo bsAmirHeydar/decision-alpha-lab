@@ -1,0 +1,133 @@
+{
+  "atom_ids": [
+    "TREATATOM_22926137918D53DB901B20F192064B90",
+    "TREATATOM_24D2F030DA5602072302E2C69B02FE99",
+    "TREATATOM_6B6775BA21C9CC53AD243AB393198B3C",
+    "TREATATOM_A99F448C7DF05D20FB1B71F3886C0CED"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:a3184c812f9733bbae50ae2058b37467c81680b60c460458aa01542f4c332a3e",
+      "atom_id": "TREATATOM_22926137918D53DB901B20F192064B90",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double target_price;",
+          "line_digest": "sha256:12caefd465b68de14a3e89510a2926ebc73d14ad5cf36e5c18bed1a8e54ec112",
+          "line_number": 197
+        },
+        {
+          "excerpt": "s.target_price = 0.0;",
+          "line_digest": "sha256:1e66457d51fc255b675e18008d77d16598d3475be54cbbd9a64638b3560aeeeb",
+          "line_number": 429
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e509d9372d09a52d1766fed8c92fd8a9469705f559bb9a89d8b17502093247da",
+      "atom_id": "TREATATOM_24D2F030DA5602072302E2C69B02FE99",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_price;",
+          "line_digest": "sha256:3d9441f24e91ecba7625507d1b4e4a3cfd4f0b9a7fde3a1cf8a9a44a4595f394",
+          "line_number": 194
+        },
+        {
+          "excerpt": "s.stop_price = 0.0;",
+          "line_digest": "sha256:5da19fb8e101dc59e657cad6d888949f7bb012c89544088c45760ad31cc24bf3",
+          "line_number": 428
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:242b3a201e579a4cfcdc73dfeed521879dad79dcb1def6ea2d0535ec15415565",
+      "atom_id": "TREATATOM_6B6775BA21C9CC53AD243AB393198B3C",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 193
+        },
+        {
+          "excerpt": "s.entry_price = 0.0;",
+          "line_digest": "sha256:981853e1766dd6c134962f9b4d03a89885d196d0c5671f8902114b3931466ddf",
+          "line_number": 427
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:54b6d71a19b3a2fb231f23972b42abc51f643c1031448280769c600193f118ff",
+      "atom_id": "TREATATOM_A99F448C7DF05D20FB1B71F3886C0CED",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "long magic;",
+          "line_digest": "sha256:cd9af9c0a9ee400bf138c2dffc06cf7f5020a13dca572ca49d207eaac158e33a",
+          "line_number": 136
+        },
+        {
+          "excerpt": "cfg.magic = 310055;",
+          "line_digest": "sha256:b1248c65e1c508468f9d5e8261fe5c5e30ab797ab75e5771abd1094c93f0c212",
+          "line_number": 386
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:523b2d610e323724de9c5ab59f6a94e29ed0f761ecf3c063dd6a796298b2bf77",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b19cf962863764b15d37726927e602c1fba3bd7e00c0927f4072bd4c4f67696d",
+    "sha256:242b3a201e579a4cfcdc73dfeed521879dad79dcb1def6ea2d0535ec15415565",
+    "sha256:54b6d71a19b3a2fb231f23972b42abc51f643c1031448280769c600193f118ff",
+    "sha256:a3184c812f9733bbae50ae2058b37467c81680b60c460458aa01542f4c332a3e",
+    "sha256:e509d9372d09a52d1766fed8c92fd8a9469705f559bb9a89d8b17502093247da"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+  "source_sha256": "sha256:b19cf962863764b15d37726927e602c1fba3bd7e00c0927f4072bd4c4f67696d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F90CFEA29910E2EC7FAC1FB5B00113B0",
+  "treatment_package_id": "TREATPKG_9BEA3B8299D1E59D95EC8DEE89A857C3",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

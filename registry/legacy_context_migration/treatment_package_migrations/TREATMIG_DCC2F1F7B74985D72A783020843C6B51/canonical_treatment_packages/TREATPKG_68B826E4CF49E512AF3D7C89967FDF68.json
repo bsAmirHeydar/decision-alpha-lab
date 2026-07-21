@@ -1,0 +1,113 @@
+{
+  "atom_ids": [
+    "TREATATOM_0B4A432DF017C3757CF16BAC669210F1",
+    "TREATATOM_D23DE94B98B722510AE28D501AE2BF4A",
+    "TREATATOM_DE7EB0DE9DA76FC99C896ECFD6C9AB32"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:19eb6ef397b1f063838ce57d53c57b8a618132af7741915f3a2e3383c7a8cd6c",
+      "atom_id": "TREATATOM_0B4A432DF017C3757CF16BAC669210F1",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "spread_points=max(quote.spread/spec.point,model.spread_floor_points,model.spread_percentile_points if model.spread_source is SpreadSource.PERCENTILE_POINTS else Decimal('0'))",
+          "line_digest": "sha256:25e8656cf112c0bc3bdddf375326924119145186c5d241a493fca88045c2f5dc",
+          "line_number": 45
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:40a83e732373d2676817596765466075aeb2daf49ceff9f01a2c1668139d2927",
+      "atom_id": "TREATATOM_D23DE94B98B722510AE28D501AE2BF4A",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "def commission(self,model:CostModelDescriptor,volume,entry_price,exit_price,contract_size,entry_transactions=1,exit_transactions=1):",
+          "line_digest": "sha256:01808e07530a8626186d881e06d207a37218bc3f104e7b9dcb2624186357e3db",
+          "line_number": 29
+        },
+        {
+          "excerpt": "volume,entry_price,exit_price,contract_size=map(dec,(volume,entry_price,exit_price,contract_size)); total=Decimal('0')",
+          "line_digest": "sha256:fe4347f0ce53976ccd1b82714af1d495c96d22ce2472f73d9ecfeab066dcc4ee",
+          "line_number": 30
+        },
+        {
+          "excerpt": "notional=((entry_price+exit_price)/2)*contract_size*volume",
+          "line_digest": "sha256:4b36144da904863586e99fce8093e29eb14bc6e603816f42b38cafe9512f767f",
+          "line_number": 31
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:10b7500e78f05e81b58844b690a04dc1f1a79473a90c2051d5ebc25b92e30019",
+      "atom_id": "TREATATOM_DE7EB0DE9DA76FC99C896ECFD6C9AB32",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "SlippageRule('slippage.conservative',SlippageModelKind.ORDER_SIDE_POINTS,Decimal('2'),Decimal('2'),Decimal('3'),Decimal('3')),FinancingRule(),Decimal('0'),Decimal('0.5'),Decimal('1')))",
+          "line_digest": "sha256:865d7ad53c1e35ca50498130cb0a449cb27f08f53b0c31751fad0db548197349",
+          "line_number": 22
+        },
+        {
+          "excerpt": "SlippageRule('slippage.index',SlippageModelKind.VOLATILITY_SCALED,Decimal('1'),Decimal('1'),Decimal('2'),Decimal('2'),Decimal('0.05')),FinancingRule(FinancingBasis.NOTIONAL_ANNUAL_RATE,Decimal('0.08'),Decimal('0.08')),Decimal('0'),Decimal('1'),Decimal('1.05')))",
+          "line_digest": "sha256:fd66af316065e7a9a86b2cd65558971b494343d34e778cd208a8e429e821add5",
+          "line_number": 25
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:78a468c89a7e750c34e7afac71177039ced2916e8df4fcf7a6fddffb09db2818",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_2D2A73284572E730CB3B633BCBF1A5C2",
+    "RISKASM_2D97AA2A682C9A3B4AEB844DDF9EAA88",
+    "RISKASM_F3C184E7B1EB04D14C5245E2294A3079"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6f084378d539426d91624ed2fd02619dfd9fdd74431811c939bc01a191eb2e7b",
+    "sha256:10b7500e78f05e81b58844b690a04dc1f1a79473a90c2051d5ebc25b92e30019",
+    "sha256:19eb6ef397b1f063838ce57d53c57b8a618132af7741915f3a2e3383c7a8cd6c",
+    "sha256:40a83e732373d2676817596765466075aeb2daf49ceff9f01a2c1668139d2927"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/costs.py",
+  "source_sha256": "sha256:6f084378d539426d91624ed2fd02619dfd9fdd74431811c939bc01a191eb2e7b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0505754D7670D46249BA898FA5DE5CF4",
+  "treatment_package_id": "TREATPKG_68B826E4CF49E512AF3D7C89967FDF68",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

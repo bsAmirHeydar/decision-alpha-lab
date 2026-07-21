@@ -1,0 +1,240 @@
+{
+  "atom_ids": [
+    "TREATATOM_0188342A43A660AA8FF52E7E1AD5C6D7",
+    "TREATATOM_68BF6164EE79F82A6FD22C2538CDCD07",
+    "TREATATOM_90E4FEDC9305575C84A41EC96C29DC20"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4e8a74c985e0437b4028d998cfcdb6d06f08e60a9d68504ddf2b65f5815406e7",
+      "atom_id": "TREATATOM_0188342A43A660AA8FF52E7E1AD5C6D7",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "const double target_price)",
+          "line_digest": "sha256:3256700f49651c9b9047500a92a8a47be858d943cf75a6eace98e2b6dc67f7ac",
+          "line_number": 23
+        },
+        {
+          "excerpt": "return (stop_price < entry_price && target_price > entry_price);",
+          "line_digest": "sha256:357974828b731415108e17ced7cd44f0439a6d852df91abd571920acd3c8e9bf",
+          "line_number": 26
+        },
+        {
+          "excerpt": "return (stop_price > entry_price && target_price < entry_price);",
+          "line_digest": "sha256:d96f230fcf566151ef0b52c2e82dc07675fb6d47aa8d4045d779f6daba6153cb",
+          "line_number": 28
+        },
+        {
+          "excerpt": "const double target_price)",
+          "line_digest": "sha256:da9e61e6b5f80aa03d199fed661be4dacffb765151d5a1d5c9aea0644b21dc1c",
+          "line_number": 35
+        },
+        {
+          "excerpt": "if(target_price <= 0.0)",
+          "line_digest": "sha256:3501b62fb804bad61538282d24ed2b24ecbc501f0e967c5fd67ca6d9921a3c94",
+          "line_number": 43
+        },
+        {
+          "excerpt": "if(FP_L21DirectionalGeometryOk(direction, entry_price, stop_price, target_price))",
+          "line_digest": "sha256:8ab37320fcc044f4923cbb08458ccaac150a0d532fb3a0d93c85343066be6dff",
+          "line_number": 46
+        },
+        {
+          "excerpt": "row.target_price = bridge_row.destination_anchor_price;",
+          "line_digest": "sha256:9cf13e1e12f7720a18afa5481b5278236e3f16bba246d0c525d4ed33728f199a",
+          "line_number": 94
+        },
+        {
+          "excerpt": "row.geometry_status = FP_L21GeometryStatus(row.direction, row.entry_price, row.stop_price, row.target_price);",
+          "line_digest": "sha256:e0a61e50c64912ed68490c0bff42be2d92c7ad9246b17f21e56c02aaf423efcb",
+          "line_number": 113
+        },
+        {
+          "excerpt": "else if(row.target_price <= 0.0)",
+          "line_digest": "sha256:d40fd6d1ea792ed746819fe07dc6dfada77c179c5db523775540a9fc4434cc75",
+          "line_number": 139
+        },
+        {
+          "excerpt": "row.block_reason = \"target_price_missing\";",
+          "line_digest": "sha256:9085a7522feea85e4681af9c69b8f6c2d2724d0d83e30fff343b393b11efe526",
+          "line_number": 143
+        },
+        {
+          "excerpt": "else if(cfg.require_directional_geometry && !FP_L21DirectionalGeometryOk(row.direction, row.entry_price, row.stop_price, row.target_price))",
+          "line_digest": "sha256:47d9cefd4b28e6d0224e6035aa51e2c06c0d7efd1fa403524465f2e01fa1394e",
+          "line_number": 157
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0ed64b745b366d8f0f8ee5a8f8cc40dbfc7204916811c633c71f2d2a76f92a08",
+      "atom_id": "TREATATOM_68BF6164EE79F82A6FD22C2538CDCD07",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:548d2bb10ffd2d564d5747a38617a8ea5fab9201afda1727a9e1d8d0783c2422",
+          "line_number": 21
+        },
+        {
+          "excerpt": "return (stop_price < entry_price && target_price > entry_price);",
+          "line_digest": "sha256:357974828b731415108e17ced7cd44f0439a6d852df91abd571920acd3c8e9bf",
+          "line_number": 26
+        },
+        {
+          "excerpt": "return (stop_price > entry_price && target_price < entry_price);",
+          "line_digest": "sha256:d96f230fcf566151ef0b52c2e82dc07675fb6d47aa8d4045d779f6daba6153cb",
+          "line_number": 28
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:eaba99e3b4a533b25598a4865adb16b3ae6cda2e226c28c475cd19c4d6808c6b",
+          "line_number": 33
+        },
+        {
+          "excerpt": "if(entry_price <= 0.0)",
+          "line_digest": "sha256:c4f68ada9578cd6dabd440681bcd767cba8c4684140fe8fcc7e36c7a9b6f933e",
+          "line_number": 39
+        },
+        {
+          "excerpt": "if(FP_L21DirectionalGeometryOk(direction, entry_price, stop_price, target_price))",
+          "line_digest": "sha256:8ab37320fcc044f4923cbb08458ccaac150a0d532fb3a0d93c85343066be6dff",
+          "line_number": 46
+        },
+        {
+          "excerpt": "row.entry_price = bridge_row.entry_anchor_price;",
+          "line_digest": "sha256:b446c75e0d2862e34399e46133c145883db7eb3a951750daf7c2d6296b7ca27d",
+          "line_number": 92
+        },
+        {
+          "excerpt": "row.geometry_status = FP_L21GeometryStatus(row.direction, row.entry_price, row.stop_price, row.target_price);",
+          "line_digest": "sha256:e0a61e50c64912ed68490c0bff42be2d92c7ad9246b17f21e56c02aaf423efcb",
+          "line_number": 113
+        },
+        {
+          "excerpt": "else if(row.entry_price <= 0.0)",
+          "line_digest": "sha256:5af6ab978ac608a1175ca02c5bb7e2f11f9415ef1ba3f5883e06ee1534cb7a33",
+          "line_number": 127
+        },
+        {
+          "excerpt": "else if(cfg.require_directional_geometry && !FP_L21DirectionalGeometryOk(row.direction, row.entry_price, row.stop_price, row.target_price))",
+          "line_digest": "sha256:47d9cefd4b28e6d0224e6035aa51e2c06c0d7efd1fa403524465f2e01fa1394e",
+          "line_number": 157
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:255d62e6c2a88ada0c98b6b41824fc22339a04acc62dfb52c98b717f854bde54",
+      "atom_id": "TREATATOM_90E4FEDC9305575C84A41EC96C29DC20",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:eb6a068581dc34fa3420d33e105fb4b146f9eca128f72c2917f05d7a47d3f3d8",
+          "line_number": 22
+        },
+        {
+          "excerpt": "return (stop_price < entry_price && target_price > entry_price);",
+          "line_digest": "sha256:357974828b731415108e17ced7cd44f0439a6d852df91abd571920acd3c8e9bf",
+          "line_number": 26
+        },
+        {
+          "excerpt": "return (stop_price > entry_price && target_price < entry_price);",
+          "line_digest": "sha256:d96f230fcf566151ef0b52c2e82dc07675fb6d47aa8d4045d779f6daba6153cb",
+          "line_number": 28
+        },
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:affd728897f2ca67d1d0a1d19b9071d869df7b0f1f6f3f2f5aa521f0dca121ec",
+          "line_number": 34
+        },
+        {
+          "excerpt": "if(stop_price <= 0.0)",
+          "line_digest": "sha256:89dca65cf0403760bccd13666d87d8561df9ec36c88dae83623542de0c121a61",
+          "line_number": 41
+        },
+        {
+          "excerpt": "if(FP_L21DirectionalGeometryOk(direction, entry_price, stop_price, target_price))",
+          "line_digest": "sha256:8ab37320fcc044f4923cbb08458ccaac150a0d532fb3a0d93c85343066be6dff",
+          "line_number": 46
+        },
+        {
+          "excerpt": "row.stop_price = bridge_row.invalidation_anchor_price;",
+          "line_digest": "sha256:2622948c2925ffb637704f95d9e7c850253cf6bf6a1ec80c35ef41d5f9f65b9f",
+          "line_number": 93
+        },
+        {
+          "excerpt": "row.geometry_status = FP_L21GeometryStatus(row.direction, row.entry_price, row.stop_price, row.target_price);",
+          "line_digest": "sha256:e0a61e50c64912ed68490c0bff42be2d92c7ad9246b17f21e56c02aaf423efcb",
+          "line_number": 113
+        },
+        {
+          "excerpt": "else if(row.stop_price <= 0.0)",
+          "line_digest": "sha256:0c58f2c31ece3a198fdb581f0b17a8cc74468f2050f4685fc938da52f05057a3",
+          "line_number": 133
+        },
+        {
+          "excerpt": "row.block_reason = \"stop_price_missing\";",
+          "line_digest": "sha256:152b9284d4fc75f00509a8d949f65df554e518996cef480e7a6ff309b75c65fe",
+          "line_number": 137
+        },
+        {
+          "excerpt": "else if(cfg.require_directional_geometry && !FP_L21DirectionalGeometryOk(row.direction, row.entry_price, row.stop_price, row.target_price))",
+          "line_digest": "sha256:47d9cefd4b28e6d0224e6035aa51e2c06c0d7efd1fa403524465f2e01fa1394e",
+          "line_number": 157
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:58dd7e72f6a4e9f154b95dd7771960d65f4a7e6f27ff82de96f32057e981e6aa",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:30549cf46249478b437405d59b33bb5735d7fb9f31d7ed074a30e3cd8d380a03",
+    "sha256:0ed64b745b366d8f0f8ee5a8f8cc40dbfc7204916811c633c71f2d2a76f92a08",
+    "sha256:255d62e6c2a88ada0c98b6b41824fc22339a04acc62dfb52c98b717f854bde54",
+    "sha256:4e8a74c985e0437b4028d998cfcdb6d06f08e60a9d68504ddf2b65f5815406e7"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_PaperIntentRules.mqh",
+  "source_sha256": "sha256:30549cf46249478b437405d59b33bb5735d7fb9f31d7ed074a30e3cd8d380a03",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D0E3DE26D3EEE3C27A061CF2505805E8",
+  "treatment_package_id": "TREATPKG_FC407932997D2F20F9E754652101C582",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

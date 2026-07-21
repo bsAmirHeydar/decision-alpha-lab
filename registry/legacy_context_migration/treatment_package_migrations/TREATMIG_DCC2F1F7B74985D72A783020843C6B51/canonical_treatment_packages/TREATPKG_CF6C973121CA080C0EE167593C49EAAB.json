@@ -1,0 +1,135 @@
+{
+  "atom_ids": [
+    "TREATATOM_49DA44C749C10B943FA97F475291DAC3",
+    "TREATATOM_588EC04B1D94F9B4CAC13CFEF1C1CB8E",
+    "TREATATOM_B6BC301664484E9E5FCD44A95C67EDA6",
+    "TREATATOM_EC42A2F43B49566DD0732CCF6E6F2175"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:851c3af3ada4f66abf13ca76178aa71e2b182998eace229b7eaa6285a5595699",
+      "atom_id": "TREATATOM_49DA44C749C10B943FA97F475291DAC3",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "partial.rule_note = \"Locked owner rule: Partial OFF disables partial accounting but does not cancel SL/TP simulation\";",
+          "line_digest": "sha256:374bca696c8603c36d0c4bd886dc5e530615af4e0161faa7ef13bc90cf1ee78e",
+          "line_number": 139
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9fb41c4e34132be3f2b0e7e849f5b76401639154e74956e4dc591db1dbd94154",
+      "atom_id": "TREATATOM_588EC04B1D94F9B4CAC13CFEF1C1CB8E",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "partial.take_profit_price = paper.take_profit_price;",
+          "line_digest": "sha256:88d1d04949a584e655cdbc9c50477f664c06c8f5504907361551d9b61215b177",
+          "line_number": 105
+        },
+        {
+          "excerpt": "partial.rule_note = \"Locked owner rule: Partial OFF disables partial accounting but does not cancel SL/TP simulation\";",
+          "line_digest": "sha256:374bca696c8603c36d0c4bd886dc5e530615af4e0161faa7ef13bc90cf1ee78e",
+          "line_number": 139
+        },
+        {
+          "excerpt": "partial.rule_note = \"TP, SL, ambiguity, or rejection occurred before the W4 partial checkpoint\";",
+          "line_digest": "sha256:4f4c2eac4a2dddbda3e46aa8efa47d13dddddc8ee472305e8ee18c147de73d40",
+          "line_number": 179
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e445a324d4e3082bb99a62975f26bbb5a421d4aca7350f7839bf13d5b1f68d5d",
+      "atom_id": "TREATATOM_B6BC301664484E9E5FCD44A95C67EDA6",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "partial.stop_price = paper.stop_price;",
+          "line_digest": "sha256:2d3bdeea2f8d78092a66da6a5eda8e2b2f68d7fc64cdfb75cbefe8a7cb57b837",
+          "line_number": 104
+        },
+        {
+          "excerpt": "partial.rule_note = \"Locked owner rule: Partial OFF disables partial accounting but does not cancel SL/TP simulation\";",
+          "line_digest": "sha256:374bca696c8603c36d0c4bd886dc5e530615af4e0161faa7ef13bc90cf1ee78e",
+          "line_number": 139
+        },
+        {
+          "excerpt": "partial.rule_note = \"TP, SL, ambiguity, or rejection occurred before the W4 partial checkpoint\";",
+          "line_digest": "sha256:4f4c2eac4a2dddbda3e46aa8efa47d13dddddc8ee472305e8ee18c147de73d40",
+          "line_number": 179
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:17c00fcaf2b22f169f53168db565ad51ae29aaabd8d9cc1f8eb552661fdff160",
+      "atom_id": "TREATATOM_EC42A2F43B49566DD0732CCF6E6F2175",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "partial.entry_price = paper.entry_price;",
+          "line_digest": "sha256:52caf1ca00de714c2249dbecafc6cfd68225fa96bfa4c57e18e057c5ca7ca495",
+          "line_number": 103
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d1fa57da1d60fbe72af8b03ff4160baf5176869a7af99278f41eb43561fa9afc",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_7F0C217FA0D179ACC988884CAF904409"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:82542c6414fde5ce6ba62b7154ab642b779b171f38ed0bfcc6cbcfd501f4ef8d",
+    "sha256:17c00fcaf2b22f169f53168db565ad51ae29aaabd8d9cc1f8eb552661fdff160",
+    "sha256:851c3af3ada4f66abf13ca76178aa71e2b182998eace229b7eaa6285a5595699",
+    "sha256:9fb41c4e34132be3f2b0e7e849f5b76401639154e74956e4dc591db1dbd94154",
+    "sha256:e445a324d4e3082bb99a62975f26bbb5a421d4aca7350f7839bf13d5b1f68d5d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Partial.mqh",
+  "source_sha256": "sha256:82542c6414fde5ce6ba62b7154ab642b779b171f38ed0bfcc6cbcfd501f4ef8d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B993426653B427E30E62F30E87C742F5",
+  "treatment_package_id": "TREATPKG_CF6C973121CA080C0EE167593C49EAAB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

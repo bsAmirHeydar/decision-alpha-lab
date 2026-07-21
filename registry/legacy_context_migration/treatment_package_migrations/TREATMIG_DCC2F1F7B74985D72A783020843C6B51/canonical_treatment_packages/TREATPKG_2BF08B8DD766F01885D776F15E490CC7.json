@@ -1,0 +1,87 @@
+{
+  "atom_ids": [
+    "TREATATOM_00342379E84C2A7A1B415C9AD00963A7",
+    "TREATATOM_5632A0644E1E77E3F9C908E326F46EB9"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_27F28BF0E38F051E8D4D6B08261B4C3F",
+    "EXECCAP_84FA54008E4966FE0943E3964A0FF380"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:37a32970e6522e97fa7f01c49537d139cb8ffcfc7e3cfb23a2d384e487207a64",
+      "atom_id": "TREATATOM_00342379E84C2A7A1B415C9AD00963A7",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "@pytest.mark.parametrize('spread',[0,1,5,25,100])",
+          "line_digest": "sha256:2a7021855c112610c2c898b664f8f39c51fadaaedc44f9a6581164b129045726",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:df4571e2361e42af2c47a218f07cee5b887af29564c22d7673d7e0a6c4764ec5",
+      "atom_id": "TREATATOM_5632A0644E1E77E3F9C908E326F46EB9",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "def test_capacity_spread_is_monotonic(spread):",
+          "line_digest": "sha256:759b55e0ceb2e12a960683b632f8c399fbd78f77bb9100bc93ef630234d8e11b",
+          "line_number": 12
+        },
+        {
+          "excerpt": "c=golden_batch().candidates[0];q=estimate_capacity(c,2000,spread_bps=spread);assert q.degraded_utility<=c.utility_mean",
+          "line_digest": "sha256:70a4619659d99044a362f3880b5dcf94f9c04d95b0cf84f429a750bafd8bee7f",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:721d0364c8fd9de81d2e2814e9eeb16658d5aefab295f8a44a4082e00a2e066a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_0F5863F2A72721D4E6B196AE79ADBF13",
+    "RISKASM_2B7187CBF3725B6AC46522871E1FC08B"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:926f69909dbaee7ad9cf8d69bbdfd9d2d04776c6632ff95b57d8578579691ea6",
+    "sha256:37a32970e6522e97fa7f01c49537d139cb8ffcfc7e3cfb23a2d384e487207a64",
+    "sha256:df4571e2361e42af2c47a218f07cee5b887af29564c22d7673d7e0a6c4764ec5"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i17_portfolio/test_i17_parameter_matrix.py",
+  "source_sha256": "sha256:926f69909dbaee7ad9cf8d69bbdfd9d2d04776c6632ff95b57d8578579691ea6",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A2D2D8A282EAC58B2AF043F3F4972532",
+  "treatment_package_id": "TREATPKG_2BF08B8DD766F01885D776F15E490CC7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

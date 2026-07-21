@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_0E1986A8DC339F3DCBB2A8D486FFA1E5",
+    "TREATATOM_8033780C39C5B9DDF92E7966672EBF12"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c4c6be95c9ca92dd091abf3ceaaa61e7b965db7b6aaa11974f19c6ce69aa1b0d",
+      "atom_id": "TREATATOM_0E1986A8DC339F3DCBB2A8D486FFA1E5",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "\"*tp=\", DoubleToString(candidates[i].tp, _Digits),",
+          "line_digest": "sha256:fbdd60966ddeeee070cd4376128b7638e4f7bb0daa9043181b8385676e69f07e",
+          "line_number": 245
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:70dce8c4fe32b6b10bfdb97314dd9777284950a529a568d9f120701703443a2e",
+      "atom_id": "TREATATOM_8033780C39C5B9DDF92E7966672EBF12",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "\"*sl=\", DoubleToString(candidates[i].sl, _Digits),",
+          "line_digest": "sha256:14b996b0d1b3e36b85e0134771e2b33a531772a87cf4500d646b213259b60511",
+          "line_number": 244
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:75bf6d2d49eb485e86c3c4beca81f56cd13175aa626a12c14bd3cae6f7ae73aa",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:5e59060dbff6b4e70a20eec87bcd3217ef8057662905d463f973f05d90a3c60a",
+    "sha256:70dce8c4fe32b6b10bfdb97314dd9777284950a529a568d9f120701703443a2e",
+    "sha256:c4c6be95c9ca92dd091abf3ceaaa61e7b965db7b6aaa11974f19c6ce69aa1b0d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/Execution/E0007_PurpleSourceExtremeExecutor.mq5",
+  "source_sha256": "sha256:5e59060dbff6b4e70a20eec87bcd3217ef8057662905d463f973f05d90a3c60a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_359E62A65188A937B73099F1BEB0B075",
+  "treatment_package_id": "TREATPKG_5BE4883032DCCA7979747B8A7676D072",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

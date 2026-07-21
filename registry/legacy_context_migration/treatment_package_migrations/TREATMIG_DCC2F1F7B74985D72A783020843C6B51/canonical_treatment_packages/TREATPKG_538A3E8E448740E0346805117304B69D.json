@@ -1,0 +1,79 @@
+{
+  "atom_ids": [
+    "TREATATOM_C946CBC1922F468839270548826844D5"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1e2af6e6103837580aed655475e2a7b5abc9bbb816413df07a7d1c01258b49fa",
+      "atom_id": "TREATATOM_C946CBC1922F468839270548826844D5",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "trailing=0",
+          "line_digest": "sha256:f7f3406a632d362f7ffe658cf7958e76486ad3219928c6c8dd05c05ad3e23370",
+          "line_number": 26
+        },
+        {
+          "excerpt": "trailing+=1",
+          "line_digest": "sha256:f692c1a26def6f7a5f76085c2802ae3996c4b93733f85461b0e7c18016160c99",
+          "line_number": 29
+        },
+        {
+          "excerpt": "latest=rows[-1];latest_level=levels[-1];persistent=trailing>=policy[\"persistence_windows\"]",
+          "line_digest": "sha256:98f4dc21afbdb5ffdea6c244f02a09cb1d98698e48b2356fdf90e5b19ac1782b",
+          "line_number": 30
+        },
+        {
+          "excerpt": "summary={\"cell_id\":cell_id,\"metric_id\":metric_id,\"latest_level\":latest_level,\"latest_value\":latest[\"value\"],\"baseline_value\":latest[\"baseline_value\"],\"trailing_breach_windows\":trailing,\"persistent\":persistent,\"weighted_score\":score,\"detectors\":detector_rows,\"summary_hash\":content_hash([cell_id,metric_id,levels,score])}",
+          "line_digest": "sha256:e96bc4e9a5491ac733d9b9e7f0f0bef4b4101af635e727a01886c1c61ef996c6",
+          "line_number": 40
+        },
+        {
+          "excerpt": "alerts.append({\"alert_id\":f\"ALERT_{cell_id}_{metric_id}\",\"cell_id\":cell_id,\"metric_id\":metric_id,\"severity\":latest_level,\"weighted_score\":score,\"trailing_breach_windows\":trailing,\"known_time\":latest[\"known_time\"],\"reason\":\"PERSISTENT_CRITICAL_BREACH\" if latest_level==\"CRITICAL\" else \"PERSISTENT_WARNING_BREACH\",\"future_",
+          "line_digest": "sha256:ecde50228615401610d5375a9ce037e7acc455fac6da6b19b00d4ba0171b12b1",
+          "line_number": 43
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8c1682a2935afa93ff62e8f71cbdf9d3b38a1bef3be1860a5cf97c60e67bfd84",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:714bb36b28cc01c8f6d101d68aeffb9ccaee573854e54d3612d9cd4893301ea0",
+    "sha256:1e2af6e6103837580aed655475e2a7b5abc9bbb816413df07a7d1c01258b49fa"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_continuous_surveillance_retirement/detectors.py",
+  "source_sha256": "sha256:714bb36b28cc01c8f6d101d68aeffb9ccaee573854e54d3612d9cd4893301ea0",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_6DA0372F1230BF1C80C4A08F2D6B8362",
+  "treatment_package_id": "TREATPKG_538A3E8E448740E0346805117304B69D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

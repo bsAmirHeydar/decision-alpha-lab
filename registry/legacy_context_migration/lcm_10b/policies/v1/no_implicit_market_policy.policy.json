@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "market_with_limit_price": "BLOCK",
+  "missing_entry_kind": "BLOCK",
+  "missing_pending_price": "BLOCK",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:d57068a7ec74b02eae66f7b22511d08e4897e2613a5f832e51bc1f82dc226411",
+  "policy_id": "LCM10BPOLICY_AFC62E15E6ECC58B5D08A0553ECBC705",
+  "policy_name": "no_implicit_market_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

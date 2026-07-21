@@ -1,0 +1,240 @@
+{
+  "atom_ids": [
+    "TREATATOM_14494659EAE8D0E1D01C723CA3E85354",
+    "TREATATOM_4E6372FEF9FC7C83440301342FA62C45",
+    "TREATATOM_AB99B6F20E777382352B94CD5AEE00ED",
+    "TREATATOM_E3BB331FBB7DCACD29601D14326063E5"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_219E7258FBA6E25E4008A43BEEE5DEE4"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:77ec9320d79a763712a34c4f03868979e450f3b096ca93ff9666be83c83dcbaa",
+      "atom_id": "TREATATOM_14494659EAE8D0E1D01C723CA3E85354",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "outcome.entry_price = paper.entry_price;",
+          "line_digest": "sha256:0b056f2f79e90e425f8ef564cfa423aec4948efac97dc3a0b303ad6c95d6cb13",
+          "line_number": 206
+        },
+        {
+          "excerpt": "outcome.floating_r_at_last_check = (c - paper.entry_price) / paper.risk_distance_price;",
+          "line_digest": "sha256:69377bb2a0602f084fcfd4aa505f4a89df840c2718cc91418f9e2def98467449",
+          "line_number": 312
+        },
+        {
+          "excerpt": "outcome.floating_r_at_last_check = (paper.entry_price - c) / paper.risk_distance_price;",
+          "line_digest": "sha256:e2b6a6a94e2181864905a0c083b23c29ce69b4c3735382d95a31043f9c6ff9d8",
+          "line_number": 319
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:fb324f8ad06683486150b5d91d65e5760e29b7174882e5e5189c94e3f90656da",
+      "atom_id": "TREATATOM_4E6372FEF9FC7C83440301342FA62C45",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "outcome.take_profit_price = paper.take_profit_price;",
+          "line_digest": "sha256:c25e51835df18c965a6345d6abee36123556e8736eee878ae01de7caea0ef93c",
+          "line_number": 208
+        },
+        {
+          "excerpt": "bool tp = false;",
+          "line_digest": "sha256:69a29f376058e818e4b07dea42bcb845ba0cecc4a3bfd11b795f540797933e4d",
+          "line_number": 305
+        },
+        {
+          "excerpt": "tp = (h >= paper.take_profit_price);",
+          "line_digest": "sha256:eef36b03f693e53384ca5bce90a02552933f8077b46e26e00fb7cb78149a966d",
+          "line_number": 309
+        },
+        {
+          "excerpt": "tp = (l <= paper.take_profit_price);",
+          "line_digest": "sha256:147df29710d7ff635c2bd84ef663cb077e323a52e331015455545d131c3cb9f1",
+          "line_number": 316
+        },
+        {
+          "excerpt": "if(tp || sl)",
+          "line_digest": "sha256:6bbde027044d63e4181a00e4d58a8d50b8aa9444dfba79403b277bd24f43b4a0",
+          "line_number": 322
+        },
+        {
+          "excerpt": "outcome.tp_hit = tp;",
+          "line_digest": "sha256:267779ce747e3845eb8364505c9e9586cb2f3d7fc05ec01061718c397fa2c46f",
+          "line_number": 327
+        },
+        {
+          "excerpt": "if(tp && sl)",
+          "line_digest": "sha256:cf9a0b2103e0b0c025b5f44abf559925523d377741704a28166cdf114af95677",
+          "line_number": 331
+        },
+        {
+          "excerpt": "outcome.rule_note = \"Owner locked rule: if SL and TP are both touched in the same check candle, report AMBIGUOUS instead of forcing a fake order path\";",
+          "line_digest": "sha256:1302e0b4260e8dc921efb117e9b2471c2be610fb02f6967c4dc31e69de6298e3",
+          "line_number": 337
+        },
+        {
+          "excerpt": "else if(tp)",
+          "line_digest": "sha256:310b98cf9ebd6fd95decf17ff39d1276e5aabaadbe57c78358ebd91bfe36543e",
+          "line_number": 339
+        },
+        {
+          "excerpt": "outcome.exit_price = paper.take_profit_price;",
+          "line_digest": "sha256:a61716674d2cfc73ce112ec5b6286d6a6d37e268cee081daa433a2243d0a2d53",
+          "line_number": 342
+        },
+        {
+          "excerpt": "outcome.rule_note = \"Paper TP hit by check-candle high/low on the traded clean symbol\";",
+          "line_digest": "sha256:02f9f822949302e8e93595c6fbd3127f2a8b554fa5602602b99399e9c774e7cf",
+          "line_number": 344
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:73a7e9c74056f4adc9be3df7041b8fd37577d1abf4a25e563fcd4592f51f14a5",
+      "atom_id": "TREATATOM_AB99B6F20E777382352B94CD5AEE00ED",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "outcome.stop_price = paper.stop_price;",
+          "line_digest": "sha256:abb6a25b7bbb1b1f6156943bd0a7cea14277b7a059ac5f1908754d293850c823",
+          "line_number": 207
+        },
+        {
+          "excerpt": "bool sl = false;",
+          "line_digest": "sha256:b76623d96cacccbb59ca22dd15496e334f45336e81bb9c5344fe92f9dd7948fe",
+          "line_number": 306
+        },
+        {
+          "excerpt": "sl = (l <= paper.stop_price);",
+          "line_digest": "sha256:13a4310f501512c7354556ec3268b95b9f60493260f75afda658ca9c2b197b2c",
+          "line_number": 310
+        },
+        {
+          "excerpt": "sl = (h >= paper.stop_price);",
+          "line_digest": "sha256:76f1424fc8fd2c9e61ffa3b3a7ef193b40d26fee5cda0018cc025e44b51db09e",
+          "line_number": 317
+        },
+        {
+          "excerpt": "if(tp || sl)",
+          "line_digest": "sha256:6bbde027044d63e4181a00e4d58a8d50b8aa9444dfba79403b277bd24f43b4a0",
+          "line_number": 322
+        },
+        {
+          "excerpt": "outcome.sl_hit = sl;",
+          "line_digest": "sha256:78a90b59f45ccbe4a5bc480611797b741f09430fed44b8a2c231855a5c6efb7f",
+          "line_number": 328
+        },
+        {
+          "excerpt": "if(tp && sl)",
+          "line_digest": "sha256:cf9a0b2103e0b0c025b5f44abf559925523d377741704a28166cdf114af95677",
+          "line_number": 331
+        },
+        {
+          "excerpt": "outcome.rule_note = \"Owner locked rule: if SL and TP are both touched in the same check candle, report AMBIGUOUS instead of forcing a fake order path\";",
+          "line_digest": "sha256:1302e0b4260e8dc921efb117e9b2471c2be610fb02f6967c4dc31e69de6298e3",
+          "line_number": 337
+        },
+        {
+          "excerpt": "outcome.exit_price = paper.stop_price;",
+          "line_digest": "sha256:fa97af7985cdee9dfba00b9502693522d023c132b3d24ee79b072faa1990d50e",
+          "line_number": 349
+        },
+        {
+          "excerpt": "outcome.rule_note = \"Paper SL hit by check-candle high/low on the traded clean symbol\";",
+          "line_digest": "sha256:de5ddd60e52eee1df36bc8c24562576d1351af288190dd886a78fbb1cc0751aa",
+          "line_number": 351
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:dee6c7387015b07bc0d9131368af9da07b767cd3e07744d5d130442d7e380c69",
+      "atom_id": "TREATATOM_E3BB331FBB7DCACD29601D14326063E5",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(outcome.trade_symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fbf8e7a04255feb52a0efc6b2cf2666ca8ae791267054da6d7c0e4753594d1b0",
+          "line_number": 234
+        },
+        {
+          "excerpt": "double tick_size = SymbolInfoDouble(outcome.trade_symbol, SYMBOL_TRADE_TICK_SIZE);",
+          "line_digest": "sha256:82c474d168cf47ad2f50f4be5d031417d261e4f038643e577e1cfec3932a6112",
+          "line_number": 235
+        },
+        {
+          "excerpt": "if(tick_size > 0.0 && tick_value > 0.0)",
+          "line_digest": "sha256:64d03aab7f189536a4b1604faad67ace13c060712ad805d1e650f427df9c4cb5",
+          "line_number": 238
+        },
+        {
+          "excerpt": "money_per_price_unit = tick_value / tick_size;",
+          "line_digest": "sha256:0c0fab80185be5128821e117af11d195239472b95462f5a267696ea471e43abb",
+          "line_number": 239
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6b13e2f4fbe8f8d07714060b8d73f23d8151b2652f7ecb51751983b7d1675b62",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_033EC6905E529E42ED1B99C48C7FB6FC",
+    "RISKASM_448499E10ABC4FF75F0EAA6A2D0645C0",
+    "RISKASM_44E800F810F27DC97E6E0E77BD49B3DE",
+    "RISKASM_E9D54BBD84C6377721BB29655E174D6E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:32548e4c49f205b4499fc70a00b71f0d68660195112ce4dd36a98ed08e60e74a",
+    "sha256:73a7e9c74056f4adc9be3df7041b8fd37577d1abf4a25e563fcd4592f51f14a5",
+    "sha256:77ec9320d79a763712a34c4f03868979e450f3b096ca93ff9666be83c83dcbaa",
+    "sha256:dee6c7387015b07bc0d9131368af9da07b767cd3e07744d5d130442d7e380c69",
+    "sha256:fb324f8ad06683486150b5d91d65e5760e29b7174882e5e5189c94e3f90656da"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Outcome.mqh",
+  "source_sha256": "sha256:32548e4c49f205b4499fc70a00b71f0d68660195112ce4dd36a98ed08e60e74a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_84BD736E399A1D7FD1F8450E6DE69690",
+  "treatment_package_id": "TREATPKG_9F39677148788E4F1AF34F5FA0780A27",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

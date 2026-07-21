@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_71B27EE3A588B95CAD394357F404EB6A"
+  ],
+  "atom_types": [
+    "RECONCILIATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_5890C301FF0E2A7D565F01103D4B0FFB",
+    "EXECCAP_7ADC9D861D564B1C53DC1F41FEA5239E",
+    "EXECCAP_8467F0971DB2BEFC18EA4BD8E13E277D"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1787ea837b3b12aaa201cec2fa33cdc88b6bf34aed36ba40f24ac85f8beafa8f",
+      "atom_id": "TREATATOM_71B27EE3A588B95CAD394357F404EB6A",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "a.total_exposure_volume=0.0;a.active_order_count=OrdersTotal();a.open_position_count=PositionsTotal();a.terminal_trade_allowed=(bool)TerminalInfoInteger(TERMINAL_TRADE_ALLOWED);",
+          "line_digest": "sha256:a29bebd322451204d888c975e56effaccad20b63adaead2581c816e493a9bd56",
+          "line_number": 22
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0c8bd7d1598528e879662dcba6c7fbaa090792e43023f904c60fc4ca3a8b4bab",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:fcbf51e13271130e258f83690f567df6218a50a12117624111e7beb7357e7a01",
+    "sha256:1787ea837b3b12aaa201cec2fa33cdc88b6bf34aed36ba40f24ac85f8beafa8f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_AccountGuardSnapshot.mqh",
+  "source_sha256": "sha256:fcbf51e13271130e258f83690f567df6218a50a12117624111e7beb7357e7a01",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A4466594D9A8F9A42FC06831D0719B43",
+  "treatment_package_id": "TREATPKG_077D888D963696475757097835CE5E43",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

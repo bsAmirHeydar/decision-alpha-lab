@@ -1,0 +1,156 @@
+{
+  "atom_ids": [
+    "TREATATOM_1559B49DAB8DE550858870F55CB8E6A5",
+    "TREATATOM_4F1205FBCA9196AE24AC7F903D0A2E30",
+    "TREATATOM_7C6CA686190E64CC3F2D2D5180E2419C",
+    "TREATATOM_CB537CBB1852ED3787555D7FF5E18C67"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_475F6CC80C2892B00F5E0D89CD248EF2",
+    "EXECCAP_935222ACB90CCAE1D53F64CF1583BB90"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6e56132e3fd1954a377a7c365ea57ed57efa55ad46da5baa46fde4e82e362786",
+      "atom_id": "TREATATOM_1559B49DAB8DE550858870F55CB8E6A5",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "int buys = 0, sells = 0, tp = 0, sl = 0, next_sweep = 0, csv_end = 0;",
+          "line_digest": "sha256:e384e83f8fa58c44099fa9943667b63813c8c9345b6ddebf4665a4874bee64c5",
+          "line_number": 149
+        },
+        {
+          "excerpt": "if(signals[i].exit_reason == ICT_EXIT_SL) sl++;",
+          "line_digest": "sha256:10e179703373197947fa30afe1fbce6658a9e5c5f566e02c1fb8e1de6cc6a9e5",
+          "line_number": 156
+        },
+        {
+          "excerpt": "FileWrite(handle, \"sl_exits\", sl);",
+          "line_digest": "sha256:65c96384e806f5fab2e69483c85193188f9166f4924e5e7a3f5435d278c33e95",
+          "line_number": 174
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6bb762bcc0eba5d65eb1a8b4116c8d0a0c105bac72559b4974eb220e47b956ad",
+      "atom_id": "TREATATOM_4F1205FBCA9196AE24AC7F903D0A2E30",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_price\",",
+          "line_digest": "sha256:8556841c206ca7cbfe4fca50546b0f50ef694f875e1d0fb57ec96751ab57e1f2",
+          "line_number": 50
+        },
+        {
+          "excerpt": "DoubleToString(signals[i].entry_price, _Digits),",
+          "line_digest": "sha256:a2985c9ba8b6112c43d69b43806becd26040fcccb5adbe3591198d60f18d1ba0",
+          "line_number": 92
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9afbff116c552f4d6e0f3faaaf7c82ec7d6f1f6c877766c793db15edeb1b0476",
+      "atom_id": "TREATATOM_7C6CA686190E64CC3F2D2D5180E2419C",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "\"exit_time\",",
+          "line_digest": "sha256:e23ae4260d4e2c9e45b4b05b04319f6aa9b74189787968c97ca73126279f9063",
+          "line_number": 56
+        },
+        {
+          "excerpt": "DAL_ICT_TimeStr(signals[i].exit_time),",
+          "line_digest": "sha256:5736990715daa66343c54f520d86b92a393f9f24267b97c19a512ca82751ba13",
+          "line_number": 98
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f1deab481e7ce02c110f368ed3d6c4aa3e6256e1092342e3e262c3c23443a530",
+      "atom_id": "TREATATOM_CB537CBB1852ED3787555D7FF5E18C67",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "\"target_price\",",
+          "line_digest": "sha256:547753d4cf999fe2a607641fd94d57488ce6bbabbe597f18f5b722225155731d",
+          "line_number": 52
+        },
+        {
+          "excerpt": "DoubleToString(signals[i].target_price, _Digits),",
+          "line_digest": "sha256:badd881c064038078317c047edbb64887aa9654395af1fce3692e52eb7f1b24a",
+          "line_number": 94
+        },
+        {
+          "excerpt": "int buys = 0, sells = 0, tp = 0, sl = 0, next_sweep = 0, csv_end = 0;",
+          "line_digest": "sha256:e384e83f8fa58c44099fa9943667b63813c8c9345b6ddebf4665a4874bee64c5",
+          "line_number": 149
+        },
+        {
+          "excerpt": "if(signals[i].exit_reason == ICT_EXIT_TP) tp++;",
+          "line_digest": "sha256:bb67f81eace32c42950bb58cd0bae050e49674a4440d1ccf185d9467216f4cf5",
+          "line_number": 155
+        },
+        {
+          "excerpt": "FileWrite(handle, \"tp_exits\", tp);",
+          "line_digest": "sha256:488565b77f5831cb86752850049e136bdfef1b206c912199ee38577f855f096b",
+          "line_number": 173
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9bc65f3a920177849fd8dcf7fcc3286f8cf29de5c3b2a5093ea510accce4d7c0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:28ae2747b7e51a2f5350131c566d028c521000646f7882a50bdcc104cd9c6598",
+    "sha256:6bb762bcc0eba5d65eb1a8b4116c8d0a0c105bac72559b4974eb220e47b956ad",
+    "sha256:6e56132e3fd1954a377a7c365ea57ed57efa55ad46da5baa46fde4e82e362786",
+    "sha256:9afbff116c552f4d6e0f3faaaf7c82ec7d6f1f6c877766c793db15edeb1b0476",
+    "sha256:f1deab481e7ce02c110f368ed3d6c4aa3e6256e1092342e3e262c3c23443a530"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/ICT/DAL_ICTJournal.mqh",
+  "source_sha256": "sha256:28ae2747b7e51a2f5350131c566d028c521000646f7882a50bdcc104cd9c6598",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_031220D4FF00F15D8CFACFB3006123A6",
+  "treatment_package_id": "TREATPKG_5C381466858337BF86E5CAA0583FDE0A",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_B56A78DE01DB7D14387D370245525F0A"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_2BE15B6A375F6DD61E14BC94109D3287",
+    "EXECCAP_3A327CF5542B7D108A14B8690B95FE74",
+    "EXECCAP_A2378845EA5DBB01EA84220F3A7AEA6A"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:651d07dcc468a3f2d09d255cbce542af0b063f571d0fbb98a306e7b93f5672f2",
+      "atom_id": "TREATATOM_B56A78DE01DB7D14387D370245525F0A",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "forbidden = (\"OrderSend(\", \"CTrade\", \"trade.Buy(\", \"trade.Sell(\")",
+          "line_digest": "sha256:93403cd179cea0e494fad8a8aca2a252e3f3b95ad154965e7536bc38184b0381",
+          "line_number": 91
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:7aecfe44a6aecbfa7b26a98b865662b05ff8fc9665f105d49b6bd922ca005020",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7659bd4438b5d8846be6fe788e3a63532b0905405ff276c190fe179d5a64a2c2",
+    "sha256:651d07dcc468a3f2d09d255cbce542af0b063f571d0fbb98a306e7b93f5672f2"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/flag_counting/nds_hook_contract_qa.py",
+  "source_sha256": "sha256:7659bd4438b5d8846be6fe788e3a63532b0905405ff276c190fe179d5a64a2c2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_3EC7697A4200C7CEF48C4D3BDB8BED7A",
+  "treatment_package_id": "TREATPKG_73EF1CC7741B0CC0843AA61F60672CDF",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

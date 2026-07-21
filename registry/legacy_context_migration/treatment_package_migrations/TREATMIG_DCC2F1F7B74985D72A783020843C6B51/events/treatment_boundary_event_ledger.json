@@ -1,0 +1,67 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "event_count": 7,
+  "events": [
+    {
+      "authority_created": false,
+      "event_code": "UPSTREAM_BOUND",
+      "event_digest": "sha256:0c4e4b00f07c6b937daf3b82743920b01ecbd6ad54ae726e3f3f5f66050fbde6",
+      "sequence": 1,
+      "subject": "LCM10A_HANDOFF"
+    },
+    {
+      "authority_created": false,
+      "event_code": "PACKAGES_EMITTED",
+      "event_digest": "sha256:87fe196b1396d6cdc3c8459802fc7931116fd0487afc4b169ab68ace1b895cac",
+      "sequence": 2,
+      "subject": 422
+    },
+    {
+      "authority_created": false,
+      "event_code": "BLOCKERS_EMITTED",
+      "event_digest": "sha256:e99e4e47be4fee3f2ed590cc9f951bb2776e224f6d3b553899ec0f6dd2500bb0",
+      "sequence": 3,
+      "subject": 382
+    },
+    {
+      "authority_created": false,
+      "event_code": "ADAPTERS_DISABLED",
+      "event_digest": "sha256:37e6f5e57f2396737b91576f55f6167fead2368322fa14ef1a94dc2259964e30",
+      "sequence": 4,
+      "subject": 483
+    },
+    {
+      "authority_created": false,
+      "event_code": "SETUP_BINDINGS_EMITTED",
+      "event_digest": "sha256:7ee48a316878250db5f285b11590e349913efd8570eefdb1492b4e0d0ddd6ca2",
+      "sequence": 5,
+      "subject": 60
+    },
+    {
+      "authority_created": false,
+      "event_code": "BOUNDARY_SCANNED",
+      "event_digest": "sha256:2a655fe40681322f325e05bc894a1c30f06df0759dd90d380b93caff9d65d699",
+      "sequence": 6,
+      "subject": true
+    },
+    {
+      "authority_created": false,
+      "event_code": "HANDOFF_PREPARED",
+      "event_digest": "sha256:94f9df63ec1930dffde0a90a5d915e7cac15d032cce78a97143a615fbb6453f5",
+      "sequence": 7,
+      "subject": "LCM10C"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "ledger_digest": "sha256:27497e9414680a00fe5e2fb34ee99cea23b6c74e2dd5a8b71c6dad4c00931209",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

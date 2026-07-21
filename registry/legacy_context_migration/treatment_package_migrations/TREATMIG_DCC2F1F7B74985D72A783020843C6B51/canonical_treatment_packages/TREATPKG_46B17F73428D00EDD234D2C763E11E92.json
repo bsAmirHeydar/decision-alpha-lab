@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_333DEE2CA1912F4CF93356BFB1502C81"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_6FB5701CCF10C134761EC398005C98C4"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7f7b3b4c17976afabae330148c80cca7b6959d6ee549c872967cd8ed30308041",
+      "atom_id": "TREATATOM_333DEE2CA1912F4CF93356BFB1502C81",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "q.symbol=symbol;q.bid=tick.bid;q.ask=tick.ask;q.point=SymbolInfoDouble(symbol,SYMBOL_POINT);q.time_utc_msc=(long)tick.time_msc;q.sequence=sequence;",
+          "line_digest": "sha256:5cfea48838e09bd873b6bbd72e5a3cdf7198c5e6d971c2bf5faa0ed0f32c2249",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f2d716e20771800f9c9ec5bddf05a5481f9feaf5a80d7a4bdb52eab4bcf7c074",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_D1E60EA45A6F6FBE8B03733CFA565F19"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:ce9d2d486d587e7e2cad044f953e4ada79053b5750bab064f826d378833e8bd2",
+    "sha256:7f7b3b4c17976afabae330148c80cca7b6959d6ee549c872967cd8ed30308041"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_QuoteSnapshot.mqh",
+  "source_sha256": "sha256:ce9d2d486d587e7e2cad044f953e4ada79053b5750bab064f826d378833e8bd2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8F38DEE3C5FD6D0932A9944E3403DC1E",
+  "treatment_package_id": "TREATPKG_46B17F73428D00EDD234D2C763E11E92",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

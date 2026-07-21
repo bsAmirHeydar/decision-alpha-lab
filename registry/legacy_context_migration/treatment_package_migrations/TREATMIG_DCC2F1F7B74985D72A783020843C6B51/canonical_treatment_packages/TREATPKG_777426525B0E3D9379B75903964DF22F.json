@@ -1,0 +1,204 @@
+{
+  "atom_ids": [
+    "TREATATOM_1A0B3DF6643655CD776F770BFC57660C",
+    "TREATATOM_6310501FCFDC685A0E842B6F7735D56D",
+    "TREATATOM_6899CCF871EA04905DC24777D50F8481",
+    "TREATATOM_8CF63AAB1200385DF8E919099B9FF88F",
+    "TREATATOM_ADC955870A054C7D149A741C25044CF7",
+    "TREATATOM_D58ED316906AB77989AE3016DCA9CF43",
+    "TREATATOM_E896CE91876238DB1544048794262BAC",
+    "TREATATOM_F11B4530FEF2A1CC27E1502642E9E400"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:34812422bfebdedb22c44852d960342809097c0455564564ce172b089e64072a",
+      "atom_id": "TREATATOM_1A0B3DF6643655CD776F770BFC57660C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "return {'symbol':self.symbol,'base_currency':self.base_currency,'profit_currency':self.profit_currency,'margin_currency':self.margin_currency,'digits':self.digits,'point':self.point,'tick_size':self.tick_size,'tick_value_profit':self.tick_value_profit,'tick_value_loss':self.tick_value_loss,'contract_size':self.contract",
+          "line_digest": "sha256:5c4e0e22a800c6ac87c157cff389fb59d38dec7a2b1e859d14963073013a6b74",
+          "line_number": 53
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e751fcf09813180cbd943c20a8eb2f568f04d0cc82c8c6f7f8f67e4d7b458d6b",
+      "atom_id": "TREATATOM_6310501FCFDC685A0E842B6F7735D56D",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "def spread(self): return self.ask-self.bid",
+          "line_digest": "sha256:98321141ab87272dc029465fff92b90cb38afd60d91a9869bf88929a6a36fa10",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:59299ffbd724504933c4a6302b7aef4d1e2bbcb638cc0305588e15467d86950a",
+      "atom_id": "TREATATOM_6899CCF871EA04905DC24777D50F8481",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "for n in ('point','tick_size','tick_value_profit','tick_value_loss','contract_size','volume_min','volume_max','volume_step','leverage','margin_rate','margin_per_lot'): object.__setattr__(self,n,dec(getattr(self,n)))",
+          "line_digest": "sha256:78b21bf12434a5cd0340c53645ce7aa7d74873ccb262f775ea43d81bf98782d8",
+          "line_number": 43
+        },
+        {
+          "excerpt": "if min(self.point,self.tick_size,self.contract_size,self.volume_step)<=0: raise ValueError('non-positive symbol unit')",
+          "line_digest": "sha256:e54871fe60ae0e1d287dbc0a583078bde45f082fa9780617583737a5c9b6c0da",
+          "line_number": 44
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:05c4208b605ea2e41a77fbcd4f578dcbabeee3e9ef66f4524a8d069e9ee4ab06",
+      "atom_id": "TREATATOM_8CF63AAB1200385DF8E919099B9FF88F",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "symbol:str; base_currency:str; profit_currency:str; margin_currency:str; digits:int; point:Decimal; tick_size:Decimal;",
+          "line_digest": "sha256:26272f6126e9ba9d151514c2a28e923a568c95b324976923ff6525949accd1db",
+          "line_number": 36
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:40bbee54cfceb5cd683063dae7abcb6e8d8e58fcfbfae11f87061246c998a6b3",
+      "atom_id": "TREATATOM_ADC955870A054C7D149A741C25044CF7",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "tick_value_profit:Decimal; tick_value_loss:Decimal; contract_size:Decimal; volume_min:Decimal; volume_max:Decimal; volume_step:Decimal;",
+          "line_digest": "sha256:1d7f1fae0d1291ae19ca65a6f0aacbd9e13f40b1354cd702bb7f5d1ed9959162",
+          "line_number": 37
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9541a5425bc96824666f9925ecf6c807cb280ebd6b0823634a43ff6cd398d213",
+      "atom_id": "TREATATOM_D58ED316906AB77989AE3016DCA9CF43",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "for n in ('point','tick_size','tick_value_profit','tick_value_loss','contract_size','volume_min','volume_max','volume_step','leverage','margin_rate','margin_per_lot'): object.__setattr__(self,n,dec(getattr(self,n)))",
+          "line_digest": "sha256:78b21bf12434a5cd0340c53645ce7aa7d74873ccb262f775ea43d81bf98782d8",
+          "line_number": 43
+        },
+        {
+          "excerpt": "if min(self.point,self.tick_size,self.contract_size,self.volume_step)<=0: raise ValueError('non-positive symbol unit')",
+          "line_digest": "sha256:e54871fe60ae0e1d287dbc0a583078bde45f082fa9780617583737a5c9b6c0da",
+          "line_number": 44
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bb464f46b87d1f07a6c3b2af4b477d4ae579f89895f5bb263bda48f013e185a6",
+      "atom_id": "TREATATOM_E896CE91876238DB1544048794262BAC",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "return (self.tick_value_loss if loss else self.tick_value_profit)/self.tick_size",
+          "line_digest": "sha256:d7f5a44e0f116cae3d016c9b045704d373dc142156449a89c408b4550379591c",
+          "line_number": 51
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:cb545cb55f58f65f0841d260af2a11d10cdb73abee4d58fe03792f9492e72974",
+      "atom_id": "TREATATOM_F11B4530FEF2A1CC27E1502642E9E400",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "return {'symbol':self.symbol,'base_currency':self.base_currency,'profit_currency':self.profit_currency,'margin_currency':self.margin_currency,'digits':self.digits,'point':self.point,'tick_size':self.tick_size,'tick_value_profit':self.tick_value_profit,'tick_value_loss':self.tick_value_loss,'contract_size':self.contract",
+          "line_digest": "sha256:5c4e0e22a800c6ac87c157cff389fb59d38dec7a2b1e859d14963073013a6b74",
+          "line_number": 53
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4937ba274b70223e9d7346d8a8c92a273cb6619a3aa941e4ad2a74c2f3677a8d",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1B754535B43ABFA2A69C92719D708563",
+    "RISKASM_24790DE79423B551796D584E9678773A",
+    "RISKASM_2DC4EBCEFB7E274CCCAB22C5752642F4",
+    "RISKASM_322AF68C75B35B7C6BF29BA7FCF92F46",
+    "RISKASM_3414B025F3299E498E5FC6BE837E60D7",
+    "RISKASM_4FF68DE29C16628255A6529001C340C3",
+    "RISKASM_5C5DA5ED2151E935A4053265EC58C87B",
+    "RISKASM_61B3FC691B787DC0175767076434BECB",
+    "RISKASM_B104F68F033CD44CDB8D60A15E2A6FCD",
+    "RISKASM_B7E1FE4C3C28C81AC873EAF807D1E621",
+    "RISKASM_BA1498B59CB9A28C7D9EB7ABF71E7F5C",
+    "RISKASM_BE2DF9F51331223FC25B5CD447A8F5F6",
+    "RISKASM_ED6A8D8A2E66F7669F25949FA64487F8",
+    "RISKASM_EE3EEDD6E4DF1F41D89B71D828C0B752"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:12caa8d04e7e6c3072da7e8661b7ee4d63a2b8d3be6265714fc2855dc77802f3",
+    "sha256:05c4208b605ea2e41a77fbcd4f578dcbabeee3e9ef66f4524a8d069e9ee4ab06",
+    "sha256:34812422bfebdedb22c44852d960342809097c0455564564ce172b089e64072a",
+    "sha256:40bbee54cfceb5cd683063dae7abcb6e8d8e58fcfbfae11f87061246c998a6b3",
+    "sha256:59299ffbd724504933c4a6302b7aef4d1e2bbcb638cc0305588e15467d86950a",
+    "sha256:9541a5425bc96824666f9925ecf6c807cb280ebd6b0823634a43ff6cd398d213",
+    "sha256:bb464f46b87d1f07a6c3b2af4b477d4ae579f89895f5bb263bda48f013e185a6",
+    "sha256:cb545cb55f58f65f0841d260af2a11d10cdb73abee4d58fe03792f9492e72974",
+    "sha256:e751fcf09813180cbd943c20a8eb2f568f04d0cc82c8c6f7f8f67e4d7b458d6b"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/contracts.py",
+  "source_sha256": "sha256:12caa8d04e7e6c3072da7e8661b7ee4d63a2b8d3be6265714fc2855dc77802f3",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_9DFBA1E18DDE1B1085B7936812C8523F",
+  "treatment_package_id": "TREATPKG_777426525B0E3D9379B75903964DF22F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

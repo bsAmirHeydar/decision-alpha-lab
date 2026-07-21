@@ -1,0 +1,133 @@
+{
+  "atom_ids": [
+    "TREATATOM_2FE2051968B105AB88F253D90A68498F",
+    "TREATATOM_43EC4553EE22AE70E71811771BB979C3",
+    "TREATATOM_FFBE4B05D5AE946C723C1EE92E3448D7"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_A258E27BA338EDD3CF4010D7C61F1622",
+    "EXECCAP_D1BD26713BB4023DFD5C9C701BE1529C"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:fb8877871acbab8b270747afa330dc2201e8fa1535ba6f720f4fb2c5322fa2f1",
+      "atom_id": "TREATATOM_2FE2051968B105AB88F253D90A68498F",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "\"risk_budget_money\",\"risk_per_lot\",\"planned_loss_at_stop\",\"volume\",\"magic\",\"attempted\",\"sent\",\"paper_only\",\"order_ticket\",\"deal_ticket\",\"retcode\",\"result_price\",\"message\");",
+          "line_digest": "sha256:25463aa8b3fceef2bcf4bc552541678286ff1d9498c4cc720a17f6a2800c6498",
+          "line_number": 134
+        },
+        {
+          "excerpt": "IntegerToString((int)plan.magic_number),",
+          "line_digest": "sha256:4c5b8c00f3abe8b59f7e7a21b140931a5cae8843dc892e6139062e9aa6881a00",
+          "line_number": 165
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3fe7f3ae8ba743d06b64cedff92cc8c41df1b7087a8ce66accb5cbc0388c0f54",
+      "atom_id": "TREATATOM_43EC4553EE22AE70E71811771BB979C3",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "Print(StringFormat(\"EXP0017 CGX | %s | %s | %s | %s | entitlement=%s symbol=%s entry=%s sl=%s tp=%s target=%s risk_model=%s budget=%.2f planned_loss=%.2f volume=%s hedge=%s result=%s\",",
+          "line_digest": "sha256:4c29d12df0b2199fc979f7905d541c73d75344c929dc7cd517102788e09d7e59",
+          "line_number": 100
+        },
+        {
+          "excerpt": "DoubleToString(plan.stop_loss,CGX_PriceDigits(plan.trade_symbol)),",
+          "line_digest": "sha256:599f6f27313ec702dd8997aad047b6ef16cb7b0fd424fb64a98412cfdb27cdb6",
+          "line_number": 108
+        },
+        {
+          "excerpt": "\"target_model\",\"volume_model\",\"hedging_enabled\",\"entry\",\"stop_loss\",\"spread_price\",\"spread_points\",\"stop_distance\",\"atr\",\"take_profit\",\"target_distance\",",
+          "line_digest": "sha256:296c7fb48e45553789dd34147afb0dfa7634744be575719bfd7f3555509ad1ed",
+          "line_number": 133
+        },
+        {
+          "excerpt": "DoubleToString(plan.stop_loss,CGX_PriceDigits(plan.trade_symbol)),",
+          "line_digest": "sha256:559321b7a8d234cc838ff7e99c530cf69ef9b2574ae0ae78c8bd7c1b5499a70d",
+          "line_number": 154
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:22c8f41c1a931b1139c0ce77d8d1fae3d72f04758ece1f98a9d0b75c69bf8b4a",
+      "atom_id": "TREATATOM_FFBE4B05D5AE946C723C1EE92E3448D7",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "Print(StringFormat(\"EXP0017 CGX | %s | %s | %s | %s | entitlement=%s symbol=%s entry=%s sl=%s tp=%s target=%s risk_model=%s budget=%.2f planned_loss=%.2f volume=%s hedge=%s result=%s\",",
+          "line_digest": "sha256:4c29d12df0b2199fc979f7905d541c73d75344c929dc7cd517102788e09d7e59",
+          "line_number": 100
+        },
+        {
+          "excerpt": "DoubleToString(plan.take_profit,CGX_PriceDigits(plan.trade_symbol)),",
+          "line_digest": "sha256:3bba9863ad7ade4960ff0d93c23592e4b050941069d62f46acb9b01aa18316f7",
+          "line_number": 109
+        },
+        {
+          "excerpt": "\"target_model\",\"volume_model\",\"hedging_enabled\",\"entry\",\"stop_loss\",\"spread_price\",\"spread_points\",\"stop_distance\",\"atr\",\"take_profit\",\"target_distance\",",
+          "line_digest": "sha256:296c7fb48e45553789dd34147afb0dfa7634744be575719bfd7f3555509ad1ed",
+          "line_number": 133
+        },
+        {
+          "excerpt": "DoubleToString(plan.take_profit,CGX_PriceDigits(plan.trade_symbol)),",
+          "line_digest": "sha256:b395ec55a59cc078adde74536ff265e6d34fd6058c6fd11b662b55f8cc1b0716",
+          "line_number": 159
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:28d0af8ed2adc7edc5758d0b7099c2cd3728b8db0d6302b51c38f952ea4f04c8",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c9435f10d2704520dd5810273419ad0a619be9dc4a0448d4fc075b99597af504",
+    "sha256:22c8f41c1a931b1139c0ce77d8d1fae3d72f04758ece1f98a9d0b75c69bf8b4a",
+    "sha256:3fe7f3ae8ba743d06b64cedff92cc8c41df1b7087a8ce66accb5cbc0388c0f54",
+    "sha256:fb8877871acbab8b270747afa330dc2201e8fa1535ba6f720f4fb2c5322fa2f1"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Audit.mqh",
+  "source_sha256": "sha256:c9435f10d2704520dd5810273419ad0a619be9dc4a0448d4fc075b99597af504",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_04530CFA1F1EB146186347E0723C78F2",
+  "treatment_package_id": "TREATPKG_B92EB3FC00EA2B7BB4B47A160FC695DC",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

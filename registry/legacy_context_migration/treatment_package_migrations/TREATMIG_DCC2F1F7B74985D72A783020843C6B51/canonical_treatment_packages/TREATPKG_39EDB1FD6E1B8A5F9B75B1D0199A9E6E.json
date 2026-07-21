@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_F1D4D02B5B7F3A19806974D23912FE58"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:0f10527f341a839ca21c47f43a4979eb689af7ee3e9c939504c638fffc2322ba",
+      "atom_id": "TREATATOM_F1D4D02B5B7F3A19806974D23912FE58",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "UCEI05_QuoteSnapshot q;q.symbol=\"EURUSD\";q.bid=1.10000;q.ask=1.10010;q.known_time_ms=1; UCEI05_SymbolSpec s;s.point=0.00001;s.tick_size=0.00001;CUCEI05ExecutablePriceKernel k;double lp,sp;string side;",
+          "line_digest": "sha256:6349361c450f4f894e10abf35db4d515654254d5c048a27c809dcea08d0045a3",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6bae2e4bb76ec7cc6f6e0364288f259b6db3015c369d16055fb072f448c07716",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_08639E2AC2D405C1032D1A32B6D1DDFF"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c2cd873f127997b9ed8fd8b196dc8c97684d47d3e89eae868b607b9ab2fa5122",
+    "sha256:0f10527f341a839ca21c47f43a4979eb689af7ee3e9c939504c638fffc2322ba"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactoryTests/UCE_I05_LongShortSymmetrySelfTest.mq5",
+  "source_sha256": "sha256:c2cd873f127997b9ed8fd8b196dc8c97684d47d3e89eae868b607b9ab2fa5122",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C442705671F13908610AE9F5FF965F76",
+  "treatment_package_id": "TREATPKG_39EDB1FD6E1B8A5F9B75B1D0199A9E6E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

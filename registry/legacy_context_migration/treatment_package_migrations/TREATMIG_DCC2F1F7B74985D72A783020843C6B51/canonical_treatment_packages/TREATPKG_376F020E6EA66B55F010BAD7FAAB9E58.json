@@ -1,0 +1,381 @@
+{
+  "atom_ids": [
+    "TREATATOM_127C9A788093F58835484A3978766FA1",
+    "TREATATOM_85527562624AA642E870B58A4FF05664",
+    "TREATATOM_8B0BFFD0D58D2D6E346E586813E8F924",
+    "TREATATOM_BA7CF9B3F7AAFCCADE8051248EBB8EA5",
+    "TREATATOM_BB07326228C4AF7E3F8929EF555E72CB",
+    "TREATATOM_CD6CC75EBDE96CC28936A1C5D1AC1A23",
+    "TREATATOM_EC1AE38C177BB7ECEC7416F692D86BC8"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_LIMIT",
+    "ENTRY_PRICE",
+    "RECONCILIATION",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_674B3CFF2A4E1BB042828640C4D2EC58",
+    "EXECCAP_6CFFC0CB31CBD76037B7EB3774E1A0E4",
+    "EXECCAP_8411F5C4BF8D86F407B47BE8428E5815",
+    "EXECCAP_84EC2A9E0F7390BEEF959A7459581E32",
+    "EXECCAP_AAA531F3836FB5BB482139DD475B0DA0"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:57e451b0ac463f45a67e55e325cb32d5cb15a004241488eb9f0f26985a3d2e79",
+      "atom_id": "TREATATOM_127C9A788093F58835484A3978766FA1",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 293
+        },
+        {
+          "excerpt": "if(position_direction > 0 && n.price <= entry_price)",
+          "line_digest": "sha256:01e3b54ffc29b557cf2da209b3f5bda8d32720e02583578d59fe6569021c7ca3",
+          "line_number": 312
+        },
+        {
+          "excerpt": "if(position_direction < 0 && n.price >= entry_price)",
+          "line_digest": "sha256:fb96db0417107b927697d1ba6d0535267df855397e5ded4db566874340166e74",
+          "line_number": 314
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7b5123ee20d7586224fa20e6e7f4eb7f12bb91af3abd9f6497af26b31c20c210",
+      "atom_id": "TREATATOM_85527562624AA642E870B58A4FF05664",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fe3f2b0452a2a65b0d9c7e74a4232df8386761b478a25e95c2403da5cef8b1d1",
+          "line_number": 18
+        },
+        {
+          "excerpt": "double point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fe3f2b0452a2a65b0d9c7e74a4232df8386761b478a25e95c2403da5cef8b1d1",
+          "line_number": 35
+        },
+        {
+          "excerpt": "double point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fe3f2b0452a2a65b0d9c7e74a4232df8386761b478a25e95c2403da5cef8b1d1",
+          "line_number": 258
+        },
+        {
+          "excerpt": "int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);",
+          "line_digest": "sha256:3856e733941f0201b0f62a9241652a0a3cfee5059248b72715ba194dc28206b3",
+          "line_number": 383
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3dae2265c95a24fbb27283c303ca3b738937dccb5b2788d8c6c8b7ca280fba5f",
+      "atom_id": "TREATATOM_8B0BFFD0D58D2D6E346E586813E8F924",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 93
+        },
+        {
+          "excerpt": "if((long)OrderGetInteger(ORDER_MAGIC) != magic)",
+          "line_digest": "sha256:8b7f3e9875c0fcd770579ee874fcaa2a9438fc01c39aff56c1bd6fe21ebd377d",
+          "line_number": 106
+        },
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 126
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != magic)",
+          "line_digest": "sha256:80e7c6e83643d4afa9a76b4d762d5c7e820b8810d0575cd5d0aae1bf59bdbb93",
+          "line_number": 139
+        },
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 158
+        },
+        {
+          "excerpt": "if((long)OrderGetInteger(ORDER_MAGIC) != magic)",
+          "line_digest": "sha256:8b7f3e9875c0fcd770579ee874fcaa2a9438fc01c39aff56c1bd6fe21ebd377d",
+          "line_number": 169
+        },
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 179
+        },
+        {
+          "excerpt": "if(DAL_E0007PendingCommentExists(symbol, magic, c.comment))",
+          "line_digest": "sha256:b98690f1d7a8011b8fb18cda175084070f3e598ab8476da07a0505d90f69b919",
+          "line_number": 196
+        },
+        {
+          "excerpt": "if(max_pending > 0 && DAL_E0007CountPendingByDirection(symbol, magic, c.direction, comment_prefix) >= max_pending)",
+          "line_digest": "sha256:4bee8b04dab434573c8aa31047ae7aae14c1d4d492ae22e14cf19cfa8475b183",
+          "line_number": 203
+        },
+        {
+          "excerpt": "if(max_pos > 0 && DAL_E0007CountPositionsByDirection(symbol, magic, c.direction, comment_prefix) >= max_pos)",
+          "line_digest": "sha256:66686f0c4b410c3f4bde1f413f41673f34757280438933962b102994e807be76",
+          "line_number": 210
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(magic);",
+          "line_digest": "sha256:7ab38534ff7c4e8021f8613c84300d144afa00756c9093e8b7db8028cb2cf7fc",
+          "line_number": 230
+        },
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 330
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != magic)",
+          "line_digest": "sha256:80e7c6e83643d4afa9a76b4d762d5c7e820b8810d0575cd5d0aae1bf59bdbb93",
+          "line_number": 356
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(magic);",
+          "line_digest": "sha256:adbc32965c7e93e706919af3abb45a4582811a04fd2bf1085c59b40b1b543cd2",
+          "line_number": 396
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:aa37285c7e1c4a311d7b0d170b76e8217b318f53a9688df013ac1fb7b6757727",
+      "atom_id": "TREATATOM_BA7CF9B3F7AAFCCADE8051248EBB8EA5",
+      "atom_type": "ENTRY_LIMIT",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "if(t == ORDER_TYPE_BUY_LIMIT) return +1;",
+          "line_digest": "sha256:86c2c366bda26fa5687be574a2880608f5a3b201e3655158875d5d99cdeed8c4",
+          "line_number": 11
+        },
+        {
+          "excerpt": "if(t == ORDER_TYPE_SELL_LIMIT) return -1;",
+          "line_digest": "sha256:bae79de8081a874c4ba9e7a2b3a14014a534424786daa2b2e0803092c22a69e3",
+          "line_number": 12
+        },
+        {
+          "excerpt": "ok = trade.BuyLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:cf670ebe516e38ec47b9a25461ea587260a3e502fd86fcf7f9af204e8d064a26",
+          "line_number": 234
+        },
+        {
+          "excerpt": "ok = trade.SellLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:d50c9372cb7ea7bc5efa26ed9d2dee262e95d5251485abb30f0431c0ca525404",
+          "line_number": 236
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5edfaa32ffb944c116d1f683d9930ff02d91e84566ed2a9084f769ce20c50b8e",
+      "atom_id": "TREATATOM_BB07326228C4AF7E3F8929EF555E72CB",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "if(ticket == 0 || !OrderSelect(ticket))",
+          "line_digest": "sha256:6a24abb85f18d527d87ccfb3b6e6fe2c4a3d6d16d3c900adb339112b320e9828",
+          "line_number": 102
+        },
+        {
+          "excerpt": "for(int i = PositionsTotal() - 1; i >= 0; i--)",
+          "line_digest": "sha256:5927652124a9a574d1bd9b8de33941cf0dba795daab2acfa0752d5a0905eb90f",
+          "line_number": 132
+        },
+        {
+          "excerpt": "if(ticket == 0 || !OrderSelect(ticket))",
+          "line_digest": "sha256:6a24abb85f18d527d87ccfb3b6e6fe2c4a3d6d16d3c900adb339112b320e9828",
+          "line_number": 165
+        },
+        {
+          "excerpt": "for(int i = PositionsTotal() - 1; i >= 0; i--)",
+          "line_digest": "sha256:5927652124a9a574d1bd9b8de33941cf0dba795daab2acfa0752d5a0905eb90f",
+          "line_number": 349
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:981d5a775e695e7c1d1ff317a633fa2e44e1f70229defff0c0092cc04cb08022",
+      "atom_id": "TREATATOM_CD6CC75EBDE96CC28936A1C5D1AC1A23",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "const double sl,",
+          "line_digest": "sha256:f00b0007bb16421f809550d64365fe12f60f72b718aa59c5f03ad880d7d4025e",
+          "line_number": 28
+        },
+        {
+          "excerpt": "if(!(sl < entry))",
+          "line_digest": "sha256:f567aab3995c2c49bfce50e8201e1723df5c6845095c7b8b166152d904dd00e9",
+          "line_number": 47
+        },
+        {
+          "excerpt": "if(!(sl > entry))",
+          "line_digest": "sha256:d83a846e083f372742bff8fc3d531ac7698b38829eebef3f2addf2d0cb114006",
+          "line_number": 65
+        },
+        {
+          "excerpt": "if(!DAL_E0007CheckLimitGeometryOptionalTP(symbol, c.direction, c.entry, c.sl, c.tp, geom))",
+          "line_digest": "sha256:fe6626e766faf1a76bc3d507c5b374192c868ce1e6a9a04e2bb87921f7779fec",
+          "line_number": 217
+        },
+        {
+          "excerpt": "if(!DAL_ExecCalculateRiskVolume(symbol, c.entry, c.sl, risk_cash, commission_per_lot, allow_min_lot, risk))",
+          "line_digest": "sha256:48b5fef72632a3b418f22e1db63407641965e943a317ea4d94ba519f5a607310",
+          "line_number": 224
+        },
+        {
+          "excerpt": "ok = trade.BuyLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:cf670ebe516e38ec47b9a25461ea587260a3e502fd86fcf7f9af204e8d064a26",
+          "line_number": 234
+        },
+        {
+          "excerpt": "ok = trade.SellLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:d50c9372cb7ea7bc5efa26ed9d2dee262e95d5251485abb30f0431c0ca525404",
+          "line_number": 236
+        },
+        {
+          "excerpt": "double sl = PositionGetDouble(POSITION_SL);",
+          "line_digest": "sha256:b37a06d239f068c16278cc9e5bc035d0ae778750fe074adc7f6b3d7e926e6cd9",
+          "line_number": 372
+        },
+        {
+          "excerpt": "if(trade.PositionModify(ticket, sl, new_tp))",
+          "line_digest": "sha256:7fc2c4bf875ef36d8f4193b04e49df726ad19ad2dcf07a44a054ec830cd7fa84",
+          "line_number": 397
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5f2c7af624c2eccb0918b391435951237b7810412645ef831e53f1b02d6260c8",
+      "atom_id": "TREATATOM_EC1AE38C177BB7ECEC7416F692D86BC8",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "const double tp,",
+          "line_digest": "sha256:f4aa4d8fdb8a587c3fce7d09524de40498d7ffd2938c202921c26e91d91b7782",
+          "line_number": 29
+        },
+        {
+          "excerpt": "if(tp > 0.0 && !(tp > entry))",
+          "line_digest": "sha256:50b35e1f4d8571e3d909d67279f56d5f3618ed6c57c1dd651590499cbc42e262",
+          "line_number": 52
+        },
+        {
+          "excerpt": "if(tp > 0.0 && !(tp < entry))",
+          "line_digest": "sha256:f3a47e3cf757c27eec3883d48d5eedd89f92ad4c5e4ba6c8d671306020aff604",
+          "line_number": 70
+        },
+        {
+          "excerpt": "if(!DAL_E0007CheckLimitGeometryOptionalTP(symbol, c.direction, c.entry, c.sl, c.tp, geom))",
+          "line_digest": "sha256:fe6626e766faf1a76bc3d507c5b374192c868ce1e6a9a04e2bb87921f7779fec",
+          "line_number": 217
+        },
+        {
+          "excerpt": "ok = trade.BuyLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:cf670ebe516e38ec47b9a25461ea587260a3e502fd86fcf7f9af204e8d064a26",
+          "line_number": 234
+        },
+        {
+          "excerpt": "ok = trade.SellLimit(risk.volume, c.entry, symbol, c.sl, c.tp, ORDER_TIME_GTC, 0, c.comment);",
+          "line_digest": "sha256:d50c9372cb7ea7bc5efa26ed9d2dee262e95d5251485abb30f0431c0ca525404",
+          "line_number": 236
+        },
+        {
+          "excerpt": "bool DAL_E0007CheckPositionTPGeometry(const string symbol, const int direction, const double tp, string &reason)",
+          "line_digest": "sha256:d9bf6b0f1ef9ddbbf1c5312bfe038516c260234d59a8360e3f1e214c2c0a5036",
+          "line_number": 248
+        },
+        {
+          "excerpt": "if(tp <= 0.0)",
+          "line_digest": "sha256:43586fdcd88c8897d8656051b2f3387f79bd80296bb288d7f3f0a829e6da5315",
+          "line_number": 250
+        },
+        {
+          "excerpt": "if(!(tp > bid + min_dist))",
+          "line_digest": "sha256:0f90b113e0ae167da31dcc9d8ef38de43c341646795888157f54d20f9fd441b1",
+          "line_number": 264
+        },
+        {
+          "excerpt": "if(!(tp < ask - min_dist))",
+          "line_digest": "sha256:ce0ea6702f2b30fb133985ad10ae4eec9047941859076b069209a5c5e29db8bc",
+          "line_number": 272
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f6bdfd4922e7dfc75e6ae2678274a972093da0eb58b66ee6f7ecd2b44bea7b36",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_31C5EBEEBA3C40DADCC29FED74A3F4F7",
+    "RISKASM_55C0DF5AF76060BC6028F352082B18FA"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:598755ec87ae1e980e800c34aea1855c0f31901df0a6b1e55a7540fbccd6ad67",
+    "sha256:3dae2265c95a24fbb27283c303ca3b738937dccb5b2788d8c6c8b7ca280fba5f",
+    "sha256:57e451b0ac463f45a67e55e325cb32d5cb15a004241488eb9f0f26985a3d2e79",
+    "sha256:5edfaa32ffb944c116d1f683d9930ff02d91e84566ed2a9084f769ce20c50b8e",
+    "sha256:5f2c7af624c2eccb0918b391435951237b7810412645ef831e53f1b02d6260c8",
+    "sha256:7b5123ee20d7586224fa20e6e7f4eb7f12bb91af3abd9f6497af26b31c20c210",
+    "sha256:981d5a775e695e7c1d1ff317a633fa2e44e1f70229defff0c0092cc04cb08022",
+    "sha256:aa37285c7e1c4a311d7b0d170b76e8217b318f53a9688df013ac1fb7b6757727"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/E0007/DAL_E0007OrderEngine.mqh",
+  "source_sha256": "sha256:598755ec87ae1e980e800c34aea1855c0f31901df0a6b1e55a7540fbccd6ad67",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_10209409FC85C635B1A7600F439D8375",
+  "treatment_package_id": "TREATPKG_376F020E6EA66B55F010BAD7FAAB9E58",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

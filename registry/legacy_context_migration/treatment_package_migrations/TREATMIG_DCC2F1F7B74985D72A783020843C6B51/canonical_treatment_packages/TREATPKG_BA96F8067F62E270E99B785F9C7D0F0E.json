@@ -1,0 +1,155 @@
+{
+  "atom_ids": [
+    "TREATATOM_011C48E51BCFFF7343B8B4A9DBA4CDDB",
+    "TREATATOM_C62DF6B5F4D5A6A4A3CC74203ADF7078",
+    "TREATATOM_C64A513D6CF3B4C0D7CC7B5C6CFAC02A",
+    "TREATATOM_CBFD9986DAE79A143823C47D9A92E395"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_4CDC37FE89528698EB37481465174437"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:88c1adabaaf3df65fde6b2a5492fa910402db14d0e18c9ab773db1e2213e3a83",
+      "atom_id": "TREATATOM_011C48E51BCFFF7343B8B4A9DBA4CDDB",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "audit.entry_price = paper.entry_price;",
+          "line_digest": "sha256:ad1b88fbbf9038aa54f4d202958ef78209854529746087f7ba9af27a55d78e84",
+          "line_number": 35
+        },
+        {
+          "excerpt": "r = (audit.hard_close_price - audit.entry_price) / audit.risk_distance_price;",
+          "line_digest": "sha256:8a637548fa0b37787669ead9422eb29c742ad151fba0aad72f2595c5190045d4",
+          "line_number": 57
+        },
+        {
+          "excerpt": "r = (audit.entry_price - audit.hard_close_price) / audit.risk_distance_price;",
+          "line_digest": "sha256:26efbd38d792482902753fe8c371f8144d90be2cdb26f03f2b478b119d3b24e0",
+          "line_number": 59
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e4eaaa2eea1a6ee6309911c5292ccb8037ef08991df432b931375177f24e8b9f",
+      "atom_id": "TREATATOM_C62DF6B5F4D5A6A4A3CC74203ADF7078",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "audit.stop_price = paper.stop_price;",
+          "line_digest": "sha256:01708ce3d46f712b497685bbb8dd5bbbab2a5e6c290fa6ac119114b2dc09aadb",
+          "line_number": 36
+        },
+        {
+          "excerpt": "audit.rule_note = \"TP, SL, ambiguity, rejection, or another terminal state occurred before the 15:30 hard-close checkpoint\";",
+          "line_digest": "sha256:85edeebe9e993ac36fc606e900e6c65bc8334e574cc5d07f8ae6af0d2d480ded",
+          "line_number": 128
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:458dfd847d29774365aec6fa2a6b3390d41d4e518d46d2bcb6d87fcc57553a4b",
+      "atom_id": "TREATATOM_C64A513D6CF3B4C0D7CC7B5C6CFAC02A",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(audit.trade_symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:dd28d6c67d41dec63bf632283fe2c1e74e9084c1f54cef6e0ae18983b6343fe7",
+          "line_number": 67
+        },
+        {
+          "excerpt": "double tick_size = SymbolInfoDouble(audit.trade_symbol, SYMBOL_TRADE_TICK_SIZE);",
+          "line_digest": "sha256:242d1aabb35a41803c0a97fccc36b01ab934469c2df65b557ce2447757de8786",
+          "line_number": 68
+        },
+        {
+          "excerpt": "if(tick_size > 0.0 && tick_value > 0.0)",
+          "line_digest": "sha256:64d03aab7f189536a4b1604faad67ace13c060712ad805d1e650f427df9c4cb5",
+          "line_number": 71
+        },
+        {
+          "excerpt": "money_per_price_unit = tick_value / tick_size;",
+          "line_digest": "sha256:0c0fab80185be5128821e117af11d195239472b95462f5a267696ea471e43abb",
+          "line_number": 72
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:14f5b73e2356fd331c60c49763cfa1f03bae59c3b7a7fbbbe32a9bc781c2a8a9",
+      "atom_id": "TREATATOM_CBFD9986DAE79A143823C47D9A92E395",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "audit.take_profit_price = paper.take_profit_price;",
+          "line_digest": "sha256:f5bdc5ab2a6949241bae2f7b487c7a08806bb631b7773ce9fc22d14b2a31186a",
+          "line_number": 37
+        },
+        {
+          "excerpt": "audit.rule_note = \"TP, SL, ambiguity, rejection, or another terminal state occurred before the 15:30 hard-close checkpoint\";",
+          "line_digest": "sha256:85edeebe9e993ac36fc606e900e6c65bc8334e574cc5d07f8ae6af0d2d480ded",
+          "line_number": 128
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d83721b7eaa4f8d07625b37bcfcfc054eccf8dd289b6539cb44bef81ffa30d27",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_15FB44024C94D5D392C6B1234AF1DEDA",
+    "RISKASM_6C3C2E31A1E51A92ED9D74B89FB6BF90",
+    "RISKASM_ACF7A69DC63FDD2DAF329E259DFC823C",
+    "RISKASM_D4290BB4B2E0A915737A0E69DB0B2700"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:db46d9f3625d68e24a1eb1a0877fdd04decffd7dc84cb5e63e57509a77765735",
+    "sha256:14f5b73e2356fd331c60c49763cfa1f03bae59c3b7a7fbbbe32a9bc781c2a8a9",
+    "sha256:458dfd847d29774365aec6fa2a6b3390d41d4e518d46d2bcb6d87fcc57553a4b",
+    "sha256:88c1adabaaf3df65fde6b2a5492fa910402db14d0e18c9ab773db1e2213e3a83",
+    "sha256:e4eaaa2eea1a6ee6309911c5292ccb8037ef08991df432b931375177f24e8b9f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_HardClose.mqh",
+  "source_sha256": "sha256:db46d9f3625d68e24a1eb1a0877fdd04decffd7dc84cb5e63e57509a77765735",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5CE174DB5996011C8E12BE81062BD2E3",
+  "treatment_package_id": "TREATPKG_BA96F8067F62E270E99B785F9C7D0F0E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

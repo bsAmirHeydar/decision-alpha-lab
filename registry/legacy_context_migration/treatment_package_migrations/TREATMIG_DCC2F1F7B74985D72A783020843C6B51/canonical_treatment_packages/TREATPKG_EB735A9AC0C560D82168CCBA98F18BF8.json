@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_1360D5504D2BC2620B229139E93E5F63",
+    "TREATATOM_3FDB4A7061262E7E948EFF3BBFE32B2A"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:26601e2e160fac2ed1b22f1752f33d9c549afbb88d0ec89cdb48cfd6c7454a3d",
+      "atom_id": "TREATATOM_1360D5504D2BC2620B229139E93E5F63",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "FP_I15_SymbolSpec s;s.symbol=\"TEST\";s.tick_size=.25;s.tick_value_loss=5;s.volume_min=.01;s.volume_max=100;s.volume_step=.01;s.stops_level_price=.25;s.freeze_level_price=0;",
+          "line_digest": "sha256:f3093fa4f523ded64586afcef57c19bed2e18f776745ce35704fc9beda964916",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4e83903ec19cf8100a78be1e8067b28a6a03311009807034a67b3def8825393d",
+      "atom_id": "TREATATOM_3FDB4A7061262E7E948EFF3BBFE32B2A",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "FP_I15_SymbolSpec s;s.symbol=\"TEST\";s.tick_size=.25;s.tick_value_loss=5;s.volume_min=.01;s.volume_max=100;s.volume_step=.01;s.stops_level_price=.25;s.freeze_level_price=0;",
+          "line_digest": "sha256:f3093fa4f523ded64586afcef57c19bed2e18f776745ce35704fc9beda964916",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:02cfc7518f95f065d1dd23e1445f1acf5486d32bd3870483ce881e3275627e22",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_073F29B766A613816618945731E40E69",
+    "RISKASM_1ABC8D5C53325D2A3AFCB7B21E6231B7",
+    "RISKASM_320B00D2932826599016CBA41C14C780",
+    "RISKASM_EA380E159295A4B35AFBD6C132C8FB18"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:fe1eb3ea02d3466f3ebee8d73be7059a0c1f03dff7fa11d4170a12b23f70277a",
+    "sha256:26601e2e160fac2ed1b22f1752f33d9c549afbb88d0ec89cdb48cfd6c7454a3d",
+    "sha256:4e83903ec19cf8100a78be1e8067b28a6a03311009807034a67b3def8825393d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I15_PaperSelfTest.mq5",
+  "source_sha256": "sha256:fe1eb3ea02d3466f3ebee8d73be7059a0c1f03dff7fa11d4170a12b23f70277a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_90CEC475662E2DA99D2B0B8228A52662",
+  "treatment_package_id": "TREATPKG_EB735A9AC0C560D82168CCBA98F18BF8",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

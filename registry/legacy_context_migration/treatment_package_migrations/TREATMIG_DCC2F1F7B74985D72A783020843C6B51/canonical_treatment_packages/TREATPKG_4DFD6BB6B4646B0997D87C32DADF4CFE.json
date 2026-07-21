@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_209BBBC30322E8F7F645EC649E591013",
+    "TREATATOM_DE1D7A7AD198905950510147B29A72AC"
+  ],
+  "atom_types": [
+    "SESSION_GATE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_05A4EC385FDC34EF84A36BA885694AEC"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d3a8e5332bcdfea0245e5f7596d4692c91253cdfb160990ca3216f87fd9b4871",
+      "atom_id": "TREATATOM_209BBBC30322E8F7F645EC649E591013",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point=SymbolInfoDouble(snapshot.broker_symbol,SYMBOL_POINT);",
+          "line_digest": "sha256:d3d23a9a23425543adfdd1cc861b4fdce43356724db2ce817daf92ffc4d07223",
+          "line_number": 93
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:dbc96c4fb07f081484d1863e61ec84ab52516e2a27a7f1aca8e71eebb9d679eb",
+      "atom_id": "TREATATOM_DE1D7A7AD198905950510147B29A72AC",
+      "atom_type": "SESSION_GATE",
+      "intent_field": "session_constraint",
+      "source_evidence": [
+        {
+          "excerpt": "m_config.major_boundary_width,\"Session \"+snapshot.period_code+\" start\",\"SESSION_START\");",
+          "line_digest": "sha256:472d669eab8e96ff2ff38abfad9dfb0dc33daeb6d78f8a4241068cb745e917fe",
+          "line_number": 228
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:265ae5af0262020fe92cb026cba8983a5cc1ca4daf73be0024c52dee3cf1e700",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_11F2E9C45CD2AC797F042336E3E581E7",
+    "RISKASM_A22648B4A66B9E7D846F98C7405BEBA6"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c1da65deb3d47a9089d4d0749e10ba96a388555618611bbd1109418abf1385ea",
+    "sha256:d3a8e5332bcdfea0245e5f7596d4692c91253cdfb160990ca3216f87fd9b4871",
+    "sha256:dbc96c4fb07f081484d1863e61ec84ab52516e2a27a7f1aca8e71eebb9d679eb"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_VisualEngine.mqh",
+  "source_sha256": "sha256:c1da65deb3d47a9089d4d0749e10ba96a388555618611bbd1109418abf1385ea",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_BED5D3FB70E86CBB2E03BE39382651A5",
+  "treatment_package_id": "TREATPKG_4DFD6BB6B4646B0997D87C32DADF4CFE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

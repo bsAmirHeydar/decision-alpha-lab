@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_807269C11729A5435C5842AE25FFCF7C"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4271043c03f6c19275175c02bb56d4df20b1160e03a9a8e45bd5860f132a82b1",
+      "atom_id": "TREATATOM_807269C11729A5435C5842AE25FFCF7C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int spread;",
+          "line_digest": "sha256:c5ddbd553577387ad4f2c8a099963f83f8c6f08fbdb6a3a4e3588bf1cc1a2073",
+          "line_number": 25
+        },
+        {
+          "excerpt": "b.spread = 0;",
+          "line_digest": "sha256:f5a7aaff02c4af246ef4c51d42e9c63b75ad79194af9336829a1555a0f385605",
+          "line_number": 40
+        },
+        {
+          "excerpt": "b.spread = rate.spread;",
+          "line_digest": "sha256:05f635922bf0164311f43f17eb3532c26ecd04035add36640c45f4b64ed6d26f",
+          "line_number": 85
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:54ee68616beb364f8c1f083ccb30dd7385fa72c4cb5857f54da8d741bb6c1c4f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_B9851E1FF3871C2B71483C0C30554C43"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c5f1897383dcd0dd64d97081ce29fb13f50096218b851126092afb0ab860e804",
+    "sha256:4271043c03f6c19275175c02bb56d4df20b1160e03a9a8e45bd5860f132a82b1"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_BarSnapshot.mqh",
+  "source_sha256": "sha256:c5f1897383dcd0dd64d97081ce29fb13f50096218b851126092afb0ab860e804",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AC5F350DBE23C7630CA80A8608AD011A",
+  "treatment_package_id": "TREATPKG_429057DEE2AF91BC685B03FD4597BA9D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,86 @@
+{
+  "$id": "https://alpha-lab.local/lcm10b/blocker_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocker_codes": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "blocker_digest": {
+      "type": "string"
+    },
+    "blocker_id": {
+      "type": "string"
+    },
+    "blocking": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10B_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "subject_type": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "blocker_id",
+    "subject_type",
+    "subject_id",
+    "blocker_codes",
+    "blocking",
+    "blocker_digest"
+  ],
+  "title": "blocker_record",
+  "type": "object"
+}

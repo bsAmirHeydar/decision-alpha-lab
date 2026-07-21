@@ -1,0 +1,76 @@
+{
+  "atom_ids": [
+    "TREATATOM_2631FE40D6138B15DC2E08FCA37C7247",
+    "TREATATOM_8C74C8B5380447619822130B76C7511B"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:18a255ba0b2ef0eb2405c6223830340919a0cb8fc78c0042c1b0ca9f10de4484",
+      "atom_id": "TREATATOM_2631FE40D6138B15DC2E08FCA37C7247",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI04_MakeGoldenDraft(CUCEI03Catalog &catalog,const ENUM_UCEI03_SIDE side,UCEI04_TreatmentDraft &d,string &error){d.draft_name=\"golden.fixed_r\";d.side=side;d.runtime_mode=1;d.compiler_mode=UCEI04_RESEARCH;d.pinned=false;d.required_capabilities_csv=\"\";d.tags_json=\"{\\\"fixture\\\":\\\"golden\\\"}\";UCEI04_InitIntrabarPolic",
+          "line_digest": "sha256:9a2986cf848c04c966d8f75471d2f83c4fb49c475473dfc80461d4834c99514d",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:24a284282edc187c4c18ae818f719390290e11147ae4a73dee3e9bd7f5602097",
+      "atom_id": "TREATATOM_8C74C8B5380447619822130B76C7511B",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "bool UCEI04_MakeDefaultSelection(CUCEI03Catalog &catalog,const ENUM_UCEI03_ATOM_KIND kind,const string id,UCEI04_AtomSelection &s,string &error){UCEI03_AtomDescriptor d;string version=\"1.0.0\";bool ok=false;if(kind==UCEI03_ENTRY)ok=catalog.entry.Resolve(id,version,d);else if(kind==UCEI03_STOP)ok=catalog.stop.Resolve(id,",
+          "line_digest": "sha256:b50a89d3db02777c218a9fcee8fe18cc273e63b52b03ec889b0fea80269464bf",
+          "line_number": 6
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:72fee28fc7e759d87777e6436a4ea61017235f813624c57edf5989af17ad5906",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:796351e09d34be98effdc87f4bca3a021db29c66faafeb922a465c99620f5d42",
+    "sha256:18a255ba0b2ef0eb2405c6223830340919a0cb8fc78c0042c1b0ca9f10de4484",
+    "sha256:24a284282edc187c4c18ae818f719390290e11147ae4a73dee3e9bd7f5602097"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentCompiler/UCEI04_Conformance.mqh",
+  "source_sha256": "sha256:796351e09d34be98effdc87f4bca3a021db29c66faafeb922a465c99620f5d42",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A7C95729CDAE809BF28B4E3BE8A8C75D",
+  "treatment_package_id": "TREATPKG_137626AD8BB5FDE10C25FF89B6D1BFC4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

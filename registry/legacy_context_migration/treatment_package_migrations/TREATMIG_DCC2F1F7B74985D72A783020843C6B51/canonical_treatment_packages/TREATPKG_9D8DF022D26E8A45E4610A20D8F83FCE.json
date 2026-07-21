@@ -1,0 +1,83 @@
+{
+  "atom_ids": [
+    "TREATATOM_642093CC90D69115BDBA6DD26EE4D6B5",
+    "TREATATOM_CBDA6C7B5488352DAA3C05CAD1F98F06"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:e924bee79a31b5893f0b74d29504c54385e7d469dff851331ae84754947ecc32",
+      "atom_id": "TREATATOM_642093CC90D69115BDBA6DD26EE4D6B5",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "spec.volume_step=0.01;",
+          "line_digest": "sha256:f1acd9d9b9cd2a07f50ac9fcad54a25b0c1fc9ae16b4214b03eea9324af79654",
+          "line_number": 176
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7f99a3be0640fa4a91d7a4ea78e3a0f9cbc4ec421a27a4d54188cd510eb89fc8",
+      "atom_id": "TREATATOM_CBDA6C7B5488352DAA3C05CAD1F98F06",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "spec.tick_size=0.25;",
+          "line_digest": "sha256:53e01ac07bcc525f7cbf72e7e809193c48c395a079f4b1fc3e77a629a0bea8c2",
+          "line_number": 171
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c12e0ea2739be15825b7d9ac0273d18735fdd5e7c646590951d2fc1249b04f37",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_0A7BA36C5D40EC9B25C9A87A0B298311",
+    "RISKASM_1A351E045AD6C17B2AB0902CB0C9FF51",
+    "RISKASM_3B82E2A2C723AD03CC0FD85A7C90758D",
+    "RISKASM_680E00370B9B78BF1460E3AE4899B782",
+    "RISKASM_A6AE14D09FEF2A30E1FF7586ADB58765"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:69f6d3cb264df17972b8835ed360db4a8a114cb50fe124e35c22dd03ee2e25e4",
+    "sha256:7f99a3be0640fa4a91d7a4ea78e3a0f9cbc4ec421a27a4d54188cd510eb89fc8",
+    "sha256:e924bee79a31b5893f0b74d29504c54385e7d469dff851331ae84754947ecc32"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Testing/SF03_FixtureMarketSource.mqh",
+  "source_sha256": "sha256:69f6d3cb264df17972b8835ed360db4a8a114cb50fe124e35c22dd03ee2e25e4",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_528F7562170EBE28CB57F3016652DF39",
+  "treatment_package_id": "TREATPKG_9D8DF022D26E8A45E4610A20D8F83FCE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

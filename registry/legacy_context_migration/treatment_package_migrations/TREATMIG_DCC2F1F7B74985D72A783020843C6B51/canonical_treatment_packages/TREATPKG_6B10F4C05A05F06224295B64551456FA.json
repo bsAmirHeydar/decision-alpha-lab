@@ -1,0 +1,286 @@
+{
+  "atom_ids": [
+    "TREATATOM_661BCD03A60D1A9D40724A3F204DA1BD",
+    "TREATATOM_6DF0DE8BA6F2123217778190A0FB3B04",
+    "TREATATOM_737C17AF7413CCE46968869876A7D264",
+    "TREATATOM_970111A3FB32D8DD52CA070819077126",
+    "TREATATOM_B27916058FCC69A405ACAFD1D268C075",
+    "TREATATOM_EC21DB75171E4CC5E78F9FE40DA4B929"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_175CD393367D6FD148BF866FD68A2BF0",
+    "EXECCAP_474F4C900F3079199C4FECBA32FF3070",
+    "EXECCAP_5C9FCC7E5FB9536CA2C36EF4AB74692D"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:57c8ae55b4e152165917f5b69479d9c7b2f391c8c8f356b54946e8e2eeee9176",
+      "atom_id": "TREATATOM_661BCD03A60D1A9D40724A3F204DA1BD",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "FileWrite(h, \"risk_percent\", DoubleToString(cfg.risk_percent, 6));",
+          "line_digest": "sha256:1afb99e378b417c7891b14d0c337330349ceecb129ffcc1fcc2080060cefbdc1",
+          "line_number": 34
+        },
+        {
+          "excerpt": "\"equity_snapshot\", \"risk_percent\", \"risk_money\", \"tick_size\", \"tick_value\", \"contract_size_used\", \"used_tick_value\",",
+          "line_digest": "sha256:3335179c3c9a3ec4497fa0e86420ed817e49491b0efcf26a235eaf7e090a6ce3",
+          "line_number": 393
+        },
+        {
+          "excerpt": "DoubleToString(audit.equity_snapshot, 2), DoubleToString(audit.risk_percent, 4), DoubleToString(audit.risk_money, 2), DoubleToString(audit.tick_size, 8), DoubleToString(audit.tick_value, 8), DoubleToString(audit.contract_size_used, 8), STC_BoolText(audit.used_tick_value),",
+          "line_digest": "sha256:190a51a84b5a6949b20642c5fc2bbb2571d3c97169ded8b39658d02e64430010",
+          "line_number": 405
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:118ef74c62c164ec5bab0c123a219b7c693b9190d07e583348e20ff3c0f68afb",
+      "atom_id": "TREATATOM_6DF0DE8BA6F2123217778190A0FB3B04",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:0e462f24b404e48873624308cf70095d0c3f574efa182bbcab115230cdf8c62f",
+          "line_number": 392
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.final_reward_r, 2),",
+          "line_digest": "sha256:ef94849b40e26aa9f5a7ada7e8815cf69c05fc4eb1e10f3e83ea2b3268a7c0cf",
+          "line_number": 404
+        },
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"exit_price\", \"last_checked_close\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:f34daedfcfa60ce58b4be8d89f80726ca3aebe4635729fbeeb5ecbc0e9dada44",
+          "line_number": 430
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.exit_price, 8), DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.fina",
+          "line_digest": "sha256:7ee9b6244940f23e5508ed54118937335641d099430371f90d6305a309bedf60",
+          "line_number": 441
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"broker_volume_step\", \"close_volume\", \"remaining_volume\", \"close_volume_ratio\",",
+          "line_digest": "sha256:165fa7f9240996f36eb44c84d57791e101a3f4be696803c231bf3bea1458268b",
+          "line_number": 466
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.close_volume, 8), DoubleToString(a",
+          "line_digest": "sha256:0c92aa7a3e7e0dd92acee4d6aad62459894cb9b0357fc0671def46937b62fbfb",
+          "line_number": 476
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"partial_close_volume\", \"remaining_after_partial_volume\",",
+          "line_digest": "sha256:7f785c574c93f39a29963eb3a8bc595807598dc6d2fdd5ef7d4e5087d103cd9b",
+          "line_number": 501
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.partial_close_volume, 8), DoubleToString(audit.remaining_after_partial_volume, ",
+          "line_digest": "sha256:c4ab03879795151c612fb033be3e232b83e2e2a2301c491804bc2311363fdc14",
+          "line_number": 513
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:598b32800092430437987d6ae61cda66aa7863853f1fb4bb10a56ecb02fb70cf",
+      "atom_id": "TREATATOM_737C17AF7413CCE46968869876A7D264",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:0e462f24b404e48873624308cf70095d0c3f574efa182bbcab115230cdf8c62f",
+          "line_number": 392
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.final_reward_r, 2),",
+          "line_digest": "sha256:ef94849b40e26aa9f5a7ada7e8815cf69c05fc4eb1e10f3e83ea2b3268a7c0cf",
+          "line_number": 404
+        },
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"exit_price\", \"last_checked_close\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:f34daedfcfa60ce58b4be8d89f80726ca3aebe4635729fbeeb5ecbc0e9dada44",
+          "line_number": 430
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.exit_price, 8), DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.fina",
+          "line_digest": "sha256:7ee9b6244940f23e5508ed54118937335641d099430371f90d6305a309bedf60",
+          "line_number": 441
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"broker_volume_step\", \"close_volume\", \"remaining_volume\", \"close_volume_ratio\",",
+          "line_digest": "sha256:165fa7f9240996f36eb44c84d57791e101a3f4be696803c231bf3bea1458268b",
+          "line_number": 466
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.close_volume, 8), DoubleToString(a",
+          "line_digest": "sha256:0c92aa7a3e7e0dd92acee4d6aad62459894cb9b0357fc0671def46937b62fbfb",
+          "line_number": 476
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"partial_close_volume\", \"remaining_after_partial_volume\",",
+          "line_digest": "sha256:7f785c574c93f39a29963eb3a8bc595807598dc6d2fdd5ef7d4e5087d103cd9b",
+          "line_number": 501
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.partial_close_volume, 8), DoubleToString(audit.remaining_after_partial_volume, ",
+          "line_digest": "sha256:c4ab03879795151c612fb033be3e232b83e2e2a2301c491804bc2311363fdc14",
+          "line_number": 513
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3ce05125d13e8ecc4979874c12d2f058550e8f6301b6c8c22e6fd43382cf0ea2",
+      "atom_id": "TREATATOM_970111A3FB32D8DD52CA070819077126",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "FileWrite(h, \"magic_number\", IntegerToString(cfg.magic_number));",
+          "line_digest": "sha256:2e1c45b012cacb296e5a96ce5e3a380baadef92f39205ca481c73cc04616fe11",
+          "line_number": 40
+        },
+        {
+          "excerpt": "FileWrite(h, \"server_time\", \"strategy_id\", \"run_id\", \"runtime_mode\", \"symbol1\", \"symbol2\", \"magic\", \"pulse_count\", \"event_type\", \"details\");",
+          "line_digest": "sha256:9c017ebe0297cf6c731598257cec1ae9334329f0fec3d0c86cb0ce9db0a9bfbc",
+          "line_number": 136
+        },
+        {
+          "excerpt": "IntegerToString(cfg.magic_number),",
+          "line_digest": "sha256:b48a6a84c7b1c97e2c102b07d3fdb6247e04a19749280fcdcc8307d918832b34",
+          "line_number": 146
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:653b7a8895ca10409097d2a961a55967a4042bba938d8bc547ef8104845fb689",
+      "atom_id": "TREATATOM_B27916058FCC69A405ACAFD1D268C075",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "\"equity_snapshot\", \"risk_percent\", \"risk_money\", \"tick_size\", \"tick_value\", \"contract_size_used\", \"used_tick_value\",",
+          "line_digest": "sha256:3335179c3c9a3ec4497fa0e86420ed817e49491b0efcf26a235eaf7e090a6ce3",
+          "line_number": 393
+        },
+        {
+          "excerpt": "DoubleToString(audit.equity_snapshot, 2), DoubleToString(audit.risk_percent, 4), DoubleToString(audit.risk_money, 2), DoubleToString(audit.tick_size, 8), DoubleToString(audit.tick_value, 8), DoubleToString(audit.contract_size_used, 8), STC_BoolText(audit.used_tick_value),",
+          "line_digest": "sha256:190a51a84b5a6949b20642c5fc2bbb2571d3c97169ded8b39658d02e64430010",
+          "line_number": 405
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b85cbeaefcde0a6f9c4619020f4a68dd296c22bbc52d30a79b265f2d73e3c12f",
+      "atom_id": "TREATATOM_EC21DB75171E4CC5E78F9FE40DA4B929",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:0e462f24b404e48873624308cf70095d0c3f574efa182bbcab115230cdf8c62f",
+          "line_number": 392
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.final_reward_r, 2),",
+          "line_digest": "sha256:ef94849b40e26aa9f5a7ada7e8815cf69c05fc4eb1e10f3e83ea2b3268a7c0cf",
+          "line_number": 404
+        },
+        {
+          "excerpt": "\"entry_price\", \"stop_price\", \"take_profit_price\", \"exit_price\", \"last_checked_close\", \"risk_distance_price\", \"reward_distance_price\", \"final_reward_r\",",
+          "line_digest": "sha256:f34daedfcfa60ce58b4be8d89f80726ca3aebe4635729fbeeb5ecbc0e9dada44",
+          "line_number": 430
+        },
+        {
+          "excerpt": "DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.exit_price, 8), DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.fina",
+          "line_digest": "sha256:7ee9b6244940f23e5508ed54118937335641d099430371f90d6305a309bedf60",
+          "line_number": 441
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"broker_volume_step\", \"close_volume\", \"remaining_volume\", \"close_volume_ratio\",",
+          "line_digest": "sha256:165fa7f9240996f36eb44c84d57791e101a3f4be696803c231bf3bea1458268b",
+          "line_number": 466
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.close_volume, 8), DoubleToString(a",
+          "line_digest": "sha256:0c92aa7a3e7e0dd92acee4d6aad62459894cb9b0357fc0671def46937b62fbfb",
+          "line_number": 476
+        },
+        {
+          "excerpt": "\"direction\", \"trade_symbol\", \"entry_price\", \"stop_price\", \"take_profit_price\", \"paper_order_volume\", \"partial_close_volume\", \"remaining_after_partial_volume\",",
+          "line_digest": "sha256:7f785c574c93f39a29963eb3a8bc595807598dc6d2fdd5ef7d4e5087d103cd9b",
+          "line_number": 501
+        },
+        {
+          "excerpt": "STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.partial_close_volume, 8), DoubleToString(audit.remaining_after_partial_volume, ",
+          "line_digest": "sha256:c4ab03879795151c612fb033be3e232b83e2e2a2301c491804bc2311363fdc14",
+          "line_number": 513
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1f03d995dc48d43cd535296020f9e370a0882e697b5216820da0c10f25091d2c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_279D4C097C24F0B79719E97A1A900C4D",
+    "RISKASM_971B5664E279C0F504FA04539954186D"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:79ced47d82b936e5df587506eddbfa14d08b807d2cb54d9af54f14a5ddd31c69",
+    "sha256:118ef74c62c164ec5bab0c123a219b7c693b9190d07e583348e20ff3c0f68afb",
+    "sha256:3ce05125d13e8ecc4979874c12d2f058550e8f6301b6c8c22e6fd43382cf0ea2",
+    "sha256:57c8ae55b4e152165917f5b69479d9c7b2f391c8c8f356b54946e8e2eeee9176",
+    "sha256:598b32800092430437987d6ae61cda66aa7863853f1fb4bb10a56ecb02fb70cf",
+    "sha256:653b7a8895ca10409097d2a961a55967a4042bba938d8bc547ef8104845fb689",
+    "sha256:b85cbeaefcde0a6f9c4619020f4a68dd296c22bbc52d30a79b265f2d73e3c12f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Journal.mqh",
+  "source_sha256": "sha256:79ced47d82b936e5df587506eddbfa14d08b807d2cb54d9af54f14a5ddd31c69",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_9E3A48524BE143D1E58D603BBBD8B9D8",
+  "treatment_package_id": "TREATPKG_6B10F4C05A05F06224295B64551456FA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

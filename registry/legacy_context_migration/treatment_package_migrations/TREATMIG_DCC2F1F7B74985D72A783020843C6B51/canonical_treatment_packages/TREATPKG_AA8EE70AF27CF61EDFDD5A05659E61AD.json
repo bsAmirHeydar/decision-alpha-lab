@@ -1,0 +1,102 @@
+{
+  "atom_ids": [
+    "TREATATOM_1BEB23DBA723E8D905E6C98FAEEF9396",
+    "TREATATOM_29893D83DF17D90D69DEFF9A099B3E27",
+    "TREATATOM_A198510D626168C98E05B8BB4774BF19"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_E30886F05FDA9FC58660ACB29BF87C15"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ea03a49e75f6a806f6d93ddb077968a0c8bc072dc1b09010f9e9092d8414ec5c",
+      "atom_id": "TREATATOM_1BEB23DBA723E8D905E6C98FAEEF9396",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "require(setup, \"setup.reward_distance = MathAbs(setup.target_price - setup.entry_price)\", \"reward distance\", errors)",
+          "line_digest": "sha256:46e59f7ed8159e12eaf3e407b6d153c25582e7aa7255d6f8e5ac066c1a401828",
+          "line_number": 72
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:aec82d04b6d71ff49099351353eed9d0acf08ba04f5dcc238beca17477226939",
+      "atom_id": "TREATATOM_29893D83DF17D90D69DEFF9A099B3E27",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "require(setup, \"setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price)\", \"risk distance\", errors)",
+          "line_digest": "sha256:e5f1e7b92a49003101842452896127e664a71e3cf618e0df009d4d68123c4739",
+          "line_number": 71
+        },
+        {
+          "excerpt": "require(setup, \"setup.reward_distance = MathAbs(setup.target_price - setup.entry_price)\", \"reward distance\", errors)",
+          "line_digest": "sha256:46e59f7ed8159e12eaf3e407b6d153c25582e7aa7255d6f8e5ac066c1a401828",
+          "line_number": 72
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a81196524dc0139e8cf1a6ce873472b11a2a11d3b822ab4be65f4e20cc6aa131",
+      "atom_id": "TREATATOM_A198510D626168C98E05B8BB4774BF19",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "require(setup, \"setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price)\", \"risk distance\", errors)",
+          "line_digest": "sha256:e5f1e7b92a49003101842452896127e664a71e3cf618e0df009d4d68123c4739",
+          "line_number": 71
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:af33d00430808403344aa541f2f4fb6bce40d6a905b8d846113da1f331f72852",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:9de2fcd6fb70174704c3ce442de46d2a5cbac05702837c0196e890dd6f9c166d",
+    "sha256:a81196524dc0139e8cf1a6ce873472b11a2a11d3b822ab4be65f4e20cc6aa131",
+    "sha256:aec82d04b6d71ff49099351353eed9d0acf08ba04f5dcc238beca17477226939",
+    "sha256:ea03a49e75f6a806f6d93ddb077968a0c8bc072dc1b09010f9e9092d8414ec5c"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+  "source_sha256": "sha256:9de2fcd6fb70174704c3ce442de46d2a5cbac05702837c0196e890dd6f9c166d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_1BB302A76F1166885827A8D1C197EBFE",
+  "treatment_package_id": "TREATPKG_AA8EE70AF27CF61EDFDD5A05659E61AD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

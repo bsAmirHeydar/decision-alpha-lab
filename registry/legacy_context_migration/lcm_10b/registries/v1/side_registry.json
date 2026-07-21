@@ -1,0 +1,22 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "entries": {
+    "BUY": "LONG_DIRECTION",
+    "SELL": "SHORT_DIRECTION",
+    "UNKNOWN": "BLOCKING_UNKNOWN"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "record_count": 3,
+  "registry_digest": "sha256:6abf90e4fbc1a3a3e0c3258dbb4297e35d94fa0d93c8dc2752aef48347f62b95",
+  "registry_name": "side_registry",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,0 +1,593 @@
+{
+  "atom_ids": [
+    "TREATATOM_A7C2D067C7C5054B268BE589775975F5",
+    "TREATATOM_DA13C890FB645EAFE0274CBA220EA200",
+    "TREATATOM_F41845AD333731F1CD20B0A589B4DBB3",
+    "TREATATOM_F71632D03408F979E4643EB843E2A349"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_94F9DDC02045B8862E3F6C172EF52F5D"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1dab0aa1e76ea63db81f51563475b33a42b95906a6e3299569f5dbcce4e8b5cc",
+      "atom_id": "TREATATOM_A7C2D067C7C5054B268BE589775975F5",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 43
+        },
+        {
+          "excerpt": "s.entry_price = 0.0;",
+          "line_digest": "sha256:981853e1766dd6c134962f9b4d03a89885d196d0c5671f8902114b3931466ddf",
+          "line_number": 78
+        },
+        {
+          "excerpt": "double entry = setup.entry_price;",
+          "line_digest": "sha256:50c458b810e206bd14b9e4cc2a5af9022c0760c03be2fc1c1349f00c2614d450",
+          "line_number": 237
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 428
+        },
+        {
+          "excerpt": "double stop_distance = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:c9301cd5a526c977b01fe55f433238cd03177aa6d170dc5ab6adcb96cf6f29b0",
+          "line_number": 433
+        },
+        {
+          "excerpt": "return entry_price;",
+          "line_digest": "sha256:395f75c05afba974425ef29cc4ce0e488f0934a9ee3f09425c72ed81fa50242a",
+          "line_number": 435
+        },
+        {
+          "excerpt": "return entry_price + direction * stop_distance * reward_r;",
+          "line_digest": "sha256:a7475afdcdbae299c44dfa13970655c0d299c73b07018c53bfd23bbd19475c63",
+          "line_number": 436
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 441
+        },
+        {
+          "excerpt": "return (target_price > entry_price);",
+          "line_digest": "sha256:b7361d719f98ac954ede61277929b81f437878ec2acf1849b02ee2d3bc438279",
+          "line_number": 446
+        },
+        {
+          "excerpt": "return (target_price < entry_price);",
+          "line_digest": "sha256:e2df3acc82664c71eba5b13fdae505884614eeefcef038e62ae78ea15fac0e4a",
+          "line_number": 448
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 454
+        },
+        {
+          "excerpt": "double risk = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:855b0196a9f61b1f68e4b1ab5eb4cb5b5e52282f0b16f5b63db9968d60844f99",
+          "line_number": 459
+        },
+        {
+          "excerpt": "if(!DAL_ExecPriceInProfitDirection(direction, entry_price, target_price))",
+          "line_digest": "sha256:60f13f898f8635bd2ea64d274f9644e0ddeb26587e96a342af9356095a284ad9",
+          "line_number": 462
+        },
+        {
+          "excerpt": "return MathAbs(target_price - entry_price) / risk;",
+          "line_digest": "sha256:22eeec3a5a3d1f8f75914213f760d5605820d432395e7f6cfd9b2b5342d34f07",
+          "line_number": 464
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:043f05c0dbad0b19cab42521d9b8f2dbcb375f8c2b11183d3da3251adf3c047b",
+          "line_number": 469
+        },
+        {
+          "excerpt": "fixed_r_tp = DAL_ExecFixedRTpPrice(direction, entry_price, stop_price, reward_r);",
+          "line_digest": "sha256:af0dede0c8a745db551da72cb8bbc924bba2b2b4db8369bf2a8159a5dd03afae",
+          "line_number": 484
+        },
+        {
+          "excerpt": "if(!DAL_ExecPriceInProfitDirection(direction, entry_price, fixed_r_tp))",
+          "line_digest": "sha256:128c1e57adce5c82dee285d885da38d4ae684f161db4cf88d2c9c081e5ee302b",
+          "line_number": 499
+        },
+        {
+          "excerpt": "if(!DAL_ExecPriceInProfitDirection(direction, entry_price, opposite_touch_tp))",
+          "line_digest": "sha256:6e00026bcbcb0b8332fad926cb61ae9875c5b355f80bc2eb26a1c4eab59d5933",
+          "line_number": 509
+        },
+        {
+          "excerpt": "double risk = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:855b0196a9f61b1f68e4b1ab5eb4cb5b5e52282f0b16f5b63db9968d60844f99",
+          "line_number": 515
+        },
+        {
+          "excerpt": "double fixed_dist = MathAbs(fixed_r_tp - entry_price);",
+          "line_digest": "sha256:cd729ee276a2ca79c98d270af91e66e0b0b20db463fe022967a69958df863a36",
+          "line_number": 516
+        },
+        {
+          "excerpt": "double opposite_dist = MathAbs(opposite_touch_tp - entry_price);",
+          "line_digest": "sha256:ac41ec446fbecdb9b368b7f89434a4fcc375665099868c399d1a7c933430eb35",
+          "line_number": 517
+        },
+        {
+          "excerpt": "if(!DAL_ExecPriceInProfitDirection(setup.direction, setup.entry_price, candidate_touch))",
+          "line_digest": "sha256:c16ef4ddcfe127f72e01407da6d51456d99fcb4fb246f3dfaf9e253e33fb801f",
+          "line_number": 611
+        },
+        {
+          "excerpt": "double d = MathAbs(candidate_touch - setup.entry_price);",
+          "line_digest": "sha256:cabea06c23987452d69f440880dbc42273396a58131de7280a4118c93279e1d8",
+          "line_number": 617
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, setup.reward_r);",
+          "line_digest": "sha256:3c4d0e6b135fc75d52d75c132d12c01d8eb5fb16e8eb9ca6de9c9d1463166d66",
+          "line_number": 658
+        },
+        {
+          "excerpt": "setup.entry_price,",
+          "line_digest": "sha256:0cea84c935640cc09d11ff56871ac14c2a3de9635a9e599bb43d6e796475e91d",
+          "line_number": 685
+        },
+        {
+          "excerpt": "setup.entry_price = upper + spread;",
+          "line_digest": "sha256:2e763f56a8c33f96518b3b3c4b34e4dcff0c71211d9fb04c6df9958a28f1f089",
+          "line_number": 796
+        },
+        {
+          "excerpt": "setup.entry_price = lower;",
+          "line_digest": "sha256:fd092c71e276d51101b57479bedba5f222ba2bc8292e937d01ce241faff8f9c7",
+          "line_number": 804
+        },
+        {
+          "excerpt": "setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);",
+          "line_digest": "sha256:0d39635224e49481a8930700250d3d54cc77c48bf4fb28101402d588d2eabe10",
+          "line_number": 808
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, reward_r);",
+          "line_digest": "sha256:0c2031ebd025eb28c018f4e68923cb0cb41e9cd4c5d410e7ee6e4a7d18d69a61",
+          "line_number": 818
+        },
+        {
+          "excerpt": "double best_d = DAL_ExecPendingDistanceToMarket(symbol, setups[i].direction, setups[i].entry_price);",
+          "line_digest": "sha256:efe6451ec2420ea62d27d4b87d26f19281c120e9c53896abd443d27aedfa3a14",
+          "line_number": 840
+        },
+        {
+          "excerpt": "double d = DAL_ExecPendingDistanceToMarket(symbol, setups[j].direction, setups[j].entry_price);",
+          "line_digest": "sha256:06cc3a4488350db6d0af24ae43106bbd40929988f6244c880e466aed171d7b87",
+          "line_number": 843
+        },
+        {
+          "excerpt": "setup.entry_price = upper + spread;",
+          "line_digest": "sha256:2e763f56a8c33f96518b3b3c4b34e4dcff0c71211d9fb04c6df9958a28f1f089",
+          "line_number": 1122
+        },
+        {
+          "excerpt": "setup.entry_price = lower;",
+          "line_digest": "sha256:fd092c71e276d51101b57479bedba5f222ba2bc8292e937d01ce241faff8f9c7",
+          "line_number": 1130
+        },
+        {
+          "excerpt": "setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);",
+          "line_digest": "sha256:0d39635224e49481a8930700250d3d54cc77c48bf4fb28101402d588d2eabe10",
+          "line_number": 1134
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, reward_r);",
+          "line_digest": "sha256:0c2031ebd025eb28c018f4e68923cb0cb41e9cd4c5d410e7ee6e4a7d18d69a61",
+          "line_number": 1141
+        },
+        {
+          "excerpt": "double best_d = MathAbs(setups[i].entry_price - reference_price);",
+          "line_digest": "sha256:ae4242f538e4421fec0187eb350da7c2d8864568d3521235c81aa0e4f08d7dba",
+          "line_number": 1202
+        },
+        {
+          "excerpt": "double d = MathAbs(setups[j].entry_price - reference_price);",
+          "line_digest": "sha256:732841d5e8525bb8d0cfa650d5dee43ad6bd803669113f05fe86973d964a7d81",
+          "line_number": 1205
+        },
+        {
+          "excerpt": "if(setup.direction > 0 && !(setup.entry_price < reference_price))",
+          "line_digest": "sha256:25dd8d4c75961af362cfd49d195c2ce4ae6c0cac2892bf0328865916f1c6c91b",
+          "line_number": 1337
+        },
+        {
+          "excerpt": "if(setup.direction < 0 && !(setup.entry_price > reference_price))",
+          "line_digest": "sha256:83d33755782e9fc0b9b0b4a78972728bd86c825d81f5453515af4aa577e89817",
+          "line_number": 1342
+        },
+        {
+          "excerpt": "if(bars[i].low <= setup.entry_price)",
+          "line_digest": "sha256:07bb0e7f208f44cc7958abb5a577674b1940af86e7e0210899e38c221f185627",
+          "line_number": 1434
+        },
+        {
+          "excerpt": "if(bars[i].high >= setup.entry_price)",
+          "line_digest": "sha256:44891df8eb81b6d6b0ead226d604c05c16263dd5241cac124747f4a46b05eab0",
+          "line_number": 1442
+        },
+        {
+          "excerpt": "+ \"*entry=\" + DoubleToString(s.entry_price, 8)",
+          "line_digest": "sha256:908c13b717388bd920cf2ea0f49c82e9c169cae8c772b4eb210a0d0b62aefca7",
+          "line_number": 1742
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b911ba5f3161bb215ece2009ab89e442728efb6a7188fe8555946955c3db518f",
+      "atom_id": "TREATATOM_DA13C890FB645EAFE0274CBA220EA200",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:fe3f2b0452a2a65b0d9c7e74a4232df8386761b478a25e95c2403da5cef8b1d1",
+          "line_number": 408
+        },
+        {
+          "excerpt": "double spread = 0.0;",
+          "line_digest": "sha256:3112b306406e83c312659f7edb06e0d5316c2dd93838eeb49fb13af8bc237a59",
+          "line_number": 409
+        },
+        {
+          "excerpt": "spread = ask - bid;",
+          "line_digest": "sha256:d4bb7534c1e425e504f9df20cfcd733890efc1381eea1dd1ce583d3bff0b8469",
+          "line_number": 412
+        },
+        {
+          "excerpt": "if(spread <= 0.0 && point > 0.0)",
+          "line_digest": "sha256:31041b952b8046f2395ce775088837b44b5012937e50f37594f435bd1a37a6d7",
+          "line_number": 414
+        },
+        {
+          "excerpt": "spread = (double)spread_points * point;",
+          "line_digest": "sha256:cae5e37b0c363e3c0b034d84e3ccd88aa08f9851b3fa8482ae4df21d016cda48",
+          "line_number": 418
+        },
+        {
+          "excerpt": "if(spread < 0.0)",
+          "line_digest": "sha256:0e95b961a50a1ad62ed009a9a9cf489400b4a40364920c52f7d21a8aca4ca292",
+          "line_number": 421
+        },
+        {
+          "excerpt": "spread = 0.0;",
+          "line_digest": "sha256:e53f458e3e916eb213b6fdece8d364d33d755c3a0866ea3c6006d36fbc481d47",
+          "line_number": 422
+        },
+        {
+          "excerpt": "return spread;",
+          "line_digest": "sha256:8e66454a979fad164df51474d20a1030b86919e25d2bb645128276f6f2c903c3",
+          "line_number": 423
+        },
+        {
+          "excerpt": "double spread = DAL_ExecCurrentSpreadPrice(symbol);",
+          "line_digest": "sha256:2e6c54a161bcb6cdf64134276be394ce4061e64de492f0c60a03b03ee01a0123",
+          "line_number": 779
+        },
+        {
+          "excerpt": "setup.spread_price = spread;",
+          "line_digest": "sha256:a0b47d77442559da6d8a0e0e3721662e915de4ec174aa336cf39d414af60723f",
+          "line_number": 780
+        },
+        {
+          "excerpt": "setup.entry_price = upper + spread;",
+          "line_digest": "sha256:2e763f56a8c33f96518b3b3c4b34e4dcff0c71211d9fb04c6df9958a28f1f089",
+          "line_number": 796
+        },
+        {
+          "excerpt": "setup.stop_price = upper + spread;",
+          "line_digest": "sha256:96545f2c8ad3061b05008bd9a1b8330b623bc33d0ec6538b19e0c370197b920f",
+          "line_number": 805
+        },
+        {
+          "excerpt": "double spread = DAL_ExecCurrentSpreadPrice(_Symbol);",
+          "line_digest": "sha256:9963c400a9a9b1cf7ff1f7250eb66abc4b07bf9abac15cb952a26f6b85571a2a",
+          "line_number": 1114
+        },
+        {
+          "excerpt": "setup.spread_price = spread;",
+          "line_digest": "sha256:a0b47d77442559da6d8a0e0e3721662e915de4ec174aa336cf39d414af60723f",
+          "line_number": 1115
+        },
+        {
+          "excerpt": "setup.entry_price = upper + spread;",
+          "line_digest": "sha256:2e763f56a8c33f96518b3b3c4b34e4dcff0c71211d9fb04c6df9958a28f1f089",
+          "line_number": 1122
+        },
+        {
+          "excerpt": "setup.stop_price = upper + spread;",
+          "line_digest": "sha256:96545f2c8ad3061b05008bd9a1b8330b623bc33d0ec6538b19e0c370197b920f",
+          "line_number": 1131
+        },
+        {
+          "excerpt": "+ \"*spread=\" + DoubleToString(s.spread_price, 8)",
+          "line_digest": "sha256:034e33d7f41b72312a50a9bf437c0bac9be7f9a9296d27fd24de6b64a955890d",
+          "line_number": 1750
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1359377c1b681c298ac3d14e0e798e948ed9746030d03191cdfa928d47d530ad",
+      "atom_id": "TREATATOM_F41845AD333731F1CD20B0A589B4DBB3",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_price;",
+          "line_digest": "sha256:3d9441f24e91ecba7625507d1b4e4a3cfd4f0b9a7fde3a1cf8a9a44a4595f394",
+          "line_number": 44
+        },
+        {
+          "excerpt": "s.stop_price = 0.0;",
+          "line_digest": "sha256:5da19fb8e101dc59e657cad6d888949f7bb012c89544088c45760ad31cc24bf3",
+          "line_number": 79
+        },
+        {
+          "excerpt": "double sl = setup.stop_price;",
+          "line_digest": "sha256:1a0dfb63226889e9406d4df880c60e9f4586467fd5d71aaefabd8f82dded71ae",
+          "line_number": 238
+        },
+        {
+          "excerpt": "DAL_ExecNormalizePrices(symbol, entry, sl, tp);",
+          "line_digest": "sha256:f37af430f86af3d8bbe10f74401da7aab5de9c3c00512c6b49a37cbb005e8add",
+          "line_number": 240
+        },
+        {
+          "excerpt": "return DAL_ExecCheckLimitGeometry(symbol, setup.direction, entry, sl, tp, reason);",
+          "line_digest": "sha256:36ce03d79534da6011f931cf0c4b343055e2af404ca9e5c27084f8a853b04843",
+          "line_number": 241
+        },
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:9eae4c771b2a34f89326b5c4b054f54ddabbdd177bb061aeb5810e638a8d7b3a",
+          "line_number": 429
+        },
+        {
+          "excerpt": "double stop_distance = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:c9301cd5a526c977b01fe55f433238cd03177aa6d170dc5ab6adcb96cf6f29b0",
+          "line_number": 433
+        },
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:9eae4c771b2a34f89326b5c4b054f54ddabbdd177bb061aeb5810e638a8d7b3a",
+          "line_number": 455
+        },
+        {
+          "excerpt": "double risk = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:855b0196a9f61b1f68e4b1ab5eb4cb5b5e52282f0b16f5b63db9968d60844f99",
+          "line_number": 459
+        },
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:9eae4c771b2a34f89326b5c4b054f54ddabbdd177bb061aeb5810e638a8d7b3a",
+          "line_number": 470
+        },
+        {
+          "excerpt": "fixed_r_tp = DAL_ExecFixedRTpPrice(direction, entry_price, stop_price, reward_r);",
+          "line_digest": "sha256:af0dede0c8a745db551da72cb8bbc924bba2b2b4db8369bf2a8159a5dd03afae",
+          "line_number": 484
+        },
+        {
+          "excerpt": "double risk = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:855b0196a9f61b1f68e4b1ab5eb4cb5b5e52282f0b16f5b63db9968d60844f99",
+          "line_number": 515
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, setup.reward_r);",
+          "line_digest": "sha256:3c4d0e6b135fc75d52d75c132d12c01d8eb5fb16e8eb9ca6de9c9d1463166d66",
+          "line_number": 658
+        },
+        {
+          "excerpt": "setup.stop_price,",
+          "line_digest": "sha256:24f0bfaa83830a082b09513f825ab7627eb7aaff9641a9372d49211420eded35",
+          "line_number": 686
+        },
+        {
+          "excerpt": "setup.stop_price,",
+          "line_digest": "sha256:24f0bfaa83830a082b09513f825ab7627eb7aaff9641a9372d49211420eded35",
+          "line_number": 731
+        },
+        {
+          "excerpt": "setup.stop_price = lower;",
+          "line_digest": "sha256:ab2db430e92ac10d7b8c8ab60790fb3617558ee8f0ca6d661a06ac10fcb6214d",
+          "line_number": 797
+        },
+        {
+          "excerpt": "setup.stop_price = upper + spread;",
+          "line_digest": "sha256:96545f2c8ad3061b05008bd9a1b8330b623bc33d0ec6538b19e0c370197b920f",
+          "line_number": 805
+        },
+        {
+          "excerpt": "setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);",
+          "line_digest": "sha256:0d39635224e49481a8930700250d3d54cc77c48bf4fb28101402d588d2eabe10",
+          "line_number": 808
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, reward_r);",
+          "line_digest": "sha256:0c2031ebd025eb28c018f4e68923cb0cb41e9cd4c5d410e7ee6e4a7d18d69a61",
+          "line_number": 818
+        },
+        {
+          "excerpt": "setup.stop_price = lower;",
+          "line_digest": "sha256:ab2db430e92ac10d7b8c8ab60790fb3617558ee8f0ca6d661a06ac10fcb6214d",
+          "line_number": 1123
+        },
+        {
+          "excerpt": "setup.stop_price = upper + spread;",
+          "line_digest": "sha256:96545f2c8ad3061b05008bd9a1b8330b623bc33d0ec6538b19e0c370197b920f",
+          "line_number": 1131
+        },
+        {
+          "excerpt": "setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);",
+          "line_digest": "sha256:0d39635224e49481a8930700250d3d54cc77c48bf4fb28101402d588d2eabe10",
+          "line_number": 1134
+        },
+        {
+          "excerpt": "setup.fixed_r_tp_price = DAL_ExecFixedRTpPrice(setup.direction, setup.entry_price, setup.stop_price, reward_r);",
+          "line_digest": "sha256:0c2031ebd025eb28c018f4e68923cb0cb41e9cd4c5d410e7ee6e4a7d18d69a61",
+          "line_number": 1141
+        },
+        {
+          "excerpt": "hit_stop = (bars[i].low <= setup.stop_price);",
+          "line_digest": "sha256:2a5bd89c543396d71721a93a7a95267de9c802aef8a532b775e96f8adda687d1",
+          "line_number": 1457
+        },
+        {
+          "excerpt": "hit_stop = (bars[i].high >= setup.stop_price);",
+          "line_digest": "sha256:58284c344d157925d2c48614fd1745eac77f6329f1e8b200ec90890a0b533261",
+          "line_number": 1462
+        },
+        {
+          "excerpt": "+ \"*stop=\" + DoubleToString(s.stop_price, 8)",
+          "line_digest": "sha256:74bbabe4aa89e8e81ceebf173bbf24b251f9b03ccdec50b16bbdc427c0b7f4ef",
+          "line_number": 1743
+        },
+        {
+          "excerpt": "+ \"*stopDistance=\" + DoubleToString(s.stop_distance, 8)",
+          "line_digest": "sha256:e303e3b0a9501829d2acd5b8b77924c1e5eb76bfaab83263379409da94cd7f93",
+          "line_number": 1751
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a38c7a099fabb962229986491ff62a187e8e77cb9e1e748f16103727b74abd39",
+      "atom_id": "TREATATOM_F71632D03408F979E4643EB843E2A349",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double tp = setup.tp_price;",
+          "line_digest": "sha256:a7e39ef1632161122535187885a82768151ad0f516baef356ef7b7b6fe9e3379",
+          "line_number": 239
+        },
+        {
+          "excerpt": "DAL_ExecNormalizePrices(symbol, entry, sl, tp);",
+          "line_digest": "sha256:f37af430f86af3d8bbe10f74401da7aab5de9c3c00512c6b49a37cbb005e8add",
+          "line_number": 240
+        },
+        {
+          "excerpt": "return DAL_ExecCheckLimitGeometry(symbol, setup.direction, entry, sl, tp, reason);",
+          "line_digest": "sha256:36ce03d79534da6011f931cf0c4b343055e2af404ca9e5c27084f8a853b04843",
+          "line_number": 241
+        },
+        {
+          "excerpt": "const double target_price",
+          "line_digest": "sha256:5e7deabbfc3eff7fbb58d7027fa0497e363d116fc7c90e279d561d9f422e7021",
+          "line_number": 442
+        },
+        {
+          "excerpt": "return (target_price > entry_price);",
+          "line_digest": "sha256:b7361d719f98ac954ede61277929b81f437878ec2acf1849b02ee2d3bc438279",
+          "line_number": 446
+        },
+        {
+          "excerpt": "return (target_price < entry_price);",
+          "line_digest": "sha256:e2df3acc82664c71eba5b13fdae505884614eeefcef038e62ae78ea15fac0e4a",
+          "line_number": 448
+        },
+        {
+          "excerpt": "const double target_price",
+          "line_digest": "sha256:5e7deabbfc3eff7fbb58d7027fa0497e363d116fc7c90e279d561d9f422e7021",
+          "line_number": 456
+        },
+        {
+          "excerpt": "if(!DAL_ExecPriceInProfitDirection(direction, entry_price, target_price))",
+          "line_digest": "sha256:60f13f898f8635bd2ea64d274f9644e0ddeb26587e96a342af9356095a284ad9",
+          "line_number": 462
+        },
+        {
+          "excerpt": "return MathAbs(target_price - entry_price) / risk;",
+          "line_digest": "sha256:22eeec3a5a3d1f8f75914213f760d5605820d432395e7f6cfd9b2b5342d34f07",
+          "line_number": 464
+        },
+        {
+          "excerpt": "double &target_price,",
+          "line_digest": "sha256:139db0d898135ae68958722c87e6bbd57a33a52f79abda903acb14cc13f5d3a0",
+          "line_number": 553
+        },
+        {
+          "excerpt": "target_price = 0.0;",
+          "line_digest": "sha256:cbac115af8d6133eaed9206da6c63d20609d1a713b1f0befd7d31af121f323c3",
+          "line_number": 558
+        },
+        {
+          "excerpt": "target_price = candidate_touch;",
+          "line_digest": "sha256:a13eb0f61d38f9faa8f5e3c74c0d483cfc0475cc9e1820965a4143d7c1b508f5",
+          "line_number": 628
+        },
+        {
+          "excerpt": "+ \"*tp=\" + DoubleToString(s.tp_price, 8)",
+          "line_digest": "sha256:9e4e7d953f95dd851bf02fa28ae960a1d0322a27408ac9c1d59ea7f439471924",
+          "line_number": 1744
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6ea93bb4cfc6b4fe3525ac0f690354b7cb9468cf1388749cb480abe74f114c31",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_711D60D8F02816B1E0FF7052A69D2784",
+    "RISKASM_750F504975EB11EFEBF1478F73752CD5"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b5c8e27765ff91e64684f334bdb2b799d85980f19053db109a4d19d0d98fbf6b",
+    "sha256:1359377c1b681c298ac3d14e0e798e948ed9746030d03191cdfa928d47d530ad",
+    "sha256:1dab0aa1e76ea63db81f51563475b33a42b95906a6e3299569f5dbcce4e8b5cc",
+    "sha256:a38c7a099fabb962229986491ff62a187e8e77cb9e1e748f16103727b74abd39",
+    "sha256:b911ba5f3161bb215ece2009ab89e442728efb6a7188fe8555946955c3db518f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/DAL_ExecReversalOneToOne.mqh",
+  "source_sha256": "sha256:b5c8e27765ff91e64684f334bdb2b799d85980f19053db109a4d19d0d98fbf6b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_90BED6888689C17C1051B03CA2DC32EA",
+  "treatment_package_id": "TREATPKG_2459541E4C36A1201E1CD118FC6D585D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

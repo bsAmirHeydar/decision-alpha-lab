@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_B8CC8FBF72BA7DF9C46590321D33AC62"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9a7e80cd4a27c93b5f03101758fd3d2b2893f461a115be5d4cc14a0ec7068cf9",
+      "atom_id": "TREATATOM_B8CC8FBF72BA7DF9C46590321D33AC62",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "bycase=defaultdict(list); reserved=[]; trailing=[]; long=[]",
+          "line_digest": "sha256:58eafe994fff2bf6a10d1ab9758976e3ea8990de2244fd092385dab4ce5dbec1",
+          "line_number": 6
+        },
+        {
+          "excerpt": "if part.endswith((' ','.')): trailing.append(path); break",
+          "line_digest": "sha256:aaaf7bff458554e5131a3c844d45435d69269e61a62913ae8979ce404d7561d5",
+          "line_number": 13
+        },
+        {
+          "excerpt": "return {'case_insensitive_collisions':collisions,'windows_reserved_name_paths':sorted(set(reserved)),'trailing_dot_or_space_paths':sorted(set(trailing)),'long_windows_paths':sorted(long,key=lambda x:(-x['path_length'],x['path']))}",
+          "line_digest": "sha256:e0ec5f3f7595af51c6217a223a54a217cf8ed43a318443d456f97e421b76aeef",
+          "line_number": 16
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c85fae202f1b829ef6ebd4bcb1be838d6d2718acc0551176c0c256e374915597",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:087ba882b5352566b4971cbe2a7bc88e635a9137c73cac849552885c57356805",
+    "sha256:9a7e80cd4a27c93b5f03101758fd3d2b2893f461a115be5d4cc14a0ec7068cf9"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/lcm/lcm_01/collision_scan.py",
+  "source_sha256": "sha256:087ba882b5352566b4971cbe2a7bc88e635a9137c73cac849552885c57356805",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_BC3F3C4B783DFA3939EC78A98348519C",
+  "treatment_package_id": "TREATPKG_8FE8E6997208E0B0D668F71C0A826AF2",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

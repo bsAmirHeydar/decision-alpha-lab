@@ -1,0 +1,97 @@
+{
+  "atom_ids": [
+    "TREATATOM_0D17ED38D2699F63EB28AE14DD37878B",
+    "TREATATOM_2DDA002A0122C5A0CB6A2B8862D257BD",
+    "TREATATOM_7FEB9BDB59397D07206286C26C5941AE"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:91cbe7888b9976c8280011106bafc82d8deacf7562483a00b8534940bff2d418",
+      "atom_id": "TREATATOM_0D17ED38D2699F63EB28AE14DD37878B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double UCEI03_RoundFloorTick(const UCEI03_PriceEnvironment &p,const double price){return NormalizeDouble(MathFloor((price+1e-12)/p.tick_size)*p.tick_size,p.digits);}",
+          "line_digest": "sha256:19c86bb4e84cfa8af311794f05a72574425a5a2409313ae4d07e5317ec9b4475",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bfa83c7047b61d5818c4902e65fcf57f50190104c92e29b121c4d943d5df9b1d",
+      "atom_id": "TREATATOM_2DDA002A0122C5A0CB6A2B8862D257BD",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double UCEI03_RoundCeilTick(const UCEI03_PriceEnvironment &p,const double price){return NormalizeDouble(MathCeil((price-1e-12)/p.tick_size)*p.tick_size,p.digits);}",
+          "line_digest": "sha256:636828cf37b6cae32d7db39a6646f780126ac983d7d46131195d8497a2dd0b1e",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:85d8894d160503a38d6e20b1e7c9eb04b5a3da90c7860b26b9fb39dbd051ed3a",
+      "atom_id": "TREATATOM_7FEB9BDB59397D07206286C26C5941AE",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double UCEI03_RoundNearestTick(const UCEI03_PriceEnvironment &p,const double price){return NormalizeDouble(MathRound(price/p.tick_size)*p.tick_size,p.digits);}",
+          "line_digest": "sha256:f9d3b05a7faf4809cdf8e6db9832ac3c48239b0c7d7e0fa4b7377a1bae32602e",
+          "line_number": 6
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:62a8799ef37e6359028fb10b98c83518f907266d93ce7a53bcc1c49e6cdedf41",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_463DB9502F99E35B310245EBEAF5012E",
+    "RISKASM_B15B0D74740C96D97B24187A10B86C1B",
+    "RISKASM_D06D2DFE95D95B32BAC98EEA6824B3FC"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7152c7b2fb69d15a815dcc77d6dd08ce6988c227932cf9a15df393eb13a02a5a",
+    "sha256:85d8894d160503a38d6e20b1e7c9eb04b5a3da90c7860b26b9fb39dbd051ed3a",
+    "sha256:91cbe7888b9976c8280011106bafc82d8deacf7562483a00b8534940bff2d418",
+    "sha256:bfa83c7047b61d5818c4902e65fcf57f50190104c92e29b121c4d943d5df9b1d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_PriceMath.mqh",
+  "source_sha256": "sha256:7152c7b2fb69d15a815dcc77d6dd08ce6988c227932cf9a15df393eb13a02a5a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8CC7B895EE7D59BDC9748BFE10F4FF86",
+  "treatment_package_id": "TREATPKG_FB3F846847FE71F7B17C648FC79D2F8B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

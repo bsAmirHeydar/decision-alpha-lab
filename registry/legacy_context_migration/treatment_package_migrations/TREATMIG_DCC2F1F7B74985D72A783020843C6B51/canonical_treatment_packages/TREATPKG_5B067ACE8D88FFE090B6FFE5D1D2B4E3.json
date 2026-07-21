@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_1C4D4646BAA8B967AA5BBEF31C6B764D"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d0db9da8e4ffc88f8aca65dae4fef7511503faa8ebf6c9adfc69dc1df35d4568",
+      "atom_id": "TREATATOM_1C4D4646BAA8B967AA5BBEF31C6B764D",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "SF03_SymbolSpecSnapshot spec;if(!m_specs.GetSnapshot(m_symbol,spec,error))return false;double threshold=MathMax(spec.point*m_min_penetration_points,spec.tick_size);",
+          "line_digest": "sha256:999d6f327102dd85f7904e75d60707e3f8a86f8a9fdf9c35f9644ec96708da36",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:7903f23baa3646a69a9544fe6adfbf9059ee041dcb1b1102dcf01b7df11d450a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_0661472B74E2FEFF509122FC9A70A438"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:eb2d0cf7397c22e67fa80ffbc1732c9ab25da422c98536d857528db681167f29",
+    "sha256:d0db9da8e4ffc88f8aca65dae4fef7511503faa8ebf6c9adfc69dc1df35d4568"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Anatomy/Reference/SF06_ReferenceSweepPlugin.mqh",
+  "source_sha256": "sha256:eb2d0cf7397c22e67fa80ffbc1732c9ab25da422c98536d857528db681167f29",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_6B222E26256F512A90E3B82DA8C4959F",
+  "treatment_package_id": "TREATPKG_5B067ACE8D88FFE090B6FFE5D1D2B4E3",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

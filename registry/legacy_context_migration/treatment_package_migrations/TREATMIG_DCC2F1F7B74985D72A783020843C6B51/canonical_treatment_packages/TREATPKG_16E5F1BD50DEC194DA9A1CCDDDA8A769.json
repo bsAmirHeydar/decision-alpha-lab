@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_332DED90361C10D0DF9C01649F13B2DF"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:e768d562167f30007be7140c533e9b6fe655a6f4c57150bd37474f14d22e7e3f",
+      "atom_id": "TREATATOM_332DED90361C10D0DF9C01649F13B2DF",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "CLAUSE_ORDER = [\"entry\", \"invalidation\", \"exit\", \"management\", \"expiry\", \"abstention\"]",
+          "line_digest": "sha256:dc4d98eb64b9d2d6c64879de7a823b85c479cae91f44d9547c1bed2dab33fcc6",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e7f4622a5f4b1b08d50146bc075cb8e2f4b377e5acba9c47e8aa05531ff89b18",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f402d3e1a7f66a113387aff6c5a1961ca8e13b8d2fdeba59ce82b788072718fe",
+    "sha256:e768d562167f30007be7140c533e9b6fe655a6f4c57150bd37474f14d22e7e3f"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/acl_os/acl_04/policy_ir.py",
+  "source_sha256": "sha256:f402d3e1a7f66a113387aff6c5a1961ca8e13b8d2fdeba59ce82b788072718fe",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D9EE7F5552ED9CFF62054CA8BDBE9F97",
+  "treatment_package_id": "TREATPKG_16E5F1BD50DEC194DA9A1CCDDDA8A769",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

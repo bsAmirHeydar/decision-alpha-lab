@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_33586ED479880F9ED5E2128FA5C4FF90"
+  ],
+  "atom_types": [
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_5611AA09AEAB2912D33BDE216E0DDBC9"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7953f480f661c81cf9836063ab1469797d4973b6597dc9ae2037846619090f42",
+      "atom_id": "TREATATOM_33586ED479880F9ED5E2128FA5C4FF90",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "string sl = FileReadString(handle);",
+          "line_digest": "sha256:9abfa33d72120daeaf31e7da1664572e7365b33616e3f150f5353d2623ff8b0e",
+          "line_number": 70
+        },
+        {
+          "excerpt": "out_bars[n].low = StringToDouble(sl);",
+          "line_digest": "sha256:70f93fef279385afdc16a2b95827135facf35f94bb0ec565b4a2a7ab18c5fde2",
+          "line_number": 82
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:240b5040d3105a243caaf33b0c58fdfee280d028b24a4d90f99ee1f20a08852c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:821e00e551dcc013cdca110ad7645645b5cb5a66a89389729f84d5613cadaa71",
+    "sha256:7953f480f661c81cf9836063ab1469797d4973b6597dc9ae2037846619090f42"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergence/DAL_IMDSeries.mqh",
+  "source_sha256": "sha256:821e00e551dcc013cdca110ad7645645b5cb5a66a89389729f84d5613cadaa71",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B01F633436F38B8F9B93923871EF01A1",
+  "treatment_package_id": "TREATPKG_DEF19608C3D80A625311D7CA4B7D0987",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

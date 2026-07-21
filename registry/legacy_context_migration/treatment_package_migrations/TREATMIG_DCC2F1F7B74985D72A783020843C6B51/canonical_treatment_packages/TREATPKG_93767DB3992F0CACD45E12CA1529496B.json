@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_FDAD2DA112D7147891E15783D61F9B9C"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:69350ea232c837237c5146e75a39ae38ec8bacc78e7758fb7d078539d9469b2a",
+      "atom_id": "TREATATOM_FDAD2DA112D7147891E15783D61F9B9C",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "msg += \" expired=\" + FP_LicenseBoolName(r.expired);",
+          "line_digest": "sha256:34e4be1e194a8a03b1c92cb21c1b222434235cee9bc8f135b518c391cd4c69ce",
+          "line_number": 33
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d99b5af6d81a2ffaaf10b0304bdb499aea3190e1b73c7ad953a81a4abae43b4c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:58d7043989529efd064b9573a1499ddf912cf8d74171191ff75dc6e90b84b3dd",
+    "sha256:69350ea232c837237c5146e75a39ae38ec8bacc78e7758fb7d078539d9469b2a"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_LicenseAudit.mqh",
+  "source_sha256": "sha256:58d7043989529efd064b9573a1499ddf912cf8d74171191ff75dc6e90b84b3dd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_10E7A9F2C1D3B83E4B61453B04BFE0A0",
+  "treatment_package_id": "TREATPKG_93767DB3992F0CACD45E12CA1529496B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

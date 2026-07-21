@@ -1,0 +1,76 @@
+{
+  "atom_ids": [
+    "TREATATOM_2E250FB26B8D0F9C8C2867C7DF468F54",
+    "TREATATOM_94238CE064AF6210BEFEBB0513A6F1BB"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f8bc4f1062cf10c7d9ec4a987512bc6f4d11a86c17611dadefa0011311af264a",
+      "atom_id": "TREATATOM_2E250FB26B8D0F9C8C2867C7DF468F54",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "\"time_in_force\": sorted(self.time_in_force),",
+          "line_digest": "sha256:06684e59185868d5f4d448d9611ba13f66c7d34248e48cadd6071c871a35422d",
+          "line_number": 221
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5066ed6fae513591153865f23db6a7d914fa910ff286f1c2558c5f369f74e8c1",
+      "atom_id": "TREATATOM_94238CE064AF6210BEFEBB0513A6F1BB",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "time_in_force: tuple[str, ...]",
+          "line_digest": "sha256:9ba844045eb8ac25bd9222060363e0a23b274bebc9d4eede9a0041f1f9561b2b",
+          "line_number": 207
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1f3ff0e239b0dd0a902cfd580cdeafaca93802a0c8725d0614c5e8c6a8753f57",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:5de49061e6ce5aab841e273cecf5ee89d2c960a796b741612c9221ac723dd7f7",
+    "sha256:5066ed6fae513591153865f23db6a7d914fa910ff286f1c2558c5f369f74e8c1",
+    "sha256:f8bc4f1062cf10c7d9ec4a987512bc6f4d11a86c17611dadefa0011311af264a"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_treatment_dsl/models.py",
+  "source_sha256": "sha256:5de49061e6ce5aab841e273cecf5ee89d2c960a796b741612c9221ac723dd7f7",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D0AC3BC9A0B2953F3547C545B30F3C5C",
+  "treatment_package_id": "TREATPKG_CB77750D12A48143C0A3E4311759B2A5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

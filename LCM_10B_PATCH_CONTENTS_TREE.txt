@@ -1,0 +1,1195 @@
+LCM-10B PATCH CONTENTS TREE
+
+Indexed files: 1139
+
+├── docs/
+│   └── alpha_lab_master_architecture/
+│       └── context_lifecycle_os/
+│           └── 17_LEGACY_MIGRATION_PROGRAM/
+│               ├── 00_START_HERE/
+│               │   ├── 00_LCM_HOME.md
+│               │   ├── 03_IMPLEMENTATION_SEQUENCE.md
+│               │   └── 06_REFINED_IMPLEMENTATION_ROADMAP.md
+│               ├── 05_PHASES/
+│               │   ├── LCM_10B_TREATMENT_PACKAGE_EXTRACTION_AND_EXECUTION_BOUNDARY_CONSTRUCTION.md
+│               │   └── LCM_10_TREATMENT_AND_EXECUTION_SEPARATION.md
+│               ├── 11_PHASE_DELIVERIES/
+│               │   └── LCM_10B/
+│               │       ├── 00_MOC.md
+│               │       ├── 01_EXECUTIVE_SUMMARY.md
+│               │       ├── 02_PHASE_SCOPE.md
+│               │       ├── 03_CLAIM_CEILING.md
+│               │       ├── 04_UPSTREAM_BINDING.md
+│               │       ├── 05_PACKAGE_IDENTITY.md
+│               │       ├── 06_ATOM_MEMBERSHIP.md
+│               │       ├── 07_NORMALIZED_ATOM_CONTRACT.md
+│               │       ├── 08_ENTRY_SEMANTICS.md
+│               │       ├── 09_STOP_SEMANTICS.md
+│               │       ├── 10_TARGET_SEMANTICS.md
+│               │       ├── 11_CANCELLATION_EXPIRY.md
+│               │       ├── 12_MANAGEMENT_ATOMS.md
+│               │       ├── 13_RISK_SEPARATION.md
+│               │       ├── 14_EXECUTION_INTENT.md
+│               │       ├── 15_KNOWN_TIME.md
+│               │       ├── 16_UNIT_POLICY.md
+│               │       ├── 17_ADAPTER_CONTRACT.md
+│               │       ├── 18_CAPABILITY_GUARD.md
+│               │       ├── 19_MQL5_BOUNDARY.md
+│               │       ├── 20_PYTHON_BOUNDARY.md
+│               │       ├── 21_ROUTER_PURITY.md
+│               │       ├── 22_COMPATIBILITY_TRANSLATION.md
+│               │       ├── 23_SETUP_BINDINGS.md
+│               │       ├── 24_BLOCKER_REGISTRY.md
+│               │       ├── 25_LEGACY_CONTAINMENT.md
+│               │       ├── 26_FORBIDDEN_API_BOUNDARY.md
+│               │       ├── 27_SOURCE_IMMUTABILITY.md
+│               │       ├── 28_DETERMINISM.md
+│               │       ├── 29_PROVENANCE.md
+│               │       ├── 30_EVENT_LEDGER.md
+│               │       ├── 31_SCHEMA_CATALOG.md
+│               │       ├── 32_POLICY_CATALOG.md
+│               │       ├── 33_REGISTRY_CATALOG.md
+│               │       ├── 34_HOSTILE_REVIEW.md
+│               │       ├── 35_FAILURE_SEMANTICS.md
+│               │       ├── 36_ACCEPTANCE_GATE.md
+│               │       ├── 37_QA_MATRIX.md
+│               │       ├── 38_API_REFERENCE.md
+│               │       ├── 39_OPERATIONS_RUNBOOK.md
+│               │       ├── 40_INSTALLATION.md
+│               │       ├── 41_ROLLBACK.md
+│               │       ├── 42_SECURITY_BOUNDARY.md
+│               │       ├── 43_OWNER_APPROVAL.md
+│               │       ├── 44_UNKNOWN_PRESERVATION.md
+│               │       ├── 45_PERFORMANCE.md
+│               │       ├── 46_PATCH_MANIFEST.md
+│               │       ├── 47_CLEAN_OVERLAY.md
+│               │       ├── 48_LCM10C_INPUT_CONTRACT.md
+│               │       ├── 49_FORBIDDEN_ACTIONS.md
+│               │       ├── 50_CLOSURE_STATEMENT.md
+│               │       ├── 51_IMPLEMENTATION_HANDBOOK.md
+│               │       ├── 52_DATA_DICTIONARY.md
+│               │       ├── 53_METRICS.md
+│               │       ├── 54_REVIEW_CHECKLIST.md
+│               │       ├── 55_RESIDUAL_RISKS.md
+│               │       ├── 56_HANDOFF.md
+│               │       ├── 57_ARTIFACT_LOCATOR.md
+│               │       ├── 58_FACTORY_REFERENCE.md
+│               │       └── 59_MIGRATION_ACCOUNTING.md
+│               └── 12_ATOMIC_CONCEPTS/
+│                   └── LCM_10B/
+│                       ├── 001_TREATMENT_PACKAGE.md
+│                       ├── 002_TREATMENT_IDENTITY.md
+│                       ├── 003_ATOM_MEMBERSHIP.md
+│                       ├── 004_NORMALIZED_EXECUTION_INTENT.md
+│                       ├── 005_ENTRY_KIND.md
+│                       ├── 006_SIDE_AWARE_STOP.md
+│                       ├── 007_TARGET_VECTOR.md
+│                       ├── 008_VOLUME_REQUEST.md
+│                       ├── 009_EXPIRY_CONTRACT.md
+│                       ├── 010_CANCELLATION_CONTRACT.md
+│                       ├── 011_MANAGEMENT_ATOM.md
+│                       ├── 012_DISABLED_ADAPTER.md
+│                       ├── 013_CAPABILITY_GUARD.md
+│                       ├── 014_DRY_REFERENCE_RECORD.md
+│                       ├── 015_LEGACY_TRANSLATION.md
+│                       ├── 016_UNTRANSLATABLE_FIELD.md
+│                       ├── 017_ROUTER_PURITY.md
+│                       ├── 018_NO_IMPLICIT_MARKET.md
+│                       ├── 019_UNIT_SEMANTICS.md
+│                       ├── 020_RISK_POLICY_SEPARATION.md
+│                       ├── 021_LEGACY_CONTAINMENT.md
+│                       ├── 022_SETUP_TREATMENT_BINDING.md
+│                       ├── 023_TREATMENT_BLOCKER.md
+│                       ├── 024_FORBIDDEN_API_SCAN.md
+│                       ├── 025_AUTHORITY_NEGATIVE.md
+│                       ├── 026_DETERMINISTIC_IDENTITY.md
+│                       ├── 027_PACKAGE_DIGEST.md
+│                       ├── 028_ADAPTER_CONTRACT.md
+│                       ├── 029_HANDOFF_DIGEST.md
+│                       └── 030_REFERENCE_ONLY.md
+├── lab/
+│   └── 11_strategy_factory/
+│       └── migration/
+│           └── tests_lcm_10b/
+│               ├── __init__.py
+│               ├── conftest.py
+│               ├── test_acceptance.py
+│               ├── test_adapter_accounting.py
+│               ├── test_adapter_files.py
+│               ├── test_blockers.py
+│               ├── test_disabled_adapter.py
+│               ├── test_docs.py
+│               ├── test_events.py
+│               ├── test_factory_reference.py
+│               ├── test_forbidden_boundary.py
+│               ├── test_guard.py
+│               ├── test_handoff.py
+│               ├── test_hostile_review.py
+│               ├── test_intent_determinism.py
+│               ├── test_intent_valid.py
+│               ├── test_legacy_containment.py
+│               ├── test_locator.py
+│               ├── test_manifest.py
+│               ├── test_mql_boundary.py
+│               ├── test_no_implicit_market.py
+│               ├── test_package_accounting.py
+│               ├── test_package_digests.py
+│               ├── test_provenance.py
+│               ├── test_rebuild.py
+│               ├── test_receipt_marker.py
+│               ├── test_registry_uniqueness.py
+│               ├── test_schema_instances.py
+│               ├── test_schemas.py
+│               ├── test_setup_bindings.py
+│               ├── test_side_aware_stop.py
+│               ├── test_source_immutability.py
+│               ├── test_static_python.py
+│               ├── test_translation.py
+│               ├── test_upstream.py
+│               └── test_verify.py
+├── mql5/
+│   ├── Experts/
+│   │   └── StrategyFactory/
+│   │       └── LCM/
+│   │           └── V10B/
+│   │               └── LCM10BReferenceHarness.mq5
+│   └── Include/
+│       └── StrategyFactory/
+│           └── LCM/
+│               └── V10B/
+│                   ├── LCM10BCapabilityGuard.mqh
+│                   ├── LCM10BDisabledAdapter.mqh
+│                   ├── LCM10BIntentValidator.mqh
+│                   ├── LCM10BLegacyTranslator.mqh
+│                   ├── LCM10BStaticContract.mqh
+│                   └── LCM10BTypes.mqh
+├── registry/
+│   └── legacy_context_migration/
+│       ├── lcm_10b/
+│       │   ├── policies/
+│       │   │   └── v1/
+│       │   │       ├── broker_api_boundary_policy.policy.json
+│       │   │       ├── claim_ceiling_policy.policy.json
+│       │   │       ├── compatibility_containment_policy.policy.json
+│       │   │       ├── deterministic_identity_policy.policy.json
+│       │   │       ├── disabled_by_default_policy.policy.json
+│       │   │       ├── no_implicit_market_policy.policy.json
+│       │   │       ├── owner_review_policy.policy.json
+│       │   │       ├── patch_atomicity_policy.policy.json
+│       │   │       ├── risk_separation_policy.policy.json
+│       │   │       ├── router_purity_policy.policy.json
+│       │   │       ├── side_aware_price_policy.policy.json
+│       │   │       ├── source_immutability_policy.policy.json
+│       │   │       ├── unit_semantics_policy.policy.json
+│       │   │       └── unknown_preservation_policy.policy.json
+│       │   ├── registries/
+│       │   │   └── v1/
+│       │   │       ├── adapter_capability_registry.json
+│       │   │       ├── blocker_code_registry.json
+│       │   │       ├── entry_kind_registry.json
+│       │   │       ├── intent_lifecycle_registry.json
+│       │   │       ├── price_unit_registry.json
+│       │   │       ├── rejection_reason_registry.json
+│       │   │       ├── side_registry.json
+│       │   │       └── treatment_atom_semantics_registry.json
+│       │   └── schemas/
+│       │       └── v1/
+│       │           ├── acceptance_report.schema.json
+│       │           ├── blocker_record.schema.json
+│       │           ├── capability_guard_policy.schema.json
+│       │           ├── event_ledger.schema.json
+│       │           ├── execution_adapter_contract.schema.json
+│       │           ├── execution_intent.schema.json
+│       │           ├── forbidden_api_report.schema.json
+│       │           ├── handoff.schema.json
+│       │           ├── legacy_adapter_record.schema.json
+│       │           ├── marker.schema.json
+│       │           ├── provenance_graph.schema.json
+│       │           ├── receipt.schema.json
+│       │           ├── registry_envelope.schema.json
+│       │           ├── required_artifact_locator.schema.json
+│       │           ├── setup_binding_record.schema.json
+│       │           ├── translation_fixture.schema.json
+│       │           ├── treatment_package.schema.json
+│       │           └── treatment_package_registry_record.schema.json
+│       └── treatment_package_migrations/
+│           └── TREATMIG_DCC2F1F7B74985D72A783020843C6B51/
+│               ├── bindings/
+│               │   ├── setup_treatment_package_binding_registry.json
+│               │   └── setup_treatment_package_binding_registry.jsonl
+│               ├── blockers/
+│               │   ├── treatment_blocker_registry.json
+│               │   └── treatment_blocker_registry.jsonl
+│               ├── canonical_treatment_packages/
+│               │   ├── TREATPKG_001CBE7189C8D789931D219A22F509BF.json
+│               │   ├── TREATPKG_014910846905879CF052F00F1051DB0D.json
+│               │   ├── TREATPKG_024E446CE01ADE64D590F1474D176327.json
+│               │   ├── TREATPKG_02D3493F69D8F7834C1E69E3E9B97A3D.json
+│               │   ├── TREATPKG_02E141334236D0D5F98345831831864D.json
+│               │   ├── TREATPKG_031DB75CC4FC0E1439E73E7AD7F617F7.json
+│               │   ├── TREATPKG_0345C5B535482166AACC2967650923E1.json
+│               │   ├── TREATPKG_0398E148617A78D69ACF6DEEE3EC5596.json
+│               │   ├── TREATPKG_0483117080894222C7C1642A9B0AFE34.json
+│               │   ├── TREATPKG_054EA34A35BF01064BDFB9837C0E327B.json
+│               │   ├── TREATPKG_056FF0A5239E4502610F994D32BCFCC8.json
+│               │   ├── TREATPKG_05BB912F54A815768475773757291BAA.json
+│               │   ├── TREATPKG_066BEC1585BD2CE64D5169117514E42E.json
+│               │   ├── TREATPKG_0678B2C8617880E42CAF5E4ADEE69C13.json
+│               │   ├── TREATPKG_071C2567E45391C20817E730E2469C14.json
+│               │   ├── TREATPKG_077D888D963696475757097835CE5E43.json
+│               │   ├── TREATPKG_0792C2875F6E3F19B2B8B49B58D90D7D.json
+│               │   ├── TREATPKG_0800A6F563EACA65B931DA90E7259967.json
+│               │   ├── TREATPKG_0942BA19414381C704FF464B9F43D2DD.json
+│               │   ├── TREATPKG_0A44FC0E62938D6FBB6F706907B4DAC7.json
+│               │   ├── TREATPKG_0A68C5FA9071483909CEDAE94E8C1757.json
+│               │   ├── TREATPKG_0A7236942E9F4B446479494D2A617D84.json
+│               │   ├── TREATPKG_0ABAA22E26404EC743C24B87ADA097A6.json
+│               │   ├── TREATPKG_0AEE1087629CA088826FD5381687D448.json
+│               │   ├── TREATPKG_0B4C2ACF1646461B4EF4B8DA3ED310B5.json
+│               │   ├── TREATPKG_0BCB3F98F26DB53E76E8495206FE8573.json
+│               │   ├── TREATPKG_0C50AC724EC8F2FEAB85162F426F7DEA.json
+│               │   ├── TREATPKG_0CC7EBCDA5CCD0EAD03EE75D692910A8.json
+│               │   ├── TREATPKG_0D55F01F202C54797C884D0D56C8CFD5.json
+│               │   ├── TREATPKG_0D6A0DD57458D88BEE198E6D9D2CDD10.json
+│               │   ├── TREATPKG_0E27CEFDD9C397C1654E755267830613.json
+│               │   ├── TREATPKG_0FC9C78D7C25FCD839CAFB37708ED3EF.json
+│               │   ├── TREATPKG_10CD38433EBA7B895474917B943F7ED8.json
+│               │   ├── TREATPKG_119115B4A116AB7EF9578F41C216FABB.json
+│               │   ├── TREATPKG_11F62EDD76258F6744E95F2C4D8D6B54.json
+│               │   ├── TREATPKG_12585B49FD75535ED08911C7C4C13A2D.json
+│               │   ├── TREATPKG_12EB8755E7DFC754330599D841A39E4A.json
+│               │   ├── TREATPKG_12FB406DACF3E5AF90E505267D8A7228.json
+│               │   ├── TREATPKG_136AC9C25629DF0F63F7873A84596383.json
+│               │   ├── TREATPKG_137626AD8BB5FDE10C25FF89B6D1BFC4.json
+│               │   ├── TREATPKG_138A5E5489ADE7D7587658F92F7C00D2.json
+│               │   ├── TREATPKG_143D0B2EB8B827A7797B0EC56C0C6567.json
+│               │   ├── TREATPKG_15CA8270EEC8A06ADF7DA947CDCB82B0.json
+│               │   ├── TREATPKG_15F597C22751B47FA56D26AA4AC0AEC4.json
+│               │   ├── TREATPKG_16749095317AB5FC74DA5AE1605C92F8.json
+│               │   ├── TREATPKG_16E5F1BD50DEC194DA9A1CCDDDA8A769.json
+│               │   ├── TREATPKG_17048964F3841D403F62E5F7398FA686.json
+│               │   ├── TREATPKG_174AEF4905246154564230C628830E17.json
+│               │   ├── TREATPKG_17CE83453AAA6A15537DD60E559E160A.json
+│               │   ├── TREATPKG_17D0FA43E0B27DBE969E51980F0D6E7A.json
+│               │   ├── TREATPKG_181D7739544659C5D66A630A682AF35F.json
+│               │   ├── TREATPKG_1890D280E4D8BAE05D3B43935C8CC3BE.json
+│               │   ├── TREATPKG_19972B8F6A1EE0007C8B9456D6C925C3.json
+│               │   ├── TREATPKG_1A5043C50A05E79183AC57EF1C0E3AAC.json
+│               │   ├── TREATPKG_1B0F982DF9ECA2F37E1165CA95E3F78B.json
+│               │   ├── TREATPKG_1BE79E008568FB4EE865302E6A0CAFD4.json
+│               │   ├── TREATPKG_1BED7270633D5895ED4CE7A613556922.json
+│               │   ├── TREATPKG_1CA9E5D151DA752BD616F2EE25826A09.json
+│               │   ├── TREATPKG_1CD09808025C964BC62F3A3F2AC62B5A.json
+│               │   ├── TREATPKG_1D47313A24B1E1D56E5C2BA83C1C4EA1.json
+│               │   ├── TREATPKG_1DD62065F607C3BB4DC88A3CD15394EE.json
+│               │   ├── TREATPKG_1DDE695E3D6814AE9A8CF95D1B441E73.json
+│               │   ├── TREATPKG_1E8367B1BFEC9BAB51582F208C624687.json
+│               │   ├── TREATPKG_1EE5C38442B89A81A1C1098423819D3C.json
+│               │   ├── TREATPKG_1F0215D538CE5748B368D98AC0E0A7A3.json
+│               │   ├── TREATPKG_1F34B232952E26C22B05BF8672EDF435.json
+│               │   ├── TREATPKG_1FC2BA95B88EF838D045CBC8748D9C56.json
+│               │   ├── TREATPKG_1FE76242009F12284ED5C2B060D495C5.json
+│               │   ├── TREATPKG_2010EB36EAC1791BC110423727ADE7D6.json
+│               │   ├── TREATPKG_2098F7FC759A5C91F51166A4595E568D.json
+│               │   ├── TREATPKG_21E03BD9DFECD35E7F161497D0A95FCE.json
+│               │   ├── TREATPKG_22676B4C7B141D8D389F168EFCC3925E.json
+│               │   ├── TREATPKG_227973B621B94F741B89D27FCF768375.json
+│               │   ├── TREATPKG_22B442D54B7D2F2C8FA55E7120F1F7DA.json
+│               │   ├── TREATPKG_23339EDE035382AFAD4CBEA2C97D50FD.json
+│               │   ├── TREATPKG_2347E79CD470AE5A3F3B04972D2978D2.json
+│               │   ├── TREATPKG_236034923F00057D6D1FF605EDC4F889.json
+│               │   ├── TREATPKG_23FEF47E6AC157B1E871B6C11F8EC1B9.json
+│               │   ├── TREATPKG_2459541E4C36A1201E1CD118FC6D585D.json
+│               │   ├── TREATPKG_247E227679A64D8624225A4363188415.json
+│               │   ├── TREATPKG_24C6679C06260813911329B02BFB4BDF.json
+│               │   ├── TREATPKG_25EF1357217F5047FA1485B975A1A6B9.json
+│               │   ├── TREATPKG_2610345BEE23A6D73CECAC2BD451FCAA.json
+│               │   ├── TREATPKG_261E79850153C71D166620BE41FEAFEB.json
+│               │   ├── TREATPKG_26B42297A3013090F135B722B6DAD82B.json
+│               │   ├── TREATPKG_271219A1A251C3539FB7727866AF1BBB.json
+│               │   ├── TREATPKG_2858D4937405ECB85FA8AEDAB903EC5C.json
+│               │   ├── TREATPKG_28852FCDBECF01EA63186E990FA0C7E0.json
+│               │   ├── TREATPKG_29A27A1AEC6E6B09AD0C1CFCEDC4B299.json
+│               │   ├── TREATPKG_2B895BA3A3706470475B524E24124EAB.json
+│               │   ├── TREATPKG_2B8CD87B73157B85E71137F78B94B00F.json
+│               │   ├── TREATPKG_2BB19E6BE5CCF60AEE0B73DC22EC58B4.json
+│               │   ├── TREATPKG_2BF08B8DD766F01885D776F15E490CC7.json
+│               │   ├── TREATPKG_2C124503B8F24CD740C9A8E9554D65E7.json
+│               │   ├── TREATPKG_2C2A9525B334744F07F79508207D0226.json
+│               │   ├── TREATPKG_2F892FDB3B314A768735220B8D3BAF9C.json
+│               │   ├── TREATPKG_3051BF1DD2BB18E04B2F46807D82ACF7.json
+│               │   ├── TREATPKG_306242E897BD327422DFD30A5211E5F7.json
+│               │   ├── TREATPKG_3110F993D2B39FF05B126B01C602AE8B.json
+│               │   ├── TREATPKG_31A13D105BC2FB978A5279CE6E1C68DA.json
+│               │   ├── TREATPKG_31BE970E175F0A86063A03830B05F723.json
+│               │   ├── TREATPKG_31CD1E29D350022098826C669F834A7F.json
+│               │   ├── TREATPKG_331772864213A3936E58610C39D2E5FE.json
+│               │   ├── TREATPKG_337E599DE211E086032F08A848420A21.json
+│               │   ├── TREATPKG_3547C57631ED867A28D97DB5388FF1A1.json
+│               │   ├── TREATPKG_355E7BC9822BD5186A4A26A3A51135B8.json
+│               │   ├── TREATPKG_35B08D4B7F1CC76FB4601B4BC7C6A503.json
+│               │   ├── TREATPKG_365697731E70EAC396BE68E9CF2452A9.json
+│               │   ├── TREATPKG_37360CF852A807B523DE712BAA82B49F.json
+│               │   ├── TREATPKG_376A90A001F1356B40DA0CBBF516F0DD.json
+│               │   ├── TREATPKG_376F020E6EA66B55F010BAD7FAAB9E58.json
+│               │   ├── TREATPKG_37A3D9115CA0A6C8D9BF08F793A777C0.json
+│               │   ├── TREATPKG_38A4F9EAF1BDBEB6EEFD4F5AFF0194B3.json
+│               │   ├── TREATPKG_392AA85665B97176C1FE97B5C5BC0DD2.json
+│               │   ├── TREATPKG_39EDB1FD6E1B8A5F9B75B1D0199A9E6E.json
+│               │   ├── TREATPKG_3ABB51BB5FFB09C45FC2810BFBD09932.json
+│               │   ├── TREATPKG_3C5080145E6B13E89E8430AF1CC1B03F.json
+│               │   ├── TREATPKG_3C89E21B5E9D398850F21A47577692D5.json
+│               │   ├── TREATPKG_3C8B79FA82067EEA1BBABEFB23999215.json
+│               │   ├── TREATPKG_3DF2D8728E9500E32C18F87895CD4D19.json
+│               │   ├── TREATPKG_3F243A8007B4AA005128DE45E5DC0469.json
+│               │   ├── TREATPKG_404368A6569D50346DA4BFD20792CAC4.json
+│               │   ├── TREATPKG_40A1E488888EAE4499850D4A14ACDDFC.json
+│               │   ├── TREATPKG_429057DEE2AF91BC685B03FD4597BA9D.json
+│               │   ├── TREATPKG_4490B2900A8C3B040F48A434C08BF282.json
+│               │   ├── TREATPKG_45EDE8AF4F000D9B976139C1BCB92A57.json
+│               │   ├── TREATPKG_468FAD19EFCF3C3ACC1DD30B5D6E4A30.json
+│               │   ├── TREATPKG_46B17F73428D00EDD234D2C763E11E92.json
+│               │   ├── TREATPKG_46C51BD8799DA879AF8F346A9D357B6C.json
+│               │   ├── TREATPKG_47B51DDF864F591350F57F89EC8E27A7.json
+│               │   ├── TREATPKG_489099E9FD4E4935E115050888FB5E97.json
+│               │   ├── TREATPKG_494045A8A5A2D2E95784101EEF22508D.json
+│               │   ├── TREATPKG_49E00DD26DF3763A769974700325007B.json
+│               │   ├── TREATPKG_4A22FD1DBE8F2FED1FDF225C443C907C.json
+│               │   ├── TREATPKG_4B34A14AA0DA80183C0BC5EF3D29CA36.json
+│               │   ├── TREATPKG_4B3F867CCB0DD89774C0466BD846DBBD.json
+│               │   ├── TREATPKG_4B727933B4056FDEAE91E7951340252B.json
+│               │   ├── TREATPKG_4C9E84B55D2363778652147C2EA754AE.json
+│               │   ├── TREATPKG_4CDF059EE0DD91BFB1FB430A5665C57A.json
+│               │   ├── TREATPKG_4DB64DF784BBE386574DDE325CCBD8A7.json
+│               │   ├── TREATPKG_4DFD6BB6B4646B0997D87C32DADF4CFE.json
+│               │   ├── TREATPKG_4E478A598B3770F4819CEF658E344692.json
+│               │   ├── TREATPKG_4F2893A56BAAA7CA00294AC8F5D1896D.json
+│               │   ├── TREATPKG_4FA9E8B3BB8F2F291F8116C4F5BA4804.json
+│               │   ├── TREATPKG_4FD5EFC6A094013683826DE7E70B9CC8.json
+│               │   ├── TREATPKG_4FD9E925D950CCC46770E35F199D3F12.json
+│               │   ├── TREATPKG_50C0EB4108016A51732F75E0CD71AA72.json
+│               │   ├── TREATPKG_51187BC0F28C2367361A29A3E49F2D65.json
+│               │   ├── TREATPKG_52A8869CDC6910B0575E4CAC3787E81C.json
+│               │   ├── TREATPKG_52D042C2521F999857F04641111C751B.json
+│               │   ├── TREATPKG_538A3E8E448740E0346805117304B69D.json
+│               │   ├── TREATPKG_55533C759C44BAE754E60147775860CC.json
+│               │   ├── TREATPKG_55A972534F708B75418F8D2D8D082A10.json
+│               │   ├── TREATPKG_55AB90AB22ABD712DDA9D6DE04A3F51C.json
+│               │   ├── TREATPKG_55B71E1C844A1BF4A7A9B96CB9D14CBE.json
+│               │   ├── TREATPKG_55D6B4241DF6701B746307FA91357571.json
+│               │   ├── TREATPKG_5715A38A173047ED4F24436BCD8D8BC9.json
+│               │   ├── TREATPKG_57770D5463D93A2423041F6BF1D52676.json
+│               │   ├── TREATPKG_57E79385C8F7E8AE7536D58C7F79097D.json
+│               │   ├── TREATPKG_58038ADDC7D06CE027DD7E372C339891.json
+│               │   ├── TREATPKG_58E9D847F3BD9803AAD39FA56ED2F9EE.json
+│               │   ├── TREATPKG_5B067ACE8D88FFE090B6FFE5D1D2B4E3.json
+│               │   ├── TREATPKG_5BE4883032DCCA7979747B8A7676D072.json
+│               │   ├── TREATPKG_5C381466858337BF86E5CAA0583FDE0A.json
+│               │   ├── TREATPKG_5C4F0D2CA19ED7A35ED49B54E45AD087.json
+│               │   ├── TREATPKG_5D51B31A202408BF51FF23DDF3632B1C.json
+│               │   ├── TREATPKG_5DAE6F422DC8E7D7E5E4C41F32725F43.json
+│               │   ├── TREATPKG_5DC39A560DDE32F130FA90C922083F84.json
+│               │   ├── TREATPKG_5F2E2DF24810CB37EAA46BD19A878924.json
+│               │   ├── TREATPKG_5F894FA2660EECF1C4DEB8FBE8F79E7F.json
+│               │   ├── TREATPKG_60A5762135E56D5E22D564643D0EC154.json
+│               │   ├── TREATPKG_60A64DC0CBB15113C13B9DFAC044C92F.json
+│               │   ├── TREATPKG_614DAF356F7131FA712D88285E40A89B.json
+│               │   ├── TREATPKG_61C14474837C930A3149F76018CA405C.json
+│               │   ├── TREATPKG_62104E6A5264646118B0112993F8C646.json
+│               │   ├── TREATPKG_623CC202416C1E9FDECFD534EA2C75A3.json
+│               │   ├── TREATPKG_638DE648505CC964C1591F9BCCB1F65D.json
+│               │   ├── TREATPKG_64A0842087B0B623BF15F3D8C92D813A.json
+│               │   ├── TREATPKG_65E00FEDD3D5BE8EB664813A1C3B92E4.json
+│               │   ├── TREATPKG_65FE487DFB0BF98D3825662F2B287B89.json
+│               │   ├── TREATPKG_660C62FFCCAD948C01367B09C811E731.json
+│               │   ├── TREATPKG_6616266DEB87B1918D1CEF3BF3972989.json
+│               │   ├── TREATPKG_66AEF09E767F17609020AA049406F104.json
+│               │   ├── TREATPKG_6703231C876187DAF370870FA3CAF2A8.json
+│               │   ├── TREATPKG_677BB96C9B5980A62DACAD9D6E226389.json
+│               │   ├── TREATPKG_67CB11FAACB5723131D1F08BB1AFA4A7.json
+│               │   ├── TREATPKG_685EA6BDCF9658448F23660FA5EE8D6F.json
+│               │   ├── TREATPKG_68B826E4CF49E512AF3D7C89967FDF68.json
+│               │   ├── TREATPKG_69101C49BFD994F079E88D14EDEE1034.json
+│               │   ├── TREATPKG_69324B0CAF84748F3690A6567623B22A.json
+│               │   ├── TREATPKG_698BB30EE45697A40EF3E3A6EB271485.json
+│               │   ├── TREATPKG_6A772B3112013817ADAD1F5191946BD4.json
+│               │   ├── TREATPKG_6A9435FF165DE1323E4B19B188CB943B.json
+│               │   ├── TREATPKG_6B10F4C05A05F06224295B64551456FA.json
+│               │   ├── TREATPKG_6B154A1D57CEF733ADE6CF071A37C8CF.json
+│               │   ├── TREATPKG_6C13AB002729FA6A16D35093C245D8BD.json
+│               │   ├── TREATPKG_6C4927D79BA6B475E11FBE41AC5EDB9B.json
+│               │   ├── TREATPKG_6DE6FCEECA8BE7ECD19284961BCAB399.json
+│               │   ├── TREATPKG_6EF7D172D6E5AC13BF4AA46A08BD2460.json
+│               │   ├── TREATPKG_705F7E76A69918E8F7B3C761166D049A.json
+│               │   ├── TREATPKG_7149B56FA725A9E492FF6E6FD4219A8A.json
+│               │   ├── TREATPKG_7231C54D5CFA98C0C86C7B6BFFCF5D82.json
+│               │   ├── TREATPKG_726217C09F70ED65147B101BAEEC2799.json
+│               │   ├── TREATPKG_7348EFD308B53202662520E7B13B78D5.json
+│               │   ├── TREATPKG_73B2CC7179EAC09F695A6BDC1D90EDEC.json
+│               │   ├── TREATPKG_73EF1CC7741B0CC0843AA61F60672CDF.json
+│               │   ├── TREATPKG_74AA82004252AEEA596427E6C61E31D8.json
+│               │   ├── TREATPKG_7579E195E8571653ADFD6A834E739A5B.json
+│               │   ├── TREATPKG_75CEC17ACFB561AE44DF3BDCE58C937E.json
+│               │   ├── TREATPKG_7602C0B4FD969FEEB5BBA46200C0EAD1.json
+│               │   ├── TREATPKG_762F5106F4FD609B5CC21070B1B5C0F5.json
+│               │   ├── TREATPKG_76C9A51E724E8B5C2A77EF0419077E11.json
+│               │   ├── TREATPKG_777426525B0E3D9379B75903964DF22F.json
+│               │   ├── TREATPKG_77E05D57CE0C86AB132BA046EC607A0B.json
+│               │   ├── TREATPKG_77FD59C55093EFEDFAF082DE1EC17C13.json
+│               │   ├── TREATPKG_78B4D5A89A119B7AF846269AE94DF9CE.json
+│               │   ├── TREATPKG_79ADE0BD264783B5D618C1BA92576DCF.json
+│               │   ├── TREATPKG_7A5472D2AC9CC13BE3366E13676A0458.json
+│               │   ├── TREATPKG_7C95D058C30C5B32BC23AF33D91D7585.json
+│               │   ├── TREATPKG_7CE50E5C1BFFBBE286E2EDF382C27B08.json
+│               │   ├── TREATPKG_7DC2FECF6CA961749846AC14BA89A28D.json
+│               │   ├── TREATPKG_7DFED4810E0A6704B5815E5E3129FF2C.json
+│               │   ├── TREATPKG_7E08C1EAFA9BEA05243784166BF64B44.json
+│               │   ├── TREATPKG_7E5020548D74ACDF63D53FFFEDF88498.json
+│               │   ├── TREATPKG_7EECF1F976D5B0578EBE3A11601BCB55.json
+│               │   ├── TREATPKG_7F84C99D6290B9BD3C6F1534D2AC92C4.json
+│               │   ├── TREATPKG_7FCDE3AC257502607F93B26C267C78B1.json
+│               │   ├── TREATPKG_804079BBCC275BADDCDE2D685D5D735F.json
+│               │   ├── TREATPKG_8069DF196144A535B22382F45769A38B.json
+│               │   ├── TREATPKG_8081107E6B02880B187EF729F4D6E80F.json
+│               │   ├── TREATPKG_84CDD0CDE40410C598631E0451A1C575.json
+│               │   ├── TREATPKG_84D380C7479608AF5EFBBB7805EC25E6.json
+│               │   ├── TREATPKG_84FF438A15B2C33D26B04CB140EA10B9.json
+│               │   ├── TREATPKG_85BB3E4632DDDB8AEA20E6CD9E386A3B.json
+│               │   ├── TREATPKG_86DE9E127598EDAB1F685033778873E4.json
+│               │   ├── TREATPKG_89894084CFCE051F5B3832298B3A1999.json
+│               │   ├── TREATPKG_89D4AF3AE4D93F9ECFA09C3999F06621.json
+│               │   ├── TREATPKG_8B7BED1707472CF91C436A559E386460.json
+│               │   ├── TREATPKG_8B9DB94769CF1714D85AFE132506BC45.json
+│               │   ├── TREATPKG_8C953BA6AE0945F1164AD2BF6F5B53DB.json
+│               │   ├── TREATPKG_8CCB12437067B3C9F26E5F9C73C166ED.json
+│               │   ├── TREATPKG_8CCC4133AF0F90193A5AF715753AE156.json
+│               │   ├── TREATPKG_8CF0AC92C8C486017E8E0A2962404143.json
+│               │   ├── TREATPKG_8D9AB82D236147B9E66E5A2D79178723.json
+│               │   ├── TREATPKG_8EFAC0F12818AE139D50B06CE6DB80BB.json
+│               │   ├── TREATPKG_8FE8E6997208E0B0D668F71C0A826AF2.json
+│               │   ├── TREATPKG_916A4E896EE6A9B0DF176A9363521D22.json
+│               │   ├── TREATPKG_92A5F08FB20D602BDF34CA4143FFA7BA.json
+│               │   ├── TREATPKG_92AC690084D3785DCE2BF928A7338B63.json
+│               │   ├── TREATPKG_92B7697435EDF0E6441F3560E44C6906.json
+│               │   ├── TREATPKG_92E77B1F72612BAD3646C7175143BF48.json
+│               │   ├── TREATPKG_93767DB3992F0CACD45E12CA1529496B.json
+│               │   ├── TREATPKG_93D7838468791B8E3854495B77A17DD1.json
+│               │   ├── TREATPKG_9498D083F5944EFFA98E1427C8E71AC7.json
+│               │   ├── TREATPKG_94EC6F448CCA2686827EE079BE3E3F82.json
+│               │   ├── TREATPKG_95D9BA6B08F8F4C8BB1E8DFC7429F6A2.json
+│               │   ├── TREATPKG_96CEE6E67C9297E65532B3BB594AA8D4.json
+│               │   ├── TREATPKG_97203EBE8BFE07C2A977C0E300BFE932.json
+│               │   ├── TREATPKG_98018ABC1452CAC205FCF10F106B165A.json
+│               │   ├── TREATPKG_9815A33552DF683894EBFA257E349D7F.json
+│               │   ├── TREATPKG_99C7FBA69C5C5532A9E3AFAC91D5DDA2.json
+│               │   ├── TREATPKG_9AB40B798BAB6AB435ACF4C25163EA35.json
+│               │   ├── TREATPKG_9BEA3B8299D1E59D95EC8DEE89A857C3.json
+│               │   ├── TREATPKG_9C12EDBC94F20A3DDABF77A0C09A58F9.json
+│               │   ├── TREATPKG_9C486C1326C39EB70C23F19704814B6B.json
+│               │   ├── TREATPKG_9D48FBC6F7F5FB6805FA5FF11F83A42C.json
+│               │   ├── TREATPKG_9D8DF022D26E8A45E4610A20D8F83FCE.json
+│               │   ├── TREATPKG_9F39677148788E4F1AF34F5FA0780A27.json
+│               │   ├── TREATPKG_9FAA9B12AB572FCAE0AED7DC93F8A2D6.json
+│               │   ├── TREATPKG_A0585BBF2A8B21931250634A2BAD000C.json
+│               │   ├── TREATPKG_A07E0C33CFD1931BD46B3FF28DB630E8.json
+│               │   ├── TREATPKG_A0C56B02388802F300509A528528AFA0.json
+│               │   ├── TREATPKG_A1053CE6D795AF3F7F8B0AF06A7AE874.json
+│               │   ├── TREATPKG_A119198EECA151695AD59101D37C5E55.json
+│               │   ├── TREATPKG_A16BF0C78D49872A8FC86AF79BA78C2F.json
+│               │   ├── TREATPKG_A1C35DC245982B4F952A1AB99E73B2B5.json
+│               │   ├── TREATPKG_A2766E0989D021BBFE8507A826405B5F.json
+│               │   ├── TREATPKG_A33567BC3B245395381C806B549C8905.json
+│               │   ├── TREATPKG_A49B581FB977FEAF54BDBDEE176E0E95.json
+│               │   ├── TREATPKG_A507093FD09F9F88A9B6B0CB300E5318.json
+│               │   ├── TREATPKG_A66B969C45B91E49B767F3FBAC53EC31.json
+│               │   ├── TREATPKG_A7DD9EE59139B5728573713026197F8A.json
+│               │   ├── TREATPKG_A83661F2AE90B169AA75A873575EEC0D.json
+│               │   ├── TREATPKG_AA8EE70AF27CF61EDFDD5A05659E61AD.json
+│               │   ├── TREATPKG_ACD8C81102A3EB5BFE4AF77700FB3BDD.json
+│               │   ├── TREATPKG_AD1FB960587613534E4519F391B11A5F.json
+│               │   ├── TREATPKG_AD887C74FDE15A190868ADC323B12D6A.json
+│               │   ├── TREATPKG_AD98299AEC4F1BF197B86D5AAE6360B7.json
+│               │   ├── TREATPKG_ADB03497AA66988605C99314271D76F9.json
+│               │   ├── TREATPKG_ADF6DC7F8669137E00BF6B75CB312E72.json
+│               │   ├── TREATPKG_AEED661E340D02AE787397762F8C4635.json
+│               │   ├── TREATPKG_AF700120A562A7659C589309692D79FE.json
+│               │   ├── TREATPKG_B06402422186CE46AEFF715263212513.json
+│               │   ├── TREATPKG_B09601863D57F27A5C8589BD75B96967.json
+│               │   ├── TREATPKG_B285D4D7C0536393EA6A914C85106E5E.json
+│               │   ├── TREATPKG_B318089BFB61F7FC629B72C2AC6B982B.json
+│               │   ├── TREATPKG_B3971EA744066612DC02049664531EBF.json
+│               │   ├── TREATPKG_B3BB144865FF363FEA9063969FD6BAA6.json
+│               │   ├── TREATPKG_B402277E763486E9E3D9D433DF7F905A.json
+│               │   ├── TREATPKG_B5A7AE24398CA5C06BB21A86E0AA824B.json
+│               │   ├── TREATPKG_B5B34936565D398362AB99D7555A7CA6.json
+│               │   ├── TREATPKG_B62E50F55FAF8520385D6DFCE4B888FC.json
+│               │   ├── TREATPKG_B69DF5842E5D36B260B0EFE98B4CA7A7.json
+│               │   ├── TREATPKG_B6AD2CCA75BD6AE203A44017E04D269D.json
+│               │   ├── TREATPKG_B6BDD71E53A2ADECBBF982F66542AC41.json
+│               │   ├── TREATPKG_B8C3DD792243C4C1BF61E4E12497CD1C.json
+│               │   ├── TREATPKG_B92EB3FC00EA2B7BB4B47A160FC695DC.json
+│               │   ├── TREATPKG_BA96F8067F62E270E99B785F9C7D0F0E.json
+│               │   ├── TREATPKG_BAA7217594193C8FE2EA57176F1236C0.json
+│               │   ├── TREATPKG_BAB9B6FE1E2BAFE74AEFD9F03F96D387.json
+│               │   ├── TREATPKG_BB2A1383E52FBC0942F3EB4B494FF7E2.json
+│               │   ├── TREATPKG_BC41EA18E22C2E70FDAB9D1F38F6F329.json
+│               │   ├── TREATPKG_BCD39C69B33200358749634A52C61CAE.json
+│               │   ├── TREATPKG_BE00895E94745A77D54D656E7D93001D.json
+│               │   ├── TREATPKG_BE58E42B1DA2A993AB54B3F20BCC55D2.json
+│               │   ├── TREATPKG_BE8F73A24A5CE340FBE584C209D4FCCB.json
+│               │   ├── TREATPKG_BEFFF4AB20503672EA06EDA1028D0586.json
+│               │   ├── TREATPKG_BFCC3F26A3A0760E97B3F221FF1B5451.json
+│               │   ├── TREATPKG_C0BE7D62C3BA2200FFE65A600C85D1F2.json
+│               │   ├── TREATPKG_C18D72A4E96CB219A4FF992EB54F9E25.json
+│               │   ├── TREATPKG_C1EE97B5635B30F817451B598AF517EB.json
+│               │   ├── TREATPKG_C249E2E6B225292B6A5B729481F5674F.json
+│               │   ├── TREATPKG_C26D03CB1B04B19BFE514381C822B22C.json
+│               │   ├── TREATPKG_C307A47237760C97B9BB2FC9657177C4.json
+│               │   ├── TREATPKG_C3F14634A1BC0A5364F3B87D296267FD.json
+│               │   ├── TREATPKG_C67CE7EE8513780ACAD3994A096E4B92.json
+│               │   ├── TREATPKG_C7676DAAF58931C3CA530482864E3AFB.json
+│               │   ├── TREATPKG_C7AAFF5687EDDD4ED0CF663D34A9C58F.json
+│               │   ├── TREATPKG_C7DB8491F34F5BC13D20D1C186E6E18F.json
+│               │   ├── TREATPKG_C7E0BD3C8181D8471D4032D1C884456B.json
+│               │   ├── TREATPKG_C80F61709C352054B9A5797688980E42.json
+│               │   ├── TREATPKG_C861CBE1A38915B760C7AC3984547ABC.json
+│               │   ├── TREATPKG_C8AB48E7016A8376B3C0785AC700A7FD.json
+│               │   ├── TREATPKG_C9F3CFB5E285288BD52907F6DCEDC31F.json
+│               │   ├── TREATPKG_CA3AC14A52DDAD96B6E08CBF720B4539.json
+│               │   ├── TREATPKG_CA49311C5CA01BB04B8B03B5DC2B5E51.json
+│               │   ├── TREATPKG_CA7E60565C730988CD900DD6DE60680C.json
+│               │   ├── TREATPKG_CAFA6A7FE5E75F454175B6E67247363E.json
+│               │   ├── TREATPKG_CB77750D12A48143C0A3E4311759B2A5.json
+│               │   ├── TREATPKG_CC11E64C1BB0FF149056785A7E083F7D.json
+│               │   ├── TREATPKG_CC5D09372D3425E49F47D633D4C62CAD.json
+│               │   ├── TREATPKG_CCE3C471979D8EBEAC3B4D7597B4805B.json
+│               │   ├── TREATPKG_CDD2C31388B653F22E330647C83FDA0D.json
+│               │   ├── TREATPKG_CE3763E4D9C2888BF89643EFB0152CAD.json
+│               │   ├── TREATPKG_CE59A6E936E015A6433F96C49F732A24.json
+│               │   ├── TREATPKG_CE97E1D58286A073543C75C9D80F544A.json
+│               │   ├── TREATPKG_CF31D4FCDEEC69438ABC8E9AC2C51589.json
+│               │   ├── TREATPKG_CF391B80F7903F37F3A4C726667A6E66.json
+│               │   ├── TREATPKG_CF6C973121CA080C0EE167593C49EAAB.json
+│               │   ├── TREATPKG_CFC05D29F0C9ED3CE098A51ADD819783.json
+│               │   ├── TREATPKG_D076F9B9BEE0F01713285E84B9680CD6.json
+│               │   ├── TREATPKG_D2088C9B883E9C9BE04E1AE8B676387F.json
+│               │   ├── TREATPKG_D21132E7C71EEB2CDB0850A392FD8367.json
+│               │   ├── TREATPKG_D2AD92C90254746B7D26FA7760A3E497.json
+│               │   ├── TREATPKG_D37894ABC75BB54A1A3FBD24E9D535E4.json
+│               │   ├── TREATPKG_D45735B30060B9A8ABC2BB3E9EDE37BB.json
+│               │   ├── TREATPKG_D5C96285225F6F8CA00CBCBB787A5344.json
+│               │   ├── TREATPKG_D6143C534D88D5D27C11D989BE93BD87.json
+│               │   ├── TREATPKG_D66249B8AD9DCA35C169BEA158D372ED.json
+│               │   ├── TREATPKG_D7F9FBFC8CAD66C99DE3AEBE1EFDDD8D.json
+│               │   ├── TREATPKG_D97C68A2A34921A52681FAEF930AA2CA.json
+│               │   ├── TREATPKG_D9B500CB67EC3F9F3CE64300C582DA6F.json
+│               │   ├── TREATPKG_D9DAFDD939D8A14A58A7267AC2DF1AF5.json
+│               │   ├── TREATPKG_DAB6E616223626A86D955AFF6D630E58.json
+│               │   ├── TREATPKG_DC841343E3701E23802C272D28E9C88E.json
+│               │   ├── TREATPKG_DCA0B7E92483DEFDD6A4BD150D9A5E7E.json
+│               │   ├── TREATPKG_DCA8575A0060940688081644734AE929.json
+│               │   ├── TREATPKG_DDBC44695C820663E456DFD5AE2BD7C7.json
+│               │   ├── TREATPKG_DEBCC024853FBD525C63ED6B36020AC1.json
+│               │   ├── TREATPKG_DEF19608C3D80A625311D7CA4B7D0987.json
+│               │   ├── TREATPKG_DF6EA3D740DD4E5489EF055F18FBC8CA.json
+│               │   ├── TREATPKG_E0D176429B70A97B5CE2A2FC01EBDA8F.json
+│               │   ├── TREATPKG_E1532813F29D31A43687D28D33EE986E.json
+│               │   ├── TREATPKG_E200DD89F334B6DEA44E32BDE94EC8A0.json
+│               │   ├── TREATPKG_E2351ED49F2FAE37F3A4EE3AF4DDC6E4.json
+│               │   ├── TREATPKG_E24E4160174A6C6385FB3CF71516A08F.json
+│               │   ├── TREATPKG_E2A2C41FF95EB8B72905DEB56919E037.json
+│               │   ├── TREATPKG_E434DC6316B73A13AC95B4015507989D.json
+│               │   ├── TREATPKG_E56350843C0FD8CFE85E18B8B2303258.json
+│               │   ├── TREATPKG_E5FA384206D872F4306DEA1E7479E6D0.json
+│               │   ├── TREATPKG_E682D27AB070260D0824F0F0DFA25C8D.json
+│               │   ├── TREATPKG_E696A2FF890F07C2E11CCBC9FF7ECA60.json
+│               │   ├── TREATPKG_E767CDD0E5DFDF1D5B230B57F8FB123B.json
+│               │   ├── TREATPKG_E776E826624D5D1B6C95938EC6992154.json
+│               │   ├── TREATPKG_E9AF64539EEC17A3F7591365F9535590.json
+│               │   ├── TREATPKG_E9D1FC7202A351813198407597CEDE92.json
+│               │   ├── TREATPKG_EA291822898459AE799732CFD00AB754.json
+│               │   ├── TREATPKG_EAC6FBBD7E4F0A733A0129CDAE461159.json
+│               │   ├── TREATPKG_EB5CDDA1871A98DDD3058BCFD8D6D431.json
+│               │   ├── TREATPKG_EB735A9AC0C560D82168CCBA98F18BF8.json
+│               │   ├── TREATPKG_EB74210BE7BD43D3A91091853CE200FE.json
+│               │   ├── TREATPKG_EC0B28146D986A5F6D5AABEABDE6DE93.json
+│               │   ├── TREATPKG_ED80916A2825A02128250BD9826F8E01.json
+│               │   ├── TREATPKG_EDA64EA2C65CAE7B87186EFE3F586FAE.json
+│               │   ├── TREATPKG_EE5B0CF3638F8C0BBC8B2D87489E5D3E.json
+│               │   ├── TREATPKG_EF6880350481EA207F5540277DDFD61D.json
+│               │   ├── TREATPKG_F02ABFE33D5BEE2EA7E242B1E8EF632D.json
+│               │   ├── TREATPKG_F10C634D5DD73D12E63E59D32C6EB993.json
+│               │   ├── TREATPKG_F117346A8DE219F7D96AD000EC07BBD6.json
+│               │   ├── TREATPKG_F238E5EFF6B16A433EC79619561B2FCA.json
+│               │   ├── TREATPKG_F32AD73CB3AE6172BEAF58192CEE98A9.json
+│               │   ├── TREATPKG_F40C3D27426871203460DFF2533A3DB4.json
+│               │   ├── TREATPKG_F554BE11B91CB128060AD121316A6821.json
+│               │   ├── TREATPKG_F66893D5476293F6E116D055918A90F4.json
+│               │   ├── TREATPKG_F688EB7F874ACF1120709C39A7B65CFD.json
+│               │   ├── TREATPKG_F8520458D20955B31CB8EB25BD739263.json
+│               │   ├── TREATPKG_F86D818438D7E79446B251AD15F2BCD8.json
+│               │   ├── TREATPKG_F905FD4A5F925711311197B37C70F3FE.json
+│               │   ├── TREATPKG_F94D48490347C7C9C7E189054AD0DC87.json
+│               │   ├── TREATPKG_F99F11EC5E39EDCE6F6101B2C28367EB.json
+│               │   ├── TREATPKG_FA0160C2E024634FE94E4B6553B9A04C.json
+│               │   ├── TREATPKG_FB3F846847FE71F7B17C648FC79D2F8B.json
+│               │   ├── TREATPKG_FB690F1435CD832BE80BDE9A8BF7D002.json
+│               │   ├── TREATPKG_FB812C08161716A411282C6C4FBFA164.json
+│               │   ├── TREATPKG_FBFA3472930C48B1408A46556193CE0D.json
+│               │   ├── TREATPKG_FC407932997D2F20F9E754652101C582.json
+│               │   ├── TREATPKG_FC6CC3DA8586EE44FE252B7C27A831D4.json
+│               │   ├── TREATPKG_FE2A6E4505FC91DDD15A9264942D45DC.json
+│               │   ├── TREATPKG_FE5C8EA02D63C2811C5F37E8CAF542CB.json
+│               │   ├── TREATPKG_FE7B44CD31A2188547DF2EAFA3A158F6.json
+│               │   ├── TREATPKG_FE81C4D85FD8DA339E89DB962652C9FA.json
+│               │   └── TREATPKG_FE9BCD13C9F042985AE0E96487DB4231.json
+│               ├── compatibility/
+│               │   ├── legacy_execution_adapter_registry.json
+│               │   └── legacy_execution_adapter_registry.jsonl
+│               ├── contracts/
+│               │   └── execution_intent_schema.json
+│               ├── events/
+│               │   └── treatment_boundary_event_ledger.json
+│               ├── execution_adapter_contracts/
+│               │   ├── EXECADAPTER_001CBE7189C8D789931D219A22F509BF.json
+│               │   ├── EXECADAPTER_0197BB6092458D1B3DE46522C61F881D.json
+│               │   ├── EXECADAPTER_02D3493F69D8F7834C1E69E3E9B97A3D.json
+│               │   ├── EXECADAPTER_031DB75CC4FC0E1439E73E7AD7F617F7.json
+│               │   ├── EXECADAPTER_03560AC5EFB5A490A058C6594D3EA1ED.json
+│               │   ├── EXECADAPTER_036C88544C67F9BAF2C710B605F0CD0B.json
+│               │   ├── EXECADAPTER_0398E148617A78D69ACF6DEEE3EC5596.json
+│               │   ├── EXECADAPTER_0483117080894222C7C1642A9B0AFE34.json
+│               │   ├── EXECADAPTER_04DA9DE8207CDE6627D38E6884B81C68.json
+│               │   ├── EXECADAPTER_05BB912F54A815768475773757291BAA.json
+│               │   ├── EXECADAPTER_066BEC1585BD2CE64D5169117514E42E.json
+│               │   ├── EXECADAPTER_0678B2C8617880E42CAF5E4ADEE69C13.json
+│               │   ├── EXECADAPTER_067C8F62BDF57616A4CBF54CC8282421.json
+│               │   ├── EXECADAPTER_06A947395FEB21AD44085B3C298190E3.json
+│               │   ├── EXECADAPTER_06FB6142125F26FCA6C72FDA83ED38BB.json
+│               │   ├── EXECADAPTER_077D888D963696475757097835CE5E43.json
+│               │   ├── EXECADAPTER_07B96146BB608905EC5DB8C149C4D633.json
+│               │   ├── EXECADAPTER_08120FE78902B76590BB3E6158CAA72A.json
+│               │   ├── EXECADAPTER_09820918ABDC18CFD0651F9C4F8C8200.json
+│               │   ├── EXECADAPTER_0A4E6DB014B0979EAB84F50A13DAA8AD.json
+│               │   ├── EXECADAPTER_0A68C5FA9071483909CEDAE94E8C1757.json
+│               │   ├── EXECADAPTER_0A7236942E9F4B446479494D2A617D84.json
+│               │   ├── EXECADAPTER_0A9CCA71AFB31C6CE43BD4E1F886AE44.json
+│               │   ├── EXECADAPTER_0AFD708BFD357784641FE18DB3AE6D9F.json
+│               │   ├── EXECADAPTER_0BCB3F98F26DB53E76E8495206FE8573.json
+│               │   ├── EXECADAPTER_0C25E9A82F8F7BADE4EA7E109F74CED3.json
+│               │   ├── EXECADAPTER_0C3CA50F5F46A35EB87BEB1320347FC1.json
+│               │   ├── EXECADAPTER_0C8D3CE8DC0B47E7CFD69116E30A6FDE.json
+│               │   ├── EXECADAPTER_0CC7EBCDA5CCD0EAD03EE75D692910A8.json
+│               │   ├── EXECADAPTER_0D0322D82596DEAB692E1D572CEEAD6C.json
+│               │   ├── EXECADAPTER_0D498A3BBA7D740945EC22895188A4FE.json
+│               │   ├── EXECADAPTER_0E772D8B9071B76ADCDF8F3602744FB0.json
+│               │   ├── EXECADAPTER_0F8184EE207DC8A0DF02D4466D40214B.json
+│               │   ├── EXECADAPTER_0FC9C78D7C25FCD839CAFB37708ED3EF.json
+│               │   ├── EXECADAPTER_1039D0F4C975152D90A68EA23B4BAAFF.json
+│               │   ├── EXECADAPTER_11423AF278482236AAB46CB4A3ABD797.json
+│               │   ├── EXECADAPTER_11F62EDD76258F6744E95F2C4D8D6B54.json
+│               │   ├── EXECADAPTER_12D66D923E6B634DCA7F6BAA86F38B2B.json
+│               │   ├── EXECADAPTER_12FB406DACF3E5AF90E505267D8A7228.json
+│               │   ├── EXECADAPTER_138A5E5489ADE7D7587658F92F7C00D2.json
+│               │   ├── EXECADAPTER_14625B85E2AD2B12D3B6651B5C61BAA2.json
+│               │   ├── EXECADAPTER_147C24D5248801676FC30332F206A9BE.json
+│               │   ├── EXECADAPTER_14D3EF090D861F5FB4026BE9440A30E7.json
+│               │   ├── EXECADAPTER_150D7C3603EE2291E72688B5DB7C6743.json
+│               │   ├── EXECADAPTER_156B5D80EC0392029CE8A613BE050856.json
+│               │   ├── EXECADAPTER_15CA8270EEC8A06ADF7DA947CDCB82B0.json
+│               │   ├── EXECADAPTER_15DD37F5B5174BB925BCC02A3046B88F.json
+│               │   ├── EXECADAPTER_1701F3F9F36971C22001F619BD7AB119.json
+│               │   ├── EXECADAPTER_174B8DC08C9F5163637AEB9101E7F1CE.json
+│               │   ├── EXECADAPTER_17A9B6A89C3A8831BEA3F808808D320C.json
+│               │   ├── EXECADAPTER_17D0FA43E0B27DBE969E51980F0D6E7A.json
+│               │   ├── EXECADAPTER_181D7739544659C5D66A630A682AF35F.json
+│               │   ├── EXECADAPTER_193FC8EF5A459E8DB604283FB008DBC8.json
+│               │   ├── EXECADAPTER_199133F08276B322089D5798A68B728F.json
+│               │   ├── EXECADAPTER_19972B8F6A1EE0007C8B9456D6C925C3.json
+│               │   ├── EXECADAPTER_1A41FA5CF1AD70AE45798ECA2A14CCA7.json
+│               │   ├── EXECADAPTER_1B0F982DF9ECA2F37E1165CA95E3F78B.json
+│               │   ├── EXECADAPTER_1BB40437B19CE82CD02AD8AC05072C9C.json
+│               │   ├── EXECADAPTER_1C52B182E67753A285FC30EE09011ACD.json
+│               │   ├── EXECADAPTER_1CA9E5D151DA752BD616F2EE25826A09.json
+│               │   ├── EXECADAPTER_1DD62065F607C3BB4DC88A3CD15394EE.json
+│               │   ├── EXECADAPTER_1EE5C38442B89A81A1C1098423819D3C.json
+│               │   ├── EXECADAPTER_1F4B2103C93A5D9F03DF3AB49B021F75.json
+│               │   ├── EXECADAPTER_2010EB36EAC1791BC110423727ADE7D6.json
+│               │   ├── EXECADAPTER_207AE173DB6C334832AECF0C0B30BFE6.json
+│               │   ├── EXECADAPTER_22676B4C7B141D8D389F168EFCC3925E.json
+│               │   ├── EXECADAPTER_23339EDE035382AFAD4CBEA2C97D50FD.json
+│               │   ├── EXECADAPTER_2347E79CD470AE5A3F3B04972D2978D2.json
+│               │   ├── EXECADAPTER_237A770DA5EB7B0E9E34048E7315F317.json
+│               │   ├── EXECADAPTER_23EE83B08CB230F01D02F119C97554E8.json
+│               │   ├── EXECADAPTER_2459541E4C36A1201E1CD118FC6D585D.json
+│               │   ├── EXECADAPTER_2525456DFF56A71A78BE26395E063ACD.json
+│               │   ├── EXECADAPTER_25EF1357217F5047FA1485B975A1A6B9.json
+│               │   ├── EXECADAPTER_2610345BEE23A6D73CECAC2BD451FCAA.json
+│               │   ├── EXECADAPTER_261E79850153C71D166620BE41FEAFEB.json
+│               │   ├── EXECADAPTER_27246A2EBED1772DFD96FE736450AC16.json
+│               │   ├── EXECADAPTER_28026A1339B46F40511F80930AE4743E.json
+│               │   ├── EXECADAPTER_2858D4937405ECB85FA8AEDAB903EC5C.json
+│               │   ├── EXECADAPTER_28A58C50C58ACD669CF17C09FCF23278.json
+│               │   ├── EXECADAPTER_29A27A1AEC6E6B09AD0C1CFCEDC4B299.json
+│               │   ├── EXECADAPTER_29F629780A4C5E00353DC66D23AF089A.json
+│               │   ├── EXECADAPTER_2A558ED767CE623A7E9246D2F75274E6.json
+│               │   ├── EXECADAPTER_2BF08B8DD766F01885D776F15E490CC7.json
+│               │   ├── EXECADAPTER_2C124503B8F24CD740C9A8E9554D65E7.json
+│               │   ├── EXECADAPTER_2C194E36E2B1BEFB509D046F67A1D1C7.json
+│               │   ├── EXECADAPTER_2C2A9525B334744F07F79508207D0226.json
+│               │   ├── EXECADAPTER_2D82080893A810637AD5729CB079A5F9.json
+│               │   ├── EXECADAPTER_2DBD599C97F5B04062EAAA4C3258F381.json
+│               │   ├── EXECADAPTER_2E173D9753436A6F2FD93BC8B7D8959D.json
+│               │   ├── EXECADAPTER_2F82A90BEA3BF7907EB58A16809E4F8D.json
+│               │   ├── EXECADAPTER_2F892FDB3B314A768735220B8D3BAF9C.json
+│               │   ├── EXECADAPTER_2FCF3CFA5F24DC375680A004BE5EDD86.json
+│               │   ├── EXECADAPTER_2FE7FAEF4791B30C83E6540D1326EE0D.json
+│               │   ├── EXECADAPTER_303F969AEF88F8D6DDEF4D17B2C465BA.json
+│               │   ├── EXECADAPTER_3051BF1DD2BB18E04B2F46807D82ACF7.json
+│               │   ├── EXECADAPTER_306242E897BD327422DFD30A5211E5F7.json
+│               │   ├── EXECADAPTER_30FF75642948C240C3B479F1BBF196CA.json
+│               │   ├── EXECADAPTER_31533CCD693EC3A8C3B047F6DAE16213.json
+│               │   ├── EXECADAPTER_3153AD867F25942D405EEA2F1DD2EA84.json
+│               │   ├── EXECADAPTER_31604B1042D345A06447F4BA82E1A41B.json
+│               │   ├── EXECADAPTER_32C486FF54D00D0D143206445A3127B0.json
+│               │   ├── EXECADAPTER_32D20757DF64BBF6A4DC5E7CE7B81FA1.json
+│               │   ├── EXECADAPTER_331772864213A3936E58610C39D2E5FE.json
+│               │   ├── EXECADAPTER_33710248BD61D89C3BD5105F40AF15CD.json
+│               │   ├── EXECADAPTER_33BD83DDEBB17FAB35BDD34EF17E89C0.json
+│               │   ├── EXECADAPTER_34D8AA3363CED135D5409DB5DF598F6C.json
+│               │   ├── EXECADAPTER_352494A355FDAC1F6E3ECF1AECB727DF.json
+│               │   ├── EXECADAPTER_353B3605E0537142668CA7483BBA1B13.json
+│               │   ├── EXECADAPTER_3614295D8C06BFB4B96FCE864DD82296.json
+│               │   ├── EXECADAPTER_36374FA0FD18AD74E801B731788C56E6.json
+│               │   ├── EXECADAPTER_37360CF852A807B523DE712BAA82B49F.json
+│               │   ├── EXECADAPTER_376646D72C8520518B9E5129C8E13180.json
+│               │   ├── EXECADAPTER_376F020E6EA66B55F010BAD7FAAB9E58.json
+│               │   ├── EXECADAPTER_37A3D9115CA0A6C8D9BF08F793A777C0.json
+│               │   ├── EXECADAPTER_37C5D0F74394656447CC564F7DAE861E.json
+│               │   ├── EXECADAPTER_3855C07D6DB5FF270F34C595AF13DC11.json
+│               │   ├── EXECADAPTER_38AE3E562D19EF7C57B1F1F15759D72C.json
+│               │   ├── EXECADAPTER_39E2779ABC07509B23D1D81A35E15439.json
+│               │   ├── EXECADAPTER_3A124493190D13006746DCBC4540E365.json
+│               │   ├── EXECADAPTER_3A128505479B8464B2EB6DEA5A4A345B.json
+│               │   ├── EXECADAPTER_3A3B40090109F6107AF1DC3C21D9B558.json
+│               │   ├── EXECADAPTER_3AA7D313C0B998F9ABE9BBB1A8DC2CAD.json
+│               │   ├── EXECADAPTER_3BE81141319E061F06243D42F169AF26.json
+│               │   ├── EXECADAPTER_3C2A12893FA5FB4DC26B7E3B8D50DA66.json
+│               │   ├── EXECADAPTER_3DF2D8728E9500E32C18F87895CD4D19.json
+│               │   ├── EXECADAPTER_3EFCDBD0CA22E20B075E4ADDA0FEC678.json
+│               │   ├── EXECADAPTER_3FC9789362C05CE5EAF79D40467AA8F7.json
+│               │   ├── EXECADAPTER_4014A383DA637429FF7CB89461A68614.json
+│               │   ├── EXECADAPTER_41003DEB50D6F1B1C7F89F5C9BF06F96.json
+│               │   ├── EXECADAPTER_412D1B0236C58B103EE494C267BE9F30.json
+│               │   ├── EXECADAPTER_41467A871922BD7CDA73CDD83A64F62C.json
+│               │   ├── EXECADAPTER_424301E543D5E953AF99E2AABBF2DE3D.json
+│               │   ├── EXECADAPTER_43E13A2242A163C26A68C36BCB36941D.json
+│               │   ├── EXECADAPTER_448354C86E09384D88A8DC72F865F4CE.json
+│               │   ├── EXECADAPTER_4490B2900A8C3B040F48A434C08BF282.json
+│               │   ├── EXECADAPTER_4492FAEA96F02F3EAFBF3046B2A99C2E.json
+│               │   ├── EXECADAPTER_44FE9E53505BA396418DBEB2BC4A8BC4.json
+│               │   ├── EXECADAPTER_4582B82984F84118C04BD5F6F03C62D0.json
+│               │   ├── EXECADAPTER_46B17F73428D00EDD234D2C763E11E92.json
+│               │   ├── EXECADAPTER_46C51BD8799DA879AF8F346A9D357B6C.json
+│               │   ├── EXECADAPTER_47FFA43126830E85A897D8D7C8CE37B2.json
+│               │   ├── EXECADAPTER_4805A6CFF891FCE428AEA34F312434C7.json
+│               │   ├── EXECADAPTER_49267275941E3C72D6BA61B56F977A48.json
+│               │   ├── EXECADAPTER_4A83A801ADBF4FAD69AB63AFB8B1E3C2.json
+│               │   ├── EXECADAPTER_4B727933B4056FDEAE91E7951340252B.json
+│               │   ├── EXECADAPTER_4D5488229B07AC1CE8CCFD57B1380613.json
+│               │   ├── EXECADAPTER_4DB64DF784BBE386574DDE325CCBD8A7.json
+│               │   ├── EXECADAPTER_4DBBAEDC9EE740DC714CDF88013F9C28.json
+│               │   ├── EXECADAPTER_4DC3778D4B5FC5F041F8A4266D54C278.json
+│               │   ├── EXECADAPTER_4DFD6BB6B4646B0997D87C32DADF4CFE.json
+│               │   ├── EXECADAPTER_4F2EDDCEC203BB3EB3BC8F4970EB5FBC.json
+│               │   ├── EXECADAPTER_50A7E8CD336562BA47C4BF2634677103.json
+│               │   ├── EXECADAPTER_50C0EB4108016A51732F75E0CD71AA72.json
+│               │   ├── EXECADAPTER_51187BC0F28C2367361A29A3E49F2D65.json
+│               │   ├── EXECADAPTER_515E99A011F5FC3C38A180AAFECD30CF.json
+│               │   ├── EXECADAPTER_51CBDC288C6C721B9171DC2A7DF44845.json
+│               │   ├── EXECADAPTER_51F499B994C67380419AC3F73D5762AE.json
+│               │   ├── EXECADAPTER_51FE0CA21958037D9C422CF7B93BB755.json
+│               │   ├── EXECADAPTER_5261C6CF56E6EF70268C0ABE34775B11.json
+│               │   ├── EXECADAPTER_52902289AD5123B944B8D528597FF88F.json
+│               │   ├── EXECADAPTER_52A4EB43B5E1BA8DD323DEC78A2589C7.json
+│               │   ├── EXECADAPTER_52A8869CDC6910B0575E4CAC3787E81C.json
+│               │   ├── EXECADAPTER_52D042C2521F999857F04641111C751B.json
+│               │   ├── EXECADAPTER_531779BC5B2D2B396FFB59FA4A93CCA2.json
+│               │   ├── EXECADAPTER_53BC3AF38765E62C6ED24E6828CE1D7F.json
+│               │   ├── EXECADAPTER_53C8CB82D71AD0584D16CA3DF8128ED8.json
+│               │   ├── EXECADAPTER_53E4CE58C18FDB9F17B5FAA9BA700BB0.json
+│               │   ├── EXECADAPTER_55A972534F708B75418F8D2D8D082A10.json
+│               │   ├── EXECADAPTER_55AB90AB22ABD712DDA9D6DE04A3F51C.json
+│               │   ├── EXECADAPTER_5654E67D2EF66C8A3C47CA168308AE17.json
+│               │   ├── EXECADAPTER_569E095F39E0C378AE0D5DF80219C46C.json
+│               │   ├── EXECADAPTER_5708BCD01BAADAB8CA663904F5D051EA.json
+│               │   ├── EXECADAPTER_5715A38A173047ED4F24436BCD8D8BC9.json
+│               │   ├── EXECADAPTER_57229DC68DF43A452E587681BBEF1BCC.json
+│               │   ├── EXECADAPTER_58E9D847F3BD9803AAD39FA56ED2F9EE.json
+│               │   ├── EXECADAPTER_593725F6F02263E54B5B4021A15E527D.json
+│               │   ├── EXECADAPTER_5A3DC7B726AB5ACA632D67E671BA6BA9.json
+│               │   ├── EXECADAPTER_5B66D01A9D084C21339FB8E8640A3F5A.json
+│               │   ├── EXECADAPTER_5C0A43D2F2CF934590E4C9CC0248021C.json
+│               │   ├── EXECADAPTER_5C381466858337BF86E5CAA0583FDE0A.json
+│               │   ├── EXECADAPTER_5C4F0D2CA19ED7A35ED49B54E45AD087.json
+│               │   ├── EXECADAPTER_5C74CE5D8AA48777930D5D065451BCC0.json
+│               │   ├── EXECADAPTER_5D558FF0967CDE54AD71A78AEADB4495.json
+│               │   ├── EXECADAPTER_5D7032B13BB0062C3DBDF097C541B963.json
+│               │   ├── EXECADAPTER_60292EFCB4E6F0105B9B7326D9E84669.json
+│               │   ├── EXECADAPTER_60A5762135E56D5E22D564643D0EC154.json
+│               │   ├── EXECADAPTER_623CC202416C1E9FDECFD534EA2C75A3.json
+│               │   ├── EXECADAPTER_62AFE9B1BCCDE534459E36CA7B50B512.json
+│               │   ├── EXECADAPTER_6316067CA8EA7A715A7AA155F30D19A6.json
+│               │   ├── EXECADAPTER_638DE648505CC964C1591F9BCCB1F65D.json
+│               │   ├── EXECADAPTER_63A9C1769EA3E477C8F879F73E01B893.json
+│               │   ├── EXECADAPTER_640A8721BCE4AAC893EBEB4FD12F7582.json
+│               │   ├── EXECADAPTER_6411E00B373006E961D29B62C776AE91.json
+│               │   ├── EXECADAPTER_6506627BAA55D186AFA7A1BD622AE3F3.json
+│               │   ├── EXECADAPTER_65230B82079DC7F878440A8A1285CF23.json
+│               │   ├── EXECADAPTER_65301E31C78E87E2210180B043B646AD.json
+│               │   ├── EXECADAPTER_65544B3F41B18A3DF39DD7ED72E971CE.json
+│               │   ├── EXECADAPTER_65B37C507A15615A364D148A6FD69A23.json
+│               │   ├── EXECADAPTER_65E00FEDD3D5BE8EB664813A1C3B92E4.json
+│               │   ├── EXECADAPTER_660C62FFCCAD948C01367B09C811E731.json
+│               │   ├── EXECADAPTER_669E684274F5418A6F27BA722854D532.json
+│               │   ├── EXECADAPTER_66E17E3859F02015758664651D9D71B8.json
+│               │   ├── EXECADAPTER_6732B4194D7A6B605A4CCEE51CF02031.json
+│               │   ├── EXECADAPTER_675E185EBC7FBD21282F3FB8806394A5.json
+│               │   ├── EXECADAPTER_67CB11FAACB5723131D1F08BB1AFA4A7.json
+│               │   ├── EXECADAPTER_684470F25946C869DD09A5E4C6E74417.json
+│               │   ├── EXECADAPTER_685BB0F22B6A2E74D8124A8CBA0B0A5D.json
+│               │   ├── EXECADAPTER_685EA6BDCF9658448F23660FA5EE8D6F.json
+│               │   ├── EXECADAPTER_68C8385CC6599F64386C516A6B554C5D.json
+│               │   ├── EXECADAPTER_69101C49BFD994F079E88D14EDEE1034.json
+│               │   ├── EXECADAPTER_691B7D08C26CE14539F9815B4850C563.json
+│               │   ├── EXECADAPTER_698BB30EE45697A40EF3E3A6EB271485.json
+│               │   ├── EXECADAPTER_69C9760AEF400ED3EA26E0C9D9AD560E.json
+│               │   ├── EXECADAPTER_6A6B735F495B9E0F644D307F7615AB4C.json
+│               │   ├── EXECADAPTER_6AE3E8DF1F326EE8590090A28F320E07.json
+│               │   ├── EXECADAPTER_6B10F4C05A05F06224295B64551456FA.json
+│               │   ├── EXECADAPTER_6B154A1D57CEF733ADE6CF071A37C8CF.json
+│               │   ├── EXECADAPTER_6B1E8597D1C95CCEC68AEE526178C061.json
+│               │   ├── EXECADAPTER_6C13AB002729FA6A16D35093C245D8BD.json
+│               │   ├── EXECADAPTER_6C4927D79BA6B475E11FBE41AC5EDB9B.json
+│               │   ├── EXECADAPTER_6C7F3EA0F6D70BA8E664A935F0FE8080.json
+│               │   ├── EXECADAPTER_6D0F98B5DDDE638DB125A107519DF980.json
+│               │   ├── EXECADAPTER_6D2953A479B0A0129C16FD4683F75FA2.json
+│               │   ├── EXECADAPTER_6DE6FCEECA8BE7ECD19284961BCAB399.json
+│               │   ├── EXECADAPTER_6E9D8A516D4836A26C40E6F5360D4A1F.json
+│               │   ├── EXECADAPTER_6EE762FD26ABF469EEB9550EB15F2AF2.json
+│               │   ├── EXECADAPTER_6EF7D172D6E5AC13BF4AA46A08BD2460.json
+│               │   ├── EXECADAPTER_704AA478F7866F1D843E512E355762C6.json
+│               │   ├── EXECADAPTER_7092CC0D535715E9AD17A65EAE835C2B.json
+│               │   ├── EXECADAPTER_70F36F439679F4F2E74798CF15A1C19E.json
+│               │   ├── EXECADAPTER_73EF1CC7741B0CC0843AA61F60672CDF.json
+│               │   ├── EXECADAPTER_744A45AF2D67DDEBA2D160004480E029.json
+│               │   ├── EXECADAPTER_744C6AB5D2CC642D13F26E40BE346887.json
+│               │   ├── EXECADAPTER_74AA82004252AEEA596427E6C61E31D8.json
+│               │   ├── EXECADAPTER_7544C0528D4DD25319F7E2371EE0C053.json
+│               │   ├── EXECADAPTER_75FCE57A985A3CFB252FF78696337220.json
+│               │   ├── EXECADAPTER_765F12C8732CCDB636016B21D6A8514A.json
+│               │   ├── EXECADAPTER_76C9A51E724E8B5C2A77EF0419077E11.json
+│               │   ├── EXECADAPTER_774B3D85B02C94E864DCE4168961337D.json
+│               │   ├── EXECADAPTER_77C24D2F48BA83FF67F7E330F1D46C4C.json
+│               │   ├── EXECADAPTER_77E05D57CE0C86AB132BA046EC607A0B.json
+│               │   ├── EXECADAPTER_77E9C4A1AC839D080CF6A0643BE6C7C0.json
+│               │   ├── EXECADAPTER_79413B188D54499C3BCABD81B6370325.json
+│               │   ├── EXECADAPTER_79682B57481855CBD17B4A1F311FF573.json
+│               │   ├── EXECADAPTER_7976616421913B4A287EA1F574B053C4.json
+│               │   ├── EXECADAPTER_798316356D6A0ABCB6AE16FE722C0B07.json
+│               │   ├── EXECADAPTER_79D86F43B55C5745394BCAC660DF9C53.json
+│               │   ├── EXECADAPTER_7AD559AFD457B645E01EC8F904CCE2BE.json
+│               │   ├── EXECADAPTER_7AF38924594933D7B03BDB16B2290A5C.json
+│               │   ├── EXECADAPTER_7B4F8E088BCDECDD422D695646244DEC.json
+│               │   ├── EXECADAPTER_7B6B814A28A8A7296C07F121E8E03D06.json
+│               │   ├── EXECADAPTER_7C4951E5B2C0C227F9EA5006FD3B46B5.json
+│               │   ├── EXECADAPTER_7C991F201A6350CB2FA636B1F8AAE836.json
+│               │   ├── EXECADAPTER_7CE50E5C1BFFBBE286E2EDF382C27B08.json
+│               │   ├── EXECADAPTER_7E5020548D74ACDF63D53FFFEDF88498.json
+│               │   ├── EXECADAPTER_7F81786DC58ECDF24F41CDABA306C9F8.json
+│               │   ├── EXECADAPTER_7F84C99D6290B9BD3C6F1534D2AC92C4.json
+│               │   ├── EXECADAPTER_7FCDE3AC257502607F93B26C267C78B1.json
+│               │   ├── EXECADAPTER_8069DF196144A535B22382F45769A38B.json
+│               │   ├── EXECADAPTER_80FCD938FBBF74809B214022418D6B39.json
+│               │   ├── EXECADAPTER_81656B1805E6360374F8D6B6E2F39F57.json
+│               │   ├── EXECADAPTER_822CEC7362760FEF34244E3B9280753B.json
+│               │   ├── EXECADAPTER_8294B879F716B3A9DEBE21831312CC92.json
+│               │   ├── EXECADAPTER_83A26127058278D3C05F8B68BEA78E5B.json
+│               │   ├── EXECADAPTER_83BBDFAC8442D708109CB82BD12E3D73.json
+│               │   ├── EXECADAPTER_84F0A1EE8F9D35A5840B501F5AB0E345.json
+│               │   ├── EXECADAPTER_858B996C60475CE3F582B439565BF24A.json
+│               │   ├── EXECADAPTER_85FA87AA065C8D75ECFB95907E2E1718.json
+│               │   ├── EXECADAPTER_869C3BB25F6A15F5E2B563FF425BFAA2.json
+│               │   ├── EXECADAPTER_874282D41FE1947FE3E3874DBCF42869.json
+│               │   ├── EXECADAPTER_8756F0EED3E6BD30852D349D1AC1D608.json
+│               │   ├── EXECADAPTER_88002273DB5E557D27D4FB36BFC5B9DB.json
+│               │   ├── EXECADAPTER_88C59F6A0E1C5C376428E3765BE6C99B.json
+│               │   ├── EXECADAPTER_8A7D716E956D5CA4EE64A77C72FFF97F.json
+│               │   ├── EXECADAPTER_8A9FB0975627D14F9F8F2ED5CF9D233A.json
+│               │   ├── EXECADAPTER_8B7BED1707472CF91C436A559E386460.json
+│               │   ├── EXECADAPTER_8C953BA6AE0945F1164AD2BF6F5B53DB.json
+│               │   ├── EXECADAPTER_8CAF26790DED87FE6F4F86167DF3C0C1.json
+│               │   ├── EXECADAPTER_8CCFD6FDBB8B6D0B4BD129D01B0DC49A.json
+│               │   ├── EXECADAPTER_8D233BCFD0646082CC1E3ADE735FE818.json
+│               │   ├── EXECADAPTER_8D365A030FC13A0B20E83998FE8B523B.json
+│               │   ├── EXECADAPTER_8EB2947A336EF45972FF4A5B9C19C80D.json
+│               │   ├── EXECADAPTER_8F2B5895DA27C17F1F7C00695A43A276.json
+│               │   ├── EXECADAPTER_8F36990FCD75F8A5866E53CF9E79E0C3.json
+│               │   ├── EXECADAPTER_91A8ECFA37818B0CBB2EC2375D725C6C.json
+│               │   ├── EXECADAPTER_91B86300281C749DB47B130620164F90.json
+│               │   ├── EXECADAPTER_92AF7123687773030BBCB0F0D4EB69FB.json
+│               │   ├── EXECADAPTER_92B7697435EDF0E6441F3560E44C6906.json
+│               │   ├── EXECADAPTER_92E77B1F72612BAD3646C7175143BF48.json
+│               │   ├── EXECADAPTER_935A8935999FA913B21D7466BF0F1586.json
+│               │   ├── EXECADAPTER_9417665B0F5E341984324B1BC0F977DF.json
+│               │   ├── EXECADAPTER_9470617C70518F97BDA548C1DE97EB4E.json
+│               │   ├── EXECADAPTER_9481EE1B8BAA1F9CE7DE6B6405B2612A.json
+│               │   ├── EXECADAPTER_95AB282186F0CAF513B31E33D59FD2E5.json
+│               │   ├── EXECADAPTER_961DFF7215447FAECCD8B42E1DFC5650.json
+│               │   ├── EXECADAPTER_96CEE6E67C9297E65532B3BB594AA8D4.json
+│               │   ├── EXECADAPTER_99ADD01DA3167CDBB399279474AC782B.json
+│               │   ├── EXECADAPTER_99D3005F21E67AD29E0E0CC5F993804B.json
+│               │   ├── EXECADAPTER_9C5BE874254FF21481FA6B87465250AD.json
+│               │   ├── EXECADAPTER_9CB337D7116BEE852DB57F19CA419CC4.json
+│               │   ├── EXECADAPTER_9CD29572216B7DEE8D24BCF9C9896480.json
+│               │   ├── EXECADAPTER_9D48FBC6F7F5FB6805FA5FF11F83A42C.json
+│               │   ├── EXECADAPTER_9D90634D8A3557079590B600FE513D1E.json
+│               │   ├── EXECADAPTER_9DA1BDF1586E961C491B0BDAF8E72DA7.json
+│               │   ├── EXECADAPTER_9EDEF6F45AEB8C4B53C2DBC62F1B719F.json
+│               │   ├── EXECADAPTER_9F39677148788E4F1AF34F5FA0780A27.json
+│               │   ├── EXECADAPTER_9F5F0AE5BFA45D0B4511329C391D1F7A.json
+│               │   ├── EXECADAPTER_9FCBD937D836549439FEE62EF9018C63.json
+│               │   ├── EXECADAPTER_A0AE2003A05E8EF6742B34DBBE1423EC.json
+│               │   ├── EXECADAPTER_A0C56B02388802F300509A528528AFA0.json
+│               │   ├── EXECADAPTER_A1053CE6D795AF3F7F8B0AF06A7AE874.json
+│               │   ├── EXECADAPTER_A119198EECA151695AD59101D37C5E55.json
+│               │   ├── EXECADAPTER_A16BF0C78D49872A8FC86AF79BA78C2F.json
+│               │   ├── EXECADAPTER_A1C35DC245982B4F952A1AB99E73B2B5.json
+│               │   ├── EXECADAPTER_A2EA6DAACED12076325C0620B378FBA6.json
+│               │   ├── EXECADAPTER_A33567BC3B245395381C806B549C8905.json
+│               │   ├── EXECADAPTER_A38E281E973546A1FC6C38DFB0E7CAD3.json
+│               │   ├── EXECADAPTER_A392B3010AB7E2ECCBA146D5B4608D85.json
+│               │   ├── EXECADAPTER_A3A6A5E5F4DBEA4E1CCF6B3AA8D14CDF.json
+│               │   ├── EXECADAPTER_A5638A6DB1F193619C03EDE5F5DCF0C2.json
+│               │   ├── EXECADAPTER_A5ED1ABAEFD800A464A6BD5F5B1C17B0.json
+│               │   ├── EXECADAPTER_A7979647BABD0BA7977FBE5998E11456.json
+│               │   ├── EXECADAPTER_A82F92610324D1BAA4BC40F8A44B5D3A.json
+│               │   ├── EXECADAPTER_A93002E78E836772E1FB747C64545752.json
+│               │   ├── EXECADAPTER_AA8EE70AF27CF61EDFDD5A05659E61AD.json
+│               │   ├── EXECADAPTER_AD3D6B87CC4436280D4ED12D96A9020E.json
+│               │   ├── EXECADAPTER_ADF6DC7F8669137E00BF6B75CB312E72.json
+│               │   ├── EXECADAPTER_AE3829F2BDC12C83048DF594169CD0CE.json
+│               │   ├── EXECADAPTER_AEED661E340D02AE787397762F8C4635.json
+│               │   ├── EXECADAPTER_AF5764B926E3B8A30442C1A153372CBD.json
+│               │   ├── EXECADAPTER_AF700120A562A7659C589309692D79FE.json
+│               │   ├── EXECADAPTER_AF8DCAC56603F0CB309C01A6A18AC7B5.json
+│               │   ├── EXECADAPTER_B018986D6474A8FE618038548767E8FA.json
+│               │   ├── EXECADAPTER_B06C9B8A4AFF6A6FFE3204F170F0AE38.json
+│               │   ├── EXECADAPTER_B0A418F20BE13775EC176250E1EAE5B3.json
+│               │   ├── EXECADAPTER_B10323B7A1FFAC5E352F1DFA2CAC0D1D.json
+│               │   ├── EXECADAPTER_B16AB4326DC42BEED4B49A2F7B4532F7.json
+│               │   ├── EXECADAPTER_B1B1F6F365B79B33CBADB0138016978C.json
+│               │   ├── EXECADAPTER_B237AB89F25F559C441119B71D776723.json
+│               │   ├── EXECADAPTER_B2932F7BD5F1DB06CC1DE374394B0AD9.json
+│               │   ├── EXECADAPTER_B3704A11A0E87144C7E0D957A6BD6B8E.json
+│               │   ├── EXECADAPTER_B3971EA744066612DC02049664531EBF.json
+│               │   ├── EXECADAPTER_B3A5C3AB794AAB5B3D67DE81E9ABA914.json
+│               │   ├── EXECADAPTER_B3BB144865FF363FEA9063969FD6BAA6.json
+│               │   ├── EXECADAPTER_B4127420DCE920ABBBA953997BEEE772.json
+│               │   ├── EXECADAPTER_B4192C67EDA9C68BE96BF8E039D64D2E.json
+│               │   ├── EXECADAPTER_B42FF20A42AD4DAF22518903F94E665F.json
+│               │   ├── EXECADAPTER_B56D34F7ADE60C90274D7617C2422B98.json
+│               │   ├── EXECADAPTER_B5A7AE24398CA5C06BB21A86E0AA824B.json
+│               │   ├── EXECADAPTER_B5DA21A7A36580880FF03994FA58A768.json
+│               │   ├── EXECADAPTER_B6182312CEF866EBBFE084810C89A48A.json
+│               │   ├── EXECADAPTER_B6581F4D7BA644366D229E7752C5D0F7.json
+│               │   ├── EXECADAPTER_B721363AFA757FC290ACF8555B6CB365.json
+│               │   ├── EXECADAPTER_B74B44A5F8AAD395612C7543FA2A3E14.json
+│               │   ├── EXECADAPTER_B80594EF15ECCCE3BC704C8AA8FFB2E2.json
+│               │   ├── EXECADAPTER_B8759DB880777D3DDAE63A88D5D5A5B6.json
+│               │   ├── EXECADAPTER_B88EA8BCB759A3B56C31C140B0C6E0B6.json
+│               │   ├── EXECADAPTER_B92EB3FC00EA2B7BB4B47A160FC695DC.json
+│               │   ├── EXECADAPTER_B9F9A773BE0F237DB084359471B2009F.json
+│               │   ├── EXECADAPTER_BA96F8067F62E270E99B785F9C7D0F0E.json
+│               │   ├── EXECADAPTER_BA977AF1350FB85244DE989DF3124C17.json
+│               │   ├── EXECADAPTER_BAB9B6FE1E2BAFE74AEFD9F03F96D387.json
+│               │   ├── EXECADAPTER_BB2A1383E52FBC0942F3EB4B494FF7E2.json
+│               │   ├── EXECADAPTER_BC88865104E00E47166B5A502E90370B.json
+│               │   ├── EXECADAPTER_BD78EEC19E8DAFC0B43831C40C73E78D.json
+│               │   ├── EXECADAPTER_BE58E42B1DA2A993AB54B3F20BCC55D2.json
+│               │   ├── EXECADAPTER_BED1597AC8F8645C1CBBECCAA2FAC797.json
+│               │   ├── EXECADAPTER_BED579076E6C5C1A4AE816210D716B24.json
+│               │   ├── EXECADAPTER_BEFFF4AB20503672EA06EDA1028D0586.json
+│               │   ├── EXECADAPTER_BFCC3F26A3A0760E97B3F221FF1B5451.json
+│               │   ├── EXECADAPTER_C05016EF959F7A5EEB3643667160D850.json
+│               │   ├── EXECADAPTER_C18D72A4E96CB219A4FF992EB54F9E25.json
+│               │   ├── EXECADAPTER_C19CCF979CF137B03B7FBBEF51E71D75.json
+│               │   ├── EXECADAPTER_C2006AB3147C8856DB953511669858A2.json
+│               │   ├── EXECADAPTER_C307A47237760C97B9BB2FC9657177C4.json
+│               │   ├── EXECADAPTER_C3E41E07F43CE22C400EB477F711E76E.json
+│               │   ├── EXECADAPTER_C3F14634A1BC0A5364F3B87D296267FD.json
+│               │   ├── EXECADAPTER_C474D74634FB23A8596F101C3848F391.json
+│               │   ├── EXECADAPTER_C48998772D2AAA57D315BA9082D5B579.json
+│               │   ├── EXECADAPTER_C67CE7EE8513780ACAD3994A096E4B92.json
+│               │   ├── EXECADAPTER_C7DB8491F34F5BC13D20D1C186E6E18F.json
+│               │   ├── EXECADAPTER_C7F2049418D3138D28AD2AF74351ADBF.json
+│               │   ├── EXECADAPTER_C84CBEAFA33CB7769064CABF4244B97E.json
+│               │   ├── EXECADAPTER_C8AB48E7016A8376B3C0785AC700A7FD.json
+│               │   ├── EXECADAPTER_C8CA4D5C13F8B34D25DF87B1E12E2FB8.json
+│               │   ├── EXECADAPTER_C9713115B8DCEE2E6DD829331836085F.json
+│               │   ├── EXECADAPTER_C9F3CFB5E285288BD52907F6DCEDC31F.json
+│               │   ├── EXECADAPTER_CA0BEF3D32399F3C539B258596E2222D.json
+│               │   ├── EXECADAPTER_CA3AC14A52DDAD96B6E08CBF720B4539.json
+│               │   ├── EXECADAPTER_CA49311C5CA01BB04B8B03B5DC2B5E51.json
+│               │   ├── EXECADAPTER_CA4D3E8D60700A0A781915541D2A86B6.json
+│               │   ├── EXECADAPTER_CAD9119758559404D0A905207EAA4284.json
+│               │   ├── EXECADAPTER_CB9A543672867D242F4B7CF17B7CAC7F.json
+│               │   ├── EXECADAPTER_CBAF303EAD8CD052C14FBC77114A868E.json
+│               │   ├── EXECADAPTER_CBDF52536C1575036524881966DBC936.json
+│               │   ├── EXECADAPTER_CCE3C471979D8EBEAC3B4D7597B4805B.json
+│               │   ├── EXECADAPTER_CD0451B928C732089C696806C4F9F775.json
+│               │   ├── EXECADAPTER_CDA00DC3CFF21618B3B308E3A4BE82E6.json
+│               │   ├── EXECADAPTER_CDD2C31388B653F22E330647C83FDA0D.json
+│               │   ├── EXECADAPTER_CE3763E4D9C2888BF89643EFB0152CAD.json
+│               │   ├── EXECADAPTER_CE55F237D08D3F8249C9A8FFCAB5D77F.json
+│               │   ├── EXECADAPTER_CE59A6E936E015A6433F96C49F732A24.json
+│               │   ├── EXECADAPTER_CE99BC6147ED6CB2F4441FC68B730C48.json
+│               │   ├── EXECADAPTER_CFC05D29F0C9ED3CE098A51ADD819783.json
+│               │   ├── EXECADAPTER_D076F9B9BEE0F01713285E84B9680CD6.json
+│               │   ├── EXECADAPTER_D143EC22D1B5FEE5BC0FF146FCFE1C28.json
+│               │   ├── EXECADAPTER_D1BF76BEA125E6CD46038146075C1D6E.json
+│               │   ├── EXECADAPTER_D1C59E80C4148AFC2CCA4361C41DA209.json
+│               │   ├── EXECADAPTER_D1D02CDEF539D078597578B8AA0EA80B.json
+│               │   ├── EXECADAPTER_D2AD92C90254746B7D26FA7760A3E497.json
+│               │   ├── EXECADAPTER_D4FF97CB170613339998E565A19EBA03.json
+│               │   ├── EXECADAPTER_D5C96285225F6F8CA00CBCBB787A5344.json
+│               │   ├── EXECADAPTER_D6143C534D88D5D27C11D989BE93BD87.json
+│               │   ├── EXECADAPTER_D66249B8AD9DCA35C169BEA158D372ED.json
+│               │   ├── EXECADAPTER_D683DB26CFCFB0DC680A7468154C896C.json
+│               │   ├── EXECADAPTER_D72D7CA4F59006E165D18A0C764AFEFC.json
+│               │   ├── EXECADAPTER_D77DD0166B1E239F884AD91951787D58.json
+│               │   ├── EXECADAPTER_D79294E8762949F24CCA023E6145EB27.json
+│               │   ├── EXECADAPTER_D7F9FBFC8CAD66C99DE3AEBE1EFDDD8D.json
+│               │   ├── EXECADAPTER_D8D35276A0A0D278A42C6BE76FE92CE3.json
+│               │   ├── EXECADAPTER_D8DD098A60F5D9AADB3044C6BB988730.json
+│               │   ├── EXECADAPTER_D9DAFDD939D8A14A58A7267AC2DF1AF5.json
+│               │   ├── EXECADAPTER_DAB6E616223626A86D955AFF6D630E58.json
+│               │   ├── EXECADAPTER_DB939882210FD404EB5E0CEB261033B4.json
+│               │   ├── EXECADAPTER_DC841343E3701E23802C272D28E9C88E.json
+│               │   ├── EXECADAPTER_DCFEEAD25956FE991D6BD4993F117780.json
+│               │   ├── EXECADAPTER_DDBC44695C820663E456DFD5AE2BD7C7.json
+│               │   ├── EXECADAPTER_DE9751D22097B3B949CF09684C02EA02.json
+│               │   ├── EXECADAPTER_DEBCC024853FBD525C63ED6B36020AC1.json
+│               │   ├── EXECADAPTER_DEF19608C3D80A625311D7CA4B7D0987.json
+│               │   ├── EXECADAPTER_DF6605CB7E9A62816BCB479C3C127F35.json
+│               │   ├── EXECADAPTER_E0B995478A7D0EC652F12409B098FFDF.json
+│               │   ├── EXECADAPTER_E11FC5D954411562794E5B2F1CB75D93.json
+│               │   ├── EXECADAPTER_E1532813F29D31A43687D28D33EE986E.json
+│               │   ├── EXECADAPTER_E1A3AF66CEB495311DD5BC1077C83063.json
+│               │   ├── EXECADAPTER_E1E548BFCBBD610A9A7F1C3D3DE9E746.json
+│               │   ├── EXECADAPTER_E21983E61498B32666F83323F6D9C80B.json
+│               │   ├── EXECADAPTER_E2A2C41FF95EB8B72905DEB56919E037.json
+│               │   ├── EXECADAPTER_E2C81A9A8D80C15D44F28F2E38991441.json
+│               │   ├── EXECADAPTER_E3253CB5FCAA238FF5FB45F0634F7DC6.json
+│               │   ├── EXECADAPTER_E3305064AAD1BC052B5EE40C46C2B0BB.json
+│               │   ├── EXECADAPTER_E35D0F8B989B5B41DBFBEF31B66CB213.json
+│               │   ├── EXECADAPTER_E4F9AEB344AE0561691ED7301DFB2FA5.json
+│               │   ├── EXECADAPTER_E696A2FF890F07C2E11CCBC9FF7ECA60.json
+│               │   ├── EXECADAPTER_E699521091CDCD69C646FEDA5EF8B8EF.json
+│               │   ├── EXECADAPTER_E7AF3EACDA6ABF60605247A5CF09CF20.json
+│               │   ├── EXECADAPTER_E848C6269D633D4A3E311AE3520406B8.json
+│               │   ├── EXECADAPTER_E8A0DC0247970A81B652049F80CDC6E2.json
+│               │   ├── EXECADAPTER_E8A3F14674AF9F0F1B7112CCA10DF362.json
+│               │   ├── EXECADAPTER_E907E4B750FE37D60A843F0063B736DC.json
+│               │   ├── EXECADAPTER_E9D1FC7202A351813198407597CEDE92.json
+│               │   ├── EXECADAPTER_EA1DFD9820B9B4263FDCA62D099E6BDD.json
+│               │   ├── EXECADAPTER_EA9FF88C413AB2061E0DCBFEAC782B79.json
+│               │   ├── EXECADAPTER_EAC6FBBD7E4F0A733A0129CDAE461159.json
+│               │   ├── EXECADAPTER_EC0B28146D986A5F6D5AABEABDE6DE93.json
+│               │   ├── EXECADAPTER_EC0B4F9F673FB308A9E70FB16490A68A.json
+│               │   ├── EXECADAPTER_ED2BC809FDF350973DF334FE359ACCFD.json
+│               │   ├── EXECADAPTER_ED3B9B26914A8C8922E793C816B52770.json
+│               │   ├── EXECADAPTER_ED80916A2825A02128250BD9826F8E01.json
+│               │   ├── EXECADAPTER_EDA64EA2C65CAE7B87186EFE3F586FAE.json
+│               │   ├── EXECADAPTER_EDC539702650ECD73EE5D7242DDCDCF1.json
+│               │   ├── EXECADAPTER_EE2E19E70904F63CC37ACEAE1366B6DA.json
+│               │   ├── EXECADAPTER_EF6880350481EA207F5540277DDFD61D.json
+│               │   ├── EXECADAPTER_F088B8C8940F3FA1D949C8F534D71C05.json
+│               │   ├── EXECADAPTER_F0FD76A8A354F2F5E834BE9C93C7C8B3.json
+│               │   ├── EXECADAPTER_F117346A8DE219F7D96AD000EC07BBD6.json
+│               │   ├── EXECADAPTER_F18258D3C55D6EACC7DB50CA3214A8BE.json
+│               │   ├── EXECADAPTER_F238E5EFF6B16A433EC79619561B2FCA.json
+│               │   ├── EXECADAPTER_F40C3D27426871203460DFF2533A3DB4.json
+│               │   ├── EXECADAPTER_F53D6EDED57C0D531EB0F5C7787A8C37.json
+│               │   ├── EXECADAPTER_F554BE11B91CB128060AD121316A6821.json
+│               │   ├── EXECADAPTER_F8C627BD9139F32F979BCE125D2481AD.json
+│               │   ├── EXECADAPTER_F99F11EC5E39EDCE6F6101B2C28367EB.json
+│               │   ├── EXECADAPTER_F9A4010978D8D9DC5457B4BEBACE045E.json
+│               │   ├── EXECADAPTER_FA0160C2E024634FE94E4B6553B9A04C.json
+│               │   ├── EXECADAPTER_FB690F1435CD832BE80BDE9A8BF7D002.json
+│               │   ├── EXECADAPTER_FB812C08161716A411282C6C4FBFA164.json
+│               │   ├── EXECADAPTER_FC6CC3DA8586EE44FE252B7C27A831D4.json
+│               │   ├── EXECADAPTER_FD66F99BF9115F7D1DB1A6E852C66911.json
+│               │   ├── EXECADAPTER_FE3C61F0EAB99BD09C9E381CF6DF864D.json
+│               │   ├── EXECADAPTER_FE5C8EA02D63C2811C5F37E8CAF542CB.json
+│               │   ├── EXECADAPTER_FEBEE8AC4B2FB558D0B19D6D9710020A.json
+│               │   ├── EXECADAPTER_FF106763183B9A3AF4418F56E31D02F7.json
+│               │   ├── execution_adapter_contract_registry.json
+│               │   └── execution_adapter_contract_registry.jsonl
+│               ├── guards/
+│               │   └── capability_guard_policy.json
+│               ├── handoff/
+│               │   └── lcm10b_to_lcm10c_handoff.json
+│               ├── provenance/
+│               │   └── treatment_boundary_provenance_graph.json
+│               ├── registries/
+│               │   ├── treatment_package_registry.json
+│               │   └── treatment_package_registry.jsonl
+│               ├── reports/
+│               │   ├── acceptance_report.json
+│               │   ├── forbidden_api_boundary_report.json
+│               │   └── hostile_review.json
+│               ├── LCM10B_TO_LCM10C_HANDOFF.json
+│               ├── output_manifest.json
+│               ├── required_artifact_locator.json
+│               ├── treatment_boundary_marker.json
+│               └── treatment_boundary_receipt.json
+├── tools/
+│   └── strategy_factory/
+│       ├── acl_os/
+│       │   └── acl_04/
+│       │       └── lcm10b_reference.py
+│       └── lcm/
+│           └── lcm_10b/
+│               ├── __init__.py
+│               ├── adapters.py
+│               ├── artifact_manifest.py
+│               ├── boundary.py
+│               ├── canonical.py
+│               ├── cli.py
+│               ├── constants.py
+│               ├── errors.py
+│               ├── execution_intent.py
+│               ├── factory_bridge.py
+│               ├── guards.py
+│               ├── handoff.py
+│               ├── io.py
+│               ├── models.py
+│               ├── patch_verify.py
+│               ├── qa.py
+│               ├── registry.py
+│               ├── schema_validation.py
+│               ├── service.py
+│               ├── static_validation.py
+│               ├── translation.py
+│               └── verify.py
+├── COMMIT_MESSAGE_LCM_10B.md
+├── INSTALL_ALPHA_LAB_LCM_10B.md
+├── LCM_10B_ARTIFACT_INVENTORY.csv
+├── LCM_10B_FILE_HASHES.sha256
+├── LCM_10B_FILE_INDEX.txt
+├── LCM_10B_PATCH_CONTENTS_TREE.txt
+├── LCM_10B_PATCH_MANIFEST.json
+├── LCM_10B_QA_REPORT.json
+├── README_ALPHA_LAB_LCM_10B.md
+└── ROLLBACK_ALPHA_LAB_LCM_10B.md

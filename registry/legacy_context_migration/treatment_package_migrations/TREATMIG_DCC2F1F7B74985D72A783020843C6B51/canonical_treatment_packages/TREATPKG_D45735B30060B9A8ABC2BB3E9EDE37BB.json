@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_45345FE0F5B8246B4531F7D96D0E640A"
+  ],
+  "atom_types": [
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4640124f12a228735f0022ec6a63cc24f43e82d6259f6f0ae1f1496279c96ce3",
+      "atom_id": "TREATATOM_45345FE0F5B8246B4531F7D96D0E640A",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "o.fill_time=o.registered_at;o.fill_time.utc_epoch_milliseconds=2000;o.fill_price=100.0;o.exit_time=o.fill_time;o.exit_time.utc_epoch_milliseconds=3000;o.exit_price=100.0+net_r;",
+          "line_digest": "sha256:1258cbe2874b8427d28d0f03fd21458aa9e869f907a5de7db2ceb761e3055ce9",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f7b60e8e095f80c34644183764a56c15411d3bac6bc2f2b2014e8d5874bb4eb2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:45801ae175a9f180f8df8e7cefd9c775762cda93dd81e9b26c25b905acb2680f",
+    "sha256:4640124f12a228735f0022ec6a63cc24f43e82d6259f6f0ae1f1496279c96ce3"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactoryTests/SF10_ResearchHarnessSelfTest.mq5",
+  "source_sha256": "sha256:45801ae175a9f180f8df8e7cefd9c775762cda93dd81e9b26c25b905acb2680f",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_3614DC0FD788854FA1BEA69841EFC790",
+  "treatment_package_id": "TREATPKG_D45735B30060B9A8ABC2BB3E9EDE37BB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

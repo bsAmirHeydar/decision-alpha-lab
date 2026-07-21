@@ -1,0 +1,68 @@
+{
+  "atom_ids": [
+    "TREATATOM_19ED7F43B7503CE16F4222E64E63CB37"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_48CD16E92E0E8BA359D14C0CB83A5F93"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f49e597398474e7ca8e311cac20ebde897618a791d063adfb1b6d8d6fe29f762",
+      "atom_id": "TREATATOM_19ED7F43B7503CE16F4222E64E63CB37",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "bool Configure(const string run_id,const ENUM_SF18_LIVE_MODE mode,const SF18_MicroLiveRelease &release,const SF18_LiveAuthorization &auth,const SF18_SafetyPolicy &policy,ISF18BrokerPort *broker,const ulong magic,string &error)",
+          "line_digest": "sha256:e2e8d47b1908631d2f7eec55028572751b37836a3808747c43c73aa565a2733b",
+          "line_number": 35
+        },
+        {
+          "excerpt": "m_run_id=run_id;m_mode=mode;m_release=release;m_auth=auth;m_policy=policy;m_broker=broker;m_magic=magic;m_session_orders=0;m_identity_count=0;m_ledger.Reset();m_circuit.Configure(policy.maximum_consecutive_failures,policy.cooldown_after_failure_milliseconds);m_auth_state=mode==SF18_LIVE_DRY_RUN?SF18_AUTH_ARMED:SF18_AUT",
+          "line_digest": "sha256:3100f037e8b04c1263a3d10b0e126e28165b0d1c71f6b04d012748e6fb89716f",
+          "line_number": 39
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f2123b32730919923cdfee881f85e1a7fd250a69605a5a459524840d435710b3",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_AE8E2B83FE202274FC14B67009748ACA"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:8e2bf06d8f270577e67a87af2da9243c19e79b37ceeae98f1fb37d8cc2a35c08",
+    "sha256:f49e597398474e7ca8e311cac20ebde897618a791d063adfb1b6d8d6fe29f762"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_LiveExecutionCoordinator.mqh",
+  "source_sha256": "sha256:8e2bf06d8f270577e67a87af2da9243c19e79b37ceeae98f1fb37d8cc2a35c08",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C68338A82B7A8B493A7F3F6B6C2041DB",
+  "treatment_package_id": "TREATPKG_DEBCC024853FBD525C63ED6B36020AC1",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

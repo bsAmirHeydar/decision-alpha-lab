@@ -1,0 +1,107 @@
+{
+  "atom_ids": [
+    "TREATATOM_33A2E0B7B4F3305E2D9F17A4A96A609C",
+    "TREATATOM_49B8DC438102238214C6097D165C0D8B"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:064ac4669cd26f556822e6d4f7c27aabf25ee641bd70e25ff6c164f2b2072483",
+      "atom_id": "TREATATOM_33A2E0B7B4F3305E2D9F17A4A96A609C",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "(\"BASELINE_ALWAYS_TAKE_LONG\", {\"treatment_family\":\"BASELINE_ALWAYS_TAKE_LONG\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\")],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:ee66459e11c5ce1541efc31c59b09525836a69baf43c29a7e3a91d61d794dd24",
+          "line_number": 14
+        },
+        {
+          "excerpt": "(\"BASELINE_ALWAYS_TAKE_SHORT\", {\"treatment_family\":\"BASELINE_ALWAYS_TAKE_SHORT\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_SHORT\")],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:801b71d77983ff306549e9e7bcb0111b48f3d8e587ae8e31eeef32fd157fc915",
+          "line_number": 15
+        },
+        {
+          "excerpt": "(\"BASELINE_MANUAL_GATE\", {\"treatment_family\":\"BASELINE_MANUAL_GATE\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\",\"MANUAL_CONFIRMATION_IS\",[True])],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:2a958760dde74ec00e2af0d1aae9c2900377d02f6540a9693eaac8ecfa962dcb",
+          "line_number": 16
+        },
+        {
+          "excerpt": "(\"BASELINE_DIAGNOSTIC_ORACLE\", {\"treatment_family\":\"BASELINE_DIAGNOSTIC_ORACLE\",\"risk_contract\":risk,\"diagnostic_only\":True,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\",\"FUTURE_OUTCOME_IS\",[\"POSITIVE\"])],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:c05500563190deffb06d5102bcc8560ba29b1b2329e402a5f65759f3a2cc7b8e",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1f5b4e940209901cdf289a962caed84f4156b2cc557e8fb088eecfe053f2da8f",
+      "atom_id": "TREATATOM_49B8DC438102238214C6097D165C0D8B",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "(\"BASELINE_ALWAYS_TAKE_LONG\", {\"treatment_family\":\"BASELINE_ALWAYS_TAKE_LONG\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\")],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:ee66459e11c5ce1541efc31c59b09525836a69baf43c29a7e3a91d61d794dd24",
+          "line_number": 14
+        },
+        {
+          "excerpt": "(\"BASELINE_ALWAYS_TAKE_SHORT\", {\"treatment_family\":\"BASELINE_ALWAYS_TAKE_SHORT\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_SHORT\")],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:801b71d77983ff306549e9e7bcb0111b48f3d8e587ae8e31eeef32fd157fc915",
+          "line_number": 15
+        },
+        {
+          "excerpt": "(\"BASELINE_MANUAL_GATE\", {\"treatment_family\":\"BASELINE_MANUAL_GATE\",\"risk_contract\":risk,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\",\"MANUAL_CONFIRMATION_IS\",[True])],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:2a958760dde74ec00e2af0d1aae9c2900377d02f6540a9693eaac8ecfa962dcb",
+          "line_number": 16
+        },
+        {
+          "excerpt": "(\"BASELINE_DIAGNOSTIC_ORACLE\", {\"treatment_family\":\"BASELINE_DIAGNOSTIC_ORACLE\",\"risk_contract\":risk,\"diagnostic_only\":True,\"clauses\":{\"entry\":[_clause(\"entry\",\"ENTER_LONG\",\"FUTURE_OUTCOME_IS\",[\"POSITIVE\"])],\"expiry\":[_clause(\"expiry\",\"CANCEL\")]}}),",
+          "line_digest": "sha256:c05500563190deffb06d5102bcc8560ba29b1b2329e402a5f65759f3a2cc7b8e",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2d502092c3e19594531c6f4c0dd9294d49d64b272823c412ffe420b02e12da83",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d09144002bbdbecd2c160517a8758091603a1e5cef22585861053f8e28b4e09c",
+    "sha256:064ac4669cd26f556822e6d4f7c27aabf25ee641bd70e25ff6c164f2b2072483",
+    "sha256:1f5b4e940209901cdf289a962caed84f4156b2cc557e8fb088eecfe053f2da8f"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/acl_os/acl_04/baseline.py",
+  "source_sha256": "sha256:d09144002bbdbecd2c160517a8758091603a1e5cef22585861053f8e28b4e09c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C2FA4F8D5EC73AAA5CE34BAD833029C3",
+  "treatment_package_id": "TREATPKG_31BE970E175F0A86063A03830B05F723",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_73D62DFFA34EC3A8B377656B0038DB1B"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7dce0836ea188435147dc5ba370a0a913361f27a576299bd67d87ed4e254b7f2",
+      "atom_id": "TREATATOM_73D62DFFA34EC3A8B377656B0038DB1B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "bool FP_I04_IsOnTickGrid(const double value,const double tick_size){if(tick_size<=0.0)return false;double units=value/tick_size;return MathAbs(units-MathRound(units))<=1e-7;}",
+          "line_digest": "sha256:4307c5e6064785609f861201ab62664c83aedc3eddc4f78c55ecf26a6180885d",
+          "line_number": 5
+        },
+        {
+          "excerpt": "{ if(b.canonical_symbol!=s.canonical_symbol){reason=\"FP_DRC_BAR_SYMBOL_MISMATCH\";return false;}if(!FP_I04_IsMinuteAligned(b.open_utc)){reason=\"FP_DRC_M1_ALIGNMENT_INVALID\";return false;}if(b.finality!=FP_I04_BAR_CLOSED){reason=\"FP_DRC_PROVISIONAL_BAR_FORBIDDEN\";return false;}if(b.high<b.low || b.high<MathMax(b.open,b.c",
+          "line_digest": "sha256:712666f6a728f51035052f15620b8d05ba95efc9db4e86c7ba23b99f9ee81483",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c70efc9d9a838667189d0a1ae56d6049ea00b9a693efcaee7b189cd408f79fda",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_CDEC5F344BF6A984E4BFA8CFE9DCBDDD"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2bc5a7b22f699faef70aef340acfb1d8567f6708f8eddc3f9a74b271ecc6a9dc",
+    "sha256:7dce0836ea188435147dc5ba370a0a913361f27a576299bd67d87ed4e254b7f2"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FaerieProtocol/EXP0019/Data/FP_I04_BarValidation.mqh",
+  "source_sha256": "sha256:2bc5a7b22f699faef70aef340acfb1d8567f6708f8eddc3f9a74b271ecc6a9dc",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_135BA3F796C8E0CB9244BB0BC973B14D",
+  "treatment_package_id": "TREATPKG_6A772B3112013817ADAD1F5191946BD4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_B274EEC21EDD5B209AA3B735544FE856"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8a1323f4b65d8b14c21136cea95efeac0c269c37173eb426602306cfa7a5a06b",
+      "atom_id": "TREATATOM_B274EEC21EDD5B209AA3B735544FE856",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "bool expired;",
+          "line_digest": "sha256:30b4e592bf7c8b16889487f171e2fda6e69a624e696b34d2cb8c3d7f264b4701",
+          "line_number": 69
+        },
+        {
+          "excerpt": "r.expired = false;",
+          "line_digest": "sha256:55c12089ae08445509616b674c0fe5d6ebeacfb7d17eaae1a930927f364327df",
+          "line_number": 141
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0e7c24c1d67c3860497ec1d256045d75738d3568e42695b184a63c9d96fe4e4c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:ac5638c9f5f8ef8843e051241a131fe7aa14fb1057275f6dbedcec535cd0d77c",
+    "sha256:8a1323f4b65d8b14c21136cea95efeac0c269c37173eb426602306cfa7a5a06b"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseTypes.mqh",
+  "source_sha256": "sha256:ac5638c9f5f8ef8843e051241a131fe7aa14fb1057275f6dbedcec535cd0d77c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5E45D29A55DFD4DB7A400E9985EA2E3C",
+  "treatment_package_id": "TREATPKG_0B4C2ACF1646461B4EF4B8DA3ED310B5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

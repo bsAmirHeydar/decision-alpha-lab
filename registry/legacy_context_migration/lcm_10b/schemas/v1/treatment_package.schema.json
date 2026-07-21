@@ -1,0 +1,108 @@
+{
+  "$id": "https://alpha-lab.local/lcm10b/treatment_package.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "atom_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10B_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "live_mode_allowed": {
+      "const": false,
+      "type": "boolean"
+    },
+    "normalized_atoms": {
+      "type": "array"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "package_digest": {
+      "type": "string"
+    },
+    "package_status": {
+      "type": "string"
+    },
+    "paper_mode_allowed": {
+      "const": false,
+      "type": "boolean"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string"
+    },
+    "submission_capability_default": {
+      "const": false,
+      "type": "boolean"
+    },
+    "treatment_package_id": {
+      "pattern": "^TREATPKG_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "treatment_version": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "treatment_package_id",
+    "treatment_version",
+    "source_path",
+    "source_sha256",
+    "atom_ids",
+    "package_digest"
+  ],
+  "title": "treatment_package",
+  "type": "object"
+}

@@ -1,0 +1,41 @@
+{
+  "adapter_digest": "sha256:8758a37c570e477bcf0da150952aa2e19278ba02629bbd2362788271321551d4",
+  "adapter_id": "EXECADAPTER_031DB75CC4FC0E1439E73E7AD7F617F7",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "READ_BROKER_CONSTRAINTS"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_16EC259064C3F1453173D081548E1F96"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c8756682b74da175ba683b2d1122a28046c5a8c054fcb000f25bad0c0628f4b6"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/DAL_ExecRisk.mqh",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_031DB75CC4FC0E1439E73E7AD7F617F7"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

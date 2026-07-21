@@ -1,0 +1,65 @@
+{
+  "atom_ids": [
+    "TREATATOM_49743121C9CFE25ACE85896835D7822C"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_C6C7350C22DBD6FB930080EB207A978F",
+    "EXECCAP_E44443D7311DBE719EC3C3C16627BA28"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:b661d861a8b5c52df9a9847c0582de223db3a3e1d3bafadd157997c3f5c1fa67",
+      "atom_id": "TREATATOM_49743121C9CFE25ACE85896835D7822C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "require(self.spread_points >= 0, \"negative spread\")",
+          "line_digest": "sha256:513b9327a5c3033fe7c06b09f663804b943ea588564376f66d68ee0f80ae8abe",
+          "line_number": 48
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:764b20d2ba20d5a87cafa711f12cc10f57d8894d27bdd925fe413cb75dc689d6",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_61DF99518CE355A708068D87A8600951",
+    "RISKASM_68702A17908FF7942E0A53A46E58C84A"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d1fbd08caba5a709cf1d7bc0cb3a09d50650056b5b732cd9552fcb8ae605a08b",
+    "sha256:b661d861a8b5c52df9a9847c0582de223db3a3e1d3bafadd157997c3f5c1fa67"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_contracts/records.py",
+  "source_sha256": "sha256:d1fbd08caba5a709cf1d7bc0cb3a09d50650056b5b732cd9552fcb8ae605a08b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_DA830BF786BDBC971406B8C85B851320",
+  "treatment_package_id": "TREATPKG_331772864213A3936E58610C39D2E5FE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

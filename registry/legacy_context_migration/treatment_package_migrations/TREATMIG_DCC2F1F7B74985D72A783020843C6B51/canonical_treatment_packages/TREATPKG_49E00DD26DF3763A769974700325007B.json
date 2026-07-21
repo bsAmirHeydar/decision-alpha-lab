@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_0B0657125646F1614037219BB8E67055"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:68e698f49f095c4b90badfff24722a9d2ad482334c06ce4dff3ada97ad74d17f",
+      "atom_id": "TREATATOM_0B0657125646F1614037219BB8E67055",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "suite=EconomicStressSuite(); scenarios=(StressScenario('stress.spread','1.0.0',StressKind.SPREAD_MULTIPLIER,Decimal('3')),StressScenario('stress.commission','1.0.0',StressKind.COMMISSION_MULTIPLIER,Decimal('2')),StressScenario('stress.slip','1.0.0',StressKind.SLIPPAGE_POINTS,Decimal('10')))",
+          "line_digest": "sha256:c98b712c650d7ee724fa349b5d8f3cc64f52323bf384b025c9f20b546697b825",
+          "line_number": 24
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f9267ee0c57ce99a2ebed3af6c3c1d473ca26579d9171e006f1275339c97be0f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_5ACB446751C13FEC16AB319F161C79C8"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:496a7471e72968879c14a7cbbf0b1c1eea06dae96ae299dde26219577b0f1aef",
+    "sha256:68e698f49f095c4b90badfff24722a9d2ad482334c06ce4dff3ada97ad74d17f"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/conformance.py",
+  "source_sha256": "sha256:496a7471e72968879c14a7cbbf0b1c1eea06dae96ae299dde26219577b0f1aef",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_81AC187AA6F05747AFDA0EADB46B6704",
+  "treatment_package_id": "TREATPKG_49E00DD26DF3763A769974700325007B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

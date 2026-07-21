@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_65D1C3AB76268D30822A22E49766C810"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4b71386a49e32f239cc4c154fd5cde6710361903d9dc38cdc78c72d4f3bef31f",
+      "atom_id": "TREATATOM_65D1C3AB76268D30822A22E49766C810",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "\"SF03 market healthy symbol=%s close_utc_msc=%I64d close=%.8f generation=%I64d tick_size=%.8f\",",
+          "line_digest": "sha256:604499f3392c192461e07b863b8177341d6d8a80050a4650daf73a96b715633c",
+          "line_number": 106
+        },
+        {
+          "excerpt": "spec.tick_size",
+          "line_digest": "sha256:af7588b03e531858ed250edbdb14b5a1ac48529fa09d2b09abeb65778173f392",
+          "line_number": 111
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:d08032f79a881ff529640558d86732f19d35c93b600a2d4aa4219d76cb4770ea",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1FEB7D76039448C35510BDBEE1A41AAD"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:18c4dc807a7bf762db43377fe4b4de6d7c03b5ed3eaa78ada02800436c2d0661",
+    "sha256:4b71386a49e32f239cc4c154fd5cde6710361903d9dc38cdc78c72d4f3bef31f"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactory/SF03_MarketServicesDiagnostic.mq5",
+  "source_sha256": "sha256:18c4dc807a7bf762db43377fe4b4de6d7c03b5ed3eaa78ada02800436c2d0661",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E56105F53823DA9856467630C6BC1FAD",
+  "treatment_package_id": "TREATPKG_355E7BC9822BD5186A4A26A3A51135B8",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_D0882F9FB6216E4B4DC2162B286B66F9"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_90FF580A63DA38BC696707EC91C902C8"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6b08cda788195db3fa6972f20672806cd2f8e39a93d905c5ef82233bde728733",
+      "atom_id": "TREATATOM_D0882F9FB6216E4B4DC2162B286B66F9",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "static double LaneStep(const long chart_id,const string symbol){double tick=SymbolInfoDouble(symbol,SYMBOL_TRADE_TICK_SIZE);if(tick<=0)tick=SymbolInfoDouble(symbol,SYMBOL_POINT);double raw=MathMax(tick,PricePerPixel(chart_id)*12.0);return MathCeil(raw/tick)*tick;}",
+          "line_digest": "sha256:f0fe009e20ce41b0490e704c32e8935d8fdb055d25e461eb5027fdb3c4e350d9",
+          "line_number": 6
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9c02e688504ad1b68165da4ee35e4dacd5bd2add9196f5262f34d4818c141b5f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_0C888A5A38E76B0FEB338AEB0FF70F3A",
+    "RISKASM_A5463DE7CAD6B23308F57D179E9074B7"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2034a5fe545bb3745bede8843b97aaf3456495ba776b8f229dc7d4c74eb37f5f",
+    "sha256:6b08cda788195db3fa6972f20672806cd2f8e39a93d905c5ef82233bde728733"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I11/FP_I11_ResponsiveLayout.mqh",
+  "source_sha256": "sha256:2034a5fe545bb3745bede8843b97aaf3456495ba776b8f229dc7d4c74eb37f5f",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A30BAFDEA75986410BE3A35E18B4CDE0",
+  "treatment_package_id": "TREATPKG_FA0160C2E024634FE94E4B6553B9A04C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

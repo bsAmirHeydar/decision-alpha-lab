@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_905E58FAE4B86DE757C481B8B80B56E5"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9575d7307c1c7447900cfd9f341feca27a7b322fa3a8d0392b28f0b61a87d3ad",
+      "atom_id": "TREATATOM_905E58FAE4B86DE757C481B8B80B56E5",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "EXPIRED = 3",
+          "line_digest": "sha256:a8635011203722ba18ee6db3d02148d170359a5e7c38e430a91327d2c999fc0a",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:75ace23fd85f0176b406e8b377136a1c39556df8626f9ef0a322c8156ff690c0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4e9aed67c741f1c08033c5d597ebaf56e6ab8ef13df59ad96b60a2a56b552c56",
+    "sha256:9575d7307c1c7447900cfd9f341feca27a7b322fa3a8d0392b28f0b61a87d3ad"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_live/enums.py",
+  "source_sha256": "sha256:4e9aed67c741f1c08033c5d597ebaf56e6ab8ef13df59ad96b60a2a56b552c56",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0D50CE117D570552757A595CD5636408",
+  "treatment_package_id": "TREATPKG_E776E826624D5D1B6C95938EC6992154",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

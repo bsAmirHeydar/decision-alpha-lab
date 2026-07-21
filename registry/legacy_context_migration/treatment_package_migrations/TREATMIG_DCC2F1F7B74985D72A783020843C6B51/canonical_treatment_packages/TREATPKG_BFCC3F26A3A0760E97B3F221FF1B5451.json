@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_FBF9B0389A777F63718479C2C22FE9AE"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_01A1D29268CC3A40A97D344F80A66A05"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:65e9cdd7de60ffa99efc3d9922c9342f1b75d2856859f4c7068e07fa8ffb8ef2",
+      "atom_id": "TREATATOM_FBF9B0389A777F63718479C2C22FE9AE",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "report.expired = false;",
+          "line_digest": "sha256:3343b264f8a94cec6f70b530e63e3866fe05a9240a37700ec94887d09638579c",
+          "line_number": 158
+        },
+        {
+          "excerpt": "report.expired = (time_ok && report.expires_at > 0 && now > report.expires_at);",
+          "line_digest": "sha256:7dda03f983ba8d9c06e83f3c834e6687d15eff734fc5e6c3a394bdb01321e54e",
+          "line_number": 162
+        },
+        {
+          "excerpt": "report.reason = (report.expired ? \"expired\" : \"expiry_time_unavailable\");",
+          "line_digest": "sha256:3b7cb4a9c4d48a09177265f3e93c804c51bb1f84952f90278bfe06c3bc85d845",
+          "line_number": 192
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ca23c963e51d35da15c299caa0912aff216345770f087b25f0fc487c258d1a0e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:73f8c26a5cdb33689e0fa6d7d3230a267397f6e0794b1cd912a577674f5f6473",
+    "sha256:65e9cdd7de60ffa99efc3d9922c9342f1b75d2856859f4c7068e07fa8ffb8ef2"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_LicenseEngine.mqh",
+  "source_sha256": "sha256:73f8c26a5cdb33689e0fa6d7d3230a267397f6e0794b1cd912a577674f5f6473",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4FD3B05B7EC0AE787F7857EB146CCEE0",
+  "treatment_package_id": "TREATPKG_BFCC3F26A3A0760E97B3F221FF1B5451",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

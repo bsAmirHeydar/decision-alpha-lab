@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_20391B82253122A0ACBF5E46C6F0D355"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:708d8ea886baff9f37454f8933aa528be96f501411c214fa3617b3e6c5fc66da",
+      "atom_id": "TREATATOM_20391B82253122A0ACBF5E46C6F0D355",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){ ALOperationsRuntimeLease lease; lease.lease_hash=StringRepeat(\"a\",64); lease.plan_hash=StringRepeat(\"b\",64); lease.environment_hash=StringRepeat(\"c\",64); lease.generation_hash=StringRepeat(\"d\",64); lease.stage=AL_OPS_MICRO_LIVE; lease.max_risk_units=0.1; lease.issued_at_ms=10; lease.expires_at_ms=20; leas",
+          "line_digest": "sha256:fe70da1b3d4b9b67c9cb69cea277b8ca6aee9aabe587f3a582b90712f4caa65b",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:3ef8cd125315b268cc78ca0113e923beeff01dc1e4cdecb540aa404dc563e0d1",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c9161ea98e668834995cdf846fc8bacee022bbb8ef3903f88e44397511c965e9",
+    "sha256:708d8ea886baff9f37454f8933aa528be96f501411c214fa3617b3e6c5fc66da"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/AlphaLab/StrategyFactory/Diagnostics/EXP_UCE_I19_LeaseExpirySelfTest.mq5",
+  "source_sha256": "sha256:c9161ea98e668834995cdf846fc8bacee022bbb8ef3903f88e44397511c965e9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4BB6C87F20779D542DC828793EE41C7B",
+  "treatment_package_id": "TREATPKG_4C9E84B55D2363778652147C2EA754AE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

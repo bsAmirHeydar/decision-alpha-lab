@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "default_price_unit": "ABSOLUTE_PRICE",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:5e74856bd108a6a21a55bbf044469910c319eac8248d7a0b9050de623b192e19",
+  "policy_id": "LCM10BPOLICY_D3BCDCE7E0321E554C8733AAB311851F",
+  "policy_name": "unit_semantics_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "tick_point_conversion": "NO_INFERENCE",
+  "unknown_units": "BLOCK",
+  "validation_status": "PASS"
+}

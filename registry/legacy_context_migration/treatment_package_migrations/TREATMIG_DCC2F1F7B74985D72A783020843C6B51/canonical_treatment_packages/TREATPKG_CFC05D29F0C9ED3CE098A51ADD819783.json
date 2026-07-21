@@ -1,0 +1,65 @@
+{
+  "atom_ids": [
+    "TREATATOM_1DB094B8845779B91ED6A34E31CB104F"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_14A03B90F522C730579F99B07F9D2086",
+    "EXECCAP_23D18DA24DF342407B9AF2114ADF2E38"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4a237c9b7d284f34bd47d3d9da2ebaa8a9c91df83171afc42730bde1e192067c",
+      "atom_id": "TREATATOM_1DB094B8845779B91ED6A34E31CB104F",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "bars[i].spread = raw[i].spread;",
+          "line_digest": "sha256:79e01cbe30f927139b7df8278d77bc9629de20dfb8c049941af0a98cca22d634",
+          "line_number": 233
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4022f57f67a5d5bda86e639fda8d0c2fab6e7db1badc2375b2c9304715aec8c2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_3FB97C8A362225C93C293DE1266FAAEC",
+    "RISKASM_D21158E07C8DA85AD32D5078DE0092BC"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:df0a61ad3eec988b2f23ef44d5108ff4d5563251f4ae25c7c16fc26485b23af3",
+    "sha256:4a237c9b7d284f34bd47d3d9da2ebaa8a9c91df83171afc42730bde1e192067c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/Debug/D0010_H4AtomicNoSampleRegimeAudit.mq5",
+  "source_sha256": "sha256:df0a61ad3eec988b2f23ef44d5108ff4d5563251f4ae25c7c16fc26485b23af3",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_FA28667C441E087CB18FBDB29B846DE6",
+  "treatment_package_id": "TREATPKG_CFC05D29F0C9ED3CE098A51ADD819783",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

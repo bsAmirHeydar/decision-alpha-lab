@@ -1,0 +1,86 @@
+{
+  "atom_ids": [
+    "TREATATOM_AC3B507594C52F722A719F5E818A2E0F",
+    "TREATATOM_FC41200B8DCF6207077235A4BA5C5A62"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_692BC0EF2184AC4BBD1169EE4F2AF7B0"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:bf17dd1304aec17c357f359342491605caf4af5f0734d3045295a040a2ef130c",
+      "atom_id": "TREATATOM_AC3B507594C52F722A719F5E818A2E0F",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point = SymbolInfoDouble(cfg.symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:4c254008e23157c3bf3765915e77cf55260eef775822ddd907c4215fdeb92bcc",
+          "line_number": 310
+        },
+        {
+          "excerpt": "double point = SymbolInfoDouble(cfg.symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:bb00dd14add131221a3aabea1b76350ef98528a396e49941496b3f3704eb004a",
+          "line_number": 354
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:195ee1aa9ff2dcfa3d2c5ea782f1678886ab078be84653e26793862c6424edb5",
+      "atom_id": "TREATATOM_FC41200B8DCF6207077235A4BA5C5A62",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "+ \" exit=\" + TimeToString(event.exit_time)",
+          "line_digest": "sha256:2cf63154519f8e7630886ddd1cb8b0ce8e85e2736ed59ec5cff3f78ba4aba29b",
+          "line_number": 528
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:240ef53b630d3cb9dae132461b4e7a4e27da9f08aba674598235e5bce916263e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_08440819341442213FF1548766F3F34C"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:ed349d0e4149fa9eafe28ac6d02f2ebd27e2cdc624f6be48938c91e3b4fe3376",
+    "sha256:195ee1aa9ff2dcfa3d2c5ea782f1678886ab078be84653e26793862c6424edb5",
+    "sha256:bf17dd1304aec17c357f359342491605caf4af5f0734d3045295a040a2ef130c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/M0006/DAL_M0006AllNodeReactionBoxes.mqh",
+  "source_sha256": "sha256:ed349d0e4149fa9eafe28ac6d02f2ebd27e2cdc624f6be48938c91e3b4fe3376",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B9DB426C1D220E218F9D573853FEB887",
+  "treatment_package_id": "TREATPKG_CE3763E4D9C2888BF89643EFB0152CAD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

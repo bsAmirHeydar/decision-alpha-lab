@@ -1,0 +1,187 @@
+{
+  "atom_ids": [
+    "TREATATOM_56F139DEA8FFDE683C1BEEB6173120F4",
+    "TREATATOM_727F27B3F811BFF9C0CA9B696E950686",
+    "TREATATOM_F12F7B13A9BD84A5BBDEBB447B7243A9",
+    "TREATATOM_FCDF32EFDDF25CE5D38F92150416F81A"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_29946E73DD6E615D449721BB21229B41",
+    "EXECCAP_5183B91D4F83B59EE4E2B3B38388EF64",
+    "EXECCAP_74E4F949429934C5108B4648A3A70106"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c57a70c9ee37cf06add417a7e80663aeaae39b0a096e4a5064a8504b9b851464",
+      "atom_id": "TREATATOM_56F139DEA8FFDE683C1BEEB6173120F4",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "label = \"SL hit\";",
+          "line_digest": "sha256:2ec9739fce47ce5fbe36567e630fcaedf8890e3c3ccfdd0c13819c6dd682ee81",
+          "line_number": 382
+        },
+        {
+          "excerpt": "label = \"AMBIG SL+TP\";",
+          "line_digest": "sha256:c645c255510bbdb893ceece10177a1c5d9137d2fe366a3d45abd90ca266dce48",
+          "line_number": 387
+        },
+        {
+          "excerpt": "STC_DrawTrend(cfg, base + \"_SL\", paper.entry_check_start_server, paper.stop_price, line_end, paper.stop_price, clrRed, 1, STYLE_DASH);",
+          "line_digest": "sha256:bf626c5199fd3f47f05b2d47b7bf32ff9cf38d9fed248d5aaa1cf2c0586969eb",
+          "line_number": 447
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_SLTXT\", paper.entry_check_start_server, paper.stop_price, \"SL selected W ref\", clrRed, 7);",
+          "line_digest": "sha256:bcca9b6cf3a453b8099e2a80ca4b8b0d56c3cac5138123739c4712b7107174d1",
+          "line_number": 450
+        },
+        {
+          "excerpt": "string sub = \"visual: M/W zones + gaps + check boxes + W H/L + raw hunts + SMT plan + SL/TP + partial + outcome | real transports are input-gated\";",
+          "line_digest": "sha256:112c46abaf11c8e1a547ba125d82b43f7bf8d3381a49e7aad4dfd10b249618a4",
+          "line_number": 657
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e8f285fc556bb612bdb3aeaa2d72a624ccd6fbd23c6c97a6116c13f2b6446c29",
+      "atom_id": "TREATATOM_727F27B3F811BFF9C0CA9B696E950686",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "return STC_SafeId(prefix + \"_\" + cfg.symbol1 + \"_\" + cfg.symbol2 + \"_\" + IntegerToString(cfg.magic_number));",
+          "line_digest": "sha256:cd3106f60f38808037d0bec5a50cb6d39a9fbbae1f83e86345cde9f6f26a85b0",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2faccda0841a7bba4121617df244d574a8d5b09030254906dacb6d6fa13b6bb1",
+      "atom_id": "TREATATOM_F12F7B13A9BD84A5BBDEBB447B7243A9",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "y = paper.entry_price;",
+          "line_digest": "sha256:dd9753839892e31f813feb939610970c5da09b30740691b428bbde8cecc5cc09",
+          "line_number": 389
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_OPEN_TXT\", t, paper.entry_price, \"OPEN unresolved\", clrSilver, 7);",
+          "line_digest": "sha256:631bcfcc537713b101f49d6794252ab310900a10d0779126a03db281f633dd28",
+          "line_number": 399
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_ENTRY\", paper.entry_check_start_server, paper.entry_price, txt, c, 9);",
+          "line_digest": "sha256:701d2d4174696b3b03ca6ec2700dd91b29474acb0aad4cc8e84df63ecf14acea",
+          "line_number": 446
+        },
+        {
+          "excerpt": "STC_DrawTrend(cfg, base + \"_ENTRY_LINE\", paper.entry_check_start_server, paper.entry_price, line_end, paper.entry_price, c, 1, STYLE_DOT);",
+          "line_digest": "sha256:039a39ab929ac19d4273ce815ec69e637a7c8cdc89ac85c0d841e426739a2b77",
+          "line_number": 449
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_PARTIAL\", partial_server, paper.entry_price, \"W4 partial 50%\", clrDarkOrange, 8);",
+          "line_digest": "sha256:23ac93107766de3bf6e5046fe4c136ee2803ad0eeab74e06a560536ee4af290c",
+          "line_number": 462
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_NO_M3_PARTIAL\", paper.entry_check_start_server, paper.entry_price, \"M3: no partial; 15:30 HC\", clrDarkOrange, 7);",
+          "line_digest": "sha256:25318faee8bd356b933bcbcf406216c36243797334f53289e3a3b3d242fb80ff",
+          "line_number": 468
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_HC_MARK\", hard_server, paper.entry_price, \"HC if open\", clrRed, 7);",
+          "line_digest": "sha256:3bead37957a53d678512b87ee0a459441c897b9c4439fc00fd7fe8a732841bbc",
+          "line_number": 474
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:ef02301fac52929e0167db460f955f5fb7da6e748d85610132ad1cf212fbe6e7",
+      "atom_id": "TREATATOM_FCDF32EFDDF25CE5D38F92150416F81A",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "label = \"TP hit\";",
+          "line_digest": "sha256:a6e8bbd0f3088fe12fa03d52ddc4e962d995497439601f464fde5ed7fee878ca",
+          "line_number": 377
+        },
+        {
+          "excerpt": "label = \"AMBIG SL+TP\";",
+          "line_digest": "sha256:c645c255510bbdb893ceece10177a1c5d9137d2fe366a3d45abd90ca266dce48",
+          "line_number": 387
+        },
+        {
+          "excerpt": "STC_DrawTrend(cfg, base + \"_TP\", paper.entry_check_start_server, paper.take_profit_price, line_end, paper.take_profit_price, clrLimeGreen, 1, STYLE_DASH);",
+          "line_digest": "sha256:c9c4faca65bab321497f77697bcb99859db370bb1e4e17391497806882617432",
+          "line_number": 448
+        },
+        {
+          "excerpt": "STC_DrawText(cfg, base + \"_TPTXT\", paper.entry_check_start_server, paper.take_profit_price, \"TP \" + DoubleToString(cfg.final_reward_r, 1) + \"R\", clrLimeGreen, 7);",
+          "line_digest": "sha256:ab10eb437065e3276ca5e559813f848057d0f2462f48b0e4ae1bbcfd2c585c44",
+          "line_number": 451
+        },
+        {
+          "excerpt": "string sub = \"visual: M/W zones + gaps + check boxes + W H/L + raw hunts + SMT plan + SL/TP + partial + outcome | real transports are input-gated\";",
+          "line_digest": "sha256:112c46abaf11c8e1a547ba125d82b43f7bf8d3381a49e7aad4dfd10b249618a4",
+          "line_number": 657
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:53f0c639254a50f1cc611f86655d085d190c95d41596a014ddfe9d9643a7e973",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:cb4dd40dd588b52343f2680bfbc98dd26e95b2dd61402fa29ce1f2c3a677ed84",
+    "sha256:2faccda0841a7bba4121617df244d574a8d5b09030254906dacb6d6fa13b6bb1",
+    "sha256:c57a70c9ee37cf06add417a7e80663aeaae39b0a096e4a5064a8504b9b851464",
+    "sha256:e8f285fc556bb612bdb3aeaa2d72a624ccd6fbd23c6c97a6116c13f2b6446c29",
+    "sha256:ef02301fac52929e0167db460f955f5fb7da6e748d85610132ad1cf212fbe6e7"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh",
+  "source_sha256": "sha256:cb4dd40dd588b52343f2680bfbc98dd26e95b2dd61402fa29ce1f2c3a677ed84",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_57C742C0E21F5E7AB619AF370434178D",
+  "treatment_package_id": "TREATPKG_C7DB8491F34F5BC13D20D1C186E6E18F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

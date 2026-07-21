@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_01AB56D1564F9501D45062D74EAE82D4",
+    "TREATATOM_2B0D502FF448138D26DC4B7704BC464C"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:2809496c26c4937d6f12cea927b68e8e9f736bf6910c2932def1a284e4720efb",
+      "atom_id": "TREATATOM_01AB56D1564F9501D45062D74EAE82D4",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "DrawTrend(chart_id,Key(plan.signal_id,plan.trade_symbol,\"target\"),t1,plan.take_profit,t2,plan.take_profit,clrLime,2,STYLE_DASH,tooltip+\" | TARGET\");",
+          "line_digest": "sha256:bd064ad06fd3fe2160be0297410a114ba9d7e458d8dc27dfc8c8955cdf82f464",
+          "line_number": 182
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:ca9300d32cbca1e8a6cc71fc106036d5b4b135131065ee8824bd7b175b10c774",
+      "atom_id": "TREATATOM_2B0D502FF448138D26DC4B7704BC464C",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "DrawTrend(chart_id,Key(plan.signal_id,plan.trade_symbol,\"stop\"),t1,plan.stop_loss,t2,plan.stop_loss,clrRed,2,STYLE_DASH,tooltip+\" | STOP\");",
+          "line_digest": "sha256:1c83d376ecc1672f5c26bf1e0191ce3b25b8af85657faae25531083ed4b69640",
+          "line_number": 181
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:527c6c009d63a642d15e3de10d8b1f118db2ded4ae79dc0c70af9d50ec172994",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b29872ec25854254c7d4a8af8d422313ec25a542e8c21ca934eb49aeeb384ee6",
+    "sha256:2809496c26c4937d6f12cea927b68e8e9f736bf6910c2932def1a284e4720efb",
+    "sha256:ca9300d32cbca1e8a6cc71fc106036d5b4b135131065ee8824bd7b175b10c774"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_ExecutionVisuals.mqh",
+  "source_sha256": "sha256:b29872ec25854254c7d4a8af8d422313ec25a542e8c21ca934eb49aeeb384ee6",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0144C0E42DEFFA02BC968F0F6D6B48D5",
+  "treatment_package_id": "TREATPKG_FE7B44CD31A2188547DF2EAFA3A158F6",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

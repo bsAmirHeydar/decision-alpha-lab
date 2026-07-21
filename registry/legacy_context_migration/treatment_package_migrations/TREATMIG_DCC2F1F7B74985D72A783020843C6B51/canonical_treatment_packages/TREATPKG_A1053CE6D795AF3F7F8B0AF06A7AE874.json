@@ -1,0 +1,81 @@
+{
+  "atom_ids": [
+    "TREATATOM_519E14D6B09A469CDA52C810F45E909B",
+    "TREATATOM_A6A8E7C8A28ED24C7E2BBD2CBC24D711"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_7DB163B87EA9A9F233BA8B80CFDD61AE"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:42bdebc30ab618d1d09ca549edd1df7aa93e5cf1873757b8594a551dc2d09466",
+      "atom_id": "TREATATOM_519E14D6B09A469CDA52C810F45E909B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "datetime now=iTime(_Symbol,PERIOD_M1,1);double p=SymbolInfoDouble(_Symbol,SYMBOL_BID);double pt=SymbolInfoDouble(_Symbol,SYMBOL_POINT);if(now<=0||p<=0)return INIT_FAILED;",
+          "line_digest": "sha256:5ac8d23d98ae90edc34aa7eb572dca488d548a4e00be431f05959b406cafc1ea",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c12ffc55141e181114b4e9f42b277fd0e4d992827e56224bc746e2a6dc74613a",
+      "atom_id": "TREATATOM_A6A8E7C8A28ED24C7E2BBD2CBC24D711",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int OnCalculate(const int rates_total,const int prev_calculated,const datetime &time[],const double &open[],const double &high[],const double &low[],const double &close[],const long &tick_volume[],const long &volume[],const int &spread[]){return rates_total;}",
+          "line_digest": "sha256:e537b7606d18769aa90b680eadf46773b7ae6dea7c4b5471d78d9a66fbe27f83",
+          "line_number": 22
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1b2efd86d2da89e68b69d9cd675c259a96b0934082bf0aa5d266c0d1ef0d8fdd",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_3AF0099563D071A870E5B5D6F1CEB979",
+    "RISKASM_EA1F007F02175E52E5E96C229C420FC9"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e97ad30c5b51edcc60262fcb5f7ee161ed43907468d482106d3b7a73c24ce849",
+    "sha256:42bdebc30ab618d1d09ca549edd1df7aa93e5cf1873757b8594a551dc2d09466",
+    "sha256:c12ffc55141e181114b4e9f42b277fd0e4d992827e56224bc746e2a6dc74613a"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I11_VisualSelfTest.mq5",
+  "source_sha256": "sha256:e97ad30c5b51edcc60262fcb5f7ee161ed43907468d482106d3b7a73c24ce849",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_453CB41432FB1B8AF3798E53B8FAD2C5",
+  "treatment_package_id": "TREATPKG_A1053CE6D795AF3F7F8B0AF06A7AE874",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

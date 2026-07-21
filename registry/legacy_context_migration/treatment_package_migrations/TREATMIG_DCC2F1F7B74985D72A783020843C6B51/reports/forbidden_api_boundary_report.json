@@ -1,0 +1,943 @@
+{
+  "canonical_forbidden_hit_count": 0,
+  "canonical_forbidden_hits": [],
+  "canonical_surface_passed": true,
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "consumer_cutover_allowed": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_contained_path_count": 184,
+  "legacy_contained_paths": [
+    {
+      "adapter_id": "EXECADAPTER_92AF7123687773030BBCB0F0D4EB69FB",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase02_data_sync_v2.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3AA7D313C0B998F9ABE9BBB1A8DC2CAD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/tests/test_duplicate_scan.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C48998772D2AAA57D315BA9082D5B579",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/tests/test_fp_i03_authority_boundary.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CD0451B928C732089C696806C4F9F775",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/tests/test_fp_i04_authority_boundary.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2525456DFF56A71A78BE26395E063ACD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/tests/test_fp_i06_authority_boundary.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C9713115B8DCEE2E6DD829331836085F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/tests/test_fp_i06_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2D82080893A810637AD5729CB079A5F9",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_AF8DCAC56603F0CB309C01A6A18AC7B5",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/python/fp_i10_indicator/constants.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_31533CCD693EC3A8C3B047F6DAE16213",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/tests/test_authority.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_36374FA0FD18AD74E801B731788C56E6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/constants.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_207AE173DB6C334832AECF0C0B30BFE6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_01/test_contracts_cli.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_D8DD098A60F5D9AADB3044C6BB988730",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_03/test_ir_compilers.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_28A58C50C58ACD669CF17C09FCF23278",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_05/test_registry_and_static_contracts.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FE3C61F0EAB99BD09C9E381CF6DF864D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_06/test_static_schemas_delivery.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_698BB30EE45697A40EF3E3A6EB271485",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_07/test_static_delivery.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_14D3EF090D861F5FB4026BE9440A30E7",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_08b/test_hostile_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_352494A355FDAC1F6E3ECF1AECB727DF",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_08c/test_static_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_83A26127058278D3C05F8B68BEA78E5B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/python/saed_v4_immutable_runtime_mql5_parity/codegen.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8CCFD6FDBB8B6D0B4BD129D01B0DC49A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_layout_and_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_88C59F6A0E1C5C376428E3765BE6C99B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase03_market/test_mql5_inventory.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2FCF3CFA5F24DC375680A004BE5EDD86",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase04_plugins/test_sf04_mql5_inventory.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B9F9A773BE0F237DB084359471B2009F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase06_anatomy/test_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0E772D8B9071B76ADCDF8F3602744FB0",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase07_context/test_sf07_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_303F969AEF88F8D6DDEF4D17B2C465BA",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase08_candidate/test_sf08_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B5DA21A7A36580880FF03994FA58A768",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase09_outcome/test_phase09_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FF106763183B9A3AF4418F56E31D02F7",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase10_research/test_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8F36990FCD75F8A5866E53CF9E79E0C3",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase17_execution/test_sf17_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_1A41FA5CF1AD70AE45798ECA2A14CCA7",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase18_live/test_sf18_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_DE9751D22097B3B949CF09684C02EA02",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase19_monitoring/test_sf19_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_62AFE9B1BCCDE534459E36CA7B50B512",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase20_integration/test_sf20_layout.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_5D558FF0967CDE54AD71A78AEADB4495",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_04_multimodal_view_platform/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8A7D716E956D5CA4EE64A77C72FFF97F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_05_semantic_temporal_hypergraph/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_5261C6CF56E6EF70268C0ABE34775B11",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_06_treatment_dsl/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_34D8AA3363CED135D5409DB5DF598F6C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_07_constraint_solver_action_lattice/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_424301E543D5E953AF99E2AABBF2DE3D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_10_baseline_manual_program/test_mql5_static_contract.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_685BB0F22B6A2E74D8124A8CBA0B0A5D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_38_immutable_runtime_mql5_parity/test_codegen_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0D498A3BBA7D740945EC22895188A4FE",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_39_prospective_shadow_micro_live/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3153AD867F25942D405EEA2F1DD2EA84",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_40_context_fleet_scaleout/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_147C24D5248801676FC30332F206A9BE",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_saed_v4_41_continuous_surveillance_retirement/test_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_7544C0528D4DD25319F7E2371EE0C053",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i01_contracts/test_static_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_1F4B2103C93A5D9F03DF3AB49B021F75",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i02_contexts/test_uce_i02_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C05016EF959F7A5EEB3643667160D850",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i04_treatment_compiler/test_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_7E5020548D74ACDF63D53FFFEDF88498",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i11_experiments/test_i11_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0BCB3F98F26DB53E76E8495206FE8573",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i12_promotion/test_i12_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_32D20757DF64BBF6A4DC5E7CE7B81FA1",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i13_policy_graph/test_i13_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3614295D8C06BFB4B96FCE864DD82296",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i14_runtime_compilation/test_i14_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_4D5488229B07AC1CE8CCFD57B1380613",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i15_real_context_tournament/test_i15_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6C7F3EA0F6D70BA8E664A935F0FE8080",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i18_production_qualification/test_i18_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_869C3BB25F6A15F5E2B563FF425BFAA2",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "lab/11_strategy_factory/tests/phase_uce_i19_production_operations/test_i19_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CA3AC14A52DDAD96B6E08CBF720B4539",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/AstroExecution/A0090_AstroOrderShell.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_D076F9B9BEE0F01713285E84B9680CD6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_BE58E42B1DA2A993AB54B3F20BCC55D2",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B5A7AE24398CA5C06BB21A86E0AA824B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_55AB90AB22ABD712DDA9D6DE04A3F51C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_60A5762135E56D5E22D564643D0EC154",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C307A47237760C97B9BB2FC9657177C4",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A0C56B02388802F300509A528528AFA0",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8C953BA6AE0945F1164AD2BF6F5B53DB",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CA49311C5CA01BB04B8B03B5DC2B5E51",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5"
+    },
+    {
+      "adapter_id": "EXECADAPTER_237A770DA5EB7B0E9E34048E7315F317",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_Mql5BrokerAdapter.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_52A8869CDC6910B0575E4CAC3787E81C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/Execution/DAL_ExecOrders.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_261E79850153C71D166620BE41FEAFEB",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/Execution/E0006/DAL_E0006ExposureCaps.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_376F020E6EA66B55F010BAD7FAAB9E58",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/Execution/E0007/DAL_E0007OrderEngine.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6DE6FCEECA8BE7ECD19284961BCAB399",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/Execution/E0008/DAL_E0008OrderEngine.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_58E9D847F3BD9803AAD39FA56ED2F9EE",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/Execution/E0009/DAL_E0009OrderEngine.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_685EA6BDCF9658448F23660FA5EE8D6F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_7F84C99D6290B9BD3C6F1534D2AC92C4",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_D9DAFDD939D8A14A58A7267AC2DF1AF5",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2C2A9525B334744F07F79508207D0226",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_17D0FA43E0B27DBE969E51980F0D6E7A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_OrderRouter.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_23339EDE035382AFAD4CBEA2C97D50FD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_AutoEntry.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_F117346A8DE219F7D96AD000EC07BBD6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Broker.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CDD2C31388B653F22E330647C83FDA0D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_RealHardClose.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_92B7697435EDF0E6441F3560E44C6906",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_RealPartial.mqh"
+    },
+    {
+      "adapter_id": "EXECADAPTER_F238E5EFF6B16A433EC79619561B2FCA",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_77C24D2F48BA83FF67F7E330F1D46C4C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i04_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_376646D72C8520518B9E5129C8E13180",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i04_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_935A8935999FA913B21D7466BF0F1586",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i05_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_99D3005F21E67AD29E0E0CC5F993804B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i05_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6A6B735F495B9E0F644D307F7615AB4C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i06_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A38E281E973546A1FC6C38DFB0E7CAD3",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i06_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C84CBEAFA33CB7769064CABF4244B97E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i07_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_91B86300281C749DB47B130620164F90",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i07_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B237AB89F25F559C441119B71D776723",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i08_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A7979647BABD0BA7977FBE5998E11456",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i08_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_822CEC7362760FEF34244E3B9280753B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i10_boundary.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_80FCD938FBBF74809B214022418D6B39",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/check_fp_i15_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3A124493190D13006746DCBC4540E365",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/exp0019/validate_fp_i13_boundary.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_9CD29572216B7DEE8D24BCF9C9896480",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/flag_counting/nds_entry_contract_qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_EF6880350481EA207F5540277DDFD61D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/flag_counting/nds_hook_864_cycle_r1_contract_qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_73EF1CC7741B0CC0843AA61F60672CDF",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/flag_counting/nds_hook_contract_qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_15CA8270EEC8A06ADF7DA947CDCB82B0",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/flag_counting/nds_hook_trade_contract_qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_ED3B9B26914A8C8922E793C816B52770",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_00/validate_acl_00.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_51FE0CA21958037D9C422CF7B93BB755",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_01/validate_acl_01.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_156B5D80EC0392029CE8A613BE050856",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_02/validate_acl_02.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0A4E6DB014B0979EAB84F50A13DAA8AD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_03/detector_ir.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_691B7D08C26CE14539F9815B4850C563",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_03/security.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_DCFEEAD25956FE991D6BD4993F117780",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_03/validate_acl_03.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_ED2BC809FDF350973DF334FE359ACCFD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_04/security.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_65544B3F41B18A3DF39DD7ED72E971CE",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_04/validate_acl_04.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_858B996C60475CE3F582B439565BF24A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_11/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_704AA478F7866F1D843E512E355762C6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_12/scanners.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FEBEE8AC4B2FB558D0B19D6D9710020A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_12/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8A9FB0975627D14F9F8F2ED5CF9D233A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/acl_os/acl_13/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_E2C81A9A8D80C15D44F28F2E38991441",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf04_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CA4D3E8D60700A0A781915541D2A86B6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf06_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_353B3605E0537142668CA7483BBA1B13",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf07_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_199133F08276B322089D5798A68B728F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf08_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B10323B7A1FFAC5E352F1DFA2CAC0D1D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf09_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6B1E8597D1C95CCEC68AEE526178C061",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf10_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_38AE3E562D19EF7C57B1F1F15759D72C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf17_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CDA00DC3CFF21618B3B308E3A4BE82E6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf18_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_193FC8EF5A459E8DB604283FB008DBC8",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf19_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A5638A6DB1F193619C03EDE5F5DCF0C2",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_sf20_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_774B3D85B02C94E864DCE4168961337D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i01_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_4492FAEA96F02F3EAFBF3046B2A99C2E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i02_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_04DA9DE8207CDE6627D38E6884B81C68",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i05_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CBDF52536C1575036524881966DBC936",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i06_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B6581F4D7BA644366D229E7752C5D0F7",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i07_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_E848C6269D633D4A3E311AE3520406B8",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i08_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A392B3010AB7E2ECCBA146D5B4608D85",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i09_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_569E095F39E0C378AE0D5DF80219C46C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i10_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_E1532813F29D31A43687D28D33EE986E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i11_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B721363AFA757FC290ACF8555B6CB365",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i11_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_92E77B1F72612BAD3646C7175143BF48",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i12_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3EFCDBD0CA22E20B075E4ADDA0FEC678",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i12_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_33BD83DDEBB17FAB35BDD34EF17E89C0",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i13_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_11423AF278482236AAB46CB4A3ABD797",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i13_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_91A8ECFA37818B0CBB2EC2375D725C6C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i14_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_68C8385CC6599F64386C516A6B554C5D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i14_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A2EA6DAACED12076325C0620B378FBA6",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i15_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CBAF303EAD8CD052C14FBC77114A868E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i15_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C7F2049418D3138D28AD2AF74351ADBF",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i16_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8EB2947A336EF45972FF4A5B9C19C80D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i16_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_D79294E8762949F24CCA023E6145EB27",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i17_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_43E13A2242A163C26A68C36BCB36941D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i17_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6506627BAA55D186AFA7A1BD622AE3F3",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i18_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FD66F99BF9115F7D1DB1A6E852C66911",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/check_uce_i19_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_5A3DC7B726AB5ACA632D67E671BA6BA9",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_05/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B42FF20A42AD4DAF22518903F94E665F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_06/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FB812C08161716A411282C6C4FBFA164",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_07/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_9D48FBC6F7F5FB6805FA5FF11F83A42C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_08a/static_validation.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3BE81141319E061F06243D42F169AF26",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_08b/qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2DBD599C97F5B04062EAAA4C3258F381",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/lcm/lcm_08c/qa.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_08120FE78902B76590BB3E6158CAA72A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_04/validate_saed_v4_04_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_AF700120A562A7659C589309692D79FE",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_05/validate_saed_v4_05_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_E1A3AF66CEB495311DD5BC1077C83063",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_06/validate_saed_v4_06_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2F82A90BEA3BF7907EB58A16809E4F8D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_07/validate_saed_v4_07_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_CA0BEF3D32399F3C539B258596E2222D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_08/check_saed_v4_08_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_8F2B5895DA27C17F1F7C00695A43A276",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_08/validate_saed_v4_08_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_FB690F1435CD832BE80BDE9A8BF7D002",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_09/check_saed_v4_09_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_9CB337D7116BEE852DB57F19CA419CC4",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_09/validate_saed_v4_09_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_9D90634D8A3557079590B600FE513D1E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_10/check_saed_v4_10_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_7C991F201A6350CB2FA636B1F8AAE836",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_10/validate_saed_v4_10_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_06FB6142125F26FCA6C72FDA83ED38BB",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_11/check_saed_v4_11_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_23EE83B08CB230F01D02F119C97554E8",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_11/validate_saed_v4_11_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_4A83A801ADBF4FAD69AB63AFB8B1E3C2",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_12/validate_saed_v4_12_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_05BB912F54A815768475773757291BAA",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_14/validate_saed_v4_14_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_A16BF0C78D49872A8FC86AF79BA78C2F",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_15/validate_saed_v4_15_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_22676B4C7B141D8D389F168EFCC3925E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_16/validate_saed_v4_16_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C19CCF979CF137B03B7FBBEF51E71D75",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_18/validate_saed_v4_18_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_150D7C3603EE2291E72688B5DB7C6743",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_19/check_saed_v4_19_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B1B1F6F365B79B33CBADB0138016978C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_19/validate_saed_v4_19_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_765F12C8732CCDB636016B21D6A8514A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_21/check_saed_v4_21_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_19972B8F6A1EE0007C8B9456D6C925C3",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_23/validate_saed_v4_23_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_3FC9789362C05CE5EAF79D40467AA8F7",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_25/validate_saed_v4_25_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0D0322D82596DEAB692E1D572CEEAD6C",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_26/validate_saed_v4_26_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_638DE648505CC964C1591F9BCCB1F65D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_27/validate_saed_v4_27_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_C18D72A4E96CB219A4FF992EB54F9E25",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_28/check_saed_v4_28_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_37A3D9115CA0A6C8D9BF08F793A777C0",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_28/validate_saed_v4_28_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_2E173D9753436A6F2FD93BC8B7D8959D",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_29/check_saed_v4_29_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6EF7D172D6E5AC13BF4AA46A08BD2460",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_32/check_saed_v4_32_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0A68C5FA9071483909CEDAE94E8C1757",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_32/validate_saed_v4_32_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_6C13AB002729FA6A16D35093C245D8BD",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_33/check_saed_v4_33_boundaries.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B4192C67EDA9C68BE96BF8E039D64D2E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_33/validate_saed_v4_33_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_29F629780A4C5E00353DC66D23AF089A",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_34/validate_saed_v4_34_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_744A45AF2D67DDEBA2D160004480E029",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_35/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_515E99A011F5FC3C38A180AAFECD30CF",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_36/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_0F8184EE207DC8A0DF02D4466D40214B",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_37/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_B80594EF15ECCCE3BC704C8AA8FFB2E2",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_38/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_28026A1339B46F40511F80930AE4743E",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_39/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_50A7E8CD336562BA47C4BF2634677103",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_40/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_D1C59E80C4148AFC2CCA4361C41DA209",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/saed_v4_41/validate_mql5_static.py"
+    },
+    {
+      "adapter_id": "EXECADAPTER_E0B995478A7D0EC652F12409B098FFDF",
+      "containment_state": "LEGACY_UNMOVED_BLOCKS_CUTOVER",
+      "path": "tools/strategy_factory/validate_uce_i16_delivery.py"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "report_digest": "sha256:fb9c2cd56b50da3bb8aa3713eeda2b9ff04a7b846bd9a6c00aaed23b4d5d7e17",
+  "repository_wide_legacy_absence_claimed": false,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

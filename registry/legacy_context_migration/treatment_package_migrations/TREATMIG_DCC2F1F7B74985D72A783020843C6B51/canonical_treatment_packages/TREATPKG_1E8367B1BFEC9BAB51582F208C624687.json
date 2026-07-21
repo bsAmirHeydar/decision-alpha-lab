@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_02FC394F20EDBF24C68748FE3106CB49"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:23d4e44d0c6e9e5e571aa5743a0c22314605fa4b722cd3a12a191d4be243e188",
+      "atom_id": "TREATATOM_02FC394F20EDBF24C68748FE3106CB49",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "MatrixAxis(TreatmentKind.TRAILING,(MatrixAxisValue('trailing.none@1.0.0',{}),)),",
+          "line_digest": "sha256:405c6ae34667d9c57ef1e8067be97a4efaee5ccacca4f7ce2bf71ea959da7e0f",
+          "line_number": 28
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f558ecd039a718a9b1f8ec19e03ded637d51c5704983a7cd7c37030cb8ec98f6",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:204a1f51c41c26488cb281dd2eba4ee2254f8c0185e4c9f64afef4aeb0a9ba89",
+    "sha256:23d4e44d0c6e9e5e571aa5743a0c22314605fa4b722cd3a12a191d4be243e188"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatment_compiler_v3/conformance.py",
+  "source_sha256": "sha256:204a1f51c41c26488cb281dd2eba4ee2254f8c0185e4c9f64afef4aeb0a9ba89",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_6D4510305E1D2B3B893EFE772706EB6D",
+  "treatment_package_id": "TREATPKG_1E8367B1BFEC9BAB51582F208C624687",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

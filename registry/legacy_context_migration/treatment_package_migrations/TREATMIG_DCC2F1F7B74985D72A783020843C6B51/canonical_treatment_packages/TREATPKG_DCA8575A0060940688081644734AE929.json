@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_7BBF7D515BD3C9088AE65E3B8149C2AD",
+    "TREATATOM_F6ED4DD4BAD9448A3D6A969431932034"
+  ],
+  "atom_types": [
+    "EXPIRY",
+    "SESSION_GATE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:5a6a053cfc7775e74e5e12068ba97b035c4b7aa73782c0bd65d00c88831d4b02",
+      "atom_id": "TREATATOM_7BBF7D515BD3C9088AE65E3B8149C2AD",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "if self.known_time_ms<0 or self.expires_at_ms<=self.known_time_ms: raise PortfolioError('invalid_time_window','expiry must be after known time')",
+          "line_digest": "sha256:e77f41177148fb896ed62192efc7e9a40b4fcc3277bcb231646a0cb2b7a140c0",
+          "line_number": 46
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3fd384fed58068ff912fe6df698c27d0c231f017fcf54f58172cdd5a24ad87ec",
+      "atom_id": "TREATATOM_F6ED4DD4BAD9448A3D6A969431932034",
+      "atom_type": "SESSION_GATE",
+      "intent_field": "session_constraint",
+      "source_evidence": [
+        {
+          "excerpt": "quote_id:str;candidate_id:str;known_time_ms:int;max_risk_units:float;expected_fill_ratio:float;spread_bps:float;impact_bps:float;degraded_utility:float;broker_volume_step:float;market_open:bool;source_hash:str",
+          "line_digest": "sha256:d6a7181ee477c632dac76a1645b4b98a1c4c5cc0d1836948dbd04df3663b324c",
+          "line_number": 100
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:dccb1e6f08ccacb3728b0aa85c279e6a6ef347671eaf5e32f4f7adf25e1f0c2b",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a8556ef119646c7a83032e7c2cf29efeda3d89ac95d4dd25d09062f530affbba",
+    "sha256:3fd384fed58068ff912fe6df698c27d0c231f017fcf54f58172cdd5a24ad87ec",
+    "sha256:5a6a053cfc7775e74e5e12068ba97b035c4b7aa73782c0bd65d00c88831d4b02"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_portfolio_v3/contracts.py",
+  "source_sha256": "sha256:a8556ef119646c7a83032e7c2cf29efeda3d89ac95d4dd25d09062f530affbba",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_627E4ECFCC3B90917A1DDC96D3939A07",
+  "treatment_package_id": "TREATPKG_DCA8575A0060940688081644734AE929",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

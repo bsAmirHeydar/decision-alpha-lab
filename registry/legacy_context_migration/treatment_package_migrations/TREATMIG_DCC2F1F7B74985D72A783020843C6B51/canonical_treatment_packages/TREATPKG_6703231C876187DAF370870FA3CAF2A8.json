@@ -1,0 +1,340 @@
+{
+  "atom_ids": [
+    "TREATATOM_0302E528D7E2563257122AE28C5186A4",
+    "TREATATOM_202F9497BFB77E3DA2ED515B7B57D3B4",
+    "TREATATOM_3983D529A393EC35759383BAEE0B58F7",
+    "TREATATOM_3B8267DC7F907EED7A72C639C79E1465",
+    "TREATATOM_5F5DAB97CA62FA1194100B5A8A5E119B",
+    "TREATATOM_6CCBA708397E237A396EBDEB9D987477",
+    "TREATATOM_80B2A72D1E5B74E1CC660E87B2F7112D",
+    "TREATATOM_8458E567430664B8EEF3E6477D1090DF",
+    "TREATATOM_9096458E6413EC4748FF2E91C43BE185",
+    "TREATATOM_95866459CBB02E1DFB09BD766DE5DE36",
+    "TREATATOM_C3879ADDD2AE178F6FB3F98286F1E777",
+    "TREATATOM_C3DBAC276990DD6E84DFFDB9E8093523",
+    "TREATATOM_D2F6796291670422A0C053EABE55A30F",
+    "TREATATOM_DBD9C7AB0E1354B089198B9C9AF85341",
+    "TREATATOM_EA85A57496254F7F490BD414C47E6052",
+    "TREATATOM_ECD0A4B0F08CB8B4D5C258D587D63B03",
+    "TREATATOM_FF8092C71C989C489A630548600D8553"
+  ],
+  "atom_types": [
+    "BREAKEVEN",
+    "PARTIAL_EXIT",
+    "TIME_EXIT",
+    "TRAILING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:afe8e4ea2aaa437e1b2273860e7c13d4bd4648d936e67db00274809dd77dacf1",
+      "atom_id": "TREATATOM_0302E528D7E2563257122AE28C5186A4",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.profit_lock\"){",
+          "line_digest": "sha256:4a82283a3f83265e6a66fbfdb7ed437f4f0716be0de7ee2c41665c37a6859a1e",
+          "line_number": 132
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:37af10837968a6002e4f2fab68c09360866fb22c8de789d99fdf3965b820e767",
+      "atom_id": "TREATATOM_202F9497BFB77E3DA2ED515B7B57D3B4",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "UCEI03_AddParameter(d,\"volume\",UCEI03_PARAM_DECIMAL,\"0.1\",\"0\",\"1000000\",\"lots\",\"none\",\"\",\"\");",
+          "line_digest": "sha256:59f76bbbd93a303402cfa12a6595abf0408d82fcfa8d67ce52f204babd9615f2",
+          "line_number": 199
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:defbce77f5a4865a6d516b4876ad648753d82b750b3d3a6e794b6f1dac7c712d",
+      "atom_id": "TREATATOM_3983D529A393EC35759383BAEE0B58F7",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.activation_conditioned\"){",
+          "line_digest": "sha256:e4ca4030cc941952dad7a19b1d8ebaee9023855ba8a9fc9742dc5084e6f9af7a",
+          "line_number": 103
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5bb263d122d3e7c1479a45a40d101da031863555032a7f5d836187a70640c75f",
+      "atom_id": "TREATATOM_3B8267DC7F907EED7A72C639C79E1465",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "bool Build(string &error){string e[] ={\"entry.immediate_market\",\"entry.passive_limit\",\"entry.breakout_stop\",\"entry.confirmation_market\",\"entry.retest_limit\",\"entry.ladder\",\"entry.stop_limit_hybrid\",\"entry.time_window\"};string ef[]={\"immediate\",\"passive\",\"breakout\",\"confirmation\",\"retest\",\"ladder\",\"hybrid\",\"time_window\"",
+          "line_digest": "sha256:6e66c2fd15a5a15d51735bdc2fa34fd0b575adb78be88e7697a2eb12e6bb07df",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:efb793a757ad0f5b3689a4f75f4f1645df4438da64ea1e7803ba57cd4ac15236",
+      "atom_id": "TREATATOM_5F5DAB97CA62FA1194100B5A8A5E119B",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.time_step\"){",
+          "line_digest": "sha256:737e0aa0ed4fad6a409867ece42fae9f665b67da7cb0eaef8fa062072b0fae36",
+          "line_number": 141
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:659729874e3cb60a346d20cc8000cccd2457334291ba78c9d3314c10368bbfb1",
+      "atom_id": "TREATATOM_6CCBA708397E237A396EBDEB9D987477",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.atr\"){",
+          "line_digest": "sha256:9241a1971087fc0a75ac9169e70ba637b13aa2b360e9f94863d93c924cc5bf4c",
+          "line_number": 108
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1ed1ef629b099262bf87fc620d5cb50b7291ef74178c988826b0d92ecfb3f401",
+      "atom_id": "TREATATOM_80B2A72D1E5B74E1CC660E87B2F7112D",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.opposite_signal\"){",
+          "line_digest": "sha256:b558028faa6c569af1455090c8d4371e54ea4fa417cc63dcad2f9b2c688c0087",
+          "line_number": 129
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:804f579a0b7e3306dab0617e041cbc554e560232261da438496162ee981d2f1d",
+      "atom_id": "TREATATOM_8458E567430664B8EEF3E6477D1090DF",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.context_state\"){",
+          "line_digest": "sha256:129e5f1edfcc13ad9f40bd95e62f6c657df2c8fcf4f659600e75c2f86e28c8eb",
+          "line_number": 122
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4280c5fbe4d5091396a50e0408dff46254826edc6ae2387d6cddcc8b1adc5b92",
+      "atom_id": "TREATATOM_9096458E6413EC4748FF2E91C43BE185",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.break_even\"){",
+          "line_digest": "sha256:e40e516f38bed6af3fde260808700553ad7e1b173b7a5b5bf1b56721e85d87b3",
+          "line_number": 113
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e63fc2eb32e08bba026d6d2d7599f09b53f4c5ec8fe90867f66ffae01b7ea755",
+      "atom_id": "TREATATOM_95866459CBB02E1DFB09BD766DE5DE36",
+      "atom_type": "BREAKEVEN",
+      "intent_field": "management.breakeven",
+      "source_evidence": [
+        {
+          "excerpt": "bool Build(string &error){string e[] ={\"entry.immediate_market\",\"entry.passive_limit\",\"entry.breakout_stop\",\"entry.confirmation_market\",\"entry.retest_limit\",\"entry.ladder\",\"entry.stop_limit_hybrid\",\"entry.time_window\"};string ef[]={\"immediate\",\"passive\",\"breakout\",\"confirmation\",\"retest\",\"ladder\",\"hybrid\",\"time_window\"",
+          "line_digest": "sha256:6e66c2fd15a5a15d51735bdc2fa34fd0b575adb78be88e7697a2eb12e6bb07df",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:81a01d3600b55728a3f738e84a3b8c3152921744d4a28b68c4b6fee283f3443d",
+      "atom_id": "TREATATOM_C3879ADDD2AE178F6FB3F98286F1E777",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.swing_node\"){",
+          "line_digest": "sha256:599af4dfa678f70c1e60c57a031179f868e1afbdb9c30881e98f2f1ab5a8cc67",
+          "line_number": 136
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3fcd3a330b9ff0cb5db338f3c4ce37479e4eb85fae6a952a82159a1c277ac6d7",
+      "atom_id": "TREATATOM_C3DBAC276990DD6E84DFFDB9E8093523",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "public:CUCEI03ExactRegistry entry;CUCEI03ExactRegistry stop;CUCEI03ExactRegistry target;CUCEI03ExactRegistry trailing;CUCEI03ExactRegistry management;CUCEI03ExactRegistry sizing;",
+          "line_digest": "sha256:b6f4d00644080f26c5cf7c096ec9ed9127a3b0a0138d829095bd1a7187d7e8e8",
+          "line_number": 220
+        },
+        {
+          "excerpt": "CUCEI03Catalog():entry(UCEI03_ENTRY),stop(UCEI03_STOP),target(UCEI03_TARGET),trailing(UCEI03_TRAILING),management(UCEI03_MANAGEMENT),sizing(UCEI03_SIZING){}",
+          "line_digest": "sha256:9b8d7be78b89e36a4fb110e76069f823d803519cf6e76be39217bf259edc2d4d",
+          "line_number": 221
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:30ccb7fef533f89faf96670254617265f6a07f7856d5081d7aec3e09d3b32972",
+      "atom_id": "TREATATOM_D2F6796291670422A0C053EABE55A30F",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "bool Build(string &error){string e[] ={\"entry.immediate_market\",\"entry.passive_limit\",\"entry.breakout_stop\",\"entry.confirmation_market\",\"entry.retest_limit\",\"entry.ladder\",\"entry.stop_limit_hybrid\",\"entry.time_window\"};string ef[]={\"immediate\",\"passive\",\"breakout\",\"confirmation\",\"retest\",\"ladder\",\"hybrid\",\"time_window\"",
+          "line_digest": "sha256:6e66c2fd15a5a15d51735bdc2fa34fd0b575adb78be88e7697a2eb12e6bb07df",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:277b8a59e85bc231e3c4743b2845583e7c0938159a7bbe44fd27563d9f928d0c",
+      "atom_id": "TREATATOM_DBD9C7AB0E1354B089198B9C9AF85341",
+      "atom_type": "BREAKEVEN",
+      "intent_field": "management.breakeven",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.break_even\"){",
+          "line_digest": "sha256:e40e516f38bed6af3fde260808700553ad7e1b173b7a5b5bf1b56721e85d87b3",
+          "line_number": 113
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:66053da37f2b79459754d61523332675e474cad342997d1b17354c3f67c09e63",
+      "atom_id": "TREATATOM_EA85A57496254F7F490BD414C47E6052",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.chandelier\"){",
+          "line_digest": "sha256:d8e5f3e36a249c9191681538400bf3755e8de458787f05c4c99884aa3f3396b8",
+          "line_number": 117
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:766643357d7d42509d6efa6692351d6dcf3390a5af1d109e208d9d81e9a913ed",
+      "atom_id": "TREATATOM_ECD0A4B0F08CB8B4D5C258D587D63B03",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "else if(d.atom_id==\"trailing.none\"){",
+          "line_digest": "sha256:97e5f242d1908dd1daa6f7e4011c09231630acbdf65fd5f7a233e501a62cbe15",
+          "line_number": 127
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c16ef10e40df84485680a563c1c7099e8c529eba0134fc52348d00a651fc77a9",
+      "atom_id": "TREATATOM_FF8092C71C989C489A630548600D8553",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "bool Build(string &error){string e[] ={\"entry.immediate_market\",\"entry.passive_limit\",\"entry.breakout_stop\",\"entry.confirmation_market\",\"entry.retest_limit\",\"entry.ladder\",\"entry.stop_limit_hybrid\",\"entry.time_window\"};string ef[]={\"immediate\",\"passive\",\"breakout\",\"confirmation\",\"retest\",\"ladder\",\"hybrid\",\"time_window\"",
+          "line_digest": "sha256:6e66c2fd15a5a15d51735bdc2fa34fd0b575adb78be88e7697a2eb12e6bb07df",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6bcc861a7656afec6791b6dc28cbc353bcff95217296920696312cc8c20ba2e1",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:3dcf2a4529d911e43704dd898614d094e639f9452cf93ce25b97e7f766f19780",
+    "sha256:1ed1ef629b099262bf87fc620d5cb50b7291ef74178c988826b0d92ecfb3f401",
+    "sha256:277b8a59e85bc231e3c4743b2845583e7c0938159a7bbe44fd27563d9f928d0c",
+    "sha256:30ccb7fef533f89faf96670254617265f6a07f7856d5081d7aec3e09d3b32972",
+    "sha256:37af10837968a6002e4f2fab68c09360866fb22c8de789d99fdf3965b820e767",
+    "sha256:3fcd3a330b9ff0cb5db338f3c4ce37479e4eb85fae6a952a82159a1c277ac6d7",
+    "sha256:4280c5fbe4d5091396a50e0408dff46254826edc6ae2387d6cddcc8b1adc5b92",
+    "sha256:5bb263d122d3e7c1479a45a40d101da031863555032a7f5d836187a70640c75f",
+    "sha256:659729874e3cb60a346d20cc8000cccd2457334291ba78c9d3314c10368bbfb1",
+    "sha256:66053da37f2b79459754d61523332675e474cad342997d1b17354c3f67c09e63",
+    "sha256:766643357d7d42509d6efa6692351d6dcf3390a5af1d109e208d9d81e9a913ed",
+    "sha256:804f579a0b7e3306dab0617e041cbc554e560232261da438496162ee981d2f1d",
+    "sha256:81a01d3600b55728a3f738e84a3b8c3152921744d4a28b68c4b6fee283f3443d",
+    "sha256:afe8e4ea2aaa437e1b2273860e7c13d4bd4648d936e67db00274809dd77dacf1",
+    "sha256:c16ef10e40df84485680a563c1c7099e8c529eba0134fc52348d00a651fc77a9",
+    "sha256:defbce77f5a4865a6d516b4876ad648753d82b750b3d3a6e794b6f1dac7c712d",
+    "sha256:e63fc2eb32e08bba026d6d2d7599f09b53f4c5ec8fe90867f66ffae01b7ea755",
+    "sha256:efb793a757ad0f5b3689a4f75f4f1645df4438da64ea1e7803ba57cd4ac15236"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_Catalog.mqh",
+  "source_sha256": "sha256:3dcf2a4529d911e43704dd898614d094e639f9452cf93ce25b97e7f766f19780",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E89FF5237378A41ACB572F66EF3E8E23",
+  "treatment_package_id": "TREATPKG_6703231C876187DAF370870FA3CAF2A8",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

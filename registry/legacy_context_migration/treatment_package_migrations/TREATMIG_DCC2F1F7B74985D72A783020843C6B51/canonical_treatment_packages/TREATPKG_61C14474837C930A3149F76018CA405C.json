@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_5589165B2AA30D9F960905A65464832B"
+  ],
+  "atom_types": [
+    "PARTIAL_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c338b9c1b220c47528156b52500b355fda7bb097f23ebbbec42870f327523554",
+      "atom_id": "TREATATOM_5589165B2AA30D9F960905A65464832B",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "return seal({\"phase\":\"SAED_V4_40\",\"status\":\"ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN\" if internal else \"REJECTED\",\"internal_reference_gates_passed\":internal,\"cell_count\":len(registry[\"cells\"]),\"replica_count\":placement[\"assignment_count\"],\"context_fleet_reference_ready\":internal,\"actual_scale_soak_passed\":False,\"actual_f",
+          "line_digest": "sha256:7a00841599ff4b2d69cf7a0df751bfdac1f45d6e6879cdf27b8362661645a875",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e06566bbd55f30e97c090b671f5e5c0717353eb3bb62b01572595ca164288478",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0164024c7c0792f04862e901ce1facc942ca41a68dde53dc563c87947a0c2c4c",
+    "sha256:c338b9c1b220c47528156b52500b355fda7bb097f23ebbbec42870f327523554"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_context_fleet_scaleout/release.py",
+  "source_sha256": "sha256:0164024c7c0792f04862e901ce1facc942ca41a68dde53dc563c87947a0c2c4c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_2A8B0678E186DE0EE213C4D0F40D360B",
+  "treatment_package_id": "TREATPKG_61C14474837C930A3149F76018CA405C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

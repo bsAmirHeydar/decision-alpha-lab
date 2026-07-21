@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_378989E10A940B2514511DC0C120D483"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:63f2954bd350cb5e61572b36dc177780d2006764db64ab71216e02c5470fcbaa",
+      "atom_id": "TREATATOM_378989E10A940B2514511DC0C120D483",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "def test_lane_step_tick_aligned(layout): assert lane_step(layout)%layout.tick_size==0",
+          "line_digest": "sha256:9a3818a30c8d37010c534ab178b5ba12c3dcf04ca86d2ddf317bdec32ad7b027",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a85b2ac254e179b40abf97cd0c3db2fd5fbf80166a8648ab010eff8a261a0952",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_C7D0D7679530F7BF6BEE74E027C1EB5E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:07690427e3a3f2c2dc8807eb9145fd86f4a8ded8feb39c9e6cdc34105a8d09af",
+    "sha256:63f2954bd350cb5e61572b36dc177780d2006764db64ab71216e02c5470fcbaa"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/tests/test_layout.py",
+  "source_sha256": "sha256:07690427e3a3f2c2dc8807eb9145fd86f4a8ded8feb39c9e6cdc34105a8d09af",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B41CF6413188C98413985A1F9B59F273",
+  "treatment_package_id": "TREATPKG_93D7838468791B8E3854495B77A17DD1",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

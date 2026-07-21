@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_666C973B7850C558EBA6C1965BA63110"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8b54aad642cc32a9ebb1166446be0be2053475f18310a17c2d049eef5d4480a5",
+      "atom_id": "TREATATOM_666C973B7850C558EBA6C1965BA63110",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "require(c.decision_time_ms-c.price.quote_time_ms<=i.parameters.get_int('max_age_ms'),'stale_quote','market entry quote is stale')",
+          "line_digest": "sha256:e45167642ec743fb0b4bb24545c7b21c59e4c2bb4c998906460ea5085d0c2ed9",
+          "line_number": 16
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:4f94b8ae907c0b7bd78b566af268d53bf9318d59cf3389577027145aab9c0c58",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:ccfbc2e6457dea48ac752e8742afb58cf066be961df6dc75c51998fc9a112061",
+    "sha256:8b54aad642cc32a9ebb1166446be0be2053475f18310a17c2d049eef5d4480a5"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatments_v3/entry.py",
+  "source_sha256": "sha256:ccfbc2e6457dea48ac752e8742afb58cf066be961df6dc75c51998fc9a112061",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_37BF4CAB475283C801BEE1D163D5BB83",
+  "treatment_package_id": "TREATPKG_271219A1A251C3539FB7727866AF1BBB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

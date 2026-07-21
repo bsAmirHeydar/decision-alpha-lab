@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_EDE6ADB4A1AEAC5F81B8732017EF8FB7"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:61a6c1c8f3bccdfcd84789868aad110f4b706cbd18719e24125986bed528106e",
+      "atom_id": "TREATATOM_EDE6ADB4A1AEAC5F81B8732017EF8FB7",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "spread = max(1e-12, (float(parameter.high) - float(parameter.low)) / max(3.0, math.sqrt(len(good))))",
+          "line_digest": "sha256:09a7dbe36cfeead6529442adab14774e6c0fd096c2d401b4b9949117425c8fe2",
+          "line_number": 238
+        },
+        {
+          "excerpt": "values[parameter.name] = _quantize_numeric(parameter, rng.gauss(anchor, spread))",
+          "line_digest": "sha256:ba82e24e4f0f948320fc994b0a3696fd046c9e1727fcf7c8a1068098424b9215",
+          "line_number": 239
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9596c51e0e0f80576aee523001ccea1d6367fa5d9ca86331863b2bbc93d9e22e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_D26B01F50D7303B84E30382947E5BCCB"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b5432929b0c76ce4147d554ddb822004612d99ae0c7c7ef41101c9135fa405a7",
+    "sha256:61a6c1c8f3bccdfcd84789868aad110f4b706cbd18719e24125986bed528106e"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_experiments_v3/search.py",
+  "source_sha256": "sha256:b5432929b0c76ce4147d554ddb822004612d99ae0c7c7ef41101c9135fa405a7",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_1C85628C754905C4F42297994032B945",
+  "treatment_package_id": "TREATPKG_0792C2875F6E3F19B2B8B49B58D90D7D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

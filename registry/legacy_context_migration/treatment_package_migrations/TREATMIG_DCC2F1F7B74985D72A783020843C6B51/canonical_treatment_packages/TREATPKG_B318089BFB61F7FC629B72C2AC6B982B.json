@@ -1,0 +1,80 @@
+{
+  "atom_ids": [
+    "TREATATOM_7E706D0A29E1873B26710D940310E024",
+    "TREATATOM_8B6E9CC6A2A9631CD13706CA00FC66F0"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4e930c6ae64276f99e1c70a3808182bd6d92fe7f57d248a2995f1cb50cdc6bd4",
+      "atom_id": "TREATATOM_7E706D0A29E1873B26710D940310E024",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "struct SAEDV439SymbolProfile { string symbol; int digits; double point; double tick_size; double min_volume; double max_volume; double volume_step; double max_spread_bps; };",
+          "line_digest": "sha256:07d70b3b4d33708eacd0ab59fcc55e7670e8fc953590ce62c0d65ffba1e7bbc4",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e6fc1d4b9cc12d0bc03ab2f0d4161ebd0eb90bbe090431895fb61e9a3898ed91",
+      "atom_id": "TREATATOM_8B6E9CC6A2A9631CD13706CA00FC66F0",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "struct SAEDV439SymbolProfile { string symbol; int digits; double point; double tick_size; double min_volume; double max_volume; double volume_step; double max_spread_bps; };",
+          "line_digest": "sha256:07d70b3b4d33708eacd0ab59fcc55e7670e8fc953590ce62c0d65ffba1e7bbc4",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:73aab11858ecc68246f89a1d3bfe48117ecf4037dc4781d0816a953f109a3325",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_7118D533719CB445B1AE962806935A21",
+    "RISKASM_71A4EB9DDD36E963A61A454C0FA7812C"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b2430fb13a4e0f4d36898f0d1e241ad1b6d98ab719c75e82244a21357f6717c8",
+    "sha256:4e930c6ae64276f99e1c70a3808182bd6d92fe7f57d248a2995f1cb50cdc6bd4",
+    "sha256:e6fc1d4b9cc12d0bc03ab2f0d4161ebd0eb90bbe090431895fb61e9a3898ed91"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/StrategyFactory/SAED/V4_39/SAEDV439BrokerProfile.mqh",
+  "source_sha256": "sha256:b2430fb13a4e0f4d36898f0d1e241ad1b6d98ab719c75e82244a21357f6717c8",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B929F843AE0EEB2A56B5AB19236247E4",
+  "treatment_package_id": "TREATPKG_B318089BFB61F7FC629B72C2AC6B982B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

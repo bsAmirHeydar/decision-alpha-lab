@@ -1,0 +1,106 @@
+{
+  "atom_ids": [
+    "TREATATOM_279B1EBA63F17B5B087733B6FC067AF6",
+    "TREATATOM_E4E5D372F17471E88A1CCC0108D521C5",
+    "TREATATOM_FC9BB8D7DA4B996002BBCEDB7AD1B998"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c2a00670e4a309613ce6fcfe94d1a4e65f1af862c416e1ca200fe497eaded063",
+      "atom_id": "TREATATOM_279B1EBA63F17B5B087733B6FC067AF6",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "def spec(tick_size: float = 0.25, generation: int = 0) -> SymbolSpecSnapshot:",
+          "line_digest": "sha256:186b5ac24a91d8ba550c5e1ab50627ffa04eb1b6bc672b505b436a601483e748",
+          "line_number": 5
+        },
+        {
+          "excerpt": "symbol=\"#NQ\", digits=2, point=0.01, tick_size=tick_size,",
+          "line_digest": "sha256:c1e8c5188df4c625686cced96b6e49a3d4dd0ba43489442ab63d61716a129819",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d1b76a97eb09008556ccc64166bbccc9983620a3fa08bf25f89029b24029e6a2",
+      "atom_id": "TREATATOM_E4E5D372F17471E88A1CCC0108D521C5",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "assert cache.put(spec(tick_size=0.5)).specification_generation == 2",
+          "line_digest": "sha256:47abc62e284b2bd13a5e1af476bacb71e060440a2ad74f207972d05297a80580",
+          "line_number": 21
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d83f498554c788926ecd7b1f31720028bd9b948414eb2f2843885d3ce5ddfd85",
+      "atom_id": "TREATATOM_FC9BB8D7DA4B996002BBCEDB7AD1B998",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "volume_min=0.01, volume_max=100.0, volume_step=0.01,",
+          "line_digest": "sha256:2dbf9be2b7c3a02c1e67119521ce5b4f41955a1bf88e62cd56f69cfb5530c94f",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f43f9575f83c2dff312c1f912a09f39ab572f5a60a67f828970710371c19297b",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_495950BBFC3CC27981241924BD129687",
+    "RISKASM_53E07121BB3AEACF4591B838D2E760EC",
+    "RISKASM_8C8B7C2AF370AE40397319509C4A9FDB",
+    "RISKASM_B8B5EE41E5946D6BAC64F20D5BC6036D",
+    "RISKASM_DE4F5544B33C3E4AC24F37C222B2ACAB",
+    "RISKASM_F289459B6BF0C830FE77D8DBA9B963D9"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6aba74b17d597848ebdef92993dd67b1947e504d18bc2b71b8786d2afb8b02e3",
+    "sha256:c2a00670e4a309613ce6fcfe94d1a4e65f1af862c416e1ca200fe497eaded063",
+    "sha256:d1b76a97eb09008556ccc64166bbccc9983620a3fa08bf25f89029b24029e6a2",
+    "sha256:d83f498554c788926ecd7b1f31720028bd9b948414eb2f2843885d3ce5ddfd85"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase03_market/test_specs_and_telemetry.py",
+  "source_sha256": "sha256:6aba74b17d597848ebdef92993dd67b1947e504d18bc2b71b8786d2afb8b02e3",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_FDA14C38AD4694D651E83B979C723F0D",
+  "treatment_package_id": "TREATPKG_EE5B0CF3638F8C0BBC8B2D87489E5D3E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

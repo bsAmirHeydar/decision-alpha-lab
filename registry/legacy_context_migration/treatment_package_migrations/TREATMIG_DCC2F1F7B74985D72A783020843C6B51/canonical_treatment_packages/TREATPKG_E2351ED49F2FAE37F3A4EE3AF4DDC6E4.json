@@ -1,0 +1,67 @@
+{
+  "atom_ids": [
+    "TREATATOM_F7F83358198868AAD84C08D8455D68D6"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:747554d43ae8d361b143dc5b16d8fbd4323e623ba274e994ad127814c7b1c71c",
+      "atom_id": "TREATATOM_F7F83358198868AAD84C08D8455D68D6",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "_f('spread',FeatureType.NUMBER,[('bid','projection','bid'),('ask','projection','ask')],TransformKind.SPREAD,True,MissingnessPolicy.PROHIBIT,5000,.8,minimum=0),",
+          "line_digest": "sha256:d6202b3d980b1cd80e380f5b1b5b8e37f6b89bf5e42ecbb664a5edde772c6047",
+          "line_number": 14
+        },
+        {
+          "excerpt": "_f('spread',FeatureType.NUMBER,[('bid','projection','bid'),('ask','projection','ask')],TransformKind.SPREAD,True,MissingnessPolicy.PROHIBIT,5000,.8,minimum=0),",
+          "line_digest": "sha256:d6202b3d980b1cd80e380f5b1b5b8e37f6b89bf5e42ecbb664a5edde772c6047",
+          "line_number": 37
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6cfbdf66b93c814ef4286443463e473c53d9117d119847355886435b79c974fe",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_19348DFF1C9FC150444DFD4870F524AC",
+    "RISKASM_45FD75A5AF750505DCAFB41D7E4021CE"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2f6d7add391d7cbf7f012395d033d8f7bb171998ae7ca418779280aa0a0caee4",
+    "sha256:747554d43ae8d361b143dc5b16d8fbd4323e623ba274e994ad127814c7b1c71c"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_multimodal_views/catalog.py",
+  "source_sha256": "sha256:2f6d7add391d7cbf7f012395d033d8f7bb171998ae7ca418779280aa0a0caee4",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A7439F1AB7D8EB5A22A6E37F18263010",
+  "treatment_package_id": "TREATPKG_E2351ED49F2FAE37F3A4EE3AF4DDC6E4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

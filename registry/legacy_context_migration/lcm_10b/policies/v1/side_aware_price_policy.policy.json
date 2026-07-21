@@ -1,0 +1,21 @@
+{
+  "buy_stop": "BELOW_EXPLICIT_ENTRY",
+  "buy_target": "ABOVE_EXPLICIT_ENTRY",
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:6f419dc2546287094f64e49ae7e1abedcb7c4ecf13cc81c5fb782e304dd6d8db",
+  "policy_id": "LCM10BPOLICY_49EAB915CAC9FA0F7A47E99F1C2C73ED",
+  "policy_name": "side_aware_price_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "sell_stop": "ABOVE_EXPLICIT_ENTRY",
+  "sell_target": "BELOW_EXPLICIT_ENTRY",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

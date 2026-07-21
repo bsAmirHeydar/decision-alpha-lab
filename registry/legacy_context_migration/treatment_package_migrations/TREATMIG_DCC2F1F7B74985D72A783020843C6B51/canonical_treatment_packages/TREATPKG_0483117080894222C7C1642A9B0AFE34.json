@@ -1,0 +1,182 @@
+{
+  "atom_ids": [
+    "TREATATOM_5B1A841E32E1BCF32ADEB6890F5405C7",
+    "TREATATOM_9B3C72775084EF15EB59F50449F15435",
+    "TREATATOM_9C77F8EB230C8ADC826F78204A55F92B",
+    "TREATATOM_BAF2212169AC1635E61DBBA54C4AFEF8"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_932485F57C8D7BA990669B20FAAE20C6",
+    "EXECCAP_94F4FF5C5CB534440923A681E15AB06E"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:a209ef842b2e886dd66ece4e0dde6fb30402f6d9612ed18f5e4a27af00c6de24",
+      "atom_id": "TREATATOM_5B1A841E32E1BCF32ADEB6890F5405C7",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:3d305b571d449652ef7e00e4291a1afd16cfea0d6c258bafe64433d8ba46bafc",
+          "line_number": 11
+        },
+        {
+          "excerpt": "if(OrderCalcProfit(order_type,symbol,1.0,entry_price,stop_loss,profit))",
+          "line_digest": "sha256:d440524edc20a01b0b4f0003225d1c5e7c986884d0dba10123e1d0a9b843e1fc",
+          "line_number": 19
+        },
+        {
+          "excerpt": "double distance=MathAbs(entry_price-stop_loss);",
+          "line_digest": "sha256:d8e2a63c6759030b24692da1be386fc26b09c7a25f6df4e4d3671701d3e11d47",
+          "line_number": 33
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:923c804cb1970c44ecde9e1210f283be3b30ca35fbd257fb232442f9e3f05869",
+          "line_number": 108
+        },
+        {
+          "excerpt": "if(!LossPerLot(symbol,direction,entry_price,stop_loss,risk_per_lot,risk_reason))",
+          "line_digest": "sha256:f5cadf71caa293dbed5d79504439134a40878b28125d9a1517dcdc5058a64982",
+          "line_number": 131
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b8a7fd0ed8fa9efdedcbbf644ba904037f1750c3791d82c6f4d9d2d486e99b05",
+      "atom_id": "TREATATOM_9B3C72775084EF15EB59F50449F15435",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "const double stop_loss,",
+          "line_digest": "sha256:2714eafd3fb13542b1877f47ca48df212102fa965adbbdef52e50977ec7dde0f",
+          "line_number": 12
+        },
+        {
+          "excerpt": "if(OrderCalcProfit(order_type,symbol,1.0,entry_price,stop_loss,profit))",
+          "line_digest": "sha256:d440524edc20a01b0b4f0003225d1c5e7c986884d0dba10123e1d0a9b843e1fc",
+          "line_number": 19
+        },
+        {
+          "excerpt": "double distance=MathAbs(entry_price-stop_loss);",
+          "line_digest": "sha256:d8e2a63c6759030b24692da1be386fc26b09c7a25f6df4e4d3671701d3e11d47",
+          "line_number": 33
+        },
+        {
+          "excerpt": "const double stop_loss,",
+          "line_digest": "sha256:aa8c646b8f0e0474bbe335cf753b414b66f2637896c34c251f1cb7442da595e7",
+          "line_number": 109
+        },
+        {
+          "excerpt": "if(!LossPerLot(symbol,direction,entry_price,stop_loss,risk_per_lot,risk_reason))",
+          "line_digest": "sha256:f5cadf71caa293dbed5d79504439134a40878b28125d9a1517dcdc5058a64982",
+          "line_number": 131
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b2154c4120c4f3c2784cc32a32d1150dd198078902faded298e217bae97e4b0b",
+      "atom_id": "TREATATOM_9C77F8EB230C8ADC826F78204A55F92B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double tick_size=SymbolInfoDouble(symbol,SYMBOL_TRADE_TICK_SIZE);",
+          "line_digest": "sha256:ac100918264fcdf1fed3f5d28a5b22843887d4413c78996a414f6e98fcdab7c4",
+          "line_number": 29
+        },
+        {
+          "excerpt": "if(tick_size<=0.0 || tick_value<=0.0 || distance<=0.0)",
+          "line_digest": "sha256:d5ec025c7e1c45e3240c525db91810f02f225e10665d07513d95d0bbd4bbdc56",
+          "line_number": 34
+        },
+        {
+          "excerpt": "loss_per_lot=(distance/tick_size)*tick_value;",
+          "line_digest": "sha256:712cbd4ef6b85eddf266d4891ef93c4f2bab23814310b9090359638bef3083e2",
+          "line_number": 40
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b1e3174962d6ca098384b6e66c504c4470e04fabdb96ee8fab196b02cad762e5",
+      "atom_id": "TREATATOM_BAF2212169AC1635E61DBBA54C4AFEF8",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "if(config.risk_percent_equity<=0.0)",
+          "line_digest": "sha256:13cf2d964c2b05f0adfc8c2f70d4abc0f80f38179a058c469d5ed488638660c0",
+          "line_number": 150
+        },
+        {
+          "excerpt": "reason=\"risk_percent_not_positive\";",
+          "line_digest": "sha256:51467511d643c2ec3d7f8278d93fea10bc868b6c97a990cac189af0f70b1ee23",
+          "line_number": 152
+        },
+        {
+          "excerpt": "risk_budget_money=equity*config.risk_percent_equity/100.0;",
+          "line_digest": "sha256:69fd5d25262c98fbb5b214d6820797b94e0628c06e04de4e45a744ecb1552dd5",
+          "line_number": 161
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:97f8a4942dbe99d1ab8e744d6f4bd3bcd576e6f4d6f1544be209f4acd955acfa",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1F5E8178FC5EFE05614CB76F89D01DDE",
+    "RISKASM_210E405B57C822956789A92279FFE740",
+    "RISKASM_2CB82B7C80AA0E573FD2B0029ADEFB43",
+    "RISKASM_468A39C2947EDBBB753AF4A8D56507DF",
+    "RISKASM_E0316A34FE4EA75560AFC918F2F0FCFB"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:29954f464f2283e0a6afafaf3a46977f1e8b3a78c3bc84176bce71f8f5e162aa",
+    "sha256:a209ef842b2e886dd66ece4e0dde6fb30402f6d9612ed18f5e4a27af00c6de24",
+    "sha256:b1e3174962d6ca098384b6e66c504c4470e04fabdb96ee8fab196b02cad762e5",
+    "sha256:b2154c4120c4f3c2784cc32a32d1150dd198078902faded298e217bae97e4b0b",
+    "sha256:b8a7fd0ed8fa9efdedcbbf644ba904037f1750c3791d82c6f4d9d2d486e99b05"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_VolumeModel.mqh",
+  "source_sha256": "sha256:29954f464f2283e0a6afafaf3a46977f1e8b3a78c3bc84176bce71f8f5e162aa",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_67F362688B8BDE83EF0FF648E5CD5204",
+  "treatment_package_id": "TREATPKG_0483117080894222C7C1642A9B0AFE34",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,231 @@
+{
+  "atom_ids": [
+    "TREATATOM_B5A954A1817FDE177D659F54D9447C70",
+    "TREATATOM_C4CB8B2066EC73878F3EEDFCE0A3FE44",
+    "TREATATOM_DA099BB5C5AC81F9DAE561721F6A3C15"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_F73B03E18AD0910BE2EB745800E61A40"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ff1fc135bd17adffc9a148e16d86c930ced93a6c9d8696a68693fdb676c90dba",
+      "atom_id": "TREATATOM_B5A954A1817FDE177D659F54D9447C70",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "const double tp)",
+          "line_digest": "sha256:bad96eec1bbb18fd0e2e368fac2fc9987c9d6e39bb0f7004023e80a6133ae13e",
+          "line_number": 56
+        },
+        {
+          "excerpt": "return (sl < price && tp > price);",
+          "line_digest": "sha256:1f1bac206aa7d11d6b8f93f6856063ee142a3613b146956a911a856c4e66ed92",
+          "line_number": 59
+        },
+        {
+          "excerpt": "return (sl > price && tp < price);",
+          "line_digest": "sha256:5db6609664e43e0c7d8a7ec402f3d627326e2f54344bbfe57ecc22d0f1e08a5b",
+          "line_number": 61
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:b0c01eefe7d693c6c8f5c833f02fcda8ef2582929a9654766354ba0b83d2e4b7",
+      "atom_id": "TREATATOM_C4CB8B2066EC73878F3EEDFCE0A3FE44",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "bool FP_L26TickAligned(const double price,const double tick_size,const double point_value)",
+          "line_digest": "sha256:58cbfdba9c400b91bd545bd0a2f1d0c5cb391dfe1844919ee3362301f53dff59",
+          "line_number": 37
+        },
+        {
+          "excerpt": "if(tick_size <= 0.0) return true;",
+          "line_digest": "sha256:73f64781aef307f9809da1963ae3abb896c405ef00b2cba7db5fd22cfa0fd896",
+          "line_number": 40
+        },
+        {
+          "excerpt": "double steps = price / tick_size;",
+          "line_digest": "sha256:33d7a8cd077f927ac40752719408ee3863a5ebc64ad9cfce555365b72567c293",
+          "line_number": 42
+        },
+        {
+          "excerpt": "double rebuilt = rounded_steps * tick_size;",
+          "line_digest": "sha256:5bf41e0dc8c1c96f1c240b29449a37463fef45d456e459045cb17a4acc529f83",
+          "line_number": 44
+        },
+        {
+          "excerpt": "if(tolerance <= 0.0) tolerance = tick_size * 0.1;",
+          "line_digest": "sha256:e1b7618176ec6115a61e799138eff35e355a559e315eb55221918b3033f4d277",
+          "line_number": 47
+        },
+        {
+          "excerpt": "row.symbol_digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);",
+          "line_digest": "sha256:0f8dd3414547963f30ee333d6d09ec0027e5ad7a50f0414b2ab3b1c6c7731735",
+          "line_number": 133
+        },
+        {
+          "excerpt": "row.symbol_point = SymbolInfoDouble(symbol, SYMBOL_POINT);",
+          "line_digest": "sha256:9c73023bc40f023621d6639c317ebfb46eea0b85ad45fbf51b5aea09a642aacc",
+          "line_number": 134
+        },
+        {
+          "excerpt": "if(row.symbol_point <= 0.0)",
+          "line_digest": "sha256:52bfdeea04b90056dcf8a3c21367541d67c7a3e4c03e3b6660614c5ed8db24a6",
+          "line_number": 138
+        },
+        {
+          "excerpt": "row.symbol_point = _Point;",
+          "line_digest": "sha256:81d050d0b6692d4df4aed5db5373cc4e291cc5e8a6c7604a3d5e169a0cd359e7",
+          "line_number": 139
+        },
+        {
+          "excerpt": "row.symbol_tick_size = row.symbol_point;",
+          "line_digest": "sha256:46710d2f16858f9838d4a4b5e860ed133f22dbd46628c4ec4567fe1b34bb736d",
+          "line_number": 141
+        },
+        {
+          "excerpt": "row.min_stop_distance_price = (double)row.symbol_stops_level_points * row.symbol_point;",
+          "line_digest": "sha256:abf39257b0e1d485b4ccd7b3ce2a48aa2d2462276d5456d2f6b01ea6e0c7b55f",
+          "line_number": 143
+        },
+        {
+          "excerpt": "row.normalized_price = FP_L26NormalizeByDigits(row.request_price, row.symbol_digits);",
+          "line_digest": "sha256:1186a76e7e8243ee69e5aa297162d5cef0e22925d4470f955d118d022e38401c",
+          "line_number": 145
+        },
+        {
+          "excerpt": "row.normalized_sl = FP_L26NormalizeByDigits(row.request_sl, row.symbol_digits);",
+          "line_digest": "sha256:8f62cf370468759b987eed2f104948faaa3a4225bb99d3716afa0d6e20f0e8bc",
+          "line_number": 146
+        },
+        {
+          "excerpt": "row.normalized_tp = FP_L26NormalizeByDigits(row.request_tp, row.symbol_digits);",
+          "line_digest": "sha256:400b97cf7a40d34e4e30b5c0fd0b8f520c6d20c7c4cfb5249836504dee302805",
+          "line_number": 147
+        },
+        {
+          "excerpt": "row.price_normalized = FP_L26PriceNormalized(row.request_price, row.normalized_price, row.symbol_point);",
+          "line_digest": "sha256:4a1f3c6fe504dbe4a67e92d9690c2e2f01b4689ceaf36c937c2faf369acb6e90",
+          "line_number": 149
+        },
+        {
+          "excerpt": "row.sl_normalized = FP_L26PriceNormalized(row.request_sl, row.normalized_sl, row.symbol_point);",
+          "line_digest": "sha256:96890a6ca7143a9fc880d3f17ec06005f9d1c5f4c97bd665e96b160c5f6ea0c0",
+          "line_number": 150
+        },
+        {
+          "excerpt": "row.tp_normalized = FP_L26PriceNormalized(row.request_tp, row.normalized_tp, row.symbol_point);",
+          "line_digest": "sha256:157d0de6a0ce6529a437054050c2800997d9045851990fa0bcc67c6a42d8daba",
+          "line_number": 151
+        },
+        {
+          "excerpt": "row.price_tick_aligned = FP_L26TickAligned(row.request_price, row.symbol_tick_size, row.symbol_point);",
+          "line_digest": "sha256:ac19fd4e39a74399cf5858b36b66607dacd65cecfefb44ec015502cc76d15656",
+          "line_number": 153
+        },
+        {
+          "excerpt": "row.sl_tick_aligned = FP_L26TickAligned(row.request_sl, row.symbol_tick_size, row.symbol_point);",
+          "line_digest": "sha256:5a1b16b375235c1a0cb86b5db87915355e90264a62832e03a4e9cd9344744e87",
+          "line_number": 154
+        },
+        {
+          "excerpt": "row.tp_tick_aligned = FP_L26TickAligned(row.request_tp, row.symbol_tick_size, row.symbol_point);",
+          "line_digest": "sha256:5917b575435bfb7772824ff93803350911d29ec3fe7fac4576143d9fc8e93528",
+          "line_number": 155
+        },
+        {
+          "excerpt": "if(row.symbol_point > 0.0)",
+          "line_digest": "sha256:d196b5c766846b906bd30476dc76e6e5d04f4fd863197e569a1d6dabf7a57c19",
+          "line_number": 160
+        },
+        {
+          "excerpt": "row.stop_distance_points = row.stop_distance_price / row.symbol_point;",
+          "line_digest": "sha256:cf86738d6d94ed07aff318fce7659ad408006c22e5b0c4e4b2502da1ca6067c6",
+          "line_number": 162
+        },
+        {
+          "excerpt": "row.target_distance_points = row.target_distance_price / row.symbol_point;",
+          "line_digest": "sha256:a3865c1a035e39f7fb45ce108c8e3c03599f7c08d812ad2de42bbea1d0a547ca",
+          "line_number": 163
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1ee49d0e0e37855a77f0c09e276109d6b40b18945ef279f87126b3f50eda893c",
+      "atom_id": "TREATATOM_DA099BB5C5AC81F9DAE561721F6A3C15",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "const double sl,",
+          "line_digest": "sha256:152ff33884409d4fa44d2fc1ce11ee07ed1a5a8fb60820245a0f4ba032de090f",
+          "line_number": 55
+        },
+        {
+          "excerpt": "return (sl < price && tp > price);",
+          "line_digest": "sha256:1f1bac206aa7d11d6b8f93f6856063ee142a3613b146956a911a856c4e66ed92",
+          "line_number": 59
+        },
+        {
+          "excerpt": "return (sl > price && tp < price);",
+          "line_digest": "sha256:5db6609664e43e0c7d8a7ec402f3d627326e2f54344bbfe57ecc22d0f1e08a5b",
+          "line_number": 61
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5bf92f57c5f77b39d3d6f844bf06a5139774d63e83ee7ba47b2d28b4c0a1cca9",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_107E42AEC9A7CCCEA8A07D4F0FF51AED",
+    "RISKASM_5A4A3223CF0AD57ED8CF4930B401F7FE",
+    "RISKASM_D0D5253A340196F2137D62C713E4C987"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:61a4ebb6015730274d9aaf4df286fb782d4464e25ca93df04ecb8a1112314e1b",
+    "sha256:1ee49d0e0e37855a77f0c09e276109d6b40b18945ef279f87126b3f50eda893c",
+    "sha256:b0c01eefe7d693c6c8f5c833f02fcda8ef2582929a9654766354ba0b83d2e4b7",
+    "sha256:ff1fc135bd17adffc9a148e16d86c930ced93a6c9d8696a68693fdb676c90dba"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_BrokerValidatorRules.mqh",
+  "source_sha256": "sha256:61a4ebb6015730274d9aaf4df286fb782d4464e25ca93df04ecb8a1112314e1b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_7F821CEB7863287860748E18EFAECC04",
+  "treatment_package_id": "TREATPKG_0678B2C8617880E42CAF5E4ADEE69C13",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

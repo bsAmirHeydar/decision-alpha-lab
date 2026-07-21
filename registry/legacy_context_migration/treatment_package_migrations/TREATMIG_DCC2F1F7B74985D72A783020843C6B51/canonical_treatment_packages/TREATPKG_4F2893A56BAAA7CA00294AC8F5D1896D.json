@@ -1,0 +1,91 @@
+{
+  "atom_ids": [
+    "TREATATOM_239B2ECABA3FAAB8E0BC39AE9CBBD362",
+    "TREATATOM_A6E5D0B8E4CA2F3DB9D6D1F84DD49441"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7bd5191cfed08b486073948d6ffbe7be259b9181b26e7ba88cac0670b456a45d",
+      "atom_id": "TREATATOM_239B2ECABA3FAAB8E0BC39AE9CBBD362",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "exact(s,[\"symbol\",\"digits\",\"point\",\"tick_size\",\"tick_value\",\"min_volume\",\"max_volume\",\"volume_step\",\"stop_level_points\",\"freeze_level_points\",\"max_spread_bps\"])",
+          "line_digest": "sha256:0ae792a2ebde43c0bc42883531c8654f2635d6185879e691ce68ed0797adf066",
+          "line_number": 12
+        },
+        {
+          "excerpt": "for k in [\"point\",\"tick_size\",\"tick_value\",\"min_volume\",\"max_volume\",\"volume_step\",\"max_spread_bps\"]:number(s[k],k,0)",
+          "line_digest": "sha256:53612d0a7b25d5afa01afa020175a5301b8269e6d706a00454061f4f1884ea68",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:13ef3dc123ad9db0edb406a1440693ac19e5053c74d1f9c28125bd4388f58274",
+      "atom_id": "TREATATOM_A6E5D0B8E4CA2F3DB9D6D1F84DD49441",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "exact(s,[\"symbol\",\"digits\",\"point\",\"tick_size\",\"tick_value\",\"min_volume\",\"max_volume\",\"volume_step\",\"stop_level_points\",\"freeze_level_points\",\"max_spread_bps\"])",
+          "line_digest": "sha256:0ae792a2ebde43c0bc42883531c8654f2635d6185879e691ce68ed0797adf066",
+          "line_number": 12
+        },
+        {
+          "excerpt": "for k in [\"point\",\"tick_size\",\"tick_value\",\"min_volume\",\"max_volume\",\"volume_step\",\"max_spread_bps\"]:number(s[k],k,0)",
+          "line_digest": "sha256:53612d0a7b25d5afa01afa020175a5301b8269e6d706a00454061f4f1884ea68",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:68fb4bda15ae9a12efdb1f72046e42c8f751c42ebd0f7bc2ee0c5cd50f54512e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_38227779017D683A71EAA3EDA157C76F",
+    "RISKASM_4730AD8545492FB1E77D0A70B39EA05A",
+    "RISKASM_84DE94E8EEBED75424A18B63E112B326"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7400bca192972f0906d287e287ff5beb8343d9b83e04e942ba0b0a827773652e",
+    "sha256:13ef3dc123ad9db0edb406a1440693ac19e5053c74d1f9c28125bd4388f58274",
+    "sha256:7bd5191cfed08b486073948d6ffbe7be259b9181b26e7ba88cac0670b456a45d"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_prospective_shadow_micro_live/broker.py",
+  "source_sha256": "sha256:7400bca192972f0906d287e287ff5beb8343d9b83e04e942ba0b0a827773652e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_6C39A7E7D208599EE0749FE14B36BE5C",
+  "treatment_package_id": "TREATPKG_4F2893A56BAAA7CA00294AC8F5D1896D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

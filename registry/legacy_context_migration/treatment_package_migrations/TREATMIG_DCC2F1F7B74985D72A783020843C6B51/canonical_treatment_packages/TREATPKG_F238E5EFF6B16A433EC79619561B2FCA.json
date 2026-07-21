@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_03BF0C2E5ACAF915B1FB4A16356BB776"
+  ],
+  "atom_types": [
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_813883B8CE3472DC069529FD67B986ED",
+    "EXECCAP_FB61EF7AC8EA74E27E27B7D573EC3D1E"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:793431c86207a7d4b276b686b8a6f9bdbb96d878bdd39d6cbc49af8769bf29a4",
+      "atom_id": "TREATATOM_03BF0C2E5ACAF915B1FB4A16356BB776",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "assert \"stop_loss=candle.low-(buffer_points*point)\" in source",
+          "line_digest": "sha256:21778a438f046f26d2a4258936bbcf4f6c8860799934acfc40eb71f1a00e27d7",
+          "line_number": 39
+        },
+        {
+          "excerpt": "assert \"stop_loss=candle.high+(buffer_points*point)+sell_spread\" in source",
+          "line_digest": "sha256:34f8aefb113f6533d45369d6d95060c1a923457d534603e0b34ff6ce269b313d",
+          "line_number": 41
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:cfd888183741cbfb4cf58125c40f72f54be22427ade1b896e80e608a08b82de0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_27DFB29346A51C8341987D93D34B755B"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:496d422b69591035a13ef4299d84db58555770254fa7b19f8ac962496f73dacf",
+    "sha256:793431c86207a7d4b276b686b8a6f9bdbb96d878bdd39d6cbc49af8769bf29a4"
+  ],
+  "source_move_performed": false,
+  "source_path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+  "source_sha256": "sha256:496d422b69591035a13ef4299d84db58555770254fa7b19f8ac962496f73dacf",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F6B3862DD649662C330EC2A20322809A",
+  "treatment_package_id": "TREATPKG_F238E5EFF6B16A433EC79619561B2FCA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

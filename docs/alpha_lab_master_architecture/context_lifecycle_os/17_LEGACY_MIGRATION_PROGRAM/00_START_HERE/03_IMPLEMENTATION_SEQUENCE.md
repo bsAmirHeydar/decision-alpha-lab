@@ -33,8 +33,8 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | LCM-08C | Context Wave Migration and Context Portfolio Closure | Accepted reference; portfolio accounted with explicit blockers |
 | LCM-09A | Setup Inventory, Family Registry and Canonical Contract Freeze | Yes |
 | LCM-09B | Setup Migration, Setup Factory Binding and Behavioral Parity | Yes |
-| LCM-10A | Treatment and Execution Capability Inventory | No |
-| LCM-10B | Treatment Package Extraction and Execution Boundary Construction | No |
+| LCM-10A | Treatment and Execution Capability Inventory | Accepted reference |
+| LCM-10B | Treatment Package Extraction and Execution Boundary Construction | Accepted reference; adapters disabled |
 | LCM-10C | Dry-Run Parity, Safety Controls and Authority-Negative Closure | No |
 | LCM-11A | Visual Object Inventory, Namespace and Lifecycle Contracts | No |
 | LCM-11B | Multi-Chart Isolation, Visual Parity and Visualizer Cutover | No |
@@ -93,3 +93,8 @@ LCM-09B migration `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9` materializes
 ## LCM-10A accepted reference checkpoint
 
 LCM-10A inventory `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02` closes the baseline Treatment and execution capability accounting without changing source behavior. It issues the bounded LCM-10B handoff `sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b`. The next implementation unit is LCM-10B.
+
+
+## LCM-10B accepted reference checkpoint
+
+LCM-10B migration `TREATMIG_DCC2F1F7B74985D72A783020843C6B51` converts all 1,109 inventoried Treatment atoms into 422 deterministic canonical reference packages, constructs 483 disabled execution-adapter contracts, preserves 382 explicit blockers, and binds all 60 canonical Setups to a Treatment package or blocker. The bounded handoff permits LCM-10C dry-run parity and authority-negative testing only.

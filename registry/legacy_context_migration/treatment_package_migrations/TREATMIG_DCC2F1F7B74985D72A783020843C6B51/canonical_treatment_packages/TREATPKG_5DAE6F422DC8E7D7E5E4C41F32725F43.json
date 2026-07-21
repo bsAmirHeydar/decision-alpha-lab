@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_8932B97C99C1543BA4441BC02A881174"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:bb4cdbb42b9638f679eb3f5684d30b58ce22f59af35e5fba11256ca33b94d296",
+      "atom_id": "TREATATOM_8932B97C99C1543BA4441BC02A881174",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "expired=x[\"expires_time\"]<=cutoff; state=\"EXPIRED\" if expired else \"ACTIVE_REFERENCE\"; active+=0 if expired else 1",
+          "line_digest": "sha256:85fedbccfc8758ad64f521f706bcbb4b932d8cc055d7b8ec536b4e6300ad060b",
+          "line_number": 19
+        },
+        {
+          "excerpt": "rows.append({\"exception_id\":x[\"exception_id\"],\"state\":state,\"production_scope_allowed\":False,\"revalidation_required\":not expired})",
+          "line_digest": "sha256:ca24edb192c63efe0c9a6b64579e00a3d0d8f2de34721effa2336f30c6d0963a",
+          "line_number": 20
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5f68b60a1e5884fd958f7c6df04ae7003dee7e71e230b3e7e0e26bf35866775a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a2b59214025a64a10a6d22125dc7b26f5aa72caf8554e2e0589a40c9bc9e71e5",
+    "sha256:bb4cdbb42b9638f679eb3f5684d30b58ce22f59af35e5fba11256ca33b94d296"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_model_risk_supply_chain/controls.py",
+  "source_sha256": "sha256:a2b59214025a64a10a6d22125dc7b26f5aa72caf8554e2e0589a40c9bc9e71e5",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A5E3EE74EB8A2951C9639078D367739A",
+  "treatment_package_id": "TREATPKG_5DAE6F422DC8E7D7E5E4C41F32725F43",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

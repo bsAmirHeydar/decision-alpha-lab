@@ -1,0 +1,43 @@
+{
+  "adapter_digest": "sha256:f21ab448807645306dc236c75b73915888e19e6af17a54d88df3ec3fae3b8706",
+  "adapter_id": "EXECADAPTER_2FE7FAEF4791B30C83E6540D1326EE0D",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_42215B7A8701D41463F9CA7533B69036",
+    "EXECCAP_4B676C37992C1F845299F11EAC63AEF6",
+    "EXECCAP_54F3723A6D79A87CA7F5ABA23133B7E7"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:608f950e86341bd9e830f0e4e2fbff896b49fd54034020f4550b837b741745c1"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase10_hotfix002_visual_recovery.py",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

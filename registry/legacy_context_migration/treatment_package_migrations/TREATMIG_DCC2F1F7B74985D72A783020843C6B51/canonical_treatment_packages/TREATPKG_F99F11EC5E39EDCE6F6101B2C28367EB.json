@@ -1,0 +1,103 @@
+{
+  "atom_ids": [
+    "TREATATOM_480EA951479582912DD5BB098B9A4548",
+    "TREATATOM_A1623C311EF537E381F90687E8AD78A6",
+    "TREATATOM_D2CBC40C573B601B05BEE94078984737"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_LIMIT",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_564C0939FCA2FDAFBA7FBE3EABE79003",
+    "EXECCAP_859258156CAB34799E4B0FC52DC0E160"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9ff850f032051a3fd66c17b601f279a384c98e6d5a224cf1be16fb7a21991857",
+      "atom_id": "TREATATOM_480EA951479582912DD5BB098B9A4548",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "require(setup, \"setup.target_price = FP_NDSF2NormalizeNearest(symbol, f2.leg2.price)\", \"Leg2 target\", errors)",
+          "line_digest": "sha256:57bc101a629da5fa7862fdd9d22b29b31a9e64549322305a01f2902856de0bf8",
+          "line_number": 72
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2a4a9d4efd6918dd4e0c677047ba4b5707457315a3b73e9f62e62c958a490f13",
+      "atom_id": "TREATATOM_A1623C311EF537E381F90687E8AD78A6",
+      "atom_type": "ENTRY_LIMIT",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "require(rules, \"ORDER_TYPE_BUY_LIMIT\", \"buy limit\", errors)",
+          "line_digest": "sha256:bd1f1d9a35901facabe71b330d34a65647bb51eb1ed56996b0c04cc4fba7763b",
+          "line_number": 86
+        },
+        {
+          "excerpt": "require(rules, \"ORDER_TYPE_SELL_LIMIT\", \"sell limit\", errors)",
+          "line_digest": "sha256:5e70061e691100aeed7638cac0193a6627e63ae168218b67184ead83f7012a3a",
+          "line_number": 87
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:04295f5fa47ca6253d96b66b06558d343df9ec7f0232105b05904b8730d61a6c",
+      "atom_id": "TREATATOM_D2CBC40C573B601B05BEE94078984737",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "require(bt, \"FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED\", \"pending cancellation state\", errors)",
+          "line_digest": "sha256:7d3633b927bd1b42de4df8c4a7da1183c9ed14a6f30aa4301a95707917c8fb4c",
+          "line_number": 99
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ed79eaac312e7846ebeaa4bf7ae5332d017ea2a0bca76dfcc67d56dd6cc5aeb0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e094f27855d8117c4b4d88d4614cf3bef981b452367adeda78f19847ad6d9431",
+    "sha256:04295f5fa47ca6253d96b66b06558d343df9ec7f0232105b05904b8730d61a6c",
+    "sha256:2a4a9d4efd6918dd4e0c677047ba4b5707457315a3b73e9f62e62c958a490f13",
+    "sha256:9ff850f032051a3fd66c17b601f279a384c98e6d5a224cf1be16fb7a21991857"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+  "source_sha256": "sha256:e094f27855d8117c4b4d88d4614cf3bef981b452367adeda78f19847ad6d9431",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_35AB0D2CBAC193CE662527B95EF05EED",
+  "treatment_package_id": "TREATPKG_F99F11EC5E39EDCE6F6101B2C28367EB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

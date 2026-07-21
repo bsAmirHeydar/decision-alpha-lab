@@ -1,0 +1,44 @@
+{
+  "adapter_digest": "sha256:9e1c8638d4b616b89afc7742caf352e7cf5bb52fbedc59a60a9aff33e2d64b48",
+  "adapter_id": "EXECADAPTER_12FB406DACF3E5AF90E505267D8A7228",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_2B0528092496CBA300823A2015BB002F",
+    "EXECCAP_36B6C1F02D3D723A6D976A688E38C85B"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:068a33b960291351c23f9e99ed4b042b8bb2528723d786c919110af5e5d1a00c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Research/DAL_DistributionClusterMiner.mqh",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_12FB406DACF3E5AF90E505267D8A7228"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

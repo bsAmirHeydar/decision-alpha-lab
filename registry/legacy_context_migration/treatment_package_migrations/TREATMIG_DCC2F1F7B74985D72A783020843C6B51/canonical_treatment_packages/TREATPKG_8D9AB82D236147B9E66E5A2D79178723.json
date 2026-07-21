@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_C7790129CE32B08F7ED1BBA15CCCD55B"
+  ],
+  "atom_types": [
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7271787bc2a7ff1e8d9d4f0425bceeed21dc402fca0012ee0d8a5fea73a3d3c5",
+      "atom_id": "TREATATOM_C7790129CE32B08F7ED1BBA15CCCD55B",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "bool Build(const SF01_AnatomyEvent &e,const CSF01FeatureSnapshot &s,const SF07_ContextFrame &f,const SF08_PolicyParameters &p,SF08_ExitPlan &plan,string &error)const{plan.exit_kind=SF08_EXIT_TIME_ONLY;plan.has_price_target=false;plan.target_price=0.0;plan.maximum_holding_milliseconds=p.integer_values[0];plan.planned_re",
+          "line_digest": "sha256:bda880096782de81bf9b9dc84651902ed3f8c35cfbb487fa185015eeacaa4000",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:7ef54a0ff79faee2edc7c99ffe57e9267cbba2dde12966fc71f723a16840eae5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c9854bc7eca545ee8a11a7110865d2d7c341061a44945bc550b77300c20f1b5b",
+    "sha256:7271787bc2a7ff1e8d9d4f0425bceeed21dc402fca0012ee0d8a5fea73a3d3c5"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Candidate/Fixture/SF08_TimeOnlyExit.mqh",
+  "source_sha256": "sha256:c9854bc7eca545ee8a11a7110865d2d7c341061a44945bc550b77300c20f1b5b",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F43C8D6BDE8EB533BAAAF1570A5AACD0",
+  "treatment_package_id": "TREATPKG_8D9AB82D236147B9E66E5A2D79178723",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

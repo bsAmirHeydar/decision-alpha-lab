@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_C189C455919650E5DA77FF155FA8FB35"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:45833bb7c76ee8f6b1adfb0accd3b8cf25cf61dca05863a323f0b1b85dbebf15",
+      "atom_id": "TREATATOM_C189C455919650E5DA77FF155FA8FB35",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "snapshot.spread_sum += bar.spread;",
+          "line_digest": "sha256:b92d6b1f203486187fc003a6b910a994d1a927c310d21265ce52f32d44f749e5",
+          "line_number": 172
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0280852b49d9ceb2a9e4f1eab1f1da177258a28b95052b4ab54957acf74681fb",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1474311E20A60C64A4D79D67418AFAA1"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:25ab89b7aaf88d6b836152a1830d2dc174188e7bd80a436837b9f5981202bb44",
+    "sha256:45833bb7c76ee8f6b1adfb0accd3b8cf25cf61dca05863a323f0b1b85dbebf15"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_PeriodAggregator.mqh",
+  "source_sha256": "sha256:25ab89b7aaf88d6b836152a1830d2dc174188e7bd80a436837b9f5981202bb44",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5FCB8D2A1FB19FBFF7F4A47050490656",
+  "treatment_package_id": "TREATPKG_B285D4D7C0536393EA6A914C85106E5E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

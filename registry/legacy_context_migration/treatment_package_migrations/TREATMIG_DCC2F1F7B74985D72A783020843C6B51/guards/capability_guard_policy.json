@@ -1,0 +1,35 @@
+{
+  "always_denied_capabilities": [
+    "SUBMIT_ORDER",
+    "MODIFY_POSITION",
+    "MODIFY_ORDER",
+    "CANCEL_ORDER",
+    "CLOSE_POSITION",
+    "LIVE_BROKER_ACCESS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "dry_run_allowed_capabilities": [
+    "CREATE_REQUEST_INTENT",
+    "EMIT_DRY_RUN_RECORD",
+    "TRANSLATE_LEGACY_REQUEST"
+  ],
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "missing_configuration_decision": "DENY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "policy_digest": "sha256:07f68cefc53159e6134f563dbadab499192a9f1e7717b0ae2d16e9f0dffc7d8a",
+  "policy_id": "CAPGUARD_708BD0B25D8B111A7714AA9FE8393CDE",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "submission_capability_default": false,
+  "unknown_capability_decision": "DENY",
+  "validation_status": "PASS"
+}

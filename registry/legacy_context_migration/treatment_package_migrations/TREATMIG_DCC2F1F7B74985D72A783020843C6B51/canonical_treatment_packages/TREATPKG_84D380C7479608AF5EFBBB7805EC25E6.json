@@ -1,0 +1,112 @@
+{
+  "atom_ids": [
+    "TREATATOM_13D030D9CC40D045FE79FA252F861A7F",
+    "TREATATOM_7A4A62AA98D84117C432C9D2EE79AE67",
+    "TREATATOM_D455A6AD3BAF1D23FBE1F20231561255"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:55be7ec3c18c6e8b5dac97ff589601ddbee05b01407c99798775672de47c77ea",
+      "atom_id": "TREATATOM_13D030D9CC40D045FE79FA252F861A7F",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 75
+        },
+        {
+          "excerpt": "r.entry_price = 0.0;",
+          "line_digest": "sha256:b07f8b638dba4cba2aaee4a2a774e8bd6097416068c52aa9ecb3601c4b240d11",
+          "line_number": 155
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:91a057552216d21496e60bd2a2ec80fd04eb2129c38bb153503a9ddf2d49d55c",
+      "atom_id": "TREATATOM_7A4A62AA98D84117C432C9D2EE79AE67",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_price;",
+          "line_digest": "sha256:3d9441f24e91ecba7625507d1b4e4a3cfd4f0b9a7fde3a1cf8a9a44a4595f394",
+          "line_number": 76
+        },
+        {
+          "excerpt": "r.stop_price = 0.0;",
+          "line_digest": "sha256:2f0bcb498bdd298948863d7ba69fcb8068917ad03c8661a2eb903a830f075505",
+          "line_number": 156
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:80d52e090b2596a24f169f3d08fd1160e107b613a5b695369b67ca69c1c65a07",
+      "atom_id": "TREATATOM_D455A6AD3BAF1D23FBE1F20231561255",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double target_price;",
+          "line_digest": "sha256:12caefd465b68de14a3e89510a2926ebc73d14ad5cf36e5c18bed1a8e54ec112",
+          "line_number": 77
+        },
+        {
+          "excerpt": "r.target_price = 0.0;",
+          "line_digest": "sha256:0bdecd5d7f69d0ef9f4fea30d9e762fa007c220c57cb25c99df8518e0f0f70e0",
+          "line_number": 157
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:5a57a32cc5be8499615f5a4a6d91033c6ff06d551b0a73d0123aae30214510e4",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_FB5132AAE14DF13E5833E0F0D3416618"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0a71dcbc4f1d103dfa1a1fdc060fa257414303bbbb165015df4002b32803ca35",
+    "sha256:55be7ec3c18c6e8b5dac97ff589601ddbee05b01407c99798775672de47c77ea",
+    "sha256:80d52e090b2596a24f169f3d08fd1160e107b613a5b695369b67ca69c1c65a07",
+    "sha256:91a057552216d21496e60bd2a2ec80fd04eb2129c38bb153503a9ddf2d49d55c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_FinalDecisionStateTypes.mqh",
+  "source_sha256": "sha256:0a71dcbc4f1d103dfa1a1fdc060fa257414303bbbb165015df4002b32803ca35",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5447CB2A4B506D4A820676AC1543DE30",
+  "treatment_package_id": "TREATPKG_84D380C7479608AF5EFBBB7805EC25E6",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

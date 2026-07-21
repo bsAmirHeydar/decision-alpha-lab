@@ -1,0 +1,53 @@
+{
+  "adapter_digest": "sha256:287a310bc97c8c7ea520bfd2c89357de3e61ab408f6ed78347f915703d740944",
+  "adapter_id": "EXECADAPTER_A5638A6DB1F193619C03EDE5F5DCF0C2",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CLOSE_POSITION",
+    "CREATE_REQUEST_INTENT",
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_POSITION_CLOSE",
+    "BROKER_POSITION_OPEN",
+    "BROKER_REQUEST_BUILD",
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_03680A2A7C07C07D8A31A4372BEF1151",
+    "EXECCAP_4C530268057F38B9289756C7F040E9F3",
+    "EXECCAP_54369FE0D6DD8E442C275134FCC4FCB7",
+    "EXECCAP_5B6B322166D1E1ACA7499BF85ADB1585",
+    "EXECCAP_A3F73F9EE66D6BB0389CBDBDE1C8ACB8",
+    "EXECCAP_D359757B89D45248979FF68060B473F3"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:8a386315537c86aa25300ba559970b46a204c635bc210ba1c204074e5b3d49e6"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/check_sf20_boundaries.py",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

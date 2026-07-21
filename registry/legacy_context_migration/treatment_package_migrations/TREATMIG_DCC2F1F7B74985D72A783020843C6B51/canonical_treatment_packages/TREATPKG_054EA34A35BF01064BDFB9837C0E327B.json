@@ -1,0 +1,67 @@
+{
+  "atom_ids": [
+    "TREATATOM_C04987CADFD0ECB23DA500BD43998E89"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8a4a139a703606cea0416cd736ae986898d6471bdcf7fa70d87dba286c92b6ac",
+      "atom_id": "TREATATOM_C04987CADFD0ECB23DA500BD43998E89",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "px=round_tick(px,spec.tick_size,rounding)",
+          "line_digest": "sha256:86ca91a23f5534c7f8dcfc40bb17e20e387d2a0c5af2e307d4e6fcacefa0ad02",
+          "line_number": 21
+        },
+        {
+          "excerpt": "return ExecutablePriceResult(stable_id('ucepxreq',request.to_dict()),quote.quote_id,base,abs(px-base),px,quote.spread,side,True,'ok')",
+          "line_digest": "sha256:545a1a053b8c0fd9a272230494a3937a4c49bd2b3478a6408a4a850fb087b93b",
+          "line_number": 23
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9ab82299199dc80a019467f8311f3a43e9afddb3daf5d4fcc2e17f157b019850",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_C560F0BEB7EC62B6840F54D22F3852E1",
+    "RISKASM_F926FD8E4897451F1E26F0EB34BCB1BD"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:af8dc9d175d750dba1a25efcdfe40de5c454aae0ebcfb13893801fcdfb218bc6",
+    "sha256:8a4a139a703606cea0416cd736ae986898d6471bdcf7fa70d87dba286c92b6ac"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/price_kernel.py",
+  "source_sha256": "sha256:af8dc9d175d750dba1a25efcdfe40de5c454aae0ebcfb13893801fcdfb218bc6",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E7290791EF7B5FA71ED374CD50137524",
+  "treatment_package_id": "TREATPKG_054EA34A35BF01064BDFB9837C0E327B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,68 @@
+{
+  "atom_ids": [
+    "TREATATOM_333E4DC405DACF0867ADA7FCCA849D01"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_3DE1F45BDB4802341EED4E5212928A5A",
+    "EXECCAP_3E4A0478BD8B4B20E8E10AFA5457B378",
+    "EXECCAP_4A7AAB19EDB942F28379B725D835E995",
+    "EXECCAP_67664211DC4476A37E3DEA06946812D0",
+    "EXECCAP_A8B3F2B584712D7327FBC47CDDCB8A19",
+    "EXECCAP_B0FEDBC4BFE17DFFA668829EC9B3D9C0",
+    "EXECCAP_F8743535307B2654B4C2F1BF889E47F3",
+    "EXECCAP_FF242958B13121E772665C3DD791843F"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:795af41f60d80fb5444d76f005147900ac9927c4cefdcb4f870c24265676be3e",
+      "atom_id": "TREATATOM_333E4DC405DACF0867ADA7FCCA849D01",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "FORBIDDEN=('OrderSend(', 'CTrade', 'trade.Buy(', 'trade.Sell(', 'PositionOpen(', 'requests.get(', 'requests.post(', 'urllib.request', 'socket.socket', 'WebRequest(')",
+          "line_digest": "sha256:3d178ef47016a39165fb0077cccce55bddb24533472e6aac940d222ba0969444",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:fd709f4a31e9a931f9fd0507265e79fb673a56a0b4c36d4c2fe507ca42a53b42",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c0c8de42dea90971af4859d5c5f25b31360e921801fa2eac59c54550e53cd88a",
+    "sha256:795af41f60d80fb5444d76f005147900ac9927c4cefdcb4f870c24265676be3e"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i12_promotion/test_i12_boundaries.py",
+  "source_sha256": "sha256:c0c8de42dea90971af4859d5c5f25b31360e921801fa2eac59c54550e53cd88a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B5207563DD7F75BA663891E080615ABD",
+  "treatment_package_id": "TREATPKG_0BCB3F98F26DB53E76E8495206FE8573",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,139 @@
+{
+  "atom_ids": [
+    "TREATATOM_985FA1CF17D99036B7CD3160523D7F60",
+    "TREATATOM_AA24E01435BF9B7AA07421FF47BA1E6A",
+    "TREATATOM_B6C226C59E85ADF9006CEC653E6109D6"
+  ],
+  "atom_types": [
+    "BREAKEVEN",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f55baacb9be264e219b73f5a806d1a3c8364dc0cd69b416fdcac812fe215c369",
+      "atom_id": "TREATATOM_985FA1CF17D99036B7CD3160523D7F60",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "descriptor=descriptor('trailing.none',TreatmentKind.TRAILING,'none',S('trailing.none'))",
+          "line_digest": "sha256:c5d2208e89f99f037bfd487c76e7caea06730ed7f84824dbe2ecacb94d9107ed",
+          "line_number": 12
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.break_even',TreatmentKind.TRAILING,'break_even',S('trailing.break_even',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('offset_points',ParameterType.DECIMAL,'0','0','100000','points')))",
+          "line_digest": "sha256:924794fcf7b9f66477e9ef42f50a132cbd404dfabed7fddbaefa957c2471d1ca",
+          "line_number": 15
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.profit_lock',TreatmentKind.TRAILING,'profit_lock',S('trailing.profit_lock',P('activation_r',ParameterType.DECIMAL,'1.5','0','100','R'),P('lock_r',ParameterType.DECIMAL,'0.5','0','100','R')))",
+          "line_digest": "sha256:06cc39490bcb1744f37b4006fbc86b9b7c7e2e5dda1dc3b124f4d67fd03781d6",
+          "line_number": 18
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.swing_node',TreatmentKind.TRAILING,'swing_node',S('trailing.swing_node',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('buffer_points',ParameterType.DECIMAL,'2','0','100000','points')),required=('swing_high','swing_low'))",
+          "line_digest": "sha256:55386598850b8cc499fd48b4ec509cf675dd290b96876401c3307c84de336925",
+          "line_number": 21
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.atr',TreatmentKind.TRAILING,'volatility',S('trailing.atr',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('atr_multiple',ParameterType.DECIMAL,'2','0.05','100','multiple')),required=('atr',))",
+          "line_digest": "sha256:f9182276afd94720b353a66a9605c20c8283bd77f97681f4d0c23ead1b1985e4",
+          "line_number": 24
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.chandelier',TreatmentKind.TRAILING,'chandelier',S('trailing.chandelier',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('atr_multiple',ParameterType.DECIMAL,'3','0.05','100','multiple')),required=('atr','swing_high','swing_low'))",
+          "line_digest": "sha256:2b91c9628c8b893149b3595becc811f0a67ffaa9b6c6c92807a60e1982666351",
+          "line_number": 27
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.time_step',TreatmentKind.TRAILING,'time_step',S('trailing.time_step',P('activation_r',ParameterType.DECIMAL,'0.5','0','100','R'),P('step_ms',ParameterType.INTEGER,300000,1,86400000,'milliseconds'),P('lock_increment_r',ParameterType.DECIMAL,'0.25','0','100','R')))",
+          "line_digest": "sha256:cb4b2def4000e4b696d868a75c8d5ac04bce1d5629338889387689657bc71e47",
+          "line_number": 30
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.context_state',TreatmentKind.TRAILING,'context_state',S('trailing.context_state',P('activation_r',ParameterType.DECIMAL,'0','0','100','R'),P('buffer_points',ParameterType.DECIMAL,'1','0','100000','points')),required=('context_high','context_low'))",
+          "line_digest": "sha256:c17511b59bc3285c0e210146593c01084bf0abe2d2ede75c66926ae180349cc5",
+          "line_number": 33
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.opposite_signal',TreatmentKind.TRAILING,'opposite_signal',S('trailing.opposite_signal',P('activation_r',ParameterType.DECIMAL,'0','0','100','R')))",
+          "line_digest": "sha256:38a11f994ac9dee8870236c6d517075dba89cc17e7fa7076dcb94c996f987caa",
+          "line_number": 36
+        },
+        {
+          "excerpt": "descriptor=descriptor('trailing.activation_conditioned',TreatmentKind.TRAILING,'activation_conditioned',S('trailing.activation_conditioned',P('activation_r',ParameterType.DECIMAL,'2','0','100','R'),P('distance_points',ParameterType.DECIMAL,'50','0.1','1000000','points'),P('cadence_ms',ParameterType.INTEGER,1000,0,86400",
+          "line_digest": "sha256:de45e63c9fa54186d5d458724d31e2869134fc19c20fee6efec4e41a7f294b4d",
+          "line_number": 39
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6cd70808bf26c39c9a1caa2d08b9464c733b99e8a7a79635cf75ebb43298107f",
+      "atom_id": "TREATATOM_AA24E01435BF9B7AA07421FF47BA1E6A",
+      "atom_type": "BREAKEVEN",
+      "intent_field": "management.breakeven",
+      "source_evidence": [
+        {
+          "excerpt": "descriptor=descriptor('trailing.break_even',TreatmentKind.TRAILING,'break_even',S('trailing.break_even',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('offset_points',ParameterType.DECIMAL,'0','0','100000','points')))",
+          "line_digest": "sha256:924794fcf7b9f66477e9ef42f50a132cbd404dfabed7fddbaefa957c2471d1ca",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:00fbdf8abc3573c373f4f5e18a47a355082eb9d31da9d20c5b41b8c2cb67913d",
+      "atom_id": "TREATATOM_B6C226C59E85ADF9006CEC653E6109D6",
+      "atom_type": "BREAKEVEN",
+      "intent_field": "management.breakeven",
+      "source_evidence": [
+        {
+          "excerpt": "def build(self,c,i): return TrailingPlan(i.invocation_id,'break_even',i.parameters.get_decimal('activation_r'),c.price.points(i.parameters.get_decimal('offset_points')),D(0),0)",
+          "line_digest": "sha256:4aa163da8adc9714dcf4833aab131edd8843edf53b5297def9de5340b98cb6c1",
+          "line_number": 16
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e93339a9510bc04a5242ad4c9c26fe6f54835780a3cec32749f580c2a681fe63",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:ae7a0243573f2ea54165704b5559fb9864886fb45f9f62df8cfd2e311d46d9dc",
+    "sha256:00fbdf8abc3573c373f4f5e18a47a355082eb9d31da9d20c5b41b8c2cb67913d",
+    "sha256:6cd70808bf26c39c9a1caa2d08b9464c733b99e8a7a79635cf75ebb43298107f",
+    "sha256:f55baacb9be264e219b73f5a806d1a3c8364dc0cd69b416fdcac812fe215c369"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatments_v3/trailing.py",
+  "source_sha256": "sha256:ae7a0243573f2ea54165704b5559fb9864886fb45f9f62df8cfd2e311d46d9dc",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AF271445BC835B404FA90A70C89624BB",
+  "treatment_package_id": "TREATPKG_7149B56FA725A9E492FF6E6FD4219A8A",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

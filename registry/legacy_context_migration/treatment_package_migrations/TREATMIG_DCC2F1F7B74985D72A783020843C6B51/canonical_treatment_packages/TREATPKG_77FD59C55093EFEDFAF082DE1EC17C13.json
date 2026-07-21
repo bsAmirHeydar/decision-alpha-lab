@@ -1,0 +1,87 @@
+{
+  "atom_ids": [
+    "TREATATOM_9790FEE8DCF01ED8C082AE11DD38E15E",
+    "TREATATOM_97B4C1C05AB853369C9E2FA54761707B"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6ce8f81d78cf56f372b547b3e1233540e1ef1eaee5b42fa046e543d1589d9cd0",
+      "atom_id": "TREATATOM_9790FEE8DCF01ED8C082AE11DD38E15E",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double sl;",
+          "line_digest": "sha256:6545e8a4907188ee89745bcdde96c278f705f882798eb7aa0980854a34af1650",
+          "line_number": 85
+        },
+        {
+          "excerpt": "h.sl = 0.0;",
+          "line_digest": "sha256:ad8b4b30c9f43f49d37779003946d168ac8feebb93e0e745e1e4515c9fec2dec",
+          "line_number": 217
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:168391195fed133df4a6a742c4c5682de36968ebdd045c8cfbefdc97e715f1b5",
+      "atom_id": "TREATATOM_97B4C1C05AB853369C9E2FA54761707B",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double tp;",
+          "line_digest": "sha256:788a3a03207945c4c8c510d118a2328d277cf877e40ada48bf9ee4ff24358b62",
+          "line_number": 86
+        },
+        {
+          "excerpt": "h.tp = 0.0;",
+          "line_digest": "sha256:b0e1989961d59f4d2b94ff63d7c41e0e5732d8a36f60749be25b976b7403eadd",
+          "line_number": 218
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:deff84c9f09e81c8aa865af45082c17dea64d1abfd04fd47e851986f757b0e46",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2416f5c6300a97c0238ebaf16d8960d7ac0b2e76979edabc9bb4fbfc43723e96",
+    "sha256:168391195fed133df4a6a742c4c5682de36968ebdd045c8cfbefdc97e715f1b5",
+    "sha256:6ce8f81d78cf56f372b547b3e1233540e1ef1eaee5b42fa046e543d1589d9cd0"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/E0009/DAL_E0009Types.mqh",
+  "source_sha256": "sha256:2416f5c6300a97c0238ebaf16d8960d7ac0b2e76979edabc9bb4fbfc43723e96",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_ACCB85F67BF64E96024385042998AFB6",
+  "treatment_package_id": "TREATPKG_77FD59C55093EFEDFAF082DE1EC17C13",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

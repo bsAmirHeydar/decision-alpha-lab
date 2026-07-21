@@ -1,0 +1,115 @@
+{
+  "atom_ids": [
+    "TREATATOM_6C8FF3BA1767633EF1B17CFFDD4570BB",
+    "TREATATOM_AA646D9C3A9C446C59EF6748AC051A9D",
+    "TREATATOM_E0804FD29B8B35E1C65626192DE793E7",
+    "TREATATOM_FD718E9904B234A1A2B1AD764074A87C"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_B6C8EB32BB6762FDBB24FAB4C113F491"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6153e3808019472deeb03128100dfc52534c35fee184d5794f0326ac9932e5a5",
+      "atom_id": "TREATATOM_6C8FF3BA1767633EF1B17CFFDD4570BB",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" stop=\" + DoubleToString(report.trade_report.setup.stop_price, _Digits);",
+          "line_digest": "sha256:590479992797d504a51105ff71b9e0e07bf58800e17ab3d66e7c80cae21a2ce6",
+          "line_number": 500
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d787064143ff5e0f2e709596d7b4a84401085809ad4d837225188c547ed60121",
+      "atom_id": "TREATATOM_AA646D9C3A9C446C59EF6748AC051A9D",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" target=\" + DoubleToString(report.trade_report.setup.target_price, _Digits);",
+          "line_digest": "sha256:18c1a75db70d24861fd1a59fe3e1eed0f71da9ba57aa45ea973da93f9fabdd4b",
+          "line_number": 501
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9153fada06149554b812b57082f0a29ba0c3a0d5d3ca7af91f3ba46559084c64",
+      "atom_id": "TREATATOM_E0804FD29B8B35E1C65626192DE793E7",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" entry=\" + DoubleToString(report.trade_report.setup.entry_price, _Digits);",
+          "line_digest": "sha256:4151c77f1d9cf7d2f5be5a17ecfda8c9021135d9abe031159c53b8ef402e59f6",
+          "line_number": 499
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3db7161292471786101b4a41889c95547c830f024f5ffce033aafe3d48a358fc",
+      "atom_id": "TREATATOM_FD718E9904B234A1A2B1AD764074A87C",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "message += \" cancelled=\" + IntegerToString((long)stats.pending_cancelled_runs);",
+          "line_digest": "sha256:b998ea549483ec5c1eb5f653d006abd61d766384eb7bcc55e9f0e4184aa1fc12",
+          "line_number": 544
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:817df425c20fbb1ecf2e2a5837357dd22bbef595b96b17e69fa7d1e6ecca90c7",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e74a23cc713fc44a414266426e3af9fc79b7701c2b436c1e98b8c139c223564c",
+    "sha256:3db7161292471786101b4a41889c95547c830f024f5ffce033aafe3d48a358fc",
+    "sha256:6153e3808019472deeb03128100dfc52534c35fee184d5794f0326ac9932e5a5",
+    "sha256:9153fada06149554b812b57082f0a29ba0c3a0d5d3ca7af91f3ba46559084c64",
+    "sha256:d787064143ff5e0f2e709596d7b4a84401085809ad4d837225188c547ed60121"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh",
+  "source_sha256": "sha256:e74a23cc713fc44a414266426e3af9fc79b7701c2b436c1e98b8c139c223564c",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C8362762B218D9B95AFA5CC8009FF3F1",
+  "treatment_package_id": "TREATPKG_55A972534F708B75418F8D2D8D082A10",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

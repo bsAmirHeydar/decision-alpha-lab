@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_50CC04206535F44C1D27CD5AE3F8EFF6"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:b0393d8009b7168907af19c5438e8d46dcf194cd7187d01d4b440df27f816bde",
+      "atom_id": "TREATATOM_50CC04206535F44C1D27CD5AE3F8EFF6",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 19
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1dc2a3df2f4ff7097a02f55ac790299b4ff3c0c4eb5a82272ee91aee10fac0bd",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:2f3b506860f82f67d5655bbc8323d027833c28b4a6b6c96006622834e8545c56",
+    "sha256:b0393d8009b7168907af19c5438e8d46dcf194cd7187d01d4b440df27f816bde"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Outcome/SF09_CostModel.mqh",
+  "source_sha256": "sha256:2f3b506860f82f67d5655bbc8323d027833c28b4a6b6c96006622834e8545c56",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_7773C636EF01719BEAFC794A061442F1",
+  "treatment_package_id": "TREATPKG_7EECF1F976D5B0578EBE3A11601BCB55",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,126 @@
+{
+  "atom_ids": [
+    "TREATATOM_612F186A519CED47ECDBB69227013215",
+    "TREATATOM_9309DAAB4E039B509233735848FD060E",
+    "TREATATOM_A1562177309D4ACEE5437A9EE669C43E"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:854867747241c751f025db494050700e2597f36e33f01f09eedf8deb03389bff",
+      "atom_id": "TREATATOM_612F186A519CED47ECDBB69227013215",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "out.status=FP_I15_GEOMETRY_BLOCKED; out.entry=(winner.direction==FP_I15_BUY?quote.ask:quote.bid); out.worst_entry=out.entry+(winner.direction==FP_I15_BUY?risk.max_slippage_price:-risk.max_slippage_price); out.raw_stop=winner.raw_structural_stop; out.spread=quote.ask-quote.bid;",
+          "line_digest": "sha256:5327386d86da9b9193d0648f33e513a5fb6ccdc59c669b28f6b1663a50231079",
+          "line_number": 7
+        },
+        {
+          "excerpt": "if(winner.direction==FP_I15_SELL && out.spread<=0){out.reason_code=\"FP_PAPER_SPREAD_SNAPSHOT_UNAVAILABLE\";return false;}",
+          "line_digest": "sha256:2f180488129ccaba7ad103ffa8b5f0a3fd19f216c293999fa0e656883c23b534",
+          "line_number": 8
+        },
+        {
+          "excerpt": "out.adjusted_stop=(winner.direction==FP_I15_BUY?out.raw_stop:out.raw_stop+out.spread);",
+          "line_digest": "sha256:12e882d73bdebaeb8134b8d18f4be6acda329099de29be217c0760dd65476056",
+          "line_number": 9
+        },
+        {
+          "excerpt": "out.adjusted_stop=(winner.direction==FP_I15_BUY?FP_I15_FloorStep(out.adjusted_stop,spec.tick_size):FP_I15_CeilStep(out.adjusted_stop,spec.tick_size));",
+          "line_digest": "sha256:836e9fdf95380f70acc78c3ac11bee5eb2c95c14a4b137e9d47fd5e6c9688e4b",
+          "line_number": 10
+        },
+        {
+          "excerpt": "out.stop_distance=MathAbs(out.worst_entry-out.adjusted_stop); double minimum=MathMax(spec.tick_size,MathMax(spec.stops_level_price,spec.freeze_level_price));",
+          "line_digest": "sha256:63b95a908fc35118dafcb7516f37d6d87ca5becd232b016f1ee3c38a7600aace",
+          "line_number": 13
+        },
+        {
+          "excerpt": "double base=MathAbs(out.entry-out.adjusted_stop); out.target=out.entry+(winner.direction==FP_I15_BUY?base*risk.target_r_multiple:-base*risk.target_r_multiple); out.target=(winner.direction==FP_I15_BUY?FP_I15_FloorStep(out.target,spec.tick_size):FP_I15_CeilStep(out.target,spec.tick_size));",
+          "line_digest": "sha256:b743dd156d0d95061211b8e6130c12853db6267fccbbe2c9379ab36a524f9ce6",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:55fd83c09beed66aea3568d54275b39f98bd43aa011a0517769fc601bc024b5b",
+      "atom_id": "TREATATOM_9309DAAB4E039B509233735848FD060E",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "out.raw_volume=risk.fixed_risk_amount/out.loss_per_lot; out.volume=FP_I15_FloorStep(MathMin(out.raw_volume,spec.volume_max),spec.volume_step); out.max_loss=out.volume*out.loss_per_lot;",
+          "line_digest": "sha256:29f22aac56be5bef1c0292b08b74d0ced0b4aab6cc30f64854cd5e78d857ff05",
+          "line_number": 20
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bb544f80a9448fd5421ee5f7c0647fb06338f387b26a977bb3019f3e9dfe45bb",
+      "atom_id": "TREATATOM_A1562177309D4ACEE5437A9EE669C43E",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "out.status=FP_I15_GEOMETRY_BLOCKED; out.loss_per_lot=(g.stop_distance/spec.tick_size)*spec.tick_value_loss+risk.round_trip_cost_per_lot; if(out.loss_per_lot<=0){out.reason_code=\"FP_PAPER_LOSS_PER_LOT_NONPOSITIVE\";return false;}",
+          "line_digest": "sha256:2d5bf886a59e7c9cfb9bfc998ec4f3ea02de100621af04eb93d405b3efb13cbd",
+          "line_number": 19
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1a51e6b879d7ca410510b730fd919a943a590ad38eb27c14cc83a720e6f19e28",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_39E1C7F67CC2D4EE5A300472CF69B6C2",
+    "RISKASM_6B832E13F1A5DE4DFE5C2A02B3C41BE2",
+    "RISKASM_A0973FEF35C9C4B15B4C424FFEA78DA2",
+    "RISKASM_B6C1C3E868144FDF994EB1FD37E6F757",
+    "RISKASM_C77B47D4EC6DA59178FF1B4A3A609A00",
+    "RISKASM_CE711254820B93589B5838F82D08B144"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6a95d9ef9a7585196105a6727ce813e4d03ed4bc2f0ff10dd3fd1c78af48bebd",
+    "sha256:55fd83c09beed66aea3568d54275b39f98bd43aa011a0517769fc601bc024b5b",
+    "sha256:854867747241c751f025db494050700e2597f36e33f01f09eedf8deb03389bff",
+    "sha256:bb544f80a9448fd5421ee5f7c0647fb06338f387b26a977bb3019f3e9dfe45bb"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I15/FP_RiskAdapter.mqh",
+  "source_sha256": "sha256:6a95d9ef9a7585196105a6727ce813e4d03ed4bc2f0ff10dd3fd1c78af48bebd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4DEB647DB9EDDABE284AE9FEC17D9C90",
+  "treatment_package_id": "TREATPKG_C1EE97B5635B30F817451B598AF517EB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

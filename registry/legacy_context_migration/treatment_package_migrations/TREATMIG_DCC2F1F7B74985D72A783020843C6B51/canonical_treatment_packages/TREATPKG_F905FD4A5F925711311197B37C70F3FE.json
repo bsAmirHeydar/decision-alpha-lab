@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_2AB2C2B474CDB0F31DE781D440367303"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:61e88fb37ab16c2229eb2b905f4947d71675986318eda1c718c662a3be4e66db",
+      "atom_id": "TREATATOM_2AB2C2B474CDB0F31DE781D440367303",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "const int &spread[]",
+          "line_digest": "sha256:12cb33481eb746b91a5d6621c361a114ded9e747b53053696fc1e834cb3be9d2",
+          "line_number": 350
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2d50f588566c8b78a90ababdf7c0f685f33ed42a5454852b317f4be8fb62b351",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_636C8F2A2E29949421FBB553EEF51E06"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4161809ed7484c57774844c8514cc48c0aa608698a971bd068b9bbd8558beda6",
+    "sha256:61e88fb37ab16c2229eb2b905f4947d71675986318eda1c718c662a3be4e66db"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5",
+  "source_sha256": "sha256:4161809ed7484c57774844c8514cc48c0aa608698a971bd068b9bbd8558beda6",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C74E0ECA6832FE9863B9C5B5CECA3138",
+  "treatment_package_id": "TREATPKG_F905FD4A5F925711311197B37C70F3FE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_3504395A12D893FA7B7712A45CE355FF",
+    "TREATATOM_66BB70A1D65EE147CA242F8C0AC121A7"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_PRICE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c10794c9f9e3f887f0baa909ad9ee374efa11471196bee22b68bc59f89d4d725",
+      "atom_id": "TREATATOM_3504395A12D893FA7B7712A45CE355FF",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "def cancel(self, intent_id: str) -> ExecutionTrace:",
+          "line_digest": "sha256:8d6f57b001aefa1c88959b42c2ccdf5aaafd8a8c5c860217073b8030aad05bac",
+          "line_number": 55
+        },
+        {
+          "excerpt": "state=\"cancelled\" if existing else \"not_found\",",
+          "line_digest": "sha256:5437343b79cb6694daa8252975773f156a7a0d2c83fc69ed0b876b182d80634d",
+          "line_number": 65
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:efb1336a260a8b6d12cdfdecbffa34536c92bbdacc4ce9450a90fedd92f7682c",
+      "atom_id": "TREATATOM_66BB70A1D65EE147CA242F8C0AC121A7",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "metadata={\"entry_type\": intent.entry_type, \"entry_price\": intent.entry_price},",
+          "line_digest": "sha256:3a3d5f4d27b1d82585f01931aaad022e10b6dbe4e73194cdedae0bb4aafd8a90",
+          "line_number": 50
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ad80d54fe94122ca68179fbf8ff0b7a381fc62538f2be82b482764fb98c87a52",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a4d424b093603c8383db83b1227bb4c99b8ddeaffb59e549776b5518e44066cd",
+    "sha256:c10794c9f9e3f887f0baa909ad9ee374efa11471196bee22b68bc59f89d4d725",
+    "sha256:efb1336a260a8b6d12cdfdecbffa34536c92bbdacc4ce9450a90fedd92f7682c"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory/execution/paper.py",
+  "source_sha256": "sha256:a4d424b093603c8383db83b1227bb4c99b8ddeaffb59e549776b5518e44066cd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_259ED9DBD29F07FB17453260112BE81A",
+  "treatment_package_id": "TREATPKG_FE81C4D85FD8DA339E89DB962652C9FA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

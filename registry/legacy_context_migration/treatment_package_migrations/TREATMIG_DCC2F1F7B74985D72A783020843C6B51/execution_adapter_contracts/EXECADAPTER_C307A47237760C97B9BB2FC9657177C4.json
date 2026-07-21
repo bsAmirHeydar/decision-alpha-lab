@@ -1,0 +1,55 @@
+{
+  "adapter_digest": "sha256:ba0ae7bd5786f1f5a05dc07f7d64dde1d2df7892c141df5fb2b222661595fdde",
+  "adapter_id": "EXECADAPTER_C307A47237760C97B9BB2FC9657177C4",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MODIFY_ORDER",
+    "MODIFY_POSITION",
+    "READ_BROKER_CONSTRAINTS",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_ORDER_MODIFY",
+    "BROKER_POSITION_MODIFY",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_CTRADE",
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_41D6E72139E33B578E4966042B3C8AB9",
+    "EXECCAP_474A02986B7E82879DACC22645990FB2",
+    "EXECCAP_A4E404D0B375E19416C3B2A28BF59661",
+    "EXECCAP_B61FB0A431A3BC31538824BA2E5D1886",
+    "EXECCAP_B72270E0237D5626DB51CB04B1A302F8",
+    "EXECCAP_C37E63B3FCFD8433A8FCDAE75D87B854"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0483e354e23aafd6e776985d7e3e00fc539f4c0553623debd93f585a27e5aa80"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_C307A47237760C97B9BB2FC9657177C4"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

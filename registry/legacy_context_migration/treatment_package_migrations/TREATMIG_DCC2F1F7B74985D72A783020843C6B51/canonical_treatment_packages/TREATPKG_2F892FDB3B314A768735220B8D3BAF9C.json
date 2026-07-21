@@ -1,0 +1,76 @@
+{
+  "atom_ids": [
+    "TREATATOM_7C53C2C14CFB8C10C6FB47D352B22509"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_BEC4DDFCCD7A8DB4A815988DCDA2CE9F"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:33c44a2054abde2a7f623387e9f25238575fdef23342d11e18088764810b8aa0",
+      "atom_id": "TREATATOM_7C53C2C14CFB8C10C6FB47D352B22509",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "elif transition is ReferenceTransition.EXPIRED:",
+          "line_digest": "sha256:4bc5a42e67f3c084bdf6bc6aace0e5b2f00ec6dec850ed2d22399d0bfc516cdc",
+          "line_number": 31
+        },
+        {
+          "excerpt": "if prior not in (ReferenceState.FRESH,ReferenceState.HUNTER_SEEN): raise FPI05Error('FP_RRC_REFERENCE_TRANSITION_ILLEGAL','invalid expiry transition')",
+          "line_digest": "sha256:3437af2cfff582b4df936edd3e7dbd11ffa39ecef5115680c7437fde2f8a9f67",
+          "line_number": 32
+        },
+        {
+          "excerpt": "nxt=ReferenceState.EXPIRED;reason='FP_RRC_REFERENCE_EXPIRED'",
+          "line_digest": "sha256:b66d9e7be5e1b9acfc2636531fb0442005a720575f189d15a2c287431f3d234c",
+          "line_number": 33
+        },
+        {
+          "excerpt": "if prior in (ReferenceState.EXPIRED,ReferenceState.SUPERSEDED): raise FPI05Error('FP_RRC_REFERENCE_TRANSITION_ILLEGAL','invalid supersede transition')",
+          "line_digest": "sha256:e0d8774170eaa48b2a63c309c932b7a644fd87b32c7ae1394f87ae07addb60f0",
+          "line_number": 35
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:92add2b1fafd30c686fef570b3409cc62975194c1c65fc4ce83ecd894eb3dc78",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4b5e054a38efa76a9f607161def82dc29fa08fb523c3342cefff2408c88f6b71",
+    "sha256:33c44a2054abde2a7f623387e9f25238575fdef23342d11e18088764810b8aa0"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/python/fp_i05_reference/reference_engine.py",
+  "source_sha256": "sha256:4b5e054a38efa76a9f607161def82dc29fa08fb523c3342cefff2408c88f6b71",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_9D934CC034BD9FCDE2F9224C05E85915",
+  "treatment_package_id": "TREATPKG_2F892FDB3B314A768735220B8D3BAF9C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

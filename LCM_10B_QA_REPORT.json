@@ -1,0 +1,94 @@
+{
+  "authority_created": {
+    "capital": false,
+    "consumer_cutover": false,
+    "live_order": false,
+    "paper_order": false,
+    "promotion": false,
+    "runtime": false
+  },
+  "checks": [
+    {
+      "check": "LCM10B_DIRECT_TESTS",
+      "failed": 0,
+      "passed": 35,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10A_NON_REBUILD_REGRESSION",
+      "failed": 0,
+      "passed": 23,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM09B_REGRESSION",
+      "failed": 0,
+      "passed": 34,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM_ROADMAP_REFINEMENT_REGRESSION",
+      "failed": 0,
+      "passed": 5,
+      "result": "PASS"
+    },
+    {
+      "check": "SCHEMA_CATALOG",
+      "result": "PASS",
+      "schema_count": 18
+    },
+    {
+      "check": "STATIC_PYTHON_BOUNDARY",
+      "error_count": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "CANONICAL_FORBIDDEN_API_BOUNDARY",
+      "hit_count": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "PACKAGE_VERIFICATION",
+      "counts": {
+        "blocked_setup_count": 57,
+        "bound_setup_count": 3,
+        "execution_adapter_count": 483,
+        "legacy_adapter_record_count": 483,
+        "legacy_broker_mutation_path_count": 184,
+        "packaged_atom_count": 1109,
+        "setup_binding_count": 60,
+        "treatment_atom_count": 1109,
+        "treatment_blocker_count": 382,
+        "treatment_package_count": 422
+      },
+      "result": "PASS"
+    },
+    {
+      "check": "DIRECT_REBUILD_DETERMINISM",
+      "result": "PASS",
+      "scope": "LCM-10B generated package"
+    },
+    {
+      "check": "CLEAN_OVERLAY",
+      "result": "PASS",
+      "scope": "LCM-10A accepted baseline plus LCM-10B payload"
+    }
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_BUILD_RECORD_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e",
+  "migration_id": "TREATMIG_DCC2F1F7B74985D72A783020843C6B51",
+  "output_manifest_digest": "sha256:c1f6ea311188098ea1e8bed72ad73d820effd214b7e27c0012fb0f0764e97541",
+  "phase_id": "LCM-10B",
+  "qa_digest": "sha256:1e878a30390c3b9c71efedfa0dfa6dca3dbfeebe6e26be46a4f3121c05f8ebd2",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "upstream_regression_exclusions": [
+    {
+      "effect_on_lcm10b_acceptance": "NONE",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py",
+      "reason": "Upstream full repository rescanning test exceeds the bounded patch-validation window; LCM-10A package integrity is covered by its remaining 23 regression tests and LCM-10B independently passes byte-deterministic rebuild."
+    }
+  ]
+}

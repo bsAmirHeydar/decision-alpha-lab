@@ -1,0 +1,98 @@
+{
+  "atom_ids": [
+    "TREATATOM_038028A8B9C28CD50356102997F30DC3",
+    "TREATATOM_C6248F94D26C24457D035FD0CB732C9F",
+    "TREATATOM_E6F4375C30D8D061745D22FA1309BC3C"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:5a9389ecf7f8b5825daf6185862fcf9e4b222931884f78a923c02d6cab596de6",
+      "atom_id": "TREATATOM_038028A8B9C28CD50356102997F30DC3",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double tick_size;",
+          "line_digest": "sha256:5e5f4f7eaa0103726538cc1745ef3da1085d29c491d8153c888ff7a1b82fac35",
+          "line_number": 71
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:97c6b09c8f23565cda649214fa5ae17fce399979189f407b78cbc3cff03d07a2",
+      "atom_id": "TREATATOM_C6248F94D26C24457D035FD0CB732C9F",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double stop_price;",
+          "line_digest": "sha256:3d9441f24e91ecba7625507d1b4e4a3cfd4f0b9a7fde3a1cf8a9a44a4595f394",
+          "line_number": 66
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:092197cefa307540e4b1274c954fbc8d09f63f5f3f5c5121273d497774d3f1ad",
+      "atom_id": "TREATATOM_E6F4375C30D8D061745D22FA1309BC3C",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 65
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:42f4d78e4a7e497e444d188de14b6775bf21fa7b9e3a95fcfe584315274c5bc0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_7AAAD0B64A7B76904F5512831A4333FF",
+    "RISKASM_B8FA3117DC3541009DE7FFC5E2AE48B3"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d245cf6ff33877bd43e6c721bc443c7dda1135e576be7286e449bd2b21c57362",
+    "sha256:092197cefa307540e4b1274c954fbc8d09f63f5f3f5c5121273d497774d3f1ad",
+    "sha256:5a9389ecf7f8b5825daf6185862fcf9e4b222931884f78a923c02d6cab596de6",
+    "sha256:97c6b09c8f23565cda649214fa5ae17fce399979189f407b78cbc3cff03d07a2"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGO_Types.mqh",
+  "source_sha256": "sha256:d245cf6ff33877bd43e6c721bc443c7dda1135e576be7286e449bd2b21c57362",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4303992F5E9D2DC4E1559E4C05E57CC2",
+  "treatment_package_id": "TREATPKG_3F243A8007B4AA005128DE45E5DC0469",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

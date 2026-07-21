@@ -1,0 +1,94 @@
+{
+  "atom_ids": [
+    "TREATATOM_873FD2CF86AB38174CF42B59AD849687",
+    "TREATATOM_C8AE18377A7DB54B088488A8EA22CB2D",
+    "TREATATOM_FBFBE21F9DD28587B66DD21B065BC833"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:18a5c9dedca2de729687e2c5b4467a4f3d51f8112c884bb05c72748e0a86fbeb",
+      "atom_id": "TREATATOM_873FD2CF86AB38174CF42B59AD849687",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "assert l.stop_price==Decimal('99.82'); assert s.stop_price==Decimal('100.20')",
+          "line_digest": "sha256:fea21bf445ae5c0eb6bd76b5927743588a3877514005a40a68bc1d4b046bece4",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0ee35d5e8757ab50662d3f477be564cb0c8ed951e546e9d058ad9f337ea781b4",
+      "atom_id": "TREATATOM_C8AE18377A7DB54B088488A8EA22CB2D",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "_,p=RunnerTarget().invoke(reference_context()); assert p.no_fixed_target and p.legs[0].is_runner and p.legs[0].target_price is None",
+          "line_digest": "sha256:a933f1fa95a70c2a5ef52729a7a764788480b381402dcabe198a075c17aad21d",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:816be9374c456af2b00c75f32771b305250fe960f065f1f55d3e45228c47c9bb",
+      "atom_id": "TREATATOM_FBFBE21F9DD28587B66DD21B065BC833",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "assert l.legs[0].target_price==Decimal('102.02'); assert s.legs[0].target_price==Decimal('98.00')",
+          "line_digest": "sha256:26b031d1f4c4e5d52735e95254cf753ee6b8ef7c7255f233e6299418979154a2",
+          "line_number": 10
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e28a43465b1ebc74447f4391969895fd9fc7ec4826d3b73ebb819a86414a1e09",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b5d8cc26a0f1c3c831b6d4fa5e34dd87b83840ed8e15ec8accbe7b0656fc6968",
+    "sha256:0ee35d5e8757ab50662d3f477be564cb0c8ed951e546e9d058ad9f337ea781b4",
+    "sha256:18a5c9dedca2de729687e2c5b4467a4f3d51f8112c884bb05c72748e0a86fbeb",
+    "sha256:816be9374c456af2b00c75f32771b305250fe960f065f1f55d3e45228c47c9bb"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i03_treatments/test_stops_targets.py",
+  "source_sha256": "sha256:b5d8cc26a0f1c3c831b6d4fa5e34dd87b83840ed8e15ec8accbe7b0656fc6968",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_272CDF0D4ED7BDB9508A681425531F8D",
+  "treatment_package_id": "TREATPKG_B6BDD71E53A2ADECBBF982F66542AC41",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

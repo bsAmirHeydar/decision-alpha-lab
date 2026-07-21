@@ -1,0 +1,80 @@
+{
+  "atom_ids": [
+    "TREATATOM_761288D024C41DDC16FA2C49F12D2475",
+    "TREATATOM_F8988E580F094BC7EE77CB14FE03711D"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_1DB985ED6F0B36A23541E2F37139AB04",
+    "EXECCAP_51D7C0FB6F8397C6C05101B527B9CE2F"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d61f26ddaacab0cb4906ef646cddbc9c79d8fe687b08280e1cddd8073fe69c70",
+      "atom_id": "TREATATOM_761288D024C41DDC16FA2C49F12D2475",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "q,s,a,g,r,b,m=fixture(); g=replace(g,logical_stop_price=Decimal('1.10005')); out=BrokerConstraintSolver().solve(s,q,g,Decimal('1.1001'),Decimal('1.10005'),Decimal('1.1041'),Decimal('0.1'),a.free_margin); assert abs(out.entry_price-out.stop_price)>=s.stops_level_points*s.point",
+          "line_digest": "sha256:41c601d6b0dfa167e4222102ff5acc7b4c7df823e5105faa17ff3f62fbfab156",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:666d5c7be9b9e6e8fc8b88faef75b962d20ffb9e9ba7139b87bfe81d261df42a",
+      "atom_id": "TREATATOM_F8988E580F094BC7EE77CB14FE03711D",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "q,s,a,g,r,b,m=fixture(); g=replace(g,logical_stop_price=Decimal('1.10005')); out=BrokerConstraintSolver().solve(s,q,g,Decimal('1.1001'),Decimal('1.10005'),Decimal('1.1041'),Decimal('0.1'),a.free_margin); assert abs(out.entry_price-out.stop_price)>=s.stops_level_points*s.point",
+          "line_digest": "sha256:41c601d6b0dfa167e4222102ff5acc7b4c7df823e5105faa17ff3f62fbfab156",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:505e35ec523d70bb510a99d1db2877110e1fd806cbdb0c7ce5bdf7809fc1856b",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f2e9b7293c49f6edb0c5aec55822d44fe2dc3d6d234469926e1cdff55b3f1c29",
+    "sha256:666d5c7be9b9e6e8fc8b88faef75b962d20ffb9e9ba7139b87bfe81d261df42a",
+    "sha256:d61f26ddaacab0cb4906ef646cddbc9c79d8fe687b08280e1cddd8073fe69c70"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i05_economics/test_constraints.py",
+  "source_sha256": "sha256:f2e9b7293c49f6edb0c5aec55822d44fe2dc3d6d234469926e1cdff55b3f1c29",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_824D5BE05712975568368084236020A1",
+  "treatment_package_id": "TREATPKG_6C4927D79BA6B475E11FBE41AC5EDB9B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

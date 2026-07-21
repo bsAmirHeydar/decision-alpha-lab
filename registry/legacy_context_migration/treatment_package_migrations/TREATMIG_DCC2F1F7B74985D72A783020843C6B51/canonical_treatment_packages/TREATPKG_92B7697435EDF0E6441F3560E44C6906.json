@@ -1,0 +1,182 @@
+{
+  "atom_ids": [
+    "TREATATOM_889CC20CE144C25ED839313673F86777",
+    "TREATATOM_DDA09A1A0FFA4FD63D73A5EF6F8DF900",
+    "TREATATOM_FF2A5721F0D8C3E4736A2400D8E96E7A"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "PARTIAL_EXIT",
+    "RECONCILIATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_62DAF3D0434C2B7A1151EFF15B700787",
+    "EXECCAP_9D43846E2E6A3C225973095E41AD59F8",
+    "EXECCAP_B4C2C573B403210874E5D78D83273B7E",
+    "EXECCAP_BED1F17561534920773B31E99171ED57",
+    "EXECCAP_DFFA311284B9BFC2403948E484D199D9"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:577d21633a4f70c2a1246e204e0a7794c57b93aad93a3e6b23a48a8de6293829",
+      "atom_id": "TREATATOM_889CC20CE144C25ED839313673F86777",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "\"stc_day_id\", \"server_time\", \"ny_time\", \"ticket\", \"position_identifier\", \"symbol\", \"magic\", \"original_volume\", \"close_volume\", \"remaining_volume\", \"status\");",
+          "line_digest": "sha256:dbe37f56fad3eca90d5f14ead4d23d0d2eb35912f4955f577f90fcb8b2441301",
+          "line_number": 46
+        },
+        {
+          "excerpt": "audit.stc_day_id, STC_TimeText(audit.server_time), STC_TimeText(audit.ny_time), IntegerToString((long)audit.ticket), IntegerToString(audit.position_identifier), audit.symbol, IntegerToString(audit.magic),",
+          "line_digest": "sha256:2a7c944c5bf0fd4c3e556491a36c6242eeb72396dc177c5cecd9ba0c50241dfc",
+          "line_number": 48
+        },
+        {
+          "excerpt": "STC_TimeText(audit.server_time), STC_TimeText(audit.ny_time), audit.stc_day_id, STC_RuntimeModeText(cfg.runtime_mode), cfg.run_id, cfg.symbol1, cfg.symbol2, IntegerToString(cfg.magic_number),",
+          "line_digest": "sha256:27891e035bb4ef4a571b4762bcc3f7f038e48c5adf781540656eb01ea1d52762",
+          "line_number": 74
+        },
+        {
+          "excerpt": "IntegerToString((long)audit.ticket), IntegerToString(audit.position_identifier), audit.symbol, IntegerToString(audit.magic), audit.position_type, STC_TimeText(audit.open_time), STC_TimeText(audit.open_ny), STC_MCycleText(audit.open_m_cycle), STC_WCycleText(audit.open_w_cycle),",
+          "line_digest": "sha256:eb188e3f461abd7f8b9d364347dceae25e0fe535d9580c6784daa2a9cfe50714",
+          "line_number": 75
+        },
+        {
+          "excerpt": "audit.magic = PositionGetInteger(POSITION_MAGIC);",
+          "line_digest": "sha256:913ac665b5a3d6aeff8d86bef826943de96d2d26ac34b6b446fb57cb67e5b601",
+          "line_number": 93
+        },
+        {
+          "excerpt": "audit.rule_note = \"Level17 evaluates real partial close only for current STC-day Symbol1/Symbol2 positions with matching magic number.\";",
+          "line_digest": "sha256:dca5508f368d52b352b2f124d87abe6c978e8ab262cd4f28dd4a4548605f7158",
+          "line_number": 122
+        },
+        {
+          "excerpt": "if(!STC_IsManagedBrokerPosition(cfg, audit.symbol, audit.magic))",
+          "line_digest": "sha256:1142d9b45676dd4140c6dd298a2ea3436502332ecf3524b367d37f14f9999e24",
+          "line_number": 130
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(cfg.magic_number);",
+          "line_digest": "sha256:57d4dc41f585396cda14ba9db5ca7dc97ccff59ac8ee3c87d94b5736bc71e456",
+          "line_number": 221
+        },
+        {
+          "excerpt": "audit.rule_note = \"Magic-only real partial close was sent. A marker was written to prevent duplicate partial after restart.\";",
+          "line_digest": "sha256:430389d1a1d8066bb8bbc75256fc539397ed47dedc11cbd7cfe9a5fa372c74f6",
+          "line_number": 236
+        },
+        {
+          "excerpt": "long magic = PositionGetInteger(POSITION_MAGIC);",
+          "line_digest": "sha256:d3407585e1804e049eab8949d96e893dac3f32dbd1f819adb7c2132d663025f8",
+          "line_number": 273
+        },
+        {
+          "excerpt": "if(!STC_IsManagedBrokerPosition(cfg, symbol, magic))",
+          "line_digest": "sha256:e43747d94dbfceac663d378c6646a9bd502bca36cd57b56cfee6e21acd1fc998",
+          "line_number": 274
+        },
+        {
+          "excerpt": "empty.rule_note = \"No Symbol1/Symbol2 positions with this magic number were available for real partial scan.\";",
+          "line_digest": "sha256:7b3cb71cf39fd8059a0e8ff3f1101216857b41e04f67607bd61154571fbd84b9",
+          "line_number": 291
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:db1d661e0169e1212a1a64513076323b8c29ad130b28b5cfd8274cc1456c520d",
+      "atom_id": "TREATATOM_DDA09A1A0FFA4FD63D73A5EF6F8DF900",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "int total_positions = PositionsTotal();",
+          "line_digest": "sha256:ed79beba9c55becaae6cb16a9666a7b2dcfff4f05ce98bd1a0748bf6c7bced8b",
+          "line_number": 265
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:77f9e766ed3eb2834c6d6894ea20b1daeda0f333369658b39cb857ef579542e7",
+      "atom_id": "TREATATOM_FF2A5721F0D8C3E4736A2400D8E96E7A",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "audit.rule_note = \"Level17 evaluates real partial close only for current STC-day Symbol1/Symbol2 positions with matching magic number.\";",
+          "line_digest": "sha256:dca5508f368d52b352b2f124d87abe6c978e8ab262cd4f28dd4a4548605f7158",
+          "line_number": 122
+        },
+        {
+          "excerpt": "audit.rule_note = \"InpPartial=false disables real partial close but does not disable hard close.\";",
+          "line_digest": "sha256:936e7cf7253863c0ca14fc023ca50bb576a8ca6405865b2672de1bbf56b5228c",
+          "line_number": 140
+        },
+        {
+          "excerpt": "ok = trade.PositionClosePartial(audit.ticket, close_volume, cfg.real_partial_deviation_points);",
+          "line_digest": "sha256:8c8b4db11a08e9004d34947f23c01a17449d6d7d5f683b5933f5deed205eede4",
+          "line_number": 228
+        },
+        {
+          "excerpt": "audit.rule_note = \"Magic-only real partial close was sent. A marker was written to prevent duplicate partial after restart.\";",
+          "line_digest": "sha256:430389d1a1d8066bb8bbc75256fc539397ed47dedc11cbd7cfe9a5fa372c74f6",
+          "line_number": 236
+        },
+        {
+          "excerpt": "audit.rule_note = \"Real partial close failed; no marker was written, so the next due scan may retry. err=\" + IntegerToString(GetLastError());",
+          "line_digest": "sha256:9c98cb17a6dbc560a5ea53eff32864451320433f28d8eb2066e84a1fa046c6e6",
+          "line_number": 242
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f093690b0acb6eb8430e9923243ae2a2b39a2bb277110669b759d9559c7389c4",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_13AC2C4E0A5250C881BBFD2C3719AA98",
+    "RISKASM_3EC34B107799A417B8D16634AC6591B3",
+    "RISKASM_77AEABE48497726733C17EA621D7BA33",
+    "RISKASM_7B72CA82C487177FF008972752D4F2EA",
+    "RISKASM_E37713FE9603351844610BA2CE7B11A2"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4919c63256d784d45ed06c1e28fad0955e10cf59e081b1f7185777c9a42bc2b2",
+    "sha256:577d21633a4f70c2a1246e204e0a7794c57b93aad93a3e6b23a48a8de6293829",
+    "sha256:77f9e766ed3eb2834c6d6894ea20b1daeda0f333369658b39cb857ef579542e7",
+    "sha256:db1d661e0169e1212a1a64513076323b8c29ad130b28b5cfd8274cc1456c520d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_RealPartial.mqh",
+  "source_sha256": "sha256:4919c63256d784d45ed06c1e28fad0955e10cf59e081b1f7185777c9a42bc2b2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_591211CF2194D4285378026AC359FB00",
+  "treatment_package_id": "TREATPKG_92B7697435EDF0E6441F3560E44C6906",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

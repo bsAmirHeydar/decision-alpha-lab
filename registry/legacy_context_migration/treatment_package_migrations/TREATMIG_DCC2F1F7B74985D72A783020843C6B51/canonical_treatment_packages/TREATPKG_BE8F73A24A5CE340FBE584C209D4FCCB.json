@@ -1,0 +1,62 @@
+{
+  "atom_ids": [
+    "TREATATOM_EBB76040287CA4CDC7F257441E2D1797"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1c6f605265a43415f15416203a8993efcc566804fd5f11f3fbbc64621157fc57",
+      "atom_id": "TREATATOM_EBB76040287CA4CDC7F257441E2D1797",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "Selector(\"price_view\", \"spread\"),",
+          "line_digest": "sha256:58089fdfd49185aef781a00a0cbdf33302bfb3aba897e700a7a8ca54ff814f6a",
+          "line_number": 93
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:10b6e14a549682c8055d5fdfb5728a5ad812a76ba7f6827100679f09dc237b49",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_3FA6472D897DCF53A254B934D00EDB19",
+    "RISKASM_FA73B7165C97E66E2C2965D6EDCA7C4D"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6dee8377f2ac961e19e13ffff7d4d7cb5b5e1c381e17a580105975719b979194",
+    "sha256:1c6f605265a43415f15416203a8993efcc566804fd5f11f3fbbc64621157fc57"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_semantic_hypergraph/catalog.py",
+  "source_sha256": "sha256:6dee8377f2ac961e19e13ffff7d4d7cb5b5e1c381e17a580105975719b979194",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_FD1588DD0607E4E345A7AFF404FC41E6",
+  "treatment_package_id": "TREATPKG_BE8F73A24A5CE340FBE584C209D4FCCB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

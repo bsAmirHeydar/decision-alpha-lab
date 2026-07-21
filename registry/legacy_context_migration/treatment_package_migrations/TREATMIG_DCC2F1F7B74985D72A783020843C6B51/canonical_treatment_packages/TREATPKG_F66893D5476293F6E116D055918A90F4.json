@@ -1,0 +1,82 @@
+{
+  "atom_ids": [
+    "TREATATOM_42C37414AF8AEAB992B44E117D748836",
+    "TREATATOM_CFCC80165EEB0004D4BD83F968BF8EC4"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:813eddab09069b0108d6777f2aac569aee799c0e262c98472eb35aa07e561ecf",
+      "atom_id": "TREATATOM_42C37414AF8AEAB992B44E117D748836",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "vol=floor_step(min(raw,spec.volume_max),spec.volume_step) if raw>0 else 0.0",
+          "line_digest": "sha256:061c1320d86848284148ee1b920a6071ab76fadd3ff09e92a6b2edf8007fff89",
+          "line_number": 11
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:02c11b75a601c314a94ef18b3a571c970d7546e7259759797626f333db9a6d1e",
+      "atom_id": "TREATATOM_CFCC80165EEB0004D4BD83F968BF8EC4",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "ticks=geometry.stop_distance/spec.tick_size if spec.tick_size>0 else 0",
+          "line_digest": "sha256:d64fc37ae96dd9f6f5d43385cd610dbc85b81d50ae95f6448a468d51c52ad16b",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:dda52c544e539e9a2a29a364d7b003eedcff2e53fac31b8573f07526ec8d83fb",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_705C1528C97ED864D376C1FD0B1A5739",
+    "RISKASM_A0BAB44A4EC108ABF6466F8D0073486F",
+    "RISKASM_B13892C22CDB1C6798A25377DB15A189",
+    "RISKASM_C5AAA41E0D637FC28E8CB04DF6AACF50"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a5937e0620a9b182bebec8d75cc23ca297700ce6c3e01a62f8fb4dbdc24a89eb",
+    "sha256:02c11b75a601c314a94ef18b3a571c970d7546e7259759797626f333db9a6d1e",
+    "sha256:813eddab09069b0108d6777f2aac569aee799c0e262c98472eb35aa07e561ecf"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/python/fp_i15_paper/sizing.py",
+  "source_sha256": "sha256:a5937e0620a9b182bebec8d75cc23ca297700ce6c3e01a62f8fb4dbdc24a89eb",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_ABE27A2F8DB245AB61EF189EE46B9DA1",
+  "treatment_package_id": "TREATPKG_F66893D5476293F6E116D055918A90F4",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

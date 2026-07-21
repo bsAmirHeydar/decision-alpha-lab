@@ -1,0 +1,87 @@
+{
+  "atom_ids": [
+    "TREATATOM_9B5563AC4D6739B6982FA4D683071449",
+    "TREATATOM_DEBBDA43ED6514732E97205C46FB35BF"
+  ],
+  "atom_types": [
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8935d645e3fd1d25efa4845f8df2fb9ce51ed93dd1708d75630bd2eb67f5dc51",
+      "atom_id": "TREATATOM_9B5563AC4D6739B6982FA4D683071449",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "if c.exit_plan.has_price_target and c.exit_plan.target_price<=c.entry.requested_price:raise ValueError(\"long target invalid\")",
+          "line_digest": "sha256:148b60b03fead73bc6162c55300089973e8ce8ea4e786f6b0305d8945a038f80",
+          "line_number": 23
+        },
+        {
+          "excerpt": "if c.exit_plan.has_price_target and c.exit_plan.target_price>=c.entry.requested_price:raise ValueError(\"short target invalid\")",
+          "line_digest": "sha256:4087257a2238db30eb4fb04ba258668b90eb7a0c07e459b4ef2d892543b40385",
+          "line_number": 26
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:01c4d800e6ab57a5ce45b7552b662d0601332ad6c66c93cdd3d1ee52e177c0f5",
+      "atom_id": "TREATATOM_DEBBDA43ED6514732E97205C46FB35BF",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "if c.stop.stop_price>=c.entry.requested_price:raise ValueError(\"long stop invalid\")",
+          "line_digest": "sha256:50a4670ddfc393f3bcd7e9649fbe3f36fc959770c92892343cfb8e94c4242403",
+          "line_number": 22
+        },
+        {
+          "excerpt": "if c.stop.stop_price<=c.entry.requested_price:raise ValueError(\"short stop invalid\")",
+          "line_digest": "sha256:aa27ec1c779c74db2a01e1cca8d64b7ea275830cf08102194c5e7acd69ee6bc0",
+          "line_number": 25
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ec7640535e7c19370aee317ac1f6a4f2a8651a1c46774f2d3c525048be2809ec",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d064cbe34b2e21b789924399f5497dd1a183b20ebb0173c98e882e4ac9ee3aa4",
+    "sha256:01c4d800e6ab57a5ce45b7552b662d0601332ad6c66c93cdd3d1ee52e177c0f5",
+    "sha256:8935d645e3fd1d25efa4845f8df2fb9ce51ed93dd1708d75630bd2eb67f5dc51"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_candidate/engine.py",
+  "source_sha256": "sha256:d064cbe34b2e21b789924399f5497dd1a183b20ebb0173c98e882e4ac9ee3aa4",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_603EBD8CF00FB246D2C6EA6A14A9AEB5",
+  "treatment_package_id": "TREATPKG_CA7E60565C730988CD900DD6DE60680C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

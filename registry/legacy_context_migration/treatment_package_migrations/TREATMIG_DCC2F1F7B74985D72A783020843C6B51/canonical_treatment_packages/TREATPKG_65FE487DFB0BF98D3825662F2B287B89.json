@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_EC5CB433991042EA1D58120D36C22D08"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f89a7ad5294e55d89908635cbfd3503d5bf802468b1a587bc8155465a2dc092f",
+      "atom_id": "TREATATOM_EC5CB433991042EA1D58120D36C22D08",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "axes=(A(K.ENTRY,(V('entry.immediate_market@1.0.0',{'max_age_ms':2000}),V('entry.passive_limit@1.0.0',{'offset_points':'10','ttl_ms':300000}))),A(K.STOP,(V('stop.fixed_distance@1.0.0',{'distance_points':'100'}),)),A(K.TARGET,(V('target.fixed_r@1.0.0',{'reward_multiple':'2','risk_points':'100'}),)),A(K.TRAILING,(V('trail",
+          "line_digest": "sha256:16f9217d77a1b34dbf5fa9015eee2cac703c02ae958d035ef30af2eb5bab4b42",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ec4a4fd0f0305b3b8d5b8e24ee4407aa67206bfbffa295b046b7132819c576d5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b70eaf4bdf5a08c12f04a5513aac9609c21ea593cf6559ef61e9974784ef2623",
+    "sha256:f89a7ad5294e55d89908635cbfd3503d5bf802468b1a587bc8155465a2dc092f"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i04_treatment_compiler/test_matrix.py",
+  "source_sha256": "sha256:b70eaf4bdf5a08c12f04a5513aac9609c21ea593cf6559ef61e9974784ef2623",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_598B012C91D4AEA5A244496791E95082",
+  "treatment_package_id": "TREATPKG_65FE487DFB0BF98D3825662F2B287B89",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

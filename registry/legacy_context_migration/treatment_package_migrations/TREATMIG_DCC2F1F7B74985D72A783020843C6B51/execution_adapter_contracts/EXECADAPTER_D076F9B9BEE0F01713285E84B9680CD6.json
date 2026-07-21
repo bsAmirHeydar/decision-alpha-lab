@@ -1,0 +1,57 @@
+{
+  "adapter_digest": "sha256:7ac816a2511255d78dd4551b71dd32af414c4681230d33f3bb7e44e5ee96b26f",
+  "adapter_id": "EXECADAPTER_D076F9B9BEE0F01713285E84B9680CD6",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CREATE_REQUEST_INTENT",
+    "MODIFY_ORDER",
+    "READ_BROKER_CONSTRAINTS",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_ORDER_MODIFY",
+    "BROKER_REQUEST_BUILD",
+    "BROKER_STATE_HISTORY",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_CTRADE",
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_2C537D26A3A22E212A4D6BCA45C6F3A1",
+    "EXECCAP_37E933CB1FA75C77D960269CC5436608",
+    "EXECCAP_841C7B02F779D048A7B147674C2F3290",
+    "EXECCAP_C8D0B40FF077BA91915371A993AB843A",
+    "EXECCAP_D5D70E03FAFEF254CBDE449A369473AC",
+    "EXECCAP_E6C12F69AF78F9D1783B06CB175A6582",
+    "EXECCAP_F4AEED248A63D2D04189156B65ED2182"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:a02dcfcc88819033174abd0b21b68b332df7543770a5e15e5448f13378b998ed"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_D076F9B9BEE0F01713285E84B9680CD6"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

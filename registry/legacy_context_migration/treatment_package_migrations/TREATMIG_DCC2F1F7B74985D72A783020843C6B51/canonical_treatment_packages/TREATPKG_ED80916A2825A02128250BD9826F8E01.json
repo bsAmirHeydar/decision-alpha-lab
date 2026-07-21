@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_E23B3DA87688BE78992AFB197D1E7115"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_8E35539AF708AF2483740E786D3CD216",
+    "EXECCAP_BCB027CEDEC03BEED87582B59B466416"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:2d51497cfb45983b5061d87f309bbb21ec771b6777345a39b926413530c22ada",
+      "atom_id": "TREATATOM_E23B3DA87688BE78992AFB197D1E7115",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "FileWrite(h, \"broker_time\", \"symbol\", \"timeframe\", \"open\", \"high\", \"low\", \"close\", \"tick_volume\", \"spread\", \"real_volume\");",
+          "line_digest": "sha256:4986cd953580ed4de33f233e3473a75ebe4042979d24ea5c69eba5a7196ae404",
+          "line_number": 72
+        },
+        {
+          "excerpt": "rates[i].spread,",
+          "line_digest": "sha256:161a034779d79d7303f06f3907a7abe487b8d07412dd70bf001641f4f8425370",
+          "line_number": 84
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:60da0c5767badab99cd8b4bbf4d15660226c26bd0f780eaac85c85ae75240db0",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_279026EFDD61F21FEEAE6FBED899B633"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e92bbc867bb47efbf80252475498c57e932d7acdf8c8283864b96f57a73f9345",
+    "sha256:2d51497cfb45983b5061d87f309bbb21ec771b6777345a39b926413530c22ada"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Scripts/AstroML/ExportRatesForAstroML.mq5",
+  "source_sha256": "sha256:e92bbc867bb47efbf80252475498c57e932d7acdf8c8283864b96f57a73f9345",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B991F77D8F7EFBD2CEB022F6083485C0",
+  "treatment_package_id": "TREATPKG_ED80916A2825A02128250BD9826F8E01",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

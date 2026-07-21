@@ -1,0 +1,21 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e",
+  "marker_digest": "sha256:7044c0a845c22909e8ce1ca6f77af4625f04cca1502d7753fd116fb5d4169030",
+  "marker_id": "TREATMARKER_56086AE543B2ED050E132113BF501080",
+  "migration_id": "TREATMIG_DCC2F1F7B74985D72A783020843C6B51",
+  "output_manifest_digest": "sha256:c1f6ea311188098ea1e8bed72ad73d820effd214b7e27c0012fb0f0764e97541",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_status": "ACCEPTED_REFERENCE",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "receipt_digest": "sha256:4c8f4810f2ced704b15010684b884eb1ae00e142be2539830fa79fa58a3aa320",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:4c8f4810f2ced704b15010684b884eb1ae00e142be2539830fa79fa58a3aa320"
+  ],
+  "validation_status": "PASS"
+}

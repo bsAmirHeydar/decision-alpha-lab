@@ -1,0 +1,205 @@
+{
+  "atom_ids": [
+    "TREATATOM_02C431B90B52774B53A30DB9A6801628",
+    "TREATATOM_3CD00B650D0DF2660AE3B6B09A976BF9",
+    "TREATATOM_9D86BFB7417F19001890B70D253170E4",
+    "TREATATOM_F336723E82468A811643039E4DDE8A71"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "RECONCILIATION",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_05FAC9B055016E0A2EE0ABCA7014A936",
+    "EXECCAP_16F882B10BB89B65E54B23081B2CFC80",
+    "EXECCAP_436500843C0697FFC1906FA0856F50A6",
+    "EXECCAP_8BF825805CBFBC060446E2BD65EE38BE"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d5a09abe2b387b971b5695506f14c2d812e77b53117b4115558d4375e42fd862",
+      "atom_id": "TREATATOM_02C431B90B52774B53A30DB9A6801628",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "int total = PositionsTotal();",
+          "line_digest": "sha256:e553688ade989f6d3713f79a7da7891953948da76f2f9935a710dd30bf01f830",
+          "line_number": 224
+        },
+        {
+          "excerpt": "int total_after = PositionsTotal();",
+          "line_digest": "sha256:8dffd96d2c87d07363cfa960edc6e476da5f11b7a717689c42ab09faea961894",
+          "line_number": 263
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f5ee64958bca4d7359bb5f534de01f0c59392a1c8ae22ff98e68d8b2f78f486d",
+      "atom_id": "TREATATOM_3CD00B650D0DF2660AE3B6B09A976BF9",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "\"ticket\", \"position_identifier\", \"symbol\", \"position_magic\", \"position_type\", \"open_time\", \"open_ny\", \"volume\", \"price_open\", \"price_current\", \"sl\", \"tp\", \"floating_profit\",",
+          "line_digest": "sha256:a5a6b83fcad6dbc088cbb5605eff20df8dc80fc71a0474286a97aa5d033861cc",
+          "line_number": 64
+        },
+        {
+          "excerpt": "IntegerToString((long)audit.ticket), IntegerToString(audit.position_identifier), audit.symbol, IntegerToString(audit.magic), audit.position_type, STC_TimeText(audit.open_time), STC_TimeText(audit.open_ny), DoubleToString(audit.volume, 8), DoubleToString(audit.price_open, 8), DoubleToString(audit.price_current, 8), Doub",
+          "line_digest": "sha256:942ef5f8a6a3fcc276d448d4b03bd7f7658b1284464cbfae881804012da4c4e1",
+          "line_number": 71
+        },
+        {
+          "excerpt": "audit.take_profit = PositionGetDouble(POSITION_TP);",
+          "line_digest": "sha256:ae2f61f148404a077b95f5f6747fbab8cce993dca36e887565cd6544fede5c27",
+          "line_number": 95
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:ea70c695406666eba4401694ba1ae67422a4b448ef5eb93c52b512bf5b334a33",
+      "atom_id": "TREATATOM_9D86BFB7417F19001890B70D253170E4",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "\"ticket\", \"position_identifier\", \"symbol\", \"position_magic\", \"position_type\", \"open_time\", \"open_ny\", \"volume\", \"price_open\", \"price_current\", \"sl\", \"tp\", \"floating_profit\",",
+          "line_digest": "sha256:a5a6b83fcad6dbc088cbb5605eff20df8dc80fc71a0474286a97aa5d033861cc",
+          "line_number": 64
+        },
+        {
+          "excerpt": "IntegerToString((long)audit.ticket), IntegerToString(audit.position_identifier), audit.symbol, IntegerToString(audit.magic), audit.position_type, STC_TimeText(audit.open_time), STC_TimeText(audit.open_ny), DoubleToString(audit.volume, 8), DoubleToString(audit.price_open, 8), DoubleToString(audit.price_current, 8), Doub",
+          "line_digest": "sha256:942ef5f8a6a3fcc276d448d4b03bd7f7658b1284464cbfae881804012da4c4e1",
+          "line_number": 71
+        },
+        {
+          "excerpt": "audit.stop_loss = PositionGetDouble(POSITION_SL);",
+          "line_digest": "sha256:3f79b7346c75b96f4debce4711e670350b31ca77811fc4e46e55e6947b290b1a",
+          "line_number": 94
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e8ecb7466bdeaacadc71b896988216af487333ca3dc0a35b7201756085842312",
+      "atom_id": "TREATATOM_F336723E82468A811643039E4DDE8A71",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "STC_TimeText(audit.server_time), STC_TimeText(audit.ny_time), audit.stc_day_id, STC_RuntimeModeText(cfg.runtime_mode), cfg.run_id, cfg.symbol1, cfg.symbol2, IntegerToString(cfg.magic_number),",
+          "line_digest": "sha256:27891e035bb4ef4a571b4762bcc3f7f038e48c5adf781540656eb01ea1d52762",
+          "line_number": 70
+        },
+        {
+          "excerpt": "IntegerToString((long)audit.ticket), IntegerToString(audit.position_identifier), audit.symbol, IntegerToString(audit.magic), audit.position_type, STC_TimeText(audit.open_time), STC_TimeText(audit.open_ny), DoubleToString(audit.volume, 8), DoubleToString(audit.price_open, 8), DoubleToString(audit.price_current, 8), Doub",
+          "line_digest": "sha256:942ef5f8a6a3fcc276d448d4b03bd7f7658b1284464cbfae881804012da4c4e1",
+          "line_number": 71
+        },
+        {
+          "excerpt": "audit.magic = PositionGetInteger(POSITION_MAGIC);",
+          "line_digest": "sha256:913ac665b5a3d6aeff8d86bef826943de96d2d26ac34b6b446fb57cb67e5b601",
+          "line_number": 88
+        },
+        {
+          "excerpt": "audit.magic_matches = STC_IsManagedMagic(cfg, audit.magic);",
+          "line_digest": "sha256:b63d286132471c5b98e92f45819d7e7afe220a6e83dd042a1b27c00fd85d1999",
+          "line_number": 98
+        },
+        {
+          "excerpt": "audit.managed_by_stc = STC_IsManagedBrokerPosition(cfg, audit.symbol, audit.magic);",
+          "line_digest": "sha256:39298e7920f63c8e6a1cc2907791e9ff1f221ecc65723ff46afd8bd33665b753",
+          "line_number": 99
+        },
+        {
+          "excerpt": "audit.rule_note = \"Level18 finalizer audits and closes only remaining Symbol1/Symbol2 positions with matching STC magic number after 15:30 New York.\";",
+          "line_digest": "sha256:7073cf75e2fa26c5bc47a9422274fabe24abba5727b427ae5cdc4ebabb97cff7",
+          "line_number": 111
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(cfg.magic_number);",
+          "line_digest": "sha256:57d4dc41f585396cda14ba9db5ca7dc97ccff59ac8ee3c87d94b5736bc71e456",
+          "line_number": 169
+        },
+        {
+          "excerpt": "audit.rule_note = \"Magic-only hard close finalizer sent a close request and the position no longer exists after the attempt.\";",
+          "line_digest": "sha256:d7e2a84309a2ceac41832d4d802fc555f03ccdf877e6b3e512663c68535b47d8",
+          "line_number": 188
+        },
+        {
+          "excerpt": "long magic = PositionGetInteger(POSITION_MAGIC);",
+          "line_digest": "sha256:d3407585e1804e049eab8949d96e893dac3f32dbd1f819adb7c2132d663025f8",
+          "line_number": 231
+        },
+        {
+          "excerpt": "bool managed = STC_IsManagedBrokerPosition(cfg, symbol, magic);",
+          "line_digest": "sha256:56a9b805b7f7f107d3cac51c403b3335e2147756c9261277cef5e85239c16b2a",
+          "line_number": 232
+        },
+        {
+          "excerpt": "audit.rule_note = \"Pair-symbol position with nonmatching magic number is audited but never closed.\";",
+          "line_digest": "sha256:819ebea0433eec9d3222641f06fb02911aed1b0e296263a2c06bad694749d238",
+          "line_number": 242
+        },
+        {
+          "excerpt": "string note = snap.hard_close_due ? \"Hard close due and no Symbol1/Symbol2 magic-number positions remain.\" : \"No managed magic positions and no auditable foreign pair positions were found.\";",
+          "line_digest": "sha256:efa82f0a54965b287830bd7e728a0bc98866e2687b6453c0cfa34c3d99272416",
+          "line_number": 285
+        },
+        {
+          "excerpt": "Print(\"STC LEVEL18 WARNING: \", remaining_after, \" managed magic position(s) still remain after hard-close scan; status=\", state.real_hard_close_finalizer_status);",
+          "line_digest": "sha256:8389654c5021012240268a8ba34f01c9ed96f3203e48db996964ba0f0af9126d",
+          "line_number": 290
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c43705d55578b432f3ef4133cd3b7caf9cd2f21fb7aeef77f5d10fd66cbef26e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_9B11CD44E4FDFA76CDD97F9B4F04FBB0"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:23694e7f1d42a67683a331c48c09012552f1b842c1170b6a275d85164e7d5783",
+    "sha256:d5a09abe2b387b971b5695506f14c2d812e77b53117b4115558d4375e42fd862",
+    "sha256:e8ecb7466bdeaacadc71b896988216af487333ca3dc0a35b7201756085842312",
+    "sha256:ea70c695406666eba4401694ba1ae67422a4b448ef5eb93c52b512bf5b334a33",
+    "sha256:f5ee64958bca4d7359bb5f534de01f0c59392a1c8ae22ff98e68d8b2f78f486d"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_RealHardClose.mqh",
+  "source_sha256": "sha256:23694e7f1d42a67683a331c48c09012552f1b842c1170b6a275d85164e7d5783",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_2BF755AE90AD60E9E5655609674E13D8",
+  "treatment_package_id": "TREATPKG_CDD2C31388B653F22E330647C83FDA0D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

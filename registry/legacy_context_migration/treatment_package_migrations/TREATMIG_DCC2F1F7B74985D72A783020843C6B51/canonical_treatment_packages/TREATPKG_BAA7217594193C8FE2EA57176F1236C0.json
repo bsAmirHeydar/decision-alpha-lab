@@ -1,0 +1,79 @@
+{
+  "atom_ids": [
+    "TREATATOM_053E181DA4DBD1001F8F43357859F478",
+    "TREATATOM_C8C792086B88ED366D78E1B7F20233F0"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:243d6873fc0ffdcfe2141b688604670f2384006a58adb2d2f3716c07de8eb6f5",
+      "atom_id": "TREATATOM_053E181DA4DBD1001F8F43357859F478",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "config.deviation_points=InpDeviationPoints;",
+          "line_digest": "sha256:49d4a0a74a0a323119b3d7fceabc7f300c333c5893621bc75d8bf92c6b84bb10",
+          "line_number": 187
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:0bcad836368bd560b59e704611841bbd2566160eee7586b3da5118715234807a",
+      "atom_id": "TREATATOM_C8C792086B88ED366D78E1B7F20233F0",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "config.risk_percent_equity=InpRiskPercentEquity;",
+          "line_digest": "sha256:a597bc2bc05ae9907dd23e91c42aa44c0608cc70fa9832a97421a9c924cea91d",
+          "line_number": 183
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:b33e32867541c1f310c31f361b9d499bf4d0f1f01a0f8b302e21bdad6b2729b6",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_7DF1BC7A16D46F11276A7B697CE8175C"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0ba43cde84e44c94793690c574c52cb65ab217a6eb817802df8985e383e50633",
+    "sha256:0bcad836368bd560b59e704611841bbd2566160eee7586b3da5118715234807a",
+    "sha256:243d6873fc0ffdcfe2141b688604670f2384006a58adb2d2f3716c07de8eb6f5"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5",
+  "source_sha256": "sha256:0ba43cde84e44c94793690c574c52cb65ab217a6eb817802df8985e383e50633",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_3766014CF70013D57B8D6BACD8FC76ED",
+  "treatment_package_id": "TREATPKG_BAA7217594193C8FE2EA57176F1236C0",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

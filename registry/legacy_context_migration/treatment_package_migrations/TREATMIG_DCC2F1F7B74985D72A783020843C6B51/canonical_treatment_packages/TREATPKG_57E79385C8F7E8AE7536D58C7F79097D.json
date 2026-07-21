@@ -1,0 +1,335 @@
+{
+  "atom_ids": [
+    "TREATATOM_05BD85874DFC8EF3AC1E70B06AA0D895",
+    "TREATATOM_2B06C61E763F4C6C4F0D3C99CDDB05B0",
+    "TREATATOM_308FF59A5379CE7A27B1AF4990E9D2F4",
+    "TREATATOM_31A81C1D739629D3E42BA28E6CEF8722",
+    "TREATATOM_62ECEB316FC310DC37FE52099314B6D8",
+    "TREATATOM_83F4AD1BFDCFE116C3B3C28BC44EE384",
+    "TREATATOM_BF60A81D1A09E81A7C8AD37C03EE8372"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "PARTIAL_EXIT",
+    "STOP_LOSS",
+    "TAKE_PROFIT",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:46d4ad24d86681e13d64d3b3f035c0088e79c48a1e91c035e9ca9de4ef312e5d",
+      "atom_id": "TREATATOM_05BD85874DFC8EF3AC1E70B06AA0D895",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,status,reason,False,False,trigger,None,None,decision_time,None,spec.stop_price,spec.target_price,0,0,0,0,0,0,0,0,0,1.0,_zero_cost(model),tuple(),tuple(),spec.spec_hash,('No order was simulated for this structural action.',))",
+          "line_digest": "sha256:3199a9c6fa87dcd337954eefc58d66b877e66e6d26c6636a14a5e6ea218e1420",
+          "line_number": 10
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f8ba47615cac18c97fb62c0f006248ee18d0104a038d1078012184128c3a6c96",
+      "atom_id": "TREATATOM_2B06C61E763F4C6C4F0D3C99CDDB05B0",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "target_hit=spec.target_price is not None and (o.high>=spec.target_price if spec.direction==1 else o.low<=spec.target_price)",
+          "line_digest": "sha256:1d68334941008939c335d12fab4fa4b3a2a4ec1d0bd9df3ca7309e624f8a7a5c",
+          "line_number": 43
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'ambiguous','ambiguous_bar',True,True,True,entry_time,entry_price,o.observed_at_ms,o.close,trail_stop,spec.target_price,realized,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-cont",
+          "line_digest": "sha256:24b0ec7d3923f90c56a739349c9ebac9c06c874b556071054fd9ae9381e263ba",
+          "line_number": 48
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed',reason,True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:f404a95210e8eaeea07520a2e6c5a20887bc278ecf815ac08833c7a3236122ac",
+          "line_number": 54
+        },
+        {
+          "excerpt": "px=spec.target_price;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0);gross=gross_points/risk",
+          "line_digest": "sha256:050740e4cd7f5d3110265ab94d3bac2a350a57b07db821f8207d9e1363107c3e",
+          "line_number": 56
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','target',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.de",
+          "line_digest": "sha256:abb83f43f86e15580aab725b04eee88d4a7102737dc23f9b31ec50b99980fe20",
+          "line_number": 57
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','partial_then_time' if partial_used else 'time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed",
+          "line_digest": "sha256:fec72b708a617ebd77c6f7513edca8dcdacc7f852e898c58bdfb99b1e0261842",
+          "line_number": 60
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:b4c4b463b6a31834aa47575ecf3d1200dc892068cd51c3e6bbcc07f4b65805c8",
+          "line_number": 63
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4c31f1fd69d1f86711a0568b0ec443e1801809923e23075d28281e19337f38a9",
+      "atom_id": "TREATATOM_308FF59A5379CE7A27B1AF4990E9D2F4",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,status,reason,False,False,trigger,None,None,decision_time,None,spec.stop_price,spec.target_price,0,0,0,0,0,0,0,0,0,1.0,_zero_cost(model),tuple(),tuple(),spec.spec_hash,('No order was simulated for this structural action.',))",
+          "line_digest": "sha256:3199a9c6fa87dcd337954eefc58d66b877e66e6d26c6636a14a5e6ea218e1420",
+          "line_number": 10
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a3d25b20474436f278a7a3eafa74d86b8c707d93f20099ea873443d6acc6bcf1",
+      "atom_id": "TREATATOM_31A81C1D739629D3E42BA28E6CEF8722",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "entry_time=None;entry_price=None;entry_spread=0.0;remaining=1.0;realized=0.0;trail_stop=spec.stop_price;partial_used=False;trail_used=False;ambiguous=False;ledger=None;used=[]",
+          "line_digest": "sha256:b3125dd15040e55847047adc71346c8304b2fa8b8652d49d86278eea76df7659",
+          "line_number": 24
+        },
+        {
+          "excerpt": "trail_stop=max(trail_stop,entry_price) if spec.direction==1 else min(trail_stop,entry_price);trail_used=True;ledger.append('trail_activated',o.observed_at_ms,trail_stop,remaining);ledger.append('stop_moved',o.observed_at_ms,trail_stop,remaining)",
+          "line_digest": "sha256:53067f39979fc10914a1fc58fe0905b6340265414579e3c9abcbc72823f93737",
+          "line_number": 41
+        },
+        {
+          "excerpt": "stop_hit=o.low<=trail_stop if spec.direction==1 else o.high>=trail_stop",
+          "line_digest": "sha256:caeeffafb68f87e14cde3c5b6a0f8bb6645b2ed04990f78739c552109ffac065",
+          "line_number": 42
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'ambiguous','ambiguous_bar',True,True,True,entry_time,entry_price,o.observed_at_ms,o.close,trail_stop,spec.target_price,realized,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-cont",
+          "line_digest": "sha256:24b0ec7d3923f90c56a739349c9ebac9c06c874b556071054fd9ae9381e263ba",
+          "line_number": 48
+        },
+        {
+          "excerpt": "px=trail_stop;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0)",
+          "line_digest": "sha256:b584d082071ec4ccd49ce51aaa977294ce92ef378b9be9bf2fe2cb21a4f4c63c",
+          "line_number": 52
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed',reason,True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:f404a95210e8eaeea07520a2e6c5a20887bc278ecf815ac08833c7a3236122ac",
+          "line_number": 54
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','target',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.de",
+          "line_digest": "sha256:abb83f43f86e15580aab725b04eee88d4a7102737dc23f9b31ec50b99980fe20",
+          "line_number": 57
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','partial_then_time' if partial_used else 'time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed",
+          "line_digest": "sha256:fec72b708a617ebd77c6f7513edca8dcdacc7f852e898c58bdfb99b1e0261842",
+          "line_number": 60
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:b4c4b463b6a31834aa47575ecf3d1200dc892068cd51c3e6bbcc07f4b65805c8",
+          "line_number": 63
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:31610326e0eaab5607c9dd829c6c82df22d82e2599d660dddb8e5ebd0864760d",
+      "atom_id": "TREATATOM_62ECEB316FC310DC37FE52099314B6D8",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "entry_time=None;entry_price=None;entry_spread=0.0;remaining=1.0;realized=0.0;trail_stop=spec.stop_price;partial_used=False;trail_used=False;ambiguous=False;ledger=None;used=[]",
+          "line_digest": "sha256:b3125dd15040e55847047adc71346c8304b2fa8b8652d49d86278eea76df7659",
+          "line_number": 24
+        },
+        {
+          "excerpt": "entry_time=o.observed_at_ms;entry_spread=o.spread_points;risk=(entry_price-spec.stop_price)*spec.direction",
+          "line_digest": "sha256:ecef7c202ca6bceeebc00b8a413c5fe6082fd476bce135d0655cab9890d36afd",
+          "line_number": 34
+        },
+        {
+          "excerpt": "risk=(entry_price-spec.stop_price)*spec.direction;ledger.update_extremes(o,remaining)",
+          "line_digest": "sha256:e2405a286668c0d33cf0351cf411620fc54562b303b53ec1707a23d3b56d2545",
+          "line_number": 37
+        },
+        {
+          "excerpt": "o=obs[-1];risk=(entry_price-spec.stop_price)*spec.direction;px=o.close;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0);gross=gross_points/risk",
+          "line_digest": "sha256:f4b02a0d236da62c43eb8b390da39bff794c33fbe2aa139baf73903fbbd23579",
+          "line_number": 62
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a208aacb3459550308023c059806fc0d9139bdb1693e1d2c614e82f086dcdce9",
+      "atom_id": "TREATATOM_83F4AD1BFDCFE116C3B3C28BC44EE384",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "entry_time=None;entry_price=None;entry_spread=0.0;remaining=1.0;realized=0.0;trail_stop=spec.stop_price;partial_used=False;trail_used=False;ambiguous=False;ledger=None;used=[]",
+          "line_digest": "sha256:b3125dd15040e55847047adc71346c8304b2fa8b8652d49d86278eea76df7659",
+          "line_number": 24
+        },
+        {
+          "excerpt": "touched=o.high>=spec.entry_price if spec.direction==1 else o.low<=spec.entry_price",
+          "line_digest": "sha256:76fddf22464d4d3866afeb30ef729e34d3993808579ba899d202afa4263b013b",
+          "line_number": 29
+        },
+        {
+          "excerpt": "gap=(o.open-spec.entry_price)*spec.direction>0",
+          "line_digest": "sha256:d4f95be76017bf29d39838955b3d3b5bf99f9346fa5d3620cc1d7647d65ea793",
+          "line_number": 31
+        },
+        {
+          "excerpt": "entry_price=o.open if gap and policy.gap_policy=='conservative_open' else spec.entry_price",
+          "line_digest": "sha256:48f7a163bc8ef3508c9ca352179345cd9a3de368b60b594f9a24e535b376ef9a",
+          "line_number": 33
+        },
+        {
+          "excerpt": "entry_time=o.observed_at_ms;entry_spread=o.spread_points;risk=(entry_price-spec.stop_price)*spec.direction",
+          "line_digest": "sha256:ecef7c202ca6bceeebc00b8a413c5fe6082fd476bce135d0655cab9890d36afd",
+          "line_number": 34
+        },
+        {
+          "excerpt": "ledger=PathLedger(spec.direction,entry_price,risk,policy.maximum_path_events_per_row);ledger.append('registered',context.decision_time_ms,spec.entry_price);ledger.append('trigger_accepted',context.decision_time_ms,spec.entry_price);ledger.append('filled',entry_time,entry_price)",
+          "line_digest": "sha256:95134b08717e788f3f3babb38dadaf2516a70e1520c823fdc76ca439c0823fcb",
+          "line_number": 36
+        },
+        {
+          "excerpt": "risk=(entry_price-spec.stop_price)*spec.direction;ledger.update_extremes(o,remaining)",
+          "line_digest": "sha256:e2405a286668c0d33cf0351cf411620fc54562b303b53ec1707a23d3b56d2545",
+          "line_number": 37
+        },
+        {
+          "excerpt": "px=entry_price+spec.direction*spec.partial_activation_r*risk;realized+=spec.partial_fraction*((px-entry_price)*spec.direction);remaining-=spec.partial_fraction;partial_used=True;ledger.append('partial_exit',o.observed_at_ms,px,remaining)",
+          "line_digest": "sha256:3f390f61e3178e29ea6bb1d30fa8c8e299f1df376508bdfd19439135fdf3545d",
+          "line_number": 39
+        },
+        {
+          "excerpt": "trail_stop=max(trail_stop,entry_price) if spec.direction==1 else min(trail_stop,entry_price);trail_used=True;ledger.append('trail_activated',o.observed_at_ms,trail_stop,remaining);ledger.append('stop_moved',o.observed_at_ms,trail_stop,remaining)",
+          "line_digest": "sha256:53067f39979fc10914a1fc58fe0905b6340265414579e3c9abcbc72823f93737",
+          "line_number": 41
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'ambiguous','ambiguous_bar',True,True,True,entry_time,entry_price,o.observed_at_ms,o.close,trail_stop,spec.target_price,realized,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-cont",
+          "line_digest": "sha256:24b0ec7d3923f90c56a739349c9ebac9c06c874b556071054fd9ae9381e263ba",
+          "line_number": 48
+        },
+        {
+          "excerpt": "px=trail_stop;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0)",
+          "line_digest": "sha256:b584d082071ec4ccd49ce51aaa977294ce92ef378b9be9bf2fe2cb21a4f4c63c",
+          "line_number": 52
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed',reason,True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:f404a95210e8eaeea07520a2e6c5a20887bc278ecf815ac08833c7a3236122ac",
+          "line_number": 54
+        },
+        {
+          "excerpt": "px=spec.target_price;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0);gross=gross_points/risk",
+          "line_digest": "sha256:050740e4cd7f5d3110265ab94d3bac2a350a57b07db821f8207d9e1363107c3e",
+          "line_number": 56
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','target',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.de",
+          "line_digest": "sha256:abb83f43f86e15580aab725b04eee88d4a7102737dc23f9b31ec50b99980fe20",
+          "line_number": 57
+        },
+        {
+          "excerpt": "px=o.bid if spec.direction==1 and o.bid is not None else o.ask if spec.direction==-1 and o.ask is not None else o.close;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0);gross=gross_points/risk",
+          "line_digest": "sha256:3df8db6481673728b190e5e420cfcec9c8405905af7c880196fabbf292f731c7",
+          "line_number": 59
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','partial_then_time' if partial_used else 'time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed",
+          "line_digest": "sha256:fec72b708a617ebd77c6f7513edca8dcdacc7f852e898c58bdfb99b1e0261842",
+          "line_number": 60
+        },
+        {
+          "excerpt": "o=obs[-1];risk=(entry_price-spec.stop_price)*spec.direction;px=o.close;gross_points=realized+remaining*((px-entry_price)*spec.direction);cost=compute_cost(cost_model,risk,entry_spread,o.spread_points);ledger.append('closed',o.observed_at_ms,px,0);gross=gross_points/risk",
+          "line_digest": "sha256:f4b02a0d236da62c43eb8b390da39bff794c33fbe2aa139baf73903fbbd23579",
+          "line_number": 62
+        },
+        {
+          "excerpt": "return OutcomeRow(spec.node_id,spec.node_hash,spec.action_class,'closed','time',True,ambiguous,True,entry_time,entry_price,o.observed_at_ms,px,trail_stop,spec.target_price,gross_points,gross,gross-cost.total_cost_r,ledger.mfe,ledger.mae,ledger.mfe/risk,ledger.mae/risk,o.observed_at_ms-entry_time,entry_time-context.deci",
+          "line_digest": "sha256:b4c4b463b6a31834aa47575ecf3d1200dc892068cd51c3e6bbcc07f4b65805c8",
+          "line_number": 63
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:fc626b6f095691e25d5cb41139318a92b8d83e94ecd5a47083aba929696b0b87",
+      "atom_id": "TREATATOM_BF60A81D1A09E81A7C8AD37C03EE8372",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "px=entry_price+spec.direction*spec.partial_activation_r*risk;realized+=spec.partial_fraction*((px-entry_price)*spec.direction);remaining-=spec.partial_fraction;partial_used=True;ledger.append('partial_exit',o.observed_at_ms,px,remaining)",
+          "line_digest": "sha256:3f390f61e3178e29ea6bb1d30fa8c8e299f1df376508bdfd19439135fdf3545d",
+          "line_number": 39
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:26d05bc1bb47b53fe703832cc5906bc8941abf7bd1dc6021a715e11993f8946b",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:53d69ec40782324711151c9cf8d62be5b0001158e1d849519ba7d7fd99d8f729",
+    "sha256:31610326e0eaab5607c9dd829c6c82df22d82e2599d660dddb8e5ebd0864760d",
+    "sha256:46d4ad24d86681e13d64d3b3f035c0088e79c48a1e91c035e9ca9de4ef312e5d",
+    "sha256:4c31f1fd69d1f86711a0568b0ec443e1801809923e23075d28281e19337f38a9",
+    "sha256:a208aacb3459550308023c059806fc0d9139bdb1693e1d2c614e82f086dcdce9",
+    "sha256:a3d25b20474436f278a7a3eafa74d86b8c707d93f20099ea873443d6acc6bcf1",
+    "sha256:f8ba47615cac18c97fb62c0f006248ee18d0104a038d1078012184128c3a6c96",
+    "sha256:fc626b6f095691e25d5cb41139318a92b8d83e94ecd5a47083aba929696b0b87"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_outcome_cube/simulator.py",
+  "source_sha256": "sha256:53d69ec40782324711151c9cf8d62be5b0001158e1d849519ba7d7fd99d8f729",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_BA732BF7EE4F86B496793F1E775462EF",
+  "treatment_package_id": "TREATPKG_57E79385C8F7E8AE7536D58C7F79097D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

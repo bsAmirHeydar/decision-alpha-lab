@@ -1,0 +1,51 @@
+{
+  "adapter_digest": "sha256:07aab05d4004254108e6ea8ba236569caab7b238761e36f97005857dc6ebb62a",
+  "adapter_id": "EXECADAPTER_8B7BED1707472CF91C436A559E386460",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "READ_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_1940AEFEB02C564B9A60F86612E2E83D",
+    "EXECCAP_2A1C0A3818E88069A3E62CDC951FDD28",
+    "EXECCAP_2DC4E105FA36C8770C79EDD25F2DD727",
+    "EXECCAP_581A55822B5272407B09551A04E0BBDB",
+    "EXECCAP_DAD5BB739CD4F9A1413D09CB2C304352",
+    "EXECCAP_DDA1785D3D2491CC11E3B5C3FB0735EC",
+    "EXECCAP_EA3C089A6307C0B76F01321EBB0CAA7E",
+    "EXECCAP_F33A1C1333010973BC3076B8D1008948",
+    "EXECCAP_F8BF01E6440200A2DE3F6E63ABAD86A5"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7c2575fad08f8993fb4c2d5dcd05308181d6ca72ed16022c14179ca52d827d5b"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/astro_ml/astro_ml_core.py",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_8B7BED1707472CF91C436A559E386460"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

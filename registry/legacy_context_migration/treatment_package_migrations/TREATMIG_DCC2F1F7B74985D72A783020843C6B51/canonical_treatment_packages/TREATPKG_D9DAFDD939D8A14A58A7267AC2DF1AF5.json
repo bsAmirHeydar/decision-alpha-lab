@@ -1,0 +1,301 @@
+{
+  "atom_ids": [
+    "TREATATOM_6FDF452358FE6ED2683BF0C8E1C98544",
+    "TREATATOM_82E8F12B79862C0912CFF60807837950",
+    "TREATATOM_85876B5D05CF6E2A42426A0C6B78725A",
+    "TREATATOM_A0DE399A52DF911ADE578B200653A50A",
+    "TREATATOM_C66A5BAB8DF35097E2236BB4438F1DAB",
+    "TREATATOM_C6D5A76D2EE47551400B19F321625273",
+    "TREATATOM_C94A5270011B65E753AA4074D593962B"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "DUPLICATE_GUARD",
+    "ENTRY_LIMIT",
+    "ENTRY_PRICE",
+    "RECONCILIATION",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_39C263AB542246362D7DCC4B82C89FB1",
+    "EXECCAP_663570F5C10844BA67B34D1733BA630F",
+    "EXECCAP_85558B71B0550899B180710F4439E5B4"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:07401e76fd72c4c34a17d2754007b0b7694a0158203b149f8868487e8515bdda",
+      "atom_id": "TREATATOM_6FDF452358FE6ED2683BF0C8E1C98544",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "const double target_price,",
+          "line_digest": "sha256:a755cd4b34ab66980499c5316341c83371e6786d2d72ba4d9756b80d8a937bd8",
+          "line_number": 41
+        },
+        {
+          "excerpt": "reward_distance = MathAbs(target_price - entry_price);",
+          "line_digest": "sha256:fbef87584383306a4d505110170246324c63cf6537f8cf19c343844fd312e426",
+          "line_number": 47
+        },
+        {
+          "excerpt": "bool geometry_ok = (entry_price > 0.0 && stop_price > 0.0 && target_price > 0.0 &&",
+          "line_digest": "sha256:9c6146e5f24979b748368d461258b39eec2a8be240b2ddcb7c911bfcb62129b6",
+          "line_number": 50
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && stop_price < entry_price && entry_price < target_price);",
+          "line_digest": "sha256:e78d181774a5c0bfaab31fb357d3436ed58be06f6516add74b81150ffa5ddc7b",
+          "line_number": 53
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && target_price < entry_price && entry_price < stop_price);",
+          "line_digest": "sha256:5db449457869f20e94034d19c8cf649f07c3e7580b254aee47627f85b5cb9d61",
+          "line_number": 55
+        },
+        {
+          "excerpt": "double target_price = PositionGetDouble(POSITION_TP);",
+          "line_digest": "sha256:e711208d317790397d74f7a3957c1087ba97f213ad0bd17654104f889b857e14",
+          "line_number": 216
+        },
+        {
+          "excerpt": "target_price,",
+          "line_digest": "sha256:b95ce47885e52445b7f86a5eae485780fcddf66581c631407068f50300465e65",
+          "line_number": 224
+        },
+        {
+          "excerpt": "report.setup.target_price = target_price;",
+          "line_digest": "sha256:d7eec9cf2602f5ea77eef22c26a8321b0f537c139154d73289536b66a64a3145",
+          "line_number": 232
+        },
+        {
+          "excerpt": "report.setup.target_price = pending_target;",
+          "line_digest": "sha256:560000a94d81c60c5d1c959c40b7ebe2396b99b2f6ceea4084ed35243ca3e2d3",
+          "line_number": 355
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9211164b175d14ac1cac0c43aa9563e64535f857f28f41b3b2fff4dbcab5e566",
+      "atom_id": "TREATATOM_82E8F12B79862C0912CFF60807837950",
+      "atom_type": "ENTRY_LIMIT",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "int pending_direction = (pending_type == ORDER_TYPE_BUY_LIMIT ? FP_DIR_BULLISH :",
+          "line_digest": "sha256:b383352c45315df6e20192a67fb083ecb51b37ff1b7dc37000bc6204c441efa3",
+          "line_number": 335
+        },
+        {
+          "excerpt": "(pending_type == ORDER_TYPE_SELL_LIMIT ? FP_DIR_BEARISH : FP_DIR_NONE));",
+          "line_digest": "sha256:4e7eb36d882d2a30352657765dd1ad25a5539f1d5f26fa665b2d2afab3e419cc",
+          "line_number": 336
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d7be5a637d229515273e61d100523ea0c6a9cab9fac1f2d9473587120c214b23",
+      "atom_id": "TREATATOM_85876B5D05CF6E2A42426A0C6B78725A",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "bool deleted = g_fp_nds_hook_trade.OrderDelete(report.order_ticket);",
+          "line_digest": "sha256:e510137ade981ac564bf53e392d78f811f19045547ba350bf7c3bf192a8dfa12",
+          "line_number": 365
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9d112300061da06ce5f93240d129b9a5ad0bf534d0321e436e6a9ff095a629b7",
+      "atom_id": "TREATATOM_A0DE399A52DF911ADE578B200653A50A",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != cfg.magic) continue;",
+          "line_digest": "sha256:51416f8365cb3599c1a84dd9e350381b9afdefe130923d1dc6e2e172a5275a76",
+          "line_number": 25
+        },
+        {
+          "excerpt": "g_fp_nds_hook_trade.SetExpertMagicNumber((ulong)cfg.magic);",
+          "line_digest": "sha256:16937a3d1ef370a847c138f4d790e881c647b0887e5c89bd0b933f42d9431718",
+          "line_number": 364
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:1658dae387fc22de8fc1c49bf36aa47febec1bbbc7bf827029ac9877ff3e7471",
+      "atom_id": "TREATATOM_C66A5BAB8DF35097E2236BB4438F1DAB",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:c6bc0c581c43d4abe91f29d9f7d6c586991a9f22bf5398b35c95fceed62d6c39",
+          "line_number": 39
+        },
+        {
+          "excerpt": "risk_distance = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:2d6ebd92967a12af0f806333125297627fd38ecd472c14c19bc63e198827de07",
+          "line_number": 46
+        },
+        {
+          "excerpt": "reward_distance = MathAbs(target_price - entry_price);",
+          "line_digest": "sha256:fbef87584383306a4d505110170246324c63cf6537f8cf19c343844fd312e426",
+          "line_number": 47
+        },
+        {
+          "excerpt": "bool geometry_ok = (entry_price > 0.0 && stop_price > 0.0 && target_price > 0.0 &&",
+          "line_digest": "sha256:9c6146e5f24979b748368d461258b39eec2a8be240b2ddcb7c911bfcb62129b6",
+          "line_number": 50
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && stop_price < entry_price && entry_price < target_price);",
+          "line_digest": "sha256:e78d181774a5c0bfaab31fb357d3436ed58be06f6516add74b81150ffa5ddc7b",
+          "line_number": 53
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && target_price < entry_price && entry_price < stop_price);",
+          "line_digest": "sha256:5db449457869f20e94034d19c8cf649f07c3e7580b254aee47627f85b5cb9d61",
+          "line_number": 55
+        },
+        {
+          "excerpt": "report.setup.entry_price = open_price;",
+          "line_digest": "sha256:51d64c7f614ab09b77ceb01c9e24eefac34a6697cf330ca61ef022d8ab6fe778",
+          "line_number": 230
+        },
+        {
+          "excerpt": "report.setup.entry_price = pending_entry;",
+          "line_digest": "sha256:4dba5adb9d0719074c6c866ba7008550b6e54608854542373fdf3c1683938ecb",
+          "line_number": 353
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7d7651be584263b11a62d602d3e7b4ead0dc31eec6eb3b7c056871199b29dc15",
+      "atom_id": "TREATATOM_C6D5A76D2EE47551400B19F321625273",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "const double stop_price,",
+          "line_digest": "sha256:06b268a9268823bcb992d2f766d90262e344242e15abbbae0d6a930b32117456",
+          "line_number": 40
+        },
+        {
+          "excerpt": "risk_distance = MathAbs(entry_price - stop_price);",
+          "line_digest": "sha256:2d6ebd92967a12af0f806333125297627fd38ecd472c14c19bc63e198827de07",
+          "line_number": 46
+        },
+        {
+          "excerpt": "bool geometry_ok = (entry_price > 0.0 && stop_price > 0.0 && target_price > 0.0 &&",
+          "line_digest": "sha256:9c6146e5f24979b748368d461258b39eec2a8be240b2ddcb7c911bfcb62129b6",
+          "line_number": 50
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && stop_price < entry_price && entry_price < target_price);",
+          "line_digest": "sha256:e78d181774a5c0bfaab31fb357d3436ed58be06f6516add74b81150ffa5ddc7b",
+          "line_number": 53
+        },
+        {
+          "excerpt": "geometry_ok = (geometry_ok && target_price < entry_price && entry_price < stop_price);",
+          "line_digest": "sha256:5db449457869f20e94034d19c8cf649f07c3e7580b254aee47627f85b5cb9d61",
+          "line_number": 55
+        },
+        {
+          "excerpt": "double stop_price = PositionGetDouble(POSITION_SL);",
+          "line_digest": "sha256:6e031d5f3220fa8a5b0d0c5110714e9ec437f3beb27df810c00e5971a6e79237",
+          "line_number": 215
+        },
+        {
+          "excerpt": "stop_price,",
+          "line_digest": "sha256:702cc82d6753e02f56cd355e9b3c29f9e5e51231d3a99b8d9afcda3d54d33845",
+          "line_number": 223
+        },
+        {
+          "excerpt": "report.setup.stop_price = stop_price;",
+          "line_digest": "sha256:2004dc6daaea7bf357ebf6ce6e55397a49b828d208e89d6d24f295a7e65105b3",
+          "line_number": 231
+        },
+        {
+          "excerpt": "report.setup.stop_price = pending_stop;",
+          "line_digest": "sha256:6cff8e2399dd98815fb4e3a45b401dfad75bb0647d853bd5f0f98b354ccfbe91",
+          "line_number": 354
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:63b23ca4994c798d7c442b200da63f0ce7c2e032ec748d3344336310f96da246",
+      "atom_id": "TREATATOM_C94A5270011B65E753AA4074D593962B",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "for(int i=PositionsTotal()-1; i>=0; i--)",
+          "line_digest": "sha256:37fdb9a5a04d0e0c852e83d3b7f9012a52d2d61f9067ab8f0da6c8567e0e6e6a",
+          "line_number": 20
+        },
+        {
+          "excerpt": "bool pending_selected = (report.order_ticket > 0 && OrderSelect(report.order_ticket));",
+          "line_digest": "sha256:b19d1e17002ed28287633c2c03a733636700db631bff1f9d66de66c9ad1705df",
+          "line_number": 312
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ffa558d9ce6455e931354d23faf54cf783f130414ffb1f63603b5751bb1eefb6",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:56ad5f3bc10274a0dcc88dec7a05f3621c49880ab5621725ab89a7aa5b3c0e68",
+    "sha256:07401e76fd72c4c34a17d2754007b0b7694a0158203b149f8868487e8515bdda",
+    "sha256:1658dae387fc22de8fc1c49bf36aa47febec1bbbc7bf827029ac9877ff3e7471",
+    "sha256:63b23ca4994c798d7c442b200da63f0ce7c2e032ec748d3344336310f96da246",
+    "sha256:7d7651be584263b11a62d602d3e7b4ead0dc31eec6eb3b7c056871199b29dc15",
+    "sha256:9211164b175d14ac1cac0c43aa9563e64535f857f28f41b3b2fff4dbcab5e566",
+    "sha256:9d112300061da06ce5f93240d129b9a5ad0bf534d0321e436e6a9ff095a629b7",
+    "sha256:d7be5a637d229515273e61d100523ea0c6a9cab9fac1f2d9473587120c214b23"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
+  "source_sha256": "sha256:56ad5f3bc10274a0dcc88dec7a05f3621c49880ab5621725ab89a7aa5b3c0e68",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0F53BB5CE3799246D715B33F0148D5E2",
+  "treatment_package_id": "TREATPKG_D9DAFDD939D8A14A58A7267AC2DF1AF5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

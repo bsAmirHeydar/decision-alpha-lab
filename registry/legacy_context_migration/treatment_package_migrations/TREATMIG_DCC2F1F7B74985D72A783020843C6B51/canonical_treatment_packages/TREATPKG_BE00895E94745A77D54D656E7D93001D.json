@@ -1,0 +1,107 @@
+{
+  "atom_ids": [
+    "TREATATOM_24FD4CA9F3F9F9B7B179F75CC822397D",
+    "TREATATOM_4C571117DB3AF8845A95A02FEDC32DEB"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:78c8ce8eb54ca4fe519f0f53c1635537cb67ab3f23fe08a5540571ac5ded5900",
+      "atom_id": "TREATATOM_24FD4CA9F3F9F9B7B179F75CC822397D",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:923c804cb1970c44ecde9e1210f283be3b30ca35fbd257fb232442f9e3f05869",
+          "line_number": 91
+        },
+        {
+          "excerpt": "take_profit=entry_price+distance;",
+          "line_digest": "sha256:a138fa575d8c1259cd6f9cd6e272873ee08197c70af9eeecd679aff4526f7c07",
+          "line_number": 108
+        },
+        {
+          "excerpt": "take_profit=entry_price-distance;",
+          "line_digest": "sha256:dcb6fcff61f059cb9e308bc8cffee22d52d463142e95542247ac3ee1b14355e9",
+          "line_number": 110
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6b6450a5c36ad6a65d0d561ff518e7a32cdf1e00ceb200e47185d7e08535ade8",
+      "atom_id": "TREATATOM_4C571117DB3AF8845A95A02FEDC32DEB",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "double &take_profit,",
+          "line_digest": "sha256:762d14bb724c8070fa2c4793fd28c75b97d8287b7c101ac58a1906c7cabb29c1",
+          "line_number": 93
+        },
+        {
+          "excerpt": "take_profit=0.0;",
+          "line_digest": "sha256:4ae0262e10da4fef63a1d06b9a2094e69deb6e069a35d6591e55a4bc004ad07e",
+          "line_number": 97
+        },
+        {
+          "excerpt": "take_profit=entry_price+distance;",
+          "line_digest": "sha256:a138fa575d8c1259cd6f9cd6e272873ee08197c70af9eeecd679aff4526f7c07",
+          "line_number": 108
+        },
+        {
+          "excerpt": "take_profit=entry_price-distance;",
+          "line_digest": "sha256:dcb6fcff61f059cb9e308bc8cffee22d52d463142e95542247ac3ee1b14355e9",
+          "line_number": 110
+        },
+        {
+          "excerpt": "take_profit=CGX_NormalizePrice(symbol,take_profit);",
+          "line_digest": "sha256:f16cdf3ee69d79a41cf354ae94e58528f94c01c3037790c466e634f61a25502c",
+          "line_number": 117
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8d151d2b957796786a2dcc81e2e4636ca5de2209a041211e2b3e995ba41368f2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:85c52446ad88aa73f9f2ed4659b934044425532c3d6e08f8bd6d5ce9ef926bc2",
+    "sha256:6b6450a5c36ad6a65d0d561ff518e7a32cdf1e00ceb200e47185d7e08535ade8",
+    "sha256:78c8ce8eb54ca4fe519f0f53c1635537cb67ab3f23fe08a5540571ac5ded5900"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TargetModelATR.mqh",
+  "source_sha256": "sha256:85c52446ad88aa73f9f2ed4659b934044425532c3d6e08f8bd6d5ce9ef926bc2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B065E96A440CE94E7C249FF335E25A55",
+  "treatment_package_id": "TREATPKG_BE00895E94745A77D54D656E7D93001D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

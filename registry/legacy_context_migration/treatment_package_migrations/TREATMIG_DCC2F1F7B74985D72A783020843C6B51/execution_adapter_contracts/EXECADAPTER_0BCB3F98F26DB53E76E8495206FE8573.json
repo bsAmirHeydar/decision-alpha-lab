@@ -1,0 +1,54 @@
+{
+  "adapter_digest": "sha256:e01434b20fe4d636fea664f5a24bc24ed7be090ab26359437b07ab21cbd583c8",
+  "adapter_id": "EXECADAPTER_0BCB3F98F26DB53E76E8495206FE8573",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_POSITION_OPEN",
+    "BROKER_SUBMIT_CTRADE",
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_3DE1F45BDB4802341EED4E5212928A5A",
+    "EXECCAP_3E4A0478BD8B4B20E8E10AFA5457B378",
+    "EXECCAP_4A7AAB19EDB942F28379B725D835E995",
+    "EXECCAP_67664211DC4476A37E3DEA06946812D0",
+    "EXECCAP_A8B3F2B584712D7327FBC47CDDCB8A19",
+    "EXECCAP_B0FEDBC4BFE17DFFA668829EC9B3D9C0",
+    "EXECCAP_F8743535307B2654B4C2F1BF889E47F3",
+    "EXECCAP_FF242958B13121E772665C3DD791843F"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c0c8de42dea90971af4859d5c5f25b31360e921801fa2eac59c54550e53cd88a"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_uce_i12_promotion/test_i12_boundaries.py",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_0BCB3F98F26DB53E76E8495206FE8573"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_F9F901A72716F5DCC4576EEAD80DF96D"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:61675e96e7bb6ea8bc104f634381d328c1089861080484a3965a8621f6da95b9",
+      "atom_id": "TREATATOM_F9F901A72716F5DCC4576EEAD80DF96D",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "r=simulate(buy_plan,paper_policy(PaperPolicyProfile.FILLED),PaperScenario.IMMEDIATE_FILL,buy_quote,buy_plan.created_utc_ms,fill_slippage_price=buy_plan.geometry.worst_case_entry-buy_plan.geometry.planned_entry); x=reconcile_risk(buy_plan,r.position,buy_spec); assert x['within_cap']",
+          "line_digest": "sha256:d070a8fb3a3bd0c1db119911e96ee76c3240ee2a7a195baac2370871c9a4f244",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:b2eb532310fcde3379261ac86bcff53a7b1dbadfde3dc218b8ab56dec2c282be",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:0ecc74799ac25fb4ab46bac33c23efa7a6e8dd3f63d2fce40b4c1249c1504cc1",
+    "sha256:61675e96e7bb6ea8bc104f634381d328c1089861080484a3965a8621f6da95b9"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_reconciliation.py",
+  "source_sha256": "sha256:0ecc74799ac25fb4ab46bac33c23efa7a6e8dd3f63d2fce40b4c1249c1504cc1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_DACE143CAEA82F80C8B941FF5E74C2E2",
+  "treatment_package_id": "TREATPKG_0D55F01F202C54797C884D0D56C8CFD5",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

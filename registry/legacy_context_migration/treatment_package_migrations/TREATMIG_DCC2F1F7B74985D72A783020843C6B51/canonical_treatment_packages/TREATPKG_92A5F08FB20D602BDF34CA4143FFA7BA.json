@@ -1,0 +1,94 @@
+{
+  "atom_ids": [
+    "TREATATOM_6F96819CE6DA82666C2A9A24D9A87244"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d95364f46f33d6505eeb6bb329c418bde5a399853ab9a106aa164cafd4e89f84",
+      "atom_id": "TREATATOM_6F96819CE6DA82666C2A9A24D9A87244",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "double entry_price;",
+          "line_digest": "sha256:c0861ffb603e8701cb6656c56c2868c803ae62d6899c37689cefeea26030183d",
+          "line_number": 44
+        },
+        {
+          "excerpt": "e.entry_price = 0.0;",
+          "line_digest": "sha256:2dda5cb00822c7c08ab06c08e42c94c28a8f22de8f24b1db754f7f5bb9690cf2",
+          "line_number": 94
+        },
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:917ce7b2b6c7041090d9ca0de79754f08d9369e7ac248fd4ee4f57d518c4f935",
+          "line_number": 160
+        },
+        {
+          "excerpt": "if(closure_time <= 0 || entry_price <= 0.0)",
+          "line_digest": "sha256:5ac82506db17bd9759af36c6369822c3a402d75adabd1286172f89604abda543",
+          "line_number": 168
+        },
+        {
+          "excerpt": "if(rates[i].low <= entry_price)",
+          "line_digest": "sha256:ad6d679a913eaf48e496575a554a3d5f5364178d9b1bd156eef0e3326c370019",
+          "line_number": 180
+        },
+        {
+          "excerpt": "if(rates[i].high >= entry_price)",
+          "line_digest": "sha256:f9dacc790b51f666a0a4d86fe78a9956424a403226ab4bff4ff353f9f744ce14",
+          "line_number": 190
+        },
+        {
+          "excerpt": "e.entry_price = FP_NDSHook864CycleR1RawEntryFromSequence(seq,",
+          "line_digest": "sha256:8549cc5e5bfbf4e3617485979d2d547ffff78c8b1c95216d94d2b58716b072fb",
+          "line_number": 248
+        },
+        {
+          "excerpt": "rates, copied, e.direction, e.x_closure_time, e.entry_price,",
+          "line_digest": "sha256:c66e283bf0fa73355f4d6f489309063c2ac7d1bde2d855437ac61679a4452743",
+          "line_number": 278
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e36c97be43edb101dd1a59bd15384741f2e69bebcace1f16acbecced4be3d7a7",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d8e39fa22f8f72bf145fb25d6eaf6392a40aeece88f924317499585c402466d2",
+    "sha256:d95364f46f33d6505eeb6bb329c418bde5a399853ab9a106aa164cafd4e89f84"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Evidence.mqh",
+  "source_sha256": "sha256:d8e39fa22f8f72bf145fb25d6eaf6392a40aeece88f924317499585c402466d2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4265CA6794F7EA1227BA8D956AD34E08",
+  "treatment_package_id": "TREATPKG_92A5F08FB20D602BDF34CA4143FFA7BA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

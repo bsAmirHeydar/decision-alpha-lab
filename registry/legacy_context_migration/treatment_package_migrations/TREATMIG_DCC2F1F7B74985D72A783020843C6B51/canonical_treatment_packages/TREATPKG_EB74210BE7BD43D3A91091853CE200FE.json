@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_49B9F9F648037C4F3D4A8794C31571C3"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ee3e0caeea628f39900719ed118e11f7b1abb0259652ad1f7625fddcd909b6cf",
+      "atom_id": "TREATATOM_49B9F9F648037C4F3D4A8794C31571C3",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "center=last+trend*config.horizon*(.4+.2*hash_unit(candidate.candidate_id));spread=max(.05,(max(scalar_history)-min(scalar_history))*.15+.02*candidate.expert_count)",
+          "line_digest": "sha256:6328b464676d7f47f3cc7f4c6ec23eb37e7f725796d21c0ebfe9b65583dc4450",
+          "line_number": 48
+        },
+        {
+          "excerpt": "qvals=[{'q':q,'value':center+(q-.5)*2.8*spread} for q in config.quantiles]",
+          "line_digest": "sha256:2778f3cd5da20b02680789fb2b5c5e6f3106e6d1ba1171585c55a66e0b1de30b",
+          "line_number": 49
+        },
+        {
+          "excerpt": "doc={'phase':'SAED_V4_14','candidate_id':candidate.candidate_id,'intake_id':candidate.intake_id,'family':candidate.family,'adapter_mode':candidate.adapter_mode,'source_token_sequence_hash':seq['token_sequence_hash'],'known_as_of':seq['known_as_of'],'embedding':list(rep),'quantile_forecast':qvals,'uncertainty_scale':spr",
+          "line_digest": "sha256:9a5bc9c6b5035b7bf768b35fca346095a9d1272e1787a9d601419bea64af999c",
+          "line_number": 57
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:15377b55529e3b06cd328fbb52caea3e016a286f09e65043191830809bd51242",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_EC941C645C7FE7C92373D3566A89790D"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:577e8cc1edd709e622d9722769582cef564250425756caf476960641c031b6f1",
+    "sha256:ee3e0caeea628f39900719ed118e11f7b1abb0259652ad1f7625fddcd909b6cf"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_foundation_model_adapters/adapters.py",
+  "source_sha256": "sha256:577e8cc1edd709e622d9722769582cef564250425756caf476960641c031b6f1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8EDCBE408E69059011DB52EC8B7BD829",
+  "treatment_package_id": "TREATPKG_EB74210BE7BD43D3A91091853CE200FE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

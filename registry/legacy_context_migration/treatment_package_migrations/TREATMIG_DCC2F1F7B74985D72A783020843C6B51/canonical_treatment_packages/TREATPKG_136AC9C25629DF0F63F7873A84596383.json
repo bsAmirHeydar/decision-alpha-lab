@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_B51F98BF4550C2F26043865945743871"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:dbdb4a9480f8619fe0cf3afa87de8097d21cec5355b9163c2bba15e8cd9b2e90",
+      "atom_id": "TREATATOM_B51F98BF4550C2F26043865945743871",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "class CSF04FixturePulsePlugin:public CSF04AnatomyPluginBase{private:string m_symbol;int m_timeframe_seconds,m_lookback_bars,m_ticks_per_event;long m_tick_count,m_event_sequence;protected:bool OnPluginInitialize(string &e){m_tick_count=0;m_event_sequence=0;e=\"\";return true;}bool OnPluginStart(string &e){e=\"\";return true",
+          "line_digest": "sha256:28dc69838632027928c4c8ef511e1aff4a4e4349149bf5699c2c23c8f11b674b",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a84ec86d7e38b2c8be01e191071a1235d8073e719606e8f0a4efe6955e951619",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_A82F5019268DE8104F7719CAB6786000"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e7cc4f9b176f1c9c593ae9ca5dbd72fe96af3125834295e8d23e53037c8a9c75",
+    "sha256:dbdb4a9480f8619fe0cf3afa87de8097d21cec5355b9163c2bba15e8cd9b2e90"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/AlphaLab/StrategyFactory/Plugins/Fixture/SF04_FixturePulsePlugin.mqh",
+  "source_sha256": "sha256:e7cc4f9b176f1c9c593ae9ca5dbd72fe96af3125834295e8d23e53037c8a9c75",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_519C3A301AA825C0851B2D54E0345E92",
+  "treatment_package_id": "TREATPKG_136AC9C25629DF0F63F7873A84596383",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,79 @@
+{
+  "allowed_next_actions": [
+    "DRY_RUN_REQUEST_PARITY",
+    "SAFETY_CONTROL_TESTS",
+    "AUTHORITY_NEGATIVE_TESTS",
+    "FORBIDDEN_API_RESCAN"
+  ],
+  "blocked_dimensions": [
+    "RUNTIME_PARITY",
+    "SAFETY_CONTROL_VALIDATION",
+    "HUMAN_OWNER_APPROVAL",
+    "LEGACY_CONSUMER_CUTOVER"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "completed_gates": [
+    "UPSTREAM_HANDOFF_DIGEST",
+    "ALL_TREATMENT_ATOMS_PACKAGED",
+    "ALL_EXECUTION_SOURCES_ADAPTER_OR_BLOCKER",
+    "EXECUTION_INTENT_VERSIONED",
+    "SUBMISSION_DEFAULT_FALSE",
+    "CANONICAL_FORBIDDEN_API_ABSENCE",
+    "SETUP_BINDINGS_PACKAGE_OR_BLOCKER",
+    "SOURCE_BEHAVIOR_UNCHANGED"
+  ],
+  "consumer_cutover_allowed": false,
+  "counts": {
+    "blocked_setup_count": 57,
+    "bound_setup_count": 3,
+    "execution_adapter_count": 483,
+    "legacy_adapter_record_count": 483,
+    "legacy_broker_mutation_path_count": 184,
+    "packaged_atom_count": 1109,
+    "setup_binding_count": 60,
+    "treatment_atom_count": 1109,
+    "treatment_blocker_count": 382,
+    "treatment_package_count": 422
+  },
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "ORDER_SUBMISSION",
+    "LIVE_ADAPTER_ACTIVATION",
+    "PAPER_BROKER_SUBMISSION",
+    "CAPITAL_ACTIVATION",
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE_OR_DELETE",
+    "UNKNOWN_WAIVER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e",
+  "handoff_id": "LCM10BHANDOFF_413810D315F57CC65697282AFC7AE590",
+  "handoff_type": "LCM10B_TO_LCM10C",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-10",
+  "migration_id": "TREATMIG_DCC2F1F7B74985D72A783020843C6B51",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-10B",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "promotion_authority_created": false,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_delete_allowed": false,
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b",
+    "sha256:b62b20a87aec4ed65bbb1c4ca3cfe86f70ea34503a0bde3fec4722118e62b8fc",
+    "sha256:01db133e85780191578c6fd39bea1559d5f5252a985d593798728c4453e88211"
+  ],
+  "source_move_allowed": false,
+  "unknown_dimensions": [
+    "BROKER_RUNTIME_CONSTRAINTS",
+    "AMBIGUOUS_LEGACY_VALUE_SEMANTICS",
+    "FILE_LEDGER_ENTITLEMENT_SEMANTICS"
+  ],
+  "upstream_handoff_digest": "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b",
+  "validation_status": "PASS"
+}

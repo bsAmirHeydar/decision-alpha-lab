@@ -1,0 +1,103 @@
+{
+  "atom_ids": [
+    "TREATATOM_C0D6CCB139894680599B9085D5BC3DEA",
+    "TREATATOM_F94CFF7BE63259EB74CED6BB78700304",
+    "TREATATOM_FF5C7A1A214ECF664F3A27A3E2CBADD7"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9887c7079f5564d1e5e4ea6d1467d02d572a6f3a3d18dab0304cb8bc69800018",
+      "atom_id": "TREATATOM_C0D6CCB139894680599B9085D5BC3DEA",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "from .trailing import TRAILING_ATOMS",
+          "line_digest": "sha256:95a05926edf7be5f1703c9398bebc6cfccde7cdcd64847e36525e6d181d0859a",
+          "line_number": 8
+        },
+        {
+          "excerpt": "entry:ExactAtomRegistry; stop:ExactAtomRegistry; target:ExactAtomRegistry; trailing:ExactAtomRegistry; management:ExactAtomRegistry; sizing:ExactAtomRegistry",
+          "line_digest": "sha256:f9a789106607237317348b0fa57d2e1efa2021f48a44b37be92569417d8ae3c2",
+          "line_number": 13
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:6f31a7a0fa7c0fc3b5a0ab0678f756096cdd3504a4b3fc0351cff8c6ae128050",
+      "atom_id": "TREATATOM_F94CFF7BE63259EB74CED6BB78700304",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "def registries(self): return (self.entry,self.stop,self.target,self.trailing,self.management,self.sizing)",
+          "line_digest": "sha256:088b817dcc30eb1dffa27500614251bda6cbfd57186996e3dd24e1d399a94a6c",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a7d9b138554bf33fd8a188577f3383baff314da0bb2940100c0496f538ccf179",
+      "atom_id": "TREATATOM_FF5C7A1A214ECF664F3A27A3E2CBADD7",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "groups={TreatmentKind.ENTRY:ENTRY_ATOMS,TreatmentKind.STOP:STOP_ATOMS,TreatmentKind.TARGET:TARGET_ATOMS,TreatmentKind.TRAILING:TRAILING_ATOMS,TreatmentKind.MANAGEMENT:MANAGEMENT_ATOMS,TreatmentKind.SIZING:SIZING_ATOMS}",
+          "line_digest": "sha256:5c90d1cb8436299d380bc65192f48ed90f77bbe4f16ce1681ab0ebdfddd3266a",
+          "line_number": 27
+        },
+        {
+          "excerpt": "c=TreatmentCatalog(regs[TreatmentKind.ENTRY],regs[TreatmentKind.STOP],regs[TreatmentKind.TARGET],regs[TreatmentKind.TRAILING],regs[TreatmentKind.MANAGEMENT],regs[TreatmentKind.SIZING])",
+          "line_digest": "sha256:398a8422daa9f4e96cc17b8ef7660f0d3417dae308a1cb8773dbbef041d245cd",
+          "line_number": 30
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c7eb691c0c0d2933e90a20b16a7ea04e2f8911676be1b7807f111b85295eaf12",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:b9ea86b5838c9e9b38d9ce20b00b99a13054bb6a931435910016b2e81856cb08",
+    "sha256:6f31a7a0fa7c0fc3b5a0ab0678f756096cdd3504a4b3fc0351cff8c6ae128050",
+    "sha256:9887c7079f5564d1e5e4ea6d1467d02d572a6f3a3d18dab0304cb8bc69800018",
+    "sha256:a7d9b138554bf33fd8a188577f3383baff314da0bb2940100c0496f538ccf179"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatments_v3/catalog.py",
+  "source_sha256": "sha256:b9ea86b5838c9e9b38d9ce20b00b99a13054bb6a931435910016b2e81856cb08",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_4452901AA7326E451EDAE8DEAC102C79",
+  "treatment_package_id": "TREATPKG_143D0B2EB8B827A7797B0EC56C0C6567",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

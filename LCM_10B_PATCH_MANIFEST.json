@@ -1,0 +1,62 @@
+{
+  "acceptance": {
+    "capital_authority_created": false,
+    "live_order_authority_created": false,
+    "passed": true,
+    "runtime_authority_created": false,
+    "source_behavior_changed": false,
+    "validation_status": "PASS"
+  },
+  "artifact_inventory": "LCM_10B_ARTIFACT_INVENTORY.csv",
+  "category_counts": {
+    "DOCUMENTATION": 95,
+    "GENERATED_REFERENCE_PACKAGE": 928,
+    "MQL5_IMPLEMENTATION": 7,
+    "OPERATOR_DOCUMENT": 4,
+    "POLICY": 14,
+    "PYTHON_IMPLEMENTATION": 23,
+    "REGISTRY_CONTRACT": 8,
+    "SCHEMA": 18,
+    "TEST": 36
+  },
+  "change_counts": {
+    "ADDED": 1128,
+    "MODIFIED": 5
+  },
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "commit_message": "COMMIT_MESSAGE_LCM_10B.md",
+  "control_file_count": 6,
+  "control_files": [
+    "LCM_10B_ARTIFACT_INVENTORY.csv",
+    "LCM_10B_FILE_HASHES.sha256",
+    "LCM_10B_FILE_INDEX.txt",
+    "LCM_10B_PATCH_CONTENTS_TREE.txt",
+    "LCM_10B_PATCH_MANIFEST.json",
+    "LCM_10B_QA_REPORT.json"
+  ],
+  "exact_stage_index": "LCM_10B_FILE_INDEX.txt",
+  "final_indexed_file_count": 1139,
+  "generated_reference_package": {
+    "execution_adapter_count": 483,
+    "file_count": 928,
+    "handoff_digest": "sha256:d62b996bb34ba86ba2a879f317bac9fe3757dc017a70c51f86b53261c356399e",
+    "manifest_digest": "sha256:c1f6ea311188098ea1e8bed72ad73d820effd214b7e27c0012fb0f0764e97541",
+    "path": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51",
+    "setup_binding_count": 60,
+    "treatment_atom_count": 1109,
+    "treatment_blocker_count": 382,
+    "treatment_package_count": 422
+  },
+  "master_phase": "LCM-10",
+  "migration_id": "TREATMIG_DCC2F1F7B74985D72A783020843C6B51",
+  "patch_manifest_digest": "sha256:bfe856db29245bcefe7c05b69f921fa66f3ff3f15712d1406046c5723273a4b3",
+  "patch_name": "ALPHA_LAB_LCM_10B_TREATMENT_PACKAGE_EXECUTION_BOUNDARY_PATCH.zip",
+  "payload_file_count": 1133,
+  "payload_size_bytes": 8504070,
+  "phase_id": "LCM-10B",
+  "qa_report": "LCM_10B_QA_REPORT.json",
+  "repository_root_overlay": true,
+  "schema_version": "1.0.0",
+  "sha256_ledger": "LCM_10B_FILE_HASHES.sha256",
+  "status": "MERGE_READY_REFERENCE_PATCH"
+}

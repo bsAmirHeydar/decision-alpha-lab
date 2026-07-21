@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_9A6E285CB976661B41E16D2A64E1EFCF"
+  ],
+  "atom_types": [
+    "CANCELLATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:a89df7608133e597bcc6f0305dd9e9f549edd490db443124170ac2e382e32140",
+      "atom_id": "TREATATOM_9A6E285CB976661B41E16D2A64E1EFCF",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "elif e.action in (LedgerAction.RELEASE,LedgerAction.CANCEL):",
+          "line_digest": "sha256:b0da189b8b9b3bfb815b9fe1168323d88abd1a20e6c1f370807e02301a0a49ae",
+          "line_number": 36
+        },
+        {
+          "excerpt": "released+=e.amount_cash; state=ReservationState.CANCELLED if e.action is LedgerAction.CANCEL and consumed==0 else ReservationState.RELEASED if consumed+released>=reserved else ReservationState.ADJUSTED",
+          "line_digest": "sha256:0f07d70c48270a39895c5c979c4db25ffcfa08fc9b73686a9242f2ceb1d19abb",
+          "line_number": 38
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:53a3675c4999988a044f6200fda340a968633e9cf8ad0a42abd8f35a8580f901",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c05e380c9596ec46428b3cc9228269eb979d90da8954728f0ba793f8788c17c0",
+    "sha256:a89df7608133e597bcc6f0305dd9e9f549edd490db443124170ac2e382e32140"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_economics_v3/reservation.py",
+  "source_sha256": "sha256:c05e380c9596ec46428b3cc9228269eb979d90da8954728f0ba793f8788c17c0",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_98BE38A2799DC7F1CE6797FD06987717",
+  "treatment_package_id": "TREATPKG_BCD39C69B33200358749634A52C61CAE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

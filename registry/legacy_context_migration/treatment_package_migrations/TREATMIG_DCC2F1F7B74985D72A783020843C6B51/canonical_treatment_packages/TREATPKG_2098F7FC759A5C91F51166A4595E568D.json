@@ -1,0 +1,83 @@
+{
+  "atom_ids": [
+    "TREATATOM_B46698FB196B2C1B9A161AA58424E7D8",
+    "TREATATOM_FEB3639C7FBC21ED4867CE28A62AB667"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f6166161998f8c5b779bddb06f4b847519b67b1796f2c50d3c22e270b5b5e044",
+      "atom_id": "TREATATOM_B46698FB196B2C1B9A161AA58424E7D8",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "SF03_SymbolSpecSnapshot spec;spec.symbol=\"EURUSD\";spec.digits=5;spec.point=0.00001;spec.tick_size=0.00001;spec.tick_value=1.0;spec.contract_size=100000;spec.volume_min=0.01;spec.volume_max=100;spec.volume_step=0.01;spec.stops_level_points=0;spec.freeze_level_points=0;spec.filling_mode=0;spec.order_mode=0;spec.trade_mod",
+          "line_digest": "sha256:c705d858536f232c8e51d256e8f69d2d09bd7ccf231d9d58f86ad046eccdd0cf",
+          "line_number": 20
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3f564a822931995213a83c98b93727a1cd428245f577905e9f2867c69fb9e5a0",
+      "atom_id": "TREATATOM_FEB3639C7FBC21ED4867CE28A62AB667",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "SF03_SymbolSpecSnapshot spec;spec.symbol=\"EURUSD\";spec.digits=5;spec.point=0.00001;spec.tick_size=0.00001;spec.tick_value=1.0;spec.contract_size=100000;spec.volume_min=0.01;spec.volume_max=100;spec.volume_step=0.01;spec.stops_level_points=0;spec.freeze_level_points=0;spec.filling_mode=0;spec.order_mode=0;spec.trade_mod",
+          "line_digest": "sha256:c705d858536f232c8e51d256e8f69d2d09bd7ccf231d9d58f86ad046eccdd0cf",
+          "line_number": 20
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0f8f8e0b602552265d49f63bfb933becda7bfeb05f8c90d79368f90eee81cb1f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1B2B0AB99C0D5224B9EE1422CF96C30D",
+    "RISKASM_63A6C25694EE352BA5DEB86D9EE309EF",
+    "RISKASM_6983EB28CFDEB077CEE4D4AD6ACC7A30",
+    "RISKASM_D84235B0861334E43E4AE6F1C188FFDF",
+    "RISKASM_E906BD459BD35E67DCE0E7CD3229F848"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:27296a52b4be2e5fdedc0cb03677990153ca25143afe8e01d2a747b0f532c5e1",
+    "sha256:3f564a822931995213a83c98b93727a1cd428245f577905e9f2867c69fb9e5a0",
+    "sha256:f6166161998f8c5b779bddb06f4b847519b67b1796f2c50d3c22e270b5b5e044"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactoryTests/SF05_RuntimeGenerationSelfTest.mq5",
+  "source_sha256": "sha256:27296a52b4be2e5fdedc0cb03677990153ca25143afe8e01d2a747b0f532c5e1",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_64007D5DA04747413A9B754AD74D0351",
+  "treatment_package_id": "TREATPKG_2098F7FC759A5C91F51166A4595E568D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

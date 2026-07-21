@@ -1,0 +1,90 @@
+{
+  "atom_ids": [
+    "TREATATOM_3D2C4609F891E95F05CAC7190E659267",
+    "TREATATOM_91DABE2545B7B11CEEB6C01B18A1C272"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_21EBFDD44B0FB0279ACA7155D9620D71",
+    "EXECCAP_F886A5F327B13F22506653A45F617D49"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8488c693f04ecfb825c45ef57fe53230bf3a712140dc0e0840e07240203f8753",
+      "atom_id": "TREATATOM_3D2C4609F891E95F05CAC7190E659267",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "if cause in {'cancellation','expiry','invalidation'}:net*=.15",
+          "line_digest": "sha256:ddc1acbbda53354cd132cd1054aabeb06457b08303779af818be89ac2271a566",
+          "line_number": 23
+        },
+        {
+          "excerpt": "outcome_observed=observed and final_cause not in {'cancellation','expiry','invalidation'}",
+          "line_digest": "sha256:a6f07c43dcef39c4b236c75292e51cf61d92c1711f91cc01da6139987a0a9349",
+          "line_number": 35
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:ba20f30ba7687ed5eb23ecdff733927278e163182af3fd335796250d514b5a35",
+      "atom_id": "TREATATOM_91DABE2545B7B11CEEB6C01B18A1C272",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "if cause in {'cancellation','expiry','invalidation'}:net*=.15",
+          "line_digest": "sha256:ddc1acbbda53354cd132cd1054aabeb06457b08303779af818be89ac2271a566",
+          "line_number": 23
+        },
+        {
+          "excerpt": "outcome_observed=observed and final_cause not in {'cancellation','expiry','invalidation'}",
+          "line_digest": "sha256:a6f07c43dcef39c4b236c75292e51cf61d92c1711f91cc01da6139987a0a9349",
+          "line_number": 35
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:756b6a56dce164efec21a88f271b738f5abc23af6fb2722c1b790810fb13e90c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:69fdebb6b1a535c210081eed4bd2d44841aefdb3733130d78153792599e9f586",
+    "sha256:8488c693f04ecfb825c45ef57fe53230bf3a712140dc0e0840e07240203f8753",
+    "sha256:ba20f30ba7687ed5eb23ecdff733927278e163182af3fd335796250d514b5a35"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_distributional_survival_tail/dataset.py",
+  "source_sha256": "sha256:69fdebb6b1a535c210081eed4bd2d44841aefdb3733130d78153792599e9f586",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_424C74E2844D2A303D26362A4E322306",
+  "treatment_package_id": "TREATPKG_A33567BC3B245395381C806B549C8905",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

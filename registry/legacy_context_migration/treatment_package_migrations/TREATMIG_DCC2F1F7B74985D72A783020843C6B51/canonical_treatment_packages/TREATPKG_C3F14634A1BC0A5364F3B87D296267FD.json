@@ -1,0 +1,167 @@
+{
+  "atom_ids": [
+    "TREATATOM_07D70E706218A73B396D00D714320E15",
+    "TREATATOM_128645B1AE90830773A35FA849D0BF8C",
+    "TREATATOM_2C558C06768ABBE966D66398342B36DF",
+    "TREATATOM_5D4BFA8C38326604E8C7A7304568618A",
+    "TREATATOM_6975639EC546D06CB95D79A30C05AA30",
+    "TREATATOM_B13F1E564AD2037D8E93EBA20EDDBE36",
+    "TREATATOM_DD14976CD906214AF4E3AB5A99BDF52D"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_6E794EC4AF26C805442DB52CEE3E3521",
+    "EXECCAP_DE8ED5362DE83AFCE1A190D2888772A5"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d2e1b44747ee39ed3c098542aa021de2aa415bae74cfefc0d49a99a5090f7171",
+      "atom_id": "TREATATOM_07D70E706218A73B396D00D714320E15",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "def test_sell_entry_bid(sell_winner,sell_quote,sell_spec,risk): assert build_geometry(sell_winner,sell_quote,sell_spec,risk).planned_entry==sell_quote.bid",
+          "line_digest": "sha256:cbfffd1f4db383837405256689d845fc8cdd4acaba11c36d885a9be4e6d15d78",
+          "line_number": 8
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:660fbba6d26dedcf98a9c4d916a1630aa33bf58c48605d56a3f1f9f20ae69e18",
+      "atom_id": "TREATATOM_128645B1AE90830773A35FA849D0BF8C",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "g=build_geometry(sell_winner,sell_quote,sell_spec,risk); assert abs(g.adjusted_stop-(sell_winner.raw_structural_stop+sell_quote.spread))<1e-12",
+          "line_digest": "sha256:fc0a25736d2f0d38a7fd18e996ebbec2ffda84ba884c9800827ff13df6affbc7",
+          "line_number": 6
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:3070fc0dc9eb25ddbeaeddb77a04bc1d915abcb71972833571df84f3d1fa3016",
+      "atom_id": "TREATATOM_2C558C06768ABBE966D66398342B36DF",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "def test_buy_entry_ask(buy_winner,buy_quote,buy_spec,risk): assert build_geometry(buy_winner,buy_quote,buy_spec,risk).planned_entry==buy_quote.ask",
+          "line_digest": "sha256:3e5c353c6bc2f3370eeb05ea9cde890077987500d4d4baf7cadbcf5f00b46a8f",
+          "line_number": 7
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2e1bee5974c50832ffc147f6852d66afc70cb605401eccd1252fbc10ed1a1868",
+      "atom_id": "TREATATOM_5D4BFA8C38326604E8C7A7304568618A",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "g=build_geometry(buy_winner,buy_quote,buy_spec,risk); assert g.worst_case_entry==g.planned_entry+risk.max_slippage_price",
+          "line_digest": "sha256:242741728f1e71205249b6b45a6781ff51c80a1c9d08b5a92109b434546f62f2",
+          "line_number": 10
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7a6c1e8f2489c147cd6cfc6e8690666e637ea79854c5f4301895c986a156b56c",
+      "atom_id": "TREATATOM_6975639EC546D06CB95D79A30C05AA30",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "g=build_geometry(sell_winner,sell_quote,sell_spec,risk); assert g.worst_case_entry==g.planned_entry-risk.max_slippage_price",
+          "line_digest": "sha256:c8e24b37566c276181fb216c4e9caaeb16b66e017e5c2ec91e90286c044ab6fe",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2fca8f7dcb038183b94005e975312a15b27b0a49118eb1fa064d097ac32e7c46",
+      "atom_id": "TREATATOM_B13F1E564AD2037D8E93EBA20EDDBE36",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "g=build_geometry(sell_winner,sell_quote,sell_spec,risk); assert g.target<g.planned_entry",
+          "line_digest": "sha256:dccd0629abab3d9665fd8232ab271866ed362951aa9ef9f7efe300384207c8ab",
+          "line_number": 16
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5299614b83eaf78132f45f2d72e9d37af140b121b3e3e25d7b44179d180fe455",
+      "atom_id": "TREATATOM_DD14976CD906214AF4E3AB5A99BDF52D",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "g=build_geometry(buy_winner,buy_quote,buy_spec,risk); assert g.target>g.planned_entry",
+          "line_digest": "sha256:f3408c957b3715eb62a3a2cf3b66c0c73a3cbf8d1137ea02a2886c2d703fa58b",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:09bd67854074e906406caff284ded7184a76eb53015c2fb1872aa56ccecb2e47",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_9B649A244D8A3C61628E58E98467E2A2"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6b207f7765f269c3b1409491e9a5ec254f9ed00e81b0735660e299df74f0a059",
+    "sha256:2e1bee5974c50832ffc147f6852d66afc70cb605401eccd1252fbc10ed1a1868",
+    "sha256:2fca8f7dcb038183b94005e975312a15b27b0a49118eb1fa064d097ac32e7c46",
+    "sha256:3070fc0dc9eb25ddbeaeddb77a04bc1d915abcb71972833571df84f3d1fa3016",
+    "sha256:5299614b83eaf78132f45f2d72e9d37af140b121b3e3e25d7b44179d180fe455",
+    "sha256:660fbba6d26dedcf98a9c4d916a1630aa33bf58c48605d56a3f1f9f20ae69e18",
+    "sha256:7a6c1e8f2489c147cd6cfc6e8690666e637ea79854c5f4301895c986a156b56c",
+    "sha256:d2e1b44747ee39ed3c098542aa021de2aa415bae74cfefc0d49a99a5090f7171"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests/test_geometry.py",
+  "source_sha256": "sha256:6b207f7765f269c3b1409491e9a5ec254f9ed00e81b0735660e299df74f0a059",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AFDEAF25016CBA9C8895001B5040CAD4",
+  "treatment_package_id": "TREATPKG_C3F14634A1BC0A5364F3B87D296267FD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

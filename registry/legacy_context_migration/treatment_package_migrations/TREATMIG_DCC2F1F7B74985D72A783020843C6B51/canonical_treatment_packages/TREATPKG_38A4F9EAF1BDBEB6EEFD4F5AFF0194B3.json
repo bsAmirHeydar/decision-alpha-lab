@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_C7B7DE63E35626FBC51B11DBCC8D0097"
+  ],
+  "atom_types": [
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:ea64a88541a52b371fed3e0e8980ff9c0cd6c883cc31e153f60a37c05146c0e1",
+      "atom_id": "TREATATOM_C7B7DE63E35626FBC51B11DBCC8D0097",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "TreatmentSpec('uce15.treatment.capital_policy','1.0.0',TreatmentFamily.CAPITAL_POLICY,{'risk_fraction':0.0025,'daily_loss_limit_r':3.0},1.0,False,'market','capital_guard','capital.portfolio_guard'))",
+          "line_digest": "sha256:f3b2ab3483a56d96acc9d203e3301a987f876f235e1226a608894fa65a0cbaa6",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f96871b34d03276fa9d846d83062273177106de0460124758530eef7c83a4d0a",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:cc61c8f745411b4234f1635883cc53906ae7957d42d809cda51b12c571cf5300",
+    "sha256:ea64a88541a52b371fed3e0e8980ff9c0cd6c883cc31e153f60a37c05146c0e1"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_tournament_v3/treatments.py",
+  "source_sha256": "sha256:cc61c8f745411b4234f1635883cc53906ae7957d42d809cda51b12c571cf5300",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_FD733EC07F4363ECEB1A3ADD63172018",
+  "treatment_package_id": "TREATPKG_38A4F9EAF1BDBEB6EEFD4F5AFF0194B3",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

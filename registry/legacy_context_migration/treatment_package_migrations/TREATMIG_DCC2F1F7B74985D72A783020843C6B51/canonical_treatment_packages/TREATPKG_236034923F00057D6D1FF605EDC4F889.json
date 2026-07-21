@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_DB67B4641D4BD0F781FE5176565CDFA1"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c786f6aea8a19ff567233495b2830a4de128ff1fb85b4a2a34e9b7288607b2e0",
+      "atom_id": "TREATATOM_DB67B4641D4BD0F781FE5176565CDFA1",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "\"\"\"A waiver attempts to bypass a non-waivable rule or lacks expiry.\"\"\"",
+          "line_digest": "sha256:55f62abaa5069d7cc262991a775d8a71d1b44a70477fea22ce588a6dd807ea2e",
+          "line_number": 32
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a624167d420b927783f389c963746ce8d2ddd0be1fcb104dbca511d8fe0c50a9",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:c96f1b3a86bd68015c9bcbd510b958b627d3158280cbc3012442424699d8fa14",
+    "sha256:c786f6aea8a19ff567233495b2830a4de128ff1fb85b4a2a34e9b7288607b2e0"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_constitution/errors.py",
+  "source_sha256": "sha256:c96f1b3a86bd68015c9bcbd510b958b627d3158280cbc3012442424699d8fa14",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_C8309600109BA4E8ECE9D7CBF39F1A8A",
+  "treatment_package_id": "TREATPKG_236034923F00057D6D1FF605EDC4F889",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,298 @@
+{
+  "atom_ids": [
+    "TREATATOM_098CC50A37E17C6A9DDE8891E64C29BC",
+    "TREATATOM_0FAC89998F08A2D0CF9B4E2AA1F844B4",
+    "TREATATOM_1138D79CE4229A4BDD47DA78D1A73652",
+    "TREATATOM_31346C8AE6616FDE32870F2EBC8FE658",
+    "TREATATOM_5392235FDB874E8AF4B4859C3C2C4282",
+    "TREATATOM_5460DF8454130141E1447C49E0A141D2",
+    "TREATATOM_5F71D99460025620CF8D27FE1803BED3",
+    "TREATATOM_898A2392C12727437251A1B8CC2D3AB2",
+    "TREATATOM_B8DF707E27341D7CEE1A83C31C87C5EB",
+    "TREATATOM_E1BA0C5DDDF9EC7F22847C0EC38B81B8"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "EXPIRY",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6524b8293d32cf7f2837f4df35b006178dec4c7ad7ec8657cfed4d88d5ad421d",
+      "atom_id": "TREATATOM_098CC50A37E17C6A9DDE8891E64C29BC",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "(\"stop_price\", self.stop_price),",
+          "line_digest": "sha256:0fcc08c7ac4016b4086f1c41540532768b8864394b6ad48bb5a9d5dfc467bfea",
+          "line_number": 204
+        },
+        {
+          "excerpt": "expected = abs(self.entry_price - self.stop_price)",
+          "line_digest": "sha256:cdd6e3d1adf0cb398639a5e29afc937b0a3cbf4443a8fafbc83eaa7ec2022c6a",
+          "line_number": 211
+        },
+        {
+          "excerpt": "raise ContractError(\"risk_distance must equal abs(entry_price - stop_price)\")",
+          "line_digest": "sha256:477b7d1ccb36c1d8546264b9496fda57b5e194a023ef925527eefd10ddeb00a7",
+          "line_number": 214
+        },
+        {
+          "excerpt": "if self.direction == Direction.LONG and self.stop_price >= self.entry_price:",
+          "line_digest": "sha256:17bcd191e22e3ee72aaf3807a8a9342e2b3b1917f8f893ab4e03d4fd41f34ca2",
+          "line_number": 215
+        },
+        {
+          "excerpt": "if self.direction == Direction.SHORT and self.stop_price <= self.entry_price:",
+          "line_digest": "sha256:5837501cf3ab5e4587378cb1274ef64f8a2ef8d886540d2fbca27616d8c90a70",
+          "line_number": 217
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:2adcca8475955a65500a289c9ca8654b690ae0f028680b43982508cd14b630a1",
+      "atom_id": "TREATATOM_0FAC89998F08A2D0CF9B4E2AA1F844B4",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "(\"target_price\", self.target_price),",
+          "line_digest": "sha256:c9afbe15b95629262114b234a1bc13dcacd0db8f672651bf6f1f24a4a5906a36",
+          "line_number": 328
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7105aa039fb0d5e07ddc3c35444a9fa24c30c560b80df655630a26bab5b00055",
+      "atom_id": "TREATATOM_1138D79CE4229A4BDD47DA78D1A73652",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "(\"stop_price\", self.stop_price),",
+          "line_digest": "sha256:0fcc08c7ac4016b4086f1c41540532768b8864394b6ad48bb5a9d5dfc467bfea",
+          "line_number": 327
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:f9d9277b261e63bc869dc1e3ddf9b8d000a4925591edf8f7c16626586f08d93a",
+      "atom_id": "TREATATOM_31346C8AE6616FDE32870F2EBC8FE658",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "(\"entry_price\", self.entry_price),",
+          "line_digest": "sha256:c5eea7efbf62cb6d095d206f8cf3dbc2f116454ab7d83ea3823eda55b616ba02",
+          "line_number": 203
+        },
+        {
+          "excerpt": "expected = abs(self.entry_price - self.stop_price)",
+          "line_digest": "sha256:cdd6e3d1adf0cb398639a5e29afc937b0a3cbf4443a8fafbc83eaa7ec2022c6a",
+          "line_number": 211
+        },
+        {
+          "excerpt": "raise ContractError(\"risk_distance must equal abs(entry_price - stop_price)\")",
+          "line_digest": "sha256:477b7d1ccb36c1d8546264b9496fda57b5e194a023ef925527eefd10ddeb00a7",
+          "line_number": 214
+        },
+        {
+          "excerpt": "if self.direction == Direction.LONG and self.stop_price >= self.entry_price:",
+          "line_digest": "sha256:17bcd191e22e3ee72aaf3807a8a9342e2b3b1917f8f893ab4e03d4fd41f34ca2",
+          "line_number": 215
+        },
+        {
+          "excerpt": "if self.direction == Direction.SHORT and self.stop_price <= self.entry_price:",
+          "line_digest": "sha256:5837501cf3ab5e4587378cb1274ef64f8a2ef8d886540d2fbca27616d8c90a70",
+          "line_number": 217
+        },
+        {
+          "excerpt": "if self.direction == Direction.LONG and self.target_price <= self.entry_price:",
+          "line_digest": "sha256:c3f251a0ea778ad70b0972195895a8c2baca1d910305772644c9b9fb0cbb2356",
+          "line_number": 220
+        },
+        {
+          "excerpt": "if self.direction == Direction.SHORT and self.target_price >= self.entry_price:",
+          "line_digest": "sha256:b1582b4585860860cd79f6fe5561f6b9708fb2d65f44909f0fc69068e6744248",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:58a3e250e3b6fe5b37a88bd03a914cf7bcc182670cbd5e567c9c647472f271dc",
+      "atom_id": "TREATATOM_5392235FDB874E8AF4B4859C3C2C4282",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "(\"target_price\", self.target_price),",
+          "line_digest": "sha256:c9afbe15b95629262114b234a1bc13dcacd0db8f672651bf6f1f24a4a5906a36",
+          "line_number": 205
+        },
+        {
+          "excerpt": "if self.target_price is not None:",
+          "line_digest": "sha256:a218149ecc562d895d5dbfd821062316d9fb364bcb2a2645075ba60ae8473f42",
+          "line_number": 219
+        },
+        {
+          "excerpt": "if self.direction == Direction.LONG and self.target_price <= self.entry_price:",
+          "line_digest": "sha256:c3f251a0ea778ad70b0972195895a8c2baca1d910305772644c9b9fb0cbb2356",
+          "line_number": 220
+        },
+        {
+          "excerpt": "if self.direction == Direction.SHORT and self.target_price >= self.entry_price:",
+          "line_digest": "sha256:b1582b4585860860cd79f6fe5561f6b9708fb2d65f44909f0fc69068e6744248",
+          "line_number": 222
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:25f6ce88dc351decfb161c7c8eccb4d1d3780cb26911123d61b63ac76456257e",
+      "atom_id": "TREATATOM_5460DF8454130141E1447C49E0A141D2",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "target_price: Optional[float]",
+          "line_digest": "sha256:320d78447e2c76977bc742925dfb5d1e2b46d6a59d5c2d811794fc7f80fab751",
+          "line_number": 185
+        },
+        {
+          "excerpt": "target_price: Optional[float]",
+          "line_digest": "sha256:320d78447e2c76977bc742925dfb5d1e2b46d6a59d5c2d811794fc7f80fab751",
+          "line_number": 314
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c144981ec1df45be30b1c935439e13a6fe4763f9f3379dbcc532251fe3acb53b",
+      "atom_id": "TREATATOM_5F71D99460025620CF8D27FE1803BED3",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "entry_price: float",
+          "line_digest": "sha256:de784cccb2d428ad8c19a849a2ed944d43ca8421c5cfc05dc7c166b457ffb2e2",
+          "line_number": 183
+        },
+        {
+          "excerpt": "entry_price: float",
+          "line_digest": "sha256:de784cccb2d428ad8c19a849a2ed944d43ca8421c5cfc05dc7c166b457ffb2e2",
+          "line_number": 312
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8dce4d858e9f4fe38616c73615a94be1d6acb2dd31c04a2092af6a34e7de7cbe",
+      "atom_id": "TREATATOM_898A2392C12727437251A1B8CC2D3AB2",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "EXPIRED = \"expired\"",
+          "line_digest": "sha256:93301a36db85a24f27120ba60093a6acc3102a8f009af1adbf2c2d459cfc1a21",
+          "line_number": 32
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:cfac49cc68e856f6aab245742b987a3ed565e7535ea0cb69d15b4b9d668a0c6e",
+      "atom_id": "TREATATOM_B8DF707E27341D7CEE1A83C31C87C5EB",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "(\"entry_price\", self.entry_price),",
+          "line_digest": "sha256:c5eea7efbf62cb6d095d206f8cf3dbc2f116454ab7d83ea3823eda55b616ba02",
+          "line_number": 326
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:9797a7613c33ea5a3a83593f7c5093d9e7ae5237ad612c32a4eefc9a090950f4",
+      "atom_id": "TREATATOM_E1BA0C5DDDF9EC7F22847C0EC38B81B8",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "stop_price: float",
+          "line_digest": "sha256:1d04ec03296b8c162d3502b8468c86ca74acc5f017aae8d9d77c6d758d3578e7",
+          "line_number": 184
+        },
+        {
+          "excerpt": "stop_price: float",
+          "line_digest": "sha256:1d04ec03296b8c162d3502b8468c86ca74acc5f017aae8d9d77c6d758d3578e7",
+          "line_number": 313
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a26c27e3f63f3ec206ee1109f6a79307e475dec81c0e36951af8dd6522b7e9d2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_9200964B761AAA9D99E7214AC46C25EE",
+    "RISKASM_DAD2689FA54F4F428EA24D2564FC99A6"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7bca3b79efa5c3ca036353efb52300ca6de6016a96a31857fc6dad2bf8718abd",
+    "sha256:25f6ce88dc351decfb161c7c8eccb4d1d3780cb26911123d61b63ac76456257e",
+    "sha256:2adcca8475955a65500a289c9ca8654b690ae0f028680b43982508cd14b630a1",
+    "sha256:58a3e250e3b6fe5b37a88bd03a914cf7bcc182670cbd5e567c9c647472f271dc",
+    "sha256:6524b8293d32cf7f2837f4df35b006178dec4c7ad7ec8657cfed4d88d5ad421d",
+    "sha256:7105aa039fb0d5e07ddc3c35444a9fa24c30c560b80df655630a26bab5b00055",
+    "sha256:8dce4d858e9f4fe38616c73615a94be1d6acb2dd31c04a2092af6a34e7de7cbe",
+    "sha256:9797a7613c33ea5a3a83593f7c5093d9e7ae5237ad612c32a4eefc9a090950f4",
+    "sha256:c144981ec1df45be30b1c935439e13a6fe4763f9f3379dbcc532251fe3acb53b",
+    "sha256:cfac49cc68e856f6aab245742b987a3ed565e7535ea0cb69d15b4b9d668a0c6e",
+    "sha256:f9d9277b261e63bc869dc1e3ddf9b8d000a4925591edf8f7c16626586f08d93a"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory/contracts.py",
+  "source_sha256": "sha256:7bca3b79efa5c3ca036353efb52300ca6de6016a96a31857fc6dad2bf8718abd",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_71A32E8B004025B699D0AAA37EEEC9FD",
+  "treatment_package_id": "TREATPKG_8CF0AC92C8C486017E8E0A2962404143",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

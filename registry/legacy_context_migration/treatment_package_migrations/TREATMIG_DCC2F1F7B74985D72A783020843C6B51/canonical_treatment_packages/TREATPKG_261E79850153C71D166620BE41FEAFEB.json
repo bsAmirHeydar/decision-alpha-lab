@@ -1,0 +1,170 @@
+{
+  "atom_ids": [
+    "TREATATOM_794C742A7A58930B8DBADFF71B7C78F4",
+    "TREATATOM_804014E0EDC56A5F65ECECD402AADE8A",
+    "TREATATOM_ADC27B3B714EFA9D9BDC0C7E4A15F4DB",
+    "TREATATOM_DBC56FC8481DA2B7E092F587EAF76281",
+    "TREATATOM_F65CD0CCD981D613FA57FA5956DCED47"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "DUPLICATE_GUARD",
+    "ENTRY_LIMIT",
+    "ENTRY_STOP",
+    "RECONCILIATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_2A87A67ED52132F7B77C9EB975E694F6",
+    "EXECCAP_560B1D1F71DAA79D96D9935EE2648EDB",
+    "EXECCAP_85CBC1889ABFBD51E8A29CBDC9BCC9AC"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:bab6696d637dc5428cd0ea3bb17b252f40d24f5e434878939f00ed0f43581d49",
+      "atom_id": "TREATATOM_794C742A7A58930B8DBADFF71B7C78F4",
+      "atom_type": "RECONCILIATION",
+      "intent_field": "reconciliation",
+      "source_evidence": [
+        {
+          "excerpt": "for(int i = 0; i < PositionsTotal(); i++)",
+          "line_digest": "sha256:4a321aa47d841f441b7166c57ceda4d8b6c61ea9e0e5afff3edb20e6a9e6ba17",
+          "line_number": 20
+        },
+        {
+          "excerpt": "if(ticket == 0 || !OrderSelect(ticket))",
+          "line_digest": "sha256:6a24abb85f18d527d87ccfb3b6e6fe2c4a3d6d16d3c900adb339112b320e9828",
+          "line_number": 71
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:5c501a99f7a78c08439d36b5980a63883cf4b394edaa71995bc77d8a232376c3",
+      "atom_id": "TREATATOM_804014E0EDC56A5F65ECECD402AADE8A",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "if(trade.OrderDelete(ticket))",
+          "line_digest": "sha256:e7baefe2459a554a59e8770bae64ee4fa250878001023ff3acbf2e199ed385ec",
+          "line_number": 92
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:679348febd2304a2fcd4d091deee39ebd7047c3b40e6885a94b389fb0ff2bef4",
+      "atom_id": "TREATATOM_ADC27B3B714EFA9D9BDC0C7E4A15F4DB",
+      "atom_type": "ENTRY_LIMIT",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "if(type == ORDER_TYPE_BUY_LIMIT || type == ORDER_TYPE_BUY_STOP || type == ORDER_TYPE_BUY_STOP_LIMIT)",
+          "line_digest": "sha256:9511696a9a439aa156a113417e58bb63b87bd5fa100579a7c65c00684ce14ec6",
+          "line_number": 10
+        },
+        {
+          "excerpt": "if(type == ORDER_TYPE_SELL_LIMIT || type == ORDER_TYPE_SELL_STOP || type == ORDER_TYPE_SELL_STOP_LIMIT)",
+          "line_digest": "sha256:512dc5d8ab371fd391c21b844efd0ead38f0fb215bdd0b3dfe9c1f8089c08f06",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:af489573388d14fdfccaddf9ec1d7be050c45668426f3a041c1f4a0e0624bbc3",
+      "atom_id": "TREATATOM_DBC56FC8481DA2B7E092F587EAF76281",
+      "atom_type": "ENTRY_STOP",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "if(type == ORDER_TYPE_BUY_LIMIT || type == ORDER_TYPE_BUY_STOP || type == ORDER_TYPE_BUY_STOP_LIMIT)",
+          "line_digest": "sha256:9511696a9a439aa156a113417e58bb63b87bd5fa100579a7c65c00684ce14ec6",
+          "line_number": 10
+        },
+        {
+          "excerpt": "if(type == ORDER_TYPE_SELL_LIMIT || type == ORDER_TYPE_SELL_STOP || type == ORDER_TYPE_SELL_STOP_LIMIT)",
+          "line_digest": "sha256:512dc5d8ab371fd391c21b844efd0ead38f0fb215bdd0b3dfe9c1f8089c08f06",
+          "line_number": 12
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:de7eef327c6d543325f16675e0e7d138e974b8ef72f618d6e21862f9e4203f30",
+      "atom_id": "TREATATOM_F65CD0CCD981D613FA57FA5956DCED47",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "int DAL_E0006_CountOpenPositionsByDirection(const string symbol, const long magic, const int direction)",
+          "line_digest": "sha256:213695463f5120ac9428bfa3a067c580dbfbf3c072ee0db8d7d67feb50f38587",
+          "line_number": 17
+        },
+        {
+          "excerpt": "if((long)PositionGetInteger(POSITION_MAGIC) != magic)",
+          "line_digest": "sha256:80e7c6e83643d4afa9a76b4d762d5c7e820b8810d0575cd5d0aae1bf59bdbb93",
+          "line_number": 27
+        },
+        {
+          "excerpt": "const long magic,",
+          "line_digest": "sha256:75a4cf9323da33c233c9f9fd3fb9b95f3ebccb9b76748ece1dde779717cbbc65",
+          "line_number": 55
+        },
+        {
+          "excerpt": "if((long)OrderGetInteger(ORDER_MAGIC) != magic)",
+          "line_digest": "sha256:8b7f3e9875c0fcd770579ee874fcaa2a9438fc01c39aff56c1bd6fe21ebd377d",
+          "line_number": 75
+        },
+        {
+          "excerpt": "trade.SetExpertMagicNumber(magic);",
+          "line_digest": "sha256:adbc32965c7e93e706919af3abb45a4582811a04fd2bf1085c59b40b1b543cd2",
+          "line_number": 91
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1870adbfd73bf616756a7486ff52f45bfb1a087f9b4b3a223ce3c9c1cc088cbd",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:5c4dd569d87fdfc3d4806d54d7104edbad75fe49297cdfb58248dee54d1e0e4e",
+    "sha256:5c501a99f7a78c08439d36b5980a63883cf4b394edaa71995bc77d8a232376c3",
+    "sha256:679348febd2304a2fcd4d091deee39ebd7047c3b40e6885a94b389fb0ff2bef4",
+    "sha256:af489573388d14fdfccaddf9ec1d7be050c45668426f3a041c1f4a0e0624bbc3",
+    "sha256:bab6696d637dc5428cd0ea3bb17b252f40d24f5e434878939f00ed0f43581d49",
+    "sha256:de7eef327c6d543325f16675e0e7d138e974b8ef72f618d6e21862f9e4203f30"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Execution/E0006/DAL_E0006ExposureCaps.mqh",
+  "source_sha256": "sha256:5c4dd569d87fdfc3d4806d54d7104edbad75fe49297cdfb58248dee54d1e0e4e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_84E3F346804F238F08EB8356D865B258",
+  "treatment_package_id": "TREATPKG_261E79850153C71D166620BE41FEAFEB",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

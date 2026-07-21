@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_AB178FDF07BE4632199A93DCEDAD6A11",
+    "TREATATOM_DFC52E9BE606A98011D7E4C166AED4BD"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c6069d358aec55c29294ccb0918fa7b0520d11253d1120445cf2c718fa390ca3",
+      "atom_id": "TREATATOM_AB178FDF07BE4632199A93DCEDAD6A11",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "row=j(\"canonical_setup_registry.json\")[\"packages\"][0];p=j(row[\"package_path\"]);p[\"package_status\"]=\"REFERENCE_READY\";p[\"executable_reference\"]=True;p[\"blocker_ids\"]=[];p[\"reason_codes\"]=[];p[\"context_binding\"]={\"state\":\"BOUND\",\"allowed_context_identity_ids\":[\"UNRESOLVED_CONTEXT\"],\"independent_context_clock\":False,\"cont",
+          "line_digest": "sha256:ce164ec14ae0241aca83930c3c450627e91ae1c2bcbe1717759dcc5e24c91bac",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:46cd76f0a147e1b43cf6152407d7231ff0e7634ce0d1dd21b488e3c65178f87d",
+      "atom_id": "TREATATOM_DFC52E9BE606A98011D7E4C166AED4BD",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "row=j(\"canonical_setup_registry.json\")[\"packages\"][0];p=j(row[\"package_path\"]);p[\"package_status\"]=\"REFERENCE_READY\";p[\"executable_reference\"]=True;p[\"blocker_ids\"]=[];p[\"reason_codes\"]=[];p[\"context_binding\"]={\"state\":\"BOUND\",\"allowed_context_identity_ids\":[\"UNRESOLVED_CONTEXT\"],\"independent_context_clock\":False,\"cont",
+          "line_digest": "sha256:ce164ec14ae0241aca83930c3c450627e91ae1c2bcbe1717759dcc5e24c91bac",
+          "line_number": 14
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:626ced4c4b4caaae96d2f947654d9a6db685bb623b9ad62c73f0685945f6bcb2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:9825bbd2b2568660e33842d134245e3ba88e9bae062d7d7c012ac84db88e9038",
+    "sha256:46cd76f0a147e1b43cf6152407d7231ff0e7634ce0d1dd21b488e3c65178f87d",
+    "sha256:c6069d358aec55c29294ccb0918fa7b0520d11253d1120445cf2c718fa390ca3"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/migration/tests_lcm_09b/test_evaluator.py",
+  "source_sha256": "sha256:9825bbd2b2568660e33842d134245e3ba88e9bae062d7d7c012ac84db88e9038",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_CB55068F05C44B07E3CFE6772B23D50C",
+  "treatment_package_id": "TREATPKG_DF6EA3D740DD4E5489EF055F18FBC8CA",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

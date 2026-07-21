@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_33D2E1C2D83EC491B13E25D633EF1856"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:3c526e5aea8e28fe0fd76053c154eabb6c275383dbb1693aeac8c803afc2357a",
+      "atom_id": "TREATATOM_33D2E1C2D83EC491B13E25D633EF1856",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "FeatureDescriptor(\"market.spread_points\",\"1.0.0\",\"alpha_lab\",FeatureDataType.FLOAT64,\"points\",(),MissingnessPolicy.EXPLICIT_MISSING,StalenessPolicy.MARK_STALE,2000,(),_MODES,True,(),\"Observed spread at decision cut.\"),",
+          "line_digest": "sha256:219536265cad7a3f5ec0ef69657c766437c16a10d462078ee91d1eb9477660cb",
+          "line_number": 26
+        },
+        {
+          "excerpt": "(SourceRequirement(\"primary_m1\",SourceRequirementKind.CLOSED_BARS,RequirementStrength.REQUIRED,(\"PRIMARY\",),60,64,120000,\"primary_m1\",\"closed-bar causal break detection\"),SourceRequirement(\"primary_spec\",SourceRequirementKind.SYMBOL_SPEC,RequirementStrength.REQUIRED,(\"PRIMARY\",),0,1,60000,\"none\",\"price and spread norma",
+          "line_digest": "sha256:6052660798455f82bf59250d242a03a6ea36d60842929e052b91ee761f7192da",
+          "line_number": 39
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c9575c1ce2f688904e5e9fb453cc519d678a00326c1dedbc2ccc482c4d328e43",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_0B97AE36B839ED8D2D53C35D26D644D2",
+    "RISKASM_19736554198B1679330BEE9675FA201F",
+    "RISKASM_1D157F34675C9ACE51FF5AF2D8E96BD5",
+    "RISKASM_944907D53E4505DE3FCFA1CA91260790"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e32d24b5ff918b804713e29c4a000e9bbf2f3da0da1e51f58c3e34bfc0961df2",
+    "sha256:3c526e5aea8e28fe0fd76053c154eabb6c275383dbb1693aeac8c803afc2357a"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_contexts_v3/reference.py",
+  "source_sha256": "sha256:e32d24b5ff918b804713e29c4a000e9bbf2f3da0da1e51f58c3e34bfc0961df2",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E8DF58B552E3C0D720F8D14034ECA30D",
+  "treatment_package_id": "TREATPKG_A66B969C45B91E49B767F3FBAC53EC31",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

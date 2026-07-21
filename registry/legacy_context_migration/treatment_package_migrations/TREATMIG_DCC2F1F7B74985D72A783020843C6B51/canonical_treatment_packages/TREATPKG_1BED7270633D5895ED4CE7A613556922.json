@@ -1,0 +1,98 @@
+{
+  "atom_ids": [
+    "TREATATOM_6A31DEAE32F3615DB25464CE5E81284D",
+    "TREATATOM_8842717BE15607D3DCAD65F0FFA57033",
+    "TREATATOM_FC0F16106BEB2B94116D30BF3EEBF6D9"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7ab1823b2abc6553c718b3e7f80e0be299b50dc22791a255a013205b4895ee92",
+      "atom_id": "TREATATOM_6A31DEAE32F3615DB25464CE5E81284D",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "if _finite(self.tick_size,'tick_size')<=0: raise FPI04Error('FP_DRC_TICK_SIZE_INVALID','tick size must be positive')",
+          "line_digest": "sha256:408aec655f4d54d79563ea1de2c4249543235f0b25607d947f6a81c05da79df1",
+          "line_number": 34
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d7373742cd6bc6fec336255433eb7a6b3749b836cd14e31bb8e26f02abd8e92d",
+      "atom_id": "TREATATOM_8842717BE15607D3DCAD65F0FFA57033",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "tick_size:float",
+          "line_digest": "sha256:818f04bf0564ca0dd4e9de721049f814c26a62ea32281294fb46aeedb67454f9",
+          "line_number": 26
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a893ac68ddba06a64eb2aed413f03ac21602d16ad22ae0e9392f74e72fa4fdd9",
+      "atom_id": "TREATATOM_FC0F16106BEB2B94116D30BF3EEBF6D9",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "if self.tick_volume<0 or self.real_volume<0 or self.spread_points<0: raise FPI04Error('FP_DRC_VOLUME_SPREAD_INVALID','volume/spread cannot be negative')",
+          "line_digest": "sha256:25cbdb39af6c5e1a93072e0db9efd8623236e2acba64e84729a182ed4c4c92a0",
+          "line_number": 73
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c9782115ca3d2340325417c4f6fecb0847f9e9ae921c87158cadcc6d80123674",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_1917D8626FF731B1809F1C506323A761",
+    "RISKASM_9FACB126E297ED5ED9EFADF09D934E80",
+    "RISKASM_E017045CDB0E3D9C8260088BCA22ED82",
+    "RISKASM_F5048AE6971E6E992CE009850C70B3D5"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7a1f1cc40e33d55bc31720a2e84ab864c39d0c4867ee3e2ccccc2b18e696fded",
+    "sha256:7ab1823b2abc6553c718b3e7f80e0be299b50dc22791a255a013205b4895ee92",
+    "sha256:a893ac68ddba06a64eb2aed413f03ac21602d16ad22ae0e9392f74e72fa4fdd9",
+    "sha256:d7373742cd6bc6fec336255433eb7a6b3749b836cd14e31bb8e26f02abd8e92d"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/python/fp_i04_data/contracts.py",
+  "source_sha256": "sha256:7a1f1cc40e33d55bc31720a2e84ab864c39d0c4867ee3e2ccccc2b18e696fded",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_F10AD7C49FD74603CE43650B074D979A",
+  "treatment_package_id": "TREATPKG_1BED7270633D5895ED4CE7A613556922",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

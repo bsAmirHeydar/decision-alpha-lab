@@ -1,0 +1,51 @@
+{
+  "adapter_digest": "sha256:661e629cbfbab0a2f6df943eb1a57ba2143298b7c4d9c15b0c7471f87b37b494",
+  "adapter_id": "EXECADAPTER_92AF7123687773030BBCB0F0D4EB69FB",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER",
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_POSITION_OPEN",
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "FILE_LEDGER_WRITE",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_0856BAB30CCF4D008FB99A323527A248",
+    "EXECCAP_3258F581F357D12997168CA26C1A73A1",
+    "EXECCAP_4F811BDA2321EF8B224221B038178ACA",
+    "EXECCAP_73F999C83E6A333E92DA9FD54FFFE349",
+    "EXECCAP_AD1D919624DCA348BAD58EEA7014B56F",
+    "EXECCAP_C828AFF79120208C24496214B44D9BB8"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6329c404564e2906358a21cde15030392c4dc9959bf4a125493067f9e552c226"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase02_data_sync_v2.py",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

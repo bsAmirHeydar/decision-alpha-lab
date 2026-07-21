@@ -1,0 +1,23 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "entries": {
+    "BLOCKED": "NO_FORWARD_PROGRESS",
+    "DRAFT": "NOT_VALIDATED",
+    "REJECTED": "TERMINAL_REFERENCE",
+    "VALID_REFERENCE": "DRY_REFERENCE_ONLY"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "record_count": 4,
+  "registry_digest": "sha256:b7ed6103fee9627e8173f4fd829fd70b00c6e8cb2e959f147dde049336fe63ff",
+  "registry_name": "intent_lifecycle_registry",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

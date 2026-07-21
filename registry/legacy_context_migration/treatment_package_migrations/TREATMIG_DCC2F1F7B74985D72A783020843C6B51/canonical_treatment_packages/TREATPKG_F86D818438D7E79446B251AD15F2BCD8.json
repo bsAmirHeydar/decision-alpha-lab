@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_C7CDAC61BAE8E73B2D4F70BEED0C044B"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:e38b0087a22b7cc4e4705cb46502756e530fa702b601d92e19f9666e9ed444d2",
+      "atom_id": "TREATATOM_C7CDAC61BAE8E73B2D4F70BEED0C044B",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "cfg.magic = 12012;",
+          "line_digest": "sha256:ca31a80e5120b7919a84767230d5ca2c76619d9f466a0670b018eeb5f46dc453",
+          "line_number": 70
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0ad0937b7789b7e16b5876ce093c45dca4ee3f651566e1af69c677aaba180d6d",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:bb80769c06b99f017d6243e373d2ebcdbeaa500661678ad9223b947071f4156d",
+    "sha256:e38b0087a22b7cc4e4705cb46502756e530fa702b601d92e19f9666e9ed444d2"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/Research/EXP0012_DistributionClusterMiner_Demo.mq5",
+  "source_sha256": "sha256:bb80769c06b99f017d6243e373d2ebcdbeaa500661678ad9223b947071f4156d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A0878AD81467D971A99A8308CE65F9FC",
+  "treatment_package_id": "TREATPKG_F86D818438D7E79446B251AD15F2BCD8",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

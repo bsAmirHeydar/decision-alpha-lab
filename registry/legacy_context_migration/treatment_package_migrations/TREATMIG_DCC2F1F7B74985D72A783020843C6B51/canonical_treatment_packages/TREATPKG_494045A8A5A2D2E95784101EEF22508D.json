@@ -1,0 +1,79 @@
+{
+  "atom_ids": [
+    "TREATATOM_7E1D35174CCE531C6EDC449D18960353",
+    "TREATATOM_E0252E2CCF1B5AAA5C850804911A3AD4"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:7e03faefbb88f4cfbdc70e3ad4d4d19ce52e2b57a17578594777411eefe318f5",
+      "atom_id": "TREATATOM_7E1D35174CCE531C6EDC449D18960353",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "if self.visible_high<=self.visible_low or self.chart_height_px<=0 or self.tick_size<=0 or not 1<=self.lane_count<=MAX_LANES: raise FPI11Error('FP_VIS_LAYOUT_INVALID','layout context invalid')",
+          "line_digest": "sha256:b0102857d3e86e236cdee42abe9225923a3ed7474acf8536ed6f8b517cff1a10",
+          "line_number": 76
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bd10cf173a11c00d5555258bd92b2e12dde501129930ac5e31c1d0b26931c924",
+      "atom_id": "TREATATOM_E0252E2CCF1B5AAA5C850804911A3AD4",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "visible_low:float; visible_high:float; chart_height_px:int; tick_size:float; lane_count:int",
+          "line_digest": "sha256:004965c936d5f3fdc7b55552f951d31b9958960e4438f1c82fd63add3baf72a5",
+          "line_number": 74
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:c8770d25c494af703afd932919a3d4d13b8dd0b44e5485ee03bc0780f8c48079",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_4942B0A66412084F4F8AC48F3688EC69",
+    "RISKASM_788294653A6E80BF1B49D4436B2991C4"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:376638377813aa1658839aa7279207f8f494e54e8ae1d944e8ee1ba6c9bc84c3",
+    "sha256:7e03faefbb88f4cfbdc70e3ad4d4d19ce52e2b57a17578594777411eefe318f5",
+    "sha256:bd10cf173a11c00d5555258bd92b2e12dde501129930ac5e31c1d0b26931c924"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/python/fp_i11_visual/contracts.py",
+  "source_sha256": "sha256:376638377813aa1658839aa7279207f8f494e54e8ae1d944e8ee1ba6c9bc84c3",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A73E50919E573D3D92D0DF75B8A3E027",
+  "treatment_package_id": "TREATPKG_494045A8A5A2D2E95784101EEF22508D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

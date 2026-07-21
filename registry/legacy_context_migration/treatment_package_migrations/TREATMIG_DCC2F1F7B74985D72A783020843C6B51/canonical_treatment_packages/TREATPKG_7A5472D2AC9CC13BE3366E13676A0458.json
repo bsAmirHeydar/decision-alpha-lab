@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_517E81B03044E2E748CCA03C5A4DEC40"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:3f802b07088fb0dea898ab51aeea483969da942d28514e808473768962dfdd19",
+      "atom_id": "TREATATOM_517E81B03044E2E748CCA03C5A4DEC40",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "int OnCalculate(const int rates_total,const int prev_calculated,const datetime &time[],const double &open[],const double &high[],const double &low[],const double &close[],const long &tick_volume[],const long &volume[],const int &spread[]){ if(rates_total>0) TestBuffer[0]=1.0; return rates_total; }",
+          "line_digest": "sha256:48093d1c1218d255f97e29aa5d86c6742a067873907ab4297fb2f27912f94573",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:b782630e1ba832d06c3509b80bf9303e0a106684cd0b6b20dfce8728d4c8f52e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_3644D352748817D955EDF8C55ADF0A74"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:275ac54bda3b8237516336797f60eea6cc191b7abbf4b7b6c59c72f97a495cfc",
+    "sha256:3f802b07088fb0dea898ab51aeea483969da942d28514e808473768962dfdd19"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I10_IndicatorSelfTest.mq5",
+  "source_sha256": "sha256:275ac54bda3b8237516336797f60eea6cc191b7abbf4b7b6c59c72f97a495cfc",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_A79FC6078887D5A0C770E25FCB58BD6C",
+  "treatment_package_id": "TREATPKG_7A5472D2AC9CC13BE3366E13676A0458",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

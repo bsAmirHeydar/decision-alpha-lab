@@ -1,0 +1,99 @@
+{
+  "atom_ids": [
+    "TREATATOM_4DE05DE9B2D6E5F39E2D98D80D82A0F3",
+    "TREATATOM_6B87283853B9BF68F1C563DE24E56B30",
+    "TREATATOM_8976AC7CE6EE30DC6325CF088174839D"
+  ],
+  "atom_types": [
+    "PARTIAL_EXIT",
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:8cdf1361ae78f31e0731938111d1d8de4755702b84d358c3c7afee468d052b9e",
+      "atom_id": "TREATATOM_4DE05DE9B2D6E5F39E2D98D80D82A0F3",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "n=i.parameters.get_int('leg_count'); f=D(1)/D(n); return ManagementPlan(i.invocation_id,tuple(ManagementRule('scale_out',i.parameters.get_decimal('first_r')+D(k)*i.parameters.get_decimal('step_r'),f) for k in range(n)))",
+          "line_digest": "sha256:2ccffaee4ad7ca5da834657c548887accd4bd1f2dd2012b47c0b9a29eeae1841",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:45327b80bdc03cb5fe716233f2054ba1e3f0b7ea5d17eb94293b9e4e64a7be01",
+      "atom_id": "TREATATOM_6B87283853B9BF68F1C563DE24E56B30",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "descriptor=descriptor('management.partial_exit_r',TreatmentKind.MANAGEMENT,'partial_exit',S('management.partial_exit_r',P('activation_r',ParameterType.DECIMAL,'1','0','100','R'),P('quantity_fraction',ParameterType.DECIMAL,'0.5','0.01','1','fraction')))",
+          "line_digest": "sha256:a395b4094346383a4d1f3eae7cf8747859d5cca4c709c41d63e6c759d58596bc",
+          "line_number": 12
+        },
+        {
+          "excerpt": "descriptor=descriptor('management.scale_out_ladder',TreatmentKind.MANAGEMENT,'scale_out',S('management.scale_out_ladder',P('first_r',ParameterType.DECIMAL,'1','0','100','R'),P('step_r',ParameterType.DECIMAL,'1','0.01','100','R'),P('leg_count',ParameterType.INTEGER,3,2,8,'count')))",
+          "line_digest": "sha256:605f39a993a7c9db9141ea2eeb01823e5d838fe703ba1c9798a2ee8d2a28cc3c",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:06ffbf65e7f51691f43fffebf5d8fd094dcbe5664c7d5ae46fb0824f7bce11f9",
+      "atom_id": "TREATATOM_8976AC7CE6EE30DC6325CF088174839D",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "descriptor=descriptor('management.max_holding_time',TreatmentKind.MANAGEMENT,'time_exit',S('management.max_holding_time',P('holding_ms',ParameterType.INTEGER,14400000,1,604800000,'milliseconds')))",
+          "line_digest": "sha256:9bbf5943fdfe73595d4d24182bcc247cf82e54407451a46aa4d5571543f73197",
+          "line_number": 25
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9ff02edf22d3eaa890682f652c9577127e8d7e1e0a381af373ec5076c6757836",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:87fa93b389e96d7cd60efeae2f79e90f323073e55c32d3003090d49f46a7b019",
+    "sha256:06ffbf65e7f51691f43fffebf5d8fd094dcbe5664c7d5ae46fb0824f7bce11f9",
+    "sha256:45327b80bdc03cb5fe716233f2054ba1e3f0b7ea5d17eb94293b9e4e64a7be01",
+    "sha256:8cdf1361ae78f31e0731938111d1d8de4755702b84d358c3c7afee468d052b9e"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatments_v3/management.py",
+  "source_sha256": "sha256:87fa93b389e96d7cd60efeae2f79e90f323073e55c32d3003090d49f46a7b019",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_D7EBD6C60C9EF91C02B35F1CF25038E3",
+  "treatment_package_id": "TREATPKG_69324B0CAF84748F3690A6567623B22A",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

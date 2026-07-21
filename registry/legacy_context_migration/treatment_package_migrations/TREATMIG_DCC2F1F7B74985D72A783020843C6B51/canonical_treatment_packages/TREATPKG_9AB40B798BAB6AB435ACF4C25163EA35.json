@@ -1,0 +1,86 @@
+{
+  "atom_ids": [
+    "TREATATOM_83DD2C903BF0D79269AB22C3A08E57D6",
+    "TREATATOM_F5B88E716419E30EB7FA4099C2A6BF65"
+  ],
+  "atom_types": [
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:63cba8cbf891ffdb9a2635473c80414e398057bc516e3ef6cf1be19de12b26b9",
+      "atom_id": "TREATATOM_83DD2C903BF0D79269AB22C3A08E57D6",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "exact(v,[\"risk_envelope_id\",\"version\",\"max_trade_risk_fraction\",\"max_daily_loss_fraction\",\"max_gross_notional_fraction\",\"max_concurrent_positions\",\"max_orders_per_day\",\"max_spread_bps\",\"max_slippage_bps\",\"max_latency_ms\",\"max_reject_rate\",\"max_drawdown_fraction\",\"cooldown_bars_after_loss\",\"kill_switch_default_armed\",\"p",
+          "line_digest": "sha256:6bba3dbbd403f6e0179713fc2f8c4781ec1fb5c576db58b66c6c60da5c77af28",
+          "line_number": 8
+        },
+        {
+          "excerpt": "for k in [\"max_trade_risk_fraction\",\"max_daily_loss_fraction\",\"max_gross_notional_fraction\",\"max_reject_rate\",\"max_drawdown_fraction\",\"position_size_hard_cap\"]:number(v[k],k,0,1)",
+          "line_digest": "sha256:c2c6f15f9bc8583a6ca1ecafcf38b9048a7530ba71c2e40ebe1bee5a585b9218",
+          "line_number": 9
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:805541e47dd10863b35555805f1279de9bad4add2579a9ad8e3dc095ad522b38",
+      "atom_id": "TREATATOM_F5B88E716419E30EB7FA4099C2A6BF65",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "if float(intent[\"risk_fraction\"])>float(envelope[\"max_trade_risk_fraction\"]):reasons.append(\"TRADE_RISK_CAP\")",
+          "line_digest": "sha256:9bb8556dd462f7b537bf0c46294d8c851de05f4d6bdf0f6580d8ea046e5cefc1",
+          "line_number": 17
+        },
+        {
+          "excerpt": "if float(intent[\"size_fraction\"])>float(envelope[\"position_size_hard_cap\"]):reasons.append(\"SIZE_CAP\")",
+          "line_digest": "sha256:739780fef8aa7beac711a2881a0234d277f715a652b15530ed1cdc2bb222e87f",
+          "line_number": 18
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e4534c6d16394934a02bd5b51451f960eb3ec2838330c02c19adb249a3d97c64",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:138f1db1b15b385bfc84b42e00a011e9aa9b15f17ed80f25694ad3ffc4faee92",
+    "sha256:63cba8cbf891ffdb9a2635473c80414e398057bc516e3ef6cf1be19de12b26b9",
+    "sha256:805541e47dd10863b35555805f1279de9bad4add2579a9ad8e3dc095ad522b38"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_prospective_shadow_micro_live/risk.py",
+  "source_sha256": "sha256:138f1db1b15b385bfc84b42e00a011e9aa9b15f17ed80f25694ad3ffc4faee92",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_23217DFDC393D9484DE093537EC471F3",
+  "treatment_package_id": "TREATPKG_9AB40B798BAB6AB435ACF4C25163EA35",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

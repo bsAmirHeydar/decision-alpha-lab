@@ -1,0 +1,67 @@
+{
+  "atom_ids": [
+    "TREATATOM_9DA55A6AB381E1F2901DEE66B801F047"
+  ],
+  "atom_types": [
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_2D4511DBDF93880C7CF4073CFE69EAEC",
+    "EXECCAP_C6C6258AAC559C5B3DBAE5A2B5706119"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:25e8dc596e159755ebd9dc4d78b7173e5936e2495d1a1226877054f3846dcd4b",
+      "atom_id": "TREATATOM_9DA55A6AB381E1F2901DEE66B801F047",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "FileWrite(h, \"id\", \"node_id\", \"revisit_id\", \"type\", \"entry_time\", \"exit_time\", \"event_length\", \"rtv_sample_length\", \"rtv_inside_end_index\", \"rtv_before_start_index\", \"touch_confirmed_time\", \"consumed_time\", \"consume_reason\", \"rtv\", \"rtv_ready\", \"touch_confirmed\", \"hunted\", \"mean_before\", \"mean_inside\");",
+          "line_digest": "sha256:62f80b83d21fe27c99f3791622916fbd72dc39f9bfb3895c40231ca6952d6b42",
+          "line_number": 128
+        },
+        {
+          "excerpt": "TimeToString(events[i].exit_time, TIME_DATE | TIME_MINUTES),",
+          "line_digest": "sha256:dd8caf8bfbf52822f1d2e88a403272e56e291ae79b6e8089d4f345a7159a56de",
+          "line_number": 138
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a2142972b945328bd9f85c74767df9a64e9151276b6bb2492113c50669bb5ac5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:7f881deafcebf74e9db5dd1e85e538292ec927c494073dd929f9a9534e46dfba",
+    "sha256:25e8dc596e159755ebd9dc4d78b7173e5936e2495d1a1226877054f3846dcd4b"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/Research/DAL_ValidationJournal.mqh",
+  "source_sha256": "sha256:7f881deafcebf74e9db5dd1e85e538292ec927c494073dd929f9a9534e46dfba",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_008DEBB4A23C2CD2DB8A471CB202DD6B",
+  "treatment_package_id": "TREATPKG_DC841343E3701E23802C272D28E9C88E",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

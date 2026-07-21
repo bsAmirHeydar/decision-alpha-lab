@@ -1,0 +1,148 @@
+{
+  "atom_ids": [
+    "TREATATOM_088C6CFB85EA910174D7F768C65FBBD8",
+    "TREATATOM_136A24041B30A9EE73D1B9E3BE49D9C9",
+    "TREATATOM_20316ECCCBB268C10C3695925188C645",
+    "TREATATOM_2520EA0C08C3ECDF2F75C86DB4F4BB6D",
+    "TREATATOM_87F46F84C6E93AF9BF38911F150ABD78",
+    "TREATATOM_FFDCCF20AB21DE8F63F884BABB14ED43"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY",
+    "PARTIAL_EXIT",
+    "TIME_EXIT",
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:6757f76d73fafe559a4447c4df8883514606a279769dccf55e492f3b6245f8ff",
+      "atom_id": "TREATATOM_088C6CFB85EA910174D7F768C65FBBD8",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "PathEvent(1,PathEventType.SUBMIT,t,t),PathEvent(2,PathEventType.FILL,t+1,t+1,p,q('1'),'golden'),PathEvent(3,PathEventType.PARTIAL_EXIT,t+2,t+2,p+q('1'),q('0.5'),'golden'),PathEvent(4,PathEventType.TRAIL_UPDATE,t+3,t+3,p+q('0.2'),q('0'),'golden','',{'side':treatment.side.value}),PathEvent(5,PathEventType.CLOSE,t+4,t+4,p",
+          "line_digest": "sha256:a2f39ae76b2b38b6687fd23d0503adc0fe0468fc093280fe500159d33ccc8f17",
+          "line_number": 45
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:597f903fb2c10d649c8759040578a1921148efd8c516c6f856aa2158d572afd2",
+      "atom_id": "TREATATOM_136A24041B30A9EE73D1B9E3BE49D9C9",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "S(K.TRAILING,'trailing.swing_node@1.0.0',{'activation_r':'1','buffer_points':'2'}),",
+          "line_digest": "sha256:eb6f69a9b10d0397f5d9e2c07791c628dbbabaeaa4cee1377822c0306065ec2c",
+          "line_number": 28
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a003822a4b9ec42093e0a2e1c9696fc7fdb71ab7a7985ad6c994c3ec2e97b3e8",
+      "atom_id": "TREATATOM_20316ECCCBB268C10C3695925188C645",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "S(K.TRAILING,'trailing.none@1.0.0',{}),",
+          "line_digest": "sha256:f975ae2109b3396d328de476e3c60b7c30c0857f99b89579d43bf68b326c544e",
+          "line_number": 17
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:46e3f9b5e5681546518ec05b69be17fb4969e0af7d63e0b6a5258fea26429e29",
+      "atom_id": "TREATATOM_2520EA0C08C3ECDF2F75C86DB4F4BB6D",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "'pending_cancel':(PathEvent(1,PathEventType.SUBMIT,t,t),PathEvent(2,PathEventType.CANCEL,t+1,t+1,None,q('0'),'golden','expired'),PathEvent(3,PathEventType.CLOSE,t+2,t+2,None,q('0'),'golden')),",
+          "line_digest": "sha256:b2c80a7e7e216a225132b5d7199c0b9eb77a4b9a5d00cd3cbcd30dde3902b07a",
+          "line_number": 46
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e5e0a5e5deb58971cca9dff38adc24185efc708d45c25722115cfc859bb82da3",
+      "atom_id": "TREATATOM_87F46F84C6E93AF9BF38911F150ABD78",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "'partial_fill_timeout':(PathEvent(1,PathEventType.SUBMIT,t,t),PathEvent(2,PathEventType.FILL,t+1,t+1,p,q('0.4'),'golden'),PathEvent(3,PathEventType.TIMEOUT,t+2,t+2,p,q('0.4'),'golden','time_exit'),PathEvent(4,PathEventType.CLOSE,t+3,t+3,p,q('0'),'golden')),",
+          "line_digest": "sha256:6f714d0e4092c9fa454ac01aec78e58707c0f597b8705aa10433567355b75e6c",
+          "line_number": 47
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:32e4af847d3dc70431887521375afc9b1c7f1b5d200e599ff59846da0728473c",
+      "atom_id": "TREATATOM_FFDCCF20AB21DE8F63F884BABB14ED43",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "'pending_cancel':(PathEvent(1,PathEventType.SUBMIT,t,t),PathEvent(2,PathEventType.CANCEL,t+1,t+1,None,q('0'),'golden','expired'),PathEvent(3,PathEventType.CLOSE,t+2,t+2,None,q('0'),'golden')),",
+          "line_digest": "sha256:b2c80a7e7e216a225132b5d7199c0b9eb77a4b9a5d00cd3cbcd30dde3902b07a",
+          "line_number": 46
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:6a2a9c3ef0febe3cdf4887c1a7286e08bef43b62931f3ad2d40706ac07496dd5",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:26a81157a602c8906b34631523de35b707c1b28eee282f5c3f317cf7222e012e",
+    "sha256:32e4af847d3dc70431887521375afc9b1c7f1b5d200e599ff59846da0728473c",
+    "sha256:46e3f9b5e5681546518ec05b69be17fb4969e0af7d63e0b6a5258fea26429e29",
+    "sha256:597f903fb2c10d649c8759040578a1921148efd8c516c6f856aa2158d572afd2",
+    "sha256:6757f76d73fafe559a4447c4df8883514606a279769dccf55e492f3b6245f8ff",
+    "sha256:a003822a4b9ec42093e0a2e1c9696fc7fdb71ab7a7985ad6c994c3ec2e97b3e8",
+    "sha256:e5e0a5e5deb58971cca9dff38adc24185efc708d45c25722115cfc859bb82da3"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_treatment_compiler_v3/golden.py",
+  "source_sha256": "sha256:26a81157a602c8906b34631523de35b707c1b28eee282f5c3f317cf7222e012e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_17164971940AAD98432082D090374D80",
+  "treatment_package_id": "TREATPKG_D9B500CB67EC3F9F3CE64300C582DA6F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

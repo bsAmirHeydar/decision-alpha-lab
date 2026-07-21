@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_7E4699D54238054DFC5616EA3EEA028E",
+    "TREATATOM_F61C98412173BC8B598021D1C970B739"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:d94cf2af24d961ba14503c520ec4101b5c013664b4faa82e5bf36b427157582e",
+      "atom_id": "TREATATOM_7E4699D54238054DFC5616EA3EEA028E",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "\"cancel_requested\", \"cancelled\", \"expired\", \"rejected\", \"exit_submitted\", \"closed\", \"non_order\"",
+          "line_digest": "sha256:229e1d7bfbc114cca900c920e8ae9c4065935993994fb596b55030a22cbd03bf",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:889fb84d9a91897056e8c2535f84a9cdd1dc73bc34943fafb4a9a8e8f0e4d974",
+      "atom_id": "TREATATOM_F61C98412173BC8B598021D1C970B739",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "\"cancel_requested\", \"cancelled\", \"expired\", \"rejected\", \"exit_submitted\", \"closed\", \"non_order\"",
+          "line_digest": "sha256:229e1d7bfbc114cca900c920e8ae9c4065935993994fb596b55030a22cbd03bf",
+          "line_number": 5
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:94412f1f03bdeea7818aea8beb8b7ba02ecad450a10e07b0d49a7ba1e42fb225",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:bc9c928f16e82b5c2421d431cd5faabc0f5d37be2e85ef432c14c5066f078053",
+    "sha256:889fb84d9a91897056e8c2535f84a9cdd1dc73bc34943fafb4a9a8e8f0e4d974",
+    "sha256:d94cf2af24d961ba14503c520ec4101b5c013664b4faa82e5bf36b427157582e"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_execution_twin/enums.py",
+  "source_sha256": "sha256:bc9c928f16e82b5c2421d431cd5faabc0f5d37be2e85ef432c14c5066f078053",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_057A52975DFD2A0B1385B040A8F28B14",
+  "treatment_package_id": "TREATPKG_9498D083F5944EFFA98E1427C8E71AC7",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

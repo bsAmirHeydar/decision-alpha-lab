@@ -1,0 +1,81 @@
+{
+  "atom_ids": [
+    "TREATATOM_C71EF8B933FDAF35E6527A08ECBE2E38"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:b210f27c8483cd266a5a46cfce5a1d5a8f22bb745a1324ec900b371e352e5a61",
+      "atom_id": "TREATATOM_C71EF8B933FDAF35E6527A08ECBE2E38",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "status=\"ABSTAIN\";fill_price=0.0;slippage=0.0;gross=0.0;cost=0.0;net=0.0",
+          "line_digest": "sha256:57aaad57df6c0b3f961bafdd50459135324aec1c7ba842b7c0f638cf47b5b2f2",
+          "line_number": 9
+        },
+        {
+          "excerpt": "slippage=min(float(intent[\"spread_bps\"])*.15,float(intent[\"latency_ms\"])/1000*.2)",
+          "line_digest": "sha256:6c25c4cbc1b4d95d36c2a1ec782a07543689a143ecec6346f5d40a14474602f7",
+          "line_number": 17
+        },
+        {
+          "excerpt": "fill_price=entry*(1+(slippage/10000)*direction)",
+          "line_digest": "sha256:d19535e78b9685b8c6a5df705e4a21df6aba10cdfc362007ca30159c9a47ba24",
+          "line_number": 18
+        },
+        {
+          "excerpt": "cost=float(o[\"expected_cost_bps\"])+slippage;net=gross-cost;pnl+=net",
+          "line_digest": "sha256:820889eae04f58c5807ce6087d5727dad52a2d88aa06b66f704ab4a63f984340",
+          "line_number": 20
+        },
+        {
+          "excerpt": "events.append({\"observation_id\":o[\"observation_id\"],\"intent_id\":intent[\"intent_id\"],\"known_time\":o[\"known_time\"],\"mode\":\"PAPER\",\"status\":status,\"side\":intent[\"side\"],\"fill_price\":q(fill_price),\"slippage_bps\":q(slippage),\"gross_pnl_bps\":q(gross),\"cost_bps\":q(cost),\"net_pnl_bps\":q(net),\"broker_side_effect\":False,\"order_s",
+          "line_digest": "sha256:ab0f5c76fc366da2427f480d675e57aaf874bbf787dad12d1c2d332875f00e4f",
+          "line_number": 21
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:090be694d49d9d6f0af0a52d816f4281ef149cbf49b74c757d98c7dd2dc6cb39",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_C33DEE297A293865F48DA6B8113E9D04"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:dbdfc88f2fb23a9356ee6cc64719d5b849dca024149c3244f0d223c6388254a3",
+    "sha256:b210f27c8483cd266a5a46cfce5a1d5a8f22bb745a1324ec900b371e352e5a61"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/saed_v4_prospective_shadow_micro_live/paper.py",
+  "source_sha256": "sha256:dbdfc88f2fb23a9356ee6cc64719d5b849dca024149c3244f0d223c6388254a3",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_0A0D00CB3DADE48495C590B3B65F19AA",
+  "treatment_package_id": "TREATPKG_95D9BA6B08F8F4C8BB1E8DFC7429F6A2",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

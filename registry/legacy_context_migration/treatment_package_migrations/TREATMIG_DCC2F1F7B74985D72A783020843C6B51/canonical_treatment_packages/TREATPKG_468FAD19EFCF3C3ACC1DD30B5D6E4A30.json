@@ -1,0 +1,64 @@
+{
+  "atom_ids": [
+    "TREATATOM_694428096A6438D25F56ABAD9A503EA1"
+  ],
+  "atom_types": [
+    "TIME_EXIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:33bd6d6309440d1770fe15ade5bbbdcce3bd89795aec0e0f94d8057583a29e33",
+      "atom_id": "TREATATOM_694428096A6438D25F56ABAD9A503EA1",
+      "atom_type": "TIME_EXIT",
+      "intent_field": "management.time_exit",
+      "source_evidence": [
+        {
+          "excerpt": "datetime exit_time;",
+          "line_digest": "sha256:fcfaed998a62fa18b242bad0f1732f4ee19f974b84aed37ce265120c5aa3e19e",
+          "line_number": 82
+        },
+        {
+          "excerpt": "r.exit_time = 0;",
+          "line_digest": "sha256:2219187bea5cd8a06324c1b62bf82d32da3699d9dfc8dacc38ea521067931d27",
+          "line_number": 179
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:1e9cfd9fe06d2a7a0cdcf24bfb64995dae3f3e37c3c904b939d29f2a1ac79d43",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:45f5ae7ef7acaa0179f9af1dd34e0de16008671068019238d72ec3d81824fe5d",
+    "sha256:33bd6d6309440d1770fe15ade5bbbdcce3bd89795aec0e0f94d8057583a29e33"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_PaperBrokerLifecycleTypes.mqh",
+  "source_sha256": "sha256:45f5ae7ef7acaa0179f9af1dd34e0de16008671068019238d72ec3d81824fe5d",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_857241FEE7E638F2B7424C93CD6A1CED",
+  "treatment_package_id": "TREATPKG_468FAD19EFCF3C3ACC1DD30B5D6E4A30",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

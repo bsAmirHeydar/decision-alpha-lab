@@ -1,0 +1,134 @@
+{
+  "atom_ids": [
+    "TREATATOM_2C5FB8A81438A823F988034815769E40",
+    "TREATATOM_434E9BAA567F9C61DE9971C1EC8364AB",
+    "TREATATOM_F5095527520C8AF00B8C57B2C1F0F487"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "SPREAD_PRICING",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_18AC4D1C20DF7500A138AD288AD82489"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:30da2c96a113c10fe4dd2b68903f84a1590fbecefbdaaa0048715e00dd4f9222",
+      "atom_id": "TREATATOM_2C5FB8A81438A823F988034815769E40",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "double &stop_loss,",
+          "line_digest": "sha256:56ebfaef39f9f76ff64bba25654036a2083d6fee38e4e8f9a3955e60dbdfd479",
+          "line_number": 14
+        },
+        {
+          "excerpt": "stop_loss=candle.low-(buffer_points*point);",
+          "line_digest": "sha256:7ebc680ea10ea23a7697d8bc9b7d2592a5ab727c2923317d110ed7f9dbb2e964",
+          "line_number": 39
+        },
+        {
+          "excerpt": "stop_loss=candle.high+(buffer_points*point)+sell_spread;",
+          "line_digest": "sha256:09bd20308c3f4ad06339f7cc5b13db08480a80544a00d8625143793195b048be",
+          "line_number": 43
+        },
+        {
+          "excerpt": "stop_loss=CGX_NormalizePrice(candle.symbol,stop_loss);",
+          "line_digest": "sha256:a2faa264eefa21f36b1056e90f26fd96d846867203274a247ca00b857f068a62",
+          "line_number": 51
+        },
+        {
+          "excerpt": "if(direction==CGC_DIRECTION_BUY && !(stop_loss<entry_price))",
+          "line_digest": "sha256:e812c01f9fcd75cfae88ed15252502a259b3a1463041c039cb3c1b40d8dde24e",
+          "line_number": 52
+        },
+        {
+          "excerpt": "if(direction==CGC_DIRECTION_SELL && !(stop_loss>entry_price))",
+          "line_digest": "sha256:df2777617f1dfe2101efcfff0a8da0a04e90e06199af057b9867be3368997782",
+          "line_number": 57
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:19273d349ceb61e57bf327c0cdab9294dcc592dbb6590c2add20b42de3514433",
+      "atom_id": "TREATATOM_434E9BAA567F9C61DE9971C1EC8364AB",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "const double entry_price,",
+          "line_digest": "sha256:923c804cb1970c44ecde9e1210f283be3b30ca35fbd257fb232442f9e3f05869",
+          "line_number": 12
+        },
+        {
+          "excerpt": "if(direction==CGC_DIRECTION_BUY && !(stop_loss<entry_price))",
+          "line_digest": "sha256:e812c01f9fcd75cfae88ed15252502a259b3a1463041c039cb3c1b40d8dde24e",
+          "line_number": 52
+        },
+        {
+          "excerpt": "if(direction==CGC_DIRECTION_SELL && !(stop_loss>entry_price))",
+          "line_digest": "sha256:df2777617f1dfe2101efcfff0a8da0a04e90e06199af057b9867be3368997782",
+          "line_number": 57
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:afe354f35e375ef9031c7d91876e11966e90d368ae00b5a5ebe18d0404ddd0d8",
+      "atom_id": "TREATATOM_F5095527520C8AF00B8C57B2C1F0F487",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "double point=SymbolInfoDouble(candle.symbol,SYMBOL_POINT);",
+          "line_digest": "sha256:0067394e8f3b9ee43161c4f87470412ca913f3620db1636aeae16e509d048b4e",
+          "line_number": 28
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e934e7dcda540514c9ec18a97d2794afd404b7af27a2f141a16f2298cc39ac76",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_38AAC8B613076764B22394F9D5774C07"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:27dbbcab94f1bd255acd6020646e93a03b4cb15f7dceaee03091c2eb6df4401e",
+    "sha256:19273d349ceb61e57bf327c0cdab9294dcc592dbb6590c2add20b42de3514433",
+    "sha256:30da2c96a113c10fe4dd2b68903f84a1590fbecefbdaaa0048715e00dd4f9222",
+    "sha256:afe354f35e375ef9031c7d91876e11966e90d368ae00b5a5ebe18d0404ddd0d8"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_StopModel.mqh",
+  "source_sha256": "sha256:27dbbcab94f1bd255acd6020646e93a03b4cb15f7dceaee03091c2eb6df4401e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_9BAADB5D3B59FFB388AF116DDC178A41",
+  "treatment_package_id": "TREATPKG_6B154A1D57CEF733ADE6CF071A37C8CF",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

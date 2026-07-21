@@ -1,0 +1,89 @@
+{
+  "$id": "https://alpha-lab.local/lcm10b/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10B_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "completed_gates": {
+      "type": "array"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "forbidden_actions": {
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "type": "string"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "LCM10B_TO_LCM10C"
+    },
+    "migration_id": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "handoff_id",
+    "handoff_type",
+    "migration_id",
+    "completed_gates",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "handoff",
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_7AD7D26FC9911800B1F45D532326152B"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:eecfdbad29e643928fb7b013fb7b596b3cbe1c67ef1ccdf81a87848e7080641b",
+      "atom_id": "TREATATOM_7AD7D26FC9911800B1F45D532326152B",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "if(rate.tick_volume < 0 || rate.real_volume < 0 || rate.spread < 0)",
+          "line_digest": "sha256:72e11814387d0320f795d90253f67383bd5a2bce173faf0933e71d98a41b071f",
+          "line_number": 33
+        },
+        {
+          "excerpt": "bar.spread = rate.spread;",
+          "line_digest": "sha256:8efd9c0a68a46bbc4f7eae571dfc590e86e2a49ce2418290146f400b57eaeebb",
+          "line_number": 60
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:66a7eed05f00fc116c33b338f14c565b4205e1b1b28e68b4da6dfbf7a2e2610c",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_C87B5C09ED9C76E687737BFB5FCD263E"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:51d05f591ce6ff6379a7fbc9e3b623ce40f198e7402e0fbb54e6e8d494fdf1f7",
+    "sha256:eecfdbad29e643928fb7b013fb7b596b3cbe1c67ef1ccdf81a87848e7080641b"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_DataQuality.mqh",
+  "source_sha256": "sha256:51d05f591ce6ff6379a7fbc9e3b623ce40f198e7402e0fbb54e6e8d494fdf1f7",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_423BE6C48946E3C3A866AD400E92AFAC",
+  "treatment_package_id": "TREATPKG_55B71E1C844A1BF4A7A9B96CB9D14CBE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

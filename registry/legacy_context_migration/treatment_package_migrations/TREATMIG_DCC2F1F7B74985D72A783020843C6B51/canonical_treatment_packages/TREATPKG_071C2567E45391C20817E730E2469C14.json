@@ -1,0 +1,95 @@
+{
+  "atom_ids": [
+    "TREATATOM_09080484D5A11E3A6231CE10E48BF520",
+    "TREATATOM_1228788748490F249BD4CA6A972986B6",
+    "TREATATOM_41126D7335FE764D4F81D50C15FF681F"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "PARTIAL_EXIT",
+    "VOLUME_SIZING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:42e64747df86d119108ac3a35be18b6a243686308b2c838583d64bc2713db97f",
+      "atom_id": "TREATATOM_09080484D5A11E3A6231CE10E48BF520",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "cfg.magic_number = InpMagicNumber;",
+          "line_digest": "sha256:33fc50a525d8241681fa323b5ad9a36e23f92cab2f9e289e969866fc23abb300",
+          "line_number": 257
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:91263b77aa192e43841be3b1ecd2a3be8ca9a529747c1962cf4a9a5b8e599c0b",
+      "atom_id": "TREATATOM_1228788748490F249BD4CA6A972986B6",
+      "atom_type": "PARTIAL_EXIT",
+      "intent_field": "management.partial_exit",
+      "source_evidence": [
+        {
+          "excerpt": "input group \"STC Level 17 Real Partial Close Manager\"",
+          "line_digest": "sha256:113ad14f3a52fd32f63ae450d1cc2956b8cd387c51e50a0ea2d234378ee695b9",
+          "line_number": 117
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e46546c56e53bf29cae284de5c0a76225df4cdb91ef3717f077683db95d4ec00",
+      "atom_id": "TREATATOM_41126D7335FE764D4F81D50C15FF681F",
+      "atom_type": "VOLUME_SIZING",
+      "intent_field": "volume_request",
+      "source_evidence": [
+        {
+          "excerpt": "cfg.risk_percent = InpRiskPercent;",
+          "line_digest": "sha256:a182c277379c35359405d27e08b38de2d1dae3692895e4decb426b38ba6631e8",
+          "line_number": 251
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:9350378ad8e73e6d8bfdf6ac1cac1421f6aed0122808c75a1f9fa2b60459a03e",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:fe82a74102ffd9e42d362e5ddf5d917f02b7854baeeeadf4ec15c68e7b11ad4e",
+    "sha256:42e64747df86d119108ac3a35be18b6a243686308b2c838583d64bc2713db97f",
+    "sha256:91263b77aa192e43841be3b1ecd2a3be8ca9a529747c1962cf4a9a5b8e599c0b",
+    "sha256:e46546c56e53bf29cae284de5c0a76225df4cdb91ef3717f077683db95d4ec00"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5",
+  "source_sha256": "sha256:fe82a74102ffd9e42d362e5ddf5d917f02b7854baeeeadf4ec15c68e7b11ad4e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_3D65EAB498B4C5B46685DAFAA78FCFAE",
+  "treatment_package_id": "TREATPKG_071C2567E45391C20817E730E2469C14",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

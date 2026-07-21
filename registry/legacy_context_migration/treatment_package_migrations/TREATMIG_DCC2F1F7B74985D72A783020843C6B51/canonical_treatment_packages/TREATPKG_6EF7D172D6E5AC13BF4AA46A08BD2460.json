@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_0E2D388B43899C28E677CBBA1FF96F5C"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_5F404ED2A8387DAA27D82DF331BFE118",
+    "EXECCAP_CA143D51EF9CD73F00C589755A27B97A",
+    "EXECCAP_EC63492859065A567F8A95C1B90A9739"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:1372b439de84199318bb174aeb140e10061e3c1efa81c9a95f3e3cf9ae43fa49",
+      "atom_id": "TREATATOM_0E2D388B43899C28E677CBBA1FF96F5C",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "for forbidden in [\"order_send(\", \"OrderSend(\", \"trade.Buy(\", \"trade.Sell(\", \"login(\", \"password=\", \"secret_key\"]:",
+          "line_digest": "sha256:2d8b7095b72d5bf52e2efe21317e4ae4bdbe56a930682e60ea9b2ba38a51364e",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ea2e05459f7198d91ed6b164785b4c1fcde8d5f0ea7a8f0f2440904bd8ec1616",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:4a124ed8dbaaf22ba261f4bf8928687e145a11bc25e08905549b220f5f640dad",
+    "sha256:1372b439de84199318bb174aeb140e10061e3c1efa81c9a95f3e3cf9ae43fa49"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/saed_v4_32/check_saed_v4_32_boundaries.py",
+  "source_sha256": "sha256:4a124ed8dbaaf22ba261f4bf8928687e145a11bc25e08905549b220f5f640dad",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_62B0D4C752D7D27928CCD39DE3B5D85A",
+  "treatment_package_id": "TREATPKG_6EF7D172D6E5AC13BF4AA46A08BD2460",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

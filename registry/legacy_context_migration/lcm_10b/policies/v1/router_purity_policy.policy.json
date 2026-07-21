@@ -1,0 +1,21 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute": false,
+  "deterministic_identity": true,
+  "filter_invention": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "policy_digest": "sha256:72bb3a11b17f1a533315965d6f57ba5b909075197707c63102ef56acf5054a96",
+  "policy_id": "LCM10BPOLICY_2FBD7DA0B7A655676987D72ED08FABAA",
+  "policy_name": "router_purity_policy",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "request_translation_only": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute": false,
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

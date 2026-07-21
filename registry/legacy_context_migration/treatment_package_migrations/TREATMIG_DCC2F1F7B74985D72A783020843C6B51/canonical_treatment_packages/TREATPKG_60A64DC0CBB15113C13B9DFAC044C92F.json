@@ -1,0 +1,61 @@
+{
+  "atom_ids": [
+    "TREATATOM_FEAC93EE0483674A296E81D59DB1F0AE"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:f6835253b3fb0fbeeb2793d1b5b1fd99cc48bec7eaec44a5759a9aa2dd4804b2",
+      "atom_id": "TREATATOM_FEAC93EE0483674A296E81D59DB1F0AE",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "const int &spread[])",
+          "line_digest": "sha256:ac4f233c4703e93c2cbd6082b8124eac2420f9ec68714e19ec454de7d1252247",
+          "line_number": 108
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:ce9f1e7b0f80e06b2d01cf0a7aea59a4ebf72469821ecd649e32572a8ccba1f2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_CD099F5AC91BCFDCFE38CD983653E0AE"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:415a40af85d2eaddda0ea82ac1558f81663043c85fe163a4df71cc9d3876dc72",
+    "sha256:f6835253b3fb0fbeeb2793d1b5b1fd99cc48bec7eaec44a5759a9aa2dd4804b2"
+  ],
+  "source_move_performed": false,
+  "source_path": "product_lab/indicators/gartal_terminal/mql5/GartalTerminal.mq5",
+  "source_sha256": "sha256:415a40af85d2eaddda0ea82ac1558f81663043c85fe163a4df71cc9d3876dc72",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_22D90EF2EB2452DB263F24454404BCE9",
+  "treatment_package_id": "TREATPKG_60A64DC0CBB15113C13B9DFAC044C92F",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,45 @@
+{
+  "adapter_digest": "sha256:627a0787dac454577d2a003bc1cd3baec5079c578e2c9d4b1baa5a6574bb3273",
+  "adapter_id": "EXECADAPTER_D8DD098A60F5D9AADB3044C6BB988730",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "NETWORK_EXTERNAL",
+    "READ_FILE_LEDGER",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_SUBMIT_RAW",
+    "FILE_LEDGER_READ",
+    "NETWORK_EXTERNAL"
+  ],
+  "capability_ids": [
+    "EXECCAP_4513E2E6BF7C2BC6CB8A0D14277EAE9E",
+    "EXECCAP_6AB58AABA9CDB3BE147F49A3AAC7B5CF",
+    "EXECCAP_95971768946D5C94CF03B0754C05F106"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:415fde49ac7cd3c49781351e473fe32fad2d58921704dfb2494ff751f4dd5786"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/acl_os/tests_acl_03/test_ir_compilers.py",
+  "submission_capability_default": false,
+  "translation_status": "BLOCKED_NO_TREATMENT_PACKAGE",
+  "treatment_package_ids": [],
+  "validation_status": "REFERENCE_ONLY"
+}

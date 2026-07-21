@@ -1,0 +1,71 @@
+{
+  "atom_ids": [
+    "TREATATOM_3D146B52B5025D62079B4B9CD8B9CB76"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_0B28B224BABA229E63CFFAD0C2C75A6D",
+    "EXECCAP_20D8F4702DD9AC894248BF898BBB32AE",
+    "EXECCAP_47AF4FA4AC103DEA31CA2EA0CBA49EE4",
+    "EXECCAP_619FF419A665E32E5673DABCE4392D1D",
+    "EXECCAP_93FC5E677AA4C98993CE569B188386D8",
+    "EXECCAP_A314E79E0D91DB8DA19FE0A2AA86ED46"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:bc69c864f2859c0433ddbe608ab86f5e1d7e25cd39562b0edcd3f3fe58c263a3",
+      "atom_id": "TREATATOM_3D146B52B5025D62079B4B9CD8B9CB76",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "\"trade.Buy(\",",
+          "line_digest": "sha256:d5c16b856e5462bad42e24ce4a306cbdd2b98f31a0efef986b1e473249b48b19",
+          "line_number": 14
+        },
+        {
+          "excerpt": "\"trade.Sell(\",",
+          "line_digest": "sha256:fddc4d5757afa04e6a832271c5c66cf6a8789aeb1355c65582e55e73e99028f8",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:f456fd154d537228009a0bb688518117062abc74f02f5d871b3594979ffe62ba",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:07e264c897c3658100cfa59d1c08ca97d3fa81dcc18c3ea869645da949a98941",
+    "sha256:bc69c864f2859c0433ddbe608ab86f5e1d7e25cd39562b0edcd3f3fe58c263a3"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/saed_v4_05/validate_saed_v4_05_mql5_static.py",
+  "source_sha256": "sha256:07e264c897c3658100cfa59d1c08ca97d3fa81dcc18c3ea869645da949a98941",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_5B13F2C795173EB9644906EC26CA8297",
+  "treatment_package_id": "TREATPKG_AF700120A562A7659C589309692D79FE",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,92 @@
+{
+  "atom_ids": [
+    "TREATATOM_A2084381A84FC40C9754299DEF8B5226",
+    "TREATATOM_EE93F83E61A8042B3BC7B03EB9982B8C"
+  ],
+  "atom_types": [
+    "ENTRY_PRICE",
+    "STOP_LOSS"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_4D92A7796E69A82A816357C3E5401C34",
+    "EXECCAP_ED247AB7C164DDA0E6167F492FC62117"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:4e56700780549fa304c446ace0ca03a5c29e024093c9068eeff263bac0a22c8c",
+      "atom_id": "TREATATOM_A2084381A84FC40C9754299DEF8B5226",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "return \"sample_id,outcome_id,signal_id,model_use_status,exclusion_reason,availability,group,group_minutes,current_cycle,reference_cycle,reference_age_cycles,direction,direction_code,side,side_code,clean_symbol,hunter_symbol,role_key,confirmation_broker,confirmation_ny,hour_ny,minute_of_day_ny,session_ny,entry_price,sto",
+          "line_digest": "sha256:5f0a4e6d39f236d3e1c7c052738c6efca855ffcc67a07c503d51e03649f0cf6f",
+          "line_number": 17
+        },
+        {
+          "excerpt": "DoubleToString(r.entry_price,8) + \",\" +",
+          "line_digest": "sha256:c88fa85565e530ac88f780b949b7d1c01da35df1de88c6661af1346fea97dc63",
+          "line_number": 45
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8fcd2ca656069cb3dfd58161ee5876536bcd54607ea4bc5520b579076e5c6deb",
+      "atom_id": "TREATATOM_EE93F83E61A8042B3BC7B03EB9982B8C",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "return \"sample_id,outcome_id,signal_id,model_use_status,exclusion_reason,availability,group,group_minutes,current_cycle,reference_cycle,reference_age_cycles,direction,direction_code,side,side_code,clean_symbol,hunter_symbol,role_key,confirmation_broker,confirmation_ny,hour_ny,minute_of_day_ny,session_ny,entry_price,sto",
+          "line_digest": "sha256:5f0a4e6d39f236d3e1c7c052738c6efca855ffcc67a07c503d51e03649f0cf6f",
+          "line_number": 17
+        },
+        {
+          "excerpt": "DoubleToString(r.stop_price,8) + \",\" +",
+          "line_digest": "sha256:8933c19b7e8dfc023025e7c8d9f39b9d51a577664e00c7d4f7f10a65d1875d95",
+          "line_number": 46
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:7a582b55342c700b4baaf19304d4b4afd5f4eda344e3752b935ce23b39e3364f",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_EF7AFAD8127896E46A0E2B31AC8F4166"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:94757914a25f65e49de87b25937863f3944384b2fe9c2b175d6a72e9872cff3e",
+    "sha256:4e56700780549fa304c446ace0ca03a5c29e024093c9068eeff263bac0a22c8c",
+    "sha256:8fcd2ca656069cb3dfd58161ee5876536bcd54607ea4bc5520b579076e5c6deb"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGM_Ledger.mqh",
+  "source_sha256": "sha256:94757914a25f65e49de87b25937863f3944384b2fe9c2b175d6a72e9872cff3e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E8284C489BD0B9C3AF75478481A09151",
+  "treatment_package_id": "TREATPKG_1B0F982DF9ECA2F37E1165CA95E3F78B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

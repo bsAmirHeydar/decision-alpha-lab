@@ -1,0 +1,58 @@
+{
+  "adapter_digest": "sha256:9223b451a78112d38a69a210599bb7afd03874001bc18d0cb3cf1232d93f6252",
+  "adapter_id": "EXECADAPTER_2C2A9525B334744F07F79508207D0226",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "CANCEL_ORDER",
+    "CLOSE_POSITION",
+    "READ_ACCOUNT_STATE",
+    "READ_BROKER_CONSTRAINTS",
+    "RECONCILE_BROKER_STATE",
+    "SUBMIT_ORDER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "BROKER_ACCOUNT_STATE",
+    "BROKER_ORDER_CANCEL",
+    "BROKER_POSITION_CLOSE",
+    "BROKER_STATE_ORDER",
+    "BROKER_STATE_POSITION",
+    "BROKER_SUBMIT_CTRADE",
+    "BROKER_SYMBOL_STATE"
+  ],
+  "capability_ids": [
+    "EXECCAP_2688C8B7E46280668BE0ECBFFE39CBFB",
+    "EXECCAP_36B0E61A690748C15054D0B861B0EB74",
+    "EXECCAP_97387D66F0582B8D18C495A466439FD2",
+    "EXECCAP_979619D1A895185DAC1757E04F0706F1",
+    "EXECCAP_9E8338DB7BA56DCA75747A1DA80DE3ED",
+    "EXECCAP_CAD042DAE593532775AED3C61200CB8E",
+    "EXECCAP_F73440BE938EF952A2243B1BD650A4AE"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:72348e3dcf4fa9826e509d359bae074b2c759618cd90a1e4e27bd084b7d142dd"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_2C2A9525B334744F07F79508207D0226"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

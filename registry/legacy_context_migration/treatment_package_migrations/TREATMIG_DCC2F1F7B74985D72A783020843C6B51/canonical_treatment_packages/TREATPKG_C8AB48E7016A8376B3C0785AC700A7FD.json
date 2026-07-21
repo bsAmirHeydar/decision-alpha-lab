@@ -1,0 +1,69 @@
+{
+  "atom_ids": [
+    "TREATATOM_FFC1961349D85D48A1EABD46C8A36F5F"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_2D5C95F0D6361F51E5A5D08ACFEFABDD",
+    "EXECCAP_5A9A8EFD8FBEA87C8E1454D107B09FF1"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:3d6ae233e0fff0a388cfae281dbee2cc4129c9240c619100ba5af667769bf44c",
+      "atom_id": "TREATATOM_FFC1961349D85D48A1EABD46C8A36F5F",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "FileWrite(handle, \"time\", \"open\", \"high\", \"low\", \"close\", \"tick_volume\", \"spread\", \"real_volume\", \"is_closed\", \"request_reason\");",
+          "line_digest": "sha256:d9651a9a34f64cdb166ebd72561164ce1a5626cb010a5c1d1ff98085bf3900ad",
+          "line_number": 826
+        },
+        {
+          "excerpt": "(int)rates[i].spread,",
+          "line_digest": "sha256:589363c7869dffe3631e4b93b36f79b39dbd64d44378a59bdc2f9ecefb68897a",
+          "line_number": 841
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:e356f2e5ad797fdec42ccc41c3319083a0efba1d4e30d3598e47254a69ff0f79",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_244FE77AC3060E8FC1F32C0B54035E92"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:e9fb42824b0b59f3fa18d0560f8b0a064640b2cee3e4bac7b541060162414108",
+    "sha256:3d6ae233e0fff0a388cfae281dbee2cc4129c9240c619100ba5af667769bf44c"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/M0001_LiveVisualLab.mq5",
+  "source_sha256": "sha256:e9fb42824b0b59f3fa18d0560f8b0a064640b2cee3e4bac7b541060162414108",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_B81CF1279C7E14676875F4BEF2DC25F2",
+  "treatment_package_id": "TREATPKG_C8AB48E7016A8376B3C0785AC700A7FD",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

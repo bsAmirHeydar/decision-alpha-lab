@@ -1,0 +1,67 @@
+{
+  "atom_ids": [
+    "TREATATOM_274A601479FE07DAC01C118F3F10B55A"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_31F29F8A370E00A9474BB0C177CF1B60",
+    "EXECCAP_93327A88CD5741B69B4649F7EB719FC7"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:e89acaf605ea681bf5470d5a55cabd7f5e0ed197d7a63a6ca94a7a54b433adb8",
+      "atom_id": "TREATATOM_274A601479FE07DAC01C118F3F10B55A",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "cfg,result,desc,agg,refs=golden_completed_n_window();u,_=transition_reference(refs.references[0],ReferenceTransition.EXPIRED,desc.end_utc_ms+60000,'E')",
+          "line_digest": "sha256:329e5675a265fd16c37c839d5489d0bf0cca4ac6a870a28963aa08bcbf62ab57",
+          "line_number": 45
+        },
+        {
+          "excerpt": "assert u.state is ReferenceState.EXPIRED and not u.active_for_hunt",
+          "line_digest": "sha256:d45ce207eef32ccd1e49e795c285d6366edcd682bb055d723049811127b60a52",
+          "line_number": 46
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:59714ee48729752a7072eb3d35e6957391ace2c77e3da335ea3d2bc4558ef943",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:10f14d38ea1c9eb8ab2c8024b5c08e49f46cf0f7be23f1aa4117c31187c6818e",
+    "sha256:e89acaf605ea681bf5470d5a55cabd7f5e0ed197d7a63a6ca94a7a54b433adb8"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/tests/test_fp_i05_references.py",
+  "source_sha256": "sha256:10f14d38ea1c9eb8ab2c8024b5c08e49f46cf0f7be23f1aa4117c31187c6818e",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_912EBDD1DF06B919D5D0639B7F2230E3",
+  "treatment_package_id": "TREATPKG_77E05D57CE0C86AB132BA046EC607A0B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,27 @@
+{
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "entries": {
+    "LEGACY_BROKER_PATH_UNMOVED": "LEGACY_BROKER_PATH_UNMOVED",
+    "NO_TREATMENT_ATOMS_OBSERVED": "NO_TREATMENT_ATOMS_OBSERVED",
+    "OWNER_APPROVAL_REQUIRED": "OWNER_APPROVAL_REQUIRED",
+    "RISK_POLICY_SEPARATION_REQUIRED": "RISK_POLICY_SEPARATION_REQUIRED",
+    "SEMANTIC_VALUE_UNRESOLVED": "SEMANTIC_VALUE_UNRESOLVED",
+    "SETUP_TREATMENT_BINDING_UNRESOLVED": "SETUP_TREATMENT_BINDING_UNRESOLVED",
+    "UNIT_SEMANTICS_UNRESOLVED": "UNIT_SEMANTICS_UNRESOLVED",
+    "UNTRANSLATABLE_LEGACY_FIELDS": "UNTRANSLATABLE_LEGACY_FIELDS"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "record_count": 8,
+  "registry_digest": "sha256:fbff0b276e5eb2599549ee391c484ec4cda49267f13b6092e30424336d54f110",
+  "registry_name": "blocker_code_registry",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b"
+  ],
+  "validation_status": "PASS"
+}

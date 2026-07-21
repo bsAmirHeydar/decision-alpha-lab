@@ -1,0 +1,175 @@
+{
+  "atom_ids": [
+    "TREATATOM_0B57E4FD88A0DB405EAEEBFAB62E4A85",
+    "TREATATOM_511942313B23AF51AA1252880153C0C6",
+    "TREATATOM_71CC0A3905C8ADE8A9843059754B9F6D",
+    "TREATATOM_AA523AA72D29F9D8BF73294FDC982C7C",
+    "TREATATOM_C1206BE898D32FFDC618C0C2F6CAEE48",
+    "TREATATOM_E67EBE4A918B03233E368E6ACE96805D"
+  ],
+  "atom_types": [
+    "DUPLICATE_GUARD",
+    "ENTRY_PRICE",
+    "EXPIRY",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:dfdaf62cf467519fdb5067122f50182bde8530c7d19d56dafcc6827e407220fc",
+      "atom_id": "TREATATOM_0B57E4FD88A0DB405EAEEBFAB62E4A85",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "if now_utc_msc>self.authorization.expires_at_utc_msc: self.authorization_state=AuthorizationState.EXPIRED; return False",
+          "line_digest": "sha256:3bf4cf05d54819dae700a8e540cf2565c2cc9df82bd74062a6a403719f0cce92",
+          "line_number": 33
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:e080489c0dc74d4c331f9c2e3fb368ca54d0b7c4505ebae678566416dc37a41b",
+      "atom_id": "TREATATOM_511942313B23AF51AA1252880153C0C6",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "str(self.policy.maximum_deviation_points),str(self.magic_number),str(intent.expires_at_utc_msc)))",
+          "line_digest": "sha256:e75619dde9e2e1280930ee1742377eab84bb8830513612bd07b4bbc35fb834ab",
+          "line_number": 57
+        },
+        {
+          "excerpt": "intent.has_target,self.policy.maximum_deviation_points,self.magic_number,intent.expires_at_utc_msc,rid)",
+          "line_digest": "sha256:45c667cec556373b01f2839e2685786f2e92f073fdeed21f545d136e0f21b97f",
+          "line_number": 61
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:bab2aa3d92ed82bd356a2a6d3d25bcd21e2aabc4052f7b272ef943178ceb8b27",
+      "atom_id": "TREATATOM_71CC0A3905C8ADE8A9843059754B9F6D",
+      "atom_type": "DUPLICATE_GUARD",
+      "intent_field": "duplicate_guard",
+      "source_evidence": [
+        {
+          "excerpt": "*, magic_number: int = 180018, maximum_ledger_records: int = 4096) -> None:",
+          "line_digest": "sha256:4d714be7b5f6b7f2bbca7537f037e76406f3eefb873bc9b243d4ace068f26676",
+          "line_number": 17
+        },
+        {
+          "excerpt": "self.policy=policy; self.broker=broker; self.magic_number=magic_number",
+          "line_digest": "sha256:57712d6cf96609fdb0f0e9929bd339a068626ff4ab242ba0a0f395cc08ff7d56",
+          "line_number": 22
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a6e03f45d7aea2ca91e16c4843b5cce5b1606e56fb6ea8d553c7393cd9005d83",
+      "atom_id": "TREATATOM_AA523AA72D29F9D8BF73294FDC982C7C",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "cfloat(intent.stop_price),cfloat(intent.target_price),cbool(intent.has_target),",
+          "line_digest": "sha256:28f8e9d492197c47a0ba04239529dd73d54d19bfd203dcfd9c8c1e2c865cc4d8",
+          "line_number": 56
+        },
+        {
+          "excerpt": "intent.direction,intent.order_kind,intent.volume,intent.entry_price,intent.stop_price,intent.target_price,",
+          "line_digest": "sha256:f053d480d596ea11bfc14111bd2e144fd253ecd73f861429d471c2264bcc35c6",
+          "line_number": 60
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:a9f263d22d045e09766ae243f38fe954ef4d48cf78277d78aacc15cdba2f3379",
+      "atom_id": "TREATATOM_C1206BE898D32FFDC618C0C2F6CAEE48",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "str(intent.direction),str(int(intent.order_kind)),cfloat(intent.volume),cfloat(intent.entry_price),",
+          "line_digest": "sha256:b73e64d0c131685107666e0bb9f33234c0c62f57487cf2ff43c79211cad16955",
+          "line_number": 55
+        },
+        {
+          "excerpt": "intent.direction,intent.order_kind,intent.volume,intent.entry_price,intent.stop_price,intent.target_price,",
+          "line_digest": "sha256:f053d480d596ea11bfc14111bd2e144fd253ecd73f861429d471c2264bcc35c6",
+          "line_number": 60
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:7b3ee66bcd4e85d43eff2800bd7e1ff9c4fcce4aade171bf9a2cfa0eace0740c",
+      "atom_id": "TREATATOM_E67EBE4A918B03233E368E6ACE96805D",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "cfloat(intent.stop_price),cfloat(intent.target_price),cbool(intent.has_target),",
+          "line_digest": "sha256:28f8e9d492197c47a0ba04239529dd73d54d19bfd203dcfd9c8c1e2c865cc4d8",
+          "line_number": 56
+        },
+        {
+          "excerpt": "intent.direction,intent.order_kind,intent.volume,intent.entry_price,intent.stop_price,intent.target_price,",
+          "line_digest": "sha256:f053d480d596ea11bfc14111bd2e144fd253ecd73f861429d471c2264bcc35c6",
+          "line_number": 60
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:0613db75a485bf496f948c980bcef220c244e80d7b2419332653a16b9a4b3461",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_5DF3F01783A662A2DB640D275F0C3AF5"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:055e3c59bd8264c032507f57b098398a32398b75e3cc8fbff8cf488bca99b200",
+    "sha256:7b3ee66bcd4e85d43eff2800bd7e1ff9c4fcce4aade171bf9a2cfa0eace0740c",
+    "sha256:a6e03f45d7aea2ca91e16c4843b5cce5b1606e56fb6ea8d553c7393cd9005d83",
+    "sha256:a9f263d22d045e09766ae243f38fe954ef4d48cf78277d78aacc15cdba2f3379",
+    "sha256:bab2aa3d92ed82bd356a2a6d3d25bcd21e2aabc4052f7b272ef943178ceb8b27",
+    "sha256:dfdaf62cf467519fdb5067122f50182bde8530c7d19d56dafcc6827e407220fc",
+    "sha256:e080489c0dc74d4c331f9c2e3fb368ca54d0b7c4505ebae678566416dc37a41b"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/python/strategy_factory_live/coordinator.py",
+  "source_sha256": "sha256:055e3c59bd8264c032507f57b098398a32398b75e3cc8fbff8cf488bca99b200",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_801F66AF72BBB693228B021F37601BAE",
+  "treatment_package_id": "TREATPKG_12EB8755E7DFC754330599D841A39E4A",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

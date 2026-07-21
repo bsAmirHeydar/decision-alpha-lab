@@ -1,0 +1,63 @@
+{
+  "atom_ids": [
+    "TREATATOM_F03DFBA009BAFA321DA5BBC58CFF3EDE"
+  ],
+  "atom_types": [
+    "SPREAD_PRICING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_099EAC766B5F8692A890277D25F75756"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:17f7c09098db637df141c1bac2966361466e4fe4355acd2bc333fd679ecba3ba",
+      "atom_id": "TREATATOM_F03DFBA009BAFA321DA5BBC58CFF3EDE",
+      "atom_type": "SPREAD_PRICING",
+      "intent_field": "broker_assumptions.spread",
+      "source_evidence": [
+        {
+          "excerpt": "@pytest.mark.parametrize('kind,vals,expected',[(TransformKind.MIDPOINT,[2,4],3),(TransformKind.SPREAD,[2,4],2),(TransformKind.DIFFERENCE,[4,2],2),(TransformKind.RATIO,[4,2],2),(TransformKind.BOOLEAN_AND,[True,True],True),(TransformKind.BOOLEAN_OR,[False,True],True),(TransformKind.CONCAT,['a','b'],'a|b'),(TransformKind.",
+          "line_digest": "sha256:df71d2e167e51f32c2e38b5c0e84317c75e4ca95df09a91a4da83c2919eb4c6d",
+          "line_number": 15
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a1bc77b79c19c705c3b0adc1566cc21ed46399a948b19dc66f1f5fcc7c3beb93",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_322A98578DF3F1ECEF6C033CD3D55CA8"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:185f089612d1530efd92ee276b04766d5ff624f5f63038412eb7de02a6775e3f",
+    "sha256:17f7c09098db637df141c1bac2966361466e4fe4355acd2bc333fd679ecba3ba"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase_saed_v4_04_multimodal_view_platform/test_normalization_transforms.py",
+  "source_sha256": "sha256:185f089612d1530efd92ee276b04766d5ff624f5f63038412eb7de02a6775e3f",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8EDC8887636C87CED7C217CEB43DE6DB",
+  "treatment_package_id": "TREATPKG_25EF1357217F5047FA1485B975A1A6B9",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

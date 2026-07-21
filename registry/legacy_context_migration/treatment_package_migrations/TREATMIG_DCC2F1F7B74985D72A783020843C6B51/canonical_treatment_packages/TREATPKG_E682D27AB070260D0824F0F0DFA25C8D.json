@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_E4808D342B18C024A9D62F93AEC3DC12"
+  ],
+  "atom_types": [
+    "CANCELLATION"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:253c1266fe6ef64f65ea5c2a14817b9c56c5adaaeabaff54bd6bb8582ac6710f",
+      "atom_id": "TREATATOM_E4808D342B18C024A9D62F93AEC3DC12",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "e=PaperExecutionEngine(\"run\",policy()); o=e.submit(intent(),1000); assert e.cancel(\"i1\",1100); assert o.state==OrderState.CANCELED",
+          "line_digest": "sha256:8b721331f581062884ed5f6d1dd1bfa473af64d46b18668af0cd3d814b5cc188",
+          "line_number": 30
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:a62998d5d2b610d002be4d51398d7c8d45817e90701b8e627de640590d164597",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:13eab7532d8ab01ddf448db7cf5b1b31f3e52abec719e38c3d38688d0dcda009",
+    "sha256:253c1266fe6ef64f65ea5c2a14817b9c56c5adaaeabaff54bd6bb8582ac6710f"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/11_strategy_factory/tests/phase17_execution/test_sf17_engine.py",
+  "source_sha256": "sha256:13eab7532d8ab01ddf448db7cf5b1b31f3e52abec719e38c3d38688d0dcda009",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_AA5CDE567F021C8A08289FBB0C50712D",
+  "treatment_package_id": "TREATPKG_E682D27AB070260D0824F0F0DFA25C8D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

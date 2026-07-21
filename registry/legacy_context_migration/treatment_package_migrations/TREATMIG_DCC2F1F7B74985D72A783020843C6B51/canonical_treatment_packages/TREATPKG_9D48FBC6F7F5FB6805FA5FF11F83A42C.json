@@ -1,0 +1,66 @@
+{
+  "atom_ids": [
+    "TREATATOM_5DE4CE826BCF74EB20AF8D24BE711E9F"
+  ],
+  "atom_types": [
+    "ENTRY_MARKET"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_0E84F59925641B6D469D0EDF9E24A58F",
+    "EXECCAP_A8456ADF53380C65252426BC916BC94E",
+    "EXECCAP_C8AFF8FC6533C31D39E049BCAAF71B3B",
+    "EXECCAP_CC4C4506945E72C9A0E59A728A34C266",
+    "EXECCAP_D76CD55B3E70971CC777C5869DCB8A35",
+    "EXECCAP_DAE12FA38E2B5D47EA7D074FB6DAA014"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:14d9bbe571abbc450dd1c31c72de4c11134a5883106c0074146c521e477e33a1",
+      "atom_id": "TREATATOM_5DE4CE826BCF74EB20AF8D24BE711E9F",
+      "atom_type": "ENTRY_MARKET",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "FORBIDDEN=(\"OrderSend(\",\"trade.Buy(\",\"trade.Sell(\",\"PositionOpen(\",\"PositionModify(\",\"PositionClose(\")",
+          "line_digest": "sha256:51591bf91aeda74bbf2d5c37a05a900c23addfd045a95ecfcad7c01f1dfae6bb",
+          "line_number": 3
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:747c2759f0188a42b9e1fe7b3c67031ac7969a5f12d2719e7df651926a57e131",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:6dca9bd5e9d082d649ad05be393f923ebadda60913e18f65b759e6656978262a",
+    "sha256:14d9bbe571abbc450dd1c31c72de4c11134a5883106c0074146c521e477e33a1"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/lcm/lcm_08a/static_validation.py",
+  "source_sha256": "sha256:6dca9bd5e9d082d649ad05be393f923ebadda60913e18f65b759e6656978262a",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_8B67D7D20F76414F2A66EB5334FCB265",
+  "treatment_package_id": "TREATPKG_9D48FBC6F7F5FB6805FA5FF11F83A42C",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

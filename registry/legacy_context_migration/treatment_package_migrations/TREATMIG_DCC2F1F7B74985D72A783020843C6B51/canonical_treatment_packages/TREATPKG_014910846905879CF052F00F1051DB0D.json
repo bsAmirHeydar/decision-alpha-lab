@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_BBF00CEF94755C70DA431DD32F2FF77B"
+  ],
+  "atom_types": [
+    "TRAILING"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:c8a5726a95c29a656b9f6013e3cb61b38702ee58de0a6581c40077e1d29ff6bb",
+      "atom_id": "TREATATOM_BBF00CEF94755C70DA431DD32F2FF77B",
+      "atom_type": "TRAILING",
+      "intent_field": "management.trailing",
+      "source_evidence": [
+        {
+          "excerpt": "int OnInit(){CUCEI03Catalog catalog;string error;if(!catalog.Build(error)){Print(\"UCE-I03 catalog build failed: \",error);return INIT_FAILED;}UCEI03_ConformanceTelemetry telemetry;if(!UCEI03_RunCatalogConformance(catalog,telemetry,error)){Print(\"UCE-I03 conformance failed: \",error);return INIT_FAILED;}Print(\"UCE-I03 rea",
+          "line_digest": "sha256:34626f7430eef75b2577bb93abf9031633a6b3222fbe05ee479803c058599a1b",
+          "line_number": 4
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:8eced89bf0078fa5e8fd9735955af1ede94b415d5319301e31db4263c18d88c2",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:efecb8e81477ded15cb536ca276e4877dd33248d0255e78cc1ce8be0bf9c5d98",
+    "sha256:c8a5726a95c29a656b9f6013e3cb61b38702ee58de0a6581c40077e1d29ff6bb"
+  ],
+  "source_move_performed": false,
+  "source_path": "mql5/Experts/StrategyFactory/UCE_I03_TreatmentAtomsDiagnostic.mq5",
+  "source_sha256": "sha256:efecb8e81477ded15cb536ca276e4877dd33248d0255e78cc1ce8be0bf9c5d98",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_E18971FC4EA4A7EF7CEDCC19CFD55122",
+  "treatment_package_id": "TREATPKG_014910846905879CF052F00F1051DB0D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

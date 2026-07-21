@@ -1,0 +1,59 @@
+{
+  "atom_ids": [
+    "TREATATOM_546E2401A2E8656761483EE64383E562"
+  ],
+  "atom_types": [
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:fe7c5ef49048023756f177d0fdcdfb6b9aee0c36416554546c5f9c71b4668adc",
+      "atom_id": "TREATATOM_546E2401A2E8656761483EE64383E562",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "c=context(week_end=1_000_080_000);u,e=expire_context(c,1_000_080_000);assert u.state is WWLifecycleState.EXPIRED and e is not None",
+          "line_digest": "sha256:835bbcdacca532e5c9292f49f5cb20b1ab542dc9c67ab8b9fef9383c4cf3cc99",
+          "line_number": 19
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:eb11b25bac827640fc365789f50bee9ab277b0dac33ef463bf9645b189b797d3",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:f4a2ec64f3d1227eda329a4bc798273b601184981f2380bf972975c73573e358",
+    "sha256:fe7c5ef49048023756f177d0fdcdfb6b9aee0c36416554546c5f9c71b4668adc"
+  ],
+  "source_move_performed": false,
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_neutralization.py",
+  "source_sha256": "sha256:f4a2ec64f3d1227eda329a4bc798273b601184981f2380bf972975c73573e358",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_FDEC4DF71ED23173FD3CB072169714C7",
+  "treatment_package_id": "TREATPKG_614DAF356F7131FA712D88285E40A89B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

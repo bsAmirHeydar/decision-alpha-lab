@@ -1,0 +1,41 @@
+{
+  "adapter_digest": "sha256:5ce0de1c8732f89cfe782bb4ce59b5ce66964e554573ad5bffa591d7a9cd7d09",
+  "adapter_id": "EXECADAPTER_306242E897BD327422DFD30A5211E5F7",
+  "adapter_version": "1.0.0",
+  "authority_classes": [
+    "MUTATE_FILE_LEDGER"
+  ],
+  "broker_api_invocation_implemented": false,
+  "capability_codes": [
+    "FILE_LEDGER_WRITE"
+  ],
+  "capability_ids": [
+    "EXECCAP_4F33F008F88385B84BBBB729442B93AC"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "guard_policy_path": "guards/capability_guard_policy.json",
+  "live_mode_allowed": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:5fcaf9be93c2caf286c708fc1e7966d8197053df335469ccdc8630093777f26b"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/astro_ml/fetch_mt5_rates.py",
+  "submission_capability_default": false,
+  "translation_status": "REFERENCE_TRANSLATABLE",
+  "treatment_package_ids": [
+    "TREATPKG_306242E897BD327422DFD30A5211E5F7"
+  ],
+  "validation_status": "REFERENCE_ONLY"
+}

@@ -1,0 +1,177 @@
+{
+  "atom_ids": [
+    "TREATATOM_3F4FF74E9E50AFFE32BD10D57D395054",
+    "TREATATOM_775F1C87A1B73C13118B3A9FFE9754E3",
+    "TREATATOM_7844A41E40D468E9DC408F1BAA2553E2",
+    "TREATATOM_C2C7C1C5DE22E3004A8C746235EA2A9E",
+    "TREATATOM_E97FFB35232AE9A15997950CC21F47F9"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "ENTRY_LIMIT",
+    "ENTRY_PRICE",
+    "STOP_LOSS",
+    "TAKE_PROFIT"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [
+    "EXECCAP_0C5B8CAAC70780C48EE0399925CEA7E1",
+    "EXECCAP_6CB81D958DCFB30A3CF44B5DC19CA4E1",
+    "EXECCAP_807E40DC3653C8C0DE5F9A7364213982",
+    "EXECCAP_AEC602EEA4771E438787E639B5E24E7F",
+    "EXECCAP_C6D60E64AB2E63B9CE16F23144529988",
+    "EXECCAP_EAFC9D1A269EBBB727622A947379354D"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:68861117b8e9679040130c5ac89f461b0fe5ada896f14f2ebfcb55212ff1132d",
+      "atom_id": "TREATATOM_3F4FF74E9E50AFFE32BD10D57D395054",
+      "atom_type": "TAKE_PROFIT",
+      "intent_field": "targets",
+      "source_evidence": [
+        {
+          "excerpt": "contains(checks, root, rules, \"setup.stop_price, setup.target_price\",",
+          "line_digest": "sha256:28d077afb1d6d2fed12be6f17a6882e4f9b794543c338eee8b080b03969555c0",
+          "line_number": 361
+        },
+        {
+          "excerpt": "\"P55_POSITION_PROTECTION_VERIFIED\", \"open position SL/TP geometry is verified\")",
+          "line_digest": "sha256:c7db6489bc72f50294d6c8197a882ea0965052c25cc944626b57e315d0f5faaf",
+          "line_number": 378
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:974b009644b0b67c2ebbb681e9691bd67acb7186e1256a8a442fc5fcc216e40a",
+      "atom_id": "TREATATOM_775F1C87A1B73C13118B3A9FFE9754E3",
+      "atom_type": "ENTRY_PRICE",
+      "intent_field": "entry.price",
+      "source_evidence": [
+        {
+          "excerpt": "contains(checks, root, evidence, \"rates[i].low <= entry_price\",",
+          "line_digest": "sha256:fd1ae83a186e115840795b9056257c28a601870173b8621221adc9c514f838a8",
+          "line_number": 280
+        },
+        {
+          "excerpt": "contains(checks, root, evidence, \"rates[i].high >= entry_price\",",
+          "line_digest": "sha256:162585f31cee3def24ff925255a19d708692b523c63c38f063da4ce0854f8a90",
+          "line_number": 282
+        },
+        {
+          "excerpt": "contains(checks, root, rules, \"setup.entry_price + setup.risk_distance * setup.reward_r\",",
+          "line_digest": "sha256:3be40d1199b0215daba69f7b6fed3bf8cfb49d35b54e32a7ff3105569f32b44e",
+          "line_number": 357
+        },
+        {
+          "excerpt": "contains(checks, root, rules, \"setup.entry_price - setup.risk_distance * setup.reward_r\",",
+          "line_digest": "sha256:3edf8e6ac7f0201da79ea6912e94417b4d13abdd31a59c6700a41846f55b5634",
+          "line_number": 359
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:d72d740725e995a0e6f775c06c8ce2bf3e0e26bdec8972327f1a9d5f61c5c3f5",
+      "atom_id": "TREATATOM_7844A41E40D468E9DC408F1BAA2553E2",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "\"P55_INVALID_PENDING_CANCEL\", \"invalid fixed-R pending protection is cancelled fail-closed\")",
+          "line_digest": "sha256:74f4be7890a298500865a2d6936a1ad059f071cd17f36955756550d4f137b776",
+          "line_number": 342
+        },
+        {
+          "excerpt": "\"P55_EXISTING_DEATH_CANCEL\", \"existing structural-death cancellation is reused\")",
+          "line_digest": "sha256:5088cba00f4347a2c95471f29df1a08e732f96d83702228a018e6ac190b9bd68",
+          "line_number": 372
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:c2b65e05485e2de3456f0001c78c87400c9a816e65276ba5f5435489279d960c",
+      "atom_id": "TREATATOM_C2C7C1C5DE22E3004A8C746235EA2A9E",
+      "atom_type": "ENTRY_LIMIT",
+      "intent_field": "entry.kind",
+      "source_evidence": [
+        {
+          "excerpt": "for forbidden in (\"OrderSend(\", \".BuyLimit(\", \".SellLimit(\", \"PositionClose(\", \"WebRequest(\"):",
+          "line_digest": "sha256:5231ffbaa838d85b7933394682db763de92a332af690f5f2e48dd71bb246d2bf",
+          "line_number": 426
+        },
+        {
+          "excerpt": "for token in (\"OrderSend\", \"BuyLimit\", \"SellLimit\", \"MetaTrader5\", \"mt5.\", \"WebRequest\"):",
+          "line_digest": "sha256:c2293076ac9cca0a73c016cd45f03ba6bd5af7f3b5d2d2cccd7a5b5b4618aa73",
+          "line_number": 453
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:8e3fc0efb6008f12f43379292fda038d8c8455d2563ab614a47a1d7545a2e003",
+      "atom_id": "TREATATOM_E97FFB35232AE9A15997950CC21F47F9",
+      "atom_type": "STOP_LOSS",
+      "intent_field": "stop",
+      "source_evidence": [
+        {
+          "excerpt": "contains(checks, root, rules, \"setup.stop_price, setup.target_price\",",
+          "line_digest": "sha256:28d077afb1d6d2fed12be6f17a6882e4f9b794543c338eee8b080b03969555c0",
+          "line_number": 361
+        },
+        {
+          "excerpt": "\"P55_POSITION_PROTECTION_VERIFIED\", \"open position SL/TP geometry is verified\")",
+          "line_digest": "sha256:c7db6489bc72f50294d6c8197a882ea0965052c25cc944626b57e315d0f5faaf",
+          "line_number": 378
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:57a38c0769b5c277caa90bbffd286d0af3d58b88f847622f1af89b388cbab9fb",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [
+    "RISKASM_39D0084B246FA6B32DD9CC0FC1C81019",
+    "RISKASM_756ECC74D69D48D863B58776A8C8B09E",
+    "RISKASM_93D38AC3D54D1C8E66C1FFDC10AA8ED2"
+  ],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:fba169afe840edef80e3fc81ee6df5866fbf23fc1473c8e2ca1a44658689b504",
+    "sha256:68861117b8e9679040130c5ac89f461b0fe5ada896f14f2ebfcb55212ff1132d",
+    "sha256:8e3fc0efb6008f12f43379292fda038d8c8455d2563ab614a47a1d7545a2e003",
+    "sha256:974b009644b0b67c2ebbb681e9691bd67acb7186e1256a8a442fc5fcc216e40a",
+    "sha256:c2b65e05485e2de3456f0001c78c87400c9a816e65276ba5f5435489279d960c",
+    "sha256:d72d740725e995a0e6f775c06c8ce2bf3e0e26bdec8972327f1a9d5f61c5c3f5"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/flag_counting/nds_hook_864_cycle_r1_contract_qa.py",
+  "source_sha256": "sha256:fba169afe840edef80e3fc81ee6df5866fbf23fc1473c8e2ca1a44658689b504",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_6FD4E934EF5B31D59AAB94A06D3FF462",
+  "treatment_package_id": "TREATPKG_EF6880350481EA207F5540277DDFD61D",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}

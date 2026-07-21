@@ -1,0 +1,77 @@
+{
+  "atom_ids": [
+    "TREATATOM_320943533C865E5E3407D1DFEBE083D1",
+    "TREATATOM_E455D576BD8B7DCF985E37A55DDD1D2D"
+  ],
+  "atom_types": [
+    "CANCELLATION",
+    "EXPIRY"
+  ],
+  "claim_ceiling": "LCM_10B_REFERENCE_ONLY",
+  "context_recompute_allowed": false,
+  "deterministic_identity": true,
+  "dry_run_mode_allowed": true,
+  "execution_capability_ids": [],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_mode_allowed": false,
+  "normalized_atoms": [
+    {
+      "atom_digest": "sha256:9f85b7b1b07a282ac6395e6982988237631da8a4926629d4d5e5daf0955c6880",
+      "atom_id": "TREATATOM_320943533C865E5E3407D1DFEBE083D1",
+      "atom_type": "CANCELLATION",
+      "intent_field": "cancellation",
+      "source_evidence": [
+        {
+          "excerpt": "if set(rules)!={\"eligibility\",\"trigger\",\"confirmation\",\"invalidation\",\"cancellation\",\"expiry\",\"abstention\",\"entitlement\"}:failures.append(\"RULE_SURFACE_INCOMPLETE\")",
+          "line_digest": "sha256:893a173b34177181434822ff43530b683005511247e6c53cf49d1f320542f18e",
+          "line_number": 19
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    },
+    {
+      "atom_digest": "sha256:4a58fc0fbaf627314f08a3f5f6901ade6574ff624b3249946e2f1c6acce1c178",
+      "atom_id": "TREATATOM_E455D576BD8B7DCF985E37A55DDD1D2D",
+      "atom_type": "EXPIRY",
+      "intent_field": "expiry",
+      "source_evidence": [
+        {
+          "excerpt": "if set(rules)!={\"eligibility\",\"trigger\",\"confirmation\",\"invalidation\",\"cancellation\",\"expiry\",\"abstention\",\"entitlement\"}:failures.append(\"RULE_SURFACE_INCOMPLETE\")",
+          "line_digest": "sha256:893a173b34177181434822ff43530b683005511247e6c53cf49d1f320542f18e",
+          "line_number": 19
+        }
+      ],
+      "unit_semantics": "EXPLICIT_OR_BLOCK",
+      "value_semantics": "EXPLICIT_INPUT_REQUIRED_NO_LEGACY_INFERENCE"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_digest": "sha256:2ef2d871e80747133212d6dca4ef2b374f1ee4e584a3c9fa90257b3fa16111c1",
+  "package_status": "CANONICAL_REFERENCE_PACKAGE_EXPLICIT_INPUT_REQUIRED",
+  "paper_mode_allowed": false,
+  "producer": "tools.strategy_factory.lcm.lcm_10b.service:LCM10BTreatmentBoundaryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_assumption_ids": [],
+  "risk_sizing_policy": "SEPARATE_NOT_INFERRED",
+  "router_filter_invention_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_value_resolution": "BLOCKING_WHERE_REQUIRED",
+  "setup_ids": [],
+  "setup_recompute_allowed": false,
+  "source_delete_performed": false,
+  "source_digests": [
+    "sha256:d20e19cc40aad4a2155ad1750df27f41883a39ad20b5cb5e122f9d03b37227c9",
+    "sha256:4a58fc0fbaf627314f08a3f5f6901ade6574ff624b3249946e2f1c6acce1c178",
+    "sha256:9f85b7b1b07a282ac6395e6982988237631da8a4926629d4d5e5daf0955c6880"
+  ],
+  "source_move_performed": false,
+  "source_path": "tools/strategy_factory/lcm/lcm_09b/contracts.py",
+  "source_sha256": "sha256:d20e19cc40aad4a2155ad1750df27f41883a39ad20b5cb5e122f9d03b37227c9",
+  "submission_capability_default": false,
+  "treatment_identity_id": "TREATMENT_2ABEA285B5B47EAFD6E668237B22C418",
+  "treatment_package_id": "TREATPKG_26B42297A3013090F135B722B6DAD82B",
+  "treatment_version": "1.0.0",
+  "validation_status": "REFERENCE_ONLY"
+}
