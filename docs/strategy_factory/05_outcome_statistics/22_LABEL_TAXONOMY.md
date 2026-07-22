@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Label Taxonomy"
-tags:
-  - strategy-factory
+title: "Redirect — 22 LABEL TAXONOMY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY.md"
+original_sha256: "sha256:bc0a0962305cbeb21da2e9afcc338e987b72f27013e62284dd9d1660d5a538a8"
+relocation_record_id: "DOCMOVE_2D8C8A77E63F7844E86A4DAD2ED6AAB2"
 ---
+# Redirect — 22 LABEL TAXONOMY
 
-# Label Taxonomy
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY]].
 
-A single win/loss label discards too much information. The factory supports multiple tasks without allowing labels to leak into features.
+- Legacy path: `docs/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY.md`
+- Preserved source digest: `sha256:bc0a0962305cbeb21da2e9afcc338e987b72f27013e62284dd9d1660d5a538a8`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Classification
-
-Examples: filled, net positive, target before stop, tail achieved, survived initial risk, or acceptable path quality. Thresholds are versioned and chosen from trading objectives, not tuned repeatedly on the full sample.
-
-## Regression
-
-Predict net R, MFE, MAE, time to fill, holding time, or cost. Regression preserves magnitude and supports expected-value decisions but is sensitive to tails and should use robust diagnostics.
-
-## Ranking
-
-For each event, rank candidate policies. Ranking is often more useful than predicting whether the anatomy itself is valid because it directly selects entry/stop/exit geometry while retaining a skip option.
-
-## Survival and competing risk
-
-Model time until stop, target, expiry, or structural invalidation. Survival labels are appropriate when timing matters and censoring is common. Label end time must be explicit for purge.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

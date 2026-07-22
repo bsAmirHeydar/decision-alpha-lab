@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Hard Risk Gate"
-tags:
-  - strategy-factory
+title: "Redirect — 50 HARD RISK GATE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/08_execution/50_HARD_RISK_GATE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/08_execution/50_HARD_RISK_GATE.md"
+original_sha256: "sha256:cae070fc251991714c9c40bb836268dc9ab017b80c9a2be1bec8d0a1673bbc22"
+relocation_record_id: "DOCMOVE_3C2697825567C424A37F1E9D09D54EF3"
 ---
+# Redirect — 50 HARD RISK GATE
 
-# Hard Risk Gate
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/08_execution/50_HARD_RISK_GATE]].
 
-The risk gate is deterministic, independent of model confidence, and authoritative over every execution intent.
+- Legacy path: `docs/strategy_factory/08_execution/50_HARD_RISK_GATE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/08_execution/50_HARD_RISK_GATE.md`
+- Preserved source digest: `sha256:cae070fc251991714c9c40bb836268dc9ab017b80c9a2be1bec8d0a1673bbc22`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Limits
-
-Per-intent dollars/R, daily reserved risk, daily realized loss, open portfolio risk, strategy risk, symbol risk, correlated cluster risk, concurrent positions, session and symbol allowlists, stale decision time, and kill switch.
-
-## One thesis, one risk unit
-
-Multiple candidates, symbols, or cycle groups derived from the same market-event cluster share a risk budget. The gate prevents apparently separate strategies from multiplying one exposure.
-
-## Reservation lifecycle
-
-Risk is reserved before broker submission, adjusted on partial fill, released on cancellation or close, and reconstructed after restart from broker state. Inconsistent state stops new orders.
-
-## Scaling
-
-Scaling changes policy version and promotion state. No model probability can exceed the hard ceiling. Initial micro-live risk remains deliberately small until execution and calibration evidence accumulate.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

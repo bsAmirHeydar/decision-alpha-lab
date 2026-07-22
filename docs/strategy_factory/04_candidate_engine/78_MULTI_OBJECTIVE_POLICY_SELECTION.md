@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Multi-Objective Policy Selection"
-tags:
-  - strategy-factory
+title: "Redirect — 78 MULTI OBJECTIVE POLICY SELECTION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION.md"
+original_sha256: "sha256:264098e3ffca45dcf5543518fe1e1c6053134190c2a92cf2fa63cdc8e8104aec"
+relocation_record_id: "DOCMOVE_5A5CF07C95002C86F493B5EC35BEB3D6"
 ---
+# Redirect — 78 MULTI OBJECTIVE POLICY SELECTION
 
-# Multi-Objective Policy Selection
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION]].
 
-The best candidate is rarely the one with the highest mean R alone. Selection must account for uncertainty, drawdown, fill, tail capture, costs, and operational complexity.
+- Legacy path: `docs/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION.md`
+- Preserved source digest: `sha256:264098e3ffca45dcf5543518fe1e1c6053134190c2a92cf2fa63cdc8e8104aec`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Objectives
-
-Expected net R, lower confidence bound, profit factor, drawdown, MAE, fill rate, latency sensitivity, turnover, capacity, tail share, calibration, and policy stability. Define hard constraints first, then rank feasible candidates.
-
-## Pareto frontier
-
-Retain candidates that are not dominated across selected objectives. A market entry may have lower average R but higher fill and robustness; a limit may offer better R but low capacity. The decision depends on portfolio role.
-
-## Utility functions
-
-Utility weights are versioned and chosen before the outer test. Robust alternatives include minimum OOS fold utility, lower-bound expectancy, or constrained optimization rather than a single mean. Do not tune utility weights to select the historical winner.
-
-## Model use
-
-A candidate ranker can estimate multiple outcomes and apply the same frozen utility. The risk gate remains separate. The selected policy distribution is monitored for abrupt changes and concentration.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

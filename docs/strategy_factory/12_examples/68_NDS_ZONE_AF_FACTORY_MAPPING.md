@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Example — NDS and Zone-AF Mapping"
-tags:
-  - strategy-factory
+title: "Redirect — 68 NDS ZONE AF FACTORY MAPPING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING.md"
+original_sha256: "sha256:20b593dd583c5ad48d81888fb44d9cdb805dc0de4716a662c7f5cefd18ed60ae"
+relocation_record_id: "DOCMOVE_71788B5A636C685867C2FDD09D4566EE"
 ---
+# Redirect — 68 NDS ZONE AF FACTORY MAPPING
 
-# Example — NDS and Zone-AF Mapping
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING]].
 
-NDS enters as a deterministic anatomy provider; the factory tests whether its zones and states create tradable optionality.
+- Legacy path: `docs/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING.md`
+- Preserved source digest: `sha256:20b593dd583c5ad48d81888fb44d9cdb805dc0de4716a662c7f5cefd18ed60ae`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Event
-
-Canonical zone or hook family, owner sequence, source F state, known time, direction, boundaries, structural invalidation, parent/child lineage, and expiry.
-
-## Features
-
-Zone width in ATR, free path, opposing structure, F count, hook type, parent context, touch count, session, volatility, and lower-timeframe confirmation. Eventual validity is forbidden.
-
-## Candidates
-
-Zone edge and child-zone limits, confirmation market entry, anatomy invalidation and buffered stop, fixed R, opposing node, partial runner, or time exit.
-
-## Special tests
-
-Definition reproducibility, matched random zones, renderer independence, state-lifecycle audit, no-stop-no-trade, wide-zone child refinement, and NDS uplift over generic trend/location features.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

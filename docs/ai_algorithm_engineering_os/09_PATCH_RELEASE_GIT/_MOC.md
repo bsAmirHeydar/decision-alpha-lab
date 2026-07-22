@@ -1,43 +1,22 @@
 ---
-id: AIEOS-BB3A89FD58
-title: "Patch, Release, and Git"
-type: map-of-content
-status: active
-domain: delivery
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - delivery
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/09_PATCH_RELEASE_GIT/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/09_PATCH_RELEASE_GIT/_MOC.md"
+original_sha256: "sha256:9a92eae3407c4067cf875ae0f8613926f98850974f68fd4f1eed34e4728f9234"
+relocation_record_id: "DOCMOVE_E9A03E907DECC05EF75CC0B08F05E708"
 ---
-# Patch, Release, and Git
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Deliver changes as traceable, reversible, versioned engineering units.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/09_PATCH_RELEASE_GIT/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/09_PATCH_RELEASE_GIT/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/09_PATCH_RELEASE_GIT/_MOC.md`
+- Preserved source digest: `sha256:9a92eae3407c4067cf875ae0f8613926f98850974f68fd4f1eed34e4728f9234`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[09_PATCH_RELEASE_GIT/01_Patch_Identity|Patch Identity]]
-- [[09_PATCH_RELEASE_GIT/02_Patch_Manifest|Patch Manifest]]
-- [[09_PATCH_RELEASE_GIT/03_Zip_Patch_Workflow|Zip Patch Workflow]]
-- [[09_PATCH_RELEASE_GIT/04_Git_Commit_Protocol|Git Commit Protocol]]
-- [[09_PATCH_RELEASE_GIT/05_Rollback_Strategy|Rollback Strategy]]
-- [[09_PATCH_RELEASE_GIT/06_Changelog_and_Release_Notes|Changelog and Release Notes]]
-- [[09_PATCH_RELEASE_GIT/07_Semantic_Versioning|Semantic Versioning]]
-- [[09_PATCH_RELEASE_GIT/08_Release_Candidate|Release Candidate]]
-- [[09_PATCH_RELEASE_GIT/09_Incident_and_Hotfix|Incident and Hotfix]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

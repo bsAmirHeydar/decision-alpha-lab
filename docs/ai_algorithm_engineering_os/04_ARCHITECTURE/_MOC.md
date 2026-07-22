@@ -1,46 +1,22 @@
 ---
-id: AIEOS-E86BBDD0C6
-title: "Architecture"
-type: map-of-content
-status: active
-domain: architecture
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - architecture
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/04_ARCHITECTURE/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/04_ARCHITECTURE/_MOC.md"
+original_sha256: "sha256:ee170f141b88bf95856627c2b6cc3671af937f9c192abeac562ba6b4c73a957f"
+relocation_record_id: "DOCMOVE_A04B819BA63AC3DA94CFFC9BC0C42FF3"
 ---
-# Architecture
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Place algorithms inside stable, testable, observable software boundaries.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/04_ARCHITECTURE/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/04_ARCHITECTURE/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/04_ARCHITECTURE/_MOC.md`
+- Preserved source digest: `sha256:ee170f141b88bf95856627c2b6cc3671af937f9c192abeac562ba6b4c73a957f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[04_ARCHITECTURE/01_Module_Boundaries|Module Boundaries]]
-- [[04_ARCHITECTURE/02_Data_Contracts|Data Contracts]]
-- [[04_ARCHITECTURE/03_Ownership_and_Mutation|Ownership and Mutation]]
-- [[04_ARCHITECTURE/04_Core_State_Signal_Renderer|Core State Signal Renderer]]
-- [[04_ARCHITECTURE/05_Event_Model|Event Model]]
-- [[04_ARCHITECTURE/06_Dependency_Direction|Dependency Direction]]
-- [[04_ARCHITECTURE/07_API_Compatibility|API Compatibility]]
-- [[04_ARCHITECTURE/08_Configuration_and_Feature_Flags|Configuration and Feature Flags]]
-- [[04_ARCHITECTURE/09_Observability|Observability]]
-- [[04_ARCHITECTURE/10_Performance_Architecture|Performance Architecture]]
-- [[04_ARCHITECTURE/11_Persistence_and_Caching|Persistence and Caching]]
-- [[04_ARCHITECTURE/12_Security_and_Secrets|Security and Secrets]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

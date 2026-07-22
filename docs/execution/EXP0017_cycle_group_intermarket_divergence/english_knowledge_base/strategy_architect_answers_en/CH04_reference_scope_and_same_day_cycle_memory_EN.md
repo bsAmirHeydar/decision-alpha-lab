@@ -1,30 +1,22 @@
-# EXP0017 Chapter 04 — Reference Scope and Same-Day Cycle Memory
+---
+title: "Redirect — CH04 reference scope and same day cycle memory EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH04_reference_scope_and_same_day_cycle_memory_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH04_reference_family_taxonomy_EN.md"
+original_sha256: "sha256:64bead87b1eeb632c20bad3f2163ee3a4f2246f6f8318d277dd86e0e85daee92"
+relocation_record_id: "DOCMOVE_4B44EE6F9B05188875E02C273EBC8D33"
+---
+# Redirect — CH04 reference scope and same day cycle memory EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH04_reference_family_taxonomy_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH04_reference_scope_and_same_day_cycle_memory_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH04_reference_family_taxonomy_EN.md`
+- Preserved source digest: `sha256:64bead87b1eeb632c20bad3f2163ee3a4f2246f6f8318d277dd86e0e85daee92`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-All previous cycles from the same New York trading day are valid reference candidates until invalidated or day-expired.
-
-## Locked Doctrine
-
-- Reference candidates are the high and low of previous cycles in the same CG and same trading day.
-- No previous-day reference is used for live decision.
-- No reference hierarchy is assumed before statistics.
-- A reference becomes invalid for divergence only when the asymmetry is removed by double hunt.
-
-## Implementation Consequences
-
-- The reference field must store all previous same-day cycle highs/lows.
-- The engine must not use yesterday’s references for live signals.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

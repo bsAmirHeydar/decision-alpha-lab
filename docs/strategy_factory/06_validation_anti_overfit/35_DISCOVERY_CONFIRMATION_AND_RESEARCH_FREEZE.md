@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Discovery, Confirmation, and Research Freeze"
-tags:
-  - strategy-factory
+title: "Redirect — 35 DISCOVERY CONFIRMATION AND RESEARCH FREEZE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE.md"
+original_sha256: "sha256:8aac7d26026e11ae7c60fbff13f9243426a281ddd363c8d574bdc69cd51e6cbe"
+relocation_record_id: "DOCMOVE_DBD21AC61FC492F3997F1EECD2E88901"
 ---
+# Redirect — 35 DISCOVERY CONFIRMATION AND RESEARCH FREEZE
 
-# Discovery, Confirmation, and Research Freeze
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE]].
 
-The fastest honest research program alternates broad discovery with narrow frozen confirmation.
+- Legacy path: `docs/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE.md`
+- Preserved source digest: `sha256:8aac7d26026e11ae7c60fbff13f9243426a281ddd363c8d574bdc69cd51e6cbe`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Discovery phase
-
-Explore candidate families, feature relations, and failure modes. Use conservative labels and record all trials. Discovery data may guide design but cannot serve as final proof.
-
-## Freeze package
-
-Before confirmation, freeze anatomy version, event universe, feature list, candidate matrix, costs, labels, folds, metric, promotion threshold, and null tests. Hash the package.
-
-## Confirmation phase
-
-Run once on untouched data. If it fails, the version fails. New insight creates a new version and future confirmation; it does not reinterpret the failed period.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

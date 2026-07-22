@@ -1,31 +1,22 @@
-# EXP0017 Chapter 19 — Direction Conflict and Cycle Independence
+---
+title: "Redirect — CH19 direction conflict and cycle independence doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_direction_conflict_and_cycle_independence_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_late_entry_large_stop_and_no_limit_doctrine_EN.md"
+original_sha256: "sha256:f626caec8104d5df72b6479024dd3cc45072771036b83581d692fbfabbade94e"
+relocation_record_id: "DOCMOVE_AA928FB2CCD5FD370DA0665D53165C10"
+---
+# Redirect — CH19 direction conflict and cycle independence doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_late_entry_large_stop_and_no_limit_doctrine_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_direction_conflict_and_cycle_independence_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_late_entry_large_stop_and_no_limit_doctrine_EN.md`
+- Preserved source digest: `sha256:f626caec8104d5df72b6479024dd3cc45072771036b83581d692fbfabbade94e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-Buy and sell divergences, same-direction clusters, opposite-direction clusters, CGs, and internal cycles remain independent before statistics.
-
-## Locked Doctrine
-
-- High-hunt asymmetry produces sell divergence.
-- Low-hunt asymmetry produces buy divergence.
-- Late entry and large stop are not base filters.
-- Post-confirmation invalidation is recorded as later invalidation, not proof the original signal was never valid.
-- Signal count does not change validity.
-
-## Implementation Consequences
-
-- Record conflict clusters instead of resolving them manually.
-- Do not force non-divergence behavior into the divergence dataset.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

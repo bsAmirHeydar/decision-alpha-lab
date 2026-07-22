@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Validation Master Protocol"
-tags:
-  - strategy-factory
+title: "Redirect — 26 VALIDATION MASTER PROTOCOL"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL.md"
+original_sha256: "sha256:b4839eb8d5bbe4641c5fe5f7f4dbc6855c7ef76ddfff5fa8608d1a6c945ac146"
+relocation_record_id: "DOCMOVE_1249DA98F535376D4303D5D29A9E5AAD"
 ---
+# Redirect — 26 VALIDATION MASTER PROTOCOL
 
-# Validation Master Protocol
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL]].
 
-Validation is a system of hostile tests designed to make attractive false alpha fail before capital sees it.
+- Legacy path: `docs/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL.md`
+- Preserved source digest: `sha256:b4839eb8d5bbe4641c5fe5f7f4dbc6855c7ef76ddfff5fa8608d1a6c945ac146`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Validation layers
-
-Data integrity, causality, dependence, fold separation, baseline comparison, uncertainty, multiple testing, fragility, cross-feed replication, paper reconciliation, and live monitoring. Passing one layer does not compensate for failing another.
-
-## Discovery versus confirmation
-
-Discovery may be broad but is labeled exploratory. Confirmation uses a frozen doctrine and untouched data. A change after viewing confirmation results creates a new trial and a new confirmation window.
-
-## Official unit
-
-The official unit is usually a unique market-event cluster, not a candidate row. Reports show both but promotion thresholds use the more conservative unit.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

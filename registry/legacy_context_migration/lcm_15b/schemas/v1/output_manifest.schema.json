@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "file_count": {},
+    "files": {},
+    "output_manifest_digest": {}
+  },
+  "required": [
+    "file_count",
+    "files",
+    "output_manifest_digest"
+  ],
+  "title": "output_manifest",
+  "type": "object"
+}

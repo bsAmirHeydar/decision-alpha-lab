@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/hostile_review_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "checks": {},
+    "report_digest": {},
+    "report_result": {}
+  },
+  "required": [
+    "checks",
+    "report_result",
+    "report_digest"
+  ],
+  "title": "hostile_review_report",
+  "type": "object"
+}

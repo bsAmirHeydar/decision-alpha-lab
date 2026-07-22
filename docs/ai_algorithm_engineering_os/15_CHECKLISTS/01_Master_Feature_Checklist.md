@@ -1,70 +1,22 @@
 ---
-id: AIEOS-36D92A86AE
-title: "Master Feature Checklist"
-type: checklist
-status: active
-domain: checklist
+title: "Redirect — 01 Master Feature Checklist"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - checklist
-  - checklist
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/01_Master_Feature_Checklist.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/01_Master_Feature_Checklist.md"
+original_sha256: "sha256:7e98177b442f9f282473e50963882123711d73fd1f01d4d09906a0be1d9f1c66"
+relocation_record_id: "DOCMOVE_CA859D8E60405FF353CD22AA0069C362"
 ---
-# Master Feature Checklist
+# Redirect — 01 Master Feature Checklist
 
-> [!abstract] Purpose
-> Control a feature from intake through durable release
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/01_Master_Feature_Checklist]].
 
-## Discovery
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/01_Master_Feature_Checklist.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/01_Master_Feature_Checklist.md`
+- Preserved source digest: `sha256:7e98177b442f9f282473e50963882123711d73fd1f01d4d09906a0be1d9f1c66`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [ ] Problem and desired effect are observable.
-- [ ] Domain terms and ambiguities are resolved or registered.
-- [ ] Scope, non-goals, constraints, and failure cost are explicit.
-
-## Design
-
-- [ ] Entities, state, events, transitions, invariants, and edge cases are approved.
-- [ ] Alternatives and complexity budgets are recorded.
-- [ ] Replay, restart, idempotency, and error semantics are defined.
-
-## Architecture
-
-- [ ] Module boundaries, data contracts, ownership, dependencies, and compatibility are approved.
-- [ ] Observability and rollback are designed.
-
-## Implementation
-
-- [ ] Patch identity and manifest exist.
-- [ ] Change is minimal and unrelated code is untouched.
-- [ ] Build succeeds and warnings are resolved or justified.
-
-## Verification
-
-- [ ] Requirement/invariant traceability is complete.
-- [ ] Normal, edge, restart, replay, performance, visual, and regression tests pass as applicable.
-- [ ] Hostile review is resolved.
-
-## Release and Knowledge
-
-- [ ] Archive/commit contents are reviewed.
-- [ ] Rollback is tested.
-- [ ] Version, changelog, docs, and vault links are updated.
-
-## Gate Result
-
-- **PASS:** every mandatory item is checked and evidence is linked.
-- **CONDITIONAL:** only explicitly accepted, time-bounded exceptions remain.
-- **FAIL:** any domain rule, safety rule, compilation rule, or state-integrity item is unresolved.
-
-## Evidence Record
-
-| Item | Evidence link / command output | Reviewer | Date |
-|---|---|---|---|
-|  |  |  |  |
-
-## Related Notes
-
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

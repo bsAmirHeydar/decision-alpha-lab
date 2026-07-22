@@ -1,42 +1,22 @@
 ---
-id: AIEOS-7FE301EBF9
-title: "Foundations"
-type: map-of-content
-status: active
-domain: foundations
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - foundations
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/01_FOUNDATIONS/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/01_FOUNDATIONS/_MOC.md"
+original_sha256: "sha256:ea3f11ef0278933de0c41f47a826634b6ca2983c2ac38124ba6cc3c35c62bf96"
+relocation_record_id: "DOCMOVE_A6489A1159DD18FA64EFCD8EA1912AB4"
 ---
-# Foundations
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Establish the principles that govern every later module.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/01_FOUNDATIONS/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/01_FOUNDATIONS/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/01_FOUNDATIONS/_MOC.md`
+- Preserved source digest: `sha256:ea3f11ef0278933de0c41f47a826634b6ca2983c2ac38124ba6cc3c35c62bf96`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[01_FOUNDATIONS/01_AI_Role_Model|AI Role Model]]
-- [[01_FOUNDATIONS/02_Human_AI_Boundary|Human AI Boundary]]
-- [[01_FOUNDATIONS/03_Specification_First|Specification First]]
-- [[01_FOUNDATIONS/04_Determinism_and_Invariants|Determinism and Invariants]]
-- [[01_FOUNDATIONS/05_Context_Engineering|Context Engineering]]
-- [[01_FOUNDATIONS/06_Evidence_Assumptions_Unknowns|Evidence Assumptions Unknowns]]
-- [[01_FOUNDATIONS/07_Definition_of_Done|Definition of Done]]
-- [[01_FOUNDATIONS/08_Cost_of_Failure|Cost of Failure]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

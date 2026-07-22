@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Probability Calibration and Decision Thresholds"
-tags:
-  - strategy-factory
+title: "Redirect — 44 PROBABILITY CALIBRATION AND DECISION THRESHOLDS"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS.md"
+original_sha256: "sha256:994cb6f34b240d8fa4db15da9c8334cab5cdf51b9221c24b3144009d4c00edc9"
+relocation_record_id: "DOCMOVE_4FF8FD058EC6C9AA3A4206B75E116FE0"
 ---
+# Redirect — 44 PROBABILITY CALIBRATION AND DECISION THRESHOLDS
 
-# Probability Calibration and Decision Thresholds
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS]].
 
-A probability is useful only when 0.7 means approximately 70% under comparable conditions and the threshold reflects economic utility.
+- Legacy path: `docs/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS.md`
+- Preserved source digest: `sha256:994cb6f34b240d8fa4db15da9c8334cab5cdf51b9221c24b3144009d4c00edc9`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Calibration
-
-Use train/validation-only Platt or isotonic calibration when sample size supports it. Report reliability tables, Brier score, expected calibration error, and fold variance. Recalibration is versioned.
-
-## Thresholds
-
-Thresholds maximize a declared utility that includes net R, drawdown, capacity, and false-positive cost. Do not select separately on the outer test. Use hysteresis or review zones to reduce unstable flip-flopping.
-
-## Confidence versus risk
-
-Confidence tier is an input to the independent risk gate, not direct leverage. Initial live risk remains capped until realized calibration and execution fidelity are demonstrated.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

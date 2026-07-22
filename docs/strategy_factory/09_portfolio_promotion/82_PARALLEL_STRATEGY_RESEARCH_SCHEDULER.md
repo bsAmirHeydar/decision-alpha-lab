@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Parallel Strategy Research Scheduler"
-tags:
-  - strategy-factory
+title: "Redirect — 82 PARALLEL STRATEGY RESEARCH SCHEDULER"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER.md"
+original_sha256: "sha256:5d9cd59c173cd9cd860759e202cc9c8b94565f831c1d7d9aba65196d751bae4b"
+relocation_record_id: "DOCMOVE_C30C1E767BBBDF61B66A3521180BFF35"
 ---
+# Redirect — 82 PARALLEL STRATEGY RESEARCH SCHEDULER
 
-# Parallel Strategy Research Scheduler
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER]].
 
-The platform permits many strategy programs to collect data in parallel while only a small number consume closure and capital attention.
+- Legacy path: `docs/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER.md`
+- Preserved source digest: `sha256:5d9cd59c173cd9cd860759e202cc9c8b94565f831c1d7d9aba65196d751bae4b`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Lanes
-
-One closure strategy advances to paper/micro-live. Two challengers receive bounded implementation and analysis. Several satellites collect events asynchronously. Unlimited ideas remain in backlog until they pass admission.
-
-## Shared compute
-
-Central jobs ingest bars once, emit shared context, and fan out adapters. Candidate simulation is partitioned by event cluster and policy. Cached immutable artifacts prevent repeated computation. Training jobs consume declared datasets rather than rebuilding anatomy.
-
-## Priority score
-
-Prioritize by mechanical clarity, sample generation rate, economic rationale, independence from existing exposure, expected capacity, implementation delta, and distance to a decisive kill/confirmation result. Novelty alone is low priority.
-
-## WIP limits
-
-Do not allow a new architecture phase to interrupt a strategy one gate from closure unless a hard blocker exists. The scheduler makes research surface visible and prevents permanent infrastructure expansion.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

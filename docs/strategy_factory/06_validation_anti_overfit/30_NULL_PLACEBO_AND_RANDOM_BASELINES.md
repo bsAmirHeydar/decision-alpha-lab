@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Null, Placebo, and Random Baselines"
-tags:
-  - strategy-factory
+title: "Redirect — 30 NULL PLACEBO AND RANDOM BASELINES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES.md"
+original_sha256: "sha256:1b29dc6406f0ea74020d924b0cb18dd2f2cb0947c870bb8b5b7963cd53971796"
+relocation_record_id: "DOCMOVE_5E944E25EEB5265B37B6BDC4D9C2B3E0"
 ---
+# Redirect — 30 NULL PLACEBO AND RANDOM BASELINES
 
-# Null, Placebo, and Random Baselines
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES]].
 
-A strategy must beat alternatives that preserve the easy structure of the data while removing the claimed information.
+- Legacy path: `docs/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES.md`
+- Preserved source digest: `sha256:1b29dc6406f0ea74020d924b0cb18dd2f2cb0947c870bb8b5b7963cd53971796`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Core nulls
-
-Session-matched random entry, confirmation-only entry, anatomy-time shuffle within day, role randomization, direction randomization, reference-time shift, placebo symbol pair, matched random zones, and no-divergence events.
-
-## Preserve nuisance structure
-
-Randomization should retain session, volatility, holding period, costs, and sample count so the null is not artificially weak. A strategy that only beats fully random timestamps may simply exploit intraday seasonality.
-
-## Interpretation
-
-Failure to beat a matched null kills the claimed mechanism even if raw expectancy is positive. The positive result may still be a generic execution effect and can be moved into a simpler strategy family.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,26 +1,22 @@
 ---
-title: "AI Algorithm Engineering OS"
-type: readme
-status: active
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
+title: "Redirect — README"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/README.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README.md"
+original_sha256: "sha256:ceb6b753689b3c7dad098309fc624e146673813e6d6fb9047de9f97aba9ffcc1"
+relocation_record_id: "DOCMOVE_4132EBEA69BF3C3FE8C5FB1803F6638A"
 ---
-# AI Algorithm Engineering OS v2
+# Redirect — README
 
-A specification-first, AI-assisted engineering operating system integrated for Decision Alpha Lab. It converts undocumented intuition into versioned domain rules, deterministic algorithms, bounded patches, verification evidence, reproducible research, governed models, safe execution contracts, and durable Obsidian knowledge.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README]].
 
-Start at [[00_START_HERE/00_Home|Home]]. Repository-facing policy is in `docs/engineering/` and the root `AGENTS.md`.
+- Legacy path: `docs/ai_algorithm_engineering_os/README.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README.md`
+- Preserved source digest: `sha256:ceb6b753689b3c7dad098309fc624e146673813e6d6fb9047de9f97aba9ffcc1`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Execution Path
-
-`Intent → Ontology → Specification → Algorithm → Architecture → Patch → Verification → Research Evidence → Promotion → Execution → Monitoring → Knowledge`
-
-## v2 Additions
-
-- Decision Alpha Lab repository and authority contracts.
-- Python, TypeScript/React, PowerShell, Markdown, JSON/YAML/CSV, and tabular standards.
-- CI, schema/lineage, environment, release evidence, and health automation.
-- Model promotion and capital-authority boundaries.
-- MQL5 compatibility rules learned from real compiler failures.
-- Runnable repository validators and packet scaffolding.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

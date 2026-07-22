@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Strategy Admission Gate"
-tags:
-  - strategy-factory
+title: "Redirect — 05 STRATEGY ADMISSION GATE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE.md"
+original_sha256: "sha256:78ee11ad971724bbc02a1c23097cf49f43466fc63d16d1d4b7f6702000a1b189"
+relocation_record_id: "DOCMOVE_0692EFC9A56105201ECE78C7F29877DD"
 ---
+# Redirect — 05 STRATEGY ADMISSION GATE
 
-# Strategy Admission Gate
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE]].
 
-The admission gate prevents the factory from becoming an infinite warehouse of attractive but unkillable ideas.
+- Legacy path: `docs/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE.md`
+- Preserved source digest: `sha256:78ee11ad971724bbc02a1c23097cf49f43466fc63d16d1d4b7f6702000a1b189`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Required questions
-
-Before implementation, every strategy must state: the market fact it claims, the mechanism or economic rationale, the canonical event, the known-time boundary, the null hypothesis, the matched baseline, the candidate policies, the label horizon, the expected failure modes, and the evidence that would kill the project.
-
-## Novelty test
-
-A new strategy is not admitted merely because its vocabulary differs. It must add a distinct source of information, decision timing, or payoff geometry. Seven strategies that all buy Nasdaq after New York volatility expansion are one underlying exposure unless evidence shows otherwise.
-
-## Cost of admission
-
-The initial adapter should be the smallest vertical slice that can generate at least one event table and one candidate matrix. No dashboard, custom trainer, or live code is admitted before the event and candidate contracts pass. Admission ends with an immutable hypothesis hash and a declared trial family.
-
-## Rejection reasons
-
-Reject or defer when definitions remain discretionary, outcome labels determine validity, no realistic invalidation exists, the null cannot be simulated, sample independence is implausible, or the only justification is a visually impressive historical example.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

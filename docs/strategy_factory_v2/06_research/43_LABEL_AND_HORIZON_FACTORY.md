@@ -1,43 +1,22 @@
 ---
-title: "Label and Horizon Factory"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 43 LABEL AND HORIZON FACTORY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY.md"
+original_sha256: "sha256:89c7fdb65d7519d9688d405c5728c82dce674263f8729075ac447535a0dff03b"
+relocation_record_id: "DOCMOVE_806D1BFFB0B932C421A17A627E58E65A"
 ---
+# Redirect — 43 LABEL AND HORIZON FACTORY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY]].
 
-Creates multiple outcome views while preserving exact label end times.
+- Legacy path: `docs/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY.md`
+- Preserved source digest: `sha256:89c7fdb65d7519d9688d405c5728c82dce674263f8729075ac447535a0dff03b`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Classification, regression, ranking, survival, MFE/MAE, path, time-to-resolution, and opportunity-cost labels are versioned.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-One universal win/loss label or purging by entry time instead of label horizon.
-
-# Required tests
-
-Label geometry, same-bar ordering, horizon overlap, and label-version tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

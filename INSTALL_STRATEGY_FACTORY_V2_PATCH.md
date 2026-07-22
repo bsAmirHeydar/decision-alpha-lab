@@ -48,5 +48,5 @@ python .\lab\11_strategy_factory\sf.py scaffold-v2 `
 ## Canonical documentation
 
 ```text
-docs\strategy_factory_v2\00_start_here\00_STRATEGY_FACTORY_V2_MOC.md
+docs\alpha_lab_master_architecture\strategy_factory_v2\00_start_here\00_STRATEGY_FACTORY_V2_MOC.md
 ```

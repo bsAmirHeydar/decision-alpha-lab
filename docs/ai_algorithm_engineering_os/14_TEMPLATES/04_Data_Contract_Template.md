@@ -1,72 +1,22 @@
 ---
-id: AIEOS-4906808069
-title: "Data Contract Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 04 Data Contract Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/04_Data_Contract_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/04_Data_Contract_Template.md"
+original_sha256: "sha256:5f4a2f77e7d1ba5e2c59f4d01a4a5d238fb8f414673621d445b6d7b278655279"
+relocation_record_id: "DOCMOVE_5359081B4ACE1EFBE04D6B536C4A1C9C"
 ---
-# Data Contract Template
+# Redirect — 04 Data Contract Template
 
-> [!abstract] Purpose
-> Define a versioned schema and validation contract across a boundary.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/04_Data_Contract_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/04_Data_Contract_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/04_Data_Contract_Template.md`
+- Preserved source digest: `sha256:5f4a2f77e7d1ba5e2c59f4d01a4a5d238fb8f414673621d445b6d7b278655279`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# [Contract Name]
-
-- Producer: [...]
-- Consumer(s): [...]
-- Version: [...]
-- Compatibility policy: [...]
-
-## Schema
-| Field | Type | Unit/precision | Required | Range/enum | Meaning |
-|---|---|---|---|---|---|
-
-## Ordering and Identity
-[...]
-
-## Null/Missing/Invalid Semantics
-[...]
-
-## Validation Rules
-[...]
-
-## Serialization / Transport
-[...]
-
-## Version Migration
-[...]
-
-## Contract Tests
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

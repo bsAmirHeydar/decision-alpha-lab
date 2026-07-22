@@ -1,36 +1,22 @@
 ---
-id: AIEOS2-D94D7DDA675F
-title: "Experiment Packet Template"
-type: template
-status: active
-domain: template
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - template
+title: "Redirect — 17 Experiment Packet Template"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/17_Experiment_Packet_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/17_Experiment_Packet_Template.md"
+original_sha256: "sha256:94adf402d9da09f7f1c23badd7a18a34f99a0db4d3acf60fab381ad8592b7182"
+relocation_record_id: "DOCMOVE_1E05297963085D1B782D82E28936A6B7"
 ---
-# Experiment Packet Template
+# Redirect — 17 Experiment Packet Template
 
-## Copyable Structure
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/17_Experiment_Packet_Template]].
 
-```markdown
-# EXP[NNNN] — [Title]
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/17_Experiment_Packet_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/17_Experiment_Packet_Template.md`
+- Preserved source digest: `sha256:94adf402d9da09f7f1c23badd7a18a34f99a0db4d3acf60fab381ad8592b7182`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Research Question
-## Falsifiable Hypothesis
-## Mechanism and Alternatives
-## Dataset / Availability Contract
-## Leakage Analysis
-## Baseline
-## Method and Configuration
-## Fold / Validation Plan
-## Metrics and Decision Criteria
-## Reproduction Command
-## Results
-## Negative Evidence
-## Limitations
-## Decision: accepted / rejected / inconclusive
-```
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,43 +1,22 @@
 ---
-title: "Chaos and Fault Injection"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 61 CHAOS AND FAULT INJECTION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION.md"
+original_sha256: "sha256:6a241715232b4178ce50d561373c81cecb2ff20546246171d1722d3601fc3fe9"
+relocation_record_id: "DOCMOVE_D4182437BF8867F550C2E14A614B65D0"
 ---
+# Redirect — 61 CHAOS AND FAULT INJECTION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION]].
 
-Proves fail-closed behavior under realistic failures.
+- Legacy path: `docs/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION.md`
+- Preserved source digest: `sha256:6a241715232b4178ce50d561373c81cecb2ff20546246171d1722d3601fc3fe9`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Missing symbol, stale quote, provider exception, corrupt model, schema mismatch, cache eviction, observer failure, broker reject, partial fill, reconnect, clock shift, disk full on observer, and latency spike.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Only testing clean historical data.
-
-# Required tests
-
-Every authoritative boundary has an injected-failure expectation.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

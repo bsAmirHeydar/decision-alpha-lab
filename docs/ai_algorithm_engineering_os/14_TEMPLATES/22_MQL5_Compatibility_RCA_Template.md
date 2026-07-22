@@ -1,31 +1,22 @@
 ---
-id: AIEOS2-652BA9E97CB8
-title: "MQL5 Compatibility RCA Template"
-type: template
-status: active
-domain: template
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - template
+title: "Redirect — 22 MQL5 Compatibility RCA Template"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/22_MQL5_Compatibility_RCA_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/22_MQL5_Compatibility_RCA_Template.md"
+original_sha256: "sha256:81d37c8b72b93582713e6951a675c589b35734e2734fa69db1f18905d9234040"
+relocation_record_id: "DOCMOVE_40FCE42E60CD6BFE678504F27809DE1E"
 ---
-# MQL5 Compatibility RCA Template
+# Redirect — 22 MQL5 Compatibility RCA Template
 
-## Compatibility RCA
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/22_MQL5_Compatibility_RCA_Template]].
 
-```markdown
-# [ID] — [Compiler Diagnostic]
-- MetaEditor build:
-- Exact first error:
-- Cascading diagnostics:
-- Minimal reproducer:
-- Language/runtime rule:
-- Root cause:
-- Minimal patch:
-- Compatibility scan/test added:
-- Adjacent modules recompiled:
-- Residual risk:
-```
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/22_MQL5_Compatibility_RCA_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/22_MQL5_Compatibility_RCA_Template.md`
+- Preserved source digest: `sha256:81d37c8b72b93582713e6951a675c589b35734e2734fa69db1f18905d9234040`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

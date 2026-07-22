@@ -1,77 +1,22 @@
 ---
-id: AIEOS-06D8000D08
-title: "Domain Term Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 02 Domain Term Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/02_Domain_Term_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/02_Domain_Term_Template.md"
+original_sha256: "sha256:f738bd4d386634377a3a196d8858088116b88cee3d24e3bb3987c1ef861c603e"
+relocation_record_id: "DOCMOVE_7C4334E5E5DD814BAFDBCBE31D331617"
 ---
-# Domain Term Template
+# Redirect — 02 Domain Term Template
 
-> [!abstract] Purpose
-> Define one project-owned concept with lifecycle and operational semantics.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/02_Domain_Term_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/02_Domain_Term_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/02_Domain_Term_Template.md`
+- Preserved source digest: `sha256:f738bd4d386634377a3a196d8858088116b88cee3d24e3bb3987c1ef861c603e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# [Term]
-
-- Canonical name: [...]
-- Aliases: [...]
-- Owner: [...]
-- Status/version: [...]
-
-## Formal Definition
-[...]
-
-## Observable Criteria
-[...]
-
-## Examples
-[...]
-
-## Counterexamples
-[...]
-
-## Lifecycle
-- Created when: [...]
-- Active while: [...]
-- Invalidated/consumed when: [...]
-- Archived when: [...]
-
-## Relationships
-[...]
-
-## Ambiguities Resolved
-[...]
-
-## Tests / Evidence
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

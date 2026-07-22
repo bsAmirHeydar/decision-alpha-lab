@@ -1,43 +1,22 @@
 ---
-title: "Deterministic Replay"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 40 DETERMINISTIC REPLAY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY.md"
+original_sha256: "sha256:c54e6fc83f95679c009fe70ecf07fc2e8cf4add4064e540afa72c93f438881f0"
+relocation_record_id: "DOCMOVE_36388B1221831A1B1717779A83BD9F30"
 ---
+# Redirect — 40 DETERMINISTIC REPLAY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY]].
 
-Reproduces live decisions exactly from recorded events, states, generations, and artifacts.
+- Legacy path: `docs/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY.md`
+- Preserved source digest: `sha256:c54e6fc83f95679c009fe70ecf07fc2e8cf4add4064e540afa72c93f438881f0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Replay pins plan/model hashes, input ordering, timestamps, feature generations, cost version, and random seeds. Compare envelope fields and tolerances.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Recomputing with current definitions or omitting skipped events.
-
-# Required tests
-
-Golden replay, cross-language replay, and production incident replay.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

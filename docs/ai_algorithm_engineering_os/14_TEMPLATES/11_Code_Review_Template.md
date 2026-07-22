@@ -1,76 +1,22 @@
 ---
-id: AIEOS-DE2CBF1F41
-title: "Code Review Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 11 Code Review Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/11_Code_Review_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/11_Code_Review_Template.md"
+original_sha256: "sha256:39dbdd04817b45a9929abf145bfd86e1219a2477ce90969777cdc70425b4f32f"
+relocation_record_id: "DOCMOVE_4B49668DFE268D1FB03D6784E4919A05"
 ---
-# Code Review Template
+# Redirect — 11 Code Review Template
 
-> [!abstract] Purpose
-> Perform evidence-based review of a bounded change.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/11_Code_Review_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/11_Code_Review_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/11_Code_Review_Template.md`
+- Preserved source digest: `sha256:39dbdd04817b45a9929abf145bfd86e1219a2477ce90969777cdc70425b4f32f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# Review — [PATCH-ID]
-
-## Scope and Spec Alignment
-[...]
-
-## Findings
-| ID | Severity | File/line | Evidence | Failure scenario | Required action |
-|---|---|---|---|---|---|
-
-## Invariants and State
-[...]
-
-## Architecture and Contracts
-[...]
-
-## Error and Edge Behavior
-[...]
-
-## Performance and Security
-[...]
-
-## Tests and Evidence
-[...]
-
-## Compatibility / Rollback
-[...]
-
-## Verdict
-PASS / CONDITIONAL / FAIL
-
-## Residual Risks
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Base Rate and Incremental Uplift"
-tags:
-  - strategy-factory
+title: "Redirect — 24 BASE RATE AND INCREMENTAL UPLIFT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT.md"
+original_sha256: "sha256:d62cb6a781ac73f2e2f380a5891c26fc07710070ea7158c9f71c8cc0f66cc280"
+relocation_record_id: "DOCMOVE_5B4AB6753B72ECC92CBF8E0C337D0457"
 ---
+# Redirect — 24 BASE RATE AND INCREMENTAL UPLIFT
 
-# Base Rate and Incremental Uplift
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT]].
 
-An anatomy has value only if it adds information beyond what time, trend, volatility, or confirmation already provide.
+- Legacy path: `docs/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT.md`
+- Preserved source digest: `sha256:d62cb6a781ac73f2e2f380a5891c26fc07710070ea7158c9f71c8cc0f66cc280`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Layered comparisons
-
-Measure unconditional outcome, same-session random entry, same-confirmation without anatomy, anatomy without confirmation, and full combination. The incremental uplift of each layer is the relevant evidence.
-
-## Ablation
-
-Remove one feature family at a time and retrain inside each fold. Report the change in net expectancy, calibration, and stability. If NDS, Daye, SMT, or astro adds no OOS uplift, it remains explanatory language rather than trading authority.
-
-## Economic significance
-
-Statistical significance is not enough. Uplift must exceed costs, implementation complexity, latency risk, and model uncertainty. Report absolute R improvement and capital impact, not only percentage accuracy.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

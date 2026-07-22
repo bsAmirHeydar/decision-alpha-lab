@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_future_idea_register_and_non_actionable_hypotheses_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_no_manual_preclassification_doctrine_EN.md`
 
 ## Role
 

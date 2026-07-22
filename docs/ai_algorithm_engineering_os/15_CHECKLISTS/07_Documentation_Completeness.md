@@ -1,53 +1,22 @@
 ---
-id: AIEOS-D5493CC430
-title: "Documentation Completeness Checklist"
-type: checklist
-status: active
-domain: checklist
+title: "Redirect — 07 Documentation Completeness"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - checklist
-  - checklist
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/07_Documentation_Completeness.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/07_Documentation_Completeness.md"
+original_sha256: "sha256:b79ff9e0eaffc1ff4d0640d14927b87a17bccbe572e43d7c9f7f99e5e105f8b0"
+relocation_record_id: "DOCMOVE_2CC73E11E97ABC1CDE56409E0E2B375C"
 ---
-# Documentation Completeness Checklist
+# Redirect — 07 Documentation Completeness
 
-> [!abstract] Purpose
-> Ensure the knowledge system reflects the released behavior
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/07_Documentation_Completeness]].
 
-## Normative
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/07_Documentation_Completeness.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/07_Documentation_Completeness.md`
+- Preserved source digest: `sha256:b79ff9e0eaffc1ff4d0640d14927b87a17bccbe572e43d7c9f7f99e5e105f8b0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [ ] Domain dictionary, formal spec, architecture, contracts, and hard rules are current.
-
-## Operational
-
-- [ ] Build, test, debug, release, rollback, and troubleshooting instructions are current.
-
-## Traceability
-
-- [ ] Patch, ADR, tests, incident links, version, status, and owners are present.
-
-## Obsidian
-
-- [ ] Frontmatter is valid.
-- [ ] MOC and related links are updated.
-- [ ] No active note points only to deprecated guidance.
-
-## Gate Result
-
-- **PASS:** every mandatory item is checked and evidence is linked.
-- **CONDITIONAL:** only explicitly accepted, time-bounded exceptions remain.
-- **FAIL:** any domain rule, safety rule, compilation rule, or state-integrity item is unresolved.
-
-## Evidence Record
-
-| Item | Evidence link / command output | Reviewer | Date |
-|---|---|---|---|
-|  |  |  |  |
-
-## Related Notes
-
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

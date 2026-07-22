@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Live Execution and Broker Bridge"
-tags:
-  - strategy-factory
+title: "Redirect — 51 LIVE EXECUTION AND BROKER BRIDGE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE.md"
+original_sha256: "sha256:518c6387d48ba3d62f48a278a7aa3dd99be26ea5be5269ff34a99214a85c4b51"
+relocation_record_id: "DOCMOVE_DD75473EC647CA9DA0ED546268F4F23F"
 ---
+# Redirect — 51 LIVE EXECUTION AND BROKER BRIDGE
 
-# Live Execution and Broker Bridge
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE]].
 
-The live bridge translates approved intents into broker-specific requests and reconciles the broker as source of truth for actual positions.
+- Legacy path: `docs/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE.md`
+- Preserved source digest: `sha256:518c6387d48ba3d62f48a278a7aa3dd99be26ea5be5269ff34a99214a85c4b51`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Preflight
-
-Symbol selection, session status, tick size, point value, volume step, min/max volume, stops level, freeze level, margin, account mode, duplicate order, price freshness, expiry, and risk reservation.
-
-## Request trace
-
-Persist intended prices, normalized prices, request time, response time, retcode, broker order/deal/position IDs, fills, slippage, rejection, modifications, and final close. Every trace maps to one intent.
-
-## Failure behavior
-
-Timeouts and ambiguous responses trigger reconciliation before retry. Never blindly resend. Partial fills update exposure. Repeated rejects activate a strategy or global circuit breaker.
-
-## Deployment boundary
-
-The supplied patch defines the bridge interface and paper broker but intentionally contains no live `OrderSend`, `OrderCheck`, or `CTrade`. A live adapter is a separately reviewed and promoted patch.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH10_time_target_and_dollar_outcome_doctrine_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH10_absolute_stop_and_fixed_risk_doctrine_EN.md`
 
 ## Role
 

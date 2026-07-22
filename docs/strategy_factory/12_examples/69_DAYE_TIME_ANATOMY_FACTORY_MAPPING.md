@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Example — Daye and Session-Cycle Mapping"
-tags:
-  - strategy-factory
+title: "Redirect — 69 DAYE TIME ANATOMY FACTORY MAPPING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING.md"
+original_sha256: "sha256:ffde0e1b49917115806ccacb09eccc50f0c97d151d8daadd0524df331c26e668"
+relocation_record_id: "DOCMOVE_82BCBCE6A2F0D5A071721FC7F520A2D8"
 ---
+# Redirect — 69 DAYE TIME ANATOMY FACTORY MAPPING
 
-# Example — Daye and Session-Cycle Mapping
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING]].
 
-Daye contributes deterministic temporal state and references; it should not create post-hoc narrative labels.
+- Legacy path: `docs/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING.md`
+- Preserved source digest: `sha256:ffde0e1b49917115806ccacb09eccc50f0c97d151d8daadd0524df331c26e668`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Event
-
-Quarter/session boundaries, true opens, reference extremes, first sweep, typed SSMT, cycle transition, known time, and expiration. DST and New York time are first-class.
-
-## Features
-
-Time since open, quarter index, parent cycle, reference age, session overlap, news proximity, volatility, and cross-symbol state.
-
-## Candidates and tests
-
-Time-window activation plus mechanical price confirmation; fixed or cycle-end exits. Test against time-only seasonality, shifted boundaries, alternate DST implementations, and session-matched random entries.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

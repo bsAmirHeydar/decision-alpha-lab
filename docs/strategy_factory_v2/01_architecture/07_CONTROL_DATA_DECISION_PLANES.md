@@ -1,43 +1,22 @@
 ---
-title: "Control, Data, and Decision Planes"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 07 CONTROL DATA DECISION PLANES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES.md"
+original_sha256: "sha256:34cc2102ceccb0609ee6f3feb0dd9b194965ea65322e4be9dbf4c478e691cc18"
+relocation_record_id: "DOCMOVE_7A98C2297BCD3A62D44887FE5B2FA6B4"
 ---
+# Redirect — 07 CONTROL DATA DECISION PLANES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES]].
 
-Separates configuration and governance from market data and authoritative decisions.
+- Legacy path: `docs/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES.md`
+- Preserved source digest: `sha256:34cc2102ceccb0609ee6f3feb0dd9b194965ea65322e4be9dbf4c478e691cc18`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Control plane promotes versions and deploys plans. Data plane ingests and timestamps market state. Decision plane performs bounded in-memory computation. Observer plane records non-authoritative telemetry.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Letting dashboards, loggers, retrainers, or remote services block or mutate the decision path.
-
-# Required tests
-
-Fault injection proving observer failure cannot change authoritative output.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

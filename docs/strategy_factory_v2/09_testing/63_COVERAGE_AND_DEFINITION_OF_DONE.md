@@ -1,43 +1,22 @@
 ---
-title: "Coverage and Definition of Done"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 63 COVERAGE AND DEFINITION OF DONE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE.md"
+original_sha256: "sha256:0134dd5cb4a024c37d99c9f25c9075cbdc7eaf0541d8d357cb44ac029bfb43df"
+relocation_record_id: "DOCMOVE_C11975C90489432C57DD6ECF78094B75"
 ---
+# Redirect — 63 COVERAGE AND DEFINITION OF DONE
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE]].
 
-Defines completion by risk and behavior rather than raw line coverage.
+- Legacy path: `docs/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE.md`
+- Preserved source digest: `sha256:0134dd5cb4a024c37d99c9f25c9075cbdc7eaf0541d8d357cb44ac029bfb43df`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Every invariant, error path, reason code, lifecycle transition, candidate policy, and critical timestamp boundary has evidence. Coverage combines code, contract, scenario, mutation, and replay dimensions.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Chasing 100 percent line coverage while critical semantics remain untested.
-
-# Required tests
-
-A module is done only when its failure modes and operational runbook exist.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

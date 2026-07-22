@@ -1,0 +1,141 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "documentation_relocation_count": 934,
+  "file_count": 23,
+  "files": [
+    {
+      "path": "LCM15B_TO_LCM15C_HANDOFF.json",
+      "sha256": "sha256:d2c99f15eee4b313b67f65b05703ed656cf3e428625c138c915b8ade687a5fd0",
+      "size_bytes": 3983
+    },
+    {
+      "path": "documentation_relocation_receipts.json",
+      "sha256": "sha256:bfcea59cc1f4913d7b5b91d5a32b12e01c9b23426ca5ffaf4587b761b8ca894f",
+      "size_bytes": 1429
+    },
+    {
+      "path": "installer_locator_registry.json",
+      "sha256": "sha256:2fea88b829af35c35e332efbd71b5e348d3bf3734ef02368eb2de7df900bdbb6",
+      "size_bytes": 1393
+    },
+    {
+      "path": "post_relocation_reference_report.json",
+      "sha256": "sha256:d380a1735eaafb921b3a199ddbdc9746b70085f8cfc5b79c63adf59525f5d82e",
+      "size_bytes": 1539
+    },
+    {
+      "path": "records/documentation_relocation_records.jsonl",
+      "sha256": "sha256:4dd1cbac79ae5cb12febe8ffc770076ab73197ff0f0a5eaef4b69b9610fd09e4",
+      "size_bytes": 2092765
+    },
+    {
+      "path": "records/installer_locator_records.jsonl",
+      "sha256": "sha256:a536af22dc3658b0aa31e950a0069d25d704007082a8445cf6a5990c9cf8a8b2",
+      "size_bytes": 1526
+    },
+    {
+      "path": "records/reference_rewrite_records.jsonl",
+      "sha256": "sha256:6b2f527c36afe683f1af73d92d65a85a084f082ea632ee6857f00d793f496852",
+      "size_bytes": 83844
+    },
+    {
+      "path": "records/release_registry_records.jsonl",
+      "sha256": "sha256:cc6311855759cbe8edc23ebc48ed73ea5e91710b2f4bfca776238ac106d92547",
+      "size_bytes": 9918
+    },
+    {
+      "path": "records/revalidated_deletion_records.jsonl",
+      "sha256": "sha256:ad14fae6fe0d46f0c0db344ca074a20999da8ca3836302cba8fee4b118342e2c",
+      "size_bytes": 4565248
+    },
+    {
+      "path": "records/root_allowlist_records.jsonl",
+      "sha256": "sha256:b832ffebecf4142a3de3c9ee4ae09ce8d5cd7ea0d94339993fd3b3b0c6d12a85",
+      "size_bytes": 1874849
+    },
+    {
+      "path": "records/root_relocation_records.jsonl",
+      "sha256": "sha256:e087275dab51b7640f459a2f269b10f7498de784a04e3bf4330635b8f7254c19",
+      "size_bytes": 10958
+    },
+    {
+      "path": "reference_rewrite_receipt.json",
+      "sha256": "sha256:9d56a863640dd604a62b0bcb20ad6ca27f5a9f29fefeff26bfa79cdf1dfcc821",
+      "size_bytes": 1362
+    },
+    {
+      "path": "release_registry_index.json",
+      "sha256": "sha256:221e372c151c79a1576e03305188547246ec55e66aa626e0a57875320e5f86e5",
+      "size_bytes": 1353
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:231e417d15f8a795df051cba4d7c5b7e564b7b97a813d4382e585510a37286d0",
+      "size_bytes": 1862
+    },
+    {
+      "path": "reports/determinism_report.json",
+      "sha256": "sha256:5a618c9277504ea50ee5ca0ac36b866549e2b89e1bdbdf6e969d80bcbba6b958",
+      "size_bytes": 1360
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:bdd56272a4e7a752bd53ed5c278e529b0775e4dba476cee34db65319614c9e48",
+      "size_bytes": 1579
+    },
+    {
+      "path": "residual_root_hygiene_risk.md",
+      "sha256": "sha256:0aabd745406dc43e94ccbf0d7fa10db888bdbecc5d9de7e0b536d6c22e7f363e",
+      "size_bytes": 647
+    },
+    {
+      "path": "revalidated_deletion_ledger.json",
+      "sha256": "sha256:5841f0b7e47c7a73dc51cf29a503145d6322a8632bdcd30f0c5f4ae461e92efa",
+      "size_bytes": 1498
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:f201739c0758bf207da86b6d7365e0e5c73c8f6b6624ed575565c335a8510400",
+      "size_bytes": 537630
+    },
+    {
+      "path": "root_allowlist.json",
+      "sha256": "sha256:e68c80878ab5f074ff3ec34440ad9145865bfaafdec2dbcba6f3638938a17cae",
+      "size_bytes": 1378
+    },
+    {
+      "path": "root_before_after_map.json",
+      "sha256": "sha256:3b80cca9d203839c023562baf830ccaae8a700c196532e4dc7a5ab2881a1bd7b",
+      "size_bytes": 495614
+    },
+    {
+      "path": "root_relocation_manifest.json",
+      "sha256": "sha256:317d32fff6566d31a386dc1eda905d8e2d3d76af3910a4fc2cf98958cc3158e2",
+      "size_bytes": 1417
+    }
+  ],
+  "future_deletion_approved_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "output_manifest_digest": "sha256:42db3ae817b79a3f4c322597b22008615c4102a8afbaa323b06087e69aac89e7",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15B",
+  "producer": "tools.strategy_factory.lcm.lcm_15b.service:LCM15BRootReleaseReorganizationService",
+  "reference_rewrite_record_count": 38,
+  "reorganization_id": "ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "root_relocation_count": 6,
+  "schema_version": "1.0.0",
+  "source_delete_count": 0,
+  "source_digests": [
+    "sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd",
+    "sha256:ec0382affbe8c03bced058d409014805df66f4b933988dd86a6ceac517f34e11",
+    "sha256:bc03e01538e78ea9afb6e958c0d300f6cabaf0c99c383da4f18851bedb5bc417",
+    "sha256:920a23281f629f5e07a743ebaacdaa12a274f3aac36de225e08b714e57bb1a48",
+    "sha256:6f6f4fa8f3ab845c8f71d1ce81aa8bb7f8a8087fde51edf162cfeb280c49d941",
+    "sha256:8323f22d38ecc2e3c0e2949efa4f639bf168e9c4fb5ef3c432bd72117faa8fd4"
+  ],
+  "validation_status": "PASS"
+}

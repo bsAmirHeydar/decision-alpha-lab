@@ -1,43 +1,22 @@
 ---
-title: "Shadow and Champion-Challenger Serving"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 37 SHADOW AND CHAMPION CHALLENGER"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER.md"
+original_sha256: "sha256:9bc006c7699163c0709f18f5b294db4dfbe9c7990cfb990cb999d3f93d2cff29"
+relocation_record_id: "DOCMOVE_0322DC961485533474820809A05939FE"
 ---
+# Redirect — 37 SHADOW AND CHAMPION CHALLENGER
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER]].
 
-Collects forward evidence without giving challengers capital authority.
+- Legacy path: `docs/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER.md`
+- Preserved source digest: `sha256:9bc006c7699163c0709f18f5b294db4dfbe9c7990cfb990cb999d3f93d2cff29`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Champion decides. Challengers receive identical event/context snapshots and emit shadow decisions. Compare calibration, utility, latency, and disagreement.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Allowing a challenger to influence candidate generation or risk before promotion.
-
-# Required tests
-
-Decision parity, disagreement attribution, and promotion evidence.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

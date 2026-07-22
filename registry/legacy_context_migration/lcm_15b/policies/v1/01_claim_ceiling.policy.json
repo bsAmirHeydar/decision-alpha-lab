@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "enforcement": "NON_COMPENSATORY_FAIL_CLOSED",
+  "phase_id": "LCM-15B",
+  "policy_id": "01_CLAIM_CEILING",
+  "schema_version": "1.0.0",
+  "statement": "LCM-15B cannot create promotion, runtime, live-order, capital or deletion authority."
+}

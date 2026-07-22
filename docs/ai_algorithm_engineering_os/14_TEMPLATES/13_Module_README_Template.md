@@ -1,75 +1,22 @@
 ---
-id: AIEOS-6D60A42D07
-title: "Module README Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 13 Module README Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/13_Module_README_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/13_Module_README_Template.md"
+original_sha256: "sha256:56e4960ec1bfe2a8ce8d68bd08cf14d4bfc4c774a734206bf2c983578a0c1bf2"
+relocation_record_id: "DOCMOVE_8FB4B90EEBD912E28D2C8A13F1134590"
 ---
-# Module README Template
+# Redirect — 13 Module README Template
 
-> [!abstract] Purpose
-> Describe a code or documentation module and its contracts.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/13_Module_README_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/13_Module_README_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/13_Module_README_Template.md`
+- Preserved source digest: `sha256:56e4960ec1bfe2a8ce8d68bd08cf14d4bfc4c774a734206bf2c983578a0c1bf2`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# [Module Name]
-
-## Responsibility
-[...]
-
-## Non-Responsibilities
-[...]
-
-## Public Interface
-[...]
-
-## State Ownership
-[...]
-
-## Dependencies / Consumers
-[...]
-
-## Data and Error Contracts
-[...]
-
-## Lifecycle
-[...]
-
-## Performance Budget
-[...]
-
-## Testing
-[...]
-
-## Known Risks / Extension Points
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

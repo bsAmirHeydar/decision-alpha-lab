@@ -1,31 +1,22 @@
-# EXP0017 Chapter 18 — Execution Freedom and Position Multiplicity
+---
+title: "Redirect — CH18 execution freedom and position multiplicity doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_execution_freedom_and_position_multiplicity_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_no_limit_execution_boundary_and_cluster_study_EN.md"
+original_sha256: "sha256:93744131a1147cbea5682749840289a71abe85332cfd31457e08c00e28203100"
+relocation_record_id: "DOCMOVE_3EF4E5041A600EFAACA57D9332AFE862"
+---
+# Redirect — CH18 execution freedom and position multiplicity doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_no_limit_execution_boundary_and_cluster_study_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_execution_freedom_and_position_multiplicity_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_no_limit_execution_boundary_and_cluster_study_EN.md`
+- Preserved source digest: `sha256:93744131a1147cbea5682749840289a71abe85332cfd31457e08c00e28203100`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-The base execution field has no position-count limit, allows repeated CG opportunities, and permits hedging unless statistics later justify constraints.
-
-## Locked Doctrine
-
-- Multiple positions from one CG are allowed.
-- Loss in one cycle does not block the next cycle.
-- Hedging is allowed in the base layer.
-- Immediate entry after final confirmation is the base timing.
-- Only invalidation at confirmation blocks trade permission.
-
-## Implementation Consequences
-
-- Raw execution must preserve signal freedom.
-- Future exposure constraints are statistical hypotheses, not base filters.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

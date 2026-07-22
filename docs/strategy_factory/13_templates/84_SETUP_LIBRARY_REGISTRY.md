@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Setup Library Registry"
-tags:
-  - strategy-factory
+title: "Redirect — 84 SETUP LIBRARY REGISTRY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY.md"
+original_sha256: "sha256:7c9dde618f01521832a944fc8e7b60f1e597d19e7cfe654db996af04492b8b49"
+relocation_record_id: "DOCMOVE_66631EBC44DBE90DC627005C9C4D4185"
 ---
+# Redirect — 84 SETUP LIBRARY REGISTRY
 
-# Setup Library Registry
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY]].
 
-The setup library catalogs reusable execution policies separately from market anatomies.
+- Legacy path: `docs/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY.md`
+- Preserved source digest: `sha256:7c9dde618f01521832a944fc8e7b60f1e597d19e7cfe654db996af04492b8b49`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Registry fields
-
-Setup ID/version, entry/stop/exit/time behavior, required feature fields, compatible anatomy classes, order type, cost assumptions, capacity notes, tests, and status. Setups are plugins; they do not own data or validation pipelines.
-
-## Reuse
-
-A first-pullback setup can be applied to divergence, NDS, Daye, or structural nodes through the same candidate interface. Results remain strategy-specific but policy identity allows cross-anatomy analysis.
-
-## Governance
-
-Changing a policy formula creates a new version. A policy can be retired globally for unrealistic fills or operational burden. No setup becomes default solely because it won one strategy's history.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

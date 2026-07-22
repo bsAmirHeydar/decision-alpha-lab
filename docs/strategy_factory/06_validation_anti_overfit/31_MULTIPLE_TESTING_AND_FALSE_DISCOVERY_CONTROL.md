@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Multiple Testing and False-Discovery Control"
-tags:
-  - strategy-factory
+title: "Redirect — 31 MULTIPLE TESTING AND FALSE DISCOVERY CONTROL"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL.md"
+original_sha256: "sha256:6324961947e94b511a743fc2e1727f72122219b211e80aae8cb257e9e2853b27"
+relocation_record_id: "DOCMOVE_F7A50CD3CEE965A8214F76DCF6293593"
 ---
+# Redirect — 31 MULTIPLE TESTING AND FALSE DISCOVERY CONTROL
 
-# Multiple Testing and False-Discovery Control
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL]].
 
-The factory assumes many attractive results will appear by chance because it searches many anatomies, buckets, policies, targets, and models.
+- Legacy path: `docs/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL.md`
+- Preserved source digest: `sha256:6324961947e94b511a743fc2e1727f72122219b211e80aae8cb257e9e2853b27`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Trial universe
-
-Count all materially different tests, including abandoned ones. Group related tests into families. Benjamini-Hochberg controls false-discovery rate for exploratory screens; stricter family-wise controls may be used for narrow confirmation.
-
-## Selection-aware reporting
-
-Publish raw p-values, adjusted q-values, number of trials, selection metric, and whether the hypothesis was predeclared. A bucket that loses significance after correction is not deleted; it remains an exploratory lead.
-
-## Economic filter
-
-Correction is necessary but not sufficient. A statistically credible effect still needs positive net expectancy, stability, and execution capacity.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,6 +1,6 @@
 ---
 title: "LCM-15B — Root, Release and Documentation Reorganization"
-status: proposed-reference
+status: implemented
 version: 1.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -126,3 +126,17 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: exact controlled deletion only.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation receipt — 2026-07-22
+
+- Reorganization package: `ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381`.
+- Exact upstream handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.
+- Approved relocation paths consumed: 940.
+- Root release canonical copies: 6; original root compatibility mirrors retained: 6.
+- Documentation compatibility redirects materialized: 934.
+- Active residual exact-path references after reconciliation: 0.
+- Revalidated deletion candidates: 2,168.
+- Future deletion approvals: 0.
+- Source deletions: 0.
+- Allowed next phase: LCM-15C only.

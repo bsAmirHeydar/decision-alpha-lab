@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Counterfactual and Causal Policy Analysis"
-tags:
-  - strategy-factory
+title: "Redirect — 81 COUNTERFACTUAL AND CAUSAL POLICY ANALYSIS"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS.md"
+original_sha256: "sha256:a3924ca99c86e230f5ae2f72bc5873810e2e0c3bb34d5ababea76f34e61ecbd7"
+relocation_record_id: "DOCMOVE_5D560B9F48FB3D084E188179545297D4"
 ---
+# Redirect — 81 COUNTERFACTUAL AND CAUSAL POLICY ANALYSIS
 
-# Counterfactual and Causal Policy Analysis
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS]].
 
-Because only one live action can be taken, historical candidate simulation and careful counterfactual design are needed to compare policies.
+- Legacy path: `docs/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS.md`
+- Preserved source digest: `sha256:a3924ca99c86e230f5ae2f72bc5873810e2e0c3bb34d5ababea76f34e61ecbd7`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Historical counterfactuals
-
-The outcome engine can replay multiple candidate policies on the same future path. Keep all candidates in one event cluster and never split them across folds. Recognize that bar-based fills may not capture market impact or mutually exclusive order interactions.
-
-## Treatment framing
-
-Anatomy, confirmation, and model decisions can be framed as treatments only when confounders and assignment are understood. Matched baselines, inverse-propensity methods, and doubly robust estimates may be explored later, but they do not create randomized evidence.
-
-## Live counterfactuals
-
-Shadow decisions and paper challengers provide cleaner comparisons. Contextual bandits can gather controlled exploration after safety and sample requirements are met.
-
-## Interpretation
-
-Use causal language conservatively. Most Strategy Factory outputs are conditional predictive evidence. Mechanism claims require stronger design and external knowledge.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Standard Statistical Pack"
-tags:
-  - strategy-factory
+title: "Redirect — 23 STANDARD STATISTICAL PACK"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK.md"
+original_sha256: "sha256:b30ea6383a1aba43ad861b69af6f3e48936dd05e2c5e5b7f0da1f944560422c2"
+relocation_record_id: "DOCMOVE_67971270116F4AB2CB4A51C1644AAEA6"
 ---
+# Redirect — 23 STANDARD STATISTICAL PACK
 
-# Standard Statistical Pack
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK]].
 
-Every strategy receives the same statistical report so attractive selective metrics cannot hide weak economics.
+- Legacy path: `docs/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK.md`
+- Preserved source digest: `sha256:b30ea6383a1aba43ad861b69af6f3e48936dd05e2c5e5b7f0da1f944560422c2`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Core metrics
-
-Sample and cluster counts, fill rate, win/loss rate, average and median R, average win/loss, expectancy, profit factor, total R, drawdown, dispersion, tail share, best-trade share, MFE/MAE, holding time, and cost share.
-
-## Conditional tables
-
-Break down by year, month, weekday, session, direction, symbol, timeframe, cycle group, volatility, spread, reference age, anatomy state, entry, stop, exit, and any registered strategy feature. Minimum sample and cluster thresholds are shown beside every bucket.
-
-## Distribution-first reporting
-
-Display quantiles, histograms, drawdown path, streaks, and cluster concentration. A mean without distribution and dependence information is insufficient.
-
-## Comparison
-
-Every report includes unconditional base rate, confirmation-only baseline, anatomy-only baseline, matched random baseline, and candidate policy baseline where applicable.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

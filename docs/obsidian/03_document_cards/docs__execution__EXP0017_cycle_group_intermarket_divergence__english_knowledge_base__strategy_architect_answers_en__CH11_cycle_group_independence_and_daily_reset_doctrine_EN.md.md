@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_cycle_group_independence_and_daily_reset_doctrine_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_buy_sell_duality_and_signal_separation_EN.md`
 
 ## Role
 

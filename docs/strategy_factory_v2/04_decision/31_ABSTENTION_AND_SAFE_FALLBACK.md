@@ -1,43 +1,22 @@
 ---
-title: "Abstention and Safe Fallback"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 31 ABSTENTION AND SAFE FALLBACK"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK.md"
+original_sha256: "sha256:61e01dd890937d0c5a16e089b90a1b3180dd8f59c326cf71d2176a0f635c94b9"
+relocation_record_id: "DOCMOVE_D9FE1ED6F9209A3D18F60DAD1AA688D8"
 ---
+# Redirect — 31 ABSTENTION AND SAFE FALLBACK
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK]].
 
-Makes no-trade a first-class model output.
+- Legacy path: `docs/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK.md`
+- Preserved source digest: `sha256:61e01dd890937d0c5a16e089b90a1b3180dd8f59c326cf71d2176a0f635c94b9`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Abstain on missing required context, low probability/expectancy, high uncertainty, low top-two margin, schema mismatch, model failure, latency breach under strict mode, or risk rejection.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Forcing a candidate because an event exists, using stale previous predictions, or defaulting to maximum-confidence direction.
-
-# Required tests
-
-Reason-code coverage, fallback determinism, and abstention value analysis.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

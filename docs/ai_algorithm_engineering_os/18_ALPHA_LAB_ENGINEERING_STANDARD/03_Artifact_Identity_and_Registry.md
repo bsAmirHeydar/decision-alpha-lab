@@ -1,19 +1,22 @@
 ---
-id: AIEOS2-4899882D5961
-title: "Artifact Identity and Registry"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 03 Artifact Identity and Registry"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/03_Artifact_Identity_and_Registry.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/03_Artifact_Identity_and_Registry.md"
+original_sha256: "sha256:a214a706d80256200360e7a3f77e05d8b212721aeafd46936b1ecfa745dbb383"
+relocation_record_id: "DOCMOVE_3BFD50266D2059152FC7FFC87D799632"
 ---
-# Artifact Identity and Registry
+# Redirect — 03 Artifact Identity and Registry
 
-Every durable artifact has stable identity, status, version, owner, and links. IDs do not change when titles change. Registry entries are updated atomically with artifact creation, promotion, rejection, or retirement.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/03_Artifact_Identity_and_Registry]].
 
-Persistent IDs and row keys must be derived from stable components. Random UUIDs may be used only when the identity contract explicitly requires them and reproducibility is not harmed.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/03_Artifact_Identity_and_Registry.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/03_Artifact_Identity_and_Registry.md`
+- Preserved source digest: `sha256:a214a706d80256200360e7a3f77e05d8b212721aeafd46936b1ecfa745dbb383`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

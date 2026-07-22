@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Explainability, Ablation, and Failure Analysis"
-tags:
-  - strategy-factory
+title: "Redirect — 48 EXPLAINABILITY ABLATION AND FAILURE ANALYSIS"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS.md"
+original_sha256: "sha256:cfdb9d61077ce1ede514db8977915fd26671f5cda6f5dd074df66c6b8312d61b"
+relocation_record_id: "DOCMOVE_25CEEA0A73CF8F84A0D4E1DDD1A2E595"
 ---
+# Redirect — 48 EXPLAINABILITY ABLATION AND FAILURE ANALYSIS
 
-# Explainability, Ablation, and Failure Analysis
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS]].
 
-Explanation is used to debug and constrain models, not to manufacture narratives for every prediction.
+- Legacy path: `docs/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS.md`
+- Preserved source digest: `sha256:cfdb9d61077ce1ede514db8977915fd26671f5cda6f5dd074df66c6b8312d61b`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Global analysis
-
-Permutation importance, coefficient stability, SHAP for supported challengers, partial dependence with caution, feature-group ablation, and fold-to-fold sign consistency. Explanations are computed OOS where possible.
-
-## Failure cohorts
-
-Analyze false positives, missed tails, high-MAE winners, cost-sensitive trades, feed disagreements, and model/rule disagreements. Each cohort can create a new hypothesis but cannot alter the tested version retroactively.
-
-## Sanity checks
-
-Label shuffle, feature time shift, random feature injection, and impossible-feature tests should collapse performance. If not, the pipeline likely leaks or selection is flawed.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

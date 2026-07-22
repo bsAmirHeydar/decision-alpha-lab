@@ -1,31 +1,22 @@
-# EXP0017 Chapter 20 — Version Governance and Strategy Non-Mutation
+---
+title: "Redirect — CH20 cg overlap complexity and future decision gate EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH20_cg_overlap_complexity_and_future_decision_gate_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH20_current_model_statistical_only_boundary_EN.md"
+original_sha256: "sha256:2a2145b4b5ec5de7fb778dc60769d9fbf4da8ac5d88f772c9996af88a1d6d953"
+relocation_record_id: "DOCMOVE_A6DBE6F1A7044BA672ADBF79752AF002"
+---
+# Redirect — CH20 cg overlap complexity and future decision gate EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH20_current_model_statistical_only_boundary_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH20_cg_overlap_complexity_and_future_decision_gate_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH20_current_model_statistical_only_boundary_EN.md`
+- Preserved source digest: `sha256:2a2145b4b5ec5de7fb778dc60769d9fbf4da8ac5d88f772c9996af88a1d6d953`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-The current version is statistical-only and cannot change strategy; future versions may optimize only after statistical review and explicit promotion.
-
-## Locked Doctrine
-
-- Repeated questions map back to existing doctrine.
-- The current model collects and reports statistics only.
-- Future optimization may be allowed in later versions.
-- The strategy architect decides after statistics.
-- CG overlap may become a major modeling complexity source.
-
-## Implementation Consequences
-
-- Separate base version from optimized versions.
-- Prevent premature optimization from contaminating raw statistics.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

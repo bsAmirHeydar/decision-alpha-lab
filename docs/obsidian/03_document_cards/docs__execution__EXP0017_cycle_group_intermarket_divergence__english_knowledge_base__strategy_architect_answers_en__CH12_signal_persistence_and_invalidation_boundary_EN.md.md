@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_signal_persistence_and_invalidation_boundary_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_no_filter_no_suppression_doctrine_EN.md`
 
 ## Role
 

@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/release_registry_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_sha256": {},
+    "canonical_path": {},
+    "compatibility_mirror_path": {},
+    "original_filename": {},
+    "release_record_id": {}
+  },
+  "required": [
+    "release_record_id",
+    "original_filename",
+    "canonical_path",
+    "compatibility_mirror_path",
+    "artifact_sha256"
+  ],
+  "title": "release_registry_record",
+  "type": "object"
+}

@@ -1,43 +1,22 @@
 ---
-title: "Modular Kernel and Plugin Boundaries"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 05 MODULAR KERNEL AND PLUGIN BOUNDARIES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES.md"
+original_sha256: "sha256:1dca7560df392d6914f08c77f396e149957c755aadaa03bae83c6f649fdac07c"
+relocation_record_id: "DOCMOVE_ECB380994F631CF1E6CDDF649812A868"
 ---
+# Redirect — 05 MODULAR KERNEL AND PLUGIN BOUNDARIES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES]].
 
-Defines the minimal stable kernel and how plugins extend it without creating cross-domain coupling.
+- Legacy path: `docs/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES.md`
+- Preserved source digest: `sha256:1dca7560df392d6914f08c77f396e149957c755aadaa03bae83c6f649fdac07c`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-The kernel owns contracts, plan compilation, context graph execution, candidate identity, decision envelopes, run artifacts, and safety boundaries. Plugins own domain semantics.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Hidden imports, circular dependencies, direct plugin-to-plugin mutation, runtime discovery, and strategy-specific forks of shared services.
-
-# Required tests
-
-Contract tests, capability checks, version compatibility, deterministic replay, and plugin isolation tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

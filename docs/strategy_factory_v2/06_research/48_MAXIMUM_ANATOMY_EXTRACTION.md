@@ -1,43 +1,22 @@
 ---
-title: "Maximum Anatomy Extraction Program"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 48 MAXIMUM ANATOMY EXTRACTION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION.md"
+original_sha256: "sha256:3ae689829257a06898af30d3f27e2482ee04232619bbab357f73532287b60b28"
+relocation_record_id: "DOCMOVE_F7B5E5C6A6ACE084C9C1F060EAE67921"
 ---
+# Redirect — 48 MAXIMUM ANATOMY EXTRACTION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION]].
 
-Extracts every defensible source of value from one anatomy before adding conceptual complexity.
+- Legacy path: `docs/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION.md`
+- Preserved source digest: `sha256:3ae689829257a06898af30d3f27e2482ee04232619bbab357f73532287b60b28`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Test event existence, direction, timing, location, candidate execution, no-trade filters, failure signals, continuation/reversal duals, holding logic, portfolio overlap, and capacity.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Adding unrelated concepts to rescue a weak edge.
-
-# Required tests
-
-Matched baselines and component-by-component uplift.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

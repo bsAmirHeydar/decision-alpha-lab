@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Event Identity and Lineage"
-tags:
-  - strategy-factory
+title: "Redirect — 10 EVENT IDENTITY AND LINEAGE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE.md"
+original_sha256: "sha256:abfe7c55380ac6e2a21b2b1b6105aaaf3240df3ca684c37c63b3cba1e9c15d51"
+relocation_record_id: "DOCMOVE_54F50FA08949BC7EF773FE9855D3A790"
 ---
+# Redirect — 10 EVENT IDENTITY AND LINEAGE
 
-# Event Identity and Lineage
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE]].
 
-Stable identity makes deduplication, replay, cross-language reconciliation, and audit possible.
+- Legacy path: `docs/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE.md`
+- Preserved source digest: `sha256:abfe7c55380ac6e2a21b2b1b6105aaaf3240df3ca684c37c63b3cba1e9c15d51`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Identity ingredients
-
-An event ID is a deterministic hash of semantic fields: strategy version, symbol universe, direction, canonical reference identity, known time, timeframe or cycle group, and any object IDs required by the doctrine. Database row number, chart object handle, random UUID, and array position are forbidden.
-
-## Lineage
-
-Events may reference parent events, source references, anatomy objects, and a source hash. Candidate IDs include event ID and policy identity. Outcome IDs derive from candidate identity and simulation version. Model decisions include model artifact hash. Broker traces include intent identity.
-
-## Mutation policy
-
-Canonical artifacts are append-only. A corrected event is a new version or superseding record, not an in-place silent edit. Lineage tables preserve the mapping. Reports declare which supersession policy they applied.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Runbook — Experiment, Train, and Compare"
-tags:
-  - strategy-factory
+title: "Redirect — 64 EXPERIMENT AND TRAINING RUNBOOK"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK.md"
+original_sha256: "sha256:f71e450a0179c23e202f0b3471895218e40a8ec739fbcd8f886a4ee4f99a258f"
+relocation_record_id: "DOCMOVE_1E2557B2960C9400DC130917BC3F42B8"
 ---
+# Redirect — 64 EXPERIMENT AND TRAINING RUNBOOK
 
-# Runbook — Experiment, Train, and Compare
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK]].
 
-A repeatable experiment run produces evidence rather than an ad hoc notebook result.
+- Legacy path: `docs/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK.md`
+- Preserved source digest: `sha256:f71e450a0179c23e202f0b3471895218e40a8ec739fbcd8f886a4ee4f99a258f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Before run
-
-Confirm manifest hash, source data version, trial registration, feature availability, candidate count, labels, cost model, and fold plan. Reserve an untouched confirmation interval.
-
-## Run sequence
-
-Audit bars → emit events → snapshot → candidates → outcomes → standard statistics → nulls → walk-forward baseline → challengers → calibration → ranking → anti-overfit suite → model card → report.
-
-## Selection
-
-Use the declared metric at cluster level. Do not choose a different metric because it looks better. Compare model uplift with complexity and stability. Preserve all candidates and predictions.
-
-## After run
-
-Record failure modes, unresolved anomalies, and whether the hypothesis advances, changes version, or retires. No live action follows directly.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

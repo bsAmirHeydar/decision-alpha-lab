@@ -1,22 +1,22 @@
 ---
-title: "03 Context MOC"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect —  MOC 03 CONTEXT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/_MOC_03_CONTEXT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/_MOC_03_CONTEXT.md"
+original_sha256: "sha256:19e57b7faf77045bb381b1cfdaecc4f413fdac318a3ba91557d6ad6185dbf621"
+relocation_record_id: "DOCMOVE_75AFF3DB9EE9214C0D8842429BECEFCC"
 ---
+# Redirect —  MOC 03 CONTEXT
 
-# 03 Context
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/_MOC_03_CONTEXT]].
 
-- [[16_CONTEXT_ONTOLOGY_AND_NAMESPACES]]
-- [[17_FEATURE_DEPENDENCY_DAG]]
-- [[18_INCREMENTAL_RECOMPUTATION]]
-- [[19_CACHE_HIERARCHY]]
-- [[20_MISSING_STALE_AND_DEGRADED_CONTEXT]]
-- [[21_MULTI_SYMBOL_TIME_SYNCHRONIZATION]]
-- [[22_FIXED_FEATURE_VECTORS]]
-- [[23_CONTEXT_FINGERPRINT_AND_LINEAGE]]
+- Legacy path: `docs/strategy_factory_v2/03_context/_MOC_03_CONTEXT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/_MOC_03_CONTEXT.md`
+- Preserved source digest: `sha256:19e57b7faf77045bb381b1cfdaecc4f413fdac318a3ba91557d6ad6185dbf621`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

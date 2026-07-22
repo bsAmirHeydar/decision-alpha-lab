@@ -1,44 +1,22 @@
 ---
-id: AIEOS-1830629180
-title: "Start Here"
-type: map-of-content
-status: active
-domain: navigation
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - navigation
-  - moc
+title: "Redirect —  MOC"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/00_START_HERE/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/00_START_HERE/_MOC.md"
+original_sha256: "sha256:babd23d4dd8f5bfb631c40407733fe5c8085d95e14a23c2195c599b6c77378c0"
+relocation_record_id: "DOCMOVE_FE4FFEF05D43AEB7C183DB709D61D0FC"
 ---
-# Start Here
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Navigate the system and execute the first task.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/00_START_HERE/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/00_START_HERE/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/00_START_HERE/_MOC.md`
+- Preserved source digest: `sha256:babd23d4dd8f5bfb631c40407733fe5c8085d95e14a23c2195c599b6c77378c0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[00_START_HERE/00_Home|Home]]
-- [[00_START_HERE/01_System_Map|System Map]]
-- [[00_START_HERE/02_Operating_Principles|Operating Principles]]
-- [[00_START_HERE/03_Quickstart_One_Feature|Quickstart One Feature]]
-- [[00_START_HERE/04_Integration_Quant_Lab|Integration Quant Lab]]
-- [[00_START_HERE/05_Glossary|Glossary]]
-
-- [[18_ALPHA_LAB_ENGINEERING_STANDARD/_MOC|Alpha Lab Engineering Standard]]
-- [[19_LANGUAGE_STANDARDS/_MOC|Language Standards]]
-- [[20_QUALITY_AUTOMATION/_MOC|Quality Automation]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

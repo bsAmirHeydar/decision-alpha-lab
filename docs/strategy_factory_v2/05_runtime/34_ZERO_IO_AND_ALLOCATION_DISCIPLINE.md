@@ -1,43 +1,22 @@
 ---
-title: "Zero-I/O and Allocation Discipline"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 34 ZERO IO AND ALLOCATION DISCIPLINE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE.md"
+original_sha256: "sha256:ad7c72f86a62ce9fe3adbd6d59641c922f30f2abcf7567f679c9f23762de384e"
+relocation_record_id: "DOCMOVE_C62B841394B50663EB1770F9E6A8EABC"
 ---
+# Redirect — 34 ZERO IO AND ALLOCATION DISCIPLINE
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE]].
 
-Protects the authoritative thread from unpredictable pauses.
+- Legacy path: `docs/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE.md`
+- Preserved source digest: `sha256:ad7c72f86a62ce9fe3adbd6d59641c922f30f2abcf7567f679c9f23762de384e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-No file/network/database calls; preallocate bounded arrays where practical; reuse context frames; avoid dataframe construction; serialize on observer paths.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Synchronous log writes, loading models on demand, dynamic JSON, or unbounded strings in the hot path.
-
-# Required tests
-
-Static audits, allocation profiling, log-failure injection, and long-run memory tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

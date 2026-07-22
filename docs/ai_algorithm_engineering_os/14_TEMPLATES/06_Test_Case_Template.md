@@ -1,73 +1,22 @@
 ---
-id: AIEOS-1B688E07CC
-title: "Test Case Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 06 Test Case Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/06_Test_Case_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/06_Test_Case_Template.md"
+original_sha256: "sha256:ac49d5e74dba2d7b19dc1440996994a3db75bb8c36563001045272cf0495b30f"
+relocation_record_id: "DOCMOVE_8DB6C55C3F394DD7A6A4C1BA8EEBAEF1"
 ---
-# Test Case Template
+# Redirect — 06 Test Case Template
 
-> [!abstract] Purpose
-> Describe one reproducible behavioral claim and its evidence.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/06_Test_Case_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/06_Test_Case_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/06_Test_Case_Template.md`
+- Preserved source digest: `sha256:ac49d5e74dba2d7b19dc1440996994a3db75bb8c36563001045272cf0495b30f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# [TEST-ID] — [Name]
-
-- Linked requirement/invariant: [...]
-- Test level: unit / property / scenario / replay / visual / performance / regression
-- Environment: [...]
-
-## Initial State and Fixtures
-[...]
-
-## Input / Event Sequence
-1. [...]
-
-## Expected Intermediate State
-[...]
-
-## Expected Final Output
-[...]
-
-## Failure Signal
-[...]
-
-## Automation / Command
-[...]
-
-## Actual Result and Evidence
-[...]
-
-## Status
-pass / fail / blocked / skipped
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

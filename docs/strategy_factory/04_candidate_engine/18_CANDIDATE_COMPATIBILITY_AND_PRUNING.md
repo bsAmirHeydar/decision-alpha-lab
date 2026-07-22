@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Candidate Compatibility and Pruning"
-tags:
-  - strategy-factory
+title: "Redirect — 18 CANDIDATE COMPATIBILITY AND PRUNING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING.md"
+original_sha256: "sha256:c1b2e2e518edc3af2413ed6246e2a1366bb8807fa0f6e5ef019f7d94e26c0720"
+relocation_record_id: "DOCMOVE_99DEB845BD935EB13B70B0A1E922A220"
 ---
+# Redirect — 18 CANDIDATE COMPATIBILITY AND PRUNING
 
-# Candidate Compatibility and Pruning
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING]].
 
-Candidate pruning must control combinatorics without using outcomes.
+- Legacy path: `docs/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING.md`
+- Preserved source digest: `sha256:c1b2e2e518edc3af2413ed6246e2a1366bb8807fa0f6e5ef019f7d94e26c0720`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Compatibility table
-
-Some entries require specific stops or targets; a time-only exit may not pair with an unlimited holding policy; a zone-limit entry may expire before a cycle-end target. These constraints are declared as compatibility rules and tested.
-
-## Pruning principles
-
-Prefer a small orthogonal set: immediate versus pullback entry, structural versus volatility-buffered stop, fixed versus structural/time exit. Numeric grids are admitted only after a coarse family shows value and then must use nested training-only selection.
-
-## Audit
-
-The report lists theoretical combinations, excluded combinations, reason codes, and emitted candidates. Silent truncation is forbidden. If `max_candidates_per_event` is reached, the deterministic ordering and pruning policy are materialized.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,41 +1,22 @@
 ---
-id: AIEOS-047F409B49
-title: "Governance"
-type: map-of-content
-status: active
-domain: governance
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - governance
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/17_GOVERNANCE/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/17_GOVERNANCE/_MOC.md"
+original_sha256: "sha256:547a61024eca36e854f74f1be1905e8722848e2b907e6da6c1895b44ed1e55ae"
+relocation_record_id: "DOCMOVE_46FDE2AF1FC0FC21E769B6F63CD5C42F"
 ---
-# Governance
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Control authority, quality, exceptions, metrics, readiness, completion, and maturity.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/17_GOVERNANCE/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/17_GOVERNANCE/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/17_GOVERNANCE/_MOC.md`
+- Preserved source digest: `sha256:547a61024eca36e854f74f1be1905e8722848e2b907e6da6c1895b44ed1e55ae`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[17_GOVERNANCE/01_Hard_Rules|Hard Rules]]
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/03_Roles_and_Approvals|Roles and Approvals]]
-- [[17_GOVERNANCE/04_Engineering_Metrics|Engineering Metrics]]
-- [[17_GOVERNANCE/05_Definition_of_Ready|Definition of Ready]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
-- [[17_GOVERNANCE/07_Maturity_Model|Maturity Model]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,43 +1,22 @@
 ---
-title: "V1 to V2 Migration"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 70 V1 TO V2 MIGRATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION.md"
+original_sha256: "sha256:606afac175e96573b7bf01b652bb7b4d1e86ca179afd8bde78e3dd7b830c3a71"
+relocation_record_id: "DOCMOVE_475167E04B471FD6EA8EEF5D4196F8DD"
 ---
+# Redirect — 70 V1 TO V2 MIGRATION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION]].
 
-Migrates the existing Strategy Factory without discarding its research artifacts.
+- Legacy path: `docs/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION.md`
+- Preserved source digest: `sha256:606afac175e96573b7bf01b652bb7b4d1e86ca179afd8bde78e3dd7b830c3a71`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Keep V1 contracts and batch pipeline. Add V2 plugin descriptors, context DAG, compiled plan, fixed vectors, fast decision engine, generation management, latency telemetry, and MQL5 runtime contracts. Adapt one strategy end to end before mass migration.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Big-bang rewrite or changing anatomy and infrastructure simultaneously.
-
-# Required tests
-
-Differential replay must show V1/V2 research equivalence where semantics are unchanged.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

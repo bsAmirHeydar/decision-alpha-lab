@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Portfolio Simulation, Capacity, and Capital Path"
-tags:
-  - strategy-factory
+title: "Redirect — 57 PORTFOLIO SIMULATION AND CAPACITY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY.md"
+original_sha256: "sha256:6d4cfbc28f94e6ca376a848a6e6e99e9e61b09319312c633884328ec22985183"
+relocation_record_id: "DOCMOVE_40423E1E9023F42BF683CF3E16784EC3"
 ---
+# Redirect — 57 PORTFOLIO SIMULATION AND CAPACITY
 
-# Portfolio Simulation, Capacity, and Capital Path
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY]].
 
-Strategy-level alpha can disappear when combined through correlated exposure, limited liquidity, and capital constraints.
+- Legacy path: `docs/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY.md`
+- Preserved source digest: `sha256:6d4cfbc28f94e6ca376a848a6e6e99e9e61b09319312c633884328ec22985183`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Simulation
-
-Replay candidate decisions across strategies in timestamp order with aggregate risk limits, one-thesis clustering, margin, priority, and realistic fills. Measure portfolio drawdown, concentration, turnover, and missed opportunities.
-
-## Capacity
-
-Estimate spread/slippage response to size, available depth, broker limits, session liquidity, and fill probability. Capacity is strategy- and time-dependent. A high-R small-capacity edge may remain valuable but cannot support explosive scaling alone.
-
-## Capital path stress
-
-Monte Carlo or block bootstrap cluster returns, include cost uncertainty and strategy downtime, and test survival under adverse sequences. Use conservative risk-of-ruin and drawdown tolerances.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

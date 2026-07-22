@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Definition of Done for the Strategy Factory"
-tags:
-  - strategy-factory
+title: "Redirect — 74 DEFINITION OF DONE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/14_indexes/74_DEFINITION_OF_DONE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/14_indexes/74_DEFINITION_OF_DONE.md"
+original_sha256: "sha256:53309197c5d74257462e6d0a3c28014051728d12301f63d6602e8c21b6b2ee7e"
+relocation_record_id: "DOCMOVE_45098B3A15E2CE942ADC3F40D4979A4E"
 ---
+# Redirect — 74 DEFINITION OF DONE
 
-# Definition of Done for the Strategy Factory
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/14_indexes/74_DEFINITION_OF_DONE]].
 
-The factory is useful only when a new anatomy can reach a valid paper decision with minimal custom engineering.
+- Legacy path: `docs/strategy_factory/14_indexes/74_DEFINITION_OF_DONE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/14_indexes/74_DEFINITION_OF_DONE.md`
+- Preserved source digest: `sha256:53309197c5d74257462e6d0a3c28014051728d12301f63d6602e8c21b6b2ee7e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Platform DoD
-
-Contracts versioned; reference adapter operational; candidate and outcome engines tested; statistical and anti-overfit suite runnable; model baselines and OOS training present; paper and risk boundaries present; artifact lineage complete; CLI and examples documented; Python tests pass; no live-send authority introduced.
-
-## New anatomy DoD
-
-Canon frozen, adapter deterministic, known-time audit passed, event/cluster counts stable, manifest valid, candidate matrix bounded, simulator fixtures passed, baseline and matched null complete, OOS/anti-overfit report complete, paper trace parity established.
-
-## Residual implementation
-
-The supplied patch is a production-oriented foundation, not a claim that every future policy, vendor feed, or broker adapter is already implemented. New anatomy work should be small, but genuine domain-specific mapping and fixtures remain mandatory.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

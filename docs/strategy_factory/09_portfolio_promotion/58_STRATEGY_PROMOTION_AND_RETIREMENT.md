@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Strategy Promotion and Retirement"
-tags:
-  - strategy-factory
+title: "Redirect — 58 STRATEGY PROMOTION AND RETIREMENT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT.md"
+original_sha256: "sha256:0ba255e5772731073567faae400f0a7826894cdfb5fcb0ddc40156939829f29a"
+relocation_record_id: "DOCMOVE_8A163E5EFFA3CCEFC5CE8A4C26B02637"
 ---
+# Redirect — 58 STRATEGY PROMOTION AND RETIREMENT
 
-# Strategy Promotion and Retirement
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT]].
 
-Promotion is a documented decision based on a standard gate pack; retirement preserves knowledge and prevents repeated rediscovery of failed ideas.
+- Legacy path: `docs/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT.md`
+- Preserved source digest: `sha256:0ba255e5772731073567faae400f0a7826894cdfb5fcb0ddc40156939829f29a`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Promotion pack
-
-Canonical doctrine, adapter audit, dataset manifest, baseline comparison, OOS folds, anti-overfit suite, stress tests, model card, paper reconciliation, operational readiness, residual risks, and approved risk policy.
-
-## Decision
-
-The gate engine evaluates machine requirements; the architect signs the decision. Conditions and expiration are recorded. Conditional promotion may cap symbols, sessions, or risk.
-
-## Retirement
-
-Retire for failed economics, unstable definition, loss of edge, capacity exhaustion, operational burden, superior replacement, or invalidated mechanism. Store failure evidence, lessons, and conditions for reconsideration.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,43 +1,22 @@
 ---
-title: "Recommended Deployment Sequence"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 72 DEPLOYMENT SEQUENCE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE.md"
+original_sha256: "sha256:e4e0074ee150930da72a93ba4d873fbfa58f815e68d9b2659ed199c8a9fe2d89"
+relocation_record_id: "DOCMOVE_AE927B6E268D7C607C8D82177FAC918B"
 ---
+# Redirect — 72 DEPLOYMENT SEQUENCE
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE]].
 
-Minimizes risk while delivering speed.
+- Legacy path: `docs/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE.md`
+- Preserved source digest: `sha256:e4e0074ee150930da72a93ba4d873fbfa58f815e68d9b2659ed199c8a9fe2d89`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Phase 1 compile/inspect only; Phase 2 replay; Phase 3 shadow decisions; Phase 4 paper; Phase 5 micro-live; Phase 6 limited live; Phase 7 scale. Start with EXP0017, then NDS Zone-AF, then additional anatomies.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Enabling live because the runtime is technically capable.
-
-# Required tests
-
-Every phase has rollback and evidence gates.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

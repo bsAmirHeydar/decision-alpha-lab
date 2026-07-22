@@ -1,30 +1,22 @@
-# EXP0017 Chapter 06 — Cycle Group Behavioral Neutrality
+---
+title: "Redirect — CH06 no prejudgment across all cycle groups EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH06_no_prejudgment_across_all_cycle_groups_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH06_cycle_group_observation_protocol_EN.md"
+original_sha256: "sha256:804d417a5cd8969272d1a1367ce7c6dbad559e730c829570fc5cbdb22d9f2310"
+relocation_record_id: "DOCMOVE_C80B098A26F6F585565877E0B4C53EA9"
+---
+# Redirect — CH06 no prejudgment across all cycle groups EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH06_cycle_group_observation_protocol_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH06_no_prejudgment_across_all_cycle_groups_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH06_cycle_group_observation_protocol_EN.md`
+- Preserved source digest: `sha256:804d417a5cd8969272d1a1367ce7c6dbad559e730c829570fc5cbdb22d9f2310`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-No cycle group has predefined personality, superiority, inferiority, or behavioral meaning before statistical proof.
-
-## Locked Doctrine
-
-- Every CG enters research equally.
-- CG size does not imply higher power.
-- Small CGs and large CGs must be observed before classification.
-- Narrative fitting is forbidden before data.
-
-## Implementation Consequences
-
-- Implement every CG from the registry.
-- Do not remove or suppress CGs during raw observation.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

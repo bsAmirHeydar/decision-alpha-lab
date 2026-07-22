@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "enforcement": "NON_COMPENSATORY_FAIL_CLOSED",
+  "phase_id": "LCM-15B",
+  "policy_id": "02_EXACT_UPSTREAM",
+  "schema_version": "1.0.0",
+  "statement": "Bind the exact accepted LCM-15A handoff and 940-path approved relocation pathspec."
+}

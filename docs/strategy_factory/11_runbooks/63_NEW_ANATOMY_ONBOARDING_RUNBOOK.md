@@ -1,36 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Runbook — Onboard a New Anatomy"
-tags:
-  - strategy-factory
+title: "Redirect — 63 NEW ANATOMY ONBOARDING RUNBOOK"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK.md"
+original_sha256: "sha256:6331f89c08c2295e1a9c39ae1df9620d9ddf2ddb6820d856cc56d7a98b6909df"
+relocation_record_id: "DOCMOVE_8D366DEEB1B2153D3873CC88DC415AA8"
 ---
+# Redirect — 63 NEW ANATOMY ONBOARDING RUNBOOK
 
-# Runbook — Onboard a New Anatomy
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK]].
 
-This is the shortest professional path from a mature market view to the shared factory.
+- Legacy path: `docs/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK.md`
+- Preserved source digest: `sha256:6331f89c08c2295e1a9c39ae1df9620d9ddf2ddb6820d856cc56d7a98b6909df`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Step 1 — freeze doctrine
-
-Complete the anatomy specification: entities, lifecycle, direction, known time, invalidation, duplicate policy, timeframe/symbol scope, and kill criteria. Do not write execution first.
-
-## Step 2 — export ten examples
-
-Produce a tiny CSV or direct adapter output containing positive, negative, ambiguous, missing-data, and boundary cases. Hand-verify event identity and time.
-
-## Step 3 — implement adapter
-
-Map the anatomy to `AnatomyEvent` and `FeatureSnapshot`. Add only strategy-specific fields. Run contract and future-feature tests.
-
-## Step 4 — create manifest
-
-Select a small candidate universe, primary label, matched baseline, cost model, fold plan, anti-overfit suite, and execution disabled by default.
-
-## Step 5 — first vertical run
-
-Materialize events, snapshots, candidates, outcomes, statistics, and QA. Do not train AI until the rule baseline and simulator fixtures pass.
-
-## Step 6 — scale data
-
-Generate historical clusters, run OOS and anti-overfit controls, freeze confirmation, then connect paper. New strategies should require days rather than rebuilding months of infrastructure.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,43 +1,22 @@
 ---
-title: "Latency Budget Reference"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 75 LATENCY BUDGET REFERENCE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md"
+original_sha256: "sha256:88fe27c183f1f1beee873dbd163d83600353d42f91e1442c0e4f98d25f6f7a77"
+relocation_record_id: "DOCMOVE_EFC0D5BDF0A021F17F67A9F2A9941C10"
 ---
+# Redirect — 75 LATENCY BUDGET REFERENCE
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE]].
 
-Provides realistic budget design rather than universal promises.
+- Legacy path: `docs/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md`
+- Preserved source digest: `sha256:88fe27c183f1f1beee873dbd163d83600353d42f91e1442c0e4f98d25f6f7a77`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Set budgets after benchmarking actual hardware and workload. Python reference paths may target single-digit milliseconds for small local models; compiled MQL5 paths may be lower. Network/broker latency is separate. Monitor distributions and cold starts.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Claiming HFT-class latency without colocation and end-to-end measurement.
-
-# Required tests
-
-Budgets are per strategy generation and mode.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

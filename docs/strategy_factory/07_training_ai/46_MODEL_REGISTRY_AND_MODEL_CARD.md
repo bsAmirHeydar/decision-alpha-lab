@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Model Registry and Model Card"
-tags:
-  - strategy-factory
+title: "Redirect — 46 MODEL REGISTRY AND MODEL CARD"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD.md"
+original_sha256: "sha256:e8e34a594f46da4e2a35a6ca2a5c23fae2c193ec415ce3d5c791da3273d5358e"
+relocation_record_id: "DOCMOVE_AD7635C2D02037E0FB4BF7A4A39F7956"
 ---
+# Redirect — 46 MODEL REGISTRY AND MODEL CARD
 
-# Model Registry and Model Card
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD]].
 
-Every model artifact is immutable, versioned, and bound to exact schemas and folds.
+- Legacy path: `docs/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD.md`
+- Preserved source digest: `sha256:e8e34a594f46da4e2a35a6ca2a5c23fae2c193ec415ce3d5c791da3273d5358e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Registry fields
-
-Model ID/version, strategy version, task, feature schema, candidate schema, label version, fold plan, training period, random seed, hyperparameters, metrics, calibration, artifact hash, runtime dependencies, owner, status, and retirement reason.
-
-## Model card
-
-Document intended use, prohibited use, training data, evaluation, failure modes, missing-feature behavior, drift indicators, decision threshold, explainability, and residual risks. A model without a complete card cannot enter paper execution.
-
-## Compatibility
-
-Inference checks feature names/order/types, strategy version, policy universe, and artifact hash. Mismatch means skip, never best-effort inference.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

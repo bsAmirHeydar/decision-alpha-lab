@@ -1,46 +1,22 @@
 ---
-id: AIEOS-BC6E494203
-title: "Algorithm Design"
-type: map-of-content
-status: active
-domain: algorithm-design
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - algorithm-design
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/03_ALGORITHM_DESIGN/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/03_ALGORITHM_DESIGN/_MOC.md"
+original_sha256: "sha256:5a4ea7a6202c606957264ae7fd484e0b0cc156db13839b31b78a5bd2b2e09760"
+relocation_record_id: "DOCMOVE_4E287FF370050F979977959F514CC772"
 ---
-# Algorithm Design
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Design deterministic algorithms before selecting code structures.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/03_ALGORITHM_DESIGN/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/03_ALGORITHM_DESIGN/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/03_ALGORITHM_DESIGN/_MOC.md`
+- Preserved source digest: `sha256:5a4ea7a6202c606957264ae7fd484e0b0cc156db13839b31b78a5bd2b2e09760`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[03_ALGORITHM_DESIGN/01_Problem_Decomposition|Problem Decomposition]]
-- [[03_ALGORITHM_DESIGN/02_Algorithm_Alternatives|Algorithm Alternatives]]
-- [[03_ALGORITHM_DESIGN/03_Entities_States_Events|Entities States Events]]
-- [[03_ALGORITHM_DESIGN/04_Invariants|Invariants]]
-- [[03_ALGORITHM_DESIGN/05_State_Machines|State Machines]]
-- [[03_ALGORITHM_DESIGN/06_Complexity_Budgets|Complexity Budgets]]
-- [[03_ALGORITHM_DESIGN/07_Pseudocode_Standard|Pseudocode Standard]]
-- [[03_ALGORITHM_DESIGN/08_Online_vs_Batch_Algorithms|Online vs Batch Algorithms]]
-- [[03_ALGORITHM_DESIGN/09_Historical_Reconstruction|Historical Reconstruction]]
-- [[03_ALGORITHM_DESIGN/10_Determinism_and_Idempotency|Determinism and Idempotency]]
-- [[03_ALGORITHM_DESIGN/11_Edge_Case_Catalog|Edge Case Catalog]]
-- [[03_ALGORITHM_DESIGN/12_Design_Review_Gate|Design Review Gate]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

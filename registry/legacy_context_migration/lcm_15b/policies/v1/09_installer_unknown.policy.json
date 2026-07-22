@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "enforcement": "NON_COMPENSATORY_FAIL_CLOSED",
+  "phase_id": "LCM-15B",
+  "policy_id": "09_INSTALLER_UNKNOWN",
+  "schema_version": "1.0.0",
+  "statement": "External installer automation reachability remains UNKNOWN and preserves the legacy locator."
+}

@@ -1,43 +1,22 @@
 ---
-title: "Experiment Plan Compiler"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 41 EXPERIMENT PLAN COMPILER"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER.md"
+original_sha256: "sha256:fa2060b9b5708c6b9e19e14dbe7e8646c3d8f426508b75ba7ce89fe86d6a4364"
+relocation_record_id: "DOCMOVE_8E6B48BC6AC40EBDECCB24D9FD7A758C"
 ---
+# Redirect — 41 EXPERIMENT PLAN COMPILER
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER]].
 
-Uses the same declarative strategy specification to generate research jobs and live plans.
+- Legacy path: `docs/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER.md`
+- Preserved source digest: `sha256:fa2060b9b5708c6b9e19e14dbe7e8646c3d8f426508b75ba7ce89fe86d6a4364`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Compile event sources, features, candidate universe, labels, folds, nulls, models, metrics, and anti-overfit tests into an immutable experiment graph.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Notebook-only pipelines or manual step ordering.
-
-# Required tests
-
-Graph hash, dependency validation, restartability, and artifact completeness.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

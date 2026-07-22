@@ -1,19 +1,22 @@
 ---
-id: AIEOS2-C80D38133017
-title: "Causal Time and Availability"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 06 Causal Time and Availability"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/06_Causal_Time_and_Availability.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/06_Causal_Time_and_Availability.md"
+original_sha256: "sha256:f2efc134dc2e5945e010ae2959ea2b61df37b5fb7d475f48635189d04928eb56"
+relocation_record_id: "DOCMOVE_F412D4AB0A2575D279365F213DE24862"
 ---
-# Causal Time and Availability
+# Redirect — 06 Causal Time and Availability
 
-Every time-dependent field declares event time, observation time, availability time, timezone, and decision cutoff. “Historical” does not mean “available at the time.”
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/06_Causal_Time_and_Availability]].
 
-A feature is legal for decision/model input only if its availability timestamp is at or before the sample’s decision timestamp. Full-day ranges, future extrema, final labels, and full-history rankings are common leakage sources.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/06_Causal_Time_and_Availability.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/06_Causal_Time_and_Availability.md`
+- Preserved source digest: `sha256:f2efc134dc2e5945e010ae2959ea2b61df37b5fb7d475f48635189d04928eb56`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

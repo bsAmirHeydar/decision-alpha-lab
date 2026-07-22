@@ -1,57 +1,22 @@
 ---
-id: AIEOS-F0C37A6A07
-title: "AI Output Acceptance Checklist"
-type: checklist
-status: active
-domain: checklist
+title: "Redirect — 06 AI Output Acceptance"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - checklist
-  - checklist
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/06_AI_Output_Acceptance.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/06_AI_Output_Acceptance.md"
+original_sha256: "sha256:2166ffb0520279ef973c5a6a00432c7447a93501849fff1e3ecf2aafc3f2b177"
+relocation_record_id: "DOCMOVE_8206E42A4E4F6F8DC0680E5A6F1DAB23"
 ---
-# AI Output Acceptance Checklist
+# Redirect — 06 AI Output Acceptance
 
-> [!abstract] Purpose
-> Decide whether an AI-generated artifact may enter the project
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/06_AI_Output_Acceptance]].
 
-## Grounding
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/06_AI_Output_Acceptance.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/06_AI_Output_Acceptance.md`
+- Preserved source digest: `sha256:2166ffb0520279ef973c5a6a00432c7447a93501849fff1e3ecf2aafc3f2b177`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [ ] Repository-specific claims come from inspected files or tool output.
-- [ ] Facts, assumptions, unknowns, and recommendations are separated.
-
-## Scope
-
-- [ ] Output follows the assigned role and does not expand scope silently.
-
-## Engineering
-
-- [ ] Domain rules, invariants, architecture, conventions, compatibility, and security are preserved.
-
-## Evidence
-
-- [ ] Commands were actually run or explicitly marked unrun.
-- [ ] Tests and review results are attached.
-
-## Understanding
-
-- [ ] A human maintainer can explain and own the result.
-
-## Gate Result
-
-- **PASS:** every mandatory item is checked and evidence is linked.
-- **CONDITIONAL:** only explicitly accepted, time-bounded exceptions remain.
-- **FAIL:** any domain rule, safety rule, compilation rule, or state-integrity item is unresolved.
-
-## Evidence Record
-
-| Item | Evidence link / command output | Reviewer | Date |
-|---|---|---|---|
-|  |  |  |  |
-
-## Related Notes
-
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

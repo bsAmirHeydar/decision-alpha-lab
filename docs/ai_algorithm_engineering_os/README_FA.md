@@ -1,37 +1,22 @@
 ---
-title: "راهنمای فارسی AI Algorithm Engineering OS"
-type: readme
-status: active
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
+title: "Redirect — README FA"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/README_FA.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README_FA.md"
+original_sha256: "sha256:1fa7f48f0e1e014a66f70663123dae12646f580494c8962f95f9b5cbbe81febd"
+relocation_record_id: "DOCMOVE_6C18A7F8B4E410A6F6D1EB465F57ED23"
 ---
-# سیستم‌عامل مهندسی الگوریتم و کدنویسی با هوش مصنوعی — نسخه ۲
+# Redirect — README FA
 
-این Vault اکنون مستقیماً برای **Decision Alpha Lab** یکپارچه شده است. هدف آن تولید کد بیشتر نیست؛ هدف تبدیل شهود و تعریف‌های بازار به قرارداد رسمی، الگوریتم قطعی، پچ محدود، تست، پژوهش بازتولیدپذیر، مدل کنترل‌شده، تصمیم نسخه‌دار و اجرای امن است.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README_FA]].
 
-## نقطه شروع
+- Legacy path: `docs/ai_algorithm_engineering_os/README_FA.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/README_FA.md`
+- Preserved source digest: `sha256:1fa7f48f0e1e014a66f70663123dae12646f580494c8962f95f9b5cbbe81febd`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-1. فایل [[00_START_HERE/00_Home|Home]] را باز کنید.
-2. قوانین پروژه را از `AGENTS.md` و `docs/engineering/` بخوانید.
-3. برای هر کار، workflow مناسب را اجرا و از template استفاده کنید.
-4. هیچ خروجی AI یا مدل بدون evidence و gate پذیرفته نمی‌شود.
-
-## مسیر استاندارد
-
-```text
-ایده خام
-→ واژگان و ابهام‌زدایی
-→ مشخصات رسمی
-→ الگوریتم و state
-→ معماری و contract
-→ پچ حداقلی
-→ compile/test/replay
-→ پژوهش و اعتبارسنجی
-→ promotion انسانی
-→ اجرا و مانیتورینگ
-```
-
-## اصل غیرقابل‌مذاکره
-
-هوش مصنوعی حق اختراع حقیقت دامنه، پنهان‌کردن عدم قطعیت، ادعای تست‌نشده یا تبدیل خودکار نتیجه آماری به اجازه معامله را ندارد.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

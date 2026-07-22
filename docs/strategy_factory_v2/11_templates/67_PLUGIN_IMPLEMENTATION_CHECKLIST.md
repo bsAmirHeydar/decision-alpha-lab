@@ -1,43 +1,22 @@
 ---
-title: "Plugin Implementation Checklist"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 67 PLUGIN IMPLEMENTATION CHECKLIST"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST.md"
+original_sha256: "sha256:711fd911dcd67a3a39314696a2e636a9895c726ffbe3acee19edaf32a48a783b"
+relocation_record_id: "DOCMOVE_EAD288E5B120A45AF2960D22B2AB8AAC"
 ---
+# Redirect — 67 PLUGIN IMPLEMENTATION CHECKLIST
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST]].
 
-Standard checklist for any new extension.
+- Legacy path: `docs/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST.md`
+- Preserved source digest: `sha256:711fd911dcd67a3a39314696a2e636a9895c726ffbe3acee19edaf32a48a783b`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Descriptor; interface; dependency declaration; version; capabilities; deterministic identity; errors; reason codes; tests; benchmark; documentation; migration; owner.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Merging an unversioned helper directly into live code.
-
-# Required tests
-
-All checklist fields are reviewable artifacts.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

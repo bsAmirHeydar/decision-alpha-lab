@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Canon Freeze and Change Control"
-tags:
-  - strategy-factory
+title: "Redirect — 06 CANON FREEZE AND CHANGE CONTROL"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL.md"
+original_sha256: "sha256:aaff0e2da98ce6c83848618c2173613778be56e5487a38ae175d617f5411c3ff"
+relocation_record_id: "DOCMOVE_1DF287096A9D395AE100664CDFA0E2D7"
 ---
+# Redirect — 06 CANON FREEZE AND CHANGE CONTROL
 
-# Canon Freeze and Change Control
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL]].
 
-Anatomy definitions must be frozen before official outcome analysis. Change is allowed, but it creates a new semantic version and a new research trial.
+- Legacy path: `docs/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL.md`
+- Preserved source digest: `sha256:aaff0e2da98ce6c83848618c2173613778be56e5487a38ae175d617f5411c3ff`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Freeze contents
-
-The freeze includes object definitions, state transitions, precedence, event timing, reference lifecycle, invalidation, duplicate handling, symbol synchronization, timeframe ownership, and visibility versus truth. If any of these can change after seeing outcomes, the backtest is not falsifiable.
-
-## Change classes
-
-Patch changes fix implementation without changing outputs. Minor changes add backward-compatible fields or policies. Major changes alter event membership, timing, direction, invalidation, candidate geometry, or labels. Major changes restart OOS confirmation and may require new data.
-
-## Decision record
-
-Every semantic change documents the old behavior, new behavior, reason, evidence that motivated the change, affected artifacts, migration, and whether prior results remain comparable. The trial registry counts the change even if the new version performs worse.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_execution_freedom_and_position_multiplicity_doctrine_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH18_no_limit_execution_boundary_and_cluster_study_EN.md`
 
 ## Role
 

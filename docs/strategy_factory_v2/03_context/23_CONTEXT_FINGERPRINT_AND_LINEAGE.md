@@ -1,43 +1,22 @@
 ---
-title: "Context Fingerprint and Lineage"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 23 CONTEXT FINGERPRINT AND LINEAGE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE.md"
+original_sha256: "sha256:a681b71ce43488a67c6b8a07b223b9eb506ca4b48d684213e7d0acbbac1f9b97"
+relocation_record_id: "DOCMOVE_81817FC750B070C614C966AB3E4E4204"
 ---
+# Redirect — 23 CONTEXT FINGERPRINT AND LINEAGE
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE]].
 
-Makes every decision reproducible from exact source versions and values.
+- Legacy path: `docs/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE.md`
+- Preserved source digest: `sha256:a681b71ce43488a67c6b8a07b223b9eb506ca4b48d684213e7d0acbbac1f9b97`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Hash event identity, snapshot schema, feature values, feature versions, state generations, and provider plan. Store the fingerprint in the DecisionEnvelope.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Hashing only the final vector, omitting missing reasons, or losing the link to raw feed and anatomy version.
-
-# Required tests
-
-Rebuild verification and artifact lineage audits.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

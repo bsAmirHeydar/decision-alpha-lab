@@ -1,17 +1,22 @@
 ---
-id: AIEOS2-9A348B0F0016
-title: "Release Evidence Bundle"
-type: standard
-status: active
-domain: quality-automation
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - quality-automation
+title: "Redirect — 07 Release Evidence Bundle"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/07_Release_Evidence_Bundle.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/07_Release_Evidence_Bundle.md"
+original_sha256: "sha256:382415d663345f58d153e14c1568dcef4269cb518761b905131d5faa2023eba0"
+relocation_record_id: "DOCMOVE_27673300F59D5D891EA0AE55A741F815"
 ---
-# Release Evidence Bundle
+# Redirect — 07 Release Evidence Bundle
 
-A release bundle contains manifest, version/changelog, compile/test outputs, checksums, migration, rollback, configuration examples, and monitoring expectations. Evidence is linked, not paraphrased optimistically.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/07_Release_Evidence_Bundle]].
+
+- Legacy path: `docs/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/07_Release_Evidence_Bundle.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/07_Release_Evidence_Bundle.md`
+- Preserved source digest: `sha256:382415d663345f58d153e14c1568dcef4269cb518761b905131d5faa2023eba0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

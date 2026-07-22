@@ -1,43 +1,22 @@
 ---
-title: "Performance and Latency Benchmarking"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 60 PERFORMANCE AND LATENCY BENCHMARKING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING.md"
+original_sha256: "sha256:21926972f80b9895900d35a0a25e010235f20403cca9c28389d270442e6f6123"
+relocation_record_id: "DOCMOVE_3F152368760A3A7A1E396E0B4B825A97"
 ---
+# Redirect — 60 PERFORMANCE AND LATENCY BENCHMARKING
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING]].
 
-Produces reproducible latency and throughput evidence.
+- Legacy path: `docs/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING.md`
+- Preserved source digest: `sha256:21926972f80b9895900d35a0a25e010235f20403cca9c28389d270442e6f6123`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Specify hardware, OS, Python/MQL5 version, warmup, event/candidate/features/models, cache state, p50/p95/p99/max, throughput, allocations, and failure rate.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Comparing different workloads or quoting best single call.
-
-# Required tests
-
-Store benchmark manifests and regressions in CI thresholds.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

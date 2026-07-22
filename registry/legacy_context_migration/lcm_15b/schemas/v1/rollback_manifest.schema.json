@@ -1,0 +1,15 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/rollback_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "rollback_manifest_digest": {},
+    "rollback_record_count": {}
+  },
+  "required": [
+    "rollback_record_count",
+    "rollback_manifest_digest"
+  ],
+  "title": "rollback_manifest",
+  "type": "object"
+}

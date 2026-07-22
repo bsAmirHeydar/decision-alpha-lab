@@ -1,30 +1,22 @@
-# EXP0017 Chapter 11 — Cycle Group Independence and Daily Reset
+---
+title: "Redirect — CH11 cycle group independence and daily reset doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_cycle_group_independence_and_daily_reset_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_buy_sell_duality_and_signal_separation_EN.md"
+original_sha256: "sha256:f60dbc5f4f84e9fe9f1c349e93b28205f33cf645ad6aeda2a8ae9e1d31eb06a6"
+relocation_record_id: "DOCMOVE_BACD48C59D35E391D9EED8F3BFC087D5"
+---
+# Redirect — CH11 cycle group independence and daily reset doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_buy_sell_duality_and_signal_separation_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_cycle_group_independence_and_daily_reset_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH11_buy_sell_duality_and_signal_separation_EN.md`
+- Preserved source digest: `sha256:f60dbc5f4f84e9fe9f1c349e93b28205f33cf645ad6aeda2a8ae9e1d31eb06a6`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-CGs, directions, and daily fields are independent in the base layer; previous days do not carry decision authority.
-
-## Locked Doctrine
-
-- Buy and sell are both valid research families.
-- CGs do not validate or cancel each other before statistics.
-- No confluence assumption exists before testing.
-- Every day is independent from previous days for live decision.
-
-## Implementation Consequences
-
-- Implement same-day decision memory and research memory separately.
-- Do not carry references from prior days into live signal construction.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

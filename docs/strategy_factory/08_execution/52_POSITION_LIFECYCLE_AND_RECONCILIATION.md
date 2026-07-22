@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Position Lifecycle and Reconciliation"
-tags:
-  - strategy-factory
+title: "Redirect — 52 POSITION LIFECYCLE AND RECONCILIATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION.md"
+original_sha256: "sha256:35e7dcc76b9b6cb4cc4540a00866841dbe6e8d4da27dcf209bd326acb9b8bc69"
+relocation_record_id: "DOCMOVE_EAB40D2A115B49F471E9ACF2D7EF5191"
 ---
+# Redirect — 52 POSITION LIFECYCLE AND RECONCILIATION
 
-# Position Lifecycle and Reconciliation
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION]].
 
-Execution is a state machine that must survive terminal restarts, network failure, partial fills, and manual broker changes.
+- Legacy path: `docs/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION.md`
+- Preserved source digest: `sha256:35e7dcc76b9b6cb4cc4540a00866841dbe6e8d4da27dcf209bd326acb9b8bc69`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## States
-
-Intent created, risk reserved, submitted, accepted, pending, partially filled, filled, managed, closing, closed, cancelled, rejected, orphaned, and quarantined. Allowed transitions are explicit.
-
-## Reconciliation
-
-On startup and periodically, compare local intents, orders, deals, and positions with broker truth. Unknown broker positions or missing local state stop automation and require incident resolution.
-
-## Idempotency
-
-Intent IDs and broker comments provide stable idempotency keys. Reprocessing an event or restart cannot create a second order. Lifecycle updates are append-only.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

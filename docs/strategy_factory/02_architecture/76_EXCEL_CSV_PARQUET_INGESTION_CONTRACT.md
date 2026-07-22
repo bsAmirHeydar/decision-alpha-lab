@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Excel, CSV, and Parquet Ingestion Contract"
-tags:
-  - strategy-factory
+title: "Redirect — 76 EXCEL CSV PARQUET INGESTION CONTRACT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT.md"
+original_sha256: "sha256:17c1f10f9c16f63cd32e2921dc7d022133bcd01f04e63d0402a7aac998ca2f60"
+relocation_record_id: "DOCMOVE_89E5FF62D8EBBBB92FADD8FA48516BE2"
 ---
+# Redirect — 76 EXCEL CSV PARQUET INGESTION CONTRACT
 
-# Excel, CSV, and Parquet Ingestion Contract
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT]].
 
-The fastest path from chart-exported data or a spreadsheet shared in chat to official research is a strict ingestion and audit layer.
+- Legacy path: `docs/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT.md`
+- Preserved source digest: `sha256:17c1f10f9c16f63cd32e2921dc7d022133bcd01f04e63d0402a7aac998ca2f60`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Accepted inputs
-
-Bar tables, event tables, feature tables, candidate tables, and manual-review labels may arrive as Excel, CSV, or Parquet. Excel is an exchange format, not the authoritative research store. Ingestion converts it to canonical typed tables, UTC timestamps, stable identities, and Parquet/CSV artifacts.
-
-## Required bar fields
-
-UTC and exchange timestamps, symbol, timeframe, open/high/low/close, bid/ask or spread when available, volume, feed/vendor, session, and bar completeness. For cross-market work, record synchronization tolerance and missing-bar policy.
-
-## Event and manual-label fields
-
-Every event needs strategy/version, symbol universe, direction, event/known/confirmation times, reference and invalidation, cluster ID, and source identity. Manual labels require labeler, label time, evidence available at label time, confidence, and disagreement status. A human label created after the path is known cannot become a live feature.
-
-## Ingestion QA
-
-Schema and type validation, timezone/DST normalization, duplicates, OHLC geometry, finite values, missingness, cross-symbol alignment, row lineage, and source hashes. Invalid rows are quarantined with reason codes rather than silently dropped.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

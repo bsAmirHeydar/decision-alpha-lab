@@ -1,43 +1,22 @@
 ---
-title: "Reason Code Catalog"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 74 REASON CODE CATALOG"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG.md"
+original_sha256: "sha256:c044a0148f0f5131fdb61edf8cb32572d71c3030ec21b4cbf681c2c9f15c9ba6"
+relocation_record_id: "DOCMOVE_45B56A0DB001A5CB3DA5ADA248A367C6"
 ---
+# Redirect — 74 REASON CODE CATALOG
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG]].
 
-Canonical machine-readable reasons for trade, skip, abstain, reject, and failure.
+- Legacy path: `docs/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG.md`
+- Preserved source digest: `sha256:c044a0148f0f5131fdb61edf8cb32572d71c3030ec21b4cbf681c2c9f15c9ba6`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Groups include context, gate, candidate, model, threshold, latency, risk, broker, lifecycle, duplicate, and internal error. Codes are stable; detail goes in diagnostics.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Arbitrary free text used as logic.
-
-# Required tests
-
-Every decision path emits one primary and optional secondary codes.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

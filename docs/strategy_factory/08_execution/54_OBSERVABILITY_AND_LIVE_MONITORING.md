@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Observability and Live Monitoring"
-tags:
-  - strategy-factory
+title: "Redirect — 54 OBSERVABILITY AND LIVE MONITORING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING.md"
+original_sha256: "sha256:9ed6efc8c54985d18b313972b7981539a8d35c6330cc0b64ae96846891898af5"
+relocation_record_id: "DOCMOVE_97C3900D62F2B56BEEFFCA35F86B4832"
 ---
+# Redirect — 54 OBSERVABILITY AND LIVE MONITORING
 
-# Observability and Live Monitoring
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING]].
 
-Monitoring spans anatomy production, model inference, risk decisions, broker execution, and realized economics.
+- Legacy path: `docs/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING.md`
+- Preserved source digest: `sha256:9ed6efc8c54985d18b313972b7981539a8d35c6330cc0b64ae96846891898af5`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Telemetry
-
-Event counts, missing references, feature missingness, decision latency, score distribution, trade coverage, risk reservations, order rejects, fill/slippage, open exposure, realized R, calibration, and drift.
-
-## Dashboards and alerts
-
-Separate health alerts from performance alerts. A single loss is not an incident; missing data or unauthorized exposure is. Define warning, degraded, and blocked states with response playbooks.
-
-## Research feedback
-
-Live traces enter a quarantined evaluation store. They may update reports and drift analysis but do not automatically retrain or change rules. Promotion of a retrained model follows the full lifecycle.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

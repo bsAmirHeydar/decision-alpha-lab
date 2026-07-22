@@ -1,43 +1,22 @@
 ---
-title: "Context-to-Decision Fast Path"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 24 CONTEXT TO DECISION FAST PATH"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH.md"
+original_sha256: "sha256:c4107e16cd5a972b8a751a1399dd4c5150a31b507a7c209e3f2a08c76a2827d0"
+relocation_record_id: "DOCMOVE_8C4083591B2A06A8BB96769D830A896B"
 ---
+# Redirect — 24 CONTEXT TO DECISION FAST PATH
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH]].
 
-Defines the authoritative low-latency path from a confirmed event to a bounded decision.
+- Legacy path: `docs/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH.md`
+- Preserved source digest: `sha256:c4107e16cd5a972b8a751a1399dd4c5150a31b507a7c209e3f2a08c76a2827d0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-No I/O; no parsing; no dynamic discovery; bounded features, providers, candidates, models, and gates; local inference; explicit abstention; stage timing.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Running research searches, remote inference, report generation, logging serialization, or unbounded loops in the decision thread.
-
-# Required tests
-
-Warm/cold benchmark, p50/p95/p99, deterministic replay, failure fallback, and budget-breach behavior.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

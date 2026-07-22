@@ -1,31 +1,22 @@
-# EXP0017 Chapter 12 — Signal Persistence and Invalidation Boundary
+---
+title: "Redirect — CH12 signal persistence and invalidation boundary EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_signal_persistence_and_invalidation_boundary_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_no_filter_no_suppression_doctrine_EN.md"
+original_sha256: "sha256:23a242c4700c3c77bea5d58aac98812c730be24cd63475b412afc7edbc1f74a5"
+relocation_record_id: "DOCMOVE_A5ECFF7C9937634574D517A1D2C2B7D9"
+---
+# Redirect — CH12 signal persistence and invalidation boundary EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_no_filter_no_suppression_doctrine_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_signal_persistence_and_invalidation_boundary_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH12_no_filter_no_suppression_doctrine_EN.md`
+- Preserved source digest: `sha256:23a242c4700c3c77bea5d58aac98812c730be24cd63475b412afc7edbc1f74a5`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-A signal persists unless the divergence itself is invalidated by double hunt; no external filter suppresses it in the base layer.
-
-## Locked Doctrine
-
-- Signals are not removed because another CG exists.
-- Signals are not removed because time feels weak.
-- Signals are not removed because stop distance is large.
-- True invalidation is removal of asymmetry by both-symbol hunt.
-- Raw signal validity and trading quality are different concepts.
-
-## Implementation Consequences
-
-- Build signal lifecycle states.
-- Do not suppress confirmed signals before statistics.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

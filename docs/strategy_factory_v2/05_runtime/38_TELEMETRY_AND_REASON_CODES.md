@@ -1,43 +1,22 @@
 ---
-title: "Telemetry and Reason Codes"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 38 TELEMETRY AND REASON CODES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES.md"
+original_sha256: "sha256:063b547025f48d50d89055696e0fb8fca9c205e4618563c335f9c22940deb2e7"
+relocation_record_id: "DOCMOVE_F73BC2769A7769F1AC310295BF3B4A46"
 ---
+# Redirect — 38 TELEMETRY AND REASON CODES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES]].
 
-Provides high-rate observability without contaminating the decision path.
+- Legacy path: `docs/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES.md`
+- Preserved source digest: `sha256:063b547025f48d50d89055696e0fb8fca9c205e4618563c335f9c22940deb2e7`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Bounded in-memory telemetry records stage latency, cache hits, candidate count, action, reason codes, plan hash, and errors. Observers flush asynchronously.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Free-form reasons, unbounded logs, or missing skip records.
-
-# Required tests
-
-Vocabulary coverage and observer-failure isolation.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,19 +1,22 @@
 ---
-id: AIEOS2-C151EA071025
-title: "Documentation and Obsidian Integration"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 15 Documentation and Obsidian Integration"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/15_Documentation_and_Obsidian_Integration.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/15_Documentation_and_Obsidian_Integration.md"
+original_sha256: "sha256:62b5ab125b0b4a192a407d38b6ad355cdb51f41d50a3e7394e3f5f33d65b2630"
+relocation_record_id: "DOCMOVE_6737A742CD3EB1968BDF4AC98C26130C"
 ---
-# Documentation and Obsidian Integration
+# Redirect — 15 Documentation and Obsidian Integration
 
-The full operating system lives under `docs/ai_algorithm_engineering_os`. Repository-facing canonical standards live under `docs/engineering`. Module MOCs connect specifications, implementations, tests, decisions, and evidence.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/15_Documentation_and_Obsidian_Integration]].
 
-Chat is transient. Durable rules and decisions must be committed.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/15_Documentation_and_Obsidian_Integration.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/15_Documentation_and_Obsidian_Integration.md`
+- Preserved source digest: `sha256:62b5ab125b0b4a192a407d38b6ad355cdb51f41d50a3e7394e3f5f33d65b2630`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

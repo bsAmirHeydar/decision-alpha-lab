@@ -1,43 +1,22 @@
 ---
-title: "Anatomy Adapter Plugin"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 11 ANATOMY ADAPTER PLUGIN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN.md"
+original_sha256: "sha256:5b78427e898bb3845f9b4cbf0da1d713f7bcae29b892aad366774838f5b52284"
+relocation_record_id: "DOCMOVE_54FB584A4A942D7947562CF496E9A8C3"
 ---
+# Redirect — 11 ANATOMY ADAPTER PLUGIN
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN]].
 
-Maps any market ontology into the canonical event contract.
+- Legacy path: `docs/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN.md`
+- Preserved source digest: `sha256:5b78427e898bb3845f9b4cbf0da1d713f7bcae29b892aad366774838f5b52284`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Emit stable event ID, strategy/version, direction, timestamps, reference and invalidation, cluster ID, lineage hash, and bounded metadata.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Recomputing anatomy from future bars, selecting entries, labeling winners, or merging distinct events after outcomes.
-
-# Required tests
-
-Golden chart cases, no-future-data tests, deterministic identity, lifecycle replay, and cross-language parity.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

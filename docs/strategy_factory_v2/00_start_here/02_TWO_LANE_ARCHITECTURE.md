@@ -1,62 +1,22 @@
 ---
-title: "Two-Lane Architecture — Deep Research and Compiled Decision"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 02 TWO LANE ARCHITECTURE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE.md"
+original_sha256: "sha256:1a838913d140aa77518ead2b3c576161ef60472d98d84c7e791ecbf4551aa61d"
+relocation_record_id: "DOCMOVE_2F01D3193D182B52EA6A901B179E68C7"
 ---
+# Redirect — 02 TWO LANE ARCHITECTURE
 
-# Why two lanes exist
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE]].
 
-The work required to discover a setup is different from the work permitted while deciding whether to trade it.
+- Legacy path: `docs/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE.md`
+- Preserved source digest: `sha256:1a838913d140aa77518ead2b3c576161ef60472d98d84c7e791ecbf4551aa61d`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Deep research lane
-
-The research lane is allowed to be exhaustive and computationally expensive. It may:
-
-- materialize large event and candidate tables;
-- generate broad entry/stop/exit combinations;
-- run coarse-to-fine searches;
-- compare many labels and horizons;
-- calculate grouped statistics and confidence intervals;
-- perform purged walk-forward and combinatorial CV;
-- run permutation, placebo, bootstrap, PBO, DSR, FDR, and reality-check tests;
-- train multiple model families;
-- create charts, reports, and forensic failure analyses.
-
-It writes immutable artifacts and never sends orders.
-
-## Compiled decision lane
-
-The decision lane receives a promoted plan. It may only:
-
-1. accept a valid AnatomyEvent;
-2. update the required context graph;
-3. build a bounded candidate set from compiled templates;
-4. encode fixed feature vectors;
-5. run approved local model routes;
-6. calibrate, rank, and abstain;
-7. emit a DecisionEnvelope;
-8. request independent risk authorization;
-9. produce an ExecutionIntent.
-
-It does not perform model selection, hyperparameter search, dataframe joins, report generation, or trial discovery.
-
-## Parity contract
-
-Research and live must share:
-
-- event semantics;
-- feature definitions and known times;
-- candidate policy code or verified equivalent implementations;
-- cost model versions;
-- model artifact hashes;
-- threshold versions;
-- reason-code vocabulary;
-- execution intent schema.
-
-The research lane may use a vectorized implementation and the live lane a compiled MQL5 implementation, but differential replay tests must prove equivalent outputs within declared tolerances.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

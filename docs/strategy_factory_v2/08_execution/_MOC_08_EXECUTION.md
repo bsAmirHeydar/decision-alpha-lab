@@ -1,16 +1,22 @@
 ---
-title: "08 Execution MOC"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect —  MOC 08 EXECUTION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/08_execution/_MOC_08_EXECUTION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/_MOC_08_EXECUTION.md"
+original_sha256: "sha256:12f2a01d6dc4e67d2d63445b3505ebce01c666b6ddb1fa208f1d17792127dff2"
+relocation_record_id: "DOCMOVE_F407917ADD11BEDB0C90133877BDB710"
 ---
+# Redirect —  MOC 08 EXECUTION
 
-# 08 Execution
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/_MOC_08_EXECUTION]].
 
-- [[64_PAPER_LIVE_PARITY_AND_RISK]]
-- [[65_BROKER_PREFLIGHT_RECONCILIATION]]
+- Legacy path: `docs/strategy_factory_v2/08_execution/_MOC_08_EXECUTION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/_MOC_08_EXECUTION.md`
+- Preserved source digest: `sha256:12f2a01d6dc4e67d2d63445b3505ebce01c666b6ddb1fa208f1d17792127dff2`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

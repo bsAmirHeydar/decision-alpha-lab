@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Reality Check, Deflated Sharpe, and Probability of Backtest Overfitting"
-tags:
-  - strategy-factory
+title: "Redirect — 32 REALITY CHECK DEFLATED SHARPE AND PBO"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO.md"
+original_sha256: "sha256:56dc2e48312012ded5440c5cd7ed1271491f8312376247d0b5c13285f2df9dc7"
+relocation_record_id: "DOCMOVE_958ADC951B7F39DD8DABA4F652260935"
 ---
+# Redirect — 32 REALITY CHECK DEFLATED SHARPE AND PBO
 
-# Reality Check, Deflated Sharpe, and Probability of Backtest Overfitting
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO]].
 
-Selection-aware metrics test whether the best result is better than what a broad search would produce by luck.
+- Legacy path: `docs/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO.md`
+- Preserved source digest: `sha256:56dc2e48312012ded5440c5cd7ed1271491f8312376247d0b5c13285f2df9dc7`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## White-style reality check
-
-Bootstrap the maximum performance across candidate strategies under a centered null. This addresses the fact that the reported winner was selected from many alternatives.
-
-## Deflated Sharpe
-
-Compare observed Sharpe with the expected maximum Sharpe given the number and dispersion of trials, while accounting approximately for skew and kurtosis. Report the probability, not merely the adjusted number.
-
-## PBO
-
-Combinatorial symmetric cross-validation selects the in-sample winner and observes its out-of-sample rank. A high probability of below-median OOS rank means the research process is choosing noise.
-
-## Limits
-
-These tests depend on trial accounting and dependence assumptions. They do not rescue bad data or leakage. They are gates alongside, not substitutes for, causal validation.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -18,4 +18,4 @@ python .\lab\11_strategy_factory\sf.py validate-manifest `
   .\lab\11_strategy_factory\examples\manifests\temporal_divergence.json
 ```
 
-Canonical documentation: `docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md`.
+Canonical documentation: `docs/alpha_lab_master_architecture/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md`.

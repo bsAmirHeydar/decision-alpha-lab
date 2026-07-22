@@ -1,43 +1,22 @@
 ---
-title: "Context Ontology and Namespaces"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 16 CONTEXT ONTOLOGY AND NAMESPACES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES.md"
+original_sha256: "sha256:677c3c3999e9781eded263069ffec5d305197c01aeaee85b432084b765376371"
+relocation_record_id: "DOCMOVE_AB043AA026E76730D14FFF0EB2EAD162"
 ---
+# Redirect — 16 CONTEXT ONTOLOGY AND NAMESPACES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES]].
 
-Keeps thousands of possible features organized, versioned, and collision-free.
+- Legacy path: `docs/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES.md`
+- Preserved source digest: `sha256:677c3c3999e9781eded263069ffec5d305197c01aeaee85b432084b765376371`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Use namespaces such as market.*, time.*, anatomy.*, intermarket.*, execution.*, account.*, and candidate.*. Each feature has unit, type, source, known time, update trigger, and semantic version.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Ambiguous names like strength, range, or quality without unit and source; reusing a name after changing meaning.
-
-# Required tests
-
-Schema registry checks and semantic compatibility tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

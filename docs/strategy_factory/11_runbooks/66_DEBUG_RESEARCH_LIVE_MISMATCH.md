@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Runbook — Debug Research, Paper, and Live Mismatch"
-tags:
-  - strategy-factory
+title: "Redirect — 66 DEBUG RESEARCH LIVE MISMATCH"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH.md"
+original_sha256: "sha256:0597803744ce58be434203218813474319ef39f5979e092e727865e21d1dda02"
+relocation_record_id: "DOCMOVE_EB51F3AB11B0DA6E1254FAD7B0FF0369"
 ---
+# Redirect — 66 DEBUG RESEARCH LIVE MISMATCH
 
-# Runbook — Debug Research, Paper, and Live Mismatch
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH]].
 
-A mismatch is decomposed by artifact boundary rather than explained narratively.
+- Legacy path: `docs/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH.md`
+- Preserved source digest: `sha256:0597803744ce58be434203218813474319ef39f5979e092e727865e21d1dda02`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Triage order
-
-Source bars and clocks → anatomy events → known times → feature snapshots → candidate policies → model artifact/version → risk gate → broker normalization → fills and costs → position management.
-
-## Reproduction
-
-Freeze the incident inputs and replay each layer with hashes. Identify the first divergent artifact. Do not patch downstream symptoms before the first divergence is understood.
-
-## Resolution
-
-Classify as data, canon, adapter, simulation, model, configuration, broker, or state error. Correct with a versioned patch, regression test, replay, and rollback plan.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

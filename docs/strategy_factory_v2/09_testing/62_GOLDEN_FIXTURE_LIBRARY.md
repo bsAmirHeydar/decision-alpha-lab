@@ -1,43 +1,22 @@
 ---
-title: "Golden Fixture Library"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 62 GOLDEN FIXTURE LIBRARY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY.md"
+original_sha256: "sha256:81cf708195d674400adda58114c0b31f353988cf72058044a0bdc4e7ea34921a"
+relocation_record_id: "DOCMOVE_960FA50EE4F4DE873D54AE097390A63D"
 ---
+# Redirect — 62 GOLDEN FIXTURE LIBRARY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY]].
 
-Maintains canonical examples for every anatomy and policy.
+- Legacy path: `docs/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY.md`
+- Preserved source digest: `sha256:81cf708195d674400adda58114c0b31f353988cf72058044a0bdc4e7ea34921a`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Positive, negative, invalid, boundary, same-bar, stale, multi-symbol mismatch, DST, long/short, and lifecycle examples. Store raw input and expected event/context/candidate/decision hashes.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Screenshots without machine-readable source or updating expected output without review.
-
-# Required tests
-
-Fixture changes require canon/version review.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

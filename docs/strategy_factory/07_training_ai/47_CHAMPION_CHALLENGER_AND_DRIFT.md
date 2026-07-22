@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Champion–Challenger and Drift Governance"
-tags:
-  - strategy-factory
+title: "Redirect — 47 CHAMPION CHALLENGER AND DRIFT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT.md"
+original_sha256: "sha256:897eae93a6c8c6c2f294a2273563a86f4e2f4395982ac47622b1bbc9fe3c8862"
+relocation_record_id: "DOCMOVE_B09A629D199A36CE5031F509F190E518"
 ---
+# Redirect — 47 CHAMPION CHALLENGER AND DRIFT
 
-# Champion–Challenger and Drift Governance
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT]].
 
-New models run as challengers until they prove incremental value without destabilizing execution.
+- Legacy path: `docs/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT.md`
+- Preserved source digest: `sha256:897eae93a6c8c6c2f294a2273563a86f4e2f4395982ac47622b1bbc9fe3c8862`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Offline challenger
-
-Compare on frozen folds and untouched confirmation. The challenger must beat the champion on the declared metric and not materially worsen calibration, tail behavior, or latency.
-
-## Shadow and paper
-
-Run challenger predictions without authority, then in paper. Compare disagreement cases and realized counterfactuals where possible. Promotion requires a signed decision.
-
-## Drift
-
-Monitor feature distributions, missingness, category novelty, probability distribution, calibration, decision coverage, realized R, costs, latency, and anatomy event rate. Drift triggers review or fallback; it does not automatically retrain live.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Market-Event Cluster Identity"
-tags:
-  - strategy-factory
+title: "Redirect — 12 MARKET EVENT CLUSTER ID"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID.md"
+original_sha256: "sha256:6966bdfe493f6b4c999867f1cc746c23f76ddb0893b7f455dd720849fc67dfa0"
+relocation_record_id: "DOCMOVE_BAEF12FFDF63F41C00E8A5B42B896DDA"
 ---
+# Redirect — 12 MARKET EVENT CLUSTER ID
 
-# Market-Event Cluster Identity
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID]].
 
-Multiple rows may represent one underlying market episode. Cluster identity prevents pseudo-replication and false confidence.
+- Legacy path: `docs/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID.md`
+- Preserved source digest: `sha256:6966bdfe493f6b4c999867f1cc746c23f76ddb0893b7f455dd720849fc67dfa0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Why rows are not observations
-
-One Nasdaq move can trigger several cycle groups, timeframes, related symbols, entry candidates, and strategy families. Treating each as independent multiplies sample size without multiplying information. The cluster is the unit of train/test separation, bootstrap, and often capital exposure.
-
-## Cluster construction
-
-Cluster rules may use trading day, direction, shared reference/hunt, confirmation proximity, overlapping label horizons, and common underlying market move. Rules are frozen before outcome analysis. Ambiguous cases should merge rather than split when false independence is the larger risk.
-
-## Uses
-
-Clusters prevent train/test leakage, power cluster bootstrap, define one-thesis risk, reveal strategy overlap, and allow portfolio correlation to be measured at event level rather than row level.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

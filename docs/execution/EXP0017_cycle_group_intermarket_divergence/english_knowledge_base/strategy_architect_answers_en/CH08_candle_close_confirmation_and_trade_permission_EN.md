@@ -1,30 +1,22 @@
-# EXP0017 Chapter 08 — Candle Close Confirmation and Trade Permission
+---
+title: "Redirect — CH08 candle close confirmation and trade permission EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH08_candle_close_confirmation_and_trade_permission_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH08_signal_visibility_and_equality_EN.md"
+original_sha256: "sha256:adc7e07813cb970aa88313ad597736ae747dd66c331c8c760d87e7e15686b69b"
+relocation_record_id: "DOCMOVE_9E96F48329312096CAD97FE9E5F44A90"
+---
+# Redirect — CH08 candle close confirmation and trade permission EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH08_signal_visibility_and_equality_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH08_candle_close_confirmation_and_trade_permission_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH08_signal_visibility_and_equality_EN.md`
+- Preserved source digest: `sha256:adc7e07813cb970aa88313ad597736ae747dd66c331c8c760d87e7e15686b69b`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-A divergence becomes confirmed and tradeable only after the active chart timeframe candle closes with asymmetry still valid.
-
-## Locked Doctrine
-
-- Hunt can happen intrabar; confirmation waits for candle close.
-- If both symbols have hunted by confirmation time, no trade exists.
-- Temporal close is not a price filter.
-- All confirmed signals should remain visible.
-
-## Implementation Consequences
-
-- The EA must use closed candle events as the final signal boundary.
-- Do not execute on intrabar potential states.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

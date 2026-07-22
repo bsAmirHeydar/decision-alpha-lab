@@ -1,43 +1,22 @@
 ---
-title: "Sequence and Representation Models"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 45 SEQUENCE AND REPRESENTATION MODELS"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS.md"
+original_sha256: "sha256:6679b20d6417e36928e5a152a4c81e60ad9d9e150c00d06a8171232bf6be4541"
+relocation_record_id: "DOCMOVE_CFD5EECA9B4F03B5EE0268F7C09FBC86"
 ---
+# Redirect — 45 SEQUENCE AND REPRESENTATION MODELS
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS]].
 
-Adds pre-event path information only after event/tabular baselines are stable.
+- Legacy path: `docs/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS.md`
+- Preserved source digest: `sha256:6679b20d6417e36928e5a152a4c81e60ad9d9e150c00d06a8171232bf6be4541`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Use causal windows ending at decision time, normalized returns/volatility, masks, and train-only preprocessing. Compare against summary features.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Chart screenshots, future-normalized windows, overlapping train/test sequences, or huge models on few independent events.
-
-# Required tests
-
-Purged sequence folds, representation ablation, and event-cluster sample accounting.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

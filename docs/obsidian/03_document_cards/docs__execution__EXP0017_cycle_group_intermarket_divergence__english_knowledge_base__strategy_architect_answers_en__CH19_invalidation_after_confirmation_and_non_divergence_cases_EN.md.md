@@ -2,7 +2,7 @@
 
 ## Source
 
-`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_invalidation_after_confirmation_and_non_divergence_cases_EN.md`
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH19_late_entry_large_stop_and_no_limit_doctrine_EN.md`
 
 ## Role
 

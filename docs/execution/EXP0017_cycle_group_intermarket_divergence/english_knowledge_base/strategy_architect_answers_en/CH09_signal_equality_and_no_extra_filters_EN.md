@@ -1,30 +1,22 @@
-# EXP0017 Chapter 09 — Clean Symbol Execution Doctrine
+---
+title: "Redirect — CH09 signal equality and no extra filters EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH09_signal_equality_and_no_extra_filters_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH09_reference_health_and_stop_logic_EN.md"
+original_sha256: "sha256:6b18aa6e79c0fc2866f0620b53555ce5a611c5f4a07a1a653fc4109e12357583"
+relocation_record_id: "DOCMOVE_6B0FEBD011109F2D3432AA4A1A63BE3C"
+---
+# Redirect — CH09 signal equality and no extra filters EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH09_reference_health_and_stop_logic_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH09_signal_equality_and_no_extra_filters_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH09_reference_health_and_stop_logic_EN.md`
+- Preserved source digest: `sha256:6b18aa6e79c0fc2866f0620b53555ce5a611c5f4a07a1a653fc4109e12357583`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-The trade candidate is always the clean symbol: the symbol whose corresponding reference has not been hunted.
-
-## Locked Doctrine
-
-- The clean symbol holds the healthy/unhunted reference.
-- Buy divergence expresses buying pressure in the clean symbol.
-- Sell divergence expresses selling pressure in the clean symbol.
-- No additional quality filter exists in the base layer.
-
-## Implementation Consequences
-
-- Execution modules must bind trade_symbol to clean_symbol.
-- Drawing modules must still show hunter evidence clearly.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

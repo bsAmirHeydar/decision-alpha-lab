@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Sequence Models, Contextual Bandits, and the RL Boundary"
-tags:
-  - strategy-factory
+title: "Redirect — 45 SEQUENCE MODELS AND RL BOUNDARY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY.md"
+original_sha256: "sha256:0042856a3df2ec9628d6600095bd7d799cd6e289cf3a41b1a4c394d82eb8d66e"
+relocation_record_id: "DOCMOVE_B6A1BF15994FF96A6C141E6827E42060"
 ---
+# Redirect — 45 SEQUENCE MODELS AND RL BOUNDARY
 
-# Sequence Models, Contextual Bandits, and the RL Boundary
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY]].
 
-Deep sequence models and reinforcement learning are later-stage tools, not the fastest path to a valid first alpha.
+- Legacy path: `docs/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY.md`
+- Preserved source digest: `sha256:0042856a3df2ec9628d6600095bd7d799cd6e289cf3a41b1a4c394d82eb8d66e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Sequence readiness
-
-Require a large number of independent events, stable feature contracts, strong tabular baselines, and a pre-event sequence window with strict cutoff. The sequence representation is versioned and ablated against summary features.
-
-## Contextual bandits
-
-After reliable paper/live feedback, a bandit may choose among approved policies under bounded exploration. It cannot create new actions, violate risk, or learn from delayed outcomes without correct credit assignment.
-
-## Full RL
-
-Full RL is deferred until simulation fidelity, state observability, transaction costs, and off-policy evaluation are demonstrably adequate. In most current strategy families, policy ranking is safer and faster.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

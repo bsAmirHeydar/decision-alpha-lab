@@ -1,19 +1,22 @@
 ---
-id: AIEOS2-8254EA0D9830
-title: "Windows PowerShell Patch Delivery"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 11 Windows PowerShell Patch Delivery"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/11_Windows_PowerShell_Patch_Delivery.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/11_Windows_PowerShell_Patch_Delivery.md"
+original_sha256: "sha256:ab89d9c735fbaed26b53f9dbe5fefd52954d09e4a4eab320090741016e4ae1f1"
+relocation_record_id: "DOCMOVE_D97A91E7AB5586483398FCB27BA66851"
 ---
-# Windows PowerShell Patch Delivery
+# Redirect — 11 Windows PowerShell Patch Delivery
 
-Decision Alpha Lab patch instructions target Windows PowerShell. Use quoted paths, `Expand-Archive -Force`, `Remove-Item`, `Test-Path`, and explicit arrays of changed files. Commands must be copy-paste safe from repository root and must not stage unrelated work.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/11_Windows_PowerShell_Patch_Delivery]].
 
-Long Windows paths are controlled through bounded filenames and directory depth; do not repeat full semantic context in every filename.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/11_Windows_PowerShell_Patch_Delivery.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/11_Windows_PowerShell_Patch_Delivery.md`
+- Preserved source digest: `sha256:ab89d9c735fbaed26b53f9dbe5fefd52954d09e4a4eab320090741016e4ae1f1`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

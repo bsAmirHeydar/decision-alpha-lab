@@ -1,0 +1,42 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "fail_count": 0,
+  "gates": {
+    "ACTIVE_RESIDUAL_REFERENCE_COUNT_ZERO": true,
+    "ALL_2168_DELETION_CANDIDATES_REVALIDATED": true,
+    "APPROVED_PATHSPEC_COUNT_940": true,
+    "CANONICAL_TARGET_BYTES_PRESERVED": true,
+    "DOCUMENTATION_REDIRECT_COUNT_934": true,
+    "EXACT_LCM15A_HANDOFF_BOUND": true,
+    "FUTURE_DELETION_APPROVAL_COUNT_ZERO": true,
+    "REDIRECTS_RESOLVE_AND_LOOP_FREE": true,
+    "ROLLBACK_COMPLETE": true,
+    "ROOT_ALLOWLIST_VIOLATIONS_EXPLICIT": true,
+    "ROOT_CANONICAL_COPY_COUNT_6": true,
+    "ROOT_SOURCE_RETAINED_COUNT_6": true,
+    "RUNTIME_ORDER_CAPITAL_AUTHORITY_FALSE": true,
+    "SOURCE_DELETE_COUNT_ZERO": true
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "pass_count": 14,
+  "phase_id": "LCM-15B",
+  "producer": "tools.strategy_factory.lcm.lcm_15b.service:LCM15BRootReleaseReorganizationService",
+  "reorganization_id": "ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381",
+  "report_digest": "sha256:71429ebaff3f6cff202e0a4fee0d42c4e033a5c649160261d5271294aaa09507",
+  "report_result": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd",
+    "sha256:ec0382affbe8c03bced058d409014805df66f4b933988dd86a6ceac517f34e11",
+    "sha256:bc03e01538e78ea9afb6e958c0d300f6cabaf0c99c383da4f18851bedb5bc417",
+    "sha256:920a23281f629f5e07a743ebaacdaa12a274f3aac36de225e08b714e57bb1a48",
+    "sha256:6f6f4fa8f3ab845c8f71d1ce81aa8bb7f8a8087fde51edf162cfeb280c49d941",
+    "sha256:8323f22d38ecc2e3c0e2949efa4f639bf168e9c4fb5ef3c432bd72117faa8fd4"
+  ],
+  "validation_status": "PASS"
+}

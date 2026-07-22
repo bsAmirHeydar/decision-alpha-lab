@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/registry_envelope.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "phase_id": {},
+    "record_count": {},
+    "records_path": {},
+    "registry_digest": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "claim_ceiling",
+    "records_path",
+    "record_count",
+    "registry_digest"
+  ],
+  "title": "registry_envelope",
+  "type": "object"
+}

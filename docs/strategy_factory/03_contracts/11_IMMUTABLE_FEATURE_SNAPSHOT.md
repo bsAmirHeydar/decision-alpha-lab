@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Immutable Feature Snapshot"
-tags:
-  - strategy-factory
+title: "Redirect — 11 IMMUTABLE FEATURE SNAPSHOT"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT.md"
+original_sha256: "sha256:25db32a8c385dadb62992cdd657217ae84d977b74101f68978d72e2d8ea62837"
+relocation_record_id: "DOCMOVE_F87E6F083C82367D9F79279B4816914C"
 ---
+# Redirect — 11 IMMUTABLE FEATURE SNAPSHOT
 
-# Immutable Feature Snapshot
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT]].
 
-A snapshot freezes the decision context before outcomes exist. It is the only model input authority.
+- Legacy path: `docs/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT.md`
+- Preserved source digest: `sha256:25db32a8c385dadb62992cdd657217ae84d977b74101f68978d72e2d8ea62837`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Shared versus specific features
-
-Shared features include spread, volatility, session, time-of-day, day-of-week, news distance, and execution environment. Strategy-specific features describe the anatomy: cycle group, hook family, zone width, reference age, divergence strength, or node state. Both obey the same availability-time contract.
-
-## Schema behavior
-
-Feature names, types, units, null policy, source, and version are registered. Categorical vocabularies are fit only on training data. Unknown live categories map to an explicit unknown token; they do not crash or borrow future frequency information.
-
-## Missingness
-
-Missing is information but must not be silently imputed. The snapshot records missing reason. Training pipelines may impute using train-only statistics and may add missing indicators. Live behavior is defined in the manifest: skip, fallback model, or deterministic baseline.
-
-## Immutability
-
-A snapshot cannot be enriched after the outcome. Derived reports may join additional fields, but model features must always be traceable to the original snapshot artifact.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

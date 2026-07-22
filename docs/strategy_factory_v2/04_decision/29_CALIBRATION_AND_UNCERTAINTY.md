@@ -1,43 +1,22 @@
 ---
-title: "Calibration and Uncertainty"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 29 CALIBRATION AND UNCERTAINTY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY.md"
+original_sha256: "sha256:990cf4fcd05e9a22cd68c8678aad11817b5907580a762a258015e206687bf555"
+relocation_record_id: "DOCMOVE_EBFFC10D287716719C421BAF1A03CD20"
 ---
+# Redirect — 29 CALIBRATION AND UNCERTAINTY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY]].
 
-Converts raw model scores into decision-grade probabilities and confidence bounds.
+- Legacy path: `docs/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY.md`
+- Preserved source digest: `sha256:990cf4fcd05e9a22cd68c8678aad11817b5907580a762a258015e206687bf555`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Use train/validation-only Platt, isotonic, or piecewise calibration; monitor Brier score, reliability, sharpness, and uncertainty by regime.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Treating classifier scores as probabilities or tuning thresholds on the final test.
-
-# Required tests
-
-Calibration curves, temporal stability, expected calibration error, and abstention uplift.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

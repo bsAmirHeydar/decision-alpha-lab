@@ -1,43 +1,22 @@
 ---
-title: "Anti-Overfit Master Protocol"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 50 ANTI OVERFIT MASTER PROTOCOL"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL.md"
+original_sha256: "sha256:44ef7a26ebcd517960d827e566c09480d5cf5cb0b4d6018550fb3c644217acea"
+relocation_record_id: "DOCMOVE_D1564EE277A9498C96FFF127EA122610"
 ---
+# Redirect — 50 ANTI OVERFIT MASTER PROTOCOL
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL]].
 
-Controls selection bias created by many strategies, setups, features, models, and thresholds.
+- Legacy path: `docs/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL.md`
+- Preserved source digest: `sha256:44ef7a26ebcd517960d827e566c09480d5cf5cb0b4d6018550fb3c644217acea`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Maintain a trial registry; split discovery and confirmation; cluster dependent events; use purging/embargo; nested selection; FDR; reality check; DSR; PBO; best-trade removal; parameter stability; nulls; feed validation.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Reporting only the winning trial or resetting trial counts after a redesign.
-
-# Required tests
-
-A final anti-overfit report must state total trials, independent events, effective folds, selected-on data, untouched data, and failure conditions.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

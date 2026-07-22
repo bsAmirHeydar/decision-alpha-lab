@@ -1,43 +1,22 @@
 ---
-title: "Pre-Decision Gates"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 25 PREDECISION GATES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/25_PREDECISION_GATES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/25_PREDECISION_GATES.md"
+original_sha256: "sha256:b395361a19f3809a83368e5dbd94178cfb678404188332df5bd6435e8ce5738c"
+relocation_record_id: "DOCMOVE_FC5F8EC351E294D889494352B5A4FE4D"
 ---
+# Redirect — 25 PREDECISION GATES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/25_PREDECISION_GATES]].
 
-Rejects invalid events before candidate/model work.
+- Legacy path: `docs/strategy_factory_v2/04_decision/25_PREDECISION_GATES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/25_PREDECISION_GATES.md`
+- Preserved source digest: `sha256:b395361a19f3809a83368e5dbd94178cfb678404188332df5bd6435e8ce5738c`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Lifecycle, duplicate, session, spread, synchronization, news policy, stale context, strategy enablement, and plan generation checks.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Using gates to encode untested alpha filters or allowing a model to override them.
-
-# Required tests
-
-Boundary and reason-code tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

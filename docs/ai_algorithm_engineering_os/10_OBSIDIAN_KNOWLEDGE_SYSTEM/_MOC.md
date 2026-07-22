@@ -1,43 +1,22 @@
 ---
-id: AIEOS-95CC31A954
-title: "Obsidian Knowledge System"
-type: map-of-content
-status: active
-domain: knowledge-system
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - knowledge-system
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/10_OBSIDIAN_KNOWLEDGE_SYSTEM/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/10_OBSIDIAN_KNOWLEDGE_SYSTEM/_MOC.md"
+original_sha256: "sha256:e60580e0e09482df3e38f9f883e48aba6b828f1ce3de39c6707d49e86d173877"
+relocation_record_id: "DOCMOVE_DBC780F11426C7B2E722B10C652A0DC4"
 ---
-# Obsidian Knowledge System
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Keep project knowledge structured, navigable, current, and agent-usable.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/10_OBSIDIAN_KNOWLEDGE_SYSTEM/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/10_OBSIDIAN_KNOWLEDGE_SYSTEM/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/10_OBSIDIAN_KNOWLEDGE_SYSTEM/_MOC.md`
+- Preserved source digest: `sha256:e60580e0e09482df3e38f9f883e48aba6b828f1ce3de39c6707d49e86d173877`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/01_Vault_Architecture|Vault Architecture]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/02_MOCs_and_Links|MOCs and Links]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/04_Note_Lifecycle|Note Lifecycle]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/05_Atomic_vs_System_Notes|Atomic vs System Notes]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/06_Templates_and_Dataview|Templates and Dataview]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/07_Knowledge_Review|Knowledge Review]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/08_Archive_and_Deprecation|Archive and Deprecation]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/09_Search_Tags_and_Naming|Search Tags and Naming]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

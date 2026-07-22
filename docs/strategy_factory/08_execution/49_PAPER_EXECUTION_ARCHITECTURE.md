@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Paper Execution Architecture"
-tags:
-  - strategy-factory
+title: "Redirect — 49 PAPER EXECUTION ARCHITECTURE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE.md"
+original_sha256: "sha256:af499e3ab9122945220b25a69782d1b47df6d7f8cfdf627df813d8939afbd09c"
+relocation_record_id: "DOCMOVE_9B2467B516044544C77B7612D09C8FAB"
 ---
+# Redirect — 49 PAPER EXECUTION ARCHITECTURE
 
-# Paper Execution Architecture
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE]].
 
-Paper execution is a live-time rehearsal of the exact decision and lifecycle contracts, not a second historical backtest.
+- Legacy path: `docs/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE.md`
+- Preserved source digest: `sha256:af499e3ab9122945220b25a69782d1b47df6d7f8cfdf627df813d8939afbd09c`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Flow
-
-Live anatomy event → immutable snapshot → candidate generation → rule/model decision → hard risk gate → paper broker → fill simulation from live quotes → position lifecycle → reconciliation → trace artifact.
-
-## Parity
-
-Paper and live share the same intent, risk, expiry, duplicate prevention, and monitoring code. Only the broker adapter changes. Research assumptions are compared with paper fills and costs.
-
-## Readiness evidence
-
-Event completeness, decision latency, model compatibility, fill rate, cost error, missed signals, duplicate rate, restart recovery, and research/paper outcome reconciliation. Paper duration is measured in unique clusters and market conditions, not only calendar days.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,43 +1,22 @@
 ---
-title: "Precompiled Candidate Templates"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 26 PRECOMPILED CANDIDATE TEMPLATES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES.md"
+original_sha256: "sha256:1a1ab935045a8b6b4ca1fe698d097c6985c322a539b40569cb9d2f9a91b6c12c"
+relocation_record_id: "DOCMOVE_A00C89AE43B786BEB67FA6B632894001"
 ---
+# Redirect — 26 PRECOMPILED CANDIDATE TEMPLATES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES]].
 
-Replaces runtime Cartesian search with a promoted bounded set.
+- Legacy path: `docs/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES.md`
+- Preserved source digest: `sha256:1a1ab935045a8b6b4ca1fe698d097c6985c322a539b40569cb9d2f9a91b6c12c`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Research selects compatible entry/stop/exit templates. Startup resolves callables and parameters. Runtime builds at most the declared budget.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Generating all combinations live, changing reward targets from model output without a declared policy, or truncating candidates by arbitrary insertion order.
-
-# Required tests
-
-Template identity, priority, compatibility, geometry, and count-budget tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

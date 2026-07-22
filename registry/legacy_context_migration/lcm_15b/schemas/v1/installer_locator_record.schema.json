@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/installer_locator_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_locator": {},
+    "external_automation_state": {},
+    "installer_locator_id": {},
+    "legacy_locator": {}
+  },
+  "required": [
+    "installer_locator_id",
+    "legacy_locator",
+    "canonical_locator",
+    "external_automation_state"
+  ],
+  "title": "installer_locator_record",
+  "type": "object"
+}

@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Baseline Model Ladder"
-tags:
-  - strategy-factory
+title: "Redirect — 41 BASELINE MODEL LADDER"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER.md"
+original_sha256: "sha256:f87071e6dfd8e69b74bca4d3ceac380a5bb1d64c3630917b78873586712aeaa1"
+relocation_record_id: "DOCMOVE_0E3ABE424FA22F44C3E8919989872878"
 ---
+# Redirect — 41 BASELINE MODEL LADDER
 
-# Baseline Model Ladder
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER]].
 
-Every advanced model must beat transparent baselines on the same frozen folds and costs.
+- Legacy path: `docs/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER.md`
+- Preserved source digest: `sha256:f87071e6dfd8e69b74bca4d3ceac380a5bb1d64c3630917b78873586712aeaa1`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Ladder
-
-Never trade, always trade, unconditional base rate, session-only, anatomy-only, confirmation-only, single-feature threshold, regularized logistic classification, and ridge regression. Only then add boosted trees, rankers, or sequence models.
-
-## Why simple models
-
-They expose whether the signal is mostly a base-rate effect, reveal leakage, calibrate expected uplift, and often outperform complex models in small event datasets. Complexity earns permission through OOS evidence.
-
-## Metric discipline
-
-Classification uses log loss, Brier score, calibration, and economic utility—not accuracy alone. Regression uses error plus realized policy value. Ranking uses event-level top-choice net R and regret versus oracle and baseline.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

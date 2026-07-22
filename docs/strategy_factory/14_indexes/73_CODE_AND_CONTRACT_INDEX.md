@@ -1,36 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Code and Contract Index"
-tags:
-  - strategy-factory
+title: "Redirect — 73 CODE AND CONTRACT INDEX"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX.md"
+original_sha256: "sha256:eb47f696a592657bd41c1eae98e15b0b045a591e7f2f065c157d5bcd377bd679"
+relocation_record_id: "DOCMOVE_ED0314554705A79CCDA127C95F7577D7"
 ---
+# Redirect — 73 CODE AND CONTRACT INDEX
 
-# Code and Contract Index
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX]].
 
-This index maps documentation concepts to concrete implementation files.
+- Legacy path: `docs/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX.md`
+- Preserved source digest: `sha256:eb47f696a592657bd41c1eae98e15b0b045a591e7f2f065c157d5bcd377bd679`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Python
-
-| Concern | File |
-|---|---|
-| Contracts | `contracts.py` |
-| Manifest | `manifest.py` |
-| Adapters | `adapters/base.py`, `adapters/csv_adapter.py` |
-| Candidate engine | `candidate_engine.py` |
-| Simulation | `simulation.py` |
-| Costs | `costs.py` |
-| Labels | `labels.py` |
-| Statistics | `statistics.py` |
-| Fold splitter | `validation/folds.py` |
-| Anti-overfit | `anti_overfit.py` |
-| Models | `models/baselines.py`, `models/training.py` |
-| Risk/paper | `execution/*` |
-| Artifacts/registry | `artifacts.py`, `registry.py` |
-| Promotion | `promotion.py` |
-| Audit/reporting | `audit.py`, `reporting.py` |
-
-## MQL5
-
-`SF_Contracts.mqh`, `SF_AnatomyAdapter.mqh`, `SF_CandidatePolicies.mqh`, `SF_RiskGate.mqh`, `SF_PaperBroker.mqh`, and `SF_ExecutionBridge.mqh` define the shared terminal boundary. No live send implementation is included.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

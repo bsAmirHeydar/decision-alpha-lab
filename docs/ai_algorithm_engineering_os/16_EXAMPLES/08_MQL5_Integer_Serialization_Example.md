@@ -1,27 +1,22 @@
 ---
-id: AIEOS2-FFB6C0643118
-title: "MQL5 Integer Serialization Compatibility Example"
-type: example
-status: active
-domain: example
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - example
+title: "Redirect — 08 MQL5 Integer Serialization Example"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/16_EXAMPLES/08_MQL5_Integer_Serialization_Example.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/16_EXAMPLES/08_MQL5_Integer_Serialization_Example.md"
+original_sha256: "sha256:596a39690975c1908aa88601317d138661e9c22f75971a67949dcd26193d340f"
+relocation_record_id: "DOCMOVE_F98B6B8D6C7BA9AE1DA02AE531F860CD"
 ---
-# MQL5 Integer Serialization Compatibility Example
+# Redirect — 08 MQL5 Integer Serialization Example
 
-## Failure
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/16_EXAMPLES/08_MQL5_Integer_Serialization_Example]].
 
-A code generator assumes `LongToString` exists. The target compiler reports an undeclared identifier and then parser warnings in the surrounding concatenation.
+- Legacy path: `docs/ai_algorithm_engineering_os/16_EXAMPLES/08_MQL5_Integer_Serialization_Example.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/16_EXAMPLES/08_MQL5_Integer_Serialization_Example.md`
+- Preserved source digest: `sha256:596a39690975c1908aa88601317d138661e9c22f75971a67949dcd26193d340f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Correct Project Pattern
-
-```mql5
-string size_text = IntegerToString(size_bytes);
-```
-
-Keep the data field typed as `long`; change only the compatible serialization call. Recompile dependent experts.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

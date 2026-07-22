@@ -1,43 +1,22 @@
 ---
-title: "Model Routing and Ensembles"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 28 MODEL ROUTING AND ENSEMBLES"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES.md"
+original_sha256: "sha256:a7425d52d704c7d3447d752711216536069a6756fc6aa73e1b5206ea4aa14b89"
+relocation_record_id: "DOCMOVE_1DAA0E698656F3F3BA55D6C13BEE2948"
 ---
+# Redirect — 28 MODEL ROUTING AND ENSEMBLES
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES]].
 
-Routes exact vectors to approved model artifacts and combines outputs transparently.
+- Legacy path: `docs/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES.md`
+- Preserved source digest: `sha256:a7425d52d704c7d3447d752711216536069a6756fc6aa73e1b5206ea4aa14b89`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Each route names model/version, vector schema, output mapping, required status, calibration, and fallback. Ensembles are explicit weighted or stacked artifacts trained without test leakage.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Model auto-discovery, implicit output names, remote fallback, or averaging incompatible probabilities.
-
-# Required tests
-
-Artifact hash, route completeness, calibration, challenger shadow, and inference parity tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

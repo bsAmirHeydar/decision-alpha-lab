@@ -1,27 +1,22 @@
 ---
-id: AIEOS2-0FBE85E4923F
-title: "Research Stage Gates"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 04 Research Stage Gates"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/04_Research_Stage_Gates.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/04_Research_Stage_Gates.md"
+original_sha256: "sha256:1c2be94372540c30aef8a6bec7dd40769ef91dac2f0817bee5204640ed66b91e"
+relocation_record_id: "DOCMOVE_79AA5414FE71D89682E8039F4C84EAEE"
 ---
-# Research Stage Gates
+# Redirect — 04 Research Stage Gates
 
-## Promotion Path
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/04_Research_Stage_Gates]].
 
-```text
-OBS → H → EXP → ANL → VAL → SIG/MODEL → EXEC → MON → RETIRE
-```
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/04_Research_Stage_Gates.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/04_Research_Stage_Gates.md`
+- Preserved source digest: `sha256:1c2be94372540c30aef8a6bec7dd40769ef91dac2f0817bee5204640ed66b91e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-Each promotion requires evidence. A promising chart or in-sample result cannot skip validation. Negative and inconclusive results remain first-class institutional memory.
-
-## Capital Rule
-
-Only production artifacts with approved execution contracts may interact with capital. Every preceding stage has zero capital authority.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

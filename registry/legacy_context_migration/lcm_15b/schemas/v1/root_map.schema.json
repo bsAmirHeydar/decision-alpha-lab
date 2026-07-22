@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/root_map.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "after_root_file_count": {},
+    "before_root_file_count": {},
+    "map_digest": {}
+  },
+  "required": [
+    "before_root_file_count",
+    "after_root_file_count",
+    "map_digest"
+  ],
+  "title": "root_map",
+  "type": "object"
+}

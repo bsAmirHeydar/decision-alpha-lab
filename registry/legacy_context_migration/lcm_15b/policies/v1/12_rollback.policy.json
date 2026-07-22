@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "LCM_15B_REFERENCE_ONLY",
+  "enforcement": "NON_COMPENSATORY_FAIL_CLOSED",
+  "phase_id": "LCM-15B",
+  "policy_id": "12_ROLLBACK",
+  "schema_version": "1.0.0",
+  "statement": "Every move or redirect has an exact reversal instruction."
+}

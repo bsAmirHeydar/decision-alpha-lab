@@ -1,98 +1,22 @@
 ---
-id: AIEOS-5EDF5607EA
-title: "Chart Visual Debug Prompt"
-type: prompt
-status: active
-domain: prompt-library
+title: "Redirect — 12 Chart Visual Debug Prompt"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - prompt-library
-  - prompt
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/08_PROMPT_LIBRARY/12_Chart_Visual_Debug_Prompt.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/08_PROMPT_LIBRARY/12_Chart_Visual_Debug_Prompt.md"
+original_sha256: "sha256:249909456ebe60f6fbecc9188c9a4f6fc333a14a0cae577f10e719598ee32a00"
+relocation_record_id: "DOCMOVE_4A58E50A7B63E61DCCDE7F90DB107EE2"
 ---
-# Chart Visual Debug Prompt
+# Redirect — 12 Chart Visual Debug Prompt
 
-> [!abstract] Purpose
-> Debug chart-object and rendering defects against underlying state.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/08_PROMPT_LIBRARY/12_Chart_Visual_Debug_Prompt]].
 
-This note belongs to the **08 PROMPT LIBRARY** module. Its function is to provide production-grade prompts that create artifacts and decisions rather than vague prose. The material is normative: when a project deviates from it, the deviation must be recorded as an explicit engineering decision rather than hidden inside implementation code.
+- Legacy path: `docs/ai_algorithm_engineering_os/08_PROMPT_LIBRARY/12_Chart_Visual_Debug_Prompt.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/08_PROMPT_LIBRARY/12_Chart_Visual_Debug_Prompt.md`
+- Preserved source digest: `sha256:249909456ebe60f6fbecc9188c9a4f6fc333a14a0cae577f10e719598ee32a00`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## 1. Operating Position
-
-Debug chart-object and rendering defects against underlying state. The objective is not to maximize the amount of generated code. The objective is to reduce ambiguity, preserve domain truth, make changes reversible, and produce evidence that the implementation satisfies the approved intent.
-
-### Core principles
-
-- Treat **Chart Visual Debug Prompt** as an explicit engineering contract, not an informal preference.
-- Keep reliable prompt execution traceable to project intent, domain rules, and measurable evidence.
-- Separate confirmed facts from assumptions, unknowns, and proposed decisions.
-- Prefer deterministic, reversible decisions over hidden heuristics and chat-dependent context.
-- Preserve existing behavior unless the approved scope explicitly changes it.
-
-## 2. Required Procedure
-
-1. Collect the minimum authoritative context required for reliable prompt execution.
-2. State the current behavior, desired behavior, constraints, non-goals, and affected boundaries.
-3. Identify competing interpretations and resolve or register each ambiguity.
-4. Produce the required artifact before implementation or release proceeds.
-5. Run an adversarial review against invariants, failure modes, and regression risks.
-6. Attach verification evidence and update the project knowledge graph.
-
-A step may be skipped only when the artifact already exists and is current. “The model probably understands it” is not evidence. Link the existing artifact, identify its version, and state why it is sufficient.
-
-## 3. Required Outputs
-
-- A versioned record of reliable prompt execution.
-- A list of assumptions and unresolved questions with owners.
-- A verification plan with executable commands or observable outcomes.
-- Links to affected specifications, modules, tests, and decisions.
-
-Each output must have an owner, status, and review path. Generated prose without a decision, contract, test, or next action is not considered an engineering output.
-
-## 4. Quality Gates
-
-- The intent and boundaries can be restated consistently by a reviewer.
-- No critical term depends on undocumented conversational context.
-- Every mandatory behavior has at least one verification method.
-- Regression scope and rollback path are explicit.
-- The artifact is linked from the relevant MOC, feature packet, or patch manifest.
-
-A gate is binary. If the evidence is incomplete, status remains **not ready**. Avoid converting uncertainty into optimistic wording.
-
-## 5. Failure Modes and Countermeasures
-
-- **Vague approval:** “looks good” replaces evidence. Countermeasure: require binary gates and linked outputs.
-- **Scope leakage:** unrelated cleanup enters the change. Countermeasure: enforce files-to-touch and non-goals.
-- **Ontology drift:** AI substitutes familiar concepts. Countermeasure: use the project dictionary and reject undefined terms.
-- **Chat dependency:** decisions exist only in conversation. Countermeasure: persist them in the vault before coding.
-- **False completion:** code compiles but behavior is unverified. Countermeasure: define Done as evidence, not compilation.
-
-## 6. AI Interaction Contract
-
-Use AI as an accountable engineering role. Supply the current specification, relevant files, constraints, non-goals, and verification commands. Require the model to separate facts, assumptions, unknowns, and recommendations. Do not accept a code patch that cannot explain which invariant it preserves and how the change will be verified.
-
-### Reusable prompt
-
-```text
-Analyze the visual defect as a projection problem. Establish expected algorithm state, actual state, expected object set, actual object set, object IDs, timestamps/bar indexes, coordinate systems, lifecycle callbacks, zoom/timeframe behavior, and cleanup behavior. Determine whether the defect originates in detection, state, mapping, object creation, update, deletion, or redraw. Propose instrumentation and the smallest fix. Include reload, zoom, scroll, symbol, and timeframe tests.
-```
-
-## 7. Review Questions
-
-- What ambiguity would cause two competent engineers to implement different behavior?
-- Which invariant or contract is most likely to be violated?
-- What evidence proves the change works in both normal and adverse conditions?
-- What existing behavior could regress?
-- Is the result understandable without the original chat history?
-- Can the work be rolled back or reconstructed deterministically?
-
-## 8. Completion Record
-
-Record the decision, linked artifacts, reviewer, unresolved risks, and next checkpoint in the project decision log. Update `updated` in frontmatter when the normative content changes.
-
-## Related Notes
-
-- [[07_AI_OPERATING_PROTOCOL/03_Context_Packet|Context Packet]]
-- [[07_AI_OPERATING_PROTOCOL/06_Hallucination_Control|Hallucination Control]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

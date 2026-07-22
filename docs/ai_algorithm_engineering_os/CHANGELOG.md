@@ -1,15 +1,22 @@
-# Changelog
+---
+title: "Redirect — CHANGELOG"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/CHANGELOG.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/CHANGELOG.md"
+original_sha256: "sha256:f4022fbe3f5469fb636a65f719a2fb90395b40cac9a6c33cf29614a85889d9af"
+relocation_record_id: "DOCMOVE_A80C0993ED2DCB9CB2C08930EDA1CD28"
+---
+# Redirect — CHANGELOG
 
-## 2.0.0 — 2026-07-10
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/CHANGELOG]].
 
-- Integrated Decision Alpha Lab repository policy and authority hierarchy.
-- Added Alpha Lab engineering, language standards, and quality automation modules.
-- Added repository-facing handbook, validators, MQL5 compatibility scanner, CI workflow, templates, checklists, and examples.
-- Codified real MQL5 compatibility failures involving string case mutation and integer serialization.
-- Added model promotion, causal availability, schema lineage, execution safety, waivers, and Windows PowerShell patch rules.
+- Legacy path: `docs/ai_algorithm_engineering_os/CHANGELOG.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/CHANGELOG.md`
+- Preserved source digest: `sha256:f4022fbe3f5469fb636a65f719a2fb90395b40cac9a6c33cf29614a85889d9af`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## 1.0.0 — 2026-07-10
-
-- Created the modular AI Algorithm Engineering OS.
-- Added foundations, discovery, formal specification, algorithm design, architecture, implementation, verification, AI operating protocols, prompts, patch/release workflows, Obsidian governance, MQL5 specialization, quant safeguards, workflows, templates, checklists, examples, and governance.
-- Added vault validator and patch-packet generator.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

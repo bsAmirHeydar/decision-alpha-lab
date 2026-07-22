@@ -1,31 +1,22 @@
-# EXP0017 Chapter 13 — Statistical Uncertainty and No Manual Quality Doctrine
+---
+title: "Redirect — CH13 statistical uncertainty and no manual quality doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_statistical_uncertainty_and_no_manual_quality_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_no_manual_preclassification_doctrine_EN.md"
+original_sha256: "sha256:447beaac0f70a1af2b627aca4c5dd229bd35c497eeae4bc6a15625be38c79755"
+relocation_record_id: "DOCMOVE_08FCEB293F096CFD2290DD2369AC3187"
+---
+# Redirect — CH13 statistical uncertainty and no manual quality doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_no_manual_preclassification_doctrine_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_statistical_uncertainty_and_no_manual_quality_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH13_no_manual_preclassification_doctrine_EN.md`
+- Preserved source digest: `sha256:447beaac0f70a1af2b627aca4c5dd229bd35c497eeae4bc6a15625be38c79755`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-Before statistical testing, most quality claims are unknown and must remain unknown.
-
-## Locked Doctrine
-
-- No directional quality is assumed.
-- No symbol-role quality is assumed.
-- No time-window quality is assumed.
-- No reference-distance quality is assumed.
-- Future ideas are stored as backlog, not base rules.
-
-## Implementation Consequences
-
-- Design the dataset to preserve raw variation.
-- Avoid preclassification that contaminates the sample.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

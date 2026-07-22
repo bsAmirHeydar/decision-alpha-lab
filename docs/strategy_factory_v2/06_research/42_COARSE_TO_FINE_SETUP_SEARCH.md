@@ -1,43 +1,22 @@
 ---
-title: "Coarse-to-Fine Setup Search"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 42 COARSE TO FINE SETUP SEARCH"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH.md"
+original_sha256: "sha256:87167f3ee20d75f834190d73378020a6335ef23d7046e08b8011189a14ae017e"
+relocation_record_id: "DOCMOVE_72A28AF1A782144F9C30B60011E31637"
 ---
+# Redirect — 42 COARSE TO FINE SETUP SEARCH
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH]].
 
-Searches broad execution possibilities without exhausting the statistical budget.
+- Legacy path: `docs/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH.md`
+- Preserved source digest: `sha256:87167f3ee20d75f834190d73378020a6335ef23d7046e08b8011189a14ae017e`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Stage 1 coarse entry/stop/exit families; stage 2 retain train-stable regions; stage 3 refine parameters; stage 4 freeze finalists; stage 5 untouched confirmation.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Fine grid search over all data or selecting isolated parameter peaks.
-
-# Required tests
-
-Parameter-surface smoothness, neighborhood stability, trial count, and confirmation holdout.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

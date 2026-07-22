@@ -1,43 +1,22 @@
 ---
-title: "Decision Envelope and Explanation"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 32 DECISION ENVELOPE AND EXPLANATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION.md"
+original_sha256: "sha256:0e30a40b185b5e97e4cd7d7ce993859c29e924d88082ff473ec95d517684d377"
+relocation_record_id: "DOCMOVE_AAFCD759396ABDE49EF0C08D61AAF7E0"
 ---
+# Redirect — 32 DECISION ENVELOPE AND EXPLANATION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION]].
 
-Captures everything required to audit why a decision occurred.
+- Legacy path: `docs/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION.md`
+- Preserved source digest: `sha256:0e30a40b185b5e97e4cd7d7ce993859c29e924d88082ff473ec95d517684d377`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Store event, candidate set, scores, selected candidate, action, reason codes, context/plan/model hashes, timestamps, latency, calibration, thresholds, and bounded explanations.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Free-text-only explanations, post-hoc recomputation, or explanations that use data outside the decision path.
-
-# Required tests
-
-Round-trip serialization, lineage reconstruction, and exact replay.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

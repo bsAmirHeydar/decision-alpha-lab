@@ -67,3 +67,8 @@ Quarantine `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D` packages all 136 approv
 ### LCM-15A accepted reference checkpoint — 2026-07-22
 
 Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 exact paths and approves 940 only for non-destructive LCM-15B relocation/reorganization. All 2,168 remain blocked from future deletion because external consumer reachability is UNKNOWN; deletion approval and deletion execution are both zero. Handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.
+
+
+### LCM-15B implementation checkpoint
+
+`ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381` is accepted with 940 non-destructive reorganizations, zero active residual exact-path documentation references and zero deletions. Next: LCM-15C.

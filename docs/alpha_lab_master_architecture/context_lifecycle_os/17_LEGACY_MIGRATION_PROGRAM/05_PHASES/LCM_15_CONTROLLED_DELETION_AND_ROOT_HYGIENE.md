@@ -70,3 +70,8 @@ A subphase failure does not authorize skipping to the next partition. The last a
 ## LCM-15A checkpoint — 2026-07-22
 
 LCM-15 remains open. LCM-15A proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` closes the exact candidate, reference, recovery, approval and blocker inventories without performing relocation or deletion. Only the 940 exact paths in the approved relocation pathspec may enter LCM-15B. No path is approved for deletion.
+
+
+## LCM-15B checkpoint — 2026-07-22
+
+LCM-15 remains open. LCM-15B package `ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381` creates six canonical root-release copies, materializes 934 reversible documentation redirects, reconciles active exact-path references and revalidates all 2,168 deletion candidates. No source path is deleted and no future deletion approval is created. Only LCM-15C exact controlled deletion and clean-clone verification is authorized next.

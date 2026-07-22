@@ -1,19 +1,22 @@
 ---
-id: AIEOS2-33AED95304B1
-title: "Execution Isolation and Capital Boundary"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 09 Execution Isolation and Capital Boundary"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/09_Execution_Isolation_and_Capital_Boundary.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/09_Execution_Isolation_and_Capital_Boundary.md"
+original_sha256: "sha256:7511b608578e91c532cd2c4ab0aaaf7460c162d1f03fcaaca74b76fa4d2427c6"
+relocation_record_id: "DOCMOVE_866713EED47A356624188B371BA1CF83"
 ---
-# Execution Isolation and Capital Boundary
+# Redirect — 09 Execution Isolation and Capital Boundary
 
-Execution receives approved intents through a versioned contract. It enforces risk, idempotency, broker validation, and reconciliation. It cannot infer new signals, alter model thresholds, or reinterpret domain state.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/09_Execution_Isolation_and_Capital_Boundary]].
 
-Research mode, paper mode, and live mode are distinct configurations with explicit guards and logs.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/09_Execution_Isolation_and_Capital_Boundary.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/09_Execution_Isolation_and_Capital_Boundary.md`
+- Preserved source digest: `sha256:7511b608578e91c532cd2c4ab0aaaf7460c162d1f03fcaaca74b76fa4d2427c6`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

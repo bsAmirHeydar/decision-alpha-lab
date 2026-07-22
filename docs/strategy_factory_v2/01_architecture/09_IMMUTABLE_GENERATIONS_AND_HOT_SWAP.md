@@ -1,43 +1,22 @@
 ---
-title: "Immutable Generations and Atomic Hot Swap"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 09 IMMUTABLE GENERATIONS AND HOT SWAP"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP.md"
+original_sha256: "sha256:af8363fef0eeea891ebebb550be44ae3c760f0dda68f6a5f42f5a0bd0043580c"
+relocation_record_id: "DOCMOVE_EB665D12F75608F87533AFB1F0C9B69D"
 ---
+# Redirect — 09 IMMUTABLE GENERATIONS AND HOT SWAP
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP]].
 
-Supports rapid updates without partial state or mixed model/config versions.
+- Legacy path: `docs/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP.md`
+- Preserved source digest: `sha256:af8363fef0eeea891ebebb550be44ae3c760f0dda68f6a5f42f5a0bd0043580c`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-A generation contains plan, provider graph, candidate factory, model artifacts, thresholds, hashes, and reason-code vocabulary. Requests pin one generation from start to finish.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Mutating an active object in place, loading half a model, or mixing old vectors with new coefficients.
-
-# Required tests
-
-Shadow load, warmup, self-test, atomic pointer swap, rollback, and generation-level telemetry.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

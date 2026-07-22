@@ -1,31 +1,22 @@
-# EXP0017 Chapter 03 — Hunt Doctrine and Reference Validity
+---
+title: "Redirect — CH03 hunt false breakout and reference validity EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH03_hunt_false_breakout_and_reference_validity_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH03_reference_lifecycle_and_invalidation_EN.md"
+original_sha256: "sha256:4581518a748a54cca56a5bc873ea7fbd179a85ee48e08883434fdab32936b1eb"
+relocation_record_id: "DOCMOVE_64E020086FF644208C8705EAED3476EA"
+---
+# Redirect — CH03 hunt false breakout and reference validity EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH03_reference_lifecycle_and_invalidation_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH03_hunt_false_breakout_and_reference_validity_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH03_reference_lifecycle_and_invalidation_EN.md`
+- Preserved source digest: `sha256:4581518a748a54cca56a5bc873ea7fbd179a85ee48e08883434fdab32936b1eb`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-A hunt is a high/low touch or break of a reference level; close beyond the level is not required.
-
-## Locked Doctrine
-
-- High hunt: current high >= reference high.
-- Low hunt: current low <= reference low.
-- Equality counts as a hunt.
-- Close beyond the level is not required.
-- If both symbols hunt their corresponding references, divergence is invalid.
-
-## Implementation Consequences
-
-- Use OHLC high/low data, not close-only logic.
-- Separate intrabar hunt occurrence from final close confirmation.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

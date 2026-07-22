@@ -1,43 +1,22 @@
 ---
-title: "Multi-Objective Candidate Utility"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 30 MULTI OBJECTIVE UTILITY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY.md"
+original_sha256: "sha256:78a2d0b06fe1759e1799d8434c5b7c0eab3e519b9ac42b15cc647301bba6ed15"
+relocation_record_id: "DOCMOVE_D633554849998DE9A6EFFB0590723769"
 ---
+# Redirect — 30 MULTI OBJECTIVE UTILITY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY]].
 
-Ranks candidates using economic utility rather than one label.
+- Legacy path: `docs/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY.md`
+- Preserved source digest: `sha256:78a2d0b06fe1759e1799d8434c5b7c0eab3e519b9ac42b15cc647301bba6ed15`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Possible terms include expected net R, probability positive, target probability, expected MFE, MAE penalty, cost, uncertainty, holding time, capacity, and portfolio overlap. Weights are versioned and validated.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Optimizing raw win rate, mixing incompatible units, or hand-changing weights during live drawdown.
-
-# Required tests
-
-Sensitivity, Pareto, fold stability, and utility decomposition reports.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

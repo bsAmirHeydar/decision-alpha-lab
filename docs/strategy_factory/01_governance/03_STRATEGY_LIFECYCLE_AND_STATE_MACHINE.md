@@ -1,30 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Strategy Lifecycle and State Machine"
-tags:
-  - strategy-factory
+title: "Redirect — 03 STRATEGY LIFECYCLE AND STATE MACHINE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE.md"
+original_sha256: "sha256:5a375f1002cd2bd022ee10c273e5b54c5599576e3bb51ee38dd8902f6f4a7ca1"
+relocation_record_id: "DOCMOVE_EFF08286BABBFE895FBEFCD9D6772A88"
 ---
+# Redirect — 03 STRATEGY LIFECYCLE AND STATE MACHINE
 
-# Strategy Lifecycle and State Machine
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE]].
 
-Every strategy moves through the same state machine. The state is evidence-based, versioned, and may move forward only one gate at a time.
+- Legacy path: `docs/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE.md`
+- Preserved source digest: `sha256:5a375f1002cd2bd022ee10c273e5b54c5599576e3bb51ee38dd8902f6f4a7ca1`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## States
-
-`DRAFT → ANATOMY_DEFINED → DATASET_READY → BASELINE_TESTED → OOS_VALIDATED → PAPER_READY → PAPER_RUNNING → MICRO_LIVE → LIVE_APPROVED → SCALED → RETIRED`
-
-Retirement is available from any state. A strategy version that changes its event definition, candidate universe, primary label, or cost model returns to an earlier state; it does not inherit the promotion of the previous version.
-
-## Gate semantics
-
-A gate contains machine-verifiable requirements and a signed architectural decision. Examples include minimum unique clusters, leakage audit pass, positive cluster-level lower confidence bound, uplift over a simple baseline, paper/research reconciliation, maximum latency, and live slippage tolerance. Passing a gate does not imply certainty; it means the evidence is sufficient for the next bounded risk level.
-
-## Demotion and quarantine
-
-Schema mismatch, missing features, drift, feed discontinuity, repeated broker rejections, unexplained paper/live divergence, or a hard risk incident can demote a strategy automatically to `PAPER_READY` or quarantine it entirely. Scaling is never sticky. The system must prefer a false negative—skipping a valid opportunity—over unauthorized risk.
-
-## Version behavior
-
-A strategy identity is stable, but each semantic change creates a new version. Historical reports keep the old version. Model artifacts declare the exact strategy, feature, label, fold, and candidate versions they were trained against. A live runner refuses mismatched versions.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

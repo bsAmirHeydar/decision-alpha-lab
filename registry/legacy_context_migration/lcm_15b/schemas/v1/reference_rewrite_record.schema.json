@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/reference_rewrite_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "reference_path": {},
+    "replacement_count": {},
+    "rewrite_mode": {},
+    "rewrite_record_id": {}
+  },
+  "required": [
+    "rewrite_record_id",
+    "reference_path",
+    "rewrite_mode",
+    "replacement_count"
+  ],
+  "title": "reference_rewrite_record",
+  "type": "object"
+}

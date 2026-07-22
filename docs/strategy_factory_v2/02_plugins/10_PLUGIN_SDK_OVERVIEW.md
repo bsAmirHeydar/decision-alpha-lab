@@ -1,43 +1,22 @@
 ---
-title: "Plugin SDK Overview"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 10 PLUGIN SDK OVERVIEW"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW.md"
+original_sha256: "sha256:29c0c4428f4e480d1b45f75477a3bfc64ba0719ebaa1823cd1a509ecd54f4ea5"
+relocation_record_id: "DOCMOVE_9237A5327ECDC531EC96284C43B53AF8"
 ---
+# Redirect — 10 PLUGIN SDK OVERVIEW
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW]].
 
-Defines the extension surface for anatomy, features, candidates, models, decisions, risk, and execution.
+- Legacy path: `docs/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW.md`
+- Preserved source digest: `sha256:29c0c4428f4e480d1b45f75477a3bfc64ba0719ebaa1823cd1a509ecd54f4ea5`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Every plugin has a descriptor, narrow interface, deterministic identity, explicit dependencies, version, capabilities, tests, and failure behavior.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Plugins performing file I/O in live calls, inspecting outcome labels, allocating capital outside risk, or changing canon.
-
-# Required tests
-
-Unit, contract, metamorphic, latency, and differential tests before registration.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

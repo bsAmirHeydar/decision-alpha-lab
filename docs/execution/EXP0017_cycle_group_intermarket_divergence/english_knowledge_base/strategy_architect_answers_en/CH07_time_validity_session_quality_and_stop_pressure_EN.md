@@ -1,30 +1,22 @@
-# EXP0017 Chapter 07 — Time Validity, Cash Session, and Stop Pressure
+---
+title: "Redirect — CH07 time validity session quality and stop pressure EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH07_time_validity_session_quality_and_stop_pressure_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH07_stop_pressure_as_market_condition_EN.md"
+original_sha256: "sha256:83e005359fc90a0666025fc4ef24976757d6e9bd852d42537f59a0504a078490"
+relocation_record_id: "DOCMOVE_C57104A69430165B1FB7069189A4859E"
+---
+# Redirect — CH07 time validity session quality and stop pressure EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH07_stop_pressure_as_market_condition_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH07_time_validity_session_quality_and_stop_pressure_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH07_stop_pressure_as_market_condition_EN.md`
+- Preserved source digest: `sha256:83e005359fc90a0666025fc4ef24976757d6e9bd852d42537f59a0504a078490`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-All times are valid before statistics; the 09:30–16:00 New York cash session is a hypothesis, not a hard rule.
-
-## Locked Doctrine
-
-- Cash session may produce stronger statistics but is not a pre-test filter.
-- No sub-session split is mandatory in the base version.
-- News is not a base filter.
-- Stop-size pressure across CGs is a market condition worth recording.
-
-## Implementation Consequences
-
-- Record session state from day one.
-- Do not block non-cash-session signals.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

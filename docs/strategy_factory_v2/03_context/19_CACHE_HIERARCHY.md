@@ -1,43 +1,22 @@
 ---
-title: "Context and Decision Cache Hierarchy"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 19 CACHE HIERARCHY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/19_CACHE_HIERARCHY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/19_CACHE_HIERARCHY.md"
+original_sha256: "sha256:e5be4053166f069ebd17ea7185410c39dc4db8e9cbf3d3a98b2a022d75c51a25"
+relocation_record_id: "DOCMOVE_340B278F0CA65A055A8924D79E7A0C8E"
 ---
+# Redirect — 19 CACHE HIERARCHY
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/19_CACHE_HIERARCHY]].
 
-Reduces repeated computation without weakening causality.
+- Legacy path: `docs/strategy_factory_v2/03_context/19_CACHE_HIERARCHY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/19_CACHE_HIERARCHY.md`
+- Preserved source digest: `sha256:e5be4053166f069ebd17ea7185410c39dc4db8e9cbf3d3a98b2a022d75c51a25`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-L0 local provider values, L1 event context cache, L2 shared session/reference cache, and optional offline feature store. Each record has version and TTL.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Caching outcomes, cross-contaminating symbols, using wall-clock TTL without source generation, and unbounded memory.
-
-# Required tests
-
-Eviction, expiry, version mismatch, concurrency, and deterministic cache-hit tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

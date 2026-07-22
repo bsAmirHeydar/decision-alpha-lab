@@ -1,43 +1,22 @@
 ---
-title: "Cross-Feed, Cross-Instrument, and Regime Validation"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 56 CROSS FEED AND REGIME VALIDATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION.md"
+original_sha256: "sha256:dc5389f46cc19492936d358b13e16bb943b5602d937ecb9404f2ccd5cb7f0084"
+relocation_record_id: "DOCMOVE_0C5CD630D27837AA432A07F58BF92125"
 ---
+# Redirect — 56 CROSS FEED AND REGIME VALIDATION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION]].
 
-Distinguishes economic structure from one feed or period artifact.
+- Legacy path: `docs/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION.md`
+- Preserved source digest: `sha256:dc5389f46cc19492936d358b13e16bb943b5602d937ecb9404f2ccd5cb7f0084`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Canonical futures/venue data, target broker data, alternate broker, adjacent instruments, different volatility/macro regimes, and session-calendar changes.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Pooling feeds without source IDs or assuming a CFD divergence equals futures price discovery.
-
-# Required tests
-
-Report direction and magnitude consistency, not just pooled significance.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

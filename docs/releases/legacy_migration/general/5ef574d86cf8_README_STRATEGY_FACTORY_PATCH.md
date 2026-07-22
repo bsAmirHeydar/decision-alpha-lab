@@ -23,7 +23,7 @@ pipeline for:
 Documentation:
 
 ```text
-docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md
+docs/alpha_lab_master_architecture/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md
 ```
 
 Python engine:

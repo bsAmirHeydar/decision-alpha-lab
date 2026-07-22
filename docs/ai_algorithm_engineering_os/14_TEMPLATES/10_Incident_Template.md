@@ -1,79 +1,22 @@
 ---
-id: AIEOS-78C1D1847B
-title: "Incident and RCA Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 10 Incident Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/10_Incident_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/10_Incident_Template.md"
+original_sha256: "sha256:fee494dad03ea5da06692a66cb5fb9433dc7573fe8cf03a103adc079b66b2576"
+relocation_record_id: "DOCMOVE_39E56EDFCD494959742A8AFB5789BF43"
 ---
-# Incident and RCA Template
+# Redirect — 10 Incident Template
 
-> [!abstract] Purpose
-> Document containment, root cause, correction, and prevention.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/10_Incident_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/10_Incident_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/10_Incident_Template.md`
+- Preserved source digest: `sha256:fee494dad03ea5da06692a66cb5fb9433dc7573fe8cf03a103adc079b66b2576`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# Incident [INC-ID] — [Title]
-
-## Impact and Severity
-[...]
-
-## Detection and Timeline
-[...]
-
-## Expected vs Actual Behavior
-[...]
-
-## Containment
-[...]
-
-## Evidence
-[...]
-
-## Hypotheses and Elimination
-[...]
-
-## Root Cause / Contributing Factors
-[...]
-
-## Why Controls Failed
-[...]
-
-## Corrective Patch and Verification
-[...]
-
-## Prevention Actions
-| Action | Owner | Due/trigger | Evidence of completion |
-|---|---|---|---|
-
-## Closure Criteria
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

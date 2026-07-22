@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm/15b/root_relocation_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_target_path": {},
+    "relocation_record_id": {},
+    "source_deleted": {},
+    "source_path": {},
+    "source_sha256_before": {},
+    "target_sha256_after": {}
+  },
+  "required": [
+    "relocation_record_id",
+    "source_path",
+    "canonical_target_path",
+    "source_sha256_before",
+    "target_sha256_after",
+    "source_deleted"
+  ],
+  "title": "root_relocation_record",
+  "type": "object"
+}

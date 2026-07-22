@@ -1,43 +1,22 @@
 ---
-title: "Paper-to-Live Parity and Hard Risk Authorization"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 64 PAPER LIVE PARITY AND RISK"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK.md"
+original_sha256: "sha256:fe372629499e1ebc67076476481a732f386bdd358bc3f9eca4b1a06796522abd"
+relocation_record_id: "DOCMOVE_FBCA59AC942E37F9000E3FEDA6C20E70"
 ---
+# Redirect — 64 PAPER LIVE PARITY AND RISK
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK]].
 
-Keeps strategy logic identical while execution authority changes.
+- Legacy path: `docs/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK.md`
+- Preserved source digest: `sha256:fe372629499e1ebc67076476481a732f386bdd358bc3f9eca4b1a06796522abd`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Same event, context, plan, model, decision, candidate, and intent. Only adapter and measured execution results differ. Hard risk remains independent.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Separate paper strategy code or manual live overrides that are not logged as new decisions.
-
-# Required tests
-
-Replay paper/live traces and compare expected versus actual fills/costs.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

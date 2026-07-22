@@ -1,50 +1,22 @@
 ---
-title: "What Remains Strategy-Specific"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 04 WHAT REMAINS STRATEGY SPECIFIC"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC.md"
+original_sha256: "sha256:42863241f1832323155e0bea2e85078d50e0c410459cbf45e1e182bd9e03c580"
+relocation_record_id: "DOCMOVE_73071977BB8C12BA1543F7F7EE59652E"
 ---
+# Redirect — 04 WHAT REMAINS STRATEGY SPECIFIC
 
-# Strategy-specific surface area
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC]].
 
-After V2, a new anatomy should customize only the irreducible semantics.
+- Legacy path: `docs/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC.md`
+- Preserved source digest: `sha256:42863241f1832323155e0bea2e85078d50e0c410459cbf45e1e182bd9e03c580`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Required
-
-1. **Anatomy doctrine** — what the event means and when it is known.
-2. **Anatomy adapter** — how the existing engine emits AnatomyEvent.
-3. **Feature providers** — only features not already supplied by shared providers.
-4. **Allowed candidate templates** — entry, stop, exit combinations compatible with the anatomy.
-5. **Matched null** — the baseline that isolates whether the anatomy adds information.
-6. **Golden fixtures** — canonical positive, negative, boundary, and invalid examples.
-
-## Optional
-
-- custom candidate policy;
-- custom label;
-- custom model plugin;
-- custom decision policy;
-- custom risk restriction;
-- custom execution adapter when the instrument requires it.
-
-## Shared and forbidden to duplicate
-
-A strategy may not own a private implementation of:
-
-- walk-forward splitting;
-- anti-overfit controls;
-- run registry;
-- model registry;
-- standard statistics;
-- paper lifecycle;
-- hard account risk;
-- telemetry schema;
-- promotion state machine;
-- broker request audit.
-
-If a strategy requires a missing capability, the capability is added to the shared kernel behind an interface and tests. It is not copied into the experiment directory.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

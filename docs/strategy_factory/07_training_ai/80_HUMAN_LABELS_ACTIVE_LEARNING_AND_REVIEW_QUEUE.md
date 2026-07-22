@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Human Labels, Active Learning, and Review Queue"
-tags:
-  - strategy-factory
+title: "Redirect — 80 HUMAN LABELS ACTIVE LEARNING AND REVIEW QUEUE"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE.md"
+original_sha256: "sha256:f1797173448619229b28587d6f03d0d1378e8d85509008552cf7cb7b9531a372"
+relocation_record_id: "DOCMOVE_D2143DF0620EBD763C076D693D435C8E"
 ---
+# Redirect — 80 HUMAN LABELS ACTIVE LEARNING AND REVIEW QUEUE
 
-# Human Labels, Active Learning, and Review Queue
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE]].
 
-Your discretionary expertise can accelerate model development when captured as timestamped, structured evidence rather than post-hoc explanations.
+- Legacy path: `docs/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE.md`
+- Preserved source digest: `sha256:f1797173448619229b28587d6f03d0d1378e8d85509008552cf7cb7b9531a372`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Label types
-
-Anatomy correctness, ambiguity, context quality, invalidation quality, preferred policy, trade/skip, and reason codes. Separate what you knew at decision time from retrospective diagnosis.
-
-## Active learning
-
-The model sends uncertain, novel, or high-disagreement events to a review queue. Human review improves coverage of boundaries instead of labeling easy duplicates. Selection into the queue is logged so label prevalence is not mistaken for market prevalence.
-
-## Teacher fallibility
-
-Human labels are a feature or target candidate, not truth by default. Compare label consistency, inter-rater agreement where possible, outcome uplift, and model performance with and without human judgment.
-
-## LLM support
-
-An LLM can convert free-form review into structured reason codes, flag contradiction with canon, retrieve analogous events, and draft tests. The architect approves labels and semantic changes.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

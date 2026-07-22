@@ -1,30 +1,22 @@
-# EXP0017 Chapter 17 — AI Role Boundary and Strategy Integrity
+---
+title: "Redirect — CH17 ai role boundary and strategy integrity doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH17_ai_role_boundary_and_strategy_integrity_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH17_ranking_comparison_and_component_analysis_EN.md"
+original_sha256: "sha256:89c9eacfcf994c1f846606b0eb7c3cd15d1bde55e064095a309b3d560fd4e48f"
+relocation_record_id: "DOCMOVE_C67F850AEFFC11D96D05B60EBD05EC63"
+---
+# Redirect — CH17 ai role boundary and strategy integrity doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH17_ranking_comparison_and_component_analysis_EN]].
 
-## Core Thesis
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH17_ai_role_boundary_and_strategy_integrity_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH17_ranking_comparison_and_component_analysis_EN.md`
+- Preserved source digest: `sha256:89c9eacfcf994c1f846606b0eb7c3cd15d1bde55e064095a309b3d560fd4e48f`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-AI is an analyst, ranker, and comparer; it may learn the strategy architect language but cannot mutate the strategy.
-
-## Locked Doctrine
-
-- AI must not change CG definitions, entry conditions, time target, daily boundary, or fixed doctrine.
-- AI may learn the strategy architect’s language if this improves reporting.
-- Component analysis and quality ranking are more important than autonomous decisions.
-- All signals should be analyzed; none should be silently ignored.
-
-## Implementation Consequences
-
-- Design AI interfaces as reports and comparisons.
-- Route every suggested change through human review.
-
-## What This Chapter Does Not Allow
-
-- It does not permit premature ranking.
-- It does not permit untested filtering.
-- It does not permit AI-driven mutation of the current strategy.
-- It does not replace statistical testing with visual or emotional judgment.
-
-## Required Traceability
-
-Every code module that implements this doctrine should produce inspectable state: timestamps, cycle IDs, references, hunt states, divergence states, confirmation states, invalidation states, and report fields where relevant.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

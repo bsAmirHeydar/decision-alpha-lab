@@ -1,53 +1,22 @@
 ---
-id: AIEOS-BB7915F2EB
-title: "Test Readiness Checklist"
-type: checklist
-status: active
-domain: checklist
+title: "Redirect — 04 Test Readiness"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - checklist
-  - checklist
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/04_Test_Readiness.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/04_Test_Readiness.md"
+original_sha256: "sha256:a6962358c4e27eccfa0d802b1c642ed529b5bc7de63cdae01269c83352d52214"
+relocation_record_id: "DOCMOVE_28F606C8A123DF8D318B0B4DB224C40B"
 ---
-# Test Readiness Checklist
+# Redirect — 04 Test Readiness
 
-> [!abstract] Purpose
-> Decide whether verification coverage is sufficient for release
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/04_Test_Readiness]].
 
-## Traceability
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/04_Test_Readiness.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/04_Test_Readiness.md`
+- Preserved source digest: `sha256:a6962358c4e27eccfa0d802b1c642ed529b5bc7de63cdae01269c83352d52214`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [ ] Every critical requirement and invariant maps to tests.
-- [ ] Risk and prior incidents influence coverage.
-
-## Coverage
-
-- [ ] Normal, boundary, invalid, duplicate, missing, reordered, restart, replay, performance, visual, and regression cases are considered.
-
-## Reproducibility
-
-- [ ] Environment, fixtures, commands, expected results, and evidence paths are recorded.
-
-## Integrity
-
-- [ ] Skipped tests are visible and accepted by the correct owner.
-- [ ] Tests do not use future or leaked information.
-
-## Gate Result
-
-- **PASS:** every mandatory item is checked and evidence is linked.
-- **CONDITIONAL:** only explicitly accepted, time-bounded exceptions remain.
-- **FAIL:** any domain rule, safety rule, compilation rule, or state-integrity item is unresolved.
-
-## Evidence Record
-
-| Item | Evidence link / command output | Reviewer | Date |
-|---|---|---|---|
-|  |  |  |  |
-
-## Related Notes
-
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

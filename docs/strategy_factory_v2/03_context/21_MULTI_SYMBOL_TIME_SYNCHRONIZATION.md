@@ -1,43 +1,22 @@
 ---
-title: "Multi-Symbol and Multi-Timeframe Synchronization"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 21 MULTI SYMBOL TIME SYNCHRONIZATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION.md"
+original_sha256: "sha256:24e7d85d61bd06de1d06abac04cc71b77cce478b7b91dccab1e4833180ac72a0"
+relocation_record_id: "DOCMOVE_A225BC7743FDEAE9B5C122C6BDCDB0D4"
 ---
+# Redirect — 21 MULTI SYMBOL TIME SYNCHRONIZATION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION]].
 
-Creates a coherent decision timestamp across symbols, feeds, and timeframes.
+- Legacy path: `docs/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION.md`
+- Preserved source digest: `sha256:24e7d85d61bd06de1d06abac04cc71b77cce478b7b91dccab1e4833180ac72a0`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Record source timestamps, close status, quote age, tolerance, DST state, session calendar, missing-bar policy, and synchronization quality.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Assuming bar indexes align, mixing closed and forming bars, or treating delayed CFD quotes as true divergence.
-
-# Required tests
-
-Asynchronous feed, missing minute, late quote, DST transition, and cross-broker replay tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

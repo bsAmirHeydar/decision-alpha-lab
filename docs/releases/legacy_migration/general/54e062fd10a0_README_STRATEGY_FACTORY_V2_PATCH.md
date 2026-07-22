@@ -22,8 +22,8 @@ This is the standalone, expanded replacement for the original Strategy Factory p
 
 ## Canonical entry points
 
-- `docs/strategy_factory_v2/00_start_here/00_STRATEGY_FACTORY_V2_MOC.md`
-- `docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md` — original V1 deep research canon
+- `docs/alpha_lab_master_architecture/strategy_factory_v2/00_start_here/00_STRATEGY_FACTORY_V2_MOC.md`
+- `docs/alpha_lab_master_architecture/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md` — original V1 deep research canon
 - `lab/11_strategy_factory/python/strategy_factory/`
 - `lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/`
 

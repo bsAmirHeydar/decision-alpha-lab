@@ -1,72 +1,22 @@
 ---
-id: AIEOS-1381D90068
-title: "Daily Engineering Log Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 15 Daily Engineering Log Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/15_Daily_Engineering_Log_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/15_Daily_Engineering_Log_Template.md"
+original_sha256: "sha256:17c4e2591f15a5cd45eef4e6ffc6fbc33bfba7f4756a83e224785b1162ff40ca"
+relocation_record_id: "DOCMOVE_AEB8B160568ACF89DACDE0A685B24342"
 ---
-# Daily Engineering Log Template
+# Redirect — 15 Daily Engineering Log Template
 
-> [!abstract] Purpose
-> Capture decisions, experiments, evidence, blockers, and next actions during active work.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/15_Daily_Engineering_Log_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/15_Daily_Engineering_Log_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/15_Daily_Engineering_Log_Template.md`
+- Preserved source digest: `sha256:17c4e2591f15a5cd45eef4e6ffc6fbc33bfba7f4756a83e224785b1162ff40ca`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# Engineering Log — [YYYY-MM-DD]
-
-## Objective
-[...]
-
-## Baseline / Starting Commit
-[...]
-
-## Work Performed
-[...]
-
-## Decisions
-[...]
-
-## Evidence / Commands / Results
-[...]
-
-## Failures and Learnings
-[...]
-
-## Changed Assumptions
-[...]
-
-## Open Risks / Blockers
-[...]
-
-## Next Exact Action
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,28 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Outcome Engine and Path Accounting"
-tags:
-  - strategy-factory
+title: "Redirect — 21 OUTCOME ENGINE AND PATH ACCOUNTING"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING.md"
+original_sha256: "sha256:3b1c510672fbcbc367d513b48010856ec0abcc6ecee5979477cdaa85febc084a"
+relocation_record_id: "DOCMOVE_F39C6E3D001861D1641EB961C7C4BF58"
 ---
+# Redirect — 21 OUTCOME ENGINE AND PATH ACCOUNTING
 
-# Outcome Engine and Path Accounting
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING]].
 
-The outcome engine replays each candidate under explicit fill, ambiguity, stop, target, and time rules and produces a canonical path record.
+- Legacy path: `docs/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING.md`
+- Preserved source digest: `sha256:3b1c510672fbcbc367d513b48010856ec0abcc6ecee5979477cdaa85febc084a`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Outputs
-
-For every candidate record fill status/time/price, exit time/price/reason, gross and net R, MFE, MAE, time to extrema, holding time, cost components, ambiguous-bar count, and label end time. Multi-stage policies also record transitions.
-
-## Conservative ambiguity
-
-When stop and target appear inside the same OHLC bar and tick sequence is unavailable, official reports use a declared conservative policy, normally stop-first or reject-ambiguous. Target-first may be shown as an optimistic sensitivity bound, never as the sole result.
-
-## No fill behavior
-
-Unfilled candidates remain in the opportunity dataset. Fill rate, missed positive paths, and adverse selection are part of policy evaluation. Dropping unfilled orders overstates deployability.
-
-## Path versus execution R
-
-MFE and structural path distances are descriptive. Net execution R uses the actual initial risk and all costs. Reports label them separately.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

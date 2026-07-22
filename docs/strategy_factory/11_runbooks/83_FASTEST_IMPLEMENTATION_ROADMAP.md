@@ -1,36 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Fastest Professional Implementation Roadmap"
-tags:
-  - strategy-factory
+title: "Redirect — 83 FASTEST IMPLEMENTATION ROADMAP"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP.md"
+original_sha256: "sha256:01175c0123794e18bef3e6e908c12a45ee93a923b54f5b361b64be41eebdd840"
+relocation_record_id: "DOCMOVE_AAE601AC771D372D5F325392025BC149"
 ---
+# Redirect — 83 FASTEST IMPLEMENTATION ROADMAP
 
-# Fastest Professional Implementation Roadmap
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP]].
 
-This roadmap turns the supplied foundation into the first complete anatomy-to-paper pipeline, then makes later anatomies plug-in work.
+- Legacy path: `docs/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP.md`
+- Preserved source digest: `sha256:01175c0123794e18bef3e6e908c12a45ee93a923b54f5b361b64be41eebdd840`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Sprint 0 — merge and verify
-
-Install the patch, run 19 Python tests, validate example manifests, compile MQL5 headers inside a small test Expert, and record any local compiler differences. No strategy logic changes.
-
-## Sprint 1 — first adapter
-
-Choose EXP0017 or the clearest mechanical setup. Export events/features, implement the adapter, create 20 golden fixtures, and reconcile counts with the existing engine. Target two to three days.
-
-## Sprint 2 — candidate and outcome closure
-
-Freeze 6–12 meaningful policy combinations, connect real bid/ask bars and cost model, materialize outcomes, and compare with hand calculations. Target two to three days.
-
-## Sprint 3 — standard evidence
-
-Run statistics, matched nulls, purged folds, cluster bootstrap, FDR, reality check, best-trade/cost/delay stress, and cross-feed checks. Freeze confirmation. Target three to five days depending on data.
-
-## Sprint 4 — first AI
-
-Train logistic/ridge baselines, then one boosted challenger and candidate ranker. Calibrate, ablate, write model card, and reject complexity without uplift. Target two to four days.
-
-## Sprint 5 — paper
-
-Connect live events to snapshot/candidate/model/risk/paper trace. Reconcile restart and latency. Run until enough clusters and regimes exist. Subsequent strategies reuse all of this and should require only adapter/config/fixtures.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

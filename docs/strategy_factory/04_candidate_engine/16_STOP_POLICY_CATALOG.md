@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Stop and Invalidation Policy Catalog"
-tags:
-  - strategy-factory
+title: "Redirect — 16 STOP POLICY CATALOG"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG.md"
+original_sha256: "sha256:cf448e9db1f20b2cf4e58ebbd9ef1022892b196f4265214065fba94417e3c534"
+relocation_record_id: "DOCMOVE_D909A40C4D52DC18A216FED047CB6336"
 ---
+# Redirect — 16 STOP POLICY CATALOG
 
-# Stop and Invalidation Policy Catalog
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG]].
 
-The stop defines actual risk and determines whether R is tradable rather than path-normalized.
+- Legacy path: `docs/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG.md`
+- Preserved source digest: `sha256:cf448e9db1f20b2cf4e58ebbd9ef1022892b196f4265214065fba94417e3c534`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Core families
-
-Anatomy invalidation uses the ontology's explicit failure point. Reference-extreme stops use a hunted or structural level. ATR buffers account for noise. Opposing-node and time-invalidation policies terminate a thesis when price or time contradicts it.
-
-## No-stop-no-trade
-
-A zone or narrative without a precise invalidation cannot create an execution candidate. Wide invalidation should trigger child-zone refinement or rejection, not artificial leverage. The stop is frozen before simulation.
-
-## Stress
-
-Stops are tested for tick rounding, minimum broker distance, spread side, gaps, delayed fills, volatility scaling, and feed disagreement. A stop that only works with perfect intrabar ordering is not robust.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

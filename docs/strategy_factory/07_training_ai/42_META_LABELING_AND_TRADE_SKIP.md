@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Meta-Labeling: Trade, Skip, or Review"
-tags:
-  - strategy-factory
+title: "Redirect — 42 META LABELING AND TRADE SKIP"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP.md"
+original_sha256: "sha256:fa2c751883bd820746fa931a741ab79f1c6abc216410ec56860539901b492ce3"
+relocation_record_id: "DOCMOVE_C2375567C550E6892DF7DA2AA2A45523"
 ---
+# Redirect — 42 META LABELING AND TRADE SKIP
 
-# Meta-Labeling: Trade, Skip, or Review
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP]].
 
-Meta-labeling lets anatomy remain deterministic while a model learns when the event has favorable conditional economics.
+- Legacy path: `docs/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP.md`
+- Preserved source digest: `sha256:fa2c751883bd820746fa931a741ab79f1c6abc216410ec56860539901b492ce3`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Target design
-
-Targets may be positive net R, target-before-stop, or expected R above a hurdle. The hurdle includes costs and uncertainty. Class imbalance is handled inside training only.
-
-## Decision threshold
-
-Choose thresholds on training/validation according to net utility, risk budget, and capacity. Calibrate probabilities. Live missing-feature or out-of-distribution states default to skip or review.
-
-## Evaluation
-
-Report coverage, expectancy of traded and skipped sets, uplift over always-trade, calibration by probability bucket, stability by fold, and missed-tail cost. A model that improves win rate while removing convex winners may be harmful.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

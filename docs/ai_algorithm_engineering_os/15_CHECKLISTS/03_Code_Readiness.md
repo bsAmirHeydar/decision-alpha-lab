@@ -1,51 +1,22 @@
 ---
-id: AIEOS-39894D97B0
-title: "Code Readiness Checklist"
-type: checklist
-status: active
-domain: checklist
+title: "Redirect — 03 Code Readiness"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - checklist
-  - checklist
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/03_Code_Readiness.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/03_Code_Readiness.md"
+original_sha256: "sha256:dd4289046036e90cf9d348d1ad61f753ce9b55e06b5008ad595b990a399985e7"
+relocation_record_id: "DOCMOVE_D561C64E69F1AEC805F3E65D47FA2C24"
 ---
-# Code Readiness Checklist
+# Redirect — 03 Code Readiness
 
-> [!abstract] Purpose
-> Decide whether a design may enter code
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/03_Code_Readiness]].
 
-## Inputs
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/03_Code_Readiness.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/03_Code_Readiness.md`
+- Preserved source digest: `sha256:dd4289046036e90cf9d348d1ad61f753ce9b55e06b5008ad595b990a399985e7`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [ ] Approved spec, architecture contracts, context packet, patch manifest, and relevant files are available.
-
-## Scope
-
-- [ ] Files to touch, files not to touch, non-goals, compatibility, and rollback are explicit.
-
-## Tests
-
-- [ ] Failing/characterization tests or clear acceptance tests exist before implementation.
-
-## Agent Control
-
-- [ ] AI role, authority, output schema, verification commands, and stop conditions are explicit.
-
-## Gate Result
-
-- **PASS:** every mandatory item is checked and evidence is linked.
-- **CONDITIONAL:** only explicitly accepted, time-bounded exceptions remain.
-- **FAIL:** any domain rule, safety rule, compilation rule, or state-integrity item is unresolved.
-
-## Evidence Record
-
-| Item | Evidence link / command output | Reviewer | Date |
-|---|---|---|---|
-|  |  |  |  |
-
-## Related Notes
-
-- [[17_GOVERNANCE/02_Quality_Gates|Quality Gates]]
-- [[17_GOVERNANCE/06_Definition_of_Done|Definition of Done]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

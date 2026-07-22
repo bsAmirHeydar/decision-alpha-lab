@@ -1,24 +1,22 @@
 ---
-type: strategy-factory-document
-status: canonical
-title: "Research Trial Registry"
-tags:
-  - strategy-factory
+title: "Redirect — 07 RESEARCH TRIAL REGISTRY"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY.md"
+original_sha256: "sha256:e210f2f35d769dbc7241301b2975bc049eb3a45d28f0f160c7ad6db5d852d441"
+relocation_record_id: "DOCMOVE_A3FF3D2FC8A2C7C715EF4F42F7AB38F4"
 ---
+# Redirect — 07 RESEARCH TRIAL REGISTRY
 
-# Research Trial Registry
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY]].
 
-Overfitting begins when the project forgets how many ideas, filters, thresholds, models, and candidate combinations were tried. The trial registry makes the search surface explicit.
+- Legacy path: `docs/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY.md`
+- Preserved source digest: `sha256:e210f2f35d769dbc7241301b2975bc049eb3a45d28f0f160c7ad6db5d852d441`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## What counts as a trial
-
-Changing a feature set, entry parameter, stop buffer, target R, session, symbol pair, model family, selection metric, threshold, fold plan, or data period counts. Cosmetic report changes do not. A trial is counted even if it is abandoned before publication.
-
-## Family accounting
-
-Trials are grouped by hypothesis family so false-discovery and deflated-performance controls use a defensible number of attempts. The registry stores hypothesis hash, dataset hash, feature hash, candidate hash, start time, status, and selection metric. Deleted notebooks do not erase trials.
-
-## Operational rule
-
-No promotion report may state a Sharpe, expectancy, or p-value without also stating the number of related trials. The anti-overfit suite uses this count for Deflated Sharpe and research-selection context.
-
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

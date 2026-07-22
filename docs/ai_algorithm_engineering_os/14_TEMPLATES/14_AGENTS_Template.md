@@ -1,72 +1,22 @@
 ---
-id: AIEOS-B87B7ED29C
-title: "AGENTS Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 14 AGENTS Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/14_AGENTS_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/14_AGENTS_Template.md"
+original_sha256: "sha256:1158d6e73f5e31da90b9cb7bfed672334cd71debb3e1d34f9973b7f6f9fa9180"
+relocation_record_id: "DOCMOVE_1A738F25B44AB7BA7EE92AE036CEE750"
 ---
-# AGENTS Template
+# Redirect — 14 AGENTS Template
 
-> [!abstract] Purpose
-> Define repository-specific behavior for AI coding agents.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/14_AGENTS_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/14_AGENTS_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/14_AGENTS_Template.md`
+- Preserved source digest: `sha256:1158d6e73f5e31da90b9cb7bfed672334cd71debb3e1d34f9973b7f6f9fa9180`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# AGENTS.md
-
-## Project Mission
-[...]
-
-## Authoritative Documents
-[...]
-
-## Repository Map
-[...]
-
-## Build / Test / Lint Commands
-[...]
-
-## Coding and Naming Rules
-[...]
-
-## Domain Hard Rules and Invariants
-[...]
-
-## Files or Operations Requiring Approval
-[...]
-
-## Prohibited Changes
-[...]
-
-## Required Workflow and Final Report
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

@@ -1,84 +1,22 @@
 ---
-id: AIEOS-613F1EBDB7
-title: "AI Context Packet Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 12 AI Context Packet Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/12_AI_Context_Packet_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/12_AI_Context_Packet_Template.md"
+original_sha256: "sha256:5d4ea3770a1461c77d75249b8a0eb8c4ca082292d773c214bece11d44d7eafab"
+relocation_record_id: "DOCMOVE_F5F0F4CC0B9A8E26F4F976A5F3691F30"
 ---
-# AI Context Packet Template
+# Redirect — 12 AI Context Packet Template
 
-> [!abstract] Purpose
-> Provide a bounded, authoritative task context to an AI role.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/12_AI_Context_Packet_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/12_AI_Context_Packet_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/12_AI_Context_Packet_Template.md`
+- Preserved source digest: `sha256:5d4ea3770a1461c77d75249b8a0eb8c4ca082292d773c214bece11d44d7eafab`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# AI Context Packet — [Task ID]
-
-## Assigned Role and Authority
-[...]
-
-## Task / Required Output
-[...]
-
-## Authoritative Context (priority order)
-1. [hard rules/spec]
-2. [architecture/contracts]
-3. [relevant code/files]
-4. [tests/incidents/examples]
-
-## Current Behavior
-[...]
-
-## Desired Behavior / Done
-[...]
-
-## Constraints / Non-Goals
-[...]
-
-## Files to Inspect / Modify / Not Touch
-[...]
-
-## Facts
-[...]
-
-## Assumptions / Unknowns
-[...]
-
-## Verification Commands
-[...]
-
-## Output Schema
-[...]
-
-## Stop Conditions
-[...]
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

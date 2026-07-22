@@ -1,35 +1,22 @@
 ---
-id: AIEOS2-DB06E6EA9040
-title: "Authority Hierarchy and Policy Precedence"
-type: standard
-status: active
-domain: alpha-lab-standard
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - alpha-lab-standard
+title: "Redirect — 01 Authority Hierarchy"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/01_Authority_Hierarchy.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/01_Authority_Hierarchy.md"
+original_sha256: "sha256:49b036cc28d84cdc512c46ac9bdb61f63db7ba5d5ef767157bc62447d76631a7"
+relocation_record_id: "DOCMOVE_9AF4EBBD6EFACC623C9A43D8A55479B0"
 ---
-# Authority Hierarchy and Policy Precedence
+# Redirect — 01 Authority Hierarchy
 
-## Rule
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/01_Authority_Hierarchy]].
 
-The repository must have one deterministic answer to “which document wins?” Use the precedence defined in `AGENTS.md` and the project policy. An implementation detail, model score, or historical accident cannot override an approved domain rule.
+- Legacy path: `docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/01_Authority_Hierarchy.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/01_Authority_Hierarchy.md`
+- Preserved source digest: `sha256:49b036cc28d84cdc512c46ac9bdb61f63db7ba5d5ef767157bc62447d76631a7`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## Decision Procedure
-
-1. Identify all conflicting claims.
-2. Classify each artifact as normative or informative.
-3. Compare authority rank and version/status.
-4. Preserve current safe behavior until resolved.
-5. Record the resolution in an ADR/decision log.
-6. Update contracts, tests, and downstream consumers.
-
-## Failure Signals
-
-- Two modules implement different definitions for the same term.
-- A dashboard threshold becomes a filter without promotion.
-- A comment contradicts a specification.
-- A hotfix introduces an undocumented permanent exception.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

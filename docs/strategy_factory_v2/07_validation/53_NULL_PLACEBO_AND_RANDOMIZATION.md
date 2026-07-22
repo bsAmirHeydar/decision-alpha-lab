@@ -1,43 +1,22 @@
 ---
-title: "Null, Placebo, and Randomization Tests"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 53 NULL PLACEBO AND RANDOMIZATION"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION.md"
+original_sha256: "sha256:63c80047b3d5340f3fd1f0289ce718c265656444b7eca04cad67689e72d9beac"
+relocation_record_id: "DOCMOVE_65745C70B3F002D534AE6F62C82512CC"
 ---
+# Redirect — 53 NULL PLACEBO AND RANDOMIZATION
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION]].
 
-Asks whether the anatomy contributes information beyond matched conditions.
+- Legacy path: `docs/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION.md`
+- Preserved source digest: `sha256:63c80047b3d5340f3fd1f0289ce718c265656444b7eca04cad67689e72d9beac`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Time-shift pairs, role randomization, within-session permutation, matched random entries, no-anatomy confirmation baseline, irrelevant pair placebo, sign flip, and synthetic data.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Using an unmatched unconditional baseline that confounds session and volatility.
-
-# Required tests
-
-Each strategy manifest names its primary matched null.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

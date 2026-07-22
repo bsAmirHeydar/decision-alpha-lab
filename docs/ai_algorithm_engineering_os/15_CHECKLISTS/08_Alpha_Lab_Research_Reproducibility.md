@@ -1,24 +1,22 @@
 ---
-id: AIEOS2-2F3343396102
-title: "Alpha Lab Research Reproducibility Checklist"
-type: checklist
-status: active
-domain: checklist
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - checklist
+title: "Redirect — 08 Alpha Lab Research Reproducibility"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/15_CHECKLISTS/08_Alpha_Lab_Research_Reproducibility.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/08_Alpha_Lab_Research_Reproducibility.md"
+original_sha256: "sha256:10d6c65c5bc6a5ad85bc2abfdbb8a2e7ca7d839c55063373460b36ec77e68930"
+relocation_record_id: "DOCMOVE_E26A2BC1B292F5F62C0E567CB2F48BA2"
 ---
-# Alpha Lab Research Reproducibility Checklist
+# Redirect — 08 Alpha Lab Research Reproducibility
 
-- [ ] Hypothesis is falsifiable.
-- [ ] Dataset/version/time range and availability cutoff are fixed.
-- [ ] Leakage review is complete.
-- [ ] Baseline and metrics are specified before results.
-- [ ] Code/config/seed/folds are recorded.
-- [ ] Reproduction command works from a clean environment.
-- [ ] Negative/inconclusive evidence is retained.
-- [ ] Result claims match evidence level.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/08_Alpha_Lab_Research_Reproducibility]].
+
+- Legacy path: `docs/ai_algorithm_engineering_os/15_CHECKLISTS/08_Alpha_Lab_Research_Reproducibility.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/15_CHECKLISTS/08_Alpha_Lab_Research_Reproducibility.md`
+- Preserved source digest: `sha256:10d6c65c5bc6a5ad85bc2abfdbb8a2e7ca7d839c55063373460b36ec77e68930`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

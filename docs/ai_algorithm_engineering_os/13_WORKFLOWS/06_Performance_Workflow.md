@@ -1,99 +1,22 @@
 ---
-id: AIEOS-9A37258A58
-title: "Performance Workflow"
-type: workflow
-status: active
-domain: workflow
+title: "Redirect — 06 Performance Workflow"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - workflow
-  - workflow
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/13_WORKFLOWS/06_Performance_Workflow.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/13_WORKFLOWS/06_Performance_Workflow.md"
+original_sha256: "sha256:a2f3fd678d374ccd7a58df50d3b29e518f234aa2fca9c5ae8469176b6a058147"
+relocation_record_id: "DOCMOVE_655EAD5234DA6570221FD6CD11558D9F"
 ---
-# Performance Workflow
+# Redirect — 06 Performance Workflow
 
-> [!abstract] Purpose
-> Optimize only measured bottlenecks while preserving semantics and observability.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/13_WORKFLOWS/06_Performance_Workflow]].
 
-This note belongs to the **13 WORKFLOWS** module. Its function is to define end-to-end runbooks for recurring engineering situations. The material is normative: when a project deviates from it, the deviation must be recorded as an explicit engineering decision rather than hidden inside implementation code.
+- Legacy path: `docs/ai_algorithm_engineering_os/13_WORKFLOWS/06_Performance_Workflow.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/13_WORKFLOWS/06_Performance_Workflow.md`
+- Preserved source digest: `sha256:a2f3fd678d374ccd7a58df50d3b29e518f234aa2fca9c5ae8469176b6a058147`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-## 1. Operating Position
-
-Optimize only measured bottlenecks while preserving semantics and observability. The objective is not to maximize the amount of generated code. The objective is to reduce ambiguity, preserve domain truth, make changes reversible, and produce evidence that the implementation satisfies the approved intent.
-
-### Core principles
-
-- Treat **Performance Workflow** as an explicit engineering contract, not an informal preference.
-- Keep baseline, profiling, intervention, and comparison traceable to project intent, domain rules, and measurable evidence.
-- Separate confirmed facts from assumptions, unknowns, and proposed decisions.
-- Prefer deterministic, reversible decisions over hidden heuristics and chat-dependent context.
-- Preserve existing behavior unless the approved scope explicitly changes it.
-
-## 2. Required Procedure
-
-1. Define workload, environment, and numerical budget.
-2. Profile before changing code and rank bottlenecks by total contribution.
-3. Prefer algorithmic and lifecycle changes over micro-optimization.
-4. Compare distributions and worst cases before and after.
-5. Update all linked artifacts and close with a decision record.
-
-A step may be skipped only when the artifact already exists and is current. “The model probably understands it” is not evidence. Link the existing artifact, identify its version, and state why it is sufficient.
-
-## 3. Required Outputs
-
-- A versioned record of baseline, profiling, intervention, and comparison.
-- A list of assumptions and unresolved questions with owners.
-- A verification plan with executable commands or observable outcomes.
-- Links to affected specifications, modules, tests, and decisions.
-- A workflow packet containing specification, implementation, verification, review, release, and knowledge evidence.
-
-Each output must have an owner, status, and review path. Generated prose without a decision, contract, test, or next action is not considered an engineering output.
-
-## 4. Quality Gates
-
-- The intent and boundaries can be restated consistently by a reviewer.
-- No critical term depends on undocumented conversational context.
-- Every mandatory behavior has at least one verification method.
-- Regression scope and rollback path are explicit.
-- The artifact is linked from the relevant MOC, feature packet, or patch manifest.
-- Every phase exit criterion is recorded before the next phase begins.
-
-A gate is binary. If the evidence is incomplete, status remains **not ready**. Avoid converting uncertainty into optimistic wording.
-
-## 5. Failure Modes and Countermeasures
-
-- **Vague approval:** “looks good” replaces evidence. Countermeasure: require binary gates and linked outputs.
-- **Scope leakage:** unrelated cleanup enters the change. Countermeasure: enforce files-to-touch and non-goals.
-- **Ontology drift:** AI substitutes familiar concepts. Countermeasure: use the project dictionary and reject undefined terms.
-- **Chat dependency:** decisions exist only in conversation. Countermeasure: persist them in the vault before coding.
-- **False completion:** code compiles but behavior is unverified. Countermeasure: define Done as evidence, not compilation.
-
-## 6. AI Interaction Contract
-
-Use AI as an accountable engineering role. Supply the current specification, relevant files, constraints, non-goals, and verification commands. Require the model to separate facts, assumptions, unknowns, and recommendations. Do not accept a code patch that cannot explain which invariant it preserves and how the change will be verified.
-
-### Reusable prompt
-
-```text
-Execute the Performance Workflow. Do not skip directly to coding. At each phase produce the required artifact, list unresolved risks, and stop on failed gates. Use repository evidence and report all tool results honestly.
-```
-
-## 7. Review Questions
-
-- What ambiguity would cause two competent engineers to implement different behavior?
-- Which invariant or contract is most likely to be violated?
-- What evidence proves the change works in both normal and adverse conditions?
-- What existing behavior could regress?
-- Is the result understandable without the original chat history?
-- Can the work be rolled back or reconstructed deterministically?
-
-## 8. Completion Record
-
-Record the decision, linked artifacts, reviewer, unresolved risks, and next checkpoint in the project decision log. Update `updated` in frontmatter when the normative content changes.
-
-## Related Notes
-
-- [[15_CHECKLISTS/01_Master_Feature_Checklist|Master Feature Checklist]]
-- [[09_PATCH_RELEASE_GIT/01_Patch_Identity|Patch Identity]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

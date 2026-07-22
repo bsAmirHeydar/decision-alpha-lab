@@ -1,19 +1,22 @@
-# EXP0017 Chapter 14 — Statistical Testing and Performance Metrics
+---
+title: "Redirect — CH14 statistical testing and performance metrics doctrine EN"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH14_statistical_testing_and_performance_metrics_doctrine_EN.md"
+canonical_path: "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH14_sample_size_metric_families_and_window_study_EN.md"
+original_sha256: "sha256:504c6990623016e8c7e0d4027376ecb44aa0191ed6d134e62cb83948846d70bd"
+relocation_record_id: "DOCMOVE_070648F5DA0989FB0A24CD04B134DA86"
+---
+# Redirect — CH14 statistical testing and performance metrics doctrine EN
 
-> English knowledge-base version of the Strategy Architect doctrine. This document preserves the base doctrine while making the project readable for English implementation, review, collaboration, and future modeling.
+This compatibility locator now resolves to [[docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH14_sample_size_metric_families_and_window_study_EN]].
 
-## Metric / Field Catalog
+- Legacy path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH14_statistical_testing_and_performance_metrics_doctrine_EN.md`
+- Canonical path: `docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/strategy_architect_answers_en/CH14_sample_size_metric_families_and_window_study_EN.md`
+- Preserved source digest: `sha256:504c6990623016e8c7e0d4027376ecb44aa0191ed6d134e62cb83948846d70bd`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-| Field | Meaning |
-|---|---|
-| `win_rate` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `stop_rate` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `expectancy` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `r_outcome` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `pip_outcome` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `max_intraday_reward` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-| `stop_streak` | Must be preserved when relevant so the future statistical layer can rank and compare signal families. |
-
-## Storage Principle
-
-If a field may later explain win rate, expectancy, stop behavior, overlap behavior, or model quality, it should be recorded from the beginning even if it is not used immediately.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

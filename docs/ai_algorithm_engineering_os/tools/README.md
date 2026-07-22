@@ -1,30 +1,22 @@
 ---
-id: AIEOS-TOOLS-README
-title: "Vault Tools"
-type: guide
-status: active
-domain: tooling
+title: "Redirect — README"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - tooling
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/tools/README.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/tools/README.md"
+original_sha256: "sha256:16be9995880622970f2186e9f0e02ebc389f41171ce40f88eadcfca2063ca79a"
+relocation_record_id: "DOCMOVE_9660EC6180C6847D81A653ED9D411F86"
 ---
-# Vault Tools
+# Redirect — README
 
-## Validate the Vault
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/tools/README]].
 
-```powershell
-python .\tools\validate_vault.py .
-```
+- Legacy path: `docs/ai_algorithm_engineering_os/tools/README.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/tools/README.md`
+- Preserved source digest: `sha256:16be9995880622970f2186e9f0e02ebc389f41171ce40f88eadcfca2063ca79a`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-The validator checks frontmatter, unique IDs, internal wiki links, empty notes, and probable unresolved placeholders.
-
-## Create a Patch Packet
-
-```powershell
-python .\tools\new_patch_packet.py DIV-EXT-001 "Consumed Extreme State" .\work
-```
-
-The command creates a bounded work folder containing specification, AI context, patch manifest, test matrix, review, release checklist, engineering log, and execution README.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

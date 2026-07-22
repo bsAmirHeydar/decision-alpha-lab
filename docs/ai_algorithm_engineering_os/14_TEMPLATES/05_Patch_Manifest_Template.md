@@ -1,88 +1,22 @@
 ---
-id: AIEOS-A83CEA04D7
-title: "Patch Manifest Template"
-type: template
-status: active
-domain: template
+title: "Redirect — 05 Patch Manifest Template"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - template
-  - template
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/14_TEMPLATES/05_Patch_Manifest_Template.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/05_Patch_Manifest_Template.md"
+original_sha256: "sha256:00e9c1f788a660137ddec438a6eb4c801432074f8db86b9abeb6cd9cfe6ad0f9"
+relocation_record_id: "DOCMOVE_263531F3745FA4B2F1728F89D2918219"
 ---
-# Patch Manifest Template
+# Redirect — 05 Patch Manifest Template
 
-> [!abstract] Purpose
-> Control one bounded code change from intent through rollback.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/05_Patch_Manifest_Template]].
 
-## Usage Rules
+- Legacy path: `docs/ai_algorithm_engineering_os/14_TEMPLATES/05_Patch_Manifest_Template.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/14_TEMPLATES/05_Patch_Manifest_Template.md`
+- Preserved source digest: `sha256:00e9c1f788a660137ddec438a6eb4c801432074f8db86b9abeb6cd9cfe6ad0f9`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- Copy the template into the active feature, algorithm, patch, or incident folder.
-- Replace every bracketed placeholder; delete sections only with an explicit not-applicable reason.
-- Link source evidence and normative notes instead of duplicating unstable content.
-
-## Copyable Template
-
-```markdown
-# Patch [PATCH-ID]
-
-## Identity
-- Purpose: [...]
-- Owner/reviewer: [...]
-- Risk: low / medium / high / critical
-- Base commit/version: [...]
-
-## Current and Desired Behavior
-[...]
-
-## Scope
-- Files to add: [...]
-- Files to modify: [...]
-- Files not to touch: [...]
-- Non-goals: [...]
-
-## Preserved Invariants and Contracts
-[...]
-
-## Implementation Sequence
-[...]
-
-## Verification Commands
-```text
-[...]
-```
-
-## Evidence and Results
-[...]
-
-## Compatibility / Migration
-[...]
-
-## Rollback
-[...]
-
-## Archive Contents / Checksum
-[...]
-
-## Commit Message
-```text
-[...]
-```
-```
-
-## Completion Standard
-
-- The artifact is understandable without the original chat.
-- Normative statements are testable or explicitly marked as assumptions.
-- Links, owners, versions, status, evidence, and unresolved risks are present.
-
-## Review
-
-Before accepting a completed instance, verify that every placeholder has been replaced, every claim points to evidence, and every unresolved item has an owner and deadline or explicit defer decision.
-
-## Related Notes
-
-- [[13_WORKFLOWS/_MOC|Workflows]]
-- [[10_OBSIDIAN_KNOWLEDGE_SYSTEM/03_Frontmatter_Standard|Frontmatter Standard]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

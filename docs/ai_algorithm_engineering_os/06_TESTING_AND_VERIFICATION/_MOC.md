@@ -1,46 +1,22 @@
 ---
-id: AIEOS-8CC2F660BB
-title: "Testing and Verification"
-type: map-of-content
-status: active
-domain: verification
+title: "Redirect —  MOC"
+status: compatibility-redirect
 version: 1.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - verification
-  - moc
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/06_TESTING_AND_VERIFICATION/_MOC.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/06_TESTING_AND_VERIFICATION/_MOC.md"
+original_sha256: "sha256:f4c4d2d15aa031cbf72b9bc56143d508c60440c29f86db432a4dd24108ba8ef8"
+relocation_record_id: "DOCMOVE_FB4C5569E8A1B1B3CD31DA10D2AACC1F"
 ---
-# Testing and Verification
+# Redirect —  MOC
 
-> [!abstract] Module Intent
-> Prove algorithmic, state, visual, operational, and performance correctness.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/06_TESTING_AND_VERIFICATION/_MOC]].
 
-## Navigation
+- Legacy path: `docs/ai_algorithm_engineering_os/06_TESTING_AND_VERIFICATION/_MOC.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/06_TESTING_AND_VERIFICATION/_MOC.md`
+- Preserved source digest: `sha256:f4c4d2d15aa031cbf72b9bc56143d508c60440c29f86db432a4dd24108ba8ef8`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-- [[06_TESTING_AND_VERIFICATION/01_Test_Strategy|Test Strategy]]
-- [[06_TESTING_AND_VERIFICATION/02_Unit_Testing|Unit Testing]]
-- [[06_TESTING_AND_VERIFICATION/03_Property_and_Invariant_Testing|Property and Invariant Testing]]
-- [[06_TESTING_AND_VERIFICATION/04_Golden_Master_and_Characterization|Golden Master and Characterization]]
-- [[06_TESTING_AND_VERIFICATION/05_Scenario_Testing|Scenario Testing]]
-- [[06_TESTING_AND_VERIFICATION/06_Visual_Validation|Visual Validation]]
-- [[06_TESTING_AND_VERIFICATION/07_Performance_Testing|Performance Testing]]
-- [[06_TESTING_AND_VERIFICATION/08_Historical_Replay_Testing|Historical Replay Testing]]
-- [[06_TESTING_AND_VERIFICATION/09_Live_Simulation|Live Simulation]]
-- [[06_TESTING_AND_VERIFICATION/10_Test_Matrix|Test Matrix]]
-- [[06_TESTING_AND_VERIFICATION/11_Regression_Strategy|Regression Strategy]]
-- [[06_TESTING_AND_VERIFICATION/12_Release_Verification_Gate|Release Verification Gate]]
-
-## How to Use This Module
-
-1. Read the notes in sequence for a new implementation.
-2. Link the relevant note from the feature or patch packet.
-3. Use templates and checklists as executable contracts, not optional documentation.
-4. Record exceptions in an ADR or decision log.
-
-## Exit Condition
-
-The module is complete for a task only when its required artifacts exist, quality gates pass, and unresolved risks are visible.
-
-[[00_START_HERE/00_Home|← Back to Home]]
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

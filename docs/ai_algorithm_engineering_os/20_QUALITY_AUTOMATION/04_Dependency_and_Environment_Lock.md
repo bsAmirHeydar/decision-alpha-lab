@@ -1,17 +1,22 @@
 ---
-id: AIEOS2-32A01A30412B
-title: "Dependency and Environment Lock"
-type: standard
-status: active
-domain: quality-automation
-version: 2.0.0
-created: 2026-07-10
-updated: 2026-07-10
-tags:
-  - ai-engineering
-  - alpha-lab
-  - quality-automation
+title: "Redirect — 04 Dependency and Environment Lock"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/04_Dependency_and_Environment_Lock.md"
+canonical_path: "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/04_Dependency_and_Environment_Lock.md"
+original_sha256: "sha256:d4f35bdca96fc1ac42d926661609af8e8ec24690cf2992c447ab686c6a8b143d"
+relocation_record_id: "DOCMOVE_DE73AFAF03E1226D9D468F0CE81E70F5"
 ---
-# Dependency and Environment Lock
+# Redirect — 04 Dependency and Environment Lock
 
-Record Python/runtime/compiler versions and lock dependencies for reproducible work. Environment upgrades are explicit migrations with before/after smoke evidence.
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/04_Dependency_and_Environment_Lock]].
+
+- Legacy path: `docs/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/04_Dependency_and_Environment_Lock.md`
+- Canonical path: `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/04_Dependency_and_Environment_Lock.md`
+- Preserved source digest: `sha256:d4f35bdca96fc1ac42d926661609af8e8ec24690cf2992c447ab686c6a8b143d`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
+
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.

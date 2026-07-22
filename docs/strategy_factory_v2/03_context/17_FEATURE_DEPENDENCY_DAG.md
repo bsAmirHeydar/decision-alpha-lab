@@ -1,43 +1,22 @@
 ---
-title: "Feature Dependency DAG"
-domain: strategy-factory-v2
-status: canonical
-language: en
-version: 2.0.0
-tags:
-  - alpha-lab
-  - strategy-factory
-  - anatomy-to-decision
+title: "Redirect — 17 FEATURE DEPENDENCY DAG"
+status: compatibility-redirect
+version: 1.0.0
+generated: true
+generated_by: LCM-15B
+legacy_path: "docs/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG.md"
+canonical_path: "docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG.md"
+original_sha256: "sha256:77a8c230baa5b46b023986126e14109bbc4029264ea89a52ad9de4bf3bd44794"
+relocation_record_id: "DOCMOVE_5FC110204457FD28008C1F14A4BDCAAA"
 ---
+# Redirect — 17 FEATURE DEPENDENCY DAG
 
-# Purpose
+This compatibility locator now resolves to [[docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG]].
 
-Computes features in a deterministic order and enables incremental invalidation.
+- Legacy path: `docs/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG.md`
+- Canonical path: `docs/alpha_lab_master_architecture/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG.md`
+- Preserved source digest: `sha256:77a8c230baa5b46b023986126e14109bbc4029264ea89a52ad9de4bf3bd44794`
+- Source deletion: `false`
+- Runtime, live-order and capital authority: `false`
 
-# Responsibilities
-
-Providers declare feature dependencies. Startup compilation detects duplicate ownership and cycles, then stores a topological provider order.
-
-# Fast-path constraints
-
-- All authoritative inputs must be available at the declared decision time.
-- Work must be bounded by the compiled plan.
-- Runtime failures must map to explicit abstention or rejection reason codes.
-- No module may silently change strategy canon, model schema, thresholds, or capital limits.
-
-# Forbidden coupling and failure modes
-
-Ad hoc calling chains, circular dependencies, hidden reads from global state, and provider ordering by import accident.
-
-# Required tests
-
-Cycle, duplicate output, missing dependency, topological stability, and partial recompute tests.
-
-# Operational completion criteria
-
-1. The module has a versioned contract and owner.
-2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
-3. Deterministic replay is possible from stored artifacts.
-4. Performance is benchmarked under the intended mode.
-5. Failure behavior is fail-closed when the module is authoritative.
-6. Migration and rollback are documented.
+The canonical document preserves the byte-identical authored content. This generated redirect remains reversible through the LCM-15B rollback manifest.
