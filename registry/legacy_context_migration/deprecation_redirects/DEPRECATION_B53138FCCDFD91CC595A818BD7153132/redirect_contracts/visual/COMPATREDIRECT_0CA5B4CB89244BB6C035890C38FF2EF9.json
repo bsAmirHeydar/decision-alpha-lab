@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_21A27DD0819A2169E28E74915B99F863.json",
+  "canonical_target_digest": "sha256:474a5e02c7a99f69d74cd34727ba81b7b5b6a3abccd8bc85fcd46f5c579a6f95",
+  "consumer_id": "CONSUMER_822871D25CEA62775DB4CEEF198426BC",
+  "contract_digest": "sha256:1f9910e02c25c71144015ec3fb2484aebee4f076ac8c193c7259705fb6bc49bf",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit",
+  "redirect_id": "COMPATREDIRECT_0CA5B4CB89244BB6C035890C38FF2EF9",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_822871D25CEA6277",
+  "warning_message": "Legacy locator 'mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5::OnInit' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_21A27DD0819A2169E28E74915B99F863.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

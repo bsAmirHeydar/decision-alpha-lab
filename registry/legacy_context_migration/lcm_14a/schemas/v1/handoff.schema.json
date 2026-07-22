@@ -1,0 +1,33 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_to_lcm14b_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {},
+    "blocked_dimensions": {},
+    "completed_gates": {},
+    "deprecation_id": {},
+    "forbidden_actions": {},
+    "handoff_digest": {},
+    "handoff_id": {},
+    "handoff_type": {},
+    "phase_id": {},
+    "schema_version": {},
+    "unknown_dimensions": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "handoff_id",
+    "handoff_type",
+    "deprecation_id",
+    "completed_gates",
+    "blocked_dimensions",
+    "unknown_dimensions",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "LCM14A to LCM14B Handoff",
+  "type": "object"
+}

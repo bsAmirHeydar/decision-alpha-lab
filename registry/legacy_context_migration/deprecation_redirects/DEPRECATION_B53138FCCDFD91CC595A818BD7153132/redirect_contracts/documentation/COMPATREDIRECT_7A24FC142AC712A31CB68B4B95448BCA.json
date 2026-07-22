@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md",
+  "canonical_target_digest": "sha256:5cd7bfea19f512ea40f70636060347d52781db7707f1013cb623b553b65cf513",
+  "consumer_id": "CONSUMER_5FF6965F6AF9260B7D13C9DD2A82782D",
+  "contract_digest": "sha256:3c3df85a73edcc2b9d25ba61eab1b2adc13112b1415f39bfb6ce03a0e8dca70d",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md",
+  "redirect_id": "COMPATREDIRECT_7A24FC142AC712A31CB68B4B95448BCA",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5FF6965F6AF9260B",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown.md' is deprecated; use exact canonical locator 'docs/evidence/exec001_stc_smt_cycles_module_breakdown/0e4565d59512_18_module_breakdown.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

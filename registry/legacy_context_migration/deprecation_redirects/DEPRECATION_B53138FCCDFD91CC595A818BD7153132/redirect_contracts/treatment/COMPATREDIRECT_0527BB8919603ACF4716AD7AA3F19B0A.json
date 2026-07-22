@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_014910846905879CF052F00F1051DB0D.json",
+  "canonical_target_digest": "sha256:d60103466017894c9b385ea26d7605a19a257ba5fa1de51a065a01221cb35936",
+  "consumer_id": "CONSUMER_6DC0F7540AA56C2B4816B6FEA7EF05A3",
+  "contract_digest": "sha256:26a98d6363770994688efc998b27a4e3f6ce9a5322c87909395f6ab408a3162d",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/StrategyFactory/UCE_I03_TreatmentAtomsDiagnostic.mq5",
+  "redirect_id": "COMPATREDIRECT_0527BB8919603ACF4716AD7AA3F19B0A",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6DC0F7540AA56C2B",
+  "warning_message": "Legacy locator 'mql5/Experts/StrategyFactory/UCE_I03_TreatmentAtomsDiagnostic.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_014910846905879CF052F00F1051DB0D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

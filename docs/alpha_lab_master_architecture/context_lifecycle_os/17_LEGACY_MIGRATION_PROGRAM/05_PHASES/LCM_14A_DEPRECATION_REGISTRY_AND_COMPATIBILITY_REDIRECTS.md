@@ -1,8 +1,8 @@
 ---
 title: "LCM-14A — Deprecation Registry and Compatibility Redirects"
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-19
+status: implemented-reference
+version: 1.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-14A
 master_phase: LCM-14
@@ -121,3 +121,21 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: quarantine copy/move and restoration drill.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation closure
+
+LCM-14A is accepted under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132` at claim ceiling `LCM_14A_REFERENCE_ONLY`. The package:
+
+- accounts for all 613 LCM-13C deprecation candidates: 1 Context, 136 Documentation, 422 Treatment and 54 Visual identities;
+- verifies 136 existing documentation redirect stubs and registers 477 reference-only redirects without modifying production bindings;
+- pins every redirect to an exact canonical content digest and rejects floating resolution;
+- resolves duplicate legacy locators only with an explicit consumer identity and fails closed for ambiguous unscoped calls;
+- freezes 613 actionable warnings before resolution;
+- records 12,431 active-reference records from 44,243 scanned files and 288,354,103 scanned bytes;
+- marks 136 documentation identities as observation candidates while blocking 477 active-source identities from quarantine;
+- records external consumer scope as UNKNOWN for all 613 identities rather than inferring absence;
+- preserves original byte locations and content digests; and
+- creates no quarantine, deletion, runtime, live-order or capital authority.
+
+The bounded handoff to LCM-14B is `sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1`. LCM-14 remains open.

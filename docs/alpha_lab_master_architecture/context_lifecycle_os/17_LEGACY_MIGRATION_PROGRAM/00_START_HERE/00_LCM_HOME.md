@@ -1,8 +1,8 @@
 ---
 title: "Legacy Context Migration Program — Home"
 status: proposed-reference
-version: 2.0.0
-updated: 2026-07-19
+version: 2.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Legacy Context Migration Program — Home
@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_14A_DEPRECATION_REGISTRY_AND_COMPATIBILITY_REDIRECTS|LCM-14A — Deprecation Registry and Compatibility Redirects]].
+The next approved implementation unit is [[LCM_14B_QUARANTINE_OBSERVATION_AND_RETIREMENT_ELIGIBILITY|LCM-14B — Quarantine, Observation and Retirement Eligibility]].
 
 ## Claim ceiling
 
@@ -55,5 +55,7 @@ The program may create migration evidence, canonical packages, compatibility ada
 - LCM-13B: accepted controlled cutover for 613 consumers in 27 waves; 806 remain explicit blockers.
 - LCM-13C: accepted closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F` with 162 state-plane records, 189 ordered events and zero reopened waves.
 - LCM-13 is closed at the reference-only claim ceiling.
-- LCM-14 through LCM-16 remain governed by the refined roadmap.
-- Next: LCM-14A.
+- LCM-14A: accepted deprecation and compatibility evidence under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132`; 613 identities are explicit, 136 documentation redirects are observation-eligible, and 477 active-source identities remain blocked from quarantine.
+- LCM-14 remains open until LCM-14B.
+- LCM-15 through LCM-16 remain governed by the refined roadmap.
+- Next: LCM-14B.

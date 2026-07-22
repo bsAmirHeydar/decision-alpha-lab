@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md",
+  "canonical_target_digest": "sha256:c2b747987734b09131c164159534923866905af6df4fb96dec271674334114c8",
+  "consumer_id": "CONSUMER_7D6428E8B939392DFB3B19B8E6AFA2F6",
+  "contract_digest": "sha256:daa0cb739b10f35b53b7f734c67bc502972799759d4664e1004416db0944a3e4",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md",
+  "redirect_id": "COMPATREDIRECT_B96148643E2369995FE724DDD0B61A45",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_7D6428E8B939392D",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_clean_header_minimize_mode_cleaner_oscillator/d69d3d6a23b9_ASTRO_DASHBOARD_V12_HEADER_MINIMIZE_CLEAN_OSC.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

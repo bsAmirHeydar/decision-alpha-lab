@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime.md",
+  "canonical_target_digest": "sha256:cce87d02809c77b5deb0149176901266c18da5065bb000caf2d317b26fc0271d",
+  "consumer_id": "CONSUMER_25077795073DADAEC6963D9BEACF4D9E",
+  "contract_digest": "sha256:30441293f56bf84dd75def9e1970458d4bb02b0b1949fe15e370b2f2f7c39b13",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime.md",
+  "redirect_id": "COMPATREDIRECT_C4CCF6EDF9B8F75A394E56C244A5740E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_25077795073DADAE",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/14_backtest_live_runtime.md' is deprecated; use exact canonical locator 'docs/evidence/14_backtest_live_runtime/c31f0574e3ec_14_backtest_live_runtime.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

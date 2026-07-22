@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/1e9ac67bd5e5_README_ZONE_AF_PATCH.md",
+  "canonical_target_digest": "sha256:5680defafddba8094b249b41f6add31ac47cf14fe3239aa68de909bccbd11372",
+  "consumer_id": "CONSUMER_1EC05A2DBCFF586793B00516EFF3C234",
+  "contract_digest": "sha256:d85573add08c4ad0df21e7ae6908d201274f78207391f975be73ddeef0feaada",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "alpha_lab_zone_af_patch/README_ZONE_AF_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_01FBB1FEC532AB9DE6917C15FAA05F80",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1EC05A2DBCFF5867",
+  "warning_message": "Legacy locator 'alpha_lab_zone_af_patch/README_ZONE_AF_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/1e9ac67bd5e5_README_ZONE_AF_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

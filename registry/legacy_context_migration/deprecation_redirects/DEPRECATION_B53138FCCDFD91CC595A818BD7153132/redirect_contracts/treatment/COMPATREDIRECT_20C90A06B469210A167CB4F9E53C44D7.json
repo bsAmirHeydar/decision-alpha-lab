@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2347E79CD470AE5A3F3B04972D2978D2.json",
+  "canonical_target_digest": "sha256:d7ede06d1ebbf6ff471ecf2660f7ded373f162876451fffdaf743681d953ea34",
+  "consumer_id": "CONSUMER_78C514BA0BE1C3DE8010F5531B1E8374",
+  "contract_digest": "sha256:a80c342e2a58f95c0324dcae036dcb627af1210bf1ceaf2efbd84684cdcabcb1",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/flag_counting/nds_f2_dual_exit_contract_qa.py",
+  "redirect_id": "COMPATREDIRECT_20C90A06B469210A167CB4F9E53C44D7",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_78C514BA0BE1C3DE",
+  "warning_message": "Legacy locator 'tools/flag_counting/nds_f2_dual_exit_contract_qa.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2347E79CD470AE5A3F3B04972D2978D2.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

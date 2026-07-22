@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0018_p10_release_checklist/be4f3e42c8c5_EXP0018_P10_Release_Checklist.md",
+  "canonical_target_digest": "sha256:42b63a59af8bceb81665aa8cd9788781f3a869362c97c83034a845397d641280",
+  "consumer_id": "CONSUMER_38417F3E2942D32773B47479652CDBA0",
+  "contract_digest": "sha256:4505ea323cd426b0bf7d98683a6b3d644b6fb2e59fe546dfbef5f59c4910ebad",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/obsidian_deep/04_checklists/EXP0018_P10_Release_Checklist.md",
+  "redirect_id": "COMPATREDIRECT_733D614B132D0BF9CF9E42BF85BAEF50",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_38417F3E2942D327",
+  "warning_message": "Legacy locator 'docs/obsidian_deep/04_checklists/EXP0018_P10_Release_Checklist.md' is deprecated; use exact canonical locator 'docs/evidence/exp0018_p10_release_checklist/be4f3e42c8c5_EXP0018_P10_Release_Checklist.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

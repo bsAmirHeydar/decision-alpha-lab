@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md",
+  "canonical_target_digest": "sha256:359f60cbe7d14be461a7dff2488aceb5770302041e06885e5b8c490d5c34692a",
+  "consumer_id": "CONSUMER_4489749B61DDA3F1B2D1D25E3B89AC83",
+  "contract_digest": "sha256:1d29882f64e90be569c33dc12dd1721d1aadc7f4134581e56bf9b6180a8e3d38",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md",
+  "redirect_id": "COMPATREDIRECT_5065D453EA37C52EF3691835ECFD42F7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_4489749B61DDA3F1",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator.md' is deprecated; use exact canonical locator 'docs/evidence/level_11_paper_hard_close_simulator_15_30_end_day_accounting/d27b26fac569_32_level_11_hard_close_simulator.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

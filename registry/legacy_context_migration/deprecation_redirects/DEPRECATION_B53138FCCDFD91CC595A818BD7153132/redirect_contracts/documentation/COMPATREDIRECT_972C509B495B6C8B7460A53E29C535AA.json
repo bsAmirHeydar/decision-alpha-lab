@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md",
+  "canonical_target_digest": "sha256:7a655cbf0cce55ac0c70a4b2cb3c4025b86c655eac188080c91e657efefaccf9",
+  "consumer_id": "CONSUMER_0D2AC757B131BE3BD36195F545EA29C9",
+  "contract_digest": "sha256:eef5dbc01a0c58d5a76fc26996308a81da2468ab64163f937117a68ccb0298b0",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md",
+  "redirect_id": "COMPATREDIRECT_972C509B495B6C8B7460A53E29C535AA",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_0D2AC757B131BE3B",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/BUILD_EXCEL_COMMANDS.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_excel_csv_build_commands/6e29545f8168_BUILD_EXCEL_COMMANDS.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

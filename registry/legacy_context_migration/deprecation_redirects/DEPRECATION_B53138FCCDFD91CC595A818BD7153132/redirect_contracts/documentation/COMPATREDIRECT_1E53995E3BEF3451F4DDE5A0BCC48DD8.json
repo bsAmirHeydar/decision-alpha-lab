@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/d6ea79caa91c_INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md",
+  "canonical_target_digest": "sha256:a50ceb5d58788eddd43959ca7e79f04d101cfb187471ccf41bfbb5a60fc478a3",
+  "consumer_id": "CONSUMER_4AC2510AEE1DB6F279AA318E8B34F653",
+  "contract_digest": "sha256:1d3a952fe61c31cdb3d8411bc2896c075d2d97a5726bcc26a4df314339b05ed3",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_1E53995E3BEF3451F4DDE5A0BCC48DD8",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_4AC2510AEE1DB6F2",
+  "warning_message": "Legacy locator 'INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/d6ea79caa91c_INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

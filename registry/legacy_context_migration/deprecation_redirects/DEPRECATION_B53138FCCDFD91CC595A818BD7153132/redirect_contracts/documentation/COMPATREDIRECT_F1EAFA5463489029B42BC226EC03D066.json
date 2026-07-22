@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md",
+  "canonical_target_digest": "sha256:b699dc94664d189de3e24761c78291e12de961da306e8897426946126836c16f",
+  "consumer_id": "CONSUMER_0B35A06B37FCC99FA8A2FB5E2B959A6E",
+  "contract_digest": "sha256:c9982c13f0a35f9888c5e2d56f6579977963c1b3f8759a46804a9ea4f959bb9b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/astro_validation/README_pure_entry_excel.md",
+  "redirect_id": "COMPATREDIRECT_F1EAFA5463489029B42BC226EC03D066",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_0B35A06B37FCC99F",
+  "warning_message": "Legacy locator 'tools/astro_validation/README_pure_entry_excel.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/986fa598c76e_README_pure_entry_excel.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

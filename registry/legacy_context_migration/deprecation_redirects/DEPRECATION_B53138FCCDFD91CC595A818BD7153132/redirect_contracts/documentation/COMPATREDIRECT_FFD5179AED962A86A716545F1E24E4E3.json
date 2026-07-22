@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/document_card_exp0017_release_plan_en/3060b1abee2f_docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md",
+  "canonical_target_digest": "sha256:7a17034836ee80c0e51d6eb8b47f1d42bd2b978cecdbc3f3ca46ca091f18192a",
+  "consumer_id": "CONSUMER_75A6C1852A66111395FCBAEC9B6085B1",
+  "contract_digest": "sha256:0ae3816f3e1fd3b4386685f496df5fe04e443144b0954607e42039ccb57a46e2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/obsidian/03_document_cards/docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md",
+  "redirect_id": "COMPATREDIRECT_FFD5179AED962A86A716545F1E24E4E3",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_75A6C1852A661113",
+  "warning_message": "Legacy locator 'docs/obsidian/03_document_cards/docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md' is deprecated; use exact canonical locator 'docs/evidence/document_card_exp0017_release_plan_en/3060b1abee2f_docs__execution__EXP0017_cycle_group_intermarket_divergence__english_knowledge_base__implementation_roadmap_en__EXP0017_RELEASE_PLAN_EN.md.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

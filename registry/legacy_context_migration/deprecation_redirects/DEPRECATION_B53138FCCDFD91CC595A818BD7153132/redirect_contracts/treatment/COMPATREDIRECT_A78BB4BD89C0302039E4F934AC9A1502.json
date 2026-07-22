@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_8B7BED1707472CF91C436A559E386460.json",
+  "canonical_target_digest": "sha256:e2f8e3898c7690c246f63f7641f73fbb4b2766a8eea9f7317143f96be33da967",
+  "consumer_id": "CONSUMER_B6A7DD841ECF485F9734084F502F993F",
+  "contract_digest": "sha256:731cc8f895e47a4f13bcc629b840b269d74b983749ee2d6c1c2a832487f40d2a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/astro_ml/astro_ml_core.py",
+  "redirect_id": "COMPATREDIRECT_A78BB4BD89C0302039E4F934AC9A1502",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B6A7DD841ECF485F",
+  "warning_message": "Legacy locator 'tools/astro_ml/astro_ml_core.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_8B7BED1707472CF91C436A559E386460.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

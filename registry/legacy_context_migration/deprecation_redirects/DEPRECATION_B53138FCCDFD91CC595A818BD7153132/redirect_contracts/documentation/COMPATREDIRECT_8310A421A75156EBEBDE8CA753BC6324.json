@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md",
+  "canonical_target_digest": "sha256:016c8de435bd4c2c52e09d44c76d4b938b6c8a2aceda59f81029d8226a4bf6ac",
+  "consumer_id": "CONSUMER_8E889CE85AD87DEF5E33900F62401A58",
+  "contract_digest": "sha256:e50004e5e75d76854b9e10d83d76a9aa76999491dd95b55cbbf38922049d92ae",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md",
+  "redirect_id": "COMPATREDIRECT_8310A421A75156EBEBDE8CA753BC6324",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8E889CE85AD87DEF",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_CSV_RUNTIME_PATH_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_csv_runtime_path_fix/ad8f4c6e752a_ASTRO_CSV_RUNTIME_PATH_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

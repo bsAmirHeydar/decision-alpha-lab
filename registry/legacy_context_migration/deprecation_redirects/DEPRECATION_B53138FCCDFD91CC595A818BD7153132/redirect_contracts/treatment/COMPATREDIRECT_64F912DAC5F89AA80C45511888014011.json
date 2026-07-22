@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_A0C56B02388802F300509A528528AFA0.json",
+  "canonical_target_digest": "sha256:d548841a190907ffb451e87782f2238cf85fa299b51b2a509d31b7576be20a09",
+  "consumer_id": "CONSUMER_00F0734813603E7557122B2D9E3D1BEE",
+  "contract_digest": "sha256:41d640e1b84ec172dd1c1dd89221e17956db945b855cb8cd564d1d4e1150ac16",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5",
+  "redirect_id": "COMPATREDIRECT_64F912DAC5F89AA80C45511888014011",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_00F0734813603E75",
+  "warning_message": "Legacy locator 'mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_A0C56B02388802F300509A528528AFA0.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

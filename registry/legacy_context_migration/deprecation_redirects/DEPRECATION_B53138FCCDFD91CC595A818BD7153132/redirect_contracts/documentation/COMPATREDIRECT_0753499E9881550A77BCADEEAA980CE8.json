@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md",
+  "canonical_target_digest": "sha256:8f19d5d7931d2f2ee7f4baa417421cac885f7155524822a72f1d3d52534f0dcc",
+  "consumer_id": "CONSUMER_9ABDA176430A37AB597E2596F3539747",
+  "contract_digest": "sha256:5a9baf433172b1e48932e0e13a0a383ca6b882915fe697bfe3afe39887937193",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/mql_native/M0001_JSON_AUDIT_REPORT.md",
+  "redirect_id": "COMPATREDIRECT_0753499E9881550A77BCADEEAA980CE8",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_9ABDA176430A37AB",
+  "warning_message": "Legacy locator 'docs/mql_native/M0001_JSON_AUDIT_REPORT.md' is deprecated; use exact canonical locator 'docs/evidence/m0001_json_audit/2e8468dd6e0a_M0001_JSON_AUDIT_REPORT.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

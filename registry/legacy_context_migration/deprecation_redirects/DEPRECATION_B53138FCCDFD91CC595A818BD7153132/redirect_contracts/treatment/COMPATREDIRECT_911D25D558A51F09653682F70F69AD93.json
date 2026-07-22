@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_9BEA3B8299D1E59D95EC8DEE89A857C3.json",
+  "canonical_target_digest": "sha256:e591d55a0ef3072504f7bfe368444b8ac3f8ae9b055f3d38ad359696ccf80ff8",
+  "consumer_id": "CONSUMER_0E781CDA2B7E75D977F13C606F87608B",
+  "contract_digest": "sha256:132db136d63d9721ffd617b26d36714999edf2b125ac591d5d16c0cb5e3c566b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+  "redirect_id": "COMPATREDIRECT_911D25D558A51F09653682F70F69AD93",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_0E781CDA2B7E75D9",
+  "warning_message": "Legacy locator 'mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_9BEA3B8299D1E59D95EC8DEE89A857C3.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

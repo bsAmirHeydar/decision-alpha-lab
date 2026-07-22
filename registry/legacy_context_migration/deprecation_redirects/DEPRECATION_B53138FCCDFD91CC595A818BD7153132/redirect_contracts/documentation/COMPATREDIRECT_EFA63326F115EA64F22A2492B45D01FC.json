@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/ead29bd0cb93_INSTALL_ZONE_AF_PATCH.md",
+  "canonical_target_digest": "sha256:dd4c9ab41cfc1265d7b98be6e4946486f565c8e4c1921f1aaca1ac20b0f34e71",
+  "consumer_id": "CONSUMER_6B9FA17AFCE5AB3B77646D8CE5DDEEBF",
+  "contract_digest": "sha256:01b183d3cf6a097cc29e1fa8f92cfeba7d4f343084b360b14f5a9cf8afcb49de",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "alpha_lab_zone_af_patch/INSTALL_ZONE_AF_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_EFA63326F115EA64F22A2492B45D01FC",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6B9FA17AFCE5AB3B",
+  "warning_message": "Legacy locator 'alpha_lab_zone_af_patch/INSTALL_ZONE_AF_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/ead29bd0cb93_INSTALL_ZONE_AF_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

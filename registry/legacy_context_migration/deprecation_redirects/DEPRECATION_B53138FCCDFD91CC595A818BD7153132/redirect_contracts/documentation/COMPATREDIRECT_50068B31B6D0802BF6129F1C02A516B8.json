@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0000_sample/58c8a635ff91_report.md",
+  "canonical_target_digest": "sha256:536b73dee1cb26250578e67a146e4b72f3d76c66aa7e70f19e13f4b6e44a9877",
+  "consumer_id": "CONSUMER_C4B0EFD0DA9ADB1220F346954BE848A8",
+  "contract_digest": "sha256:a96411b1034912e3b583f6e86c232f7232789f2286c6e8e54d74a999a20d5700",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0000_sample/report.md",
+  "redirect_id": "COMPATREDIRECT_50068B31B6D0802BF6129F1C02A516B8",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_C4B0EFD0DA9ADB12",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0000_sample/report.md' is deprecated; use exact canonical locator 'docs/evidence/exp0000_sample/58c8a635ff91_report.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

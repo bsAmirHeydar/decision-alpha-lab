@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A64DC0CBB15113C13B9DFAC044C92F.json",
+  "canonical_target_digest": "sha256:a46c87d7dfaa975066376a3247afde2356d21cb5489ed25eddb8b39d3e0190e8",
+  "consumer_id": "CONSUMER_22C780B25C8B72B4881EFAA087760A4D",
+  "contract_digest": "sha256:c54c34238f16f21a9fd39ef92c2f877bb5f82d74b8136117926e24ead8a17f55",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "product_lab/indicators/gartal_terminal/mql5/GartalTerminal.mq5",
+  "redirect_id": "COMPATREDIRECT_3AE8E7D7E18E0AF029F6C321B211D731",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_22C780B25C8B72B4",
+  "warning_message": "Legacy locator 'product_lab/indicators/gartal_terminal/mql5/GartalTerminal.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A64DC0CBB15113C13B9DFAC044C92F.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

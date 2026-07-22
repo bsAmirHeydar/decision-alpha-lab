@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md",
+  "canonical_target_digest": "sha256:021316f29aab8cc3a539d40b335ab4dce1da236632dd158d75ed494addc01200",
+  "consumer_id": "CONSUMER_D534E65CA6B7C32ECA48784EDE765CCE",
+  "contract_digest": "sha256:62415be8900bb5a7b95a8464e36e69125e0cbd774857bbb3e1680da75c3d53d9",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md",
+  "redirect_id": "COMPATREDIRECT_0CCE91DC32B19E734DF7DC74F0B03A30",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D534E65CA6B7C32E",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence.md' is deprecated; use exact canonical locator 'docs/evidence/exec001_stc_smt_cycles_build_sequence/f494e5d7db74_19_patch_build_sequence.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

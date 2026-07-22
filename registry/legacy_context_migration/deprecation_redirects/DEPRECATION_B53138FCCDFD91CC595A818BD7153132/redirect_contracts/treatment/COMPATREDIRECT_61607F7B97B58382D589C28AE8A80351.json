@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_39EDB1FD6E1B8A5F9B75B1D0199A9E6E.json",
+  "canonical_target_digest": "sha256:557e86fd0a2093ee5a40f409b4b01aa00f241a51fcf523d98c52456816fc24b9",
+  "consumer_id": "CONSUMER_A98C55CA72D3195A02344BEDBE8F5EB2",
+  "contract_digest": "sha256:5c542b0126eb55c1a91069592f9658b1895d4790cb55279f522cc6450ca66ace",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/StrategyFactoryTests/UCE_I05_LongShortSymmetrySelfTest.mq5",
+  "redirect_id": "COMPATREDIRECT_61607F7B97B58382D589C28AE8A80351",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A98C55CA72D3195A",
+  "warning_message": "Legacy locator 'mql5/Experts/StrategyFactoryTests/UCE_I05_LongShortSymmetrySelfTest.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_39EDB1FD6E1B8A5F9B75B1D0199A9E6E.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

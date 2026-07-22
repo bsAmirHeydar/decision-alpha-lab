@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_B285D4D7C0536393EA6A914C85106E5E.json",
+  "canonical_target_digest": "sha256:78ba6c1d1c6a03cb398b5375849a32af3773c66ad8ea36d422d8bf33bdc12bfa",
+  "consumer_id": "CONSUMER_F5AA64C5D1429D62FD2F4E6416C8158B",
+  "contract_digest": "sha256:2c7585d99990b6e775c47772e34660a4145a9b3aaa4bf917b73d422fd283f217",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/DayeTrader/EXP0018/DAYE_PeriodAggregator.mqh",
+  "redirect_id": "COMPATREDIRECT_B4FBB13D6AE03E3DF9EA40AADCC6722D",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F5AA64C5D1429D62",
+  "warning_message": "Legacy locator 'mql5/Include/DayeTrader/EXP0018/DAYE_PeriodAggregator.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_B285D4D7C0536393EA6A914C85106E5E.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

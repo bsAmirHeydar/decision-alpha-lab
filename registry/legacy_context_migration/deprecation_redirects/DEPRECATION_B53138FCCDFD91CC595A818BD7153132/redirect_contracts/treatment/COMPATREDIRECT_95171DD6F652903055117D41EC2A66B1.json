@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_E682D27AB070260D0824F0F0DFA25C8D.json",
+  "canonical_target_digest": "sha256:846f5c9a9f6100b009a639d98eb188ca70815c8d5aaf3a24fea2b468f4ea6d17",
+  "consumer_id": "CONSUMER_5EEAE51FAB8A0F9AAB4BAE48F8AD344E",
+  "contract_digest": "sha256:387e9d7d0efcb910be68902bab39a0b1b4a1a848a6db6bb01ec7d447582d0b7d",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/tests/phase17_execution/test_sf17_engine.py",
+  "redirect_id": "COMPATREDIRECT_95171DD6F652903055117D41EC2A66B1",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5EEAE51FAB8A0F9A",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/tests/phase17_execution/test_sf17_engine.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_E682D27AB070260D0824F0F0DFA25C8D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

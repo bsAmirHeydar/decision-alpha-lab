@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_15CA8270EEC8A06ADF7DA947CDCB82B0.json",
+  "canonical_target_digest": "sha256:7631eae94c1d738cdc6d8990ba84570b5cc72647b1e9fc887c19092915194df2",
+  "consumer_id": "CONSUMER_54246742888ED2BA0492EF3B6FEAB1C5",
+  "contract_digest": "sha256:6dccbe4cc309f69dfdc7329b89d62b033856ad7d14e36bb2305171902df4954f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/flag_counting/nds_hook_trade_contract_qa.py",
+  "redirect_id": "COMPATREDIRECT_65098800FD317E6A5F20478154A5DD30",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_54246742888ED2BA",
+  "warning_message": "Legacy locator 'tools/flag_counting/nds_hook_trade_contract_qa.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_15CA8270EEC8A06ADF7DA947CDCB82B0.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

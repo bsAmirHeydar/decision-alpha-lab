@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/release_gates/70fb9d51d4be_EXP0018_RELEASE_GATE_MATRIX_V2.md",
+  "canonical_target_digest": "sha256:cd3693fc90dea2edcf0ba4c1e7c714b8bf12eaaf5c03960d46aba8be3e028aa7",
+  "consumer_id": "CONSUMER_D50F5B7DD5C0FB702FF5F8737DA155C6",
+  "contract_digest": "sha256:6042cc383ccfc3d15109dcd5efd24a24a62efcf85ca78bab4ef89f0d034b60eb",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/06_qa_and_supervision/EXP0018_RELEASE_GATE_MATRIX_V2.md",
+  "redirect_id": "COMPATREDIRECT_BF1350BE9908A1B2313456FD6718E49E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D50F5B7DD5C0FB70",
+  "warning_message": "Legacy locator 'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/06_qa_and_supervision/EXP0018_RELEASE_GATE_MATRIX_V2.md' is deprecated; use exact canonical locator 'docs/evidence/release_gates/70fb9d51d4be_EXP0018_RELEASE_GATE_MATRIX_V2.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

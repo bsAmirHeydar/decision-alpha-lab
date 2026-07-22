@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md",
+  "canonical_target_digest": "sha256:0a6517c5970e5480d6572fa40b285b53eba9fe7a786d5a87bea80623420cad12",
+  "consumer_id": "CONSUMER_5AB88F09A71D78DE89C869FA6F6C5124",
+  "contract_digest": "sha256:7f50850d326c88b825f415a64fcec73e040a161633e664856bf221e0de18c549",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md",
+  "redirect_id": "COMPATREDIRECT_339D0F49CC2DFA7A3DFA4F579A446DB5",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5AB88F09A71D78DE",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DOCTRINE_V1.md' is deprecated; use exact canonical locator 'docs/evidence/astro_doctrine/f9353abb5fd5_ASTRO_DOCTRINE_V1.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

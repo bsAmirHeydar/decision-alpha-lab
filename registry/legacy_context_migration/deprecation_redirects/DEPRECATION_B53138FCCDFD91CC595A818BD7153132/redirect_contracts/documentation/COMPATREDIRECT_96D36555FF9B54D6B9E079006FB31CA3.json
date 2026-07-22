@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md",
+  "canonical_target_digest": "sha256:a3690a5796d44138835821e1ecc5a781ab7a2c298c4413faea8bcf8e18dfc108",
+  "consumer_id": "CONSUMER_A164FD82E697FE3FC18547424532CFD7",
+  "contract_digest": "sha256:04e14364c31dccc413c3cabc569dbecea3e36bf8c61762bf4a4c712d25440708",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md",
+  "redirect_id": "COMPATREDIRECT_96D36555FF9B54D6B9E079006FB31CA3",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A164FD82E697FE3F",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/24_level_03_check_candle_aggregator.md' is deprecated; use exact canonical locator 'docs/evidence/level_03_check_candle_aggregator_pair_data_completeness/dad06b849807_24_level_03_check_candle_aggregator.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md",
+  "canonical_target_digest": "sha256:558de01fff7c96070f5a9c0b40b71abe9e26dde5c72cdca4f876c06c94a0795b",
+  "consumer_id": "CONSUMER_570C9F4AD7A6CBC2DCA18D5C04E23CCC",
+  "contract_digest": "sha256:d82f6dd2accb5a2e59d6007025410d27a06366d02c4ffc83b948215de0cf6789",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md",
+  "redirect_id": "COMPATREDIRECT_966EF671C87FCDE75DB9E0D08E425CC9",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_570C9F4AD7A6CBC2",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/16_implementation_checklist.md' is deprecated; use exact canonical locator 'docs/evidence/16_implementation_checklist/29731b650a84_16_implementation_checklist.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md",
+  "canonical_target_digest": "sha256:08292c3930bbe18a1f178dced0ab63405bfe0755551d5afd4e8b3d294147bf6f",
+  "consumer_id": "CONSUMER_587BE9E92856FFD3594B98E4960145C0",
+  "contract_digest": "sha256:8993cfce6113a9cef46ef8bb59fb9e430ef57452444df0685f1af6d61ade5cb2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md",
+  "redirect_id": "COMPATREDIRECT_5CA5D19665041D336BCE104C31334589",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_587BE9E92856FFD3",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_RAW_AXES_OSCILLATOR.md' is deprecated; use exact canonical locator 'docs/evidence/run_exp0013_astro_raw_axes_oscillator/1cf21803c17b_RUN_ASTRO_RAW_AXES_OSCILLATOR.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

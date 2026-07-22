@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy.md",
+  "canonical_target_digest": "sha256:46d6a0406c677dfa28c5018ebf0cfe72c2dec81b814d25813229e6e527ac3902",
+  "consumer_id": "CONSUMER_758A6E93DCC3ECB2B0079257575503C1",
+  "contract_digest": "sha256:629bd253d024587a3524afdb82fc8921af19a24d2f213394e4f8adbd0475cf5d",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/obsidian/04_concepts/NDS_Anatomy.md",
+  "redirect_id": "COMPATREDIRECT_B8092D23D6CD67BEA7A44EE6DD811EB0",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_758A6E93DCC3ECB2",
+  "warning_message": "Legacy locator 'docs/obsidian/04_concepts/NDS_Anatomy.md' is deprecated; use exact canonical locator 'docs/evidence/nds_anatomy/6a11c75733b2_NDS_Anatomy.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

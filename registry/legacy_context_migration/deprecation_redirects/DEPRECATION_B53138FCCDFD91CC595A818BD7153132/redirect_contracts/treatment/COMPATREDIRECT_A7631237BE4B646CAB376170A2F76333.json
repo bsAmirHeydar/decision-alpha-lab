@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_95D9BA6B08F8F4C8BB1E8DFC7429F6A2.json",
+  "canonical_target_digest": "sha256:9da2ea5c99c40166e2b92c0a993d279d6f2f78657ac81717491047d9b8db77fb",
+  "consumer_id": "CONSUMER_8694D47BDCACF3C958929DE4D26BDCC2",
+  "contract_digest": "sha256:d25e22b9267e450fcc4ba854a2561db05e0f5da346dc7aab8859cc51d879fd41",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/saed_v4_prospective_shadow_micro_live/paper.py",
+  "redirect_id": "COMPATREDIRECT_A7631237BE4B646CAB376170A2F76333",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8694D47BDCACF3C9",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/saed_v4_prospective_shadow_micro_live/paper.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_95D9BA6B08F8F4C8BB1E8DFC7429F6A2.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

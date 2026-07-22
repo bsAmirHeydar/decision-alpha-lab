@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/334fef68dadc_INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md",
+  "canonical_target_digest": "sha256:6915f5881db3d2183b8ec996e7136cfad291ebd3427cb2fe18bcc778cff02eca",
+  "consumer_id": "CONSUMER_73564B8635633051772DCDD5208F6337",
+  "contract_digest": "sha256:5999c12ebfe57b108dcf0ec422d20436cc7511e5a9fb1d482cc96bc2467c061a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_8DBA0500A5B17E87037DF00E9117D92E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_73564B8635633051",
+  "warning_message": "Legacy locator 'INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/334fef68dadc_INSTALL_EXP0017_ENGLISH_KNOWLEDGE_BASE_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,8 +1,8 @@
 ---
 title: "LCM-14 — Deprecation, Quarantine and Redirects"
-status: proposed-reference
-version: 2.0.0
-updated: 2026-07-19
+status: in-progress-reference
+version: 2.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-14
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
@@ -65,3 +65,8 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+
+## Current master-phase checkpoint
+
+LCM-14A is accepted under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132` and emits LCM-14B handoff `sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1`. The master phase remains OPEN: 136 documentation redirect identities may proceed to bounded quarantine observation and restoration drills, while 477 active-source identities are non-compensatorily blocked. LCM-14 has not authorized deletion.

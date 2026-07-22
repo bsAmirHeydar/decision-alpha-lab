@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/folder_map_lab_03_experiments_exp_flag_counting_release_profiles/d3226076c6d5_lab__03_experiments__EXP_flag_counting__release_profiles.md",
+  "canonical_target_digest": "sha256:ef829a9197c70aa4b5a0eade639dc67e4d10d7c108e5745dde53df187cd1e4eb",
+  "consumer_id": "CONSUMER_1F38BF09E9D2D8FD32C8F2EAFB0D2A04",
+  "contract_digest": "sha256:4d827d7fbb331c3d781dc6aff824aacb657f4728b83853b108181355d2fdf8bc",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/obsidian/01_maps/folders/lab__03_experiments__EXP_flag_counting__release_profiles.md",
+  "redirect_id": "COMPATREDIRECT_A052167E907CE0E661002B4B1A98FE7F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1F38BF09E9D2D8FD",
+  "warning_message": "Legacy locator 'docs/obsidian/01_maps/folders/lab__03_experiments__EXP_flag_counting__release_profiles.md' is deprecated; use exact canonical locator 'docs/evidence/folder_map_lab_03_experiments_exp_flag_counting_release_profiles/d3226076c6d5_lab__03_experiments__EXP_flag_counting__release_profiles.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

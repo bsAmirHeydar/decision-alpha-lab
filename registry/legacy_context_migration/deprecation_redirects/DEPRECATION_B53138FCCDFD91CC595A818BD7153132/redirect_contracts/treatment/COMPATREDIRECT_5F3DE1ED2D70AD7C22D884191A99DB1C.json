@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EDA64EA2C65CAE7B87186EFE3F586FAE.json",
+  "canonical_target_digest": "sha256:3f975cd424bd62b5778620aa7585275769e32ce18de5650ea52f4552e4ac9b18",
+  "consumer_id": "CONSUMER_D52510348354FA3BB252BC4588AB6657",
+  "contract_digest": "sha256:09daedff24358cbc84903c833c8ed3aa2417fa8faa489dfbe32be15b1783a834",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/Execution/DAL_ExecHeikinAshi.mqh",
+  "redirect_id": "COMPATREDIRECT_5F3DE1ED2D70AD7C22D884191A99DB1C",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D52510348354FA3B",
+  "warning_message": "Legacy locator 'mql5/Include/Execution/DAL_ExecHeikinAshi.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EDA64EA2C65CAE7B87186EFE3F586FAE.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

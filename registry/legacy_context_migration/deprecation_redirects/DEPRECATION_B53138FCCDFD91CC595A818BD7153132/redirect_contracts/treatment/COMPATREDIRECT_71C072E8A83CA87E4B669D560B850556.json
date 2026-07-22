@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_85BB3E4632DDDB8AEA20E6CD9E386A3B.json",
+  "canonical_target_digest": "sha256:f5c2a7a8053051c997b45c1b531fde84d5eb0179e0d7fdf704bb8f4a7f4ee6ee",
+  "consumer_id": "CONSUMER_B65ACBBC280DD4CB14DE6C1CA47BBE4A",
+  "contract_digest": "sha256:c69e63331e13eb29da076a0e7c4984814f9643f14535eb514674e15bcabefc6a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/saed_v4_portfolio_execution_economics/impact.py",
+  "redirect_id": "COMPATREDIRECT_71C072E8A83CA87E4B669D560B850556",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B65ACBBC280DD4CB",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/saed_v4_portfolio_execution_economics/impact.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_85BB3E4632DDDB8AEA20E6CD9E386A3B.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

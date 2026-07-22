@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_quarantine_observation_candidate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_digest": {},
+    "candidate_type": {},
+    "consumer_id": {},
+    "direct_runtime_use": {},
+    "phase_id": {},
+    "quarantine_move_authorized": {},
+    "redirect_must_remain_active": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "consumer_id",
+    "candidate_type",
+    "direct_runtime_use",
+    "redirect_must_remain_active",
+    "quarantine_move_authorized",
+    "candidate_digest"
+  ],
+  "title": "LCM14A Quarantine Observation Candidate",
+  "type": "object"
+}

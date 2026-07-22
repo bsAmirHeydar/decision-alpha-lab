@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0017_release_plan/2b1bd81f1250_EXP0017_RELEASE_PLAN_EN.md",
+  "canonical_target_digest": "sha256:459784a8271b75c4c6d13e4f289c9c1b8af00ba23f481bebd2bdc8f5eb76e6f4",
+  "consumer_id": "CONSUMER_5A9C1EAA9B59C21CE17BF7162E6D6A8B",
+  "contract_digest": "sha256:28f3ed83ec0a3fc60a5aec05223333e1e120847aef58c1e3caafad588b7f10c8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/implementation_roadmap_en/EXP0017_RELEASE_PLAN_EN.md",
+  "redirect_id": "COMPATREDIRECT_BB74C8E179F92024B51CE5C42D7102B3",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5A9C1EAA9B59C21C",
+  "warning_message": "Legacy locator 'docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/implementation_roadmap_en/EXP0017_RELEASE_PLAN_EN.md' is deprecated; use exact canonical locator 'docs/evidence/exp0017_release_plan/2b1bd81f1250_EXP0017_RELEASE_PLAN_EN.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

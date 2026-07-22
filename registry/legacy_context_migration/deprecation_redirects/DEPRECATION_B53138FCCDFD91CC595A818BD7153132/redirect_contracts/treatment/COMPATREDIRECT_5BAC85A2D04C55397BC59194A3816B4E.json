@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_E5FA384206D872F4306DEA1E7479E6D0.json",
+  "canonical_target_digest": "sha256:8d5391be275abf8501219549c9eb7226af892d426a0927d713c1e747c3f20623",
+  "consumer_id": "CONSUMER_2B1E7E71FF9C3D02AB760600FF233B1C",
+  "contract_digest": "sha256:94d2b68b66a1f7bc40ca5d2d94778a2aea44710573b29f6a22a1d00a012530c9",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/strategy_factory_economics_v3/solver.py",
+  "redirect_id": "COMPATREDIRECT_5BAC85A2D04C55397BC59194A3816B4E",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_2B1E7E71FF9C3D02",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/strategy_factory_economics_v3/solver.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_E5FA384206D872F4306DEA1E7479E6D0.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

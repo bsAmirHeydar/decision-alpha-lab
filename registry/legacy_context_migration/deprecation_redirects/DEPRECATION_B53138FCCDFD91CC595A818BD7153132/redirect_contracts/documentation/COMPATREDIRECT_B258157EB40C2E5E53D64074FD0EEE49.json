@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md",
+  "canonical_target_digest": "sha256:e34c17c9e0aee6f17dbe2e3b1a01784362d872bbd86b80d7147ce2b0e438f541",
+  "consumer_id": "CONSUMER_4880C3734B23EC3A05741A0AC1EF29DA",
+  "contract_digest": "sha256:e0f72bb811cca6ec84ea506370f0dbf7e5f22f73c78a2a0f33374aee78df2052",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md",
+  "redirect_id": "COMPATREDIRECT_B258157EB40C2E5E53D64074FD0EEE49",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_4880C3734B23EC3A",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_cleanup_spacing_fix/e8031fe69dd3_ASTRO_DASHBOARD_V6_CLEANUP_AND_SPACING_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

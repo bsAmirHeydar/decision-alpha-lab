@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_071C2567E45391C20817E730E2469C14.json",
+  "canonical_target_digest": "sha256:25d0ac9a0ad170d98fd91471dec4911a637f53504677c93c691e8a2bb4e44792",
+  "consumer_id": "CONSUMER_06015DDE9EEF5A438770DACED7D83550",
+  "contract_digest": "sha256:43ed80ef9c7b9700841be14afae5a7a1425a8ab6406f8273f0f0c950ff89e652",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5",
+  "redirect_id": "COMPATREDIRECT_5BB03B8C460A93170DAA13F45E368226",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_06015DDE9EEF5A43",
+  "warning_message": "Legacy locator 'mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_071C2567E45391C20817E730E2469C14.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

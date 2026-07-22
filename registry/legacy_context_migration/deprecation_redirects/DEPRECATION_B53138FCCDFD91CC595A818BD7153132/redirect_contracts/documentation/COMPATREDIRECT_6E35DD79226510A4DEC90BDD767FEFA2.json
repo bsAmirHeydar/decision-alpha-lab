@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR.md",
+  "canonical_target_digest": "sha256:9106c3245455f12ce4f6fc48a5d23d41545677314992f3a29f62cf1f89e39d5d",
+  "consumer_id": "CONSUMER_8F6C577EAEBD4C4966699CDEA6129E67",
+  "contract_digest": "sha256:0e0274f5a559e5b0cbe7d99eb81a3acd773327f9778aa5caa7f1069c6845f8d6",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR.md",
+  "redirect_id": "COMPATREDIRECT_6E35DD79226510A4DEC90BDD767FEFA2",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8F6C577EAEBD4C49",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_FRACTAL_OSCILLATOR.md' is deprecated; use exact canonical locator 'docs/evidence/run_exp0013_astro_fractal_oscillator/55b1ec2fe983_RUN_ASTRO_FRACTAL_OSCILLATOR.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

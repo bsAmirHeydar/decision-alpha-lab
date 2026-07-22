@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EAC6FBBD7E4F0A733A0129CDAE461159.json",
+  "canonical_target_digest": "sha256:97e742a5d857bcbb6f95d70abae21b989b88f3928fb93293b7a245b443fa5231",
+  "consumer_id": "CONSUMER_E62422256044C0A0DB341AB9F951CDEA",
+  "contract_digest": "sha256:f345e4e8faa4fda6a62737a1b690eab14687fc42520550e068c4410de5e4cb40",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/stc_smt_deployment/offline_license_keygen.py",
+  "redirect_id": "COMPATREDIRECT_00769312BC954F87B262C1B1E0562ED6",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_E62422256044C0A0",
+  "warning_message": "Legacy locator 'tools/stc_smt_deployment/offline_license_keygen.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EAC6FBBD7E4F0A733A0129CDAE461159.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

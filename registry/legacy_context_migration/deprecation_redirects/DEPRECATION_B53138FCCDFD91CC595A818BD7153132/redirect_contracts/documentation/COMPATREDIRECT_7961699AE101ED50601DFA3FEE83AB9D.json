@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/295e21e2051a_INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+  "canonical_target_digest": "sha256:3a1551788483bb6b0f98d156bb7e98b43b8d870ceb40a5ee5b1c59a5927f7b3c",
+  "consumer_id": "CONSUMER_2F4069153A58FBC806D19A7D8A6252A0",
+  "contract_digest": "sha256:3137a231ba92d9dc054e1e7cfc2da34cedb66ac9da0b6dcef7fdd6092d14136a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "f_canonical_logic_integration_patch/INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_7961699AE101ED50601DFA3FEE83AB9D",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_2F4069153A58FBC8",
+  "warning_message": "Legacy locator 'f_canonical_logic_integration_patch/INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/295e21e2051a_INSTALL_CANONICAL_F_LOGIC_INTEGRATION_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

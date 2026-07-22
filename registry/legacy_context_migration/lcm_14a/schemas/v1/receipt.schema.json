@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "deprecation_count": {},
+    "deprecation_id": {},
+    "phase_id": {},
+    "production_binding_modified": {},
+    "receipt_digest": {},
+    "receipt_id": {},
+    "redirect_count": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "receipt_id",
+    "deprecation_id",
+    "deprecation_count",
+    "redirect_count",
+    "production_binding_modified",
+    "receipt_digest"
+  ],
+  "title": "LCM14A Receipt",
+  "type": "object"
+}

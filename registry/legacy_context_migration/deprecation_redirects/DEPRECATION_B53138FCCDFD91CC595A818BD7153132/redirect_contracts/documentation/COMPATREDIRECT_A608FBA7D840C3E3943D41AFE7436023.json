@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md",
+  "canonical_target_digest": "sha256:0a2cc5f26db712c478c286f558e2c2006d7423af6facc130b3803e734c2300e8",
+  "consumer_id": "CONSUMER_FD2B831C24195BAB9C9B3A20112845D0",
+  "contract_digest": "sha256:abdde3f2db4a14ff6a95bae1085686b5c7dd03ec3a3e03029c053b330ba33665",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md",
+  "redirect_id": "COMPATREDIRECT_A608FBA7D840C3E3943D41AFE7436023",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_FD2B831C24195BAB",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md' is deprecated; use exact canonical locator 'docs/evidence/exp0001_structural_highs_lows_importance/337872464ffa_report.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

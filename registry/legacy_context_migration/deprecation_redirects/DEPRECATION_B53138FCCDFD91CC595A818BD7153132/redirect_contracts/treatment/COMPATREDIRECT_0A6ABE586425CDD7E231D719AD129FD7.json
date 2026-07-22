@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_67CB11FAACB5723131D1F08BB1AFA4A7.json",
+  "canonical_target_digest": "sha256:5d70a0246af1c0eaf7d994354ba208cda9c3162874c1c7da06a605c0f4a09e8d",
+  "consumer_id": "CONSUMER_8F778103EA37680F67F2CDD0F890B888",
+  "contract_digest": "sha256:ff6cf639fe7d8eaa7fd68d335a5ba342bae683f16a5436f127904a0b46663dd7",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh",
+  "redirect_id": "COMPATREDIRECT_0A6ABE586425CDD7E231D719AD129FD7",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8F778103EA37680F",
+  "warning_message": "Legacy locator 'mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_67CB11FAACB5723131D1F08BB1AFA4A7.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

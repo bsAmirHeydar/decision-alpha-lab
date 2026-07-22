@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md",
+  "canonical_target_digest": "sha256:63f72b75ed58cb71fc16b996f93115bd6fd72e26c24b22f59abebe351c8c3eb7",
+  "consumer_id": "CONSUMER_68A0AB643F6AD52A30067E83D6D36DBB",
+  "contract_digest": "sha256:b85583c3c31fcfd5df9980a7ed1f4d9a23d2be7a168593f9e51db5c9f44330a0",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md",
+  "redirect_id": "COMPATREDIRECT_4DA2A80D2C774BC8DAA9C9E4338369F5",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_68A0AB643F6AD52A",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_stable_in_place_updates/ce83846c8724_ASTRO_DASHBOARD_V9_STABLE_IN_PLACE_UPDATE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

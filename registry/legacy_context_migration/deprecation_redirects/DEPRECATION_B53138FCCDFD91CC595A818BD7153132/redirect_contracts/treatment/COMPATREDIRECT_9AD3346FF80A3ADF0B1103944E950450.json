@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FA0160C2E024634FE94E4B6553B9A04C.json",
+  "canonical_target_digest": "sha256:ed7ca396f64fb18e30950d7904bc2465b3ee005cb83a4a46cf1d14a3e21d0a56",
+  "consumer_id": "CONSUMER_A811A8498BBF72CE4882045C58C8C6F7",
+  "contract_digest": "sha256:8eb286c9d7835ae521799888e1d20fd68e65666f64fd0b6935417628abf134a9",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I11/FP_I11_ResponsiveLayout.mqh",
+  "redirect_id": "COMPATREDIRECT_9AD3346FF80A3ADF0B1103944E950450",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A811A8498BBF72CE",
+  "warning_message": "Legacy locator 'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I11/FP_I11_ResponsiveLayout.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FA0160C2E024634FE94E4B6553B9A04C.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

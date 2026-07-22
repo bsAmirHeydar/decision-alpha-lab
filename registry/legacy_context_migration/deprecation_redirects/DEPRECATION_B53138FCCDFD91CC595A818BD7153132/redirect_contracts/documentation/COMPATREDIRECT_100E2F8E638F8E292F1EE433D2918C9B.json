@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/astro_timing_doctrine/e8dec3f797a0_ASTRO_TIMING_DOCTRINE.md",
+  "canonical_target_digest": "sha256:6a900de98724a050f2494111ddc7744b7cb051d8bad1c0c8aa0854a31a7e1c19",
+  "consumer_id": "CONSUMER_91B1F7B9582CF4543AAE391AC851718E",
+  "contract_digest": "sha256:c8c1d2eab13b90b524bb082e50e587087624c4d82f50bf66fcf82db93b8f1e2a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIMING_DOCTRINE.md",
+  "redirect_id": "COMPATREDIRECT_100E2F8E638F8E292F1EE433D2918C9B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_91B1F7B9582CF454",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIMING_DOCTRINE.md' is deprecated; use exact canonical locator 'docs/evidence/astro_timing_doctrine/e8dec3f797a0_ASTRO_TIMING_DOCTRINE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

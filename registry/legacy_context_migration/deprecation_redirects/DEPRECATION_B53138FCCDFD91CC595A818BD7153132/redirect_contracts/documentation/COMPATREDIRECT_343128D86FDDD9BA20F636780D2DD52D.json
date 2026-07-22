@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md",
+  "canonical_target_digest": "sha256:65af4a0e479903a36517361c2a07d6e016c138d45e599b947a0b1933d46b3c58",
+  "consumer_id": "CONSUMER_DFEAD3478D4DF4037A391FD2833E4EF7",
+  "contract_digest": "sha256:dd75c425f84f6ab8f2c4cdcd80e04563ced79269f0c654d2b7e235b7c6fa8318",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md",
+  "redirect_id": "COMPATREDIRECT_343128D86FDDD9BA20F636780D2DD52D",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_DFEAD3478D4DF403",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0002_hunt_vs_reject_post_exit_volatility.md' is deprecated; use exact canonical locator 'docs/evidence/h0002_hunt_reject_draft_deprecated/ca2753a3fb76_H0002_hunt_vs_reject_post_exit_volatility.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md",
+  "canonical_target_digest": "sha256:1c6a8f051b089a31aa1cdd5bcb6e23ea6e9ae27bf63c58abf6cf4c2ac2818625",
+  "consumer_id": "CONSUMER_6B44913FEDA79C0CDE45106FCE88BD58",
+  "contract_digest": "sha256:f4d1ff48e8b6bbb9d7a861f8678fccf9556919a54ce149bd57f6016123eac072",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/01_observation/OBS0001_structural_highs_lows_importance.md",
+  "redirect_id": "COMPATREDIRECT_4F6838C82E00A431724F687A232ECF9F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6B44913FEDA79C0C",
+  "warning_message": "Legacy locator 'lab/01_observation/OBS0001_structural_highs_lows_importance.md' is deprecated; use exact canonical locator 'docs/evidence/obs0001_apparent_importance_structural_highs_lows/7f861f698c9f_OBS0001_structural_highs_lows_importance.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

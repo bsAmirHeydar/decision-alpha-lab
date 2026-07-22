@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_3ABB51BB5FFB09C45FC2810BFBD09932.json",
+  "canonical_target_digest": "sha256:d8e45162f4e0b9484eca3d0b60e740449784c6271a4be085652f55ec3d56cfcb",
+  "consumer_id": "CONSUMER_CFF1BDE80CF708E0528C09B7B7CEA9A1",
+  "contract_digest": "sha256:f0f664274310b8a4dde54c648b77733890f5fb75f7895744b1852bf25303bb2e",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/ICT/DAL_ICTExecutionModel.mqh",
+  "redirect_id": "COMPATREDIRECT_867073F3D5FB3F36055B9C07E028403B",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_CFF1BDE80CF708E0",
+  "warning_message": "Legacy locator 'mql5/Include/ICT/DAL_ICTExecutionModel.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_3ABB51BB5FFB09C45FC2810BFBD09932.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

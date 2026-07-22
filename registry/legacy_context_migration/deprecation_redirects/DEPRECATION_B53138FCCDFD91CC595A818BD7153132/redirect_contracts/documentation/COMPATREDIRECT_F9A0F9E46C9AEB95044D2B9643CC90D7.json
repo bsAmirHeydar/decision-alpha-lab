@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md",
+  "canonical_target_digest": "sha256:2c07063e04241d17c33506d49acfa4a101adb5976b2d1a4ba7853481e5f4e2c8",
+  "consumer_id": "CONSUMER_665A53C2DF3825817EDA0FF3B8C79C86",
+  "contract_digest": "sha256:e7562f1f0f419a8212fad764b082d4a822643f54a8af24b6739aa97c9b12c2e6",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md",
+  "redirect_id": "COMPATREDIRECT_F9A0F9E46C9AEB95044D2B9643CC90D7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_665A53C2DF382581",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/07_test_plan.md' is deprecated; use exact canonical locator 'docs/evidence/07_test_plan/ad357cabb5f5_07_test_plan.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md",
+  "canonical_target_digest": "sha256:6cfe64bb4ed790a9015891d0b95502a805f5700b9fafbbccb0923bf98c38db9f",
+  "consumer_id": "CONSUMER_A840AD7630E745C64628A81887DF256A",
+  "contract_digest": "sha256:89e7078fb3fea25f5c09c10c53a201d041f183661ff9685d03b34486d2568168",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md",
+  "redirect_id": "COMPATREDIRECT_F93F8D6715DDCDF46A9C82E7F21B67F7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A840AD7630E745C6",
+  "warning_message": "Legacy locator 'lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md' is deprecated; use exact canonical locator 'docs/evidence/m0001_relative_territory_volatility_rtv/9fec506c7ac3_M0001_relative_territory_volatility.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

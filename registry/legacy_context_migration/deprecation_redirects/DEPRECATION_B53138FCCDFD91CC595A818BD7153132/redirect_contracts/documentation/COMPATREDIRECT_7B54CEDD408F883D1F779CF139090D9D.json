@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md",
+  "canonical_target_digest": "sha256:4f4f15f12b749aa86f48700b5e023104f7e1f5e3e79345de57ad3546020dfe46",
+  "consumer_id": "CONSUMER_1FA578536E78524DE3C9CF7043C8FE78",
+  "contract_digest": "sha256:3e020b3e42d8f1e4e5051433fa86d44c6bf9613af278656d6fe9ba130e7ac77f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0002_mql_native_m0001/report.md",
+  "redirect_id": "COMPATREDIRECT_7B54CEDD408F883D1F779CF139090D9D",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1FA578536E78524D",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0002_mql_native_m0001/report.md' is deprecated; use exact canonical locator 'docs/evidence/exp0002_mql_native_m0001_runtime/319a21879dae_report.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

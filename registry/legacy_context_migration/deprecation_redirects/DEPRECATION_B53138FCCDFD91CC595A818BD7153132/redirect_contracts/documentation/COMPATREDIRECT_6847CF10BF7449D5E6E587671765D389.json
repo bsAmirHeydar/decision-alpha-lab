@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_raw_sky_compile_fix/cc710a086588_ASTRO_RAW_SKY_V14_COMPILE_FIX.md",
+  "canonical_target_digest": "sha256:993b3f75a79ad9117a4f1e15bb64e5aee0f773417992bdb15caa8f5bd02346f5",
+  "consumer_id": "CONSUMER_3DF8A99FB018CCEC2F86587B3B09E972",
+  "contract_digest": "sha256:ee6de1c5d689e324b028179724ce83879d3c55a6b05070ce41237d898f206a46",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_V14_COMPILE_FIX.md",
+  "redirect_id": "COMPATREDIRECT_6847CF10BF7449D5E6E587671765D389",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_3DF8A99FB018CCEC",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_V14_COMPILE_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_raw_sky_compile_fix/cc710a086588_ASTRO_RAW_SKY_V14_COMPILE_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/anl001/692b0b9aa0db_notes.md",
+  "canonical_target_digest": "sha256:7cfbda8cacd4b256d6f6c34da02a534aa4fb753531ce7a08c051c376978a1c11",
+  "consumer_id": "CONSUMER_EF44CDD7326EEF1AFB7B22EDD362EA8C",
+  "contract_digest": "sha256:002ef7ddcb1e2062c33697ae8e8d5bd2ef68137ab7997d5c033a2b0e3e3bd9df",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/04_analysis/ANL001/notes.md",
+  "redirect_id": "COMPATREDIRECT_5E2147813C560C8699F2DAF290BE8B62",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_EF44CDD7326EEF1A",
+  "warning_message": "Legacy locator 'lab/04_analysis/ANL001/notes.md' is deprecated; use exact canonical locator 'docs/evidence/anl001/692b0b9aa0db_notes.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

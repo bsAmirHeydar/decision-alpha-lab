@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_warning_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "behavior_change": {},
+    "canonical_locator": {},
+    "consumer_id": {},
+    "delivery_timing": {},
+    "legacy_locator": {},
+    "message": {},
+    "phase_id": {},
+    "schema_version": {},
+    "warning_code": {},
+    "warning_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "warning_code",
+    "consumer_id",
+    "legacy_locator",
+    "canonical_locator",
+    "message",
+    "delivery_timing",
+    "behavior_change",
+    "warning_digest"
+  ],
+  "title": "LCM14A Warning Record",
+  "type": "object"
+}

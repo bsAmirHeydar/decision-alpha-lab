@@ -1,0 +1,23 @@
+{
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "external_unknown_is_explicit": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "low_frequency_reference_suppression_forbidden": true,
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14A",
+  "policy_id": "LCM14A_ACTIVE_REFERENCE_POLICY_V1",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "scopes": [
+    "CODE",
+    "CONFIG",
+    "PRESETS",
+    "TESTS",
+    "DOCS",
+    "GENERATED_PACKAGES",
+    "KNOWN_EXTERNAL_INTEGRATIONS"
+  ],
+  "validation_status": "PASS"
+}

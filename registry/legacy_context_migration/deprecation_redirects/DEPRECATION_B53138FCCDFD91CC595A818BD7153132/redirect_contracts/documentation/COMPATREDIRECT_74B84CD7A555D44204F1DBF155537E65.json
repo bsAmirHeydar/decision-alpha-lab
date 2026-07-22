@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction.md",
+  "canonical_target_digest": "sha256:b102bde5327319c0dccd1720e1177ce179f60d7059e62bbf82f42ae40f010a64",
+  "consumer_id": "CONSUMER_F13EFA8F49FB1317A4A7E84B205EB09D",
+  "contract_digest": "sha256:5acef6a5bdf28f53748da41c1279f9e403a213271fa29c592329b9907533704c",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction.md",
+  "redirect_id": "COMPATREDIRECT_74B84CD7A555D44204F1DBF155537E65",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F13EFA8F49FB1317",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/01_source_srs_extraction.md' is deprecated; use exact canonical locator 'docs/evidence/01_source_srs_extraction/3916a86b9266_01_source_srs_extraction.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

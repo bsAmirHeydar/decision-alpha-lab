@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md",
+  "canonical_target_digest": "sha256:fa4f04bd05424b746026012c6cab3e00fdaa85eec692cb49bc755fbf9d49f514",
+  "consumer_id": "CONSUMER_C895AE592A458D8E3F31C56C23DF131B",
+  "contract_digest": "sha256:489e95a2f727f1ffce4a8c7d28427e4940e7033e93a47faba9d9264258bd27bd",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md",
+  "redirect_id": "COMPATREDIRECT_12D67A27F0BD5022766B00CA9D5B150E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_C895AE592A458D8E",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0007_flag_counting_f1_start_structure.md' is deprecated; use exact canonical locator 'docs/evidence/h0007_flag_counting_f1_start_structure/d02c831e47bd_H0007_flag_counting_f1_start_structure.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

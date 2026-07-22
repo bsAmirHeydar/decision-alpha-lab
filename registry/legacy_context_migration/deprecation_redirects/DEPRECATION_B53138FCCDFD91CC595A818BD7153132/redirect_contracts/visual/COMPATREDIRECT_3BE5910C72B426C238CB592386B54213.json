@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D52AEEE806FB9E88B2D0BCAC348427C5.json",
+  "canonical_target_digest": "sha256:668d56ccc607057d4d77254ac6d18acb87c384ea19341eb4e1279f7ff4c1abc5",
+  "consumer_id": "CONSUMER_4AD8494DE6D8D1622ACCE98EDE113EB2",
+  "contract_digest": "sha256:2ff2f2744acfaa4ae82e2eaa8e5ece1ab5238359764ac9a9023c1817c6aa1903",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit",
+  "redirect_id": "COMPATREDIRECT_3BE5910C72B426C238CB592386B54213",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_4AD8494DE6D8D162",
+  "warning_message": "Legacy locator 'mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5::OnInit' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_D52AEEE806FB9E88B2D0BCAC348427C5.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

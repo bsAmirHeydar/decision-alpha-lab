@@ -1,0 +1,33 @@
+{
+  "candidate_count": 613,
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "external_scope_complete": false,
+  "external_scope_state": "UNKNOWN",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "matched_file_count": 1514,
+  "pattern_count": 906,
+  "phase_id": "LCM-14A",
+  "producer": "tools.strategy_factory.lcm.lcm_14a.source_scan:IMMUTABLE_PRE_PHASE_SNAPSHOT",
+  "reference_record_count": 11818,
+  "scan_engine": "RIPGREP_FIXED_STRING_BUILD_TIME_SNAPSHOT",
+  "scan_scope": [
+    "ACTIVE_CODE",
+    "CONFIG",
+    "PRESETS",
+    "TESTS",
+    "DOCS",
+    "SELECTED_GENERATED_PACKAGES",
+    "ROOT_TEXT_FILES"
+  ],
+  "scan_universe_bytes": 288354103,
+  "scan_universe_file_count": 44243,
+  "schema_version": "1.0.0",
+  "snapshot_path": "registry/legacy_context_migration/lcm_14a/reference_scan_snapshot.jsonl",
+  "snapshot_sha256": "sha256:f814a293ab554caf127648740ef090e86a89d42227053884be322e09f67b7cc7",
+  "source_baseline_phase": "LCM-13C",
+  "source_handoff_digest": "sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555",
+  "source_root_semantics": "PRE_LCM14A_ACCEPTED_REPOSITORY_STATE",
+  "summary_digest": "sha256:9539e31153c106a8082a6fa35f05e145a18743af52f9559710e888951d535655",
+  "validation_status": "PASS"
+}

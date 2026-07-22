@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/524435ab3496_README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md",
+  "canonical_target_digest": "sha256:d23804b7e39fa7fb5ed1c648156929e67dbfa1ccc96d40c00d580ab51ca09a8b",
+  "consumer_id": "CONSUMER_6A89BB1A13D3E4242AFE24402823226A",
+  "contract_digest": "sha256:c86f45377bdb07dcaa1f809f82160ab6f2a5fa214e8051b120e8a5698dd449e3",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md",
+  "redirect_id": "COMPATREDIRECT_9B7761F9FDC4500C71048599A855071A",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6A89BB1A13D3E424",
+  "warning_message": "Legacy locator 'docs/execution/EXP0017_cycle_group_intermarket_divergence/english_knowledge_base/README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/524435ab3496_README_EXP0017_ENGLISH_KNOWLEDGE_BASE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md",
+  "canonical_target_digest": "sha256:2af218d3273fbcacc63b11c476f56dc7d4f36315575949ae6b8feb6fe0f89d75",
+  "consumer_id": "CONSUMER_F546C05C0316F9A712A89B103F743615",
+  "contract_digest": "sha256:9c1328cc53879272e9d14ada99c8cd94ea009b8a8924da9933a5adb9968b506f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md",
+  "redirect_id": "COMPATREDIRECT_DBBCAA930B65928FEFA64844CE229F3E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F546C05C0316F9A7",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/0b9f38e7e2fd_README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

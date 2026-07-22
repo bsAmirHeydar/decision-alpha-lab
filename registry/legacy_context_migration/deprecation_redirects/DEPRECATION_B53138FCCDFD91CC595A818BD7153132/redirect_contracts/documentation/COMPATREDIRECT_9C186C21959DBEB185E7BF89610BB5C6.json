@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register.md",
+  "canonical_target_digest": "sha256:442a459b106ee553407385ef8e143c5b93e9a0638b172d49c440861c3215d609",
+  "consumer_id": "CONSUMER_84C716E76832E55F68149A91D575869B",
+  "contract_digest": "sha256:b4895cc30802c009b53df061bb8d353e2edc08fd5b3a6106119e216458498cbf",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register.md",
+  "redirect_id": "COMPATREDIRECT_9C186C21959DBEB185E7BF89610BB5C6",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_84C716E76832E55F",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register.md' is deprecated; use exact canonical locator 'docs/evidence/exec001_stc_smt_cycles_implementation_risk_register/b5f9b48975ee_20_implementation_risk_register.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

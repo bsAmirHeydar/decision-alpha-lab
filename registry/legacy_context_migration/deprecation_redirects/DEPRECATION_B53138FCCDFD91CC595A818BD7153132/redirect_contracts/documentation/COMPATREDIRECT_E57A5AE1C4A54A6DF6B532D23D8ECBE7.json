@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/190d82ab6c56_INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md",
+  "canonical_target_digest": "sha256:c610b7206c4a3f20eb0c126f19befbf7a6bbd603ee250062ceb2f2724e1803dc",
+  "consumer_id": "CONSUMER_7871A51B79DAFA13A4982B6C5302FD09",
+  "contract_digest": "sha256:3465d1a0a43d7a9ea929ec8f75c1e7538e21df3f06432ec69b2f01c8dff78091",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_E57A5AE1C4A54A6DF6B532D23D8ECBE7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_7871A51B79DAFA13",
+  "warning_message": "Legacy locator 'INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/190d82ab6c56_INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

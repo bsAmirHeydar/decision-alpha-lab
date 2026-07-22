@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md",
+  "canonical_target_digest": "sha256:bb80956f4cb20b60eca1d06d20e3834b73e44d02f66f53836aab545d4bfdcd8c",
+  "consumer_id": "CONSUMER_2A8430DF1ADA755D0B8468F284B04ADD",
+  "contract_digest": "sha256:0c7caacf671ca706da714f320a1e0a2ac8b92550d11f73f0708e60a1dc550498",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md",
+  "redirect_id": "COMPATREDIRECT_8DB9B8A30DF380B92BC5DCC75B0B929A",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_2A8430DF1ADA755D",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/validation_cases/CASE_TEMPLATE.md' is deprecated; use exact canonical locator 'docs/evidence/phoenix_validation_case_template/943e2e240c94_CASE_TEMPLATE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

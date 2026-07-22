@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md",
+  "canonical_target_digest": "sha256:5b952ba46a9cb52403e0a8d0f887df0401a10751a33eb35ed293081585792f69",
+  "consumer_id": "CONSUMER_289F9B8658B59F83DF9757814FF442C3",
+  "contract_digest": "sha256:88a4b531cec659025de969ebecaa7e1d024b5cb956e1aab320465fc47005b888",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md",
+  "redirect_id": "COMPATREDIRECT_0FAF9AA4D8847D014E24CC2527AECF42",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_289F9B8658B59F83",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md' is deprecated; use exact canonical locator 'docs/evidence/09_owner_decisions_pass_1/d64c20e06d5e_09_owner_decisions_pass_1.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

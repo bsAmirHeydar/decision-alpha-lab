@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md",
+  "canonical_target_digest": "sha256:330cb615406772c20f5ae4fb56f0eee82da7579400aaa65483f208145e0009a2",
+  "consumer_id": "CONSUMER_6D0818C0B52097BC32ECDC6BD358CD55",
+  "contract_digest": "sha256:c52318b96ac7b86200f8cb5299d191f9df072250bcf09108894ad7060d04be3c",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md",
+  "redirect_id": "COMPATREDIRECT_27924C5CC78530509A4FDA03B53B5C2B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6D0818C0B52097BC",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/02_normalized_strategy_spec.md' is deprecated; use exact canonical locator 'docs/evidence/02_normalized_strategy_specification/4b26d8673556_02_normalized_strategy_spec.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_BCD39C69B33200358749634A52C61CAE.json",
+  "canonical_target_digest": "sha256:88abc4a5e4c2d6dccf6169fb2a1aa23d8429e3f9a9ea3f3aa1bf57608fb5e037",
+  "consumer_id": "CONSUMER_CB884468B3C353E7E68FE56FDA98FD92",
+  "contract_digest": "sha256:4d8f486b677d61b20fa0738985404e5ee451bc1dd417ca072cf5db73aac1d99b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/strategy_factory_economics_v3/reservation.py",
+  "redirect_id": "COMPATREDIRECT_6E2D0462D5629B5892CFBD5F35493FEF",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_CB884468B3C353E7",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/strategy_factory_economics_v3/reservation.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_BCD39C69B33200358749634A52C61CAE.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

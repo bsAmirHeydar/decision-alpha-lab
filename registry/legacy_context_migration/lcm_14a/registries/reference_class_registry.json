@@ -1,0 +1,23 @@
+{
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14A",
+  "registry_id": "LCM14A_REFERENCE_CLASS_REGISTRY_V1",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "validation_status": "PASS",
+  "values": [
+    "LEGACY_DEFINITION_PATH",
+    "LEGACY_REDIRECT_PATH",
+    "ACTIVE_CODE_REFERENCE",
+    "ACTIVE_CONFIGURATION_REFERENCE",
+    "TEST_DISCOVERY_OR_REFERENCE",
+    "DOCUMENTATION_REFERENCE",
+    "RETAINED_MIGRATION_EVIDENCE",
+    "RETAINED_MIGRATION_DOCTRINE",
+    "UNKNOWN_REFERENCE_SCOPE"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/4b2173a964e5_INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md",
+  "canonical_target_digest": "sha256:2835b334a5b3a5652ce1d8416c093c068a7ed62d456e5437ad65b465df32a25e",
+  "consumer_id": "CONSUMER_54FD46BBC4346A25AF09356B2D8C1283",
+  "contract_digest": "sha256:abdd408f99f55e4af4e22002b5b670d662ad8082646a8ce1a0ceed2041282d47",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_AA7451E99DB120E28189CB8AB6C55741",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_54FD46BBC4346A25",
+  "warning_message": "Legacy locator 'INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/4b2173a964e5_INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

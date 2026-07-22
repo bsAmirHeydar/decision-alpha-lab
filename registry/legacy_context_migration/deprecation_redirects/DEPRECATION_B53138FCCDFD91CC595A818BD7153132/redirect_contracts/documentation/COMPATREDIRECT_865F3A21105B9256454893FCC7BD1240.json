@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md",
+  "canonical_target_digest": "sha256:68cd923f9218f39df97930936bf1053747b1c1bf5418b0f8bbe56f297f11faf7",
+  "consumer_id": "CONSUMER_225CC469478C5C80E203E005C9798EE6",
+  "contract_digest": "sha256:65688e52d8b03fe4dd1e3df51bd0c1d2554d70e79b1dbcbac0994abf374d6ed0",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md",
+  "redirect_id": "COMPATREDIRECT_865F3A21105B9256454893FCC7BD1240",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_225CC469478C5C80",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_RAW_SKY_RADICAL_REDESIGN.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_raw_sky_radical_redesign/be7e95f4ddeb_ASTRO_RAW_SKY_RADICAL_REDESIGN.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

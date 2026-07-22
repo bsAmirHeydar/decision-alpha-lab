@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D076F9B9BEE0F01713285E84B9680CD6.json",
+  "canonical_target_digest": "sha256:c18140c5187e4973a2a73a18e58fc4ee28b188a00c5aaf11b527140905e05973",
+  "consumer_id": "CONSUMER_FC287D7DB3966A89A04418CA63B5D501",
+  "contract_digest": "sha256:e3f45abc78e973d5d739b44468c9f4993c81fce1a8a591523059239b8046e675",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+  "redirect_id": "COMPATREDIRECT_D4BFF5588D638493F0D1A3EAC843B7CF",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_FC287D7DB3966A89",
+  "warning_message": "Legacy locator 'mql5/Experts/Execution/E0001_ReversalOneToOne.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D076F9B9BEE0F01713285E84B9680CD6.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

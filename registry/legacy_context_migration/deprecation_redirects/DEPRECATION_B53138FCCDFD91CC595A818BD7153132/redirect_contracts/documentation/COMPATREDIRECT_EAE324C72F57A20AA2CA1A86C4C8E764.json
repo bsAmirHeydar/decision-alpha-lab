@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md",
+  "canonical_target_digest": "sha256:9e4efde51d1127d987328e9544ff8d157738ed1cc8487601d05a791c377a54fe",
+  "consumer_id": "CONSUMER_825075C9E6C278A22DECAF50C27CE0EA",
+  "contract_digest": "sha256:0cfa03883fd67a326b0f95fe7a4d19bfb3ccb787a281d1c30b3b5c07f7dc2115",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0004_branch_regime_clustering.md",
+  "redirect_id": "COMPATREDIRECT_EAE324C72F57A20AA2CA1A86C4C8E764",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_825075C9E6C278A2",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0004_branch_regime_clustering.md' is deprecated; use exact canonical locator 'docs/evidence/h0004_branch_regime_clustering/9b519b63fc23_H0004_branch_regime_clustering.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

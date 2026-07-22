@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/p13_core/08fbec8ae46c_PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md",
+  "canonical_target_digest": "sha256:fd80fb1e998264933b8af6d6b4650b1dfd67c6c971d22ea0db0115a35a19f293",
+  "consumer_id": "CONSUMER_BC0D9F1E4A571CF329E2BAC5B4C791A4",
+  "contract_digest": "sha256:d0a7984470c17ce472522ee2d39fba397624c17383728a448fccb5fb932b6b84",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/02_core_track/PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md",
+  "redirect_id": "COMPATREDIRECT_31AC333E779E9246785A2B3D3B2CEDA4",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_BC0D9F1E4A571CF3",
+  "warning_message": "Legacy locator 'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/02_core_track/PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md' is deprecated; use exact canonical locator 'docs/evidence/p13_core/08fbec8ae46c_PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

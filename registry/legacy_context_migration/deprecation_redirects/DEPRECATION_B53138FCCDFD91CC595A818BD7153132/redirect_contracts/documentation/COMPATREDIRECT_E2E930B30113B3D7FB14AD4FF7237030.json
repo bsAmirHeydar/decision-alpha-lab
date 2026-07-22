@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md",
+  "canonical_target_digest": "sha256:e9353d6522983393606f1d0bbc18eed00d2ebad9a1ccd4f72c2eaacef8e7b0a7",
+  "consumer_id": "CONSUMER_A32D3464BFF68B26649D27A877B13713",
+  "contract_digest": "sha256:e7c3815073a9e7c534198218a9d6d3976b85764300f5e557fa97878f66cb8896",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md",
+  "redirect_id": "COMPATREDIRECT_E2E930B30113B3D7FB14AD4FF7237030",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A32D3464BFF68B26",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md' is deprecated; use exact canonical locator 'docs/evidence/h0001_structural_highs_lows_as_decision_nodes/a8381ae9b922_H0001_structural_highs_lows_as_decision_nodes.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

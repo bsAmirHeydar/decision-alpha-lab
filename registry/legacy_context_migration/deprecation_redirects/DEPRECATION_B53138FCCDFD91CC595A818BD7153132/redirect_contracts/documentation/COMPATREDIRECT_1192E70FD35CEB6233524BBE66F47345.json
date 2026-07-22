@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/73d53aeadb30_INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+  "canonical_target_digest": "sha256:beaeb14c2e468e8a1c4555a15cbd431d6ffe6c7000af00bb2e826a58691272fe",
+  "consumer_id": "CONSUMER_9E70960248D7A7DAE51A429AEB77AA50",
+  "contract_digest": "sha256:e8fe4122001de224ece5a9c1d01d642180a6888675dfb870bfd15c7cd908cd13",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+  "redirect_id": "COMPATREDIRECT_1192E70FD35CEB6233524BBE66F47345",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_9E70960248D7A7DA",
+  "warning_message": "Legacy locator 'INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/73d53aeadb30_INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

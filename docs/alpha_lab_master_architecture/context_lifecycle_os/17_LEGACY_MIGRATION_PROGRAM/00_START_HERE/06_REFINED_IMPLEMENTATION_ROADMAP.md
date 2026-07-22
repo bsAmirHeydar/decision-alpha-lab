@@ -1,8 +1,8 @@
 ---
 title: "Refined Implementation Roadmap — Balanced Phase Partition"
 status: implemented-reference
-version: 1.0.0
-updated: 2026-07-19
+version: 1.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, roadmap-amendment]
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
 ---
@@ -77,7 +77,7 @@ Changing subphase order, merging partitions, adding a fourth planned partition, 
 
 ## Immediate next action
 
-Implement LCM-14A only. It may register exact deprecation candidates and time-bounded compatibility redirects; it may not quarantine or delete legacy artifacts.
+Implement LCM-14B only. It may quarantine only the 136 observation-eligible documentation redirect identities after preserving exact bytes and restoration evidence. The 477 active-source identities remain blocked. No deletion is authorized.
 
 ## LCM-08B accepted reference
 
@@ -137,3 +137,8 @@ LCM-13B completes controlled reference-locator cutover for 613 eligible consumer
 ## LCM-13C implementation closure
 
 LCM-13C is complete under `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F`. All 27 waves have deterministic rollback and forward-recovery evidence, 162 state-plane records, 189 ordered closure events, zero reopened waves and explicit residual environmental risk. The bounded LCM-14A handoff is `sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555`. LCM-13 is closed; the next implementation unit is LCM-14A.
+
+
+## LCM-14A implementation closure
+
+LCM-14A is complete under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132`. All 613 LCM-13C candidates are registered with exact canonical successor digests, bounded compatibility windows and actionable warnings. The active-reference scan records 12,431 consumer/path references from 44,243 repository files and preserves low-frequency occurrences. One hundred thirty-six documentation redirect identities are eligible only for LCM-14B observation and restoration work; 477 Context, Treatment and Visual source identities remain explicitly blocked from quarantine. External consumer evidence remains UNKNOWN for every identity. No production binding, quarantine, deletion, runtime, live-order or capital authority is created. The next implementation unit is LCM-14B through handoff `sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1`.

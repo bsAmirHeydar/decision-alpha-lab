@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract.md",
+  "canonical_target_digest": "sha256:9563f903cb9d8f7b603d01b2ca4d8705c177ac24d7f2a4c7d9f88ff0349ad06a",
+  "consumer_id": "CONSUMER_07035BF438EDFBF41222840BB97B3190",
+  "contract_digest": "sha256:f7ce1e6c3816f351c183f06a0185b295f1d9d18778117df52e58928d526dedba",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract.md",
+  "redirect_id": "COMPATREDIRECT_5DF2F1F83C49DC51F6CA47097CE7532B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_07035BF438EDFBF4",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/15_visualization_contract.md' is deprecated; use exact canonical locator 'docs/evidence/15_visualization_contract/0ccec648c2ec_15_visualization_contract.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

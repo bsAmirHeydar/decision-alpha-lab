@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_1FC2BA95B88EF838D045CBC8748D9C56.json",
+  "canonical_target_digest": "sha256:9b10343298488b3ee63fbbd91cf9b977cf68984aeb11e24f7ec68ac039eca77e",
+  "consumer_id": "CONSUMER_F4F9DD8CC397D836255BC85E6C5F3149",
+  "contract_digest": "sha256:bb598dd005847a278463a8290211d590b3a803973c1d1c1a15a3c1c5383ab8b4",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/tests/test_simulation.py",
+  "redirect_id": "COMPATREDIRECT_8530EA78A6F8F83E9C668F61B4B766E6",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F4F9DD8CC397D836",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/tests/test_simulation.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_1FC2BA95B88EF838D045CBC8748D9C56.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

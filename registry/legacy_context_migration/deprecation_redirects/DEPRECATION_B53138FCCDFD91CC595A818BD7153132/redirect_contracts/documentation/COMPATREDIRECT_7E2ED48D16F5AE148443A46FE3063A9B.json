@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/75ea9203dfb6_INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+  "canonical_target_digest": "sha256:c31fc292217a4dcab927f85192fb913480a11c1b656f8f9dbc2eeb671a0b9698",
+  "consumer_id": "CONSUMER_28F407F459EF157CBB03DC7FBAA37F80",
+  "contract_digest": "sha256:5289022e05bf3f1b185a81fb40a95453307ce9d03d8593c4967602d90fdc0e56",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "hook_canon_validity_doctrine_patch/INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_7E2ED48D16F5AE148443A46FE3063A9B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_28F407F459EF157C",
+  "warning_message": "Legacy locator 'hook_canon_validity_doctrine_patch/INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/75ea9203dfb6_INSTALL_HOOK_CANON_VALIDITY_DOCTRINE_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

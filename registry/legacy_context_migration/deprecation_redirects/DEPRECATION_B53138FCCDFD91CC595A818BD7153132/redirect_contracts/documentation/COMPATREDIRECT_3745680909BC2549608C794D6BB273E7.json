@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md",
+  "canonical_target_digest": "sha256:cf9e82200a09950843744e3994baddb431b2f28e927663c123cc31a709f73b0e",
+  "consumer_id": "CONSUMER_722CF0A2F4FDD04EE5234433D80A4608",
+  "contract_digest": "sha256:41a2ed1984e123185b6297fa3bbad90a0266c35bbd956e5231a3041159e59ba1",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md",
+  "redirect_id": "COMPATREDIRECT_3745680909BC2549608C794D6BB273E7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_722CF0A2F4FDD04E",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/docs/README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/cee1041b21db_README_FLAG_REVERSE_EXTREME_FRACTAL_ENTRY_PHILOSOPHY.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

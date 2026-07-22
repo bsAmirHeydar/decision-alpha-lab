@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md",
+  "canonical_target_digest": "sha256:58ee7beffc00061141a1ee16fc68cd055b096e45329dbc855dcf73014fab13e0",
+  "consumer_id": "CONSUMER_2DE12DDE1A8841A94108AA420672ECEE",
+  "contract_digest": "sha256:e94e3aabc76b65bdfe64d4a6516c6bad0aa845500abd5ac9d55e0452b552d41a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md",
+  "redirect_id": "COMPATREDIRECT_AFC3E7335AA1EFDFE746E124061279A5",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_2DE12DDE1A8841A9",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md' is deprecated; use exact canonical locator 'docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

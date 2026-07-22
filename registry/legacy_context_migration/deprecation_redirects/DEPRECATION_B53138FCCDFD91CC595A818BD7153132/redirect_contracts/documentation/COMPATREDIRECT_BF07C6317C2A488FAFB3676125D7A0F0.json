@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md",
+  "canonical_target_digest": "sha256:4023e63b9306480efdfc2d1adb2ad4b7e99f25aef001d91aef2c66c09d3ecfab",
+  "consumer_id": "CONSUMER_FF9FC379DEDFFDA09B305E9B040FCE2E",
+  "contract_digest": "sha256:41a8d56cd06f8df735d01e0eb1e84ad88cdea75b7f4a1ae03074bd3fbc64e8c2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md",
+  "redirect_id": "COMPATREDIRECT_BF07C6317C2A488FAFB3676125D7A0F0",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_FF9FC379DEDFFDA0",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_header_spacing_tuning/674fd8707612_ASTRO_DASHBOARD_V10_SPACING_HEADER_TUNE.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

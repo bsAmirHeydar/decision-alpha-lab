@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md",
+  "canonical_target_digest": "sha256:caffb39fa29ec9790cd9150f311b46989ee9e1681172f3ac007df848fba3284a",
+  "consumer_id": "CONSUMER_226A6679F199127D1104EDE145FB4A2C",
+  "contract_digest": "sha256:574e272237e662dadf3f7d5a3287e57298ce2d45ff86bb182a2bbea081373f3b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md",
+  "redirect_id": "COMPATREDIRECT_3786C47E28409D621404031D873D43BA",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_226A6679F199127D",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V11_BEST_VERSION.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_best_version/5f8623d90153_ASTRO_DASHBOARD_V11_BEST_VERSION.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

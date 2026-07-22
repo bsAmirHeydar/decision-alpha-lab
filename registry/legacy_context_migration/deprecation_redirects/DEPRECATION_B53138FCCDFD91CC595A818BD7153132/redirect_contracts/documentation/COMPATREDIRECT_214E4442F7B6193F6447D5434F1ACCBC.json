@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md",
+  "canonical_target_digest": "sha256:298d7fda90aaa660600ef775d8d386035dc81882630d0d615b86e464dbbc0a7c",
+  "consumer_id": "CONSUMER_D5ED91EF3D13F9F2C42460C27F7C9FDA",
+  "contract_digest": "sha256:df509a00904ec0ec09198e06e339ea6d6ac931a71bd4a50536df4e7ac744d4b8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md",
+  "redirect_id": "COMPATREDIRECT_214E4442F7B6193F6447D5434F1ACCBC",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D5ED91EF3D13F9F2",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_time_contract_panel_fix/b3c4f9d25abb_ASTRO_TIME_CONTRACT_AND_PANEL_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

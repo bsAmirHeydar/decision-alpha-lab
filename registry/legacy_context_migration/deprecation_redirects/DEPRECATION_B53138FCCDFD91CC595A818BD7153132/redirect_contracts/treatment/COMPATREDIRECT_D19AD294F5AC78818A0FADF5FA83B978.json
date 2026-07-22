@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_28852FCDBECF01EA63186E990FA0C7E0.json",
+  "canonical_target_digest": "sha256:1b040778877600cfb0d1adb45f6f25c05a62e649c87c5dac802414825f23069f",
+  "consumer_id": "CONSUMER_F463750EE9D50F4B8C0DC3809CC97B4C",
+  "contract_digest": "sha256:463066fb3bc27ea926b95e57d393b16ef91c1e3711fc1100f0d86a916ec11e8b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/flag_counting/nds_hook_864_cycle_r1_reference.py",
+  "redirect_id": "COMPATREDIRECT_D19AD294F5AC78818A0FADF5FA83B978",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F463750EE9D50F4B",
+  "warning_message": "Legacy locator 'tools/flag_counting/nds_hook_864_cycle_r1_reference.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_28852FCDBECF01EA63186E990FA0C7E0.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

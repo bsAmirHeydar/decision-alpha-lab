@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/619a9452c197_INSTALL_HOOK_VALIDITY_PATCH.md",
+  "canonical_target_digest": "sha256:a6c33220e3187f678cdd294875d72271f2f0d4fea88cf4cbbe7c52aced637e10",
+  "consumer_id": "CONSUMER_1C448D4BE2C5B9657B51D015EB039269",
+  "contract_digest": "sha256:1a1264acacae50ebf78152459b545cdfc2034e1cc61c34ca3f8f7624d2bc0393",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/root_archive/install_guides/INSTALL_HOOK_VALIDITY_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_545AF6AB0B116FC19FF9B04214B97A5B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1C448D4BE2C5B965",
+  "warning_message": "Legacy locator 'docs/root_archive/install_guides/INSTALL_HOOK_VALIDITY_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/619a9452c197_INSTALL_HOOK_VALIDITY_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

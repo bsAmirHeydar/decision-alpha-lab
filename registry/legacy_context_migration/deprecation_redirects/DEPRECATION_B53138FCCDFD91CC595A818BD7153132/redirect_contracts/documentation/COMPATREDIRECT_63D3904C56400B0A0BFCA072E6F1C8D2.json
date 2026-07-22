@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md",
+  "canonical_target_digest": "sha256:43229172f0e160b21f0640cfc94c25029973453a916f18ece407cbece606fd5a",
+  "consumer_id": "CONSUMER_858FC5817E68B932F0A5AB44EB3A181F",
+  "contract_digest": "sha256:0d1e803b7f9846fc4c72ce2a464a9ae4acc996a9fb84470e78392483956405f3",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md",
+  "redirect_id": "COMPATREDIRECT_63D3904C56400B0A0BFCA072E6F1C8D2",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_858FC5817E68B932",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_ONLY_EXECUTION_ROADMAP.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_only_execution_roadmap/d577cd434dcb_ASTRO_ONLY_EXECUTION_ROADMAP.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

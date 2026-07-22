@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/nds_phase_53_lightweight_backtest_runtime_audit/a5a07ff463b7_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md",
+  "canonical_target_digest": "sha256:880d7253f001d6580a0bf0e119e6097fb8a99799386ac283863cc7f8d6d1d942",
+  "consumer_id": "CONSUMER_35107E2BE3336E4377E269FA3F6C3203",
+  "contract_digest": "sha256:82161401bd63193523ca43634895f7975d87da764ea6bd596b802260f7f53166",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md",
+  "redirect_id": "COMPATREDIRECT_73F0657FC982727701D6AB2BD0048FD9",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_35107E2BE3336E43",
+  "warning_message": "Legacy locator 'NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md' is deprecated; use exact canonical locator 'docs/evidence/nds_phase_53_lightweight_backtest_runtime_audit/a5a07ff463b7_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

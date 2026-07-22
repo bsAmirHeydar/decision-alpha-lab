@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_deprecation_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_locator": {},
+    "claim_ceiling": {},
+    "compatibility_window": {},
+    "consumer_id": {},
+    "deletion_authorized": {},
+    "deprecation_id": {},
+    "deprecation_record_digest": {},
+    "deprecation_state": {},
+    "legacy_locator": {},
+    "phase_id": {},
+    "quarantine_authorized": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "claim_ceiling",
+    "deprecation_id",
+    "consumer_id",
+    "legacy_locator",
+    "canonical_locator",
+    "deprecation_state",
+    "compatibility_window",
+    "quarantine_authorized",
+    "deletion_authorized",
+    "deprecation_record_digest"
+  ],
+  "title": "LCM14A Deprecation Record",
+  "type": "object"
+}

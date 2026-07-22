@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md",
+  "canonical_target_digest": "sha256:bba7730c8558227b1eb725ffebb43038961876fe87d7ed58579124c44bb75c27",
+  "consumer_id": "CONSUMER_382D044D5F921DD240534959AE7314DE",
+  "contract_digest": "sha256:876593f8a231d5d87ef8e949bf290c9bf37f490519abebd825482e1a6b24db42",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md",
+  "redirect_id": "COMPATREDIRECT_3DDD14C72A8D95CCD3DB124AED664FFD",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_382D044D5F921DD2",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0003_continuation_inertia_volatility_memory_clustering.md' is deprecated; use exact canonical locator 'docs/evidence/h0003_continuation_inertia_volatility_memory_clustering/6a29b9341ff5_H0003_continuation_inertia_volatility_memory_clustering.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix.md",
+  "canonical_target_digest": "sha256:66bbec7bc7ef63d989d83c0714fd5a06bbde7b00cd7cd78adfe43a7d0c2e24be",
+  "consumer_id": "CONSUMER_B357E32886886B04A87E4B4114C2313A",
+  "contract_digest": "sha256:0f1f962e40a8b8e955d022f1f2139aa52aa1bf3934b231e0f1ca906a74e2307d",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix.md",
+  "redirect_id": "COMPATREDIRECT_D863C51B715ECE186502948744E6D0C9",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B357E32886886B04",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/42_level_20_profile_matrix.md' is deprecated; use exact canonical locator 'docs/evidence/level_20_deployment_profile_matrix/97ecd654ebb6_42_level_20_profile_matrix.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

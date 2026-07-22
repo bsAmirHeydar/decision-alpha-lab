@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_1407956375108D07D1BB55FB32E5D02A.json",
+  "canonical_target_digest": "sha256:aa33ae3a7769dae65201b424712874f22c820599288deb45efde639f89560bf2",
+  "consumer_id": "CONSUMER_4C5BEFEF8A5F6BFB3C43342BE0650599",
+  "contract_digest": "sha256:58c2e91c11fa48974b9fc259daf7a7204756d5744f897ca040a29136f98b6dde",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "research/exp0017_phase12_5/python/phase12_5_pipeline_integrity.py::write_outputs",
+  "redirect_id": "COMPATREDIRECT_FFB1655811DB6300756F25C0A1FAEFB2",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_4C5BEFEF8A5F6BFB",
+  "warning_message": "Legacy locator 'research/exp0017_phase12_5/python/phase12_5_pipeline_integrity.py::write_outputs' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_1407956375108D07D1BB55FB32E5D02A.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

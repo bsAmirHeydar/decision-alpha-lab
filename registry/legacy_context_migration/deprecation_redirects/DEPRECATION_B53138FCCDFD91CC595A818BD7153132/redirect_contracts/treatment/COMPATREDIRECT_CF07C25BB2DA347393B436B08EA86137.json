@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_26B42297A3013090F135B722B6DAD82B.json",
+  "canonical_target_digest": "sha256:17f8f2f07645df935de3338049714a12dddd0332dd572b24c11da547fd2e7318",
+  "consumer_id": "CONSUMER_97F6989D3D31054CDE2AA6CAF35C0D55",
+  "contract_digest": "sha256:51914d020849d8842407060dcde37581b653c3bd26f0b2ab76003106bd862580",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/strategy_factory/lcm/lcm_09b/contracts.py",
+  "redirect_id": "COMPATREDIRECT_CF07C25BB2DA347393B436B08EA86137",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_97F6989D3D31054C",
+  "warning_message": "Legacy locator 'tools/strategy_factory/lcm/lcm_09b/contracts.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_26B42297A3013090F135B722B6DAD82B.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

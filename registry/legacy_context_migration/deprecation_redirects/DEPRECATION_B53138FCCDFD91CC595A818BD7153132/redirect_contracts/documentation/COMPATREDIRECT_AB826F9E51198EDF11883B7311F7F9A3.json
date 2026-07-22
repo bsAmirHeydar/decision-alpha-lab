@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md",
+  "canonical_target_digest": "sha256:15ba0443c223dad3e587d3330813a6e85024bc56d1b236913aaafba138af0ce6",
+  "consumer_id": "CONSUMER_A6C6A13024AC0A5ED0A1F63F8B77BBFB",
+  "contract_digest": "sha256:82de40340bfb7f0998d52b368f4f458aeb84b840b85967f7dd14f3aee5230ead",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md",
+  "redirect_id": "COMPATREDIRECT_AB826F9E51198EDF11883B7311F7F9A3",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A6C6A13024AC0A5E",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_PHOENIX.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/b7d4f188eb79_README_FLAG_COUNTING_PHOENIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

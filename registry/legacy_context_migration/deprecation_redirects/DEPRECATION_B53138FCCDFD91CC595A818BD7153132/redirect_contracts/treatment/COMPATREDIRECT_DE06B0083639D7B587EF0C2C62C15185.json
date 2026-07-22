@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_66AEF09E767F17609020AA049406F104.json",
+  "canonical_target_digest": "sha256:bf65e45ebbb7219d020ac583c3d84609f6c88773685749096a916b9e861ca7a2",
+  "consumer_id": "CONSUMER_F1FD8492A894809321FF88258DE0E710",
+  "contract_digest": "sha256:823a4589a923252942f781975e4ecf464773d17a2d3e11e5d9d83d01d9679778",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/StrategyFactoryTests/SF17_PaperExecutionSelfTest.mq5",
+  "redirect_id": "COMPATREDIRECT_DE06B0083639D7B587EF0C2C62C15185",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F1FD8492A8948093",
+  "warning_message": "Legacy locator 'mql5/Experts/StrategyFactoryTests/SF17_PaperExecutionSelfTest.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_66AEF09E767F17609020AA049406F104.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

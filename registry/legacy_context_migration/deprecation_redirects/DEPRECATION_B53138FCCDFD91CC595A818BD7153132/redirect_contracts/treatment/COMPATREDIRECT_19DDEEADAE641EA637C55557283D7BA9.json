@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0800A6F563EACA65B931DA90E7259967.json",
+  "canonical_target_digest": "sha256:23b6bd13c83e200703a5576a639b3bb150462587810c795a1f9f21ea84021681",
+  "consumer_id": "CONSUMER_64191899C7CB5AF8CCA187E19EA269E2",
+  "contract_digest": "sha256:ba68656273130c0a32a50ae05faf043050f0509f9a3beee5a82617cc67295953",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/strategy_factory/lcm/lcm_09b/evaluator.py",
+  "redirect_id": "COMPATREDIRECT_19DDEEADAE641EA637C55557283D7BA9",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_64191899C7CB5AF8",
+  "warning_message": "Legacy locator 'tools/strategy_factory/lcm/lcm_09b/evaluator.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_0800A6F563EACA65B931DA90E7259967.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

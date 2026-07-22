@@ -1,0 +1,36 @@
+{
+  "active_source_blocked_count": 477,
+  "candidate_count": 613,
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "deletion_authorized_count": 0,
+  "deprecation_id": "DEPRECATION_B53138FCCDFD91CC595A818BD7153132",
+  "deterministic_identity": true,
+  "documentation_redirect_active_count": 136,
+  "domain_counts": {
+    "CONTEXT": 1,
+    "DOCUMENTATION": 136,
+    "TREATMENT": 422,
+    "VISUAL": 54
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14A",
+  "producer": "tools.strategy_factory.lcm.lcm_14a.service:LCM14ADeprecationRedirectService",
+  "quarantine_authorized_count": 0,
+  "record_count": 613,
+  "records_path": "records/deprecation_records.jsonl",
+  "registry_digest": "sha256:d3d2709e4dca759f99f086ca26af90e6e326511c77bdc402fcebb44570cce2bb",
+  "registry_id": "DEPRECATIONREGISTRY_1A6F9FFF175382A48241D749B6ADA27A",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555",
+    "sha256:2d11bde15d20ed928bc0bba8c6cf771f1cbffe14cfdf898c6971ae51e69cf91b",
+    "sha256:382f799daabe7b5ceded77a518442cd76eeef128a9594fb8fc74f4dccbf23ba6",
+    "sha256:e1b03f51243bcb1fd576f9db4affa3dbb38b4e61388aa84be51c2dc595d87e04",
+    "sha256:625f07635f4f50c01b7519a442bbdb13cb96875d451e451093b7b765b5023b78"
+  ],
+  "validation_status": "PASS"
+}

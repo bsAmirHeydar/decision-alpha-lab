@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/alpha_lab_release_standard/db0cec343c04_ALPHA_LAB_PATCH_RELEASE_STANDARD.md",
+  "canonical_target_digest": "sha256:438ddc1b4cc78f58b91da2f7a84c8b76186ae1405c071b3cc7044efc71caa6e8",
+  "consumer_id": "CONSUMER_99A24539BA2543D89A9B14E9392B7EC4",
+  "contract_digest": "sha256:b28f6fc77bdf6d7a6240e6865b1c4a26eaad55aa37339087ae0ee6a080bf45a8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/engineering/ALPHA_LAB_PATCH_RELEASE_STANDARD.md",
+  "redirect_id": "COMPATREDIRECT_97BE7B7856199C7AB3348BF868185D93",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_99A24539BA2543D8",
+  "warning_message": "Legacy locator 'docs/engineering/ALPHA_LAB_PATCH_RELEASE_STANDARD.md' is deprecated; use exact canonical locator 'docs/evidence/alpha_lab_release_standard/db0cec343c04_ALPHA_LAB_PATCH_RELEASE_STANDARD.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

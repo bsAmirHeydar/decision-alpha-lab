@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_E16B710685F7AC39597C08A807F72FB2.json",
+  "canonical_target_digest": "sha256:230e7e29105e4b67ebbad35b50985fd2ff7684926cfd10566447ca5523c620b9",
+  "consumer_id": "CONSUMER_FCEFCA4C1A10A84938004D45E2A87C94",
+  "contract_digest": "sha256:69ac2b5dfc52f7e01358c88951cfc91094a36558167f6d6c13afdcb97a39c5d9",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawTrend",
+  "redirect_id": "COMPATREDIRECT_003399C19DE4078A4F90575586EEE40B",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_FCEFCA4C1A10A849",
+  "warning_message": "Legacy locator 'mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh::DrawTrend' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_E16B710685F7AC39597C08A807F72FB2.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

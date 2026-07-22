@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_02E141334236D0D5F98345831831864D.json",
+  "canonical_target_digest": "sha256:4a2db8247902a483876b5fa58509ce741d51a81b6ceeb2a5432f04adcf3fbb6b",
+  "consumer_id": "CONSUMER_CE0735E17ACAFF5CC44FBEFEB681D0FA",
+  "contract_digest": "sha256:afea431aaf765a635c929463cd5b664cc105dd10f645daf31f4a7490d752323e",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Enums.mqh",
+  "redirect_id": "COMPATREDIRECT_9BF7F0E077D4C7CCDD9437F2F3B95891",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_CE0735E17ACAFF5C",
+  "warning_message": "Legacy locator 'mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Enums.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_02E141334236D0D5F98345831831864D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

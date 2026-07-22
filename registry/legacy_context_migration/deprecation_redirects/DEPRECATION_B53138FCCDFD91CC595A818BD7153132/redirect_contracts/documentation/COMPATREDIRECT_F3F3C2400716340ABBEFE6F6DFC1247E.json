@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_tester_open_error_3_fix/5686a01d77c7_ASTRO_TESTER_OPEN_ERROR_3_FIX.md",
+  "canonical_target_digest": "sha256:befc387bd83cf09f571bbf9f7c7eb594562cc5f55950f2abcbe73cbf8a2bae97",
+  "consumer_id": "CONSUMER_6ED772F89ECC4DC91C31C49CEEA722D2",
+  "contract_digest": "sha256:f918944c20fc448fb09dc927070198b16a26af37d466b75dd7e5ed08ad538d35",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TESTER_OPEN_ERROR_3_FIX.md",
+  "redirect_id": "COMPATREDIRECT_F3F3C2400716340ABBEFE6F6DFC1247E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6ED772F89ECC4DC9",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_TESTER_OPEN_ERROR_3_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_tester_open_error_3_fix/5686a01d77c7_ASTRO_TESTER_OPEN_ERROR_3_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_57E79385C8F7E8AE7536D58C7F79097D.json",
+  "canonical_target_digest": "sha256:e53edca612753dedf8b065cd7c15f615180d8c0d3dbd4d03bcff9513d2241510",
+  "consumer_id": "CONSUMER_CF72B1919229DBC669F7FBD4D19D4FA5",
+  "contract_digest": "sha256:12fe70a253a5ad95750ebb14fcf39725e908c9c89c00fdb5432372eb14871603",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/saed_v4_outcome_cube/simulator.py",
+  "redirect_id": "COMPATREDIRECT_6F320150C6517C36DB1CF6E5CF303E16",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_CF72B1919229DBC6",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/saed_v4_outcome_cube/simulator.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_57E79385C8F7E8AE7536D58C7F79097D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md",
+  "canonical_target_digest": "sha256:02a051d9ad8203b2b2d5c1ab874789f77532b2835cd62f11da75adc3405baa2b",
+  "consumer_id": "CONSUMER_0CB36CA4357390D551B24EFF55CE0885",
+  "contract_digest": "sha256:8b407d3ead2d0c4fcb91404b2ab8ab20564ede8142df49ea5a5e5248ea79ddd2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md",
+  "redirect_id": "COMPATREDIRECT_ACD8CE0D33038F6821FB7AE8445B8EC1",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_0CB36CA4357390D5",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_PROFESSIONALIZATION_GAP_MAP.md' is deprecated; use exact canonical locator 'docs/evidence/astro_professionalization_gap_map/b3f4b0da7c2e_ASTRO_PROFESSIONALIZATION_GAP_MAP.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

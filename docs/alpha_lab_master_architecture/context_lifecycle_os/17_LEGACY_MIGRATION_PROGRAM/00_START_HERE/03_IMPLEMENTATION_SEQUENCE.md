@@ -1,8 +1,8 @@
 ---
 title: "Implementation Sequence"
 status: proposed-reference
-version: 2.0.0
-updated: 2026-07-19
+version: 2.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Implementation Sequence
@@ -43,7 +43,7 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | LCM-13A | Dual-Run Harness and Mismatch Registry | Accepted reference |
 | LCM-13B | Controlled Consumer Wave Cutover | Accepted reference; 27 bounded waves |
 | LCM-13C | Rollback Drill and Cutover Closure | Accepted reference; LCM-13 closed |
-| LCM-14A | Deprecation Registry and Compatibility Redirects | No |
+| LCM-14A | Deprecation Registry and Compatibility Redirects | Accepted reference; no quarantine or deletion |
 | LCM-14B | Quarantine, Observation and Retirement Eligibility | Move to quarantine only |
 | LCM-15A | Deletion Candidate Inventory and Reference Proof | No |
 | LCM-15B | Root, Release and Documentation Reorganization | Non-destructive moves only |
@@ -76,7 +76,7 @@ These categories may not be combined merely to reduce patch count.
 
 ## Next implementation unit
 
-[[LCM_14A_DEPRECATION_REGISTRY_AND_COMPATIBILITY_REDIRECTS|LCM-14A — Deprecation Registry and Compatibility Redirects]].
+[[LCM_14B_QUARANTINE_OBSERVATION_AND_RETIREMENT_ELIGIBILITY|LCM-14B — Quarantine, Observation and Retirement Eligibility]].
 
 ## LCM-08 reference closure
 
@@ -102,3 +102,8 @@ LCM-10B migration `TREATMIG_DCC2F1F7B74985D72A783020843C6B51` converts all 1,109
 ## LCM-13C accepted reference closure
 
 LCM-13C closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F` binds the exact LCM-13B handoff and rehearses rollback plus deterministic forward recovery for all 27 completed waves and all 613 switched consumers. It accounts for six persistent-state planes per wave, retains 189 ordered closure events, leaves all 806 blocked consumers unchanged on legacy, and emits the bounded LCM-14A handoff `sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555`. LCM-13 is closed at `LCM_13C_REFERENCE_ONLY`; quarantine and deletion remain forbidden.
+
+
+## LCM-14A accepted reference checkpoint
+
+LCM-14A deprecation package `DEPRECATION_B53138FCCDFD91CC595A818BD7153132` binds the exact LCM-13C handoff and registers all 613 approved identities. It verifies 136 already-active documentation redirects, installs 477 reference-only consumer-scoped redirect contracts without changing production bindings, freezes 613 actionable warnings, records 12,431 repository reference records across 44,243 scanned files, and leaves external consumer scope explicitly UNKNOWN. It authorizes no quarantine or deletion and emits the bounded LCM-14B handoff `sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1`.

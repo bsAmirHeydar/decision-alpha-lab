@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md",
+  "canonical_target_digest": "sha256:60fc0c620e93e40d1666390da8dc203009db258b1c4897f6d525b076cff28c04",
+  "consumer_id": "CONSUMER_176D5E5C113EA3082AC20245FC6F591F",
+  "contract_digest": "sha256:ae0948a91e7ad9f57c5836426509ffc03a6bbbc338042af35de07a594e40b7ea",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md",
+  "redirect_id": "COMPATREDIRECT_1CDA047806A104C20FEC598E899EC8DE",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_176D5E5C113EA308",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/04_smt_divergence_rules.md' is deprecated; use exact canonical locator 'docs/evidence/04_smt_divergence_rules_algorithms/5dba5ebb5e42_04_smt_divergence_rules.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

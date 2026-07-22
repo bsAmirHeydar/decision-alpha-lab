@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md",
+  "canonical_target_digest": "sha256:f1db9242735cb2901488f9140a1d52056265dc170a2d740cef7c7111475d53be",
+  "consumer_id": "CONSUMER_7B26D3C767F327ED851F0EAD36D5357E",
+  "contract_digest": "sha256:0dbb36a7671f37e0dfd608482687be2f1add55f5bb72a1c1f3583f7f29a3f221",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md",
+  "redirect_id": "COMPATREDIRECT_92837ADBE50B91C2706C8E06FD24AEA2",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_7B26D3C767F327ED",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/11_algorithm_layers.md' is deprecated; use exact canonical locator 'docs/evidence/11_algorithm_layers/07355f60fef2_11_algorithm_layers.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

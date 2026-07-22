@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_59693DF6400383DFBDD84D68AE94EAAC.json",
+  "canonical_target_digest": "sha256:88ceadc06a6c569c7c045abf2be1695d58bee7bea2c151b250e5aaf9d4223a71",
+  "consumer_id": "CONSUMER_3BB964A846E1270B31A43D14A53ED3F6",
+  "contract_digest": "sha256:1959baee5ddc9e1cfd26f830dc87aeec4cc57095658acb3ac70e690765f9ab98",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawVLine",
+  "redirect_id": "COMPATREDIRECT_AFB6F2E543F8BE98105D459BEC867CAA",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_3BB964A846E1270B",
+  "warning_message": "Legacy locator 'mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh::STC_DrawVLine' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_59693DF6400383DFBDD84D68AE94EAAC.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

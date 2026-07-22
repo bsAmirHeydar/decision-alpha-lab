@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F238E5EFF6B16A433EC79619561B2FCA.json",
+  "canonical_target_digest": "sha256:128fbfeb5a0a73e849765acb4b77c44773ce333c196d90341f8832a3ab54ba76",
+  "consumer_id": "CONSUMER_7A3D779914D9E7E6E5A458BCA0849EA4",
+  "contract_digest": "sha256:165d2c5661ece20791b4382ce7a6a7570887eae07f3a290d38e79aff4abdf27f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+  "redirect_id": "COMPATREDIRECT_C62983B192556A363B409F2E78344229",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_7A3D779914D9E7E6",
+  "warning_message": "Legacy locator 'research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F238E5EFF6B16A433EC79619561B2FCA.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

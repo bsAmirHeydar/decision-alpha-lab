@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md",
+  "canonical_target_digest": "sha256:361b0d7aa600dbde31d6f82536e7c0d631bc4b793dc33e2e79ad2db05b476993",
+  "consumer_id": "CONSUMER_C4274E0B1E09D78ED9D10143FE572B62",
+  "contract_digest": "sha256:403d15e7840629d511451a7adfd3883877ba8c3e05c75e00532b54e76428e6e9",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md",
+  "redirect_id": "COMPATREDIRECT_37666E9D400A4B337F7B331EB6A71621",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_C4274E0B1E09D78E",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_NO_SECOND_GMT_SHIFT.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_time_contract_no_second_gmt_shift/dff6c2da3787_ASTRO_NO_SECOND_GMT_SHIFT.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

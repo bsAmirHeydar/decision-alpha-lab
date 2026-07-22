@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/40d0db79538e_INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md",
+  "canonical_target_digest": "sha256:b1ceab9d56c17d96b388e877adf102a5ea1748eee5c608f452b29b7c669fba99",
+  "consumer_id": "CONSUMER_9C3174F4CE8E2D4B8C0F6FB1D6AA8323",
+  "contract_digest": "sha256:bf313966ba546c8497b15f755d7bf431c873c706e769ca633c0dc235cef489d3",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_5F6ED01851D65B0448B7EDE18358C31E",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_9C3174F4CE8E2D4B",
+  "warning_message": "Legacy locator 'INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/40d0db79538e_INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

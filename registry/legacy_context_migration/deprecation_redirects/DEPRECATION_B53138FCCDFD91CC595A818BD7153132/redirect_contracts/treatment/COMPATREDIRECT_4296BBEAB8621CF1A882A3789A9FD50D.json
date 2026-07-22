@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FB3F846847FE71F7B17C648FC79D2F8B.json",
+  "canonical_target_digest": "sha256:6e046676d79b979cd8eac8442adb699ed1cbdb391c139ec772cf61bbb5915b63",
+  "consumer_id": "CONSUMER_018CDBEC6E12C6879BE5A3252FF3C406",
+  "contract_digest": "sha256:992dc1ac99d1a9fd44f7dcdd959c9bac0be939cb2d0e656b7710035001e4c4b2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_PriceMath.mqh",
+  "redirect_id": "COMPATREDIRECT_4296BBEAB8621CF1A882A3789A9FD50D",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_018CDBEC6E12C687",
+  "warning_message": "Legacy locator 'mql5/Include/AlphaLab/StrategyFactory/TreatmentAtoms/UCEI03_PriceMath.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_FB3F846847FE71F7B17C648FC79D2F8B.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

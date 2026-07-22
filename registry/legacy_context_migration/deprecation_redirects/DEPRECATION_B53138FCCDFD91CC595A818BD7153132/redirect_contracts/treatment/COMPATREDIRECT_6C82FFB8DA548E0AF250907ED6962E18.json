@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D9DAFDD939D8A14A58A7267AC2DF1AF5.json",
+  "canonical_target_digest": "sha256:f50ae9532aa14bfa000ac2ea1ab2fb2ab14264209ee207a628761f10b8807715",
+  "consumer_id": "CONSUMER_6009465F88481B1DE2F56B9738D85A41",
+  "contract_digest": "sha256:2d19f6f8ccf7c9ac2081ab2ba90ab682f972eba8498fbd3eb78591a2b09b8f45",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
+  "redirect_id": "COMPATREDIRECT_6C82FFB8DA548E0AF250907ED6962E18",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6009465F88481B1D",
+  "warning_message": "Legacy locator 'mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_D9DAFDD939D8A14A58A7267AC2DF1AF5.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

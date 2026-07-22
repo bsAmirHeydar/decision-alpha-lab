@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A5762135E56D5E22D564643D0EC154.json",
+  "canonical_target_digest": "sha256:a6db347939bf3256c79998961d4c6fbc0c35bb591c8cc4abef4f7d9d9eba4edb",
+  "consumer_id": "CONSUMER_A9E842ECABEEEF49632BE85F4D089049",
+  "contract_digest": "sha256:7bc84c8eb788a0bab4bf7a7c4e2feda4a3149b35a8b34541e72e44db85fd8957",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+  "redirect_id": "COMPATREDIRECT_E4E082826FB02710852B566C58ADF81E",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A9E842ECABEEEF49",
+  "warning_message": "Legacy locator 'mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_60A5762135E56D5E22D564643D0EC154.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

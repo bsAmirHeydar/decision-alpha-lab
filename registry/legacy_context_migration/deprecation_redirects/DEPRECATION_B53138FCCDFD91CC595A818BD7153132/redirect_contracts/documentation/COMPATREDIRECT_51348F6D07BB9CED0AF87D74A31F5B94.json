@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md",
+  "canonical_target_digest": "sha256:9081bfd051f0d512685ce618674f98275fb0a7bb05b6b90bad6c3bf8776f3f70",
+  "consumer_id": "CONSUMER_B818AFE6533A25FF94BB266B0AD6DE53",
+  "contract_digest": "sha256:515cc987030ca9d1905a49c2672f53f1cace2d75b4b58915f1e911fb00388932",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "licenses/README_LICENSE_ISSUER.md",
+  "redirect_id": "COMPATREDIRECT_51348F6D07BB9CED0AF87D74A31F5B94",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B818AFE6533A25FF",
+  "warning_message": "Legacy locator 'licenses/README_LICENSE_ISSUER.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

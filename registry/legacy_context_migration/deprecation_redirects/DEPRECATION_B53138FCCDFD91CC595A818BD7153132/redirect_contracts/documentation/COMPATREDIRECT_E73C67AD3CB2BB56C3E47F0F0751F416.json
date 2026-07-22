@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_unified_dashboard_ea_display_update_fix/da2c2a4d4bf4_ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md",
+  "canonical_target_digest": "sha256:3a0b0bf2d71595b03be333727a94a0eea8cdd5e236c2797e5f1c04c591604271",
+  "consumer_id": "CONSUMER_83BE0422B74F599CD9A18ED1C85DBB27",
+  "contract_digest": "sha256:a1f16aa01d123246a897c95a80348051303594809ef5bf85689320d8468b472b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md",
+  "redirect_id": "COMPATREDIRECT_E73C67AD3CB2BB56C3E47F0F0751F416",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_83BE0422B74F599C",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_unified_dashboard_ea_display_update_fix/da2c2a4d4bf4_ASTRO_UNIFIED_DASHBOARD_DISPLAY_FIX.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

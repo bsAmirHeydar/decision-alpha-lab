@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F02ABFE33D5BEE2EA7E242B1E8EF632D.json",
+  "canonical_target_digest": "sha256:e6bd8bccd9a48d6ed00f99efe6d421dec583d1a8f7251dde1c0c7706cf6e6b10",
+  "consumer_id": "CONSUMER_E5F215A21958EB62AA6349947FFBCEED",
+  "contract_digest": "sha256:902169ce2549b97d31069f6eaaf155605da74d0c35770332c1c302f25b2f5385",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/strategy_factory/acl_os/acl_04/constraints.py",
+  "redirect_id": "COMPATREDIRECT_412FD4245E3E5BB9349F911FED5B3E84",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_E5F215A21958EB62",
+  "warning_message": "Legacy locator 'tools/strategy_factory/acl_os/acl_04/constraints.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_F02ABFE33D5BEE2EA7E242B1E8EF632D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

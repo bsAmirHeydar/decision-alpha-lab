@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md",
+  "canonical_target_digest": "sha256:6fc2e9671b01715f3539405fed67534e3766c94b8f344a17943e77b194942352",
+  "consumer_id": "CONSUMER_AAFF8CF4F8137521862A23FBD89BC96E",
+  "contract_digest": "sha256:d2e837e5760b41680df203c7955e1f7f1f9be42691cdda1758dff9f8330e595b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md",
+  "redirect_id": "COMPATREDIRECT_ED7F3912D6E5848C743D176DFB971C29",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_AAFF8CF4F8137521",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_ui_review_redesign/3ba3ac6b98fa_ASTRO_DASHBOARD_V13_UI_REVIEW_AND_REDESIGN.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

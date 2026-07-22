@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/mon001/2cb2a9127709_metrics.md",
+  "canonical_target_digest": "sha256:8a05e0d563a7eed2cca1ee5e6d2cb4837ed5e85f446cb9cd3190591c0d27db5f",
+  "consumer_id": "CONSUMER_B32AFF1972E24CC3ACC185355A893025",
+  "contract_digest": "sha256:fb6ecddbaa5cacb41298c8a29637b007e6269f028efb74ea868c96cc8fca02d8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/07_monitoring/MON001/metrics.md",
+  "redirect_id": "COMPATREDIRECT_ECDF48F78879CC0B450A51283DFD4B4F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B32AFF1972E24CC3",
+  "warning_message": "Legacy locator 'lab/07_monitoring/MON001/metrics.md' is deprecated; use exact canonical locator 'docs/evidence/mon001/2cb2a9127709_metrics.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

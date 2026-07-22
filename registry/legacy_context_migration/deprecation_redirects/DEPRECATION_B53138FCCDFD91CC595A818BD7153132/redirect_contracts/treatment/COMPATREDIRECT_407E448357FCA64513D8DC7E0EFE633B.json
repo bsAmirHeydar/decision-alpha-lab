@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EB5CDDA1871A98DDD3058BCFD8D6D431.json",
+  "canonical_target_digest": "sha256:8402fb5ba81b2e704332d180f06c211df99dd4b2a96e14e5f49c9958ec4f0a48",
+  "consumer_id": "CONSUMER_A121AE661E15BC945CBC7E2869503794",
+  "contract_digest": "sha256:ecad4408d6925dba261c2abe4ba2c0ad5bcdb88ff10e8c04c56d2aa3e5433fc2",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/FlagCountingPhoenix/FP_FinalCsvNormalizationTypes.mqh",
+  "redirect_id": "COMPATREDIRECT_407E448357FCA64513D8DC7E0EFE633B",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_A121AE661E15BC94",
+  "warning_message": "Legacy locator 'mql5/Include/FlagCountingPhoenix/FP_FinalCsvNormalizationTypes.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_EB5CDDA1871A98DDD3058BCFD8D6D431.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

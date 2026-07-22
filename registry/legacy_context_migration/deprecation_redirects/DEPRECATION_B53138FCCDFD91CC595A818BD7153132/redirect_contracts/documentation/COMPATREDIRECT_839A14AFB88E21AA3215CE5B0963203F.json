@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md",
+  "canonical_target_digest": "sha256:6277a02386c6bd126dddf0af4d245ca530baaa57b4a69bea2b703d6d6441ac7a",
+  "consumer_id": "CONSUMER_EDC866ED65EED5D1267E3D84581BA84F",
+  "contract_digest": "sha256:cd417ca0de9c59f111294e1197815d5a6665d29e4791e28d68e9cde9dc364eee",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md",
+  "redirect_id": "COMPATREDIRECT_839A14AFB88E21AA3215CE5B0963203F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_EDC866ED65EED5D1",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md' is deprecated; use exact canonical locator 'docs/evidence/exp0013_astro_dashboard_header_buttons_dynamic_spacing/38dfe94afabd_ASTRO_DASHBOARD_V8_HEADER_BUTTONS_DYNAMIC_SPACING.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

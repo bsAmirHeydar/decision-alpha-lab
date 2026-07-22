@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/val001/360462a17ab1_report.md",
+  "canonical_target_digest": "sha256:be066379cb7a81d2e7ec38d2726cef54242d4cb271a05355286893d095b86007",
+  "consumer_id": "CONSUMER_F5E5C498BA58BAEC8207649A50D2FFB0",
+  "contract_digest": "sha256:f075239852997743cdbd265aa4b93efc67eefa39670e598f9b73ad5e9eee55a0",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/05_validation/VAL001/report.md",
+  "redirect_id": "COMPATREDIRECT_A56DB9E107CBA360F4AE5F5B42E264BC",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F5E5C498BA58BAEC",
+  "warning_message": "Legacy locator 'lab/05_validation/VAL001/report.md' is deprecated; use exact canonical locator 'docs/evidence/val001/360462a17ab1_report.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

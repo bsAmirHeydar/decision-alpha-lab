@@ -1,0 +1,18 @@
+{
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14A",
+  "policy_id": "LCM14A_WARNING_POLICY_V1",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rules": [
+    "WARNING_MUST_NAME_LEGACY_AND_EXACT_CANONICAL_LOCATOR",
+    "WARNING_MUST_PRECEDE_REFERENCE_RESOLUTION",
+    "WARNING_MUST_NOT_CHANGE_DOMAIN_BEHAVIOR",
+    "RUNTIME_EMISSION_REQUIRES_SEPARATE_AUTHORITY"
+  ],
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

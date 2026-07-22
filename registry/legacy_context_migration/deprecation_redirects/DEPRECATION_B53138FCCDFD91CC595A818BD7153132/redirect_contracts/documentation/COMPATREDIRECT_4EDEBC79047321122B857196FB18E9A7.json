@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/phase_24_release_operating_model/2a81f79fd69e_PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md",
+  "canonical_target_digest": "sha256:703c17cfc58ef32f2f6c7a64ceed9c53d76f77ec22eabe46d9e1a844c8e96575",
+  "consumer_id": "CONSUMER_2512387695ED0E1D99D147064D087DDE",
+  "contract_digest": "sha256:b91353f9256a29a92359492056269fad2315b9441f2bc7b60f8b98e9611d400a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/strategy_factory_implementation_roadmap/phases/PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md",
+  "redirect_id": "COMPATREDIRECT_4EDEBC79047321122B857196FB18E9A7",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_2512387695ED0E1D",
+  "warning_message": "Legacy locator 'docs/strategy_factory_implementation_roadmap/phases/PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md' is deprecated; use exact canonical locator 'docs/evidence/phase_24_release_operating_model/2a81f79fd69e_PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

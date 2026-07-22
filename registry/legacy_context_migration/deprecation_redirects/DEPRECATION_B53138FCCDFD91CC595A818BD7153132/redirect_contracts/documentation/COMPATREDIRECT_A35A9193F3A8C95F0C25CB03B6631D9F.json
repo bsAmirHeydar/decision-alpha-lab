@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/4637a70e30e0_INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md",
+  "canonical_target_digest": "sha256:489484ca02a141ec2eec895b83ee3109817e77f078228102bc104cb68c87fd81",
+  "consumer_id": "CONSUMER_1FBF973831BDCF0791569E47A7256668",
+  "contract_digest": "sha256:0203decba1057572a666326b95c7165c6780075fdbfef1b20d2dde4e3e6a085a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md",
+  "redirect_id": "COMPATREDIRECT_A35A9193F3A8C95F0C25CB03B6631D9F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1FBF973831BDCF07",
+  "warning_message": "Legacy locator 'INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/4637a70e30e0_INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

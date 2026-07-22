@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md",
+  "canonical_target_digest": "sha256:079b4397e7a02c317a299802256bf3d1386f9afa6e8878783183c10a7520ae31",
+  "consumer_id": "CONSUMER_468A36A952167FE64EF0446E5FF3FCFB",
+  "contract_digest": "sha256:74e0b233f2ac0051c2eb985d4a5785443bd74afbb0bc27be78f11cc612c62ac8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md",
+  "redirect_id": "COMPATREDIRECT_F2549D8013FFF86193E23B3B6D12CC44",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_468A36A952167FE6",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/b0a9618386c6_README_FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

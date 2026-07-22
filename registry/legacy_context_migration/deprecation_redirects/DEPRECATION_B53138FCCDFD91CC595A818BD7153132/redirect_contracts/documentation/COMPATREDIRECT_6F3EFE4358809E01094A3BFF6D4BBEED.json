@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md",
+  "canonical_target_digest": "sha256:ed3126efad917bba31eac1a84efd656fe4f5001243b924058f0415fdc86ab804",
+  "consumer_id": "CONSUMER_B2B75708943726058F44F8BF4F107E16",
+  "contract_digest": "sha256:633d2f79f5ac45d227887b825758325e19126bed6d695956836ee9a796134f78",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md",
+  "redirect_id": "COMPATREDIRECT_6F3EFE4358809E01094A3BFF6D4BBEED",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B2B7570894372605",
+  "warning_message": "Legacy locator 'lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md' is deprecated; use exact canonical locator 'docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

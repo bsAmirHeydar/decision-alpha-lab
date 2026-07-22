@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_CC11E64C1BB0FF149056785A7E083F7D.json",
+  "canonical_target_digest": "sha256:a9328d93abd4e9678dce909e5d25ea1f8348e272dff0a688c38bff3398c9135d",
+  "consumer_id": "CONSUMER_1227AEF791EC344708C4C45A5F6C05B2",
+  "contract_digest": "sha256:c6a62dd54a047df30195bbbdb91fe6bf32aeb8da8b65527c07d73f14d556b000",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/strategy_factory_promotion_v3/enums.py",
+  "redirect_id": "COMPATREDIRECT_90CCE10365205DA51472D08F354AE508",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_1227AEF791EC3447",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/strategy_factory_promotion_v3/enums.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_CC11E64C1BB0FF149056785A7E083F7D.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

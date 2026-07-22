@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md",
+  "canonical_target_digest": "sha256:80787110b74295967bb223af5646c7682f12a9cfd5f24a6dd5fe157c666ee08c",
+  "consumer_id": "CONSUMER_EA76E4A75D358891711E408C1FC8C027",
+  "contract_digest": "sha256:ee480bde8fa8df7feea049f95db702545e5ba458a0676fb6d7e6f00bb27562b0",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md",
+  "redirect_id": "COMPATREDIRECT_24BC1372E0EA313855EC30A08D1E9D10",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_EA76E4A75D358891",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_01_research_backtest_full_audit.md' is deprecated; use exact canonical locator 'docs/evidence/profile_01_research_backtest_full_audit/b8f8aeb71c39_profile_01_research_backtest_full_audit.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

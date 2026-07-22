@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery.md",
+  "canonical_target_digest": "sha256:a6c357c850c4fed8d8b6038bb44ce666afcc4802a35ddf71172d2d22dab00ea5",
+  "consumer_id": "CONSUMER_F476B9085D403D9130808E0F589EF990",
+  "contract_digest": "sha256:8ee94a913084b01baee15bbb4d8fee9c0c813dde9cb4688d4f5783fe8f89bf40",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery.md",
+  "redirect_id": "COMPATREDIRECT_EB3CF5F851504E018F2F731AF1E0ACE8",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_F476B9085D403D91",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/33_level_12_persistence_restart_recovery.md' is deprecated; use exact canonical locator 'docs/evidence/level_12_persistence_restart_recovery/965c940d2cdd_33_level_12_persistence_restart_recovery.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

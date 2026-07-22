@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_6616266DEB87B1918D1CEF3BF3972989.json",
+  "canonical_target_digest": "sha256:f881a628e068b40797c5c31e78c14d06c363a53e51bda05ff77ac9f9e55f0135",
+  "consumer_id": "CONSUMER_5F0C62A1624BED22FC5E4CEDF0384552",
+  "contract_digest": "sha256:a3bd92b79d6ec956a62acac3ca65ce1f934c0593d12a893c5fd8ad7add859c4a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_SymbolSpecPort.mqh",
+  "redirect_id": "COMPATREDIRECT_E05C2D85D234CD1A0B96FF9D978B4FAE",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5F0C62A1624BED22",
+  "warning_message": "Legacy locator 'mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_SymbolSpecPort.mqh' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_6616266DEB87B1918D1CEF3BF3972989.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

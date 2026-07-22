@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN.md",
+  "canonical_target_digest": "sha256:64ab54d708bc3b051e58ed2dabbb4b102105c2eb1f1c9f6d080ab41ef1f5ff4c",
+  "consumer_id": "CONSUMER_93ED59434DFA14F85C6C6FAFA9DF884C",
+  "contract_digest": "sha256:e6a2bd7fd914cc0084d9d46c8e14cbe3a135979f615e3842d257f1252fe17ea5",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_PATH_SCREEN.md",
+  "redirect_id": "COMPATREDIRECT_203D01C20724C227A56A471F0D635341",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_93ED59434DFA14F8",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0013_astro_feature_store/RUN_ASTRO_PATH_SCREEN.md' is deprecated; use exact canonical locator 'docs/evidence/run_astro_path_cleanliness_screen/fe12afa052cd_RUN_ASTRO_PATH_SCREEN.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

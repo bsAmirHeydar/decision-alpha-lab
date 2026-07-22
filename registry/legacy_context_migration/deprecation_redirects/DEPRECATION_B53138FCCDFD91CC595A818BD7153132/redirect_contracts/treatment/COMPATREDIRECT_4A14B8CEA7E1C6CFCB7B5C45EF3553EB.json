@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_38A4F9EAF1BDBEB6EEFD4F5AFF0194B3.json",
+  "canonical_target_digest": "sha256:0437cee9483e1f2679bd7aea0bd6c871a4e196a5821f7c4bf038ac045f0cde3e",
+  "consumer_id": "CONSUMER_5B516EA0006715FC5FDD3E21115BF3D0",
+  "contract_digest": "sha256:fb047e313a315db0c5fa8bf5143293b6e7262a85f4bf99c9f81e7942bbc1841e",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/11_strategy_factory/python/strategy_factory_tournament_v3/treatments.py",
+  "redirect_id": "COMPATREDIRECT_4A14B8CEA7E1C6CFCB7B5C45EF3553EB",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_5B516EA0006715FC",
+  "warning_message": "Legacy locator 'lab/11_strategy_factory/python/strategy_factory_tournament_v3/treatments.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_38A4F9EAF1BDBEB6EEFD4F5AFF0194B3.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

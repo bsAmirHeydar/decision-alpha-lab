@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2F892FDB3B314A768735220B8D3BAF9C.json",
+  "canonical_target_digest": "sha256:da5211d6436e4f665cbe05ca074de355c1ca8b574386f34b9506210c239b1ef4",
+  "consumer_id": "CONSUMER_D8BF302A71BB898DFD05BCDB711F9FDB",
+  "contract_digest": "sha256:84b0b2c437f9fb3dbb76fa80bc76b4f9d4bbbae90d32c8448c8bc50d7dedf972",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/python/fp_i05_reference/reference_engine.py",
+  "redirect_id": "COMPATREDIRECT_F433344521536F32869DC85C013414C9",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D8BF302A71BB898D",
+  "warning_message": "Legacy locator 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/python/fp_i05_reference/reference_engine.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_2F892FDB3B314A768735220B8D3BAF9C.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

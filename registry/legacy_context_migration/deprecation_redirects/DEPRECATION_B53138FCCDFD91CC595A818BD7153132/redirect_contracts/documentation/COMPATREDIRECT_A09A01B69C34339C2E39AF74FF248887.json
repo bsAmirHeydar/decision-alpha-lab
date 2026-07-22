@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md",
+  "canonical_target_digest": "sha256:cfc4ed079cbed11c699f2dde93bfd07be0ffe6f6330aa4d0f0ef8abcdcebb8ce",
+  "consumer_id": "CONSUMER_47A0AFD4F6A6FFCCEA806E84C4F2DE5F",
+  "contract_digest": "sha256:01be59bd668b09bd0c97a64d1131a6bd2c703de67ed9e8f06a82e62e1312f8af",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md",
+  "redirect_id": "COMPATREDIRECT_A09A01B69C34339C2E39AF74FF248887",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_47A0AFD4F6A6FFCC",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/README_IMPLEMENTATION_LADDER_V1.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/e4bed7562097_README_IMPLEMENTATION_LADDER_V1.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

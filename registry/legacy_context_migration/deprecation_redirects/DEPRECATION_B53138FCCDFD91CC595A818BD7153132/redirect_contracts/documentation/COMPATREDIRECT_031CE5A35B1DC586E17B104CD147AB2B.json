@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md",
+  "canonical_target_digest": "sha256:90115f32f609dc1b982b960e2416f8e430e219cdbf7b7bc820dff639c05276a3",
+  "consumer_id": "CONSUMER_B6781E2E9EF2CBECC2F2C8AEF7152DE4",
+  "contract_digest": "sha256:bb48120d6351425df7b969525ee8e21ee3ae79c42c133d2dba360bf98464cc57",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md",
+  "redirect_id": "COMPATREDIRECT_031CE5A35B1DC586E17B104CD147AB2B",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B6781E2E9EF2CBEC",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/79a62a424a39_README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "deprecation_id": {},
+    "file_count": {},
+    "files": {},
+    "manifest_id": {},
+    "output_manifest_digest": {},
+    "phase_id": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "deprecation_id",
+    "manifest_id",
+    "file_count",
+    "files",
+    "output_manifest_digest"
+  ],
+  "title": "LCM14A Output Manifest",
+  "type": "object"
+}

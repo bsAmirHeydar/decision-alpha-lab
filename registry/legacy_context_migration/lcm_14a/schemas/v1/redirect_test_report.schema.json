@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_redirect_test_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "deprecation_id": {},
+    "failed_redirect_count": {},
+    "passed_redirect_count": {},
+    "phase_id": {},
+    "redirect_count": {},
+    "report_digest": {},
+    "result": {},
+    "schema_version": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "deprecation_id",
+    "redirect_count",
+    "passed_redirect_count",
+    "failed_redirect_count",
+    "result",
+    "report_digest"
+  ],
+  "title": "LCM14A Redirect Test Report",
+  "type": "object"
+}

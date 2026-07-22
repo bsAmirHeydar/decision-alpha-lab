@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md",
+  "canonical_target_digest": "sha256:892baf5841eb4c5f119e30394f093ff558130380e94088901fea5f017726ef8d",
+  "consumer_id": "CONSUMER_BBC645626E17FB48A54F26517D02DC0C",
+  "contract_digest": "sha256:19e9e2066c86d191b4f11ec7908fea109334d1b390541cb7d25bd82b03d50f82",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md",
+  "redirect_id": "COMPATREDIRECT_94CEAA328C3D389C320A9F6A70D1232F",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_BBC645626E17FB48",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_04_auto_trade_entry_only_rehearsal.md' is deprecated; use exact canonical locator 'docs/evidence/profile_04_auto_trade_entry_only_rehearsal/69b400182ebf_profile_04_auto_trade_entry_only_rehearsal.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

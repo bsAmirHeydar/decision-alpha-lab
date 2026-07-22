@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/48f01201c914_INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md",
+  "canonical_target_digest": "sha256:723c811f48d7d52dfc38c539d56191f410ac74142c5adbd29af0ed22c5755792",
+  "consumer_id": "CONSUMER_0308E58EA59AB6F953B8EFBFA8EF8FF2",
+  "contract_digest": "sha256:28c1c87d76db6885d1cad8c258103658147e81ca751fbe087b109050798f2934",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md",
+  "redirect_id": "COMPATREDIRECT_266CE0D8BB949E9214D0C43EB73D68EE",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_0308E58EA59AB6F9",
+  "warning_message": "Legacy locator 'INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/48f01201c914_INSTALL_ALPHA_LAB_MASTER_ARCHITECTURE_V1.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

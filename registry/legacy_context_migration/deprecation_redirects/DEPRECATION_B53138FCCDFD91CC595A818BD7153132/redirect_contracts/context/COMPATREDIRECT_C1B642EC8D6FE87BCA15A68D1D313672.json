@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "canonical_target_digest": "sha256:2138bb994019d784c746924448570ca58c5a927a08faf71e7e04dd7aa2deb495",
+  "consumer_id": "CONSUMER_6D553F6038C64A31FCAFD1D6CE844D0C",
+  "contract_digest": "sha256:dade5812eb89cf29635603ff7add2d02d16bdc9be285ad122a0a813c79d1472f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
+  "redirect_id": "COMPATREDIRECT_C1B642EC8D6FE87BCA15A68D1D313672",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_6D553F6038C64A31",
+  "warning_message": "Legacy locator 'lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py' is deprecated; use exact canonical locator 'lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

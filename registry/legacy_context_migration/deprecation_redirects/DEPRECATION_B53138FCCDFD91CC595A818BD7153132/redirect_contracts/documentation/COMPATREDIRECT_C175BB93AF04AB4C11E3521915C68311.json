@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/releases/legacy_migration/general/47993903422f_README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+  "canonical_target_digest": "sha256:547ce6f11c1f48605a1f8544115fc7234eeb979c8d557ceb9210bdacc25870e2",
+  "consumer_id": "CONSUMER_B7F77AE1F6145E065A0EDD270F544125",
+  "contract_digest": "sha256:739d79d35805c50cd539ba84bed441e25e06e2a5e2d76749c7fba2e59dee147a",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+  "redirect_id": "COMPATREDIRECT_C175BB93AF04AB4C11E3521915C68311",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B7F77AE1F6145E06",
+  "warning_message": "Legacy locator 'README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md' is deprecated; use exact canonical locator 'docs/releases/legacy_migration/general/47993903422f_README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

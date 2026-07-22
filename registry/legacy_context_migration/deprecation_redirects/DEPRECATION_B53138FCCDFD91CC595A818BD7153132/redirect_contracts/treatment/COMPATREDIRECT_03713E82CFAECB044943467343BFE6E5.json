@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_92E77B1F72612BAD3646C7175143BF48.json",
+  "canonical_target_digest": "sha256:3bc801ec7326400d959cfeac3482f5481d13dc2ca4e71b874b739127e5417db4",
+  "consumer_id": "CONSUMER_8644F253930D30C5F1955D3B671F0359",
+  "contract_digest": "sha256:91f92401c5a0e7b294f792db8b35c4733291cdcb561a407fe2cd06bcb870d926",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/strategy_factory/check_uce_i12_boundaries.py",
+  "redirect_id": "COMPATREDIRECT_03713E82CFAECB044943467343BFE6E5",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8644F253930D30C5",
+  "warning_message": "Legacy locator 'tools/strategy_factory/check_uce_i12_boundaries.py' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_92E77B1F72612BAD3646C7175143BF48.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

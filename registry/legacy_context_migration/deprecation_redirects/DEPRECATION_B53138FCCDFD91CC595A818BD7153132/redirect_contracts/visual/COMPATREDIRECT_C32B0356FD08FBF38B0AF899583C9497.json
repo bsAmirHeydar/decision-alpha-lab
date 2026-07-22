@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_7489D76CFAE3101FF85468FBA0EB5864.json",
+  "canonical_target_digest": "sha256:80228ea466f869306d756c5745b4c36c97be63a42cf1dd29343e5d57dc248cb0",
+  "consumer_id": "CONSUMER_981A40194197F7F16C36F0A6AE025CE5",
+  "contract_digest": "sha256:547352e213a5e22f91f3b8da82cdc3a53ac26a090efa6c988004d01ed5927bb8",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE",
+  "redirect_id": "COMPATREDIRECT_C32B0356FD08FBF38B0AF899583C9497",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_981A40194197F7F1",
+  "warning_message": "Legacy locator 'tools/strategy_factory/lcm/lcm_11a/patterns.py::GLOBAL_SCOPE' is deprecated; use exact canonical locator 'registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/canonical_visualizers/VISUALIZER_7489D76CFAE3101FF85468FBA0EB5864.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

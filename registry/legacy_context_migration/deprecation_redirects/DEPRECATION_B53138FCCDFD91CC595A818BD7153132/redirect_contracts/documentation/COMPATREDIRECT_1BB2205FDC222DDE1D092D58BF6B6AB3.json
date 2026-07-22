@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/release/f4de35a542eb_EXP0018_TEST_AND_RELEASE_MAP.md",
+  "canonical_target_digest": "sha256:ca00367452590dc7154042e350dbacaaa834320f9cd56956687a0185b9cbd576",
+  "consumer_id": "CONSUMER_C546BB97542CF8784513473AA5781973",
+  "contract_digest": "sha256:f3bb0e5fa66e0accef16a13073a193b8773c3dcba01be8415949c370a9d619f3",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/01_master_maps/EXP0018_TEST_AND_RELEASE_MAP.md",
+  "redirect_id": "COMPATREDIRECT_1BB2205FDC222DDE1D092D58BF6B6AB3",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_C546BB97542CF878",
+  "warning_message": "Legacy locator 'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/01_master_maps/EXP0018_TEST_AND_RELEASE_MAP.md' is deprecated; use exact canonical locator 'docs/evidence/release/f4de35a542eb_EXP0018_TEST_AND_RELEASE_MAP.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

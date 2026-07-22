@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md",
+  "canonical_target_digest": "sha256:e84bf6ab512b4b5950a0311cfcdb2fb2886eee021264e7a048a9753e4edf2a20",
+  "consumer_id": "CONSUMER_328929AEA61E6B8674C6A2E1E21E1AC1",
+  "contract_digest": "sha256:15c210b25a790d6ba30d4b5fd69a721b4762eaf331137ce52c02bdbd541d96ee",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md",
+  "redirect_id": "COMPATREDIRECT_4DF879C318AF1B097BFF432B7CF3295D",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_328929AEA61E6B86",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/deployment_profiles/profile_02_paper_live_observer.md' is deprecated; use exact canonical locator 'docs/evidence/profile_02_paper_live_observer/a5ba94007b51_profile_02_paper_live_observer.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/level_07_confirmation_signal_registry/c5f8b7b0b328_28_level_07_confirmation_signal_registry.md",
+  "canonical_target_digest": "sha256:c13d74f588224a42507fcef0cf29dabd47c65a3aa654a8e51eb6cad9717bccfc",
+  "consumer_id": "CONSUMER_D2969101F75150CD31339278A3C2A907",
+  "contract_digest": "sha256:4349d049eefc0742c77b8f57271b1191db6c5330392cbdd0a325c13386e5abf6",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/28_level_07_confirmation_signal_registry.md",
+  "redirect_id": "COMPATREDIRECT_37D4A8061491E9C5F0956217D9787857",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_D2969101F75150CD",
+  "warning_message": "Legacy locator 'lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/28_level_07_confirmation_signal_registry.md' is deprecated; use exact canonical locator 'docs/evidence/level_07_confirmation_signal_registry/c5f8b7b0b328_28_level_07_confirmation_signal_registry.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

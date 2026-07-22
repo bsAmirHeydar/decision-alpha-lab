@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/exp0017_en_release_plan/9a13f54eddd1_EXP0017_EN_Release_Plan.md",
+  "canonical_target_digest": "sha256:36d493030a3d38a8c168437fceebae46c2f054a47f07e3976de056b5c512f196",
+  "consumer_id": "CONSUMER_B50D002C21D94DF88E17627828D81B14",
+  "contract_digest": "sha256:d073b55586a7c070823f00610a6d54281862481c850004a348f98cb5480051b6",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "docs/obsidian_deep/01_concepts/EXP0017_EN_Release_Plan.md",
+  "redirect_id": "COMPATREDIRECT_9977B77DAA8ECB0215315C6A98D105BE",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_B50D002C21D94DF8",
+  "warning_message": "Legacy locator 'docs/obsidian_deep/01_concepts/EXP0017_EN_Release_Plan.md' is deprecated; use exact canonical locator 'docs/evidence/exp0017_en_release_plan/9a13f54eddd1_EXP0017_EN_Release_Plan.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

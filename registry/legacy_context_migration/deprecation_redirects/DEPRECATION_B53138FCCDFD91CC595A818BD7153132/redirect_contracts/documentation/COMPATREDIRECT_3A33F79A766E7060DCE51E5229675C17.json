@@ -1,0 +1,17 @@
+{
+  "activation_state": "ALREADY_ACTIVE",
+  "canonical_locator": "docs/evidence/nds_f2_overlap_wider_minimum_rr_entry_repricing_audit/82e0306d3778_NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md",
+  "canonical_target_digest": "sha256:9679830285cfc8661c9b161d801865181d16662e37abe7a7df56f9570f6d63fe",
+  "consumer_id": "CONSUMER_867BDAD6997B88D55E9B5FAD50328AF8",
+  "contract_digest": "sha256:e246ac0a1e1c0bb85c7ba18864ec0d50d97c66615269d7a45f01d5fc7ce2130f",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md",
+  "redirect_id": "COMPATREDIRECT_3A33F79A766E7060DCE51E5229675C17",
+  "redirect_mode": "EXISTING_DOCUMENTATION_REDIRECT_ACTIVE",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_867BDAD6997B88D5",
+  "warning_message": "Legacy locator 'NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md' is deprecated; use exact canonical locator 'docs/evidence/nds_f2_overlap_wider_minimum_rr_entry_repricing_audit/82e0306d3778_NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

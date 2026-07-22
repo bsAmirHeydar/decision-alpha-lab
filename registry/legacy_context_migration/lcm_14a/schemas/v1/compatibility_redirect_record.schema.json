@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/lcm14a/lcm14a_compatibility_redirect_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_locator": {},
+    "canonical_target_digest": {},
+    "consumer_id": {},
+    "domain_logic_present": {},
+    "legacy_locator": {},
+    "phase_id": {},
+    "redirect_digest": {},
+    "redirect_id": {},
+    "redirect_mode": {},
+    "schema_version": {},
+    "side_effect_authority": {},
+    "warning_code": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "redirect_id",
+    "consumer_id",
+    "legacy_locator",
+    "canonical_locator",
+    "canonical_target_digest",
+    "redirect_mode",
+    "warning_code",
+    "domain_logic_present",
+    "side_effect_authority",
+    "redirect_digest"
+  ],
+  "title": "LCM14A Compatibility Redirect Record",
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_64A0842087B0B623BF15F3D8C92D813A.json",
+  "canonical_target_digest": "sha256:fe4ac8b4451cee8370fc51899be3956a247d656c00df1df10989af26d7be9a62",
+  "consumer_id": "CONSUMER_7566781097ACD54A8680C50E61B59AE5",
+  "contract_digest": "sha256:1165fa8223576dd6ad2bb8426e997873d104213423be75936ca450cb4ec4ab6b",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/StrategyFactoryTests/SF03_MarketServicesSelfTest.mq5",
+  "redirect_id": "COMPATREDIRECT_29257A5662A35489B43758D5688FA800",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_7566781097ACD54A",
+  "warning_message": "Legacy locator 'mql5/Experts/StrategyFactoryTests/SF03_MarketServicesSelfTest.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_64A0842087B0B623BF15F3D8C92D813A.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

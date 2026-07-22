@@ -1,0 +1,55 @@
+{
+  "active_source_blocked_count": 477,
+  "blocked_dimensions": [
+    "ACTIVE_DIRECT_USE_BLOCKS_477_SOURCE_IDENTITIES",
+    "EXTERNAL_CONSUMER_EVIDENCE_UNKNOWN_FOR_613_IDENTITIES",
+    "LIVE_PLATFORM_ENVIRONMENTAL_PARITY_NOT_OBSERVED"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_14A_REFERENCE_ONLY",
+  "completed_gates": [
+    "EXACT_LCM13C_HANDOFF_BOUND",
+    "613_PARITY_APPROVED_CANDIDATES_ACCOUNTED",
+    "613_EXACT_SUCCESSORS_VERSION_PINNED",
+    "136_EXISTING_DOCUMENT_REDIRECTS_VERIFIED",
+    "477_ACTIVE_SOURCE_IDENTITIES_BLOCKED_FROM_QUARANTINE",
+    "613_ACTIONABLE_WARNINGS_BEFORE_RESOLUTION",
+    "613_ORIGINAL_BYTE_LOCATIONS_PRESENT_AND_DIGEST_FROZEN",
+    "ZERO_FLOATING_REDIRECTS",
+    "ZERO_REDIRECT_DOMAIN_LOGIC",
+    "ZERO_QUARANTINE_DELETION_RUNTIME_ORDER_CAPITAL_AUTHORITY"
+  ],
+  "deletion_authority_created": false,
+  "deprecation_count": 613,
+  "deprecation_id": "DEPRECATION_B53138FCCDFD91CC595A818BD7153132",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-14",
+  "non_compensatory_gate_failures": [],
+  "observation_candidate_count": 136,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "passed": true,
+  "phase_id": "LCM-14A",
+  "producer": "tools.strategy_factory.lcm.lcm_14a.service:LCM14ADeprecationRedirectService",
+  "quarantine_authority_created": false,
+  "redirect_count": 613,
+  "report_digest": "sha256:d128d96fba0c9eece6e1965fdf4c5561cdaa7fcd47741594c925a4b8dce1c75c",
+  "report_id": "ACCEPTANCE_762B7C524F1965C4306F854A7B5A74CE",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:214581770e7d95142944ddb2c4e5bf00f970d38bb38d6cac2af9421dc239a555",
+    "sha256:2d11bde15d20ed928bc0bba8c6cf771f1cbffe14cfdf898c6971ae51e69cf91b",
+    "sha256:382f799daabe7b5ceded77a518442cd76eeef128a9594fb8fc74f4dccbf23ba6",
+    "sha256:e1b03f51243bcb1fd576f9db4affa3dbb38b4e61388aa84be51c2dc595d87e04",
+    "sha256:625f07635f4f50c01b7519a442bbdb13cb96875d451e451093b7b765b5023b78"
+  ],
+  "unknown_dimensions": [
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS_NOT_OBSERVED",
+    "LIVE_RUNTIME_WARNING_DELIVERY_NOT_ACTIVATED"
+  ],
+  "validation_status": "PASS"
+}

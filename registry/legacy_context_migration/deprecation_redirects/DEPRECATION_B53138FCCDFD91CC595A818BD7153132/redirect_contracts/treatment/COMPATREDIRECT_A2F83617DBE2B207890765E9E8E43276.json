@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_55AB90AB22ABD712DDA9D6DE04A3F51C.json",
+  "canonical_target_digest": "sha256:2b1fb1b1567fc8b3db9b89a6b62b2550cc4cc3658172ef338d4cccd0802d576e",
+  "consumer_id": "CONSUMER_57CCE715BE3B10438758CF2C76212D2A",
+  "contract_digest": "sha256:f83756f416894a84694fd3a986f83d18be687c0b642996de599e291ca4a22b51",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+  "redirect_id": "COMPATREDIRECT_A2F83617DBE2B207890765E9E8E43276",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_57CCE715BE3B1043",
+  "warning_message": "Legacy locator 'mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_55AB90AB22ABD712DDA9D6DE04A3F51C.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}

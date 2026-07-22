@@ -1,0 +1,17 @@
+{
+  "activation_state": "REFERENCE_RESOLVER_INSTALLED_NOT_BOUND_TO_PRODUCTION",
+  "canonical_locator": "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C307A47237760C97B9BB2FC9657177C4.json",
+  "canonical_target_digest": "sha256:c6a56139084958ad9d0c1267bcadac2409d776a98343354900fa8d54cd7ab021",
+  "consumer_id": "CONSUMER_8FE59D17FC4A53707248167264448BB1",
+  "contract_digest": "sha256:1696efa171c266c081801031bdf6427e1f93567dac12b0117d08bfead7c9c178",
+  "domain_logic_present": false,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_locator": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+  "redirect_id": "COMPATREDIRECT_E6F3D044BECA982283155ABC713CCE6D",
+  "redirect_mode": "REFERENCE_LOCATOR_REDIRECT_REGISTERED",
+  "schema_version": "1.0.0",
+  "side_effect_authority": false,
+  "warning_code": "LCM14A_DEP_8FE59D17FC4A5370",
+  "warning_message": "Legacy locator 'mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5' is deprecated; use exact canonical locator 'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/canonical_treatment_packages/TREATPKG_C307A47237760C97B9BB2FC9657177C4.json'. Compatibility remains open through the LCM-14B evidence gate; quarantine and deletion are not authorized."
+}
