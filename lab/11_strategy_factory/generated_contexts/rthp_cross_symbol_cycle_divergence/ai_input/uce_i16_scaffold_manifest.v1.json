@@ -1,0 +1,102 @@
+{
+  "artifacts": [
+    {
+      "content_hash": "7f9a9711979a9bbecae5db78b821a0ef09910da20f359e10085cc76982ab9e7e",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/PHASE_STATUS.json"
+    },
+    {
+      "content_hash": "2ef2fabcbd1496671a2496ec6390948fe3c2ba9d7995ba12e9cf74233f755974",
+      "identity_relevant": true,
+      "kind": "documentation",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/README.md"
+    },
+    {
+      "content_hash": "817754d10becda1b2e6c54972ab341976be165ecd695108f2f199f7a6a0e4fee",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/capabilities.json"
+    },
+    {
+      "content_hash": "d6e1ce1223814711b358eb9b5a6316955bd4a65bfccd5b4c95a84e4bc9761c22",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/cluster_rules.json"
+    },
+    {
+      "content_hash": "35c11a1a5c2617e1c443c5658f5849e2206029cd56a131696a877db860b8d4ec",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/context_spec.json"
+    },
+    {
+      "content_hash": "135a7df75f0a5073e3a88b8785c7f6e8e1721079e2db7ee623c5e6f5ecc160e6",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/feature_descriptor.json"
+    },
+    {
+      "content_hash": "3db18d324aad1bda7c55b3cdcf4c1c193329b9743131bd0cc3ae1b3bc3c1de55",
+      "identity_relevant": true,
+      "kind": "fixture",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/fixtures/golden.json"
+    },
+    {
+      "content_hash": "3f654273ca61dd0aea96ea46538befc83b895052435ca63e61ad8540bf65dc85",
+      "identity_relevant": true,
+      "kind": "fixture",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/fixtures/negative_future.json"
+    },
+    {
+      "content_hash": "ef3d19051f81095d889cc90dd297d04d315849b017991bdadbe4c9e0e5507a6b",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/lifecycle.json"
+    },
+    {
+      "content_hash": "f2a7ff3d0184f50de7a151747978685bbac8169fcaa397ae8a652b4adf7b1809",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/manual_policy.json"
+    },
+    {
+      "content_hash": "00a1e76e41b312a91c88089205c45a6daafaea207fd41c5828601978cc6d41c2",
+      "identity_relevant": true,
+      "kind": "schema",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/schemas/context_occurrence.schema.json"
+    },
+    {
+      "content_hash": "fae08dd4bf8831f097df677e34bf45c51eec8c3ffbfa8c6e98b23445bd8b127b",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/tasks.json"
+    },
+    {
+      "content_hash": "0801439fb45ccabdd5470b4cfbf46c2618df371bedf1822fa5d2f3607084c9a9",
+      "identity_relevant": true,
+      "kind": "test",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/tests/test_contract.py"
+    },
+    {
+      "content_hash": "150b3a48956d76716903d1f3307e5d36b4b7b8314cd6784fb6bd87eb7ccb2324",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/tournament_template.json"
+    },
+    {
+      "content_hash": "5d0f50981f890c94335a4b27edb05ff6621abcf2b2134cc7946707c61e54a1c5",
+      "identity_relevant": true,
+      "kind": "contract",
+      "path": "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/view_descriptor.json"
+    }
+  ],
+  "context_id": "rthp.cross_symbol_cycle_divergence",
+  "context_spec_hash": "35c11a1a5c2617e1c443c5658f5849e2206029cd56a131696a877db860b8d4ec",
+  "core_snapshot_hash": "2aae071ea8cbc8f3215109189a840ee41a8e4b6c09be79edd08a977877cae732",
+  "generator_version": "1.0.0",
+  "manifest_hash": "86463f99f68b54ca61ed4ccad5b73212c5799c839626d8023c5a86841f3a868f",
+  "manifest_id": "scaffold:74983e75d2aeb03b788c0eec",
+  "tournament_template_hash": "f61760879a8c7ae6244803efaa82653d774a1605918a713510d3e8e726db968d",
+  "version": "1.0.0"
+}

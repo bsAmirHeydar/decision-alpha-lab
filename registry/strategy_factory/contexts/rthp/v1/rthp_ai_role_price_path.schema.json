@@ -1,0 +1,73 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-role-price-path:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evaluation_symbol_role": {
+      "enum": [
+        "HUNTER",
+        "PROTECTED"
+      ]
+    },
+    "event_id": {
+      "pattern": "^RTHPEVT_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observed_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pair_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "price": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "price_basis": {
+      "enum": [
+        "BID"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_content_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_revision": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "symbol": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "tick_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "pair_id",
+    "evaluation_symbol_role",
+    "symbol",
+    "observed_at_ms",
+    "known_time_ms",
+    "price",
+    "price_basis",
+    "tick_size",
+    "source_revision",
+    "source_content_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,94 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-task-references:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "CONTEXT_OUTCOME_RESEARCH_ONLY"
+    },
+    "forbidden_task_families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "registry_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "tasks": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:task-reference:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "allowed_view_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "kind": {
+            "enum": [
+              "binary",
+              "regression",
+              "ranking",
+              "survival",
+              "quantile"
+            ]
+          },
+          "label_contract_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "task_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id",
+          "version",
+          "kind",
+          "label_contract_id",
+          "allowed_view_ids"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "package_id",
+    "package_version",
+    "tasks",
+    "claim_ceiling",
+    "forbidden_task_families",
+    "registry_digest"
+  ],
+  "type": "object"
+}

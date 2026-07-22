@@ -1,0 +1,14 @@
+{
+  "acl03_source_approval_preserved": true,
+  "after_install_snapshot_hash": "291fe6be0c46efce060de79d1e9ec9a397e8bc629aa88ffd2619e5489998f710",
+  "baseline_snapshot_hash": "291fe6be0c46efce060de79d1e9ec9a397e8bc629aa88ffd2619e5489998f710",
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_version": "1.0.2",
+  "changed_paths": [],
+  "file_count": 103,
+  "patch_contains_canonical_context_paths": false,
+  "report_digest": "0eda24184cfe33aceb5e3b0083f55a0c5bfb7da897804fd6b205e58d5cef8b9d",
+  "report_id": "RTHP_CANONICAL_CONTEXT_IMMUTABILITY_REPORT_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

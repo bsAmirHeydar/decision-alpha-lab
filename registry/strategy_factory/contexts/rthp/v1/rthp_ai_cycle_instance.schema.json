@@ -1,0 +1,66 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-cycle-instance:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "completeness": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "PARTIAL_MARKET_WEEK_END"
+      ]
+    },
+    "cycle_definition_version": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "cycle_instance_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "cycle_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_content_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_revision": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "start_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "timezone": {
+      "const": "America/New_York"
+    }
+  },
+  "required": [
+    "schema_version",
+    "cycle_instance_id",
+    "cycle_definition_version",
+    "cycle_type",
+    "start_time_ms",
+    "end_time_ms",
+    "known_time_ms",
+    "timezone",
+    "completeness",
+    "source_revision",
+    "source_content_hash"
+  ],
+  "type": "object"
+}

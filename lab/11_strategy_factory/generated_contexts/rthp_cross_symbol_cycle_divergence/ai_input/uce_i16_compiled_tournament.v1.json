@@ -1,0 +1,30 @@
+{
+  "artifact_identity_map": {
+    "anti_overfit": "d0ea612380560f2a48753ebdd0edba57655a125d4a570d2e976a903addf1e603",
+    "data_cut": "5ce27ff5eb57bcd3fcd453ddca773edc456a55891c041254bd3ebad00cf06212",
+    "promotion_handoff": "176cade7021fab4f84f12b7c26c9268f8c22961cb6e6b8239206941e3a79873d",
+    "prospective_paper": "f2619fc76319f9275b56de51dac4e419ff2de999b4c68bad5746080a7b63acf5",
+    "runtime_bundle": "6eb8141f486b9578ec78a2c362c50b8d695bebaaccab36d5c94f54ff473932c9",
+    "search_budget": "91699f1e1fb2c86689cbb6b22eec28562da71267c16f18b95f2361a894986e2b",
+    "trainer_budget": "93d5da83366888ca528bcfdf77c521b7cae915e0e2b5aa1928d8da17abd5cb13",
+    "treatment_freeze": "cc816ada44e44073436ead656cd4329d783fdf539ad0ba0c2532e9513e520899",
+    "walk_forward": "e2a5a9ddb4aec49ff1098c4e4175bf9981581e6152a06f3ab901bca021b2e367"
+  },
+  "compiled_hash": "f61760879a8c7ae6244803efaa82653d774a1605918a713510d3e8e726db968d",
+  "compiled_id": "compiled-tournament:7fad3fc96eb4188dac6a19da",
+  "final_test_sealed": true,
+  "fixture_not_alpha_proof": true,
+  "stage_ids": [
+    "data_cut",
+    "treatment_freeze",
+    "trainer_budget",
+    "search_budget",
+    "walk_forward",
+    "anti_overfit",
+    "prospective_paper",
+    "runtime_bundle",
+    "promotion_handoff"
+  ],
+  "template_hash": "150b3a48956d76716903d1f3307e5d36b4b7b8314cd6784fb6bd87eb7ccb2324",
+  "version": "1.0.0"
+}

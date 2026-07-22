@@ -1,0 +1,35 @@
+{
+  "adr_required": false,
+  "after_snapshot_hash": "69a9da0718c4bc3ab81a29ae0041c954105732b21d85994903ecbf5516cfb40c",
+  "allowed_additive_paths": [
+    "lab/11_strategy_factory/python/strategy_factory_rthp_context_v1",
+    "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/ai_input",
+    "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence",
+    "registry/strategy_factory/contexts/rthp/v1",
+    "lab/11_strategy_factory/tests/rthp_ai_input",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_03/RTHP"
+  ],
+  "before_snapshot_hash": "69a9da0718c4bc3ab81a29ae0041c954105732b21d85994903ecbf5516cfb40c",
+  "central_engine_modified": false,
+  "changed_core_paths": [],
+  "context_semantic_root_modified": false,
+  "protected_file_count": 1398,
+  "protected_prefixes": [
+    "lab/11_strategy_factory/python/strategy_factory_contexts_v3",
+    "lab/11_strategy_factory/python/strategy_factory_dataset_v3",
+    "lab/11_strategy_factory/python/strategy_factory_trainers_v3",
+    "lab/11_strategy_factory/python/strategy_factory_onboarding_v3",
+    "lab/11_strategy_factory/python/strategy_factory_experiments_v3",
+    "lab/11_strategy_factory/python/strategy_factory_contracts_v3",
+    "lab/11_strategy_factory/python/strategy_factory_economics_v3",
+    "lab/11_strategy_factory/python/strategy_factory_promotion_v3",
+    "lab/11_strategy_factory/python/strategy_factory_policy_v3",
+    "lab/11_strategy_factory/python/strategy_factory_runtime_v3",
+    "tools/strategy_factory/acl_os",
+    "registry/acl_os"
+  ],
+  "report_digest": "4c44e3a8cefea846b6caae16ac70057b197fe55671814469367e30a242c7c1b9",
+  "report_id": "RTHP_AI_INPUT_ENGINE_INVARIANCE_REPORT_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

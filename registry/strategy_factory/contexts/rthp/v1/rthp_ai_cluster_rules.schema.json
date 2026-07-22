@@ -1,0 +1,98 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-cluster-rules:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "catalog_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "purge_overlap_required": {
+      "const": true
+    },
+    "rule_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "rules": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:cluster-rule:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "dimensions": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "kind": {
+            "type": "string"
+          },
+          "owner_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          },
+          "rule_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "rule_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_id",
+          "version",
+          "owner_id",
+          "kind",
+          "dimensions",
+          "parameters",
+          "rule_hash"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "sibling_lock_required": {
+      "const": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "package_id",
+    "package_version",
+    "rule_count",
+    "rules",
+    "sibling_lock_required",
+    "purge_overlap_required",
+    "catalog_digest"
+  ],
+  "type": "object"
+}

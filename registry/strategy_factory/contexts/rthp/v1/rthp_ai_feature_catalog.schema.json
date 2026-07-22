@@ -1,0 +1,152 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-feature-catalog:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "canonical_context_version": {
+      "const": "1.0.2"
+    },
+    "catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "catalog_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "descriptors": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:feature-descriptor:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "availability_modes": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "category_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "data_type": {
+            "enum": [
+              "bool",
+              "int64",
+              "float64",
+              "category",
+              "string",
+              "vector_float64"
+            ]
+          },
+          "dependencies": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "description": {
+            "type": "string"
+          },
+          "descriptor_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "feature_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "max_staleness_ms": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "missingness_policy": {
+            "type": "string"
+          },
+          "owner_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "runtime_exportable": {
+            "type": "boolean"
+          },
+          "shape": {
+            "items": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "staleness_policy": {
+            "type": "string"
+          },
+          "units": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "feature_id",
+          "version",
+          "owner_id",
+          "data_type",
+          "units",
+          "shape",
+          "missingness_policy",
+          "staleness_policy",
+          "max_staleness_ms",
+          "dependencies",
+          "availability_modes",
+          "runtime_exportable",
+          "category_values",
+          "description",
+          "descriptor_hash"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "feature_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "feature_pack_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "canonical_context_id",
+    "canonical_context_version",
+    "package_id",
+    "package_version",
+    "feature_pack_id",
+    "feature_count",
+    "descriptors",
+    "catalog_digest"
+  ],
+  "type": "object"
+}

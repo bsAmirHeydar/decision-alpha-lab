@@ -1,0 +1,75 @@
+{
+  "catalog_digest": "6b23c4f7528621f8052e162c48eeb1e4497644c9e34ed56c57d7173a85cd8f33",
+  "catalog_id": "RTHP_AI_CLUSTER_RULES_V1",
+  "package_id": "rthp.cross_symbol_cycle_divergence",
+  "package_version": "1.0.0",
+  "purge_overlap_required": true,
+  "rule_count": 4,
+  "rules": [
+    {
+      "dimensions": [
+        "pair_id",
+        "family",
+        "reference_cycle_id",
+        "active_cycle_id",
+        "level_side",
+        "confirmation_close_time_ms"
+      ],
+      "kind": "opportunity",
+      "owner_id": "rthp.context.owner",
+      "parameters": {
+        "sibling_lock": true
+      },
+      "rule_hash": "09dda59c50ef7961e1cecedb9f115d1e8a576207e913ad9de27507de3637fbaf",
+      "rule_id": "rthp.opportunity.v1",
+      "version": "1.0.0"
+    },
+    {
+      "dimensions": [
+        "pair_id",
+        "family",
+        "reference_cycle_id",
+        "level_side"
+      ],
+      "kind": "parent_child",
+      "owner_id": "rthp.context.owner",
+      "parameters": {
+        "shared_reference": true
+      },
+      "rule_hash": "af02debaaab0353c5153e04d3ddce10d66f9dbc4619fd15a4092dd2d4f404049",
+      "rule_id": "rthp.reference.v1",
+      "version": "1.0.0"
+    },
+    {
+      "dimensions": [
+        "pair_id",
+        "trading_day_ny"
+      ],
+      "kind": "symbol_session_day",
+      "owner_id": "rthp.context.owner",
+      "parameters": {
+        "timezone": "America/New_York"
+      },
+      "rule_hash": "b09514a54ae5866e64c0b499320d49816a915e7ec5b039df9dad1d237995376d",
+      "rule_id": "rthp.session_day.v1",
+      "version": "1.0.0"
+    },
+    {
+      "dimensions": [
+        "pair_id",
+        "confirmation_close_time_ms",
+        "label_horizon_group"
+      ],
+      "kind": "overlapping_path",
+      "owner_id": "rthp.context.owner",
+      "parameters": {
+        "purge_overlap": true
+      },
+      "rule_hash": "7eb3ea55a638b108b2643f60f05d1d000b4591caffe78350b567baf87e8200e9",
+      "rule_id": "rthp.overlapping_path.v1",
+      "version": "1.0.0"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "sibling_lock_required": true
+}

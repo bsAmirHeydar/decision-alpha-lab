@@ -1,0 +1,57 @@
+{
+  "canonical_context_file_count": 103,
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_immutability_status": "PASS",
+  "canonical_context_paths_in_patch": 0,
+  "canonical_context_version": "1.0.2",
+  "capital_authority_created": false,
+  "catalog_digest_validation": "PASS",
+  "changed_core_paths": [],
+  "compileall": "PASS",
+  "documentation_language": "English",
+  "engine_extended_snapshot_file_count": 1398,
+  "engine_invariance_status": "PASS",
+  "existing_repository_paths_overwritten": 0,
+  "final_test_sealed": true,
+  "future_perturbation_conformance": "PASS",
+  "limitations": [
+    "Real training cannot start until immutable external data binding is resolved and ACL-05 freezes the batch."
+  ],
+  "order_authority_created": false,
+  "package_key": "rthp.cross_symbol_cycle_divergence@1.0.0",
+  "package_metrics": {
+    "cluster_rules": 4,
+    "features": 31,
+    "label_templates": 25,
+    "smoke_records": 6,
+    "tasks": 30,
+    "views": 5
+  },
+  "path_count": 86,
+  "persian_character_count": 0,
+  "persian_filename_count": 0,
+  "post_cut_label_separation": "PASS",
+  "preflight": {
+    "real": "EXPECTED_BLOCKED",
+    "real_blocker": "RTHP_REAL_DATA_BINDING_REQUIRED",
+    "smoke": "PASS"
+  },
+  "raw_symbol_feature_leakage": "PASS",
+  "real_training_executed": false,
+  "report_digest": "0950cd3ae846865617ccaa869f93609a847fa14869384433043db9720a33db46",
+  "report_id": "RTHP_AI_INPUT_QA_REPORT_V1",
+  "runtime_authority_created": false,
+  "schema_validation": "PASS",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "test_counts": {
+    "acl02": 80,
+    "acl03": 106,
+    "generated_context": 1,
+    "rthp_ai_input": 33,
+    "rthp_context": 19,
+    "uce_i02_contexts": 34,
+    "uce_i16_context_onboarding": 127
+  },
+  "total_test_count": 400
+}

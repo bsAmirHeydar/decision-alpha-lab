@@ -1,0 +1,40 @@
+{
+  "anchor_key": [
+    "event_id",
+    "pair_id",
+    "family",
+    "reference_cycle_id",
+    "active_cycle_id",
+    "level_side"
+  ],
+  "contract_digest": "fa5fe64e9dcb74ddacc4afe8f7a5ccd8316779f755ad115ee27e25317b32e125",
+  "contract_id": "RTHP_AI_DATASET_JOIN_V1",
+  "cycle_instance_join": [
+    "cycle_definition_version",
+    "cycle_instance_id"
+  ],
+  "dependence_clusters": [
+    "rthp.opportunity.v1",
+    "rthp.reference.v1",
+    "rthp.session_day.v1",
+    "rthp.overlapping_path.v1"
+  ],
+  "missing_join_policy": "MASK_AND_REPORT; never fabricate",
+  "price_path_join": [
+    "event_id",
+    "pair_id",
+    "evaluation_symbol_role"
+  ],
+  "reference_state_join": [
+    "pair_id",
+    "family",
+    "reference_cycle_id",
+    "level_side"
+  ],
+  "schema_version": "1.0.0",
+  "split_constraints": [
+    "all siblings in same dependence cluster remain in one fold role",
+    "overlapping label horizons purged and embargoed",
+    "final test remains sealed"
+  ]
+}

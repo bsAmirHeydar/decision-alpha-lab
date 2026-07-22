@@ -1,0 +1,147 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-train-activation:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "activation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "activation_mode": {
+      "const": "CONTEXT_DISCOVERY"
+    },
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "canonical_context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "canonical_context_version": {
+      "const": "1.0.2"
+    },
+    "cluster_catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "compiled_tournament_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "dataset_join_contract_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "discovery_space_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_modification_required": {
+      "const": false
+    },
+    "entry_treatment_execution_created": {
+      "const": false
+    },
+    "feature_catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "known_time_contract_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "label_binding_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_key": {
+      "const": "rthp.cross_symbol_cycle_divergence@1.0.0"
+    },
+    "package_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "readiness": {
+      "type": "object"
+    },
+    "real_data_binding_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "research_objectives_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "shared_engine_paths": {
+      "type": "object"
+    },
+    "smoke_data_binding_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task_registry_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "tournament_template_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "uce_i16_context_spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "view_catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "activation_id",
+    "activation_mode",
+    "package_key",
+    "package_manifest_hash",
+    "canonical_context_id",
+    "canonical_context_version",
+    "feature_catalog_digest",
+    "view_catalog_digest",
+    "cluster_catalog_digest",
+    "task_registry_digest",
+    "label_binding_digest",
+    "smoke_data_binding_digest",
+    "real_data_binding_digest",
+    "uce_i16_context_spec_hash",
+    "tournament_template_hash",
+    "compiled_tournament_hash",
+    "research_objectives_digest",
+    "discovery_space_digest",
+    "known_time_contract_digest",
+    "dataset_join_contract_digest",
+    "shared_engine_paths",
+    "allowed_operations",
+    "forbidden_operations",
+    "readiness",
+    "engine_modification_required",
+    "entry_treatment_execution_created",
+    "activation_digest"
+  ],
+  "type": "object"
+}

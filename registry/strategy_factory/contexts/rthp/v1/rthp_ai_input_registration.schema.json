@@ -1,0 +1,106 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-registration:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_plugin_paths": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "canonical_context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "canonical_context_version": {
+      "const": "1.0.2"
+    },
+    "cluster_rules": {
+      "type": "string"
+    },
+    "discovery_space": {
+      "type": "string"
+    },
+    "engine_core_change_allowed": {
+      "const": false
+    },
+    "feature_catalog": {
+      "type": "string"
+    },
+    "label_bindings": {
+      "type": "string"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_key": {
+      "const": "rthp.cross_symbol_cycle_divergence@1.0.0"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "python_import": {
+      "const": "strategy_factory_rthp_context_v1:RTHPContextPackage"
+    },
+    "registration_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registration_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "registration_status": {
+      "const": "CONTRACT_READY_REAL_DATA_REQUIRED"
+    },
+    "research_objectives": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "task_references": {
+      "type": "string"
+    },
+    "train_activation": {
+      "type": "string"
+    },
+    "view_catalog": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registration_id",
+    "registration_status",
+    "canonical_context_id",
+    "canonical_context_version",
+    "package_id",
+    "package_version",
+    "package_key",
+    "python_import",
+    "manifest_hash",
+    "source_schema",
+    "feature_catalog",
+    "view_catalog",
+    "cluster_rules",
+    "task_references",
+    "label_bindings",
+    "research_objectives",
+    "discovery_space",
+    "train_activation",
+    "allowed_plugin_paths",
+    "engine_core_change_allowed",
+    "registration_digest"
+  ],
+  "type": "object"
+}

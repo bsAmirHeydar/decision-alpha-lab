@@ -1,0 +1,51 @@
+from pathlib import Path
+from helpers import ROOT
+PROTECTED=(
+ 'lab/11_strategy_factory/python/strategy_factory_contexts_v3/',
+ 'lab/11_strategy_factory/python/strategy_factory_dataset_v3/',
+ 'lab/11_strategy_factory/python/strategy_factory_trainers_v3/',
+ 'lab/11_strategy_factory/python/strategy_factory_onboarding_v3/',
+ 'lab/11_strategy_factory/python/strategy_factory_experiments_v3/',
+ 'tools/strategy_factory/acl_os/',
+ 'registry/acl_os/',
+)
+
+def test_patch_index_contains_no_central_engine_path():
+ index=ROOT/'RTHP_AI_INPUT_FILE_INDEX.txt'
+ if not index.exists(): return
+ paths=[x.strip().replace('\\','/') for x in index.read_text().splitlines() if x.strip()]
+ assert not [p for p in paths if any(p.startswith(prefix) for prefix in PROTECTED)]
+
+def test_plugin_is_additive_context_owned_package():
+ plugin=ROOT/'lab/11_strategy_factory/python/strategy_factory_rthp_context_v1'
+ assert plugin.is_dir() and (plugin/'package.py').is_file() and (plugin/'preflight.py').is_file()
+
+def test_no_forbidden_engine_or_trade_calls_in_plugin():
+ plugin=ROOT/'lab/11_strategy_factory/python/strategy_factory_rthp_context_v1'
+ text='\n'.join(p.read_text(encoding='utf-8') for p in plugin.glob('*.py')).lower()
+ for token in ('ordersend','order_send(','ctrade','positionopen','activate_capital','socket.','requests.get','urllib.request'):
+  assert token not in text
+
+def _snapshot_prefixes(prefixes):
+ import hashlib,json
+ hashes={}
+ for prefix in prefixes:
+  base=ROOT/prefix
+  if not base.exists(): continue
+  for path in sorted(x for x in base.rglob('*') if x.is_file() and '__pycache__' not in x.parts and '.pytest_cache' not in x.parts):
+   hashes[path.relative_to(ROOT).as_posix()]=hashlib.sha256(path.read_bytes()).hexdigest()
+ return hashlib.sha256(json.dumps(hashes,sort_keys=True,separators=(',',':')).encode()).hexdigest(),hashes
+
+def test_extended_central_engine_snapshot_is_unchanged():
+ import json
+ ai=ROOT/'lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/ai_input'
+ baseline=json.loads((ai/'generated/engine_extended_baseline_snapshot.json').read_text())
+ current_hash,current_files=_snapshot_prefixes(tuple(baseline['protected_prefixes']))
+ assert current_hash==baseline['snapshot_hash']
+ assert current_files==baseline['file_hashes']
+
+def test_canonical_context_root_is_not_in_patch_payload():
+ index=ROOT/'RTHP_AI_INPUT_FILE_INDEX.txt'
+ if not index.exists(): return
+ forbidden='lab/11_strategy_factory/contexts/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1/'
+ assert not [x for x in index.read_text().splitlines() if x.replace('\\','/').startswith(forbidden)]

@@ -1,0 +1,420 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-source-record:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "level_side": {
+            "const": "HIGH"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "polarity": {
+            "const": "BEARISH_DIVERGENCE"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "level_side": {
+            "const": "LOW"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "polarity": {
+            "const": "BULLISH_DIVERGENCE"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "active_cycle_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "active_cycle_progress": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "active_cycle_type": {
+      "enum": [
+        "CURRENT_WEEK",
+        "CURRENT_DAILY",
+        "CURRENT_L",
+        "CURRENT_N",
+        "CURRENT_A",
+        "FCR_2",
+        "PP_2",
+        "CURRENT_M15_IN_N"
+      ]
+    },
+    "active_range_ticks": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "auxiliary": {
+      "additionalProperties": false,
+      "properties": {
+        "graph": {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "node_features": {
+              "type": "object"
+            },
+            "nodes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "nodes",
+            "edges",
+            "node_features"
+          ],
+          "type": "object"
+        },
+        "intermarket_matrix": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "type": "array"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "intermarket_symbols": {
+          "items": {
+            "enum": [
+              "HUNTER_ROLE",
+              "PROTECTED_ROLE"
+            ]
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "sparse_events": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "sparse_events",
+        "graph",
+        "intermarket_symbols",
+        "intermarket_matrix"
+      ],
+      "type": "object"
+    },
+    "available_reference_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "confirmation_close_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "confirmation_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "confirmed_context_event": {
+      "const": true
+    },
+    "context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "context_version": {
+      "const": "1.0.2"
+    },
+    "cycle_completeness": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "PARTIAL_MARKET_WEEK_END"
+      ]
+    },
+    "cycle_definition_version": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "data_status": {
+      "enum": [
+        "VALID",
+        "PARTIAL_HISTORY"
+      ]
+    },
+    "day_of_week_ny": {
+      "maximum": 7,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "decision_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event_id": {
+      "pattern": "^RTHPEVT_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "event_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "family": {
+      "enum": [
+        "WW",
+        "DD",
+        "NN",
+        "LN",
+        "AN",
+        "NL",
+        "NA",
+        "FCR",
+        "PMI",
+        "PP",
+        "M15_CYCLE_GROUP"
+      ]
+    },
+    "history_sufficiency": {
+      "enum": [
+        "FULL",
+        "PARTIAL"
+      ]
+    },
+    "hunter_symbol": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "hunter_touch_overrun_ticks": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "is_same_day_reference": {
+      "type": "boolean"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "level_side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "minute_of_day_ny": {
+      "maximum": 1439,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minute_of_session": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observation_cut_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pair_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "parent_observation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "polarity": {
+      "enum": [
+        "BULLISH_DIVERGENCE",
+        "BEARISH_DIVERGENCE"
+      ]
+    },
+    "primary_freshness_age_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "primary_symbol": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_distance_to_level_ticks": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "protected_symbol": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_age_cycles": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reference_cycle_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "reference_cycle_type": {
+      "enum": [
+        "PREVIOUS_COMPLETED_WEEK",
+        "PREVIOUS_DAILY",
+        "PREVIOUS_N",
+        "CURRENT_L",
+        "PREVIOUS_L",
+        "PREVIOUS_A",
+        "FCR_1",
+        "PP_1",
+        "PRIOR_M15_IN_SAME_N"
+      ]
+    },
+    "reference_range_ticks": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "reference_state_at_cut": {
+      "const": "DIVERGENCE_CONFIRMED"
+    },
+    "reference_to_active_gap_cycles": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "required_reference_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "secondary_freshness_age_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "secondary_symbol": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequentiality": {
+      "enum": [
+        "SEQUENTIAL",
+        "NON_SEQUENTIAL",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "simultaneous_family_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_content_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_event_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_revision": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "supersedes_observation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "trading_day_ny": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "context_version",
+    "event_id",
+    "confirmed_context_event",
+    "family",
+    "pair_id",
+    "cycle_definition_version",
+    "active_cycle_id",
+    "reference_cycle_id",
+    "active_cycle_type",
+    "reference_cycle_type",
+    "level_side",
+    "polarity",
+    "primary_symbol",
+    "secondary_symbol",
+    "hunter_symbol",
+    "protected_symbol",
+    "event_time_ms",
+    "known_time_ms",
+    "confirmation_time_ms",
+    "observation_cut_ms",
+    "decision_time_ms",
+    "confirmation_close_time_ms",
+    "data_status",
+    "history_sufficiency",
+    "available_reference_count",
+    "required_reference_count",
+    "reference_age_cycles",
+    "reference_to_active_gap_cycles",
+    "sequentiality",
+    "cycle_completeness",
+    "is_same_day_reference",
+    "minute_of_session",
+    "minute_of_day_ny",
+    "day_of_week_ny",
+    "active_cycle_progress",
+    "simultaneous_family_count",
+    "primary_freshness_age_ms",
+    "secondary_freshness_age_ms",
+    "reference_state_at_cut",
+    "trading_day_ny",
+    "source_revision",
+    "source_content_hash",
+    "auxiliary"
+  ],
+  "title": "RTHP canonical AI input source record",
+  "type": "object"
+}

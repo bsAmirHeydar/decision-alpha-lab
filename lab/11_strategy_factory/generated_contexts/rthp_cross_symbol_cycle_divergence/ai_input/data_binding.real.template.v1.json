@@ -1,0 +1,58 @@
+{
+  "binding_digest": "2bb804e7886b6b21361b0e7769c4cbc7d71ac73453512802deee85a071b1b740",
+  "binding_id": "RTHP_AI_DATA_BINDING_REAL_V1",
+  "binding_status": "EXTERNAL_ARTIFACT_REQUIRED",
+  "classification": "RESTRICTED",
+  "fail_closed_reason": "RTHP_REAL_DATA_BINDING_REQUIRED",
+  "network_fetch_allowed": false,
+  "package_id": "rthp.cross_symbol_cycle_divergence",
+  "package_version": "1.0.0",
+  "required_metadata": [
+    "provider",
+    "symbol_pair",
+    "date_range",
+    "timezone",
+    "price_basis",
+    "tick_size_source",
+    "contract_roll_policy",
+    "entitlement_id",
+    "producer_version",
+    "availability_time_policy"
+  ],
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "artifact_uri": "UNRESOLVED",
+      "content_hash": "UNRESOLVED",
+      "known_time_field": "known_time_ms",
+      "required": true,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
+      "source_id": "RTHP_CANONICAL_OCCURRENCE_LEDGER"
+    },
+    {
+      "artifact_uri": "UNRESOLVED",
+      "content_hash": "UNRESOLVED",
+      "known_time_field": "exhaustion_known_time_ms",
+      "required": true,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
+      "source_id": "RTHP_REFERENCE_STATE_LEDGER"
+    },
+    {
+      "artifact_uri": "UNRESOLVED",
+      "content_hash": "UNRESOLVED",
+      "known_time_field": "known_time_ms",
+      "required": true,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json",
+      "source_id": "RTHP_CYCLE_INSTANCE_LEDGER"
+    },
+    {
+      "artifact_uri": "UNRESOLVED",
+      "content_hash": "UNRESOLVED",
+      "known_time_field": "known_time_ms",
+      "label_only": true,
+      "required": true,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json",
+      "source_id": "RTHP_ROLE_PRICE_PATH_LEDGER"
+    }
+  ]
+}

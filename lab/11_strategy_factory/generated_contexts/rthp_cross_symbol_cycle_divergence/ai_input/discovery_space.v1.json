@@ -1,0 +1,43 @@
+{
+  "authority_policy": {
+    "candidate_identity": "every candidate carries experiment_configuration_hash",
+    "numeric_bounds": "MUST_BE_SUPPLIED_BY_SEARCH_AUTHORITY; not guessed by Context adapter",
+    "promotion": "accepted discovery proposes a new version; never overwrites Context v1"
+  },
+  "baseline_configuration_refs": [
+    "contracts/cycle_registry.yaml",
+    "contracts/signal_family_registry.yaml",
+    "contracts/lookback_policy.yaml",
+    "contracts/causal_clock.yaml"
+  ],
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_version": "1.0.2",
+  "context_discovery_forbidden_dimensions": [
+    "entry_model",
+    "stop_loss",
+    "target",
+    "position_size",
+    "capital_allocation",
+    "order_type"
+  ],
+  "contract_digest": "d36eb164aeeea2d40d6a2aa9fa7ac841a941d63a34b5eab03342af6bc216ce78",
+  "discovery_contract_id": "RTHP_CONTEXT_DISCOVERY_SPACE_V1",
+  "immutable_core": [
+    "two-symbol corresponding-level comparison",
+    "divergence requires exactly one side touched at synchronized factual evaluation",
+    "cycle relation may be sequential or non-sequential",
+    "canonical v1 history is immutable",
+    "known-time and no-future-data constraints"
+  ],
+  "schema_version": "1.0.0",
+  "versioned_mutable_dimensions": [
+    "cycle_definition",
+    "cycle_boundaries",
+    "cycle_pairing",
+    "signal_family_definition",
+    "reference_lookback",
+    "reference_age_limit",
+    "confirmation_timeframe",
+    "factual_signal_validity_horizon"
+  ]
+}

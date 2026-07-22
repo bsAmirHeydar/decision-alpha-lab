@@ -1,0 +1,60 @@
+{
+  "activation_digest": "70cb9b840eb9662cbc0912ed988c51c226769622d64485b9b104060fd2c6313a",
+  "activation_id": "RTHP_AI_TRAIN_ACTIVATION_V1",
+  "activation_mode": "CONTEXT_DISCOVERY",
+  "allowed_operations": [
+    "REGISTER_CONTEXT_PACKAGE",
+    "MATERIALIZE_CONTEXT_OBSERVATIONS",
+    "BUILD_FEATURE_FRAMES",
+    "COMPILE_REGISTERED_VIEWS",
+    "ASSIGN_DEPENDENCE_CLUSTERS",
+    "BIND_ACL05_LABELS",
+    "ENTER_SHARED_TRAIN_PIPELINE_AFTER_REAL_DATA_BINDING"
+  ],
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_version": "1.0.2",
+  "cluster_catalog_digest": "6b23c4f7528621f8052e162c48eeb1e4497644c9e34ed56c57d7173a85cd8f33",
+  "compiled_tournament_hash": "f61760879a8c7ae6244803efaa82653d774a1605918a713510d3e8e726db968d",
+  "dataset_join_contract_digest": "fa5fe64e9dcb74ddacc4afe8f7a5ccd8316779f755ad115ee27e25317b32e125",
+  "discovery_space_digest": "d36eb164aeeea2d40d6a2aa9fa7ac841a941d63a34b5eab03342af6bc216ce78",
+  "engine_modification_required": false,
+  "entry_treatment_execution_created": false,
+  "feature_catalog_digest": "bfeabbff54308fd9de334a5bac6ed556781a9e4cbf3bab9b2f2a907720f836f6",
+  "forbidden_operations": [
+    "ALTER_ENGINE",
+    "ALTER_CONTEXT_SEMANTICS",
+    "CREATE_ENTRY",
+    "CREATE_STOP",
+    "CREATE_TARGET",
+    "SUBMIT_ORDER",
+    "ACTIVATE_CAPITAL",
+    "USE_UNMATURED_LABEL",
+    "USE_POST_CUT_FEATURE"
+  ],
+  "known_time_contract_digest": "1dbe0115ff3ed71c36ac150528c088b3546d238453c80bbe9deb762d617e917e",
+  "label_binding_digest": "f42146b39ca443f9ecda3dcc572700cb0bee7da3dee5fc61338bf372c129946d",
+  "package_key": "rthp.cross_symbol_cycle_divergence@1.0.0",
+  "package_manifest_hash": "2cd40d7a74cd805effd1d6633d8d7f352be34958aa83dfc872464a6219a86a1c",
+  "readiness": {
+    "real_train": "BLOCKED_BY_RTHP_REAL_DATA_BINDING_REQUIRED",
+    "shared_train_template": "READY",
+    "smoke_conformance": "READY",
+    "uce_i16_scaffold": "READY"
+  },
+  "real_data_binding_digest": "2bb804e7886b6b21361b0e7769c4cbc7d71ac73453512802deee85a071b1b740",
+  "research_objectives_digest": "bdfcdedeb886c9d911edba68cec30790f44912fce79bedab106eb006767dc395",
+  "schema_version": "1.0.0",
+  "shared_engine_paths": {
+    "context_sdk": "strategy_factory_contexts_v3",
+    "dataset": "strategy_factory_dataset_v3",
+    "onboarding": "strategy_factory_onboarding_v3",
+    "saed": "existing_saed_v4_modules",
+    "trainers": "strategy_factory_trainers_v3",
+    "validation": "shared_existing_pipeline"
+  },
+  "smoke_data_binding_digest": "caac47d39c622c6a443db612c7d584df1675aba4c35db6f4f84374dd64c574a9",
+  "task_registry_digest": "0d3a0e9a1c4cd4ce5dbb67cda9cadc59bd5c485bdb4808260673bcae6fb1991c",
+  "tournament_template_hash": "150b3a48956d76716903d1f3307e5d36b4b7b8314cd6784fb6bd87eb7ccb2324",
+  "uce_i16_context_spec_hash": "35c11a1a5c2617e1c443c5658f5849e2206029cd56a131696a877db860b8d4ec",
+  "view_catalog_digest": "a0969923547304f21bce0ed7094d0f94a0348f34be0954f4440b2e7632dc8ac9"
+}

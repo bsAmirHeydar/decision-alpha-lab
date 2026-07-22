@@ -1,0 +1,456 @@
+{
+  "binding_digest": "f42146b39ca443f9ecda3dcc572700cb0bee7da3dee5fc61338bf372c129946d",
+  "binding_id": "RTHP_AI_LABEL_BINDING_TEMPLATES_V1",
+  "binding_status": "TEMPLATES_READY_DATASET_SNAPSHOT_BOUND_AT_ACL05",
+  "causal_policy": {
+    "feature_cut": "observation_cut_ms",
+    "label_inputs": "strictly segregated from features",
+    "maturity_required": true,
+    "post_cut_prices": "label_only"
+  },
+  "identity_scope": [
+    "pair_id",
+    "family",
+    "reference_cycle_id",
+    "active_cycle_id",
+    "level_side",
+    "event_id",
+    "evaluation_symbol_role",
+    "horizon_policy",
+    "horizon_seconds"
+  ],
+  "labels": [
+    {
+      "definition": {
+        "negative": "maturity cut reached without a known REFERENCE_EXHAUSTED transition",
+        "positive": "first REFERENCE_EXHAUSTED transition known within 900 seconds after confirmation_close_time_ms"
+      },
+      "evaluation_symbol_role": "REFERENCE_SCOPE",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 900,
+      "label_contract_id": "rthp.label.reference_exhausted_900s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_REFERENCE_STATE_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "maturity cut reached without a known REFERENCE_EXHAUSTED transition",
+        "positive": "first REFERENCE_EXHAUSTED transition known within 1800 seconds after confirmation_close_time_ms"
+      },
+      "evaluation_symbol_role": "REFERENCE_SCOPE",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 1800,
+      "label_contract_id": "rthp.label.reference_exhausted_1800s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_REFERENCE_STATE_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "maturity cut reached without a known REFERENCE_EXHAUSTED transition",
+        "positive": "first REFERENCE_EXHAUSTED transition known within 3600 seconds after confirmation_close_time_ms"
+      },
+      "evaluation_symbol_role": "REFERENCE_SCOPE",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.reference_exhausted_3600s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_REFERENCE_STATE_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "active-cycle end matured without a known REFERENCE_EXHAUSTED transition",
+        "positive": "REFERENCE_EXHAUSTED transition known no later than versioned active-cycle end"
+      },
+      "evaluation_symbol_role": "REFERENCE_SCOPE",
+      "feature_eligible": false,
+      "horizon_policy": "ACTIVE_CYCLE_END",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.reference_exhausted_by_active_cycle_end",
+      "label_type": "BINARY",
+      "maturity_policy": "REQUIRE_ACTIVE_CYCLE_END",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_REFERENCE_STATE_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "censoring": "right-censor at frozen observation end or configured maximum horizon",
+        "duration_origin": "confirmation_close_time_ms",
+        "event": "first known REFERENCE_EXHAUSTED transition in identical pair/family/reference/level-side scope"
+      },
+      "evaluation_symbol_role": "REFERENCE_SCOPE",
+      "feature_eligible": false,
+      "horizon_policy": "SURVIVAL",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.time_to_reference_exhaustion",
+      "label_type": "SURVIVAL",
+      "maturity_policy": "ALLOW_RIGHT_CENSORING",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_REFERENCE_STATE_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 900,
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_900s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 900,
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_900s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 1800,
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_1800s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 1800,
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_1800s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_3600s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "cycle_end": "resolved from frozen cycle-instance ledger",
+        "value": "polarity_sign * ln(price_at_active_cycle_end / price_at_confirmation_cut)"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "ACTIVE_CYCLE_END",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_active_cycle_end",
+      "label_type": "REGRESSION",
+      "maturity_policy": "REQUIRE_ACTIVE_CYCLE_END",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "active-cycle-end polarity-signed return is strictly negative",
+        "neutral": "exactly zero is excluded",
+        "positive": "active-cycle-end polarity-signed return is strictly positive"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "ACTIVE_CYCLE_END",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_active_cycle_end",
+      "label_type": "BINARY",
+      "maturity_policy": "REQUIRE_ACTIVE_CYCLE_END",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "path_order": "event-time ordered, known-time audited",
+        "value": "maximum of polarity_sign * ln(price_t / price_at_confirmation_cut) over the matured 60-minute path"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.hunter_mfe_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "path_order": "event-time ordered, known-time audited",
+        "value": "maximum of -polarity_sign * ln(price_t / price_at_confirmation_cut) over the matured 60-minute path"
+      },
+      "evaluation_symbol_role": "HUNTER",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.hunter_mae_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 900,
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_900s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 900,
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_900s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 1800,
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_1800s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 1800,
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_1800s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "missing_path": "mask row; never impute outcome",
+        "price_basis": "same explicit price basis as the frozen data binding",
+        "value": "polarity_sign * ln(price_at_horizon / price_at_confirmation_cut), where polarity_sign is +1 for BULLISH_DIVERGENCE and -1 for BEARISH_DIVERGENCE"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "polarity-signed log return is strictly less than zero",
+        "neutral": "exactly zero is excluded from binary label",
+        "positive": "polarity-signed log return is strictly greater than zero"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_3600s",
+      "label_type": "BINARY",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "cycle_end": "resolved from frozen cycle-instance ledger",
+        "value": "polarity_sign * ln(price_at_active_cycle_end / price_at_confirmation_cut)"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "ACTIVE_CYCLE_END",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_active_cycle_end",
+      "label_type": "REGRESSION",
+      "maturity_policy": "REQUIRE_ACTIVE_CYCLE_END",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "negative": "active-cycle-end polarity-signed return is strictly negative",
+        "neutral": "exactly zero is excluded",
+        "positive": "active-cycle-end polarity-signed return is strictly positive"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "ACTIVE_CYCLE_END",
+      "horizon_seconds": null,
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_active_cycle_end",
+      "label_type": "BINARY",
+      "maturity_policy": "REQUIRE_ACTIVE_CYCLE_END",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false,
+      "zero_return_policy": "EXCLUDE_NEUTRAL"
+    },
+    {
+      "definition": {
+        "path_order": "event-time ordered, known-time audited",
+        "value": "maximum of polarity_sign * ln(price_t / price_at_confirmation_cut) over the matured 60-minute path"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.protected_mfe_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    },
+    {
+      "definition": {
+        "path_order": "event-time ordered, known-time audited",
+        "value": "maximum of -polarity_sign * ln(price_t / price_at_confirmation_cut) over the matured 60-minute path"
+      },
+      "evaluation_symbol_role": "PROTECTED",
+      "feature_eligible": false,
+      "horizon_policy": "FIXED_SECONDS",
+      "horizon_seconds": 3600,
+      "label_contract_id": "rthp.label.protected_mae_3600s",
+      "label_type": "REGRESSION",
+      "maturity_policy": "EXCLUDE_UNMATURED",
+      "segregated_from_selection": true,
+      "source_ledger": "RTHP_ROLE_PRICE_PATH_LEDGER",
+      "uses_future_path_diagnostics": false
+    }
+  ],
+  "package_id": "rthp.cross_symbol_cycle_divergence",
+  "package_version": "1.0.0",
+  "prohibited_interpretations": [
+    "TRADING_WIN",
+    "ENTRY_SUCCESS",
+    "PROFIT_CLAIM",
+    "ORDER_INSTRUCTION"
+  ],
+  "schema_version": "1.0.0"
+}

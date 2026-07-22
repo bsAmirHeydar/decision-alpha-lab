@@ -1,0 +1,151 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-view-catalog:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "auxiliary_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_match_required": {
+          "const": true
+        },
+        "graph": {
+          "type": "string"
+        },
+        "intermarket": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "string"
+        },
+        "source_field": {
+          "const": "auxiliary"
+        },
+        "sparse_event": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_field",
+        "projection",
+        "exact_match_required",
+        "graph",
+        "intermarket",
+        "sequence",
+        "sparse_event"
+      ],
+      "type": "object"
+    },
+    "catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "catalog_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "view_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "views": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:view-descriptor:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "availability_modes": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "descriptor_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "feature_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "kind": {
+            "enum": [
+              "tabular",
+              "sequence",
+              "graph",
+              "intermarket",
+              "sparse_event"
+            ]
+          },
+          "owner_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          },
+          "runtime_exportable": {
+            "type": "boolean"
+          },
+          "shape": {
+            "items": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "view_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "view_id",
+          "version",
+          "owner_id",
+          "kind",
+          "feature_ids",
+          "shape",
+          "availability_modes",
+          "runtime_exportable",
+          "parameters",
+          "descriptor_hash"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "package_id",
+    "package_version",
+    "view_count",
+    "views",
+    "auxiliary_contract",
+    "catalog_digest"
+  ],
+  "type": "object"
+}

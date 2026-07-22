@@ -1,0 +1,408 @@
+{
+  "claim_ceiling": "CONTEXT_OUTCOME_RESEARCH_ONLY",
+  "forbidden_task_families": [
+    "ENTRY_SELECTION",
+    "STOP_SELECTION",
+    "TARGET_SELECTION",
+    "POSITION_SIZE",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ALLOCATION"
+  ],
+  "package_id": "rthp.cross_symbol_cycle_divergence",
+  "package_version": "1.0.0",
+  "registry_digest": "0d3a0e9a1c4cd4ce5dbb67cda9cadc59bd5c485bdb4808260673bcae6fb1991c",
+  "registry_id": "RTHP_AI_TASK_REFERENCES_V1",
+  "schema_version": "1.0.0",
+  "tasks": [
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.reference_exhausted_900s",
+      "task_id": "rthp.reference_exhausted.15m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.reference_exhausted_1800s",
+      "task_id": "rthp.reference_exhausted.30m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.reference_exhausted_3600s",
+      "task_id": "rthp.reference_exhausted.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.reference_exhausted_by_active_cycle_end",
+      "task_id": "rthp.reference_exhausted.by_active_cycle_end",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "survival",
+      "label_contract_id": "rthp.label.time_to_reference_exhaustion",
+      "task_id": "rthp.time_to_reference_exhaustion",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_900s",
+      "task_id": "rthp.hunter.polarity_signed_log_return.15m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_900s",
+      "task_id": "rthp.hunter.polarity_aligned_direction.15m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_1800s",
+      "task_id": "rthp.hunter.polarity_signed_log_return.30m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_1800s",
+      "task_id": "rthp.hunter.polarity_aligned_direction.30m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_3600s",
+      "task_id": "rthp.hunter.polarity_signed_log_return.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_3600s",
+      "task_id": "rthp.hunter.polarity_aligned_direction.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_active_cycle_end",
+      "task_id": "rthp.hunter.polarity_signed_log_return.active_cycle_end",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.hunter_polarity_aligned_direction_active_cycle_end",
+      "task_id": "rthp.hunter.polarity_aligned_direction.active_cycle_end",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_mfe_3600s",
+      "task_id": "rthp.hunter.mfe.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_mae_3600s",
+      "task_id": "rthp.hunter.mae.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "ranking",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_3600s",
+      "task_id": "rthp.family_relative_strength.hunter.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "ranking",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_3600s",
+      "task_id": "rthp.reference_age_effectiveness.hunter.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_900s",
+      "task_id": "rthp.protected.polarity_signed_log_return.15m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_900s",
+      "task_id": "rthp.protected.polarity_aligned_direction.15m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_1800s",
+      "task_id": "rthp.protected.polarity_signed_log_return.30m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_1800s",
+      "task_id": "rthp.protected.polarity_aligned_direction.30m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_3600s",
+      "task_id": "rthp.protected.polarity_signed_log_return.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_3600s",
+      "task_id": "rthp.protected.polarity_aligned_direction.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_active_cycle_end",
+      "task_id": "rthp.protected.polarity_signed_log_return.active_cycle_end",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "binary",
+      "label_contract_id": "rthp.label.protected_polarity_aligned_direction_active_cycle_end",
+      "task_id": "rthp.protected.polarity_aligned_direction.active_cycle_end",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_mfe_3600s",
+      "task_id": "rthp.protected.mfe.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_mae_3600s",
+      "task_id": "rthp.protected.mae.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "ranking",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_3600s",
+      "task_id": "rthp.family_relative_strength.protected.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "ranking",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_3600s",
+      "task_id": "rthp.reference_age_effectiveness.protected.60m",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_view_ids": [
+        "rthp.tabular.v1",
+        "rthp.sparse_event.v1",
+        "rthp.sequence.v1",
+        "rthp.intermarket.v1",
+        "rthp.graph.v1"
+      ],
+      "kind": "ranking",
+      "label_contract_id": "rthp.label.reference_exhausted_3600s",
+      "task_id": "rthp.family_relative_exhaustion_strength.60m",
+      "version": "1.0.0"
+    }
+  ]
+}

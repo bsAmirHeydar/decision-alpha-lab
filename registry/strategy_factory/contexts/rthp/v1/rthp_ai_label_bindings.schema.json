@@ -1,0 +1,161 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-label-bindings:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "binding_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "binding_status": {
+      "const": "TEMPLATES_READY_DATASET_SNAPSHOT_BOUND_AT_ACL05"
+    },
+    "causal_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "feature_cut": {
+          "const": "observation_cut_ms"
+        },
+        "label_inputs": {
+          "type": "string"
+        },
+        "maturity_required": {
+          "const": true
+        },
+        "post_cut_prices": {
+          "const": "label_only"
+        }
+      },
+      "required": [
+        "feature_cut",
+        "label_inputs",
+        "maturity_required",
+        "post_cut_prices"
+      ],
+      "type": "object"
+    },
+    "identity_scope": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "labels": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:label-template:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "definition": {
+            "minProperties": 1,
+            "type": "object"
+          },
+          "evaluation_symbol_role": {
+            "enum": [
+              "REFERENCE_SCOPE",
+              "HUNTER",
+              "PROTECTED"
+            ]
+          },
+          "feature_eligible": {
+            "const": false
+          },
+          "horizon_policy": {
+            "enum": [
+              "FIXED_SECONDS",
+              "ACTIVE_CYCLE_END",
+              "SURVIVAL"
+            ]
+          },
+          "horizon_seconds": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "label_contract_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+            "type": "string"
+          },
+          "label_type": {
+            "enum": [
+              "BINARY",
+              "REGRESSION",
+              "SURVIVAL"
+            ]
+          },
+          "maturity_policy": {
+            "type": "string"
+          },
+          "segregated_from_selection": {
+            "const": true
+          },
+          "source_ledger": {
+            "enum": [
+              "RTHP_REFERENCE_STATE_LEDGER",
+              "RTHP_ROLE_PRICE_PATH_LEDGER"
+            ]
+          },
+          "uses_future_path_diagnostics": {
+            "const": false
+          },
+          "zero_return_policy": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label_contract_id",
+          "label_type",
+          "source_ledger",
+          "horizon_policy",
+          "horizon_seconds",
+          "evaluation_symbol_role",
+          "definition",
+          "maturity_policy",
+          "uses_future_path_diagnostics",
+          "feature_eligible",
+          "segregated_from_selection"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "prohibited_interpretations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "binding_id",
+    "binding_status",
+    "package_id",
+    "package_version",
+    "labels",
+    "identity_scope",
+    "prohibited_interpretations",
+    "causal_policy",
+    "binding_digest"
+  ],
+  "type": "object"
+}

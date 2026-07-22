@@ -1,0 +1,27 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-package-manifest-snapshot:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest": {
+      "type": "object"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_key": {
+      "const": "rthp.cross_symbol_cycle_divergence@1.0.0"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "package_key",
+    "manifest",
+    "manifest_hash"
+  ],
+  "type": "object"
+}

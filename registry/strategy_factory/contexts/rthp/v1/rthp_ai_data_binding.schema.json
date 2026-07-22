@@ -1,0 +1,101 @@
+{
+  "$id": "urn:alpha-lab:rthp:ai-data-binding:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "binding_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
+      "type": "string"
+    },
+    "binding_status": {
+      "enum": [
+        "RESOLVED_SMOKE_ONLY",
+        "EXTERNAL_ARTIFACT_REQUIRED",
+        "RESOLVED"
+      ]
+    },
+    "classification": {
+      "type": "string"
+    },
+    "fail_closed_reason": {
+      "type": "string"
+    },
+    "network_fetch_allowed": {
+      "type": "boolean"
+    },
+    "package_id": {
+      "const": "rthp.cross_symbol_cycle_divergence"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "required_metadata": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "sources": {
+      "items": {
+        "$id": "urn:alpha-lab:rthp:data-source-binding:1.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_uri": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "known_time_field": {
+            "type": "string"
+          },
+          "label_only": {
+            "type": "boolean"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "schema_ref": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "artifact_uri",
+          "content_hash",
+          "schema_ref",
+          "known_time_field",
+          "required"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "binding_id",
+    "binding_status",
+    "package_id",
+    "package_version",
+    "sources",
+    "binding_digest"
+  ],
+  "type": "object"
+}

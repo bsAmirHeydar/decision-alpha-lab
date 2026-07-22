@@ -1,0 +1,24 @@
+{
+  "blocking_reason": "RTHP_REAL_DATA_BINDING_REQUIRED",
+  "central_engine_change_required": false,
+  "context_ingestion": "READY",
+  "context_package_conformance": "READY",
+  "dependence_clustering": "READY",
+  "feature_materialization": "READY",
+  "next_action": "Resolve immutable real-data binding, rerun real preflight, then submit activation manifest to existing ACL-05 batch builder.",
+  "real_train_input": "BLOCKED",
+  "report_digest": "fde978f2caec987a82bdd7c3aee8457b03f1d33acf90f84bcd1d1c329c4af228",
+  "report_id": "RTHP_AI_TRAIN_READINESS_REPORT_V1",
+  "required_external_sources": [
+    "RTHP_CANONICAL_OCCURRENCE_LEDGER",
+    "RTHP_REFERENCE_STATE_LEDGER",
+    "RTHP_CYCLE_INSTANCE_LEDGER",
+    "RTHP_ROLE_PRICE_PATH_LEDGER"
+  ],
+  "schema_version": "1.0.0",
+  "smoke_train_input": "READY_NON_ALPHA",
+  "status": "READY_WITH_EXTERNAL_DATA_BLOCKER",
+  "task_and_label_contracts": "READY_FOR_ACL05_FREEZE",
+  "uce_i16_onboarding": "READY",
+  "view_compilation": "READY"
+}

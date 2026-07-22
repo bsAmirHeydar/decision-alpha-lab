@@ -1,0 +1,15 @@
+{
+  "anti_overfit_policy_id": "uce-i12-anti-overfit-v1",
+  "context_spec_hash": "35c11a1a5c2617e1c443c5658f5849e2206029cd56a131696a877db860b8d4ec",
+  "data_cut_policy_id": "causal-data-cut-v1",
+  "paper_policy_id": "untouched-prospective-paper-v1",
+  "promotion_policy_id": "uce-i12-promotion-v1",
+  "runtime_policy_id": "uce-i14-runtime-v1",
+  "search_budget_id": "bounded-search-budget-v1",
+  "seed": 160016,
+  "template_hash": "150b3a48956d76716903d1f3307e5d36b4b7b8314cd6784fb6bd87eb7ccb2324",
+  "template_id": "tournament-template:07cb9685684247862b6e9cfa",
+  "trainer_budget_id": "bounded-trainer-budget-v1",
+  "treatment_freeze_policy_id": "shared-treatment-freeze-v1",
+  "version": "1.0.0"
+}

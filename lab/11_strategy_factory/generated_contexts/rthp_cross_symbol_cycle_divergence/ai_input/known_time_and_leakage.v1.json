@@ -1,0 +1,28 @@
+{
+  "contract_digest": "1dbe0115ff3ed71c36ac150528c088b3546d238453c80bbe9deb762d617e917e",
+  "contract_id": "RTHP_AI_KNOWN_TIME_AND_LEAKAGE_V1",
+  "feature_cut": "observation_cut_ms",
+  "feature_sources": [
+    "RTHP_CANONICAL_OCCURRENCE_LEDGER",
+    "cycle configuration known no later than observation cut"
+  ],
+  "label_only_sources": [
+    "RTHP_REFERENCE_STATE_LEDGER after cut",
+    "RTHP_ROLE_PRICE_PATH_LEDGER after cut"
+  ],
+  "rules": [
+    "no feature known_time after observation_cut",
+    "future perturbation must not change observation or feature frame hashes",
+    "source corrections append a superseding observation",
+    "unmatured outcomes are masked or censored, never guessed",
+    "raw future path is never present in ContextObservation payload"
+  ],
+  "schema_version": "1.0.0",
+  "time_order": [
+    "event_time_ms",
+    "known_time_ms",
+    "confirmation_time_ms",
+    "observation_cut_ms",
+    "decision_time_ms"
+  ]
+}

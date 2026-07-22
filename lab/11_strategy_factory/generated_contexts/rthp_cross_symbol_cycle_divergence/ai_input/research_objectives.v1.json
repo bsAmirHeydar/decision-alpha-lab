@@ -1,0 +1,112 @@
+{
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_version": "1.0.2",
+  "contract_digest": "bdfcdedeb886c9d911edba68cec30790f44912fce79bedab106eb006767dc395",
+  "forbidden_outputs_into_context": [
+    "entry",
+    "stop",
+    "target",
+    "position_size",
+    "trade_instruction",
+    "profit_claim"
+  ],
+  "mandatory_statistics": [
+    "sample_count",
+    "effect_size",
+    "confidence_interval",
+    "walk_forward",
+    "multiple_testing_control",
+    "parameter_sensitivity",
+    "failed_hypotheses_retained"
+  ],
+  "objective_contract_id": "RTHP_CONTEXT_RESEARCH_OBJECTIVES_V1",
+  "objectives": [
+    {
+      "mode": "DESCRIPTIVE",
+      "objective_id": "family_frequency",
+      "outputs": [
+        "event_count",
+        "frequency_by_period",
+        "family_share",
+        "polarity_share"
+      ]
+    },
+    {
+      "horizons": [
+        "15m",
+        "30m",
+        "60m",
+        "ACTIVE_CYCLE_END"
+      ],
+      "mode": "SUPERVISED",
+      "objective_id": "forward_response_by_role",
+      "outputs": [
+        "polarity_signed_return",
+        "polarity_alignment_rate",
+        "MFE",
+        "MAE"
+      ],
+      "roles": [
+        "HUNTER",
+        "PROTECTED"
+      ]
+    },
+    {
+      "mode": "RANKING_AND_STABILITY",
+      "objective_id": "reference_age_decay",
+      "outputs": [
+        "outcome_by_reference_age",
+        "monotonicity",
+        "confidence_interval",
+        "walk_forward_stability"
+      ]
+    },
+    {
+      "mode": "RANKING",
+      "objective_id": "family_relative_strength",
+      "outputs": [
+        "family_rank",
+        "effect_size",
+        "uncertainty",
+        "sample_size"
+      ]
+    },
+    {
+      "mode": "CONDITIONAL_COMPARISON",
+      "objective_id": "sequentiality_effect",
+      "outputs": [
+        "sequential_vs_nonsequential",
+        "gap_sensitivity"
+      ]
+    },
+    {
+      "mode": "VERSIONED_EXPERIMENT_CONFIGURATION",
+      "objective_id": "cycle_definition_discovery",
+      "outputs": [
+        "candidate_cycle_report",
+        "adjacent_parameter_robustness",
+        "multiple_testing_report"
+      ]
+    },
+    {
+      "mode": "VERSIONED_EXPERIMENT_CONFIGURATION",
+      "objective_id": "confirmation_horizon_discovery",
+      "outputs": [
+        "confirmation_timeframe_comparison",
+        "known_time_safe_performance"
+      ]
+    },
+    {
+      "mode": "DATA_QUALITY_STRATIFICATION",
+      "objective_id": "partial_history_and_cycle_quality",
+      "outputs": [
+        "full_vs_partial_history",
+        "complete_vs_partial_cycle",
+        "stale_blocked_counts"
+      ]
+    }
+  ],
+  "package_key": "rthp.cross_symbol_cycle_divergence@1.0.0",
+  "schema_version": "1.0.0",
+  "source_authority": "handoff/research_boundary.yaml and RTHP_CONTEXT_TO_RESEARCH_HANDOFF.md"
+}
