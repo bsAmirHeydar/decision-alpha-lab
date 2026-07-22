@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "registry/strategy_factory/contexts/rthp/v1/rthp_train_run_manifest.schema.json",
+  "title": "RTHP Train Run Manifest",
+  "type": "object",
+  "required": ["report_id", "schema_version", "status", "run_id", "context_id", "context_version", "run_digest", "engine_modified", "canonical_context_modified", "entry_treatment_execution_created"],
+  "properties": {
+    "report_id": {"const": "RTHP_REAL_TRAIN_ACTIVATION_V1"},
+    "schema_version": {"const": "1.0.0"},
+    "status": {"enum": ["PASS", "PASS_WITH_SKIPS", "BLOCKED"]},
+    "run_id": {"type": "string"},
+    "context_id": {"const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"},
+    "context_version": {"const": "1.0.2"},
+    "run_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "engine_modified": {"const": false},
+    "canonical_context_modified": {"const": false},
+    "entry_treatment_execution_created": {"const": false},
+    "capital_authority_created": {"const": false},
+    "final_test_sealed": {"const": true}
+  }
+}

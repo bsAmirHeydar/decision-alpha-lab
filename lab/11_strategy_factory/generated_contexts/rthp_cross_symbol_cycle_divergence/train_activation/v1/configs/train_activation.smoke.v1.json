@@ -1,0 +1,55 @@
+{
+  "data_source": {
+    "availability_time_policy": "EXPLICIT_KNOWN_TIME_MS",
+    "contract_roll_policy": "NOT_APPLICABLE",
+    "end_time_ms": null,
+    "entitlement_id": "FIXTURE_PUBLIC_TEST_ONLY",
+    "max_confirmation_freshness_ms": 900000,
+    "mode": "PAIRED_TICK_JSONL",
+    "price_basis": "BID",
+    "primary_symbol": "RTHP_SMOKE_A",
+    "primary_tick_jsonl": "../fixtures/rthp_smoke_a.jsonl",
+    "producer_version": "rthp_train_activation_v1",
+    "provider": "RTHP_DETERMINISTIC_SMOKE_FIXTURE",
+    "secondary_symbol": "RTHP_SMOKE_B",
+    "secondary_tick_jsonl": "../fixtures/rthp_smoke_b.jsonl",
+    "source_revision": "rthp_smoke_ticks_v1",
+    "start_time_ms": null,
+    "tick_size_source": "FIXTURE_EXPLICIT",
+    "timezone": "America/New_York"
+  },
+  "fail_on_task_insufficiency": true,
+  "family_filter": [
+    "M15_CYCLE_GROUP"
+  ],
+  "output_root": "../../../../../runs/rthp_smoke/RTHP_SMOKE_TRAIN_V1",
+  "resource_policy": {
+    "max_features": 10000,
+    "max_memory_mb": 4096,
+    "max_rows": 200000,
+    "max_wall_seconds": 300,
+    "max_workers": 1,
+    "seed": 1701
+  },
+  "retain_materialized_views": true,
+  "run_id": "RTHP_SMOKE_TRAIN_V1",
+  "schema_version": "1.0.0",
+  "selected_task_ids": [
+    "rthp.hunter.polarity_signed_log_return.15m",
+    "rthp.protected.polarity_signed_log_return.15m"
+  ],
+  "split_policy": {
+    "embargo_ms": 0,
+    "final_calibration_fraction": 0.05,
+    "final_test_fraction": 0.15,
+    "final_threshold_fraction": 0.05,
+    "final_train_fraction": 0.35,
+    "minimum_mature_rows": 16,
+    "oof_calibration_fraction": 0.05,
+    "oof_holdout_fraction": 0.1,
+    "oof_threshold_fraction": 0.05,
+    "oof_train_fraction": 0.2,
+    "purge_ms": 0
+  },
+  "train_all_mature_tasks": false
+}

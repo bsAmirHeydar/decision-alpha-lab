@@ -1,0 +1,94 @@
+{
+  "batch_digest": "6a6546a4c28f0ba99ce8c38b0d6310e9bb8c0b49ab37d1dec5e4c219a6eb55a2",
+  "canonical_context_modified": false,
+  "capital_authority_created": false,
+  "config_digest": "9058345a32e2bb98456d116ab8002a279c180189884c40ff457ce0b6ec8e68fe",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_package_key": "rthp.cross_symbol_cycle_divergence@1.0.0",
+  "context_version": "1.0.2",
+  "engine_modified": false,
+  "entry_treatment_execution_created": false,
+  "failed_task_count": 0,
+  "feature_row_count": 1300,
+  "final_test_sealed": true,
+  "label_row_count": 2600,
+  "network_fetch_used": false,
+  "occurrence_count": 1300,
+  "passed_task_count": 2,
+  "report_id": "RTHP_REAL_TRAIN_ACTIVATION_V1",
+  "requested_task_count": 2,
+  "run_digest": "52ad901c5f2286fe1787cc10929f96ff597408de96f9d16819c7c941a4c834ae",
+  "run_id": "RTHP_SMOKE_TRAIN_V1",
+  "schema_version": "1.0.0",
+  "skipped_task_count": 0,
+  "source_digest": "sha256:2bae2165dde3bd81c4d3e393f9285d79766b4f636bd77d3df5648006f44fc5e1",
+  "status": "PASS",
+  "task_results": [
+    {
+      "dataset_id": "rthp_dataset_6a31b897cc7d580e3e7449e0",
+      "dataset_manifest_hash": "cfc7959bc4eb2da2a4f484466d5a9c4cc1032d0cbb97e34dddc23c064b713c6b",
+      "entry_treatment_execution_created": false,
+      "final_metrics": {
+        "mae": 2.38947097432625e-05,
+        "mse": 2.6663658535215888e-09,
+        "rmse": 5.1636865256535364e-05
+      },
+      "final_test_prediction_hash": "b7ac9f97b25799a78b4184bff2f2b4c72d3f8f2f99b32f844702ff550f3dda01",
+      "final_test_read_count": 1,
+      "fold_metrics": [
+        {
+          "mae": 2.711040689160232e-05,
+          "mse": 6.594424207459805e-09,
+          "rmse": 8.120606016461952e-05
+        }
+      ],
+      "independent_cluster_count": 1300,
+      "kind": "regression",
+      "label_contract_id": "rthp.label.hunter_polarity_signed_log_return_900s",
+      "model_artifact_id": "uce_model_7ed059cd3ab9ac0091949347",
+      "model_state_hash": "713a663fc4a57fd53652fa78c88b3b731a3aaad1c7a81d5fb89d9f06283eab3d",
+      "oof_prediction_hash": "6231cbe1a7fe6b174de78a8c27a102a929e20bb62604083f1bbad4884c0ce1b6",
+      "oof_protocol_hash": "53a6d53ed8ad55a9409cd8be76c2b493004051694beaea4933647cd09edd504d",
+      "plan_hash": "6054bdb1ebb4ece027009ade25742f951ff4f48a5310120f39e06358bf5d43ce",
+      "report_digest": "e1eb50f97fc1da72dc4465f3d522939582518276d4f527b953eb6c8058b915b2",
+      "row_count": 1300,
+      "selection_locked": true,
+      "status": "PASS",
+      "task_id": "rthp.hunter.polarity_signed_log_return.15m",
+      "trainer_key": "uce.classical.ridge_regression@1.0.0"
+    },
+    {
+      "dataset_id": "rthp_dataset_b6dd54dd42d6aa84042e96fb",
+      "dataset_manifest_hash": "5aea2654b90cd9363bda195df4825a375f10a53a0539cca34b65cc54ba9ac7e9",
+      "entry_treatment_execution_created": false,
+      "final_metrics": {
+        "mae": 8.936834496940489e-05,
+        "mse": 3.42453510578946e-08,
+        "rmse": 0.00018505499468507894
+      },
+      "final_test_prediction_hash": "79257cfe8d05d0d33de35a1b4795428b0ccc0174442aa219dacee92b7ae873f0",
+      "final_test_read_count": 1,
+      "fold_metrics": [
+        {
+          "mae": 9.023591041958377e-06,
+          "mse": 3.2461065686395954e-10,
+          "rmse": 1.8016954705608814e-05
+        }
+      ],
+      "independent_cluster_count": 1300,
+      "kind": "regression",
+      "label_contract_id": "rthp.label.protected_polarity_signed_log_return_900s",
+      "model_artifact_id": "uce_model_af2d648e1b11b82a4ccfb8c5",
+      "model_state_hash": "ba239b8287f04971412c912dbe1974f382ea2ef476cd68557292525acb12c5ed",
+      "oof_prediction_hash": "eae26f96f479ee4513a2f12d5ac8f75a4640c69066af477b46960470041eb335",
+      "oof_protocol_hash": "a21ccb0d0afb797d3f6de42604a5e3bfb42b559b3664a2b54a1c168e32bfc229",
+      "plan_hash": "e1e3376e39c1a4b684b8d5fa6406699a8e8d2dd47bd34c6d2978cb69428606f0",
+      "report_digest": "ba2e09d6cab388eeeedf365d00a751ec5b4752e809955dbee476006fb571517c",
+      "row_count": 1300,
+      "selection_locked": true,
+      "status": "PASS",
+      "task_id": "rthp.protected.polarity_signed_log_return.15m",
+      "trainer_key": "uce.classical.ridge_regression@1.0.0"
+    }
+  ]
+}

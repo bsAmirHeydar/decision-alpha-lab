@@ -1,0 +1,38 @@
+{
+  "additive_only": true,
+  "canonical_context_modified": false,
+  "capital_authority_created": false,
+  "central_engine_modified": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_immutability_report_digest": "917dfb08c764847233385705df84700cb691fc8c0dfc0e1c6d73e614cc6f0435",
+  "context_package_key": "rthp.cross_symbol_cycle_divergence@1.0.0",
+  "context_version": "1.0.2",
+  "direct_test_count": 12,
+  "engine_invariance_report_digest": "cd221ecc199c41c62cbfbc892c4af3c9aa8dd39d75357cf1811dd1b6860d9b57",
+  "entry_treatment_execution_created": false,
+  "existing_repository_paths_overwritten": 0,
+  "manifest_digest": "17ec2612f821c314f351dfa869e80563b82b3f2f113b82926deb08d3b89357cc",
+  "network_fetch_allowed": false,
+  "one_shot_cli": "strategy_factory_rthp_train_activation_v1",
+  "patch_id": "ALPHA_LAB_RTHP_REAL_TRAIN_ACTIVATION_V1",
+  "path_count": 56,
+  "regression_test_count": 400,
+  "release_files": [
+    "RTHP_TRAIN_ACTIVATION_ARTIFACT_INVENTORY.csv",
+    "RTHP_TRAIN_ACTIVATION_FILE_HASHES.sha256",
+    "RTHP_TRAIN_ACTIVATION_FILE_INDEX.txt",
+    "RTHP_TRAIN_ACTIVATION_PATCH_CONTENTS_TREE.txt",
+    "RTHP_TRAIN_ACTIVATION_PATCH_MANIFEST.json",
+    "RTHP_TRAIN_ACTIVATION_QA_REPORT.json"
+  ],
+  "required_upstream_layers": [
+    "RTHP_CANONICAL_CONTEXT_1.0.2",
+    "RTHP_ACL03_ONBOARDING",
+    "RTHP_AI_INPUT_BINDING"
+  ],
+  "schema_version": "1.0.0",
+  "smoke_occurrence_count": 1300,
+  "smoke_passed_task_count": 2,
+  "status": "PASS",
+  "total_test_count": 412
+}

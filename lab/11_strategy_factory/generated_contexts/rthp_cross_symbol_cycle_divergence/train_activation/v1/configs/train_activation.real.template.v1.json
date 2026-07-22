@@ -1,0 +1,50 @@
+{
+  "data_source": {
+    "availability_time_policy": "EXPLICIT_KNOWN_TIME_MS",
+    "contract_roll_policy": "REPLACE_WITH_ROLL_POLICY",
+    "end_time_ms": null,
+    "entitlement_id": "REPLACE_WITH_ENTITLEMENT_ID",
+    "max_confirmation_freshness_ms": 900000,
+    "mode": "PAIRED_TICK_JSONL",
+    "price_basis": "BID",
+    "primary_symbol": "REPLACE_WITH_PRIMARY_SYMBOL",
+    "primary_tick_jsonl": "REPLACE_WITH_PRIMARY_TICK_JSONL",
+    "producer_version": "REPLACE_WITH_PRODUCER_VERSION",
+    "provider": "REPLACE_WITH_PROVIDER",
+    "secondary_symbol": "REPLACE_WITH_SECONDARY_SYMBOL",
+    "secondary_tick_jsonl": "REPLACE_WITH_SECONDARY_TICK_JSONL",
+    "source_revision": "REPLACE_WITH_SOURCE_REVISION",
+    "start_time_ms": null,
+    "tick_size_source": "REPLACE_WITH_TICK_SIZE_SOURCE",
+    "timezone": "America/New_York"
+  },
+  "fail_on_task_insufficiency": false,
+  "family_filter": [],
+  "output_root": "../../../../../runs/rthp/REPLACE_WITH_IMMUTABLE_RUN_ID",
+  "resource_policy": {
+    "max_features": 10000,
+    "max_memory_mb": 8192,
+    "max_rows": 2000000,
+    "max_wall_seconds": 3600,
+    "max_workers": 1,
+    "seed": 1701
+  },
+  "retain_materialized_views": true,
+  "run_id": "REPLACE_WITH_IMMUTABLE_RUN_ID",
+  "schema_version": "1.0.0",
+  "selected_task_ids": [],
+  "split_policy": {
+    "embargo_ms": 3600000,
+    "final_calibration_fraction": 0.05,
+    "final_test_fraction": 0.15,
+    "final_threshold_fraction": 0.05,
+    "final_train_fraction": 0.35,
+    "minimum_mature_rows": 250,
+    "oof_calibration_fraction": 0.05,
+    "oof_holdout_fraction": 0.1,
+    "oof_threshold_fraction": 0.05,
+    "oof_train_fraction": 0.2,
+    "purge_ms": 3600000
+  },
+  "train_all_mature_tasks": true
+}

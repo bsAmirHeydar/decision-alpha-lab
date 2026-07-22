@@ -1,0 +1,13 @@
+{
+  "after_snapshot_hash": "ffeca4b60427566245a58cbbac5237f7b9b2d0db565d4635a39c3f1f9f66a6bd",
+  "before_snapshot_hash": "ffeca4b60427566245a58cbbac5237f7b9b2d0db565d4635a39c3f1f9f66a6bd",
+  "canonical_context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "canonical_context_modified": false,
+  "canonical_context_version": "1.0.2",
+  "changed_context_paths": [],
+  "checked_file_count": 103,
+  "report_digest": "917dfb08c764847233385705df84700cb691fc8c0dfc0e1c6d73e614cc6f0435",
+  "report_id": "RTHP_TRAIN_ACTIVATION_CONTEXT_IMMUTABILITY_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}
