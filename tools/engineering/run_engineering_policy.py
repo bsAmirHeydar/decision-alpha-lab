@@ -51,10 +51,9 @@ def _write_github_summary(results: list[tuple[Check, int]]) -> None:
     Path(summary_path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def main() -> int:
-    root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
-    python = sys.executable
-    checks = [
+def _checks(python: str) -> tuple[Check, ...]:
+    """Return the single ordered preflight contract used locally and in CI."""
+    return (
         Check(
             "Repository policy",
             (python, "tools/engineering/validate_alpha_lab_policy.py", "."),
@@ -63,8 +62,8 @@ def main() -> int:
             "Obsidian operating system",
             (
                 python,
-                "docs/ai_algorithm_engineering_os/tools/validate_vault.py",
-                "docs/ai_algorithm_engineering_os",
+                "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/tools/validate_vault.py",
+                "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os",
             ),
         ),
         Check(
@@ -75,7 +74,12 @@ def main() -> int:
             "Repository layout",
             (python, "tools/engineering/audit_repository_layout.py", "."),
         ),
-    ]
+    )
+
+
+def main() -> int:
+    root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    checks = _checks(sys.executable)
 
     results: list[tuple[Check, int]] = []
     for check in checks:

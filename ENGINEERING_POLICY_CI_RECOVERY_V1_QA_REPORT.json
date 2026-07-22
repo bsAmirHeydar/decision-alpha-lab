@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "patch_id": "ENGPOL_CI_RECOVERY_V1_20260722",
+  "validation_status": "PASS_LOCAL_PENDING_GITHUB_PUSH",
+  "base_commit": "b6207d127bdb192661525c625d1fadcc1c4964c6",
+  "diagnosis": {
+    "last_success_commit": "c5e10dac",
+    "first_failure_commit": "bef162388",
+    "consecutive_failed_runs": 4,
+    "legacy_note_count": 253,
+    "legacy_unique_id_count_on_head": 4,
+    "legacy_error_count_on_head": 262,
+    "canonical_note_count": 253,
+    "canonical_unique_id_count": 247,
+    "canonical_error_count": 0,
+    "canonical_warning_count": 0
+  },
+  "verification": {
+    "python_compile": "PASS",
+    "focused_pytest": "PASS_3",
+    "workflow_yaml_parse": "PASS",
+    "workspace_full_preflight": "PASS_4_OF_4",
+    "selected_clean_head_archive_focused_pytest": "PASS_3",
+    "selected_clean_head_archive_canonical_validator": "PASS_ZERO_ERRORS_ZERO_WARNINGS",
+    "package_overlay_hash_verification": "PASS_13",
+    "package_overlay_focused_pytest": "PASS_3",
+    "package_overlay_canonical_validator": "PASS_ZERO_ERRORS_ZERO_WARNINGS",
+    "full_clean_worktree": "BLOCKED_LOCAL_DISK_SPACE",
+    "github_hosted_run": "PENDING_COMMIT_AND_PUSH",
+    "hostile_review": "PASS"
+  },
+  "hostile_review_evidence": {
+    "lcm_15b_relocation_records_checked": 934,
+    "canonical_target_hash_mismatches": 0,
+    "patch_overlap_with_lcm_bound_paths": 0,
+    "pre_existing_legacy_redirect_hash_mismatches": 242
+  },
+  "scope_assertions": {
+    "market_semantics_changed": false,
+    "execution_authority_created": false,
+    "schema_changed": false,
+    "validator_semantics_changed": false,
+    "legacy_redirects_changed_by_patch": false
+  },
+  "warnings_and_limits": [
+    "Only Python 3.14.6 was available locally; GitHub remains configured for Python 3.11.",
+    "A GitHub-hosted validation run is pending deployment.",
+    "The local C drive had approximately 0.98 GB free during verification.",
+    "The selected clean archive verifies the changed boundary, not every repository file."
+  ]
+}

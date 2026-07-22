@@ -11,10 +11,10 @@ REQUIRED = [
     'docs/engineering/ALPHA_LAB_CODE_STYLE_STANDARD.md',
     'docs/engineering/ALPHA_LAB_QUALITY_GATE_MATRIX.md',
     'docs/engineering/ALPHA_LAB_MQL5_COMPATIBILITY_STANDARD.md',
-    'docs/ai_algorithm_engineering_os/00_START_HERE/00_Home.md',
-    'docs/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/_MOC.md',
-    'docs/ai_algorithm_engineering_os/19_LANGUAGE_STANDARDS/_MOC.md',
-    'docs/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/_MOC.md',
+    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/00_START_HERE/00_Home.md',
+    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/_MOC.md',
+    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/19_LANGUAGE_STANDARDS/_MOC.md',
+    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/_MOC.md',
 ]
 PLACEHOLDER = re.compile(r'\[(?:FEATURE-ID|PATCH-ID|NNNN|Title|ID)\]')
 ALLOWED_PLACEHOLDER_DIRS = {'templates','14_TEMPLATES','08_PROMPT_LIBRARY','16_EXAMPLES'}

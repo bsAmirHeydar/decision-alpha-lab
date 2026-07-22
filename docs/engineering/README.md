@@ -4,9 +4,9 @@ title: "Decision Alpha Lab Engineering Policy Index"
 type: index
 status: active
 domain: engineering
-version: 2.0.0
+version: 2.0.1
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-07-22
 tags:
   - ai-engineering
   - alpha-lab
@@ -14,7 +14,7 @@ tags:
 ---
 # Decision Alpha Lab Engineering Policy Index
 
-This directory is the repository-facing control plane for engineering work. The full modular Obsidian operating system is stored at `docs/ai_algorithm_engineering_os/`.
+This directory is the repository-facing control plane for engineering work. The canonical modular Obsidian operating system is stored at `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/`. The former `docs/ai_algorithm_engineering_os/` tree contains generated compatibility locators and is not the authored validation target.
 
 ## Canonical Entry Points
 
@@ -42,6 +42,14 @@ This directory is the repository-facing control plane for engineering work. The 
 
 ```powershell
 python .\tools\engineering\validate_alpha_lab_policy.py .
-python .\docs\ai_algorithm_engineering_os\tools\validate_vault.py .\docs\ai_algorithm_engineering_os
+python .\docs\alpha_lab_master_architecture\ai_algorithm_engineering_os\tools\validate_vault.py .\docs\alpha_lab_master_architecture\ai_algorithm_engineering_os
 python .\tools\engineering\check_mql5_compatibility.py .
 ```
+
+CI and local preflight use the same ordered entry point:
+
+```powershell
+python .\tools\engineering\run_engineering_policy.py .
+```
+
+Recovery decision and evidence: [[ENGINEERING_POLICY_CI_RECOVERY_2026-07-22|Engineering Policy CI Recovery]].

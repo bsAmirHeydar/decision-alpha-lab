@@ -1,0 +1,14 @@
+.github/workflows/engineering-policy.yml
+COMMIT_MESSAGE_ENGINEERING_POLICY_CI_RECOVERY_V1.md
+docs/engineering/ENGINEERING_POLICY_CI_RECOVERY_2026-07-22.md
+docs/engineering/README.md
+ENGINEERING_POLICY_CI_RECOVERY_V1_FILE_HASHES.sha256
+ENGINEERING_POLICY_CI_RECOVERY_V1_FILE_INDEX.txt
+ENGINEERING_POLICY_CI_RECOVERY_V1_PATCH_MANIFEST.json
+ENGINEERING_POLICY_CI_RECOVERY_V1_QA_REPORT.json
+INSTALL_ENGINEERING_POLICY_CI_RECOVERY_V1.md
+lab/10_infrastructure/tests/engineering_policy_ci_recovery/test_engineering_policy_ci_recovery.py
+ROLLBACK_ENGINEERING_POLICY_CI_RECOVERY_V1.md
+tools/engineering/README.md
+tools/engineering/run_engineering_policy.py
+tools/engineering/validate_alpha_lab_policy.py

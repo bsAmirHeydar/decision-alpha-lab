@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "patch_id": "ENGPOL_CI_RECOVERY_V1_20260722",
+  "owner": "Decision Alpha Lab engineering",
+  "base_commit": "b6207d127bdb192661525c625d1fadcc1c4964c6",
+  "intent": "Restore the GitHub Engineering Policy preflight after LCM-15B and remove the workflow's Node 20 deprecation warning.",
+  "current_behavior": "The Obsidian stage validates generated legacy redirects and fails with 242 missing IDs plus 20 ambiguous links on committed HEAD.",
+  "desired_behavior": "Local and GitHub preflight validate the authored canonical vault with unchanged fail-closed semantics and Node 24 action runtimes.",
+  "modified_paths": [
+    ".github/workflows/engineering-policy.yml",
+    "docs/engineering/README.md",
+    "tools/engineering/README.md",
+    "tools/engineering/run_engineering_policy.py",
+    "tools/engineering/validate_alpha_lab_policy.py"
+  ],
+  "added_product_paths": [
+    "docs/engineering/ENGINEERING_POLICY_CI_RECOVERY_2026-07-22.md",
+    "lab/10_infrastructure/tests/engineering_policy_ci_recovery/test_engineering_policy_ci_recovery.py"
+  ],
+  "package_evidence_paths": [
+    "COMMIT_MESSAGE_ENGINEERING_POLICY_CI_RECOVERY_V1.md",
+    "ENGINEERING_POLICY_CI_RECOVERY_V1_FILE_HASHES.sha256",
+    "ENGINEERING_POLICY_CI_RECOVERY_V1_FILE_INDEX.txt",
+    "ENGINEERING_POLICY_CI_RECOVERY_V1_PATCH_MANIFEST.json",
+    "ENGINEERING_POLICY_CI_RECOVERY_V1_QA_REPORT.json",
+    "INSTALL_ENGINEERING_POLICY_CI_RECOVERY_V1.md",
+    "ROLLBACK_ENGINEERING_POLICY_CI_RECOVERY_V1.md"
+  ],
+  "deliberately_untouched": [
+    "docs/ai_algorithm_engineering_os/** generated compatibility locators",
+    "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/** hash-bound authored notes and validator",
+    "registry/legacy_context_migration/** receipts and ledgers",
+    "MQL5, RTHP, research, model, schema and execution code",
+    "pre-existing Obsidian ID-normalization worktree changes"
+  ],
+  "non_goals": [
+    "Changing validator rules or suppressing failures",
+    "Normalizing generated redirect IDs",
+    "Changing domain or execution behavior",
+    "Changing branch-protection settings",
+    "Committing or pushing without repository-owner action"
+  ],
+  "preserved_invariants": [
+    "Canonical authored notes remain the source of truth",
+    "Broken and ambiguous canonical links still fail closed",
+    "Generated redirects and LCM receipts remain byte-untouched",
+    "Local and GitHub checks share one ordered entry point",
+    "No runtime, order, model-promotion or capital authority is created"
+  ],
+  "migration": "No data or schema migration; configuration path rebinding only.",
+  "compatibility": "GitHub-hosted ubuntu-latest supports the Node 24 action majors. setup-python remains pinned to Python 3.11.",
+  "rollback": "Create a normal git revert of the atomic recovery commit; see ROLLBACK_ENGINEERING_POLICY_CI_RECOVERY_V1.md.",
+  "verification_status": "PASS_LOCAL_PENDING_GITHUB_PUSH",
+  "residual_risks": [
+    "The repaired workflow has not run on GitHub until the patch is committed and pushed.",
+    "The main branch is unprotected and can accept commits before CI completes.",
+    "A full second local worktree could not be materialized because the C drive had approximately 0.98 GB free; a selected clean HEAD archive covered the changed boundary instead.",
+    "Unrelated dirty legacy-ID changes must remain unstaged."
+  ]
+}
