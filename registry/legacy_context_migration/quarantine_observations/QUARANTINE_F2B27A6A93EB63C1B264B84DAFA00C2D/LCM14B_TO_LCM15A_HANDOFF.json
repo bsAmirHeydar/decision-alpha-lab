@@ -1,0 +1,66 @@
+{
+  "acceptance_report_digest": "sha256:6ebe1927585dc09dc649ae7b3328938661084962c7d798f02a8d51cf9627f83b",
+  "active_source_blocked_count": 477,
+  "allowed_next_actions": [
+    "BUILD_LCM15A_EXACT_DELETION_CANDIDATE_LEDGER",
+    "RUN_FULL_REFERENCE_PROOF",
+    "VERIFY_SUCCESSOR_ARCHIVE_AND_RECOVERY",
+    "REQUIRE_SEPARATE_DELETION_APPROVAL"
+  ],
+  "blocked_dimensions": [
+    "EXTERNAL_CONSUMER_EVIDENCE_UNKNOWN_FOR_136_IDENTITIES",
+    "WALL_CLOCK_MATURITY_NOT_CLAIMED",
+    "477_ACTIVE_SOURCE_IDENTITIES_NOT_QUARANTINE_ELIGIBLE"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_14B_REFERENCE_ONLY",
+  "completed_gates": [
+    "136_IMMUTABLE_QUARANTINE_PACKAGES",
+    "TWO_REPOSITORY_OBSERVATION_CYCLES",
+    "ZERO_MEANINGFUL_ACTIVE_REFERENCES",
+    "136_RESTORATION_DRILLS_PASS",
+    "REDIRECT_COMPATIBILITY_RETAINED"
+  ],
+  "deletion_approved_count": 0,
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "DELETE_ANY_LEGACY_ARTIFACT",
+    "REMOVE_136_REDIRECTS",
+    "QUARANTINE_477_ACTIVE_SOURCE_IDENTITIES",
+    "ASSUME_EXTERNAL_CONSUMERS_ABSENT",
+    "CREATE_RUNTIME_ORDER_OR_CAPITAL_AUTHORITY"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8",
+  "handoff_type": "LCM14B_TO_LCM15A",
+  "hostile_review_report_digest": "sha256:a4b442b62b35d948cecca2da83269a7c4692e549446ea552c7589e71cdb4f8b2",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-14",
+  "observation_registry_digest": "sha256:fc4ebbc2e0fafee95e9931cebef745be8f4d67f353d5dc8e470c7fc1a062419c",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14B",
+  "producer": "tools.strategy_factory.lcm.lcm_14b.service:LCM14BQuarantineObservationService",
+  "proof_eligible_count": 136,
+  "quarantine_id": "QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D",
+  "quarantine_registry_digest": "sha256:d3c47f0f58d5765ce3fb3f9f10ddeca3cafea938841b65a995bbf7012f6a1ffe",
+  "restoration_registry_digest": "sha256:b2e960d564c8f776a3e112c49ecf618bb356dd4f69c0ee08de5da22c1cd93458",
+  "retirement_eligibility_registry_digest": "sha256:900f860327bba27eb45aa79ce0137a5fff030556992ecd104fcc1fb0683e1a56",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:ff7df7032fc0c945f512ff2e80ea3573ae479acf3a8042ebf3eb39dd6606cabf",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1",
+    "sha256:a3882a9fede7855fb28007b7a217b251c2ead3239a5c09bcaa75c62cdd7fc284",
+    "sha256:d3d2709e4dca759f99f086ca26af90e6e326511c77bdc402fcebb44570cce2bb",
+    "sha256:76ca001b89a328fc0a9e9b9586466b06b6818fce807392ac4863a701b5e6cf66"
+  ],
+  "source_handoff_digest": "sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1",
+  "unknown_dimensions": [
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS_NOT_OBSERVED"
+  ],
+  "validation_status": "PASS"
+}

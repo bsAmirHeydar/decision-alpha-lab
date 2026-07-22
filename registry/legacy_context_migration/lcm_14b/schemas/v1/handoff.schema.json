@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/lcm/14b/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {},
+    "claim_ceiling": {},
+    "deterministic_identity": {},
+    "forbidden_actions": {},
+    "generated_time_semantics": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "master_phase": {},
+    "owner": {},
+    "phase_id": {},
+    "producer": {},
+    "reviewer": {},
+    "schema_version": {},
+    "source_digests": {},
+    "validation_status": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "handoff_type",
+    "handoff_digest",
+    "allowed_next_actions",
+    "forbidden_actions"
+  ],
+  "title": "Handoff",
+  "type": "object"
+}

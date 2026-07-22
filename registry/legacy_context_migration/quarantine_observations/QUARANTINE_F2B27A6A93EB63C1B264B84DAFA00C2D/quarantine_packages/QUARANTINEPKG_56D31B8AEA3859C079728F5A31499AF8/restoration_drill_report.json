@@ -1,0 +1,30 @@
+{
+  "canonical_hash_match": true,
+  "claim_ceiling": "LCM_14B_REFERENCE_ONLY",
+  "consumer_id": "CONSUMER_55536508AAC780DBECFC2053B0754153",
+  "deterministic_identity": true,
+  "drill_scope": "FULL_136_PACKAGE_RESTORATION_REHEARSAL",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "package_id": "QUARANTINEPKG_56D31B8AEA3859C079728F5A31499AF8",
+  "payload_hash_match": true,
+  "phase_id": "LCM-14B",
+  "producer": "tools.strategy_factory.lcm.lcm_14b.service:LCM14BQuarantineObservationService",
+  "quarantine_id": "QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D",
+  "redirect_continuity_pass": true,
+  "report_digest": "sha256:3c6617f9251758d0bdcd5d1b33c0e493af6e3b07ee443c496fd0aaaf3e08febc",
+  "restoration_simulation_mode": "BYTE_EXACT_TEMPORARY_REHYDRATION_IN_MEMORY",
+  "restored_bytes_written_to_active_path": false,
+  "result": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1",
+    "sha256:a3882a9fede7855fb28007b7a217b251c2ead3239a5c09bcaa75c62cdd7fc284",
+    "sha256:d3d2709e4dca759f99f086ca26af90e6e326511c77bdc402fcebb44570cce2bb",
+    "sha256:76ca001b89a328fc0a9e9b9586466b06b6818fce807392ac4863a701b5e6cf66"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/lcm/14b/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "deterministic_identity": {},
+    "file_count": {},
+    "files": {},
+    "generated_time_semantics": {},
+    "master_phase": {},
+    "output_manifest_digest": {},
+    "owner": {},
+    "phase_id": {},
+    "producer": {},
+    "reviewer": {},
+    "schema_version": {},
+    "source_digests": {},
+    "validation_status": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "output_manifest_digest",
+    "file_count",
+    "files"
+  ],
+  "title": "Output Manifest",
+  "type": "object"
+}

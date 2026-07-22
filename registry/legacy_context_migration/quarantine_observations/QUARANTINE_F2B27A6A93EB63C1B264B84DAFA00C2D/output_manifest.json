@@ -1,0 +1,2834 @@
+{
+  "claim_ceiling": "LCM_14B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "file_count": 562,
+  "files": [
+    {
+      "path": "LCM14B_TO_LCM15A_HANDOFF.json",
+      "sha256": "sha256:00a4d94f932a56a4a8c161771c9b6ae917b7d4a9d148cea9ebb1689721f3ebe2",
+      "size_bytes": 3109
+    },
+    {
+      "path": "active_path_exclusion_registry.json",
+      "sha256": "sha256:8d1a5f1a8ce9c715056184d9de16117cf42db1de8073d9c17c1ad58afc7beeab",
+      "size_bytes": 1432
+    },
+    {
+      "path": "observation_ledger.jsonl",
+      "sha256": "sha256:2e977be3a6ba8847ad19478022133eed2eb9de4c22c3433b4904c2308d54834f",
+      "size_bytes": 831232
+    },
+    {
+      "path": "observation_registry.json",
+      "sha256": "sha256:f7e0cf176e69a0ce64d1fb05f3820cf676b9f2325ea13cba2fd6cebdb283ea43",
+      "size_bytes": 1242
+    },
+    {
+      "path": "observation_report.json",
+      "sha256": "sha256:9bea9b8a35729f76f77f10a19331ad7045bf6ecf72815b668436aa9af34aae63",
+      "size_bytes": 1284
+    },
+    {
+      "path": "quarantine_observation_receipt.json",
+      "sha256": "sha256:e592f559d6a9992944d366a1ccd11d78701e5365c97641de7c588c28ea06e4cb",
+      "size_bytes": 1477
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_01FBB1FEC532AB9DE6917C15FAA05F80/immutability_contract.json",
+      "sha256": "sha256:cf7dd57023c2c069680ab58fb8fb5844ca79b1d3da4fb4094499a88d6a2eff7d",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_01FBB1FEC532AB9DE6917C15FAA05F80/package_manifest.json",
+      "sha256": "sha256:5bdaad57bb23e374d4fa358e52f4649a3e5a1a686efb3915049400be1f7d8f0e",
+      "size_bytes": 2192
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_01FBB1FEC532AB9DE6917C15FAA05F80/payload/original_bytes.md",
+      "sha256": "sha256:5680defafddba8094b249b41f6add31ac47cf14fe3239aa68de909bccbd11372",
+      "size_bytes": 1497
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_01FBB1FEC532AB9DE6917C15FAA05F80/restoration_drill_report.json",
+      "sha256": "sha256:5a7244d2d7880f6e31071128a33e62c62abe9f811b38ea59c46efeeb0f785e23",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_031CE5A35B1DC586E17B104CD147AB2B/immutability_contract.json",
+      "sha256": "sha256:1a6935ee7af66cfc7463309f2dfde05198e0332f6c44c562cb05e76d81e60d6f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_031CE5A35B1DC586E17B104CD147AB2B/package_manifest.json",
+      "sha256": "sha256:cb13815df01ce26a1d78cd85ff47f7b1a505de001243b6ed10ae87d186958b3a",
+      "size_bytes": 2262
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_031CE5A35B1DC586E17B104CD147AB2B/payload/original_bytes.md",
+      "sha256": "sha256:90115f32f609dc1b982b960e2416f8e430e219cdbf7b7bc820dff639c05276a3",
+      "size_bytes": 15543
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_031CE5A35B1DC586E17B104CD147AB2B/restoration_drill_report.json",
+      "sha256": "sha256:006889f78978f73f18655d6d3267b24e2380bf4f741440a8d82122f42a9697d9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_03756C8BFCA458961AAF374FB1176E30/immutability_contract.json",
+      "sha256": "sha256:d022cc0a721e42f865ec9da442d11978f80346c15091e9882bb7b39e6efae3a8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_03756C8BFCA458961AAF374FB1176E30/package_manifest.json",
+      "sha256": "sha256:d51059de16c13cff82c6e3db3afb14a3039a18dd46e35585c1e86b0552083177",
+      "size_bytes": 2295
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_03756C8BFCA458961AAF374FB1176E30/payload/original_bytes.md",
+      "sha256": "sha256:f61865e7efb6520527d574980c71d69f722dfc41e2aa7b9a0bb137e894f2e7bc",
+      "size_bytes": 6096
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_03756C8BFCA458961AAF374FB1176E30/restoration_drill_report.json",
+      "sha256": "sha256:e6b6fdb09de414b7446279788362c18a7cf539c6497b8d1b53682a47145213be",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0753499E9881550A77BCADEEAA980CE8/immutability_contract.json",
+      "sha256": "sha256:dee7252e0572969d7aa7ed233666640529082cf8fddd50f864e6e913114ea8d3",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0753499E9881550A77BCADEEAA980CE8/package_manifest.json",
+      "sha256": "sha256:8fe43db9dd529d81373e2baf2f362ad4fdbab0142a77232512ae91f292aa0ac9",
+      "size_bytes": 2176
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0753499E9881550A77BCADEEAA980CE8/payload/original_bytes.md",
+      "sha256": "sha256:8f19d5d7931d2f2ee7f4baa417421cac885f7155524822a72f1d3d52534f0dcc",
+      "size_bytes": 897
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0753499E9881550A77BCADEEAA980CE8/restoration_drill_report.json",
+      "sha256": "sha256:62b11fc168257f0786913cbc9bf7be33719be7a6f1c34685e7bc5f1e339aad2d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0A6CB2B3EB755CEBE71A73B298D4839C/immutability_contract.json",
+      "sha256": "sha256:6b76a310d66a9959a33da78b9f7001ab1cc9b84552f99d26854dc549155f04fe",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0A6CB2B3EB755CEBE71A73B298D4839C/package_manifest.json",
+      "sha256": "sha256:33edc58c4c55b1cdbdb60616e0a77ca75f452f87bbd984ecc688d1819d705164",
+      "size_bytes": 2266
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0A6CB2B3EB755CEBE71A73B298D4839C/payload/original_bytes.md",
+      "sha256": "sha256:b1f80d5a30934ea5dc42a4ae437148186e957ba8a0b032ff5ab3e63faaf5476a",
+      "size_bytes": 1404
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0A6CB2B3EB755CEBE71A73B298D4839C/restoration_drill_report.json",
+      "sha256": "sha256:cd9bf0884ffbf8b5abc32352c176a1b78c34b4de17ef2be7a519b1069fba9759",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0CCE91DC32B19E734DF7DC74F0B03A30/immutability_contract.json",
+      "sha256": "sha256:f8bea16bec9c91d10839570678056209b9c698ac71169e48bc0162c60c2d318a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0CCE91DC32B19E734DF7DC74F0B03A30/package_manifest.json",
+      "sha256": "sha256:31da389b38653c554499d2dee369e20019c6f67330ff89bab0443c327388f1ea",
+      "size_bytes": 2284
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0CCE91DC32B19E734DF7DC74F0B03A30/payload/original_bytes.md",
+      "sha256": "sha256:021316f29aab8cc3a539d40b335ab4dce1da236632dd158d75ed494addc01200",
+      "size_bytes": 5864
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0CCE91DC32B19E734DF7DC74F0B03A30/restoration_drill_report.json",
+      "sha256": "sha256:9a57471b9534663ec00d9a7ef258701c0e0643a6573a91fafab55e6a60f1d191",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0FAF9AA4D8847D014E24CC2527AECF42/immutability_contract.json",
+      "sha256": "sha256:59cc0f8cb17ed33a797a4248376deefeb2e889d57e6530d9ca71aac7f68379bd",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0FAF9AA4D8847D014E24CC2527AECF42/package_manifest.json",
+      "sha256": "sha256:f73dadd0fea9c0310dac047fe222e667a3026ba3dde550d1601c4c99d142350c",
+      "size_bytes": 2266
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0FAF9AA4D8847D014E24CC2527AECF42/payload/original_bytes.md",
+      "sha256": "sha256:5b952ba46a9cb52403e0a8d0f887df0401a10751a33eb35ed293081585792f69",
+      "size_bytes": 2754
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_0FAF9AA4D8847D014E24CC2527AECF42/restoration_drill_report.json",
+      "sha256": "sha256:c0f4b7151a183a338db6df268dde163b9af2c5369d0d69a26b13658d02c12aa4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_100E2F8E638F8E292F1EE433D2918C9B/immutability_contract.json",
+      "sha256": "sha256:68828c87dcf4e390d778660bb580f0d8627464ffb00011fb5ecd944d9e7beb1a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_100E2F8E638F8E292F1EE433D2918C9B/package_manifest.json",
+      "sha256": "sha256:aae2fe75b185f12851ac17166608b96bba89214c217f4bf664796279a8abb10a",
+      "size_bytes": 2212
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_100E2F8E638F8E292F1EE433D2918C9B/payload/original_bytes.md",
+      "sha256": "sha256:6a900de98724a050f2494111ddc7744b7cb051d8bad1c0c8aa0854a31a7e1c19",
+      "size_bytes": 2205
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_100E2F8E638F8E292F1EE433D2918C9B/restoration_drill_report.json",
+      "sha256": "sha256:8483b83141a8e9199409f813a6bbf3ceba46cc17c0e520ed78222e0d99b179b4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1192E70FD35CEB6233524BBE66F47345/immutability_contract.json",
+      "sha256": "sha256:0628bc2f90628a9ff618acbb88cf82ee9ae9bca28af861ac187bf94e99d83e2b",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1192E70FD35CEB6233524BBE66F47345/package_manifest.json",
+      "sha256": "sha256:9ce4ed782f359f7c8e524145a0ce2642c615096fd80c16a686a90886b4cd27cc",
+      "size_bytes": 2247
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1192E70FD35CEB6233524BBE66F47345/payload/original_bytes.md",
+      "sha256": "sha256:beaeb14c2e468e8a1c4555a15cbd431d6ffe6c7000af00bb2e826a58691272fe",
+      "size_bytes": 89
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1192E70FD35CEB6233524BBE66F47345/restoration_drill_report.json",
+      "sha256": "sha256:3021573ed5e29ca192b6570c2e839b9e9930f307ff095590b47ab3f5d9a12dd8",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_12D67A27F0BD5022766B00CA9D5B150E/immutability_contract.json",
+      "sha256": "sha256:1def32f50185db5d7a97975a7c2a2a8f4e43259ad470120d7c788fec5f9ed5fb",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_12D67A27F0BD5022766B00CA9D5B150E/package_manifest.json",
+      "sha256": "sha256:61115fe42b2370687acbcac313740c8ff230f585c42df005dbeb5cb3b7f9d955",
+      "size_bytes": 2268
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_12D67A27F0BD5022766B00CA9D5B150E/payload/original_bytes.md",
+      "sha256": "sha256:fa4f04bd05424b746026012c6cab3e00fdaa85eec692cb49bc755fbf9d49f514",
+      "size_bytes": 1622
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_12D67A27F0BD5022766B00CA9D5B150E/restoration_drill_report.json",
+      "sha256": "sha256:d85ed859623342ce0da55d394df028c275d8cd07efa6527057fbc9c77b013e33",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1BB2205FDC222DDE1D092D58BF6B6AB3/immutability_contract.json",
+      "sha256": "sha256:1012c62964cf5fcb2e793529ae5d9444e0d00e394d4536373d9daf9148468ddd",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1BB2205FDC222DDE1D092D58BF6B6AB3/package_manifest.json",
+      "sha256": "sha256:1c3b03b1145a7c048ccbc0cbdd7035764cb66551b086a611d8a5f5c6169a5130",
+      "size_bytes": 2255
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1BB2205FDC222DDE1D092D58BF6B6AB3/payload/original_bytes.md",
+      "sha256": "sha256:ca00367452590dc7154042e350dbacaaa834320f9cd56956687a0185b9cbd576",
+      "size_bytes": 908
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1BB2205FDC222DDE1D092D58BF6B6AB3/restoration_drill_report.json",
+      "sha256": "sha256:6c0656baa0bdacaec8ab9b3f21cdfa52a611f1899fb386340920a5e6062b614c",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1CDA047806A104C20FEC598E899EC8DE/immutability_contract.json",
+      "sha256": "sha256:6106f0a6da5626c6a3b0ed0f7772f31cb8a398a290bd8ec56e48713019f57eed",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1CDA047806A104C20FEC598E899EC8DE/package_manifest.json",
+      "sha256": "sha256:cf11dfca95485191e2bd9b8243b0988cd755b5108d4fd5e330dea52ddf416c92",
+      "size_bytes": 2278
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1CDA047806A104C20FEC598E899EC8DE/payload/original_bytes.md",
+      "sha256": "sha256:60fc0c620e93e40d1666390da8dc203009db258b1c4897f6d525b076cff28c04",
+      "size_bytes": 6564
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1CDA047806A104C20FEC598E899EC8DE/restoration_drill_report.json",
+      "sha256": "sha256:1cb4900c8956b4e32c9db410d6e2502a50a72c941361de78d0fe930d4e5d57b3",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1E53995E3BEF3451F4DDE5A0BCC48DD8/immutability_contract.json",
+      "sha256": "sha256:373dbfd4f2ba7ddf173780c4da90509311c1f3c2715c59097744a57ceb9e46ca",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1E53995E3BEF3451F4DDE5A0BCC48DD8/package_manifest.json",
+      "sha256": "sha256:36e828fa49b7ab56bf0f1951aa8c7cd7558f86a07b53874545528d025e1c3115",
+      "size_bytes": 2261
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1E53995E3BEF3451F4DDE5A0BCC48DD8/payload/original_bytes.md",
+      "sha256": "sha256:a50ceb5d58788eddd43959ca7e79f04d101cfb187471ccf41bfbb5a60fc478a3",
+      "size_bytes": 4098
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_1E53995E3BEF3451F4DDE5A0BCC48DD8/restoration_drill_report.json",
+      "sha256": "sha256:93d6b75222208d2ff7c7a86fd19bfe643f627503fe878257c93e6dee8b3fec64",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_203D01C20724C227A56A471F0D635341/immutability_contract.json",
+      "sha256": "sha256:2058299ff75cadf1d7275378dc4c05245ba8caf755c3146efeafab78a18f1a9d",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_203D01C20724C227A56A471F0D635341/package_manifest.json",
+      "sha256": "sha256:db1faaa88400f446eae876db6cbe27ecf1c8af4bbd0278699ab3009be93dfcd2",
+      "size_bytes": 2236
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_203D01C20724C227A56A471F0D635341/payload/original_bytes.md",
+      "sha256": "sha256:64ab54d708bc3b051e58ed2dabbb4b102105c2eb1f1c9f6d080ab41ef1f5ff4c",
+      "size_bytes": 1993
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_203D01C20724C227A56A471F0D635341/restoration_drill_report.json",
+      "sha256": "sha256:f8102519a47f507e682cc85bf2e0e364636d3c87cc15438f80401e086e1e52b8",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_214E4442F7B6193F6447D5434F1ACCBC/immutability_contract.json",
+      "sha256": "sha256:250f7bcf47e0f78ba92fbd9b09574233e28da2b3516af73e8ea801b35c8a6c8c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_214E4442F7B6193F6447D5434F1ACCBC/package_manifest.json",
+      "sha256": "sha256:5504b36152ad380e9ebd3ec39c8c1740e7be9cb4131d3b526cd7ca935d5bc0a6",
+      "size_bytes": 2280
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_214E4442F7B6193F6447D5434F1ACCBC/payload/original_bytes.md",
+      "sha256": "sha256:298d7fda90aaa660600ef775d8d386035dc81882630d0d615b86e464dbbc0a7c",
+      "size_bytes": 1614
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_214E4442F7B6193F6447D5434F1ACCBC/restoration_drill_report.json",
+      "sha256": "sha256:39dedc6d0bc4e53d6295e32d2d940dc8260d0fb5472b11c29ea22ef39f96b495",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_24BC1372E0EA313855EC30A08D1E9D10/immutability_contract.json",
+      "sha256": "sha256:eef321c50fcc154b0916a848486b3a7c3494aafb82ce5cf2ec65adf58589fcd5",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_24BC1372E0EA313855EC30A08D1E9D10/package_manifest.json",
+      "sha256": "sha256:0fe1f682e80e45eb7c7aa85c359144ba6a73daf7ce4b303da3daa8a6e00cb2ef",
+      "size_bytes": 2356
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_24BC1372E0EA313855EC30A08D1E9D10/payload/original_bytes.md",
+      "sha256": "sha256:80787110b74295967bb223af5646c7682f12a9cfd5f24a6dd5fe157c666ee08c",
+      "size_bytes": 1156
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_24BC1372E0EA313855EC30A08D1E9D10/restoration_drill_report.json",
+      "sha256": "sha256:cf4b77f4ae350bc67c9667c25b870e46c5ec903b698a04ba56c9a46df689458d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_266CE0D8BB949E9214D0C43EB73D68EE/immutability_contract.json",
+      "sha256": "sha256:47c1082f5386b6b18a78e977ddb9a09ee75aab109011c2dd39e115b0aed4b023",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_266CE0D8BB949E9214D0C43EB73D68EE/package_manifest.json",
+      "sha256": "sha256:9749b353b808a90a8315cfe32d3f555ec739c3485cfbe2f04233f30fd8636d06",
+      "size_bytes": 2227
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_266CE0D8BB949E9214D0C43EB73D68EE/payload/original_bytes.md",
+      "sha256": "sha256:723c811f48d7d52dfc38c539d56191f410ac74142c5adbd29af0ed22c5755792",
+      "size_bytes": 716
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_266CE0D8BB949E9214D0C43EB73D68EE/restoration_drill_report.json",
+      "sha256": "sha256:d7a78fe8fbbaac1376da7eac4c28b60908aaed2eb53035f46c44e1dfbe996238",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_27924C5CC78530509A4FDA03B53B5C2B/immutability_contract.json",
+      "sha256": "sha256:8d48dea245bbc7c17f0519dadff209d5191002da918d1aba5565fef26ffa370e",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_27924C5CC78530509A4FDA03B53B5C2B/package_manifest.json",
+      "sha256": "sha256:815e379cd5e5704d45350d5dd763ddcaf6eaa65e7ab0b8bda55bea0f05aa6cb3",
+      "size_bytes": 2294
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_27924C5CC78530509A4FDA03B53B5C2B/payload/original_bytes.md",
+      "sha256": "sha256:330cb615406772c20f5ae4fb56f0eee82da7579400aaa65483f208145e0009a2",
+      "size_bytes": 8595
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_27924C5CC78530509A4FDA03B53B5C2B/restoration_drill_report.json",
+      "sha256": "sha256:5222b8de5988ccc5823d56ccb2aef48ce6a15eaf1514241023e599bb7210d036",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_2EF0B6B56561F094302C14B41C8847BA/immutability_contract.json",
+      "sha256": "sha256:f63ee33d9e50580895a8aff667eda6ee8dad49c25891d6a8fdf68cb8ea3f748f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_2EF0B6B56561F094302C14B41C8847BA/package_manifest.json",
+      "sha256": "sha256:f4c7f046e46f3bf0f0e7a92e4441ef4b6cc93549b73aa6c868c2dd89c821e327",
+      "size_bytes": 2213
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_2EF0B6B56561F094302C14B41C8847BA/payload/original_bytes.md",
+      "sha256": "sha256:6ed089a8f0c497d987a3183fa622c550f6363f5069057964e202b113e86681bd",
+      "size_bytes": 483
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_2EF0B6B56561F094302C14B41C8847BA/restoration_drill_report.json",
+      "sha256": "sha256:8a820566fb6650cb25ea876d52036c48ba302d6e58a525a71e1ff2514eef5bdc",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_31AC333E779E9246785A2B3D3B2CEDA4/immutability_contract.json",
+      "sha256": "sha256:d7be67e0c87a56d0e24a9cf898f52fd917c55abbb480966be531117b7e9cfd00",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_31AC333E779E9246785A2B3D3B2CEDA4/package_manifest.json",
+      "sha256": "sha256:e8b0d2c5fa04d21b69caec73decbfdeb54140e079549bbc27d296283518c1b78",
+      "size_bytes": 2395
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_31AC333E779E9246785A2B3D3B2CEDA4/payload/original_bytes.md",
+      "sha256": "sha256:fd80fb1e998264933b8af6d6b4650b1dfd67c6c971d22ea0db0115a35a19f293",
+      "size_bytes": 4359
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_31AC333E779E9246785A2B3D3B2CEDA4/restoration_drill_report.json",
+      "sha256": "sha256:0330a50b1f4c9e34bdac6aa72a6eb5d3b1aa82f5b0c76e2bbbbe460b1d075a5d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_339D0F49CC2DFA7A3DFA4F579A446DB5/immutability_contract.json",
+      "sha256": "sha256:fbf042fb75c921de0e12c3fbd066233386aef17da8bd941e3afd6c6c120ca6bc",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_339D0F49CC2DFA7A3DFA4F579A446DB5/package_manifest.json",
+      "sha256": "sha256:6942491cb8ad1fc293a253acf529e210c58dad8c36ef553f988cd5e6e45bb55e",
+      "size_bytes": 2186
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_339D0F49CC2DFA7A3DFA4F579A446DB5/payload/original_bytes.md",
+      "sha256": "sha256:0a6517c5970e5480d6572fa40b285b53eba9fe7a786d5a87bea80623420cad12",
+      "size_bytes": 1791
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_339D0F49CC2DFA7A3DFA4F579A446DB5/restoration_drill_report.json",
+      "sha256": "sha256:4db24f6ed6fbc5c70e94eed9e5a5a65b244b6615a88799a7aa65f39429280d34",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_34079A0F453A03FD43EE87F491AB0A4A/immutability_contract.json",
+      "sha256": "sha256:03d584bbf7c387385de8999a6498ed543f7b7bf4a788f543a8b532f8763b959d",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_34079A0F453A03FD43EE87F491AB0A4A/package_manifest.json",
+      "sha256": "sha256:4ac53a34842528426288500d13a8deb79bd993f50c8fe89c37724f448699743b",
+      "size_bytes": 2267
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_34079A0F453A03FD43EE87F491AB0A4A/payload/original_bytes.md",
+      "sha256": "sha256:7c507c805c14f06b72baf1cc28225902a2780e406bb73ba31761b5a3e5c08bfe",
+      "size_bytes": 434
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_34079A0F453A03FD43EE87F491AB0A4A/restoration_drill_report.json",
+      "sha256": "sha256:519f8ba80a20e87aad9fe7c7821a3ac5b664925859fc7b0cf42a9639f90c3fbc",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_343128D86FDDD9BA20F636780D2DD52D/immutability_contract.json",
+      "sha256": "sha256:9c38dd83b802b4c5d143074f5553747fad06926c61b9dd0c53bf98d28781ef67",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_343128D86FDDD9BA20F636780D2DD52D/package_manifest.json",
+      "sha256": "sha256:cfc208dbb24201226ef466c0d96e15fd36bffe1f99e6acacac01e9635ee20fff",
+      "size_bytes": 2268
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_343128D86FDDD9BA20F636780D2DD52D/payload/original_bytes.md",
+      "sha256": "sha256:65af4a0e479903a36517361c2a07d6e016c138d45e599b947a0b1933d46b3c58",
+      "size_bytes": 843
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_343128D86FDDD9BA20F636780D2DD52D/restoration_drill_report.json",
+      "sha256": "sha256:88ee2e66c4fc71d6f4f9233634f9607908a4a12c6704957a9e2733f268048cec",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3745680909BC2549608C794D6BB273E7/immutability_contract.json",
+      "sha256": "sha256:8bfcc53904080736b06a66104de67878c53586f61c4db0ac7da8bf1d40184351",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3745680909BC2549608C794D6BB273E7/package_manifest.json",
+      "sha256": "sha256:d5576c0de1632b7ba781b0c415affb0480cf4a7c22212288754c826ff62dc949",
+      "size_bytes": 2307
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3745680909BC2549608C794D6BB273E7/payload/original_bytes.md",
+      "sha256": "sha256:cf9e82200a09950843744e3994baddb431b2f28e927663c123cc31a709f73b0e",
+      "size_bytes": 29231
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3745680909BC2549608C794D6BB273E7/restoration_drill_report.json",
+      "sha256": "sha256:1bd07770175432dc96699b1c2450db143c7932d03df1f86215833e7884c316fe",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37666E9D400A4B337F7B331EB6A71621/immutability_contract.json",
+      "sha256": "sha256:e1a25537869b5f55f67bb0d4f88a57da462416f5fc7549acb8fc118ee680bcd5",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37666E9D400A4B337F7B331EB6A71621/package_manifest.json",
+      "sha256": "sha256:65a1deed1179da931037e414603d434ece07a42cf856fe3fe19a57db25fd3240",
+      "size_bytes": 2276
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37666E9D400A4B337F7B331EB6A71621/payload/original_bytes.md",
+      "sha256": "sha256:361b0d7aa600dbde31d6f82536e7c0d631bc4b793dc33e2e79ad2db05b476993",
+      "size_bytes": 1182
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37666E9D400A4B337F7B331EB6A71621/restoration_drill_report.json",
+      "sha256": "sha256:99c7879b1a527e323aca3680760ee388d4088deb5354456f130dd000dd55921d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3786C47E28409D621404031D873D43BA/immutability_contract.json",
+      "sha256": "sha256:d6c1ccece352eee563fd39ce379e47728b9ca83992b77bd2c3987996f23b3de0",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3786C47E28409D621404031D873D43BA/package_manifest.json",
+      "sha256": "sha256:d7df3450fd0ca3181379e43b88a01935140f6f84334064d18342d72a13826025",
+      "size_bytes": 2274
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3786C47E28409D621404031D873D43BA/payload/original_bytes.md",
+      "sha256": "sha256:caffb39fa29ec9790cd9150f311b46989ee9e1681172f3ac007df848fba3284a",
+      "size_bytes": 840
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3786C47E28409D621404031D873D43BA/restoration_drill_report.json",
+      "sha256": "sha256:d36c603ee9b1498f45cdf7cf21acdcb7865799885156c818f301adfe29542f7f",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37D4A8061491E9C5F0956217D9787857/immutability_contract.json",
+      "sha256": "sha256:5cdb739a07d829fe42978b6fdfbd4c8e1ac104abd7c2728083c0abcd050158a4",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37D4A8061491E9C5F0956217D9787857/package_manifest.json",
+      "sha256": "sha256:de6c9a6352249ada2409eb4b214415d9b9c6481f82fdc47f7afa293d87fa4a7c",
+      "size_bytes": 2335
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37D4A8061491E9C5F0956217D9787857/payload/original_bytes.md",
+      "sha256": "sha256:c13d74f588224a42507fcef0cf29dabd47c65a3aa654a8e51eb6cad9717bccfc",
+      "size_bytes": 4693
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_37D4A8061491E9C5F0956217D9787857/restoration_drill_report.json",
+      "sha256": "sha256:ad35ef0865df4421e36d3bf38d74160f97cd61d89c40beb0b6470983604fbef3",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3A33F79A766E7060DCE51E5229675C17/immutability_contract.json",
+      "sha256": "sha256:84c5778b91a3f03cc30f776a2c1958e336da157fd74991ca3c878d1710c87e31",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3A33F79A766E7060DCE51E5229675C17/package_manifest.json",
+      "sha256": "sha256:feb136087d658fb204f72ba0b56fa2991cfb7b00d59a3ccc4d43ed89a46a4afd",
+      "size_bytes": 2298
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3A33F79A766E7060DCE51E5229675C17/payload/original_bytes.md",
+      "sha256": "sha256:9679830285cfc8661c9b161d801865181d16662e37abe7a7df56f9570f6d63fe",
+      "size_bytes": 4143
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3A33F79A766E7060DCE51E5229675C17/restoration_drill_report.json",
+      "sha256": "sha256:eeb71bab9e9daccdb158ddf348120206a655528c4373d25ced6f93b4ea70f407",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3D5C51BE00D9757ADF501F9414DA0892/immutability_contract.json",
+      "sha256": "sha256:4955b31fb998d54551cd95d6c0efb4b29942463ac48b6aa03278db044c3142c5",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3D5C51BE00D9757ADF501F9414DA0892/package_manifest.json",
+      "sha256": "sha256:2e266aeed4347a4f065ee1b9cac8fc170a5a67bf27eaee9e29fda22845bd2293",
+      "size_bytes": 2265
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3D5C51BE00D9757ADF501F9414DA0892/payload/original_bytes.md",
+      "sha256": "sha256:9869ac0b35c4e4fcac8fdcb59ad7656954373c729b57516d0a89e9ae61ccd39f",
+      "size_bytes": 1422
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3D5C51BE00D9757ADF501F9414DA0892/restoration_drill_report.json",
+      "sha256": "sha256:0a6805d11790a4322d9a09b5552f6df00007eafef1c9ff336a2111556060fdd0",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3DDD14C72A8D95CCD3DB124AED664FFD/immutability_contract.json",
+      "sha256": "sha256:8eefe55549471dace19733cde24d3c0662749f2e96e7f0de7e6bb27cb0efab34",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3DDD14C72A8D95CCD3DB124AED664FFD/package_manifest.json",
+      "sha256": "sha256:8875f77a536893d7b9194a682a79e78e9556448596f3717a48d3e9343a2502af",
+      "size_bytes": 2352
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3DDD14C72A8D95CCD3DB124AED664FFD/payload/original_bytes.md",
+      "sha256": "sha256:bba7730c8558227b1eb725ffebb43038961876fe87d7ed58579124c44bb75c27",
+      "size_bytes": 530
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_3DDD14C72A8D95CCD3DB124AED664FFD/restoration_drill_report.json",
+      "sha256": "sha256:895b431a5ca457f9e8217254bae020ebefbb3d623ec83f129b04c89c8d18bdb6",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4489576A33460EA68474AE52F57C831B/immutability_contract.json",
+      "sha256": "sha256:831eb11b23d40b6238b7d4d4d726d61a97e509da1097b6d4fba84e97354a9b19",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4489576A33460EA68474AE52F57C831B/package_manifest.json",
+      "sha256": "sha256:af5b3dc9027b83573502aace03eba022669a5fee819704709b8610acdaff5353",
+      "size_bytes": 2340
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4489576A33460EA68474AE52F57C831B/payload/original_bytes.md",
+      "sha256": "sha256:9666cf9fe4f8130213228a58d82b8072cb58b12c2e98a784cc3809103ecedde2",
+      "size_bytes": 932
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4489576A33460EA68474AE52F57C831B/restoration_drill_report.json",
+      "sha256": "sha256:32c58edccdb2b0c8580ec7b1c7b6aef3cbdf2680880e5b531ad9e808190c7a17",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_46759CB70DCC43D778012624F9367689/immutability_contract.json",
+      "sha256": "sha256:fa8c283aba66fc01a2586eaffa3cff27256c7c9c477c54ca57a91641cb1fe4ef",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_46759CB70DCC43D778012624F9367689/package_manifest.json",
+      "sha256": "sha256:783ef0f8bef304375d30a88d9b6259554d577936a97a844f1a0d7cfac383bbc7",
+      "size_bytes": 2268
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_46759CB70DCC43D778012624F9367689/payload/original_bytes.md",
+      "sha256": "sha256:95ed6ed632aea394e78d5a19309e54bf3a6d8c28b4a1e701e0ad5deb43c9b5b4",
+      "size_bytes": 3167
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_46759CB70DCC43D778012624F9367689/restoration_drill_report.json",
+      "sha256": "sha256:cce4e10f3f49b01218ee06bfab7926f1749fdbb4dadefeec5ba122b4ab831e05",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4B40E1BA7DDE65AE034EA9167F896543/immutability_contract.json",
+      "sha256": "sha256:23f50a6eb1cc863bc80608c037baf6719fb0d4d90bb9c1a2fbceb973699cedd4",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4B40E1BA7DDE65AE034EA9167F896543/package_manifest.json",
+      "sha256": "sha256:a0c09ccd13e87a9c30bec1e3b86c3804f9b963116d996fec8c78d02b46002692",
+      "size_bytes": 2156
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4B40E1BA7DDE65AE034EA9167F896543/payload/original_bytes.md",
+      "sha256": "sha256:ccce7055fdc7a80cd20370cf06ce312ebf4c5a8b8fe890884a6464fc1d74e0d0",
+      "size_bytes": 504
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4B40E1BA7DDE65AE034EA9167F896543/restoration_drill_report.json",
+      "sha256": "sha256:6cd5394cd065cbc73a4a6bc59561af0166402f63bee437549feac5a2e6b922c3",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4CA6253148E66EA6736F8544733D5419/immutability_contract.json",
+      "sha256": "sha256:2b872f127aff0215458fe8da0e394058e03003b2407d1feea36a58d245037832",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4CA6253148E66EA6736F8544733D5419/package_manifest.json",
+      "sha256": "sha256:5aa509d0e7f5f43fbd272cf3bbe838ba638a20eb59bb43b23266245b181dd25c",
+      "size_bytes": 2180
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4CA6253148E66EA6736F8544733D5419/payload/original_bytes.md",
+      "sha256": "sha256:afcc4ef4c8069cb313a4e59cd0923fe45d6306271a1024f1b39766685664a150",
+      "size_bytes": 513
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4CA6253148E66EA6736F8544733D5419/restoration_drill_report.json",
+      "sha256": "sha256:72312fa27832e1e3875598b6da01e069cc300ebd68af7c89774a2a0dde2a2552",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DA2A80D2C774BC8DAA9C9E4338369F5/immutability_contract.json",
+      "sha256": "sha256:dd046074cd1e93faeda1bb477bee895728d28a78a7314ccadcffd4b6e73bce34",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DA2A80D2C774BC8DAA9C9E4338369F5/package_manifest.json",
+      "sha256": "sha256:6bf2b1f3dd79bd473f7ced74f1a1007227cd16a45e9039b29fb0500f1fa5a2e7",
+      "size_bytes": 2324
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DA2A80D2C774BC8DAA9C9E4338369F5/payload/original_bytes.md",
+      "sha256": "sha256:63f72b75ed58cb71fc16b996f93115bd6fd72e26c24b22f59abebe351c8c3eb7",
+      "size_bytes": 1399
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DA2A80D2C774BC8DAA9C9E4338369F5/restoration_drill_report.json",
+      "sha256": "sha256:5c8fc06394858825de0cc0176b9196966ca2b4eddade9863547c8f0b97c83caa",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DF879C318AF1B097BFF432B7CF3295D/immutability_contract.json",
+      "sha256": "sha256:702d7ce89410190ef0e7978923418df5671f3290e6169438b8c1b4393a01258a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DF879C318AF1B097BFF432B7CF3295D/package_manifest.json",
+      "sha256": "sha256:1a544e51f09af567977ed6645aef90bed653592907a295e94d9f734252419000",
+      "size_bytes": 2310
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DF879C318AF1B097BFF432B7CF3295D/payload/original_bytes.md",
+      "sha256": "sha256:e84bf6ab512b4b5950a0311cfcdb2fb2886eee021264e7a048a9753e4edf2a20",
+      "size_bytes": 853
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4DF879C318AF1B097BFF432B7CF3295D/restoration_drill_report.json",
+      "sha256": "sha256:9cb7ecc3c9f65a174b2ba7f9a75f6262fcc820f34e695eb7785594cff24a8f65",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4EDEBC79047321122B857196FB18E9A7/immutability_contract.json",
+      "sha256": "sha256:f09fd456b14b58acf6b279d6d8babe6aaff9060b19dcfb080309fb10d2388e3a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4EDEBC79047321122B857196FB18E9A7/package_manifest.json",
+      "sha256": "sha256:40b9712c502c4e2204c9038c295aa1359477bf286978b2c013184b6b3bc08135",
+      "size_bytes": 2293
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4EDEBC79047321122B857196FB18E9A7/payload/original_bytes.md",
+      "sha256": "sha256:703c17cfc58ef32f2f6c7a64ceed9c53d76f77ec22eabe46d9e1a844c8e96575",
+      "size_bytes": 2308
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4EDEBC79047321122B857196FB18E9A7/restoration_drill_report.json",
+      "sha256": "sha256:5b834f67a33b231b4902dea7df6f73bcbc4aab3c35116418194070b899625a3d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4F6838C82E00A431724F687A232ECF9F/immutability_contract.json",
+      "sha256": "sha256:1934a728e343f5f7e881e3b8f78932f6a56b579953068d8351e0221f8e59708a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4F6838C82E00A431724F687A232ECF9F/package_manifest.json",
+      "sha256": "sha256:a559b4975670e2ab8ec70a372626ec4c8696bbe31a27d2ac53069af9971b8266",
+      "size_bytes": 2297
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4F6838C82E00A431724F687A232ECF9F/payload/original_bytes.md",
+      "sha256": "sha256:1c6a8f051b089a31aa1cdd5bcb6e23ea6e9ae27bf63c58abf6cf4c2ac2818625",
+      "size_bytes": 2248
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_4F6838C82E00A431724F687A232ECF9F/restoration_drill_report.json",
+      "sha256": "sha256:c433ec367010d3b16add955fd9544c3b466ca5caa1b11935546fe02a36e58aab",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_50068B31B6D0802BF6129F1C02A516B8/immutability_contract.json",
+      "sha256": "sha256:58017a4064598ad60d843a5efa129081b7556ee3ecd1265cbc7e6c4c7c5cedad",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_50068B31B6D0802BF6129F1C02A516B8/package_manifest.json",
+      "sha256": "sha256:3345d26da9a41fe96584400ddddd7ba48d52f7ef10f5f392c9c7092b3ab5925e",
+      "size_bytes": 2140
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_50068B31B6D0802BF6129F1C02A516B8/payload/original_bytes.md",
+      "sha256": "sha256:536b73dee1cb26250578e67a146e4b72f3d76c66aa7e70f19e13f4b6e44a9877",
+      "size_bytes": 1913
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_50068B31B6D0802BF6129F1C02A516B8/restoration_drill_report.json",
+      "sha256": "sha256:d86a13c7b53b59b16a4ecd31463fede502a2eadd3e3e559418c82d5f1b2a8383",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5065D453EA37C52EF3691835ECFD42F7/immutability_contract.json",
+      "sha256": "sha256:5670293ab1ee032b31058031b7e1749faa04dc0f7078a02b98eb5b5d7758f666",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5065D453EA37C52EF3691835ECFD42F7/package_manifest.json",
+      "sha256": "sha256:9009ee3c62873d7847718886adbea66effa734e5856adfcf851357991dd33ac1",
+      "size_bytes": 2357
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5065D453EA37C52EF3691835ECFD42F7/payload/original_bytes.md",
+      "sha256": "sha256:359f60cbe7d14be461a7dff2488aceb5770302041e06885e5b8c490d5c34692a",
+      "size_bytes": 4438
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5065D453EA37C52EF3691835ECFD42F7/restoration_drill_report.json",
+      "sha256": "sha256:6871adaba0dc37fef24874cf6341fd0eedbc5f915b8f221f3faad1b17e38bf3e",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51348F6D07BB9CED0AF87D74A31F5B94/immutability_contract.json",
+      "sha256": "sha256:fce8f8b2598f82295a7120c91dd6bf5daf62b1677348bff6af2b93b3f043747c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51348F6D07BB9CED0AF87D74A31F5B94/package_manifest.json",
+      "sha256": "sha256:a8a063da34bc058ad73e811174f2cc8d2ee22d8ae106242e5c49abe3cddb56ee",
+      "size_bytes": 2180
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51348F6D07BB9CED0AF87D74A31F5B94/payload/original_bytes.md",
+      "sha256": "sha256:9081bfd051f0d512685ce618674f98275fb0a7bb05b6b90bad6c3bf8776f3f70",
+      "size_bytes": 3026
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51348F6D07BB9CED0AF87D74A31F5B94/restoration_drill_report.json",
+      "sha256": "sha256:f1e24a53c2bb734a9731f64ebee63cec4235700b425a9d1c3aac0dc419d652af",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51629C60FF1C5B6ADCA8202508AD3436/immutability_contract.json",
+      "sha256": "sha256:4806b8b617107a07b0d85cb2fd7ae9886f1af102a2f0c07aaa66797e0b1866f3",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51629C60FF1C5B6ADCA8202508AD3436/package_manifest.json",
+      "sha256": "sha256:80368fe304b0f27e4be46320f708b125d8516bafa8752404ba58975ac41c9aa6",
+      "size_bytes": 2331
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51629C60FF1C5B6ADCA8202508AD3436/payload/original_bytes.md",
+      "sha256": "sha256:5650a8fd59924f5120efab66ad219a78d558c334660851017fb390ab2b09c169",
+      "size_bytes": 1258
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_51629C60FF1C5B6ADCA8202508AD3436/restoration_drill_report.json",
+      "sha256": "sha256:57fb66ee4f21b53f3b6c2a31ca215543a651c84af0551817852e18eabf90e292",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_545AF6AB0B116FC19FF9B04214B97A5B/immutability_contract.json",
+      "sha256": "sha256:c033b1d75d683835be78b02d0587303bdaea0db3350ab14b78acd9b462622c67",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_545AF6AB0B116FC19FF9B04214B97A5B/package_manifest.json",
+      "sha256": "sha256:973fedaff1663cfae32be65ec76fd34cbf36e219dcd3e996ddd646b7c8a3f7a3",
+      "size_bytes": 2222
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_545AF6AB0B116FC19FF9B04214B97A5B/payload/original_bytes.md",
+      "sha256": "sha256:a6c33220e3187f678cdd294875d72271f2f0d4fea88cf4cbbe7c52aced637e10",
+      "size_bytes": 1305
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_545AF6AB0B116FC19FF9B04214B97A5B/restoration_drill_report.json",
+      "sha256": "sha256:14c8d96eb581d15854ebf56aa3622a8cdc5a1ec1453bd1e769bb0194be6cf1af",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_56D31B8AEA3859C079728F5A31499AF8/immutability_contract.json",
+      "sha256": "sha256:b5361fe2a06198403b324b7b3f4b0cf39d2ca7f6a7634ec6109bb94595d854d8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_56D31B8AEA3859C079728F5A31499AF8/package_manifest.json",
+      "sha256": "sha256:265d8127384f8256818047cb6a56aa94e5bc512b19b349386a923f449d929255",
+      "size_bytes": 2239
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_56D31B8AEA3859C079728F5A31499AF8/payload/original_bytes.md",
+      "sha256": "sha256:dce16f0d8396d6d853452e0725efa947fdabdf1fca1aa98d2708118e2fd63b5a",
+      "size_bytes": 2737
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_56D31B8AEA3859C079728F5A31499AF8/restoration_drill_report.json",
+      "sha256": "sha256:08ecd1ba9c4f143a168c3b00faf721209f670dbd0164d5aa98433cff10ff476c",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_572E52C85244653AB391A9A7C61E167C/immutability_contract.json",
+      "sha256": "sha256:7cc85a070a0b8da718d48641a618d3c2de2cd1a457686e71c657f30bc47fc5bc",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_572E52C85244653AB391A9A7C61E167C/package_manifest.json",
+      "sha256": "sha256:eaf4db838815e21d753bd7bca56f8236f5b2bfa14d6c9de76261fa9167aa2374",
+      "size_bytes": 2205
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_572E52C85244653AB391A9A7C61E167C/payload/original_bytes.md",
+      "sha256": "sha256:a928c12ef5070bf0339462ae32eada294d358c642e8cc7d68b868ba130789934",
+      "size_bytes": 604
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_572E52C85244653AB391A9A7C61E167C/restoration_drill_report.json",
+      "sha256": "sha256:283d867087ba214f7d518d2f88deb67677f15a77ec221c0bebddd161b4174192",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5CA5D19665041D336BCE104C31334589/immutability_contract.json",
+      "sha256": "sha256:aad21aa21db3f8dc6d5ddf43eb1229b6ec4371ba57dc6195c0c2dff328f04b42",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5CA5D19665041D336BCE104C31334589/package_manifest.json",
+      "sha256": "sha256:5d8648a9afd92f5971cb64a48a60447c01b205107b82086abc1dd49091ed7a29",
+      "size_bytes": 2268
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5CA5D19665041D336BCE104C31334589/payload/original_bytes.md",
+      "sha256": "sha256:08292c3930bbe18a1f178dced0ab63405bfe0755551d5afd4e8b3d294147bf6f",
+      "size_bytes": 1090
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5CA5D19665041D336BCE104C31334589/restoration_drill_report.json",
+      "sha256": "sha256:c106faadf89fd0a3f963480c6b1a4a86f57aa4418a7616215b7cc2e05245523c",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5DF2F1F83C49DC51F6CA47097CE7532B/immutability_contract.json",
+      "sha256": "sha256:e475632b044c974b6363f577fa45f18d179c2ec19e5dd3831095a51c1893205c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5DF2F1F83C49DC51F6CA47097CE7532B/package_manifest.json",
+      "sha256": "sha256:c916639f4f03728f142444a9721bede052d75e0b8243392a9bce3a8cc9b4909e",
+      "size_bytes": 2266
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5DF2F1F83C49DC51F6CA47097CE7532B/payload/original_bytes.md",
+      "sha256": "sha256:9563f903cb9d8f7b603d01b2ca4d8705c177ac24d7f2a4c7d9f88ff0349ad06a",
+      "size_bytes": 2410
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5DF2F1F83C49DC51F6CA47097CE7532B/restoration_drill_report.json",
+      "sha256": "sha256:03eed0bf66abe4b922c693fb96d0111736e003dad4f3f46a14695b9d8a9f98b4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5E2147813C560C8699F2DAF290BE8B62/immutability_contract.json",
+      "sha256": "sha256:30ec73ebf4b038419e1d0d45daaf3cb86ab1d71443a4219b0c0ed379698ea654",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5E2147813C560C8699F2DAF290BE8B62/package_manifest.json",
+      "sha256": "sha256:f5e5899816666c38aebe972212bc63f210d00cc87ca048c5c155c32c81b9e707",
+      "size_bytes": 2110
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5E2147813C560C8699F2DAF290BE8B62/payload/original_bytes.md",
+      "sha256": "sha256:7cfbda8cacd4b256d6f6c34da02a534aa4fb753531ce7a08c051c376978a1c11",
+      "size_bytes": 1675
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5E2147813C560C8699F2DAF290BE8B62/restoration_drill_report.json",
+      "sha256": "sha256:093405773be4d1c93f252baaa1fcae5e718a4eefa7ee488ebf5ba5c878e6d83d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5F6ED01851D65B0448B7EDE18358C31E/immutability_contract.json",
+      "sha256": "sha256:27b0dbfb3660cf3c1496944092a8a156d114813551fe2c8972fbcaca717b93d0",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5F6ED01851D65B0448B7EDE18358C31E/package_manifest.json",
+      "sha256": "sha256:f74d45964ea1fdb218b28be60c14cd6bf10042f6d0bdaad1bd71925e6f4bb12c",
+      "size_bytes": 2318
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5F6ED01851D65B0448B7EDE18358C31E/payload/original_bytes.md",
+      "sha256": "sha256:b1ceab9d56c17d96b388e877adf102a5ea1748eee5c608f452b29b7c669fba99",
+      "size_bytes": 2998
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_5F6ED01851D65B0448B7EDE18358C31E/restoration_drill_report.json",
+      "sha256": "sha256:7912b15115f6f96716e605393e8aa16fa4005f3fdfebb18a95c52bcacdacfb76",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_63D3904C56400B0A0BFCA072E6F1C8D2/immutability_contract.json",
+      "sha256": "sha256:1ebbf632a0b7ff732bfb630bd2b1ffe61391b0efe0708398c765684b6f10ef92",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_63D3904C56400B0A0BFCA072E6F1C8D2/package_manifest.json",
+      "sha256": "sha256:a23d48618a2d04017264770f9e0ff0d685fdb31729d110da152df9a3e027e228",
+      "size_bytes": 2263
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_63D3904C56400B0A0BFCA072E6F1C8D2/payload/original_bytes.md",
+      "sha256": "sha256:43229172f0e160b21f0640cfc94c25029973453a916f18ece407cbece606fd5a",
+      "size_bytes": 4260
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_63D3904C56400B0A0BFCA072E6F1C8D2/restoration_drill_report.json",
+      "sha256": "sha256:362b56ebd3f2dd962296af9c5bd3eab439ca6f5efbaf27e303ceada5e9a7ed38",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6847CF10BF7449D5E6E587671765D389/immutability_contract.json",
+      "sha256": "sha256:44511eb5e431f30654e6936839a5474f1fe077ed17d6f0975c126231498dd57b",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6847CF10BF7449D5E6E587671765D389/package_manifest.json",
+      "sha256": "sha256:1a34c416e1687c73e20122362851e6e72e4247da91825c471eaf05c7e7115ede",
+      "size_bytes": 2247
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6847CF10BF7449D5E6E587671765D389/payload/original_bytes.md",
+      "sha256": "sha256:993b3f75a79ad9117a4f1e15bb64e5aee0f773417992bdb15caa8f5bd02346f5",
+      "size_bytes": 544
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6847CF10BF7449D5E6E587671765D389/restoration_drill_report.json",
+      "sha256": "sha256:8f10bd3137edf99c72a9b6a1528df9d6a12d22902eea4db8329afa7bf9e0d0e8",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_695505AFCC8D47207F0F3AF3E9D49B4E/immutability_contract.json",
+      "sha256": "sha256:569c2cae8a86711bd090f493004ca7780cc84a59b210bf35511ac87b1d9dcea8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_695505AFCC8D47207F0F3AF3E9D49B4E/package_manifest.json",
+      "sha256": "sha256:3ab5415fde8c009b9c975a532e6e154db1247b621f467949a35143ef7c010039",
+      "size_bytes": 2270
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_695505AFCC8D47207F0F3AF3E9D49B4E/payload/original_bytes.md",
+      "sha256": "sha256:b77940d3e9f0e2507e3c80a8f80aa8f350fc1e27cfc9e10b543d26d36badefdc",
+      "size_bytes": 1419
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_695505AFCC8D47207F0F3AF3E9D49B4E/restoration_drill_report.json",
+      "sha256": "sha256:db73f92b7b892582e210ee71459885269818c75145f09779f6752a4db592b1d2",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6ADBF3178F24ABF80DC7F06E2620DFF7/immutability_contract.json",
+      "sha256": "sha256:2ede932edf81d914ddfc695442e9215a54b42960ca15b7c58c6ea344bfb006a8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6ADBF3178F24ABF80DC7F06E2620DFF7/package_manifest.json",
+      "sha256": "sha256:b8c1e2d6eec7e005fd1e774d221652063f1359bdd37481d810358328926df0c7",
+      "size_bytes": 2330
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6ADBF3178F24ABF80DC7F06E2620DFF7/payload/original_bytes.md",
+      "sha256": "sha256:bfc8547f57cd71668c5b7289ac130dd145f53cd3b898eac219ed9f15271dcdfa",
+      "size_bytes": 945
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6ADBF3178F24ABF80DC7F06E2620DFF7/restoration_drill_report.json",
+      "sha256": "sha256:8786bf56ff0c5b9f7750d510b139cae7723a658df7e0a519a7157b94aab22d09",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6B3C1F3B26CFB51B9030206D09AB2C51/immutability_contract.json",
+      "sha256": "sha256:65d248086595d3daf72c5ca0fa16549a4d430c0920c9113645613de338fb4ca8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6B3C1F3B26CFB51B9030206D09AB2C51/package_manifest.json",
+      "sha256": "sha256:c1fd4fa1331492238b7a1cdb7631c3907eb7796edbe3e3872c0e7285b2b048f8",
+      "size_bytes": 2212
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6B3C1F3B26CFB51B9030206D09AB2C51/payload/original_bytes.md",
+      "sha256": "sha256:3229fd78b7ff3b7dd11ca40392c2c45bdf696de7915abc89f239d81541d47b77",
+      "size_bytes": 4243
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6B3C1F3B26CFB51B9030206D09AB2C51/restoration_drill_report.json",
+      "sha256": "sha256:525cae28a4776268b843957a93bc1128a7965f6424c75fa12ee487d2cdbd6e64",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6DA5E23E8C56ABF496BA35003B0C6894/immutability_contract.json",
+      "sha256": "sha256:938ba374ebfc63ef75304ca173e4f919490c2bdfb780ffc43bc675540565b8a9",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6DA5E23E8C56ABF496BA35003B0C6894/package_manifest.json",
+      "sha256": "sha256:c184e5000dfff3dbb871fc81c354dc31bab5c89906fa21bfffee80c854675ecc",
+      "size_bytes": 2261
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6DA5E23E8C56ABF496BA35003B0C6894/payload/original_bytes.md",
+      "sha256": "sha256:bc9b78065973729b6f7856697ce5632f6bf07901ad2c6b2c2537fe8c0607aa58",
+      "size_bytes": 2349
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6DA5E23E8C56ABF496BA35003B0C6894/restoration_drill_report.json",
+      "sha256": "sha256:ba3827fb6f1750588dfe662fb8078de52102c0873aab5ab0236687048b233cfc",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6E35DD79226510A4DEC90BDD767FEFA2/immutability_contract.json",
+      "sha256": "sha256:06a6f9c3517f139fb78a861314d43c500b65bc11d3840b9d227ae7b9310daf04",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6E35DD79226510A4DEC90BDD767FEFA2/package_manifest.json",
+      "sha256": "sha256:861517c47038a524d8c5a453eebb3e05bc807e980e87a42676a43bba36f32a05",
+      "size_bytes": 2263
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6E35DD79226510A4DEC90BDD767FEFA2/payload/original_bytes.md",
+      "sha256": "sha256:9106c3245455f12ce4f6fc48a5d23d41545677314992f3a29f62cf1f89e39d5d",
+      "size_bytes": 1185
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6E35DD79226510A4DEC90BDD767FEFA2/restoration_drill_report.json",
+      "sha256": "sha256:2d21fda39491de7f6eff5cbdcfb356f6bf41eeb753bb028ec411948382f210f7",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6F3EFE4358809E01094A3BFF6D4BBEED/immutability_contract.json",
+      "sha256": "sha256:c002a2fbabc8070a425052eeef9d03a44accba61fed211305c7c134fd3182d15",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6F3EFE4358809E01094A3BFF6D4BBEED/package_manifest.json",
+      "sha256": "sha256:caec5cbf0b6ebf507a330a8a63e65070451dc49027d3c43201322b554d61d5bc",
+      "size_bytes": 2346
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6F3EFE4358809E01094A3BFF6D4BBEED/payload/original_bytes.md",
+      "sha256": "sha256:ed3126efad917bba31eac1a84efd656fe4f5001243b924058f0415fdc86ab804",
+      "size_bytes": 3152
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_6F3EFE4358809E01094A3BFF6D4BBEED/restoration_drill_report.json",
+      "sha256": "sha256:ea6872fe4705058fa2d64c4ebbd663e007026faac358f19433f1c2c8f366bbb1",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_733D614B132D0BF9CF9E42BF85BAEF50/immutability_contract.json",
+      "sha256": "sha256:6070b7ad506322e048e1c92865a5f0d699e15e74546947984cb44cd508b631e0",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_733D614B132D0BF9CF9E42BF85BAEF50/package_manifest.json",
+      "sha256": "sha256:9da52e47c71488bff7241a4f7240c078ee235b21d9cfabd45d5f173b989a4fd2",
+      "size_bytes": 2237
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_733D614B132D0BF9CF9E42BF85BAEF50/payload/original_bytes.md",
+      "sha256": "sha256:42b63a59af8bceb81665aa8cd9788781f3a869362c97c83034a845397d641280",
+      "size_bytes": 327
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_733D614B132D0BF9CF9E42BF85BAEF50/restoration_drill_report.json",
+      "sha256": "sha256:4aa8aa134f5e5a60490fd9f480d60602da9f99f67a698064288ca678612fb575",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_73F0657FC982727701D6AB2BD0048FD9/immutability_contract.json",
+      "sha256": "sha256:68085807d4ed07b0be32af37ca25308e669f0d2fd109edc4973ac4e8e14496ac",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_73F0657FC982727701D6AB2BD0048FD9/package_manifest.json",
+      "sha256": "sha256:d2662e2581216468848c5fa254d7f6fd327863f9a9b54a936681e1d67e81b648",
+      "size_bytes": 2289
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_73F0657FC982727701D6AB2BD0048FD9/payload/original_bytes.md",
+      "sha256": "sha256:880d7253f001d6580a0bf0e119e6097fb8a99799386ac283863cc7f8d6d1d942",
+      "size_bytes": 5550
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_73F0657FC982727701D6AB2BD0048FD9/restoration_drill_report.json",
+      "sha256": "sha256:8d57e178eb093a952dff7724691eb39e9e7f0029b890eb513268f9d5f1c7ed49",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_74B84CD7A555D44204F1DBF155537E65/immutability_contract.json",
+      "sha256": "sha256:69618705813e8a1e443afc8e333e6dff1d8dc2c1a0f0e9b7e6d78d780d07a28c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_74B84CD7A555D44204F1DBF155537E65/package_manifest.json",
+      "sha256": "sha256:9ae3807797b00aa89bb586a083a326b57c00fd5b32bccf5d3a5ce172e79dc400",
+      "size_bytes": 2261
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_74B84CD7A555D44204F1DBF155537E65/payload/original_bytes.md",
+      "sha256": "sha256:b102bde5327319c0dccd1720e1177ce179f60d7059e62bbf82f42ae40f010a64",
+      "size_bytes": 6464
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_74B84CD7A555D44204F1DBF155537E65/restoration_drill_report.json",
+      "sha256": "sha256:f81e092e0b19045ff9885387bf35bd5783042addaccad519d1e37c3bc8138d59",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7961699AE101ED50601DFA3FEE83AB9D/immutability_contract.json",
+      "sha256": "sha256:75bd956dd21631b6e2d87c2dce11eccda45781b95a5c3ccc310d6ef4cb2f77cc",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7961699AE101ED50601DFA3FEE83AB9D/package_manifest.json",
+      "sha256": "sha256:547f52bf926cccdb4f17a41a4075dab401138a90076d373b432d76790068beef",
+      "size_bytes": 2273
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7961699AE101ED50601DFA3FEE83AB9D/payload/original_bytes.md",
+      "sha256": "sha256:3a1551788483bb6b0f98d156bb7e98b43b8d870ceb40a5ee5b1c59a5927f7b3c",
+      "size_bytes": 1308
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7961699AE101ED50601DFA3FEE83AB9D/restoration_drill_report.json",
+      "sha256": "sha256:2bd4d075ee22d692d078320287a5b460e211f3e15730cd5c3ec69db0c2ce75b5",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7A24FC142AC712A31CB68B4B95448BCA/immutability_contract.json",
+      "sha256": "sha256:b07523442758e9aaca6e12ba622d93ee3b4109e4341c5881aeb531dd11fe125e",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7A24FC142AC712A31CB68B4B95448BCA/package_manifest.json",
+      "sha256": "sha256:51c4845b78a1164f14577a39f27903c6ffe661ad12ef4aca9a27360edad0ad1e",
+      "size_bytes": 2276
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7A24FC142AC712A31CB68B4B95448BCA/payload/original_bytes.md",
+      "sha256": "sha256:5cd7bfea19f512ea40f70636060347d52781db7707f1013cb623b553b65cf513",
+      "size_bytes": 8075
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7A24FC142AC712A31CB68B4B95448BCA/restoration_drill_report.json",
+      "sha256": "sha256:cb4bdef987071049a42e134143ec769361638407530e4008919d56fc2504f4d5",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7B54CEDD408F883D1F779CF139090D9D/immutability_contract.json",
+      "sha256": "sha256:6833d7750f6d61df14c62c04e979f47f36f2d7220679540ef3f6a348774ba25b",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7B54CEDD408F883D1F779CF139090D9D/package_manifest.json",
+      "sha256": "sha256:226ede5ed73754ef37cb6f7598d2f19d8dad09179a949c539865692732cb17bb",
+      "size_bytes": 2185
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7B54CEDD408F883D1F779CF139090D9D/payload/original_bytes.md",
+      "sha256": "sha256:4f4f15f12b749aa86f48700b5e023104f7e1f5e3e79345de57ad3546020dfe46",
+      "size_bytes": 688
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7B54CEDD408F883D1F779CF139090D9D/restoration_drill_report.json",
+      "sha256": "sha256:1cc4c1c654c3ed5d0e8863e1ddbea3c9972b8459a6b90cbbf283a43844a58fa4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7E2ED48D16F5AE148443A46FE3063A9B/immutability_contract.json",
+      "sha256": "sha256:b3e06fa4646f8280f58244ce04202b90a63a1651a2dfb2fc8986bf4301657407",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7E2ED48D16F5AE148443A46FE3063A9B/package_manifest.json",
+      "sha256": "sha256:925b8c125567809cc4d33f7764b8688f2c1e54385096c8ced70c0d7d262ad4e2",
+      "size_bytes": 2269
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7E2ED48D16F5AE148443A46FE3063A9B/payload/original_bytes.md",
+      "sha256": "sha256:c31fc292217a4dcab927f85192fb913480a11c1b656f8f9dbc2eeb671a0b9698",
+      "size_bytes": 1639
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_7E2ED48D16F5AE148443A46FE3063A9B/restoration_drill_report.json",
+      "sha256": "sha256:aa413f8bab8389d3078e620e6d057eb824c5e93093503fa6a4ce58dcd6b8d794",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_81AB008EBEF465CE056EB8073D513561/immutability_contract.json",
+      "sha256": "sha256:537f411b88a8e1d079c8102f946f2a1129a2c216022057138a775e6b5872ef49",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_81AB008EBEF465CE056EB8073D513561/package_manifest.json",
+      "sha256": "sha256:8ba997dc3f504353de3c0acaad4b69624162c4740ff0b54ffb45976d47164951",
+      "size_bytes": 2243
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_81AB008EBEF465CE056EB8073D513561/payload/original_bytes.md",
+      "sha256": "sha256:a218a3e31dd7897dd2db2740042654fea97af6d3e71189e9c967faf22e0821c7",
+      "size_bytes": 3534
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_81AB008EBEF465CE056EB8073D513561/restoration_drill_report.json",
+      "sha256": "sha256:b07ba32222e56e4c8bff162c423ff7c829fc400b2f2e6263d8ecffd4a0538500",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8310A421A75156EBEBDE8CA753BC6324/immutability_contract.json",
+      "sha256": "sha256:b5d21cfc588c3f7d89142ca9ec03f45329a632fb5b372077c0ed9942922fed4d",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8310A421A75156EBEBDE8CA753BC6324/package_manifest.json",
+      "sha256": "sha256:ce483ba96320e850e7678df027eb72d4b9faea1d228588b39c6d8b5061dd8f6a",
+      "size_bytes": 2253
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8310A421A75156EBEBDE8CA753BC6324/payload/original_bytes.md",
+      "sha256": "sha256:016c8de435bd4c2c52e09d44c76d4b938b6c8a2aceda59f81029d8226a4bf6ac",
+      "size_bytes": 2796
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8310A421A75156EBEBDE8CA753BC6324/restoration_drill_report.json",
+      "sha256": "sha256:1c42ebc7772c17925437d93499ad11428f77b3fe747c911537b639be5adc6c81",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_839A14AFB88E21AA3215CE5B0963203F/immutability_contract.json",
+      "sha256": "sha256:b83070c3093c64c97b483253e31ca7650238cba3565ce0576da9304fdffe0b35",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_839A14AFB88E21AA3215CE5B0963203F/package_manifest.json",
+      "sha256": "sha256:5f9fcad0bfcf46481d70551f06d480b720f9d440367ae14b240dc2a3c0265fa7",
+      "size_bytes": 2361
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_839A14AFB88E21AA3215CE5B0963203F/payload/original_bytes.md",
+      "sha256": "sha256:6277a02386c6bd126dddf0af4d245ca530baaa57b4a69bea2b703d6d6441ac7a",
+      "size_bytes": 926
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_839A14AFB88E21AA3215CE5B0963203F/restoration_drill_report.json",
+      "sha256": "sha256:9f88d8b3c9da70f9e889ab988e69dfec6519234c9cf5ddaafdd0d071c270c3b9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8530209944B6DDD13CE000A8E3C7DEF3/immutability_contract.json",
+      "sha256": "sha256:365159a71aefb0a78e6e56a5979fd42cfd5e27cb6a7bd400a73508750566ce3f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8530209944B6DDD13CE000A8E3C7DEF3/package_manifest.json",
+      "sha256": "sha256:e897682eb7aa2ab1b2d0d64e13c947e85809b8fa991a21536b412771b039c5f9",
+      "size_bytes": 2213
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8530209944B6DDD13CE000A8E3C7DEF3/payload/original_bytes.md",
+      "sha256": "sha256:bf4ff2346600628055304c11d8bdb860727b9813e89381fbce2f45041a1cbacb",
+      "size_bytes": 1770
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8530209944B6DDD13CE000A8E3C7DEF3/restoration_drill_report.json",
+      "sha256": "sha256:6e80579a274c5057585e46cec864260c47df88deb17cf9808f0c8d5a2f80cae8",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_865F3A21105B9256454893FCC7BD1240/immutability_contract.json",
+      "sha256": "sha256:e3ee72fa41a99a48784c97e79b96a4380057fffc86134ac15efb3e0f5a831b41",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_865F3A21105B9256454893FCC7BD1240/package_manifest.json",
+      "sha256": "sha256:47b40e392bc8a0e4a4594b74098f4f8d964230ba0f0ebba421eb55652415a23a",
+      "size_bytes": 2273
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_865F3A21105B9256454893FCC7BD1240/payload/original_bytes.md",
+      "sha256": "sha256:68cd923f9218f39df97930936bf1053747b1c1bf5418b0f8bbe56f297f11faf7",
+      "size_bytes": 3177
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_865F3A21105B9256454893FCC7BD1240/restoration_drill_report.json",
+      "sha256": "sha256:3f61abe9537928a37e5f456ec8ec4738f5143de2fbfbbc19501f20ee9641fde7",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B40C17FEF36B22016A1CDA6A9480BDD/immutability_contract.json",
+      "sha256": "sha256:118587a9d0d3c80492a93f162dfb265c6e2a8535689cf2ffdd9117e685841b5c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B40C17FEF36B22016A1CDA6A9480BDD/package_manifest.json",
+      "sha256": "sha256:2725d5354025d37dadc574be3c699a6df103bb2146dd8893d2d41e073c9179ba",
+      "size_bytes": 2240
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B40C17FEF36B22016A1CDA6A9480BDD/payload/original_bytes.md",
+      "sha256": "sha256:3d4f4e597e8fa3575d53a01a001c9242ecf16ed31bd4de66e0a9a50cdf4cd634",
+      "size_bytes": 822
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B40C17FEF36B22016A1CDA6A9480BDD/restoration_drill_report.json",
+      "sha256": "sha256:ddd5611bf9d924f33eeef70dcc5d93a714aad2c2a2c5c841ffd764b00161d938",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B5D1BBCFDFA4232D873700F32AFC0AF/immutability_contract.json",
+      "sha256": "sha256:fae7fd244c8bbd353f0eb5179440bfccd118e39d94b31975c26d45446a7cbadf",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B5D1BBCFDFA4232D873700F32AFC0AF/package_manifest.json",
+      "sha256": "sha256:6d0a4b08b7106d52e5dc4aa42c7f2c3a11572c4677dd918e055d909e1a1627ef",
+      "size_bytes": 2268
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B5D1BBCFDFA4232D873700F32AFC0AF/payload/original_bytes.md",
+      "sha256": "sha256:ac2baca167f340d02f7c6eb6c897ca0bcb904eba31ebe49e2894a17345ede12c",
+      "size_bytes": 1169
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8B5D1BBCFDFA4232D873700F32AFC0AF/restoration_drill_report.json",
+      "sha256": "sha256:f84e236cc58967a9437b1bcd2622dac38520ac41d8684505c1039601687c9098",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DB9B8A30DF380B92BC5DCC75B0B929A/immutability_contract.json",
+      "sha256": "sha256:3d4bbb43ac4501b2d3dbd34722934eeb1b3b4b497f1e6ba6bdfd527fe7ab6f92",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DB9B8A30DF380B92BC5DCC75B0B929A/package_manifest.json",
+      "sha256": "sha256:e642290d6e984078f09873a14aec62a68c948897ba101c2441df93e997612eb2",
+      "size_bytes": 2217
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DB9B8A30DF380B92BC5DCC75B0B929A/payload/original_bytes.md",
+      "sha256": "sha256:bb80956f4cb20b60eca1d06d20e3834b73e44d02f66f53836aab545d4bfdcd8c",
+      "size_bytes": 1212
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DB9B8A30DF380B92BC5DCC75B0B929A/restoration_drill_report.json",
+      "sha256": "sha256:4e4403019bb672127e91ca594c8d00a8d54332509849991e629e95fc6158f3da",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DBA0500A5B17E87037DF00E9117D92E/immutability_contract.json",
+      "sha256": "sha256:11690aff368df91547e53e5885cbd27bbd1828950a9c3a39c93673f04ca594d4",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DBA0500A5B17E87037DF00E9117D92E/package_manifest.json",
+      "sha256": "sha256:6f055722b07cf275282117f24e2dcf2658fc8096d58ae33b117580c4ef9b5d87",
+      "size_bytes": 2239
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DBA0500A5B17E87037DF00E9117D92E/payload/original_bytes.md",
+      "sha256": "sha256:6915f5881db3d2183b8ec996e7136cfad291ebd3427cb2fe18bcc778cff02eca",
+      "size_bytes": 598
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8DBA0500A5B17E87037DF00E9117D92E/restoration_drill_report.json",
+      "sha256": "sha256:5ea2dff6164e72f88f26d9650a91df9819d2eca393d726d503fedf6e15bb105a",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8F5FFA538665B08CF80B032BA430A283/immutability_contract.json",
+      "sha256": "sha256:cd85d47ca7b2a833acd78650f36c40643df1e8f287c9a37f0c077a1dde9a5c80",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8F5FFA538665B08CF80B032BA430A283/package_manifest.json",
+      "sha256": "sha256:bbdb946d2db7500d4f6742bff20b1b48dc546b53e6daefdff4a6a69c2fd45d9f",
+      "size_bytes": 2330
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8F5FFA538665B08CF80B032BA430A283/payload/original_bytes.md",
+      "sha256": "sha256:cfb46d0c2153891918e96031528eca56dcb9493c3c9cb014cea5b6036d1196d3",
+      "size_bytes": 4943
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_8F5FFA538665B08CF80B032BA430A283/restoration_drill_report.json",
+      "sha256": "sha256:d3681f752191113d0dd16701127692dbf5d81f08e18ce967fae1bb4f6c03d345",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_92837ADBE50B91C2706C8E06FD24AEA2/immutability_contract.json",
+      "sha256": "sha256:5c74436e99943725541368b576480736a8224fb638ec4243da78b90240a509c0",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_92837ADBE50B91C2706C8E06FD24AEA2/package_manifest.json",
+      "sha256": "sha256:3eadd1a559e83fb85648b55106b853121929b88f801570a726aceed525913c88",
+      "size_bytes": 2236
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_92837ADBE50B91C2706C8E06FD24AEA2/payload/original_bytes.md",
+      "sha256": "sha256:f1db9242735cb2901488f9140a1d52056265dc170a2d740cef7c7111475d53be",
+      "size_bytes": 5282
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_92837ADBE50B91C2706C8E06FD24AEA2/restoration_drill_report.json",
+      "sha256": "sha256:a6e72c51a35d6ae040ea96ed809109e2b5056f2cd367ca2e52d2a51121e58682",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_947D7C85A7A11B09678285FBE878817A/immutability_contract.json",
+      "sha256": "sha256:d0203c989a4c87dec796dea5334016478bf1c325f6cfb8af3a64df32114957a6",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_947D7C85A7A11B09678285FBE878817A/package_manifest.json",
+      "sha256": "sha256:20e5cecd72930f863967fa1cb8acc5218b7619d0d7214f106bfbeaf5c93df103",
+      "size_bytes": 2266
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_947D7C85A7A11B09678285FBE878817A/payload/original_bytes.md",
+      "sha256": "sha256:73886c8413c8528e7eae99ce1e82b2c697c837584f9a05c48fe1df6f5077eac4",
+      "size_bytes": 4526
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_947D7C85A7A11B09678285FBE878817A/restoration_drill_report.json",
+      "sha256": "sha256:63e2419f71b62d2e8f3779fff36ba282cc3ea05130347efecaeec8ad4cce45f9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_94CEAA328C3D389C320A9F6A70D1232F/immutability_contract.json",
+      "sha256": "sha256:536e9da85946652f801f95118a633c65977101caf31cc38fa435e70b9664bb11",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_94CEAA328C3D389C320A9F6A70D1232F/package_manifest.json",
+      "sha256": "sha256:fcaf838791a2697ab4a08f8e4dc17f4ca081b8041a5fed766aae8307b83cc222",
+      "size_bytes": 2371
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_94CEAA328C3D389C320A9F6A70D1232F/payload/original_bytes.md",
+      "sha256": "sha256:892baf5841eb4c5f119e30394f093ff558130380e94088901fea5f017726ef8d",
+      "size_bytes": 1074
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_94CEAA328C3D389C320A9F6A70D1232F/restoration_drill_report.json",
+      "sha256": "sha256:43819538b8f4c779e0184a12abc51ad8a769761ab64942e6b66d8c93cc18a802",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_966EF671C87FCDE75DB9E0D08E425CC9/immutability_contract.json",
+      "sha256": "sha256:f5db6b3da4f7624ca5a1534c5ecdff801423e1f2de1a299d44568f42afaf849f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_966EF671C87FCDE75DB9E0D08E425CC9/package_manifest.json",
+      "sha256": "sha256:9edf9a0808c81432f4243274788f6ee169ae24be36f370abb79fb81c37ab8d24",
+      "size_bytes": 2276
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_966EF671C87FCDE75DB9E0D08E425CC9/payload/original_bytes.md",
+      "sha256": "sha256:558de01fff7c96070f5a9c0b40b71abe9e26dde5c72cdca4f876c06c94a0795b",
+      "size_bytes": 3882
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_966EF671C87FCDE75DB9E0D08E425CC9/restoration_drill_report.json",
+      "sha256": "sha256:303c0b7bfa905e639ef2048c9e308652db232041e20f21f357c8dbb62c42e608",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_96D36555FF9B54D6B9E079006FB31CA3/immutability_contract.json",
+      "sha256": "sha256:263df59a80fe08d703e281edf279a812e8d095f9a1387c7bd46cc75f27c4a11a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_96D36555FF9B54D6B9E079006FB31CA3/package_manifest.json",
+      "sha256": "sha256:51642cf94236b0adca9062ecf25aeea8059ae5a594206865880ecffaac3b2144",
+      "size_bytes": 2356
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_96D36555FF9B54D6B9E079006FB31CA3/payload/original_bytes.md",
+      "sha256": "sha256:a3690a5796d44138835821e1ecc5a781ab7a2c298c4413faea8bcf8e18dfc108",
+      "size_bytes": 5744
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_96D36555FF9B54D6B9E079006FB31CA3/restoration_drill_report.json",
+      "sha256": "sha256:f7d9546549c02347ddd86d17e94101e76ca99b509ac8d64bcb0dd95e03d14b53",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_972C509B495B6C8B7460A53E29C535AA/immutability_contract.json",
+      "sha256": "sha256:173da679ec7e23734badf854542f31c345bf5f46c206fd9f7b926dcb578127f7",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_972C509B495B6C8B7460A53E29C535AA/package_manifest.json",
+      "sha256": "sha256:d26a216c490752372351d64c3a107218e29f21ff9856bddfee9d11a59930cdb1",
+      "size_bytes": 2243
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_972C509B495B6C8B7460A53E29C535AA/payload/original_bytes.md",
+      "sha256": "sha256:7a655cbf0cce55ac0c70a4b2cb3c4025b86c655eac188080c91e657efefaccf9",
+      "size_bytes": 4134
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_972C509B495B6C8B7460A53E29C535AA/restoration_drill_report.json",
+      "sha256": "sha256:0a8e44e2ac5a0a0482237d8d014d6dc4c06c89b98895d42786e92c685d8b9fa0",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_97BE7B7856199C7AB3348BF868185D93/immutability_contract.json",
+      "sha256": "sha256:1b41817cdc0100145ecc8d724b21b126a4270251cc355f38765b9991a294e3c4",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_97BE7B7856199C7AB3348BF868185D93/package_manifest.json",
+      "sha256": "sha256:305d220a6da323c103c2e7bdd524dfeabbeaddcda0ce062bdf21818dd12f2897",
+      "size_bytes": 2225
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_97BE7B7856199C7AB3348BF868185D93/payload/original_bytes.md",
+      "sha256": "sha256:438ddc1b4cc78f58b91da2f7a84c8b76186ae1405c071b3cc7044efc71caa6e8",
+      "size_bytes": 1720
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_97BE7B7856199C7AB3348BF868185D93/restoration_drill_report.json",
+      "sha256": "sha256:3c1501e2e3c8bcefccd071aeb02c946e2313914cb6a2292ce8790b54104554b6",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9977B77DAA8ECB0215315C6A98D105BE/immutability_contract.json",
+      "sha256": "sha256:64fd68619407fbe07e15523da6e98612f97f664cee02ae8e1ba249f332e4d81c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9977B77DAA8ECB0215315C6A98D105BE/package_manifest.json",
+      "sha256": "sha256:9fa1c598ec2e4487b2868fd3205c515e92f5e50147c1db4001b5e6c2c6bb05fc",
+      "size_bytes": 2205
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9977B77DAA8ECB0215315C6A98D105BE/payload/original_bytes.md",
+      "sha256": "sha256:36d493030a3d38a8c168437fceebae46c2f054a47f07e3976de056b5c512f196",
+      "size_bytes": 137
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9977B77DAA8ECB0215315C6A98D105BE/restoration_drill_report.json",
+      "sha256": "sha256:9f5c8a6c7d9cb259eb8a1076b60b9162ce2ce9a5575f762ac5d76fe2fbff29e1",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9B7761F9FDC4500C71048599A855071A/immutability_contract.json",
+      "sha256": "sha256:be8418a940d5fae24b51eb0b7492b9f39f4e0eecc4722823a87631d26cfa11f8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9B7761F9FDC4500C71048599A855071A/package_manifest.json",
+      "sha256": "sha256:f6c5e3b6bce916a2275dd97d752a036ad3321a0e2ae8855e0e6e1cb93d7ebf13",
+      "size_bytes": 2300
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9B7761F9FDC4500C71048599A855071A/payload/original_bytes.md",
+      "sha256": "sha256:d23804b7e39fa7fb5ed1c648156929e67dbfa1ccc96d40c00d580ab51ca09a8b",
+      "size_bytes": 3185
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9B7761F9FDC4500C71048599A855071A/restoration_drill_report.json",
+      "sha256": "sha256:adba72c3fd780d35456fdd22e3fe4f690e34e2fc55dba1143bbf2b93f6880089",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9C186C21959DBEB185E7BF89610BB5C6/immutability_contract.json",
+      "sha256": "sha256:1011bf3276b5a97f587b18c086672a7dd57e9447fa1f3778f9c9b43877627744",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9C186C21959DBEB185E7BF89610BB5C6/package_manifest.json",
+      "sha256": "sha256:3ed058736733c0c7a51107c0c53d9d76989d32af32a53869bcff0881add6d4ef",
+      "size_bytes": 2336
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9C186C21959DBEB185E7BF89610BB5C6/payload/original_bytes.md",
+      "sha256": "sha256:442a459b106ee553407385ef8e143c5b93e9a0638b172d49c440861c3215d609",
+      "size_bytes": 3692
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9C186C21959DBEB185E7BF89610BB5C6/restoration_drill_report.json",
+      "sha256": "sha256:6dfdf6bca9027e49b3a6994c1efed363362d12937083b21f97b387ff028ffdde",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9CD67809811BBA03EB3E94790EBB6473/immutability_contract.json",
+      "sha256": "sha256:439690d15d5e49c219497b4fae43e76aee54a74c68f5231dab30ebf9deba986a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9CD67809811BBA03EB3E94790EBB6473/package_manifest.json",
+      "sha256": "sha256:01faeed75ea3fd4c342203d9a5bdc049f5d3c61e9048e83c0b1e01facfc4f2a9",
+      "size_bytes": 2313
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9CD67809811BBA03EB3E94790EBB6473/payload/original_bytes.md",
+      "sha256": "sha256:565879878a7223f36cb3aecb80d860af9217a83e912544af76461f524578927e",
+      "size_bytes": 4082
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9CD67809811BBA03EB3E94790EBB6473/restoration_drill_report.json",
+      "sha256": "sha256:95bcd567c5d8986de6354ff64b282b9495d93c1a7d6d0d240b0c9be6c160b602",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9F5F651D36BAAA77055FA642934A72E3/immutability_contract.json",
+      "sha256": "sha256:2f8d11d77feb1d3be2ed3661a6350a0af96c1740fbc720b52ac8f7057ffc5a43",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9F5F651D36BAAA77055FA642934A72E3/package_manifest.json",
+      "sha256": "sha256:281d28611dcf134bbc4ba6c876e61e039af2caa10e53781d11151af4d00bfc72",
+      "size_bytes": 2292
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9F5F651D36BAAA77055FA642934A72E3/payload/original_bytes.md",
+      "sha256": "sha256:33ae4a3474348bc101161cfca24eee21204a0bdc548e3a307d561a93fa1c7128",
+      "size_bytes": 18102
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_9F5F651D36BAAA77055FA642934A72E3/restoration_drill_report.json",
+      "sha256": "sha256:7d4300f3ac15dfeb6fae813ebc1ffb0a89b2670883edfac04ef334a084142d3b",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A052167E907CE0E661002B4B1A98FE7F/immutability_contract.json",
+      "sha256": "sha256:8ae8e79add5f7d7bd9b4f6a800f6893db28df2932f12d2be113428b74767ea8c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A052167E907CE0E661002B4B1A98FE7F/package_manifest.json",
+      "sha256": "sha256:8b295c5c8e93bc58386f459fcfed157fc432d4d636d7e10286285258dff478a1",
+      "size_bytes": 2385
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A052167E907CE0E661002B4B1A98FE7F/payload/original_bytes.md",
+      "sha256": "sha256:ef829a9197c70aa4b5a0eade639dc67e4d10d7c108e5745dde53df187cd1e4eb",
+      "size_bytes": 641
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A052167E907CE0E661002B4B1A98FE7F/restoration_drill_report.json",
+      "sha256": "sha256:9a51d8e1c5d25af553d134106289e88cd762164c1ea14cada5b7d5f27f26c1c6",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A09A01B69C34339C2E39AF74FF248887/immutability_contract.json",
+      "sha256": "sha256:dad3bfb677d7dbec434145a93c0722e2468e688e61ae72a9c9a22e37845791df",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A09A01B69C34339C2E39AF74FF248887/package_manifest.json",
+      "sha256": "sha256:7db5f5ce23e52bbec6ba9ae06b94abd9d3a9202a284a4688cbffdd503f2c3a5f",
+      "size_bytes": 2237
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A09A01B69C34339C2E39AF74FF248887/payload/original_bytes.md",
+      "sha256": "sha256:cfc4ed079cbed11c699f2dde93bfd07be0ffe6f6330aa4d0f0ef8abcdcebb8ce",
+      "size_bytes": 887
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A09A01B69C34339C2E39AF74FF248887/restoration_drill_report.json",
+      "sha256": "sha256:18c84530001d3c7f7dfcd5c032154f77ca68e1293eb322d215f88649d5ce39d8",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A35A9193F3A8C95F0C25CB03B6631D9F/immutability_contract.json",
+      "sha256": "sha256:4794ba7fac8dca4519d5d5fa3ad00f4d212e0e5033892bcfa4baf47b81536713",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A35A9193F3A8C95F0C25CB03B6631D9F/package_manifest.json",
+      "sha256": "sha256:cc4bafe8e2ed449488b09eb03fc84bb1b386ef7ca20ed437640b36b97e2519c1",
+      "size_bytes": 2246
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A35A9193F3A8C95F0C25CB03B6631D9F/payload/original_bytes.md",
+      "sha256": "sha256:489484ca02a141ec2eec895b83ee3109817e77f078228102bc104cb68c87fd81",
+      "size_bytes": 3764
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A35A9193F3A8C95F0C25CB03B6631D9F/restoration_drill_report.json",
+      "sha256": "sha256:f43becad6b82a3317252c496bafa5a697727d29dab94edb7add00ad9c4c7fe62",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A56DB9E107CBA360F4AE5F5B42E264BC/immutability_contract.json",
+      "sha256": "sha256:367ca0bbe35e3e0e47d78dd82c34829ffa4112a5015fe55d9d8fc3315e209980",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A56DB9E107CBA360F4AE5F5B42E264BC/package_manifest.json",
+      "sha256": "sha256:5a24a95db561fdc38b0275907a7f19aff33e8942f2ba987b4f87ebe2f52be543",
+      "size_bytes": 2115
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A56DB9E107CBA360F4AE5F5B42E264BC/payload/original_bytes.md",
+      "sha256": "sha256:be066379cb7a81d2e7ec38d2726cef54242d4cb271a05355286893d095b86007",
+      "size_bytes": 1806
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A56DB9E107CBA360F4AE5F5B42E264BC/restoration_drill_report.json",
+      "sha256": "sha256:9ec45a6145a1875549507313e6e8df3d9868bf496357f08519b27e55d2a02fe7",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A608FBA7D840C3E3943D41AFE7436023/immutability_contract.json",
+      "sha256": "sha256:ee7e5e28a644a0e5e7447bf6b9aadc853d9cfb0b896913184ec353fd8c66dfa2",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A608FBA7D840C3E3943D41AFE7436023/package_manifest.json",
+      "sha256": "sha256:21243781aea345c57eaaec7088b4d596fde23f84e4cf2f0a831f5d6394e50fe2",
+      "size_bytes": 2218
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A608FBA7D840C3E3943D41AFE7436023/payload/original_bytes.md",
+      "sha256": "sha256:0a2cc5f26db712c478c286f558e2c2006d7423af6facc130b3803e734c2300e8",
+      "size_bytes": 2043
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_A608FBA7D840C3E3943D41AFE7436023/restoration_drill_report.json",
+      "sha256": "sha256:6da03e59c34c666c0629ea9bc461741b4a5d67ae8fe588072a9bbbf560d6a7c9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AA7451E99DB120E28189CB8AB6C55741/immutability_contract.json",
+      "sha256": "sha256:e0629fcbde1bfa612cd8b7d0e19a44e3e12b3866f12b2c2f9f6ee2c0a3280632",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AA7451E99DB120E28189CB8AB6C55741/package_manifest.json",
+      "sha256": "sha256:c3c3387b30d5bab75f04eeee576de6a0b434aa47bb9b7a9983436425d09341ca",
+      "size_bytes": 2309
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AA7451E99DB120E28189CB8AB6C55741/payload/original_bytes.md",
+      "sha256": "sha256:2835b334a5b3a5652ce1d8416c093c068a7ed62d456e5437ad65b465df32a25e",
+      "size_bytes": 4763
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AA7451E99DB120E28189CB8AB6C55741/restoration_drill_report.json",
+      "sha256": "sha256:39e7df8c4be84a81187d86b4f2ecd36a81563d7b17ce5a21e9c188c0458d79a1",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AB826F9E51198EDF11883B7311F7F9A3/immutability_contract.json",
+      "sha256": "sha256:80aec01005e884820f0ae2cd50456cf24c7053fa450540d0f9ac7efa6fb21b47",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AB826F9E51198EDF11883B7311F7F9A3/package_manifest.json",
+      "sha256": "sha256:3b772ef23edbb28f46dd3cbb231b53c3d1df6e63e8e3b58bcb1b57de84114710",
+      "size_bytes": 2228
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AB826F9E51198EDF11883B7311F7F9A3/payload/original_bytes.md",
+      "sha256": "sha256:15ba0443c223dad3e587d3330813a6e85024bc56d1b236913aaafba138af0ce6",
+      "size_bytes": 989
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AB826F9E51198EDF11883B7311F7F9A3/restoration_drill_report.json",
+      "sha256": "sha256:1c4b2cc171985e5c5c55b4e7069e4eabee780353797669bcc5ca17948ed59fd1",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ACD8CE0D33038F6821FB7AE8445B8EC1/immutability_contract.json",
+      "sha256": "sha256:0faa867ffad6f6dd654b9f9e5a3debca8eb824ceebd8fae4189c2a6ec0e69d87",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ACD8CE0D33038F6821FB7AE8445B8EC1/package_manifest.json",
+      "sha256": "sha256:f098e9ff2f0f8f7febd79d2c54c316ab1b12785dd886aa8b1800f19d8334b275",
+      "size_bytes": 2272
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ACD8CE0D33038F6821FB7AE8445B8EC1/payload/original_bytes.md",
+      "sha256": "sha256:02a051d9ad8203b2b2d5c1ab874789f77532b2835cd62f11da75adc3405baa2b",
+      "size_bytes": 3828
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ACD8CE0D33038F6821FB7AE8445B8EC1/restoration_drill_report.json",
+      "sha256": "sha256:7dc1d5a340edfb0fd5e0d0773b7d87c3e73a8e393ec4f48578d99f896c3c4d14",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE3C6C05C58FCB8830608B7E754FAE31/immutability_contract.json",
+      "sha256": "sha256:671a8a599260f8338c77c888cbdc7698c8905f3639ef1c54d6a00680d3a9139a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE3C6C05C58FCB8830608B7E754FAE31/package_manifest.json",
+      "sha256": "sha256:728e36a1e3a05dc6d69f30db5cb4ac2c4306b6a0607a5095220e2017c5723ed0",
+      "size_bytes": 2288
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE3C6C05C58FCB8830608B7E754FAE31/payload/original_bytes.md",
+      "sha256": "sha256:03418c9d753dbf2d5f4c1dafe89fff912f97100b00860cabd6b9720d8ca1c214",
+      "size_bytes": 5875
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE3C6C05C58FCB8830608B7E754FAE31/restoration_drill_report.json",
+      "sha256": "sha256:663bcf843fc2a1fbd8ed81e0b1714fd89c21ff8ec69dfdaabaefb8298abfc0f4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE8925CB672DD79B32A0EF2A2CA98E79/immutability_contract.json",
+      "sha256": "sha256:ded8564604e95f239a3b1fe694263d767621d6761bd81210a476966296e98bf3",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE8925CB672DD79B32A0EF2A2CA98E79/package_manifest.json",
+      "sha256": "sha256:f2370664d34b533c7d56c0252ee76256bf5915c6bfcd9dcc19e364c0aa87ef36",
+      "size_bytes": 2266
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE8925CB672DD79B32A0EF2A2CA98E79/payload/original_bytes.md",
+      "sha256": "sha256:e06be4e429712e4a3c80673fdbe0990ddc3e2f4ad7329531d34002fd49fa9c0f",
+      "size_bytes": 2658
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AE8925CB672DD79B32A0EF2A2CA98E79/restoration_drill_report.json",
+      "sha256": "sha256:e2da3b85d7770d5f728c59cd99cc7ff522ec9a75170d8426243812ef545c8788",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFC3E7335AA1EFDFE746E124061279A5/immutability_contract.json",
+      "sha256": "sha256:e2b3e05fed46a42c1e83402190bf22180025ab8e962d4588c7dec996ffb84acc",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFC3E7335AA1EFDFE746E124061279A5/package_manifest.json",
+      "sha256": "sha256:b38c3a7343f0218274903ac36d2413e6f1f4a504cee3e6474e77901144fb31bd",
+      "size_bytes": 2279
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFC3E7335AA1EFDFE746E124061279A5/payload/original_bytes.md",
+      "sha256": "sha256:58ee7beffc00061141a1ee16fc68cd055b096e45329dbc855dcf73014fab13e0",
+      "size_bytes": 7731
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFC3E7335AA1EFDFE746E124061279A5/restoration_drill_report.json",
+      "sha256": "sha256:3a17d617b02eed6dcaf6dcc76b401102d0e6548257549df7163304d7ea5c6b8a",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFF88A80E0FE6C3BFFA1C3FA5BACF280/immutability_contract.json",
+      "sha256": "sha256:ff29c6c3f8bb5bd1f92855881f9bc0d733e86d0e7faed9cbc9a31b86d97ab79f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFF88A80E0FE6C3BFFA1C3FA5BACF280/package_manifest.json",
+      "sha256": "sha256:da66d56ce88b2ed9a7ccdafa7e094a7ee211bb898753eaafd76f63325ccc74bd",
+      "size_bytes": 2339
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFF88A80E0FE6C3BFFA1C3FA5BACF280/payload/original_bytes.md",
+      "sha256": "sha256:a930b5d1e7a33648a7c1b73e61e582bb6cbe2b54d5ce1cef41a20ebb716e93f8",
+      "size_bytes": 1469
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_AFF88A80E0FE6C3BFFA1C3FA5BACF280/restoration_drill_report.json",
+      "sha256": "sha256:0cb0e930f879846cc22b6eaebc9c05ce66f52d7df7214d20449725109ff0a795",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B142EC36B2853A2E5090D0908D041489/immutability_contract.json",
+      "sha256": "sha256:262cea43309f529c444e5b1af92f211e60247ce4cee3931566d661a1724b58fa",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B142EC36B2853A2E5090D0908D041489/package_manifest.json",
+      "sha256": "sha256:0172dd589236451bfdb497bfad4c0bb986c38dda90cd9df68274ef5012cb99a8",
+      "size_bytes": 2350
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B142EC36B2853A2E5090D0908D041489/payload/original_bytes.md",
+      "sha256": "sha256:6d28c050cfc718739594674159a23d354f50420fc851628cec0c9444fd37c782",
+      "size_bytes": 3233
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B142EC36B2853A2E5090D0908D041489/restoration_drill_report.json",
+      "sha256": "sha256:c80cfbb1e536d509439076da87eee3a50d49cacffaa7e5fa447a5707b611e32a",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B2328D63AF82BFF9D71E47F381C04E44/immutability_contract.json",
+      "sha256": "sha256:cfc3773ea08190e06e3dde32256b7988b037f3f6367db43a84e2daf2fe50296c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B2328D63AF82BFF9D71E47F381C04E44/package_manifest.json",
+      "sha256": "sha256:dc056dd783ede9c44d228db0be63d8b4a8b9a6153904b90a8e71a39a9fc2e682",
+      "size_bytes": 2225
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B2328D63AF82BFF9D71E47F381C04E44/payload/original_bytes.md",
+      "sha256": "sha256:9d87224c58b0d5ea45988f93520c6e27e9b1eb74b02731a19d2c81f982f3fc83",
+      "size_bytes": 977
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B2328D63AF82BFF9D71E47F381C04E44/restoration_drill_report.json",
+      "sha256": "sha256:3de26802d1cebad83bac2b75fbb934d66506fac98c2e725f4802a8a91a7f8ae0",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B258157EB40C2E5E53D64074FD0EEE49/immutability_contract.json",
+      "sha256": "sha256:7bacc3f092fd23b2694511882a28a7fecf82943c10d0560b21426ddbd52cfb60",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B258157EB40C2E5E53D64074FD0EEE49/package_manifest.json",
+      "sha256": "sha256:a12fe8faec14c31319f350603c6b35cb76db0dd85484eb1f60c3c426dbe94796",
+      "size_bytes": 2319
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B258157EB40C2E5E53D64074FD0EEE49/payload/original_bytes.md",
+      "sha256": "sha256:e34c17c9e0aee6f17dbe2e3b1a01784362d872bbd86b80d7147ce2b0e438f541",
+      "size_bytes": 1710
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B258157EB40C2E5E53D64074FD0EEE49/restoration_drill_report.json",
+      "sha256": "sha256:07c411f3247e066b0604c7883303759e88e93e83ad4449e8e68ec9857afe2a0c",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B8092D23D6CD67BEA7A44EE6DD811EB0/immutability_contract.json",
+      "sha256": "sha256:6fd279595fb8aa51a7e9935dc35949c3bb9ac729ff2c1131267928183a2d433e",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B8092D23D6CD67BEA7A44EE6DD811EB0/package_manifest.json",
+      "sha256": "sha256:e69a443c50d29d3f21f4f0bfe8737ce18d7ee7b66ea060d28761b7f84a764176",
+      "size_bytes": 2142
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B8092D23D6CD67BEA7A44EE6DD811EB0/payload/original_bytes.md",
+      "sha256": "sha256:46d6a0406c677dfa28c5018ebf0cfe72c2dec81b814d25813229e6e527ac3902",
+      "size_bytes": 15454
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B8092D23D6CD67BEA7A44EE6DD811EB0/restoration_drill_report.json",
+      "sha256": "sha256:41ee1268efb77c99525d1e9432d7d8eb3c46806df6bf371978905af2d355e378",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B96148643E2369995FE724DDD0B61A45/immutability_contract.json",
+      "sha256": "sha256:0bff83cba9677c97f15720329a75398cfda30cec48663419fa2276c208a3b6dc",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B96148643E2369995FE724DDD0B61A45/package_manifest.json",
+      "sha256": "sha256:0366744faf28f0820522a60e856550ecd5d0e2ce59048df5af5c8dc47d5dc51f",
+      "size_bytes": 2379
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B96148643E2369995FE724DDD0B61A45/payload/original_bytes.md",
+      "sha256": "sha256:c2b747987734b09131c164159534923866905af6df4fb96dec271674334114c8",
+      "size_bytes": 759
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_B96148643E2369995FE724DDD0B61A45/restoration_drill_report.json",
+      "sha256": "sha256:ce229bd2af201a24f93ccb9d8b9825c047956f5cc6f9fa04ba3c2cd5739f30a5",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BB74C8E179F92024B51CE5C42D7102B3/immutability_contract.json",
+      "sha256": "sha256:4562660e7cf8eab31353bc53d79c7b3b76615c6226764626f33369ac94a143d6",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BB74C8E179F92024B51CE5C42D7102B3/package_manifest.json",
+      "sha256": "sha256:4f36ec05b8865c278f8425199fbf4048f0cf72555d213bd77933c8b5b84c811f",
+      "size_bytes": 2275
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BB74C8E179F92024B51CE5C42D7102B3/payload/original_bytes.md",
+      "sha256": "sha256:459784a8271b75c4c6d13e4f289c9c1b8af00ba23f481bebd2bdc8f5eb76e6f4",
+      "size_bytes": 899
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BB74C8E179F92024B51CE5C42D7102B3/restoration_drill_report.json",
+      "sha256": "sha256:984555b1f9912c1b408dbc818867102a20dbafaa8fc2253e354702ea3af27519",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BCDD9441EB21E18038567B8FA0C6D82B/immutability_contract.json",
+      "sha256": "sha256:05d594ced188770442249653fd10d89a5cd68b780567503f588941bdaa9088e7",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BCDD9441EB21E18038567B8FA0C6D82B/package_manifest.json",
+      "sha256": "sha256:2df588fe214c041478f0adb56502f26198c078e62edce9df71e8ff37d8a890ab",
+      "size_bytes": 2181
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BCDD9441EB21E18038567B8FA0C6D82B/payload/original_bytes.md",
+      "sha256": "sha256:05020331ee55fcfcc7127bae1e08cb95847e3920668224f060ce53923b4b48da",
+      "size_bytes": 997
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BCDD9441EB21E18038567B8FA0C6D82B/restoration_drill_report.json",
+      "sha256": "sha256:f4ef17553e5cd86cd65802370aa3856ce62a688bf00d90ea1ce9bc57ba35daf9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF07C6317C2A488FAFB3676125D7A0F0/immutability_contract.json",
+      "sha256": "sha256:144d5af257df7e274f86985d60d6c8e3e9bf55a0b0022637f608bc89ad850ebf",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF07C6317C2A488FAFB3676125D7A0F0/package_manifest.json",
+      "sha256": "sha256:5234d0d1f98727eb3e5c4c15fc1e35ab7aaff3605266aee370dbb1651c606ce4",
+      "size_bytes": 2313
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF07C6317C2A488FAFB3676125D7A0F0/payload/original_bytes.md",
+      "sha256": "sha256:4023e63b9306480efdfc2d1adb2ad4b7e99f25aef001d91aef2c66c09d3ecfab",
+      "size_bytes": 735
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF07C6317C2A488FAFB3676125D7A0F0/restoration_drill_report.json",
+      "sha256": "sha256:76492f13cc44ae8bbfeddd6e6e6355e373c2b6ae57199be35e838cbd930e6954",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF1350BE9908A1B2313456FD6718E49E/immutability_contract.json",
+      "sha256": "sha256:3a8a475132614ff94b0e3c46df522888a1dd08bf728f25166f566405af926041",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF1350BE9908A1B2313456FD6718E49E/package_manifest.json",
+      "sha256": "sha256:43f9f35b0efdb3fc758551bbff9bf15b9c31f1be15a3f764ed5c3c6e23672669",
+      "size_bytes": 2280
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF1350BE9908A1B2313456FD6718E49E/payload/original_bytes.md",
+      "sha256": "sha256:cd3693fc90dea2edcf0ba4c1e7c714b8bf12eaaf5c03960d46aba8be3e028aa7",
+      "size_bytes": 758
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_BF1350BE9908A1B2313456FD6718E49E/restoration_drill_report.json",
+      "sha256": "sha256:8831aa1fa2fe49daa9b414749ade28dd21709e96ad6a9005c35342f6af71b4ed",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C175BB93AF04AB4C11E3521915C68311/immutability_contract.json",
+      "sha256": "sha256:5a4b431e782fa8a6b3de12ef66f0c1ce78d28bd24eb2a57a8a557dba61d48966",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C175BB93AF04AB4C11E3521915C68311/package_manifest.json",
+      "sha256": "sha256:fc046d44ead8f8cf57a83e032df200ba884e70a1b8eccc3b25fdf28d3c2eabd8",
+      "size_bytes": 2245
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C175BB93AF04AB4C11E3521915C68311/payload/original_bytes.md",
+      "sha256": "sha256:547ce6f11c1f48605a1f8544115fc7234eeb979c8d557ceb9210bdacc25870e2",
+      "size_bytes": 236
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C175BB93AF04AB4C11E3521915C68311/restoration_drill_report.json",
+      "sha256": "sha256:64b34db578ad6fe1e1e20fc52f4a2a9d2d148bc45a677f3467619661036a36e1",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C4CCF6EDF9B8F75A394E56C244A5740E/immutability_contract.json",
+      "sha256": "sha256:c92e08d9100a148b2d1a954221805e47c7c7fe7dc6588012289e6bbcf4fefd69",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C4CCF6EDF9B8F75A394E56C244A5740E/package_manifest.json",
+      "sha256": "sha256:8a867ebaa4b6d56953da050a85892d2bf19bab3e018a22a5cc6717ad236bee1d",
+      "size_bytes": 2261
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C4CCF6EDF9B8F75A394E56C244A5740E/payload/original_bytes.md",
+      "sha256": "sha256:cce87d02809c77b5deb0149176901266c18da5065bb000caf2d317b26fc0271d",
+      "size_bytes": 3479
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C4CCF6EDF9B8F75A394E56C244A5740E/restoration_drill_report.json",
+      "sha256": "sha256:1b967df8c40508c57e35c78a781c085e56c6611341a2e6ce3813ffa9d876ad5a",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C5E7F8163DE3C506BD726896B1FC8A60/immutability_contract.json",
+      "sha256": "sha256:5ad8f23dec1e93665c4c480bbed122bce9c338bd1ac28195205219d0e8cccc0f",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C5E7F8163DE3C506BD726896B1FC8A60/package_manifest.json",
+      "sha256": "sha256:4c3e399d0bdd72544bceb33e4b91374846d75b71381c1d39d264a1ef22044165",
+      "size_bytes": 2223
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C5E7F8163DE3C506BD726896B1FC8A60/payload/original_bytes.md",
+      "sha256": "sha256:d679c865eca4372736b40e5f97543081310b6762708f89934fc293a55e24b4cc",
+      "size_bytes": 1584
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C5E7F8163DE3C506BD726896B1FC8A60/restoration_drill_report.json",
+      "sha256": "sha256:e7f8b2ca4f4cb17d66fb0629a097005efc6dafea9590721e8be3e4ac2de01638",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C8B0E8D9CE6E2143815D0A4F8547A30C/immutability_contract.json",
+      "sha256": "sha256:17652e8fef0e71fd5a12bf5b79e487ffb3a6513433e99c1053c5662fd0fb1b61",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C8B0E8D9CE6E2143815D0A4F8547A30C/package_manifest.json",
+      "sha256": "sha256:4e59b8ee383625c4bd84d73c842e6a3b76bac2159656b06bbc49291ba60ca015",
+      "size_bytes": 2277
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C8B0E8D9CE6E2143815D0A4F8547A30C/payload/original_bytes.md",
+      "sha256": "sha256:a7f18b3709e9080bf79c8ce2f690d26600e09e760f39192221849a685d50c8fa",
+      "size_bytes": 1009
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_C8B0E8D9CE6E2143815D0A4F8547A30C/restoration_drill_report.json",
+      "sha256": "sha256:f1bf6cb386f5b72fb8577771ffa7e180fca021250a31ef0c8e48fb404596c489",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D5D74B447F021AC6C90E2EED4BFF867C/immutability_contract.json",
+      "sha256": "sha256:be8407d0c7fe9a1d672448d2a8e5b353c934cd63a430dd0215af82132f3ad2de",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D5D74B447F021AC6C90E2EED4BFF867C/package_manifest.json",
+      "sha256": "sha256:78a286784b31d4f1959bc3d6cf152e5c2bc6ea25613716800ca097f12edd927b",
+      "size_bytes": 2300
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D5D74B447F021AC6C90E2EED4BFF867C/payload/original_bytes.md",
+      "sha256": "sha256:99023bd4013b2bb52b5bd2d4f3def301669e306e442b8b56106c111ebb44fbba",
+      "size_bytes": 1758
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D5D74B447F021AC6C90E2EED4BFF867C/restoration_drill_report.json",
+      "sha256": "sha256:9709f25e2e802d94faf87ce34e0ce5d0f1eecb08f99b1b4b41004c56279d54d0",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D863C51B715ECE186502948744E6D0C9/immutability_contract.json",
+      "sha256": "sha256:2d5869fc557aee77a5bda2f384cddeb3b9e0dc1affdfba55bc93bed7d0bfd773",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D863C51B715ECE186502948744E6D0C9/package_manifest.json",
+      "sha256": "sha256:4cf39ac34121304617ee61b208e804b64a0fc62a6b987b7aba898b002453ad7b",
+      "size_bytes": 2287
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D863C51B715ECE186502948744E6D0C9/payload/original_bytes.md",
+      "sha256": "sha256:66bbec7bc7ef63d989d83c0714fd5a06bbde7b00cd7cd78adfe43a7d0c2e24be",
+      "size_bytes": 6809
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_D863C51B715ECE186502948744E6D0C9/restoration_drill_report.json",
+      "sha256": "sha256:df635bc6a0d526f287eb39ad93e36cd9d7bd5402487173c79e9222ac6a9cd07a",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DBBCAA930B65928FEFA64844CE229F3E/immutability_contract.json",
+      "sha256": "sha256:b016aad91771f2a5b3be1826eef708855e649ccfe2b80c25ee399e37826de272",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DBBCAA930B65928FEFA64844CE229F3E/package_manifest.json",
+      "sha256": "sha256:628a3bfb0df278c1991dc552aeb4772bb76f231a70b038d59c0e1a2e4e0fa00f",
+      "size_bytes": 2280
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DBBCAA930B65928FEFA64844CE229F3E/payload/original_bytes.md",
+      "sha256": "sha256:2af218d3273fbcacc63b11c476f56dc7d4f36315575949ae6b8feb6fe0f89d75",
+      "size_bytes": 26124
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DBBCAA930B65928FEFA64844CE229F3E/restoration_drill_report.json",
+      "sha256": "sha256:ec41da720d5b8b0f8bfcba469ca6eaf0964a04ad2175965157ad4c27357f2ad7",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DC60C131CF29FA50DBF004D5B7CE5A11/immutability_contract.json",
+      "sha256": "sha256:2c63e3c651137dcf714f59233b62c2c0bc5c32ba4b70992675c52806f9405f4a",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DC60C131CF29FA50DBF004D5B7CE5A11/package_manifest.json",
+      "sha256": "sha256:59784e7336d14bf46384461f226faf07f2fe8f7a27aae14bc0a3cd19889f61e4",
+      "size_bytes": 2241
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DC60C131CF29FA50DBF004D5B7CE5A11/payload/original_bytes.md",
+      "sha256": "sha256:1e8956c49f9da06ef768ac8592a3eb1820a7f8e22521de11a46616394f698e79",
+      "size_bytes": 715
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_DC60C131CF29FA50DBF004D5B7CE5A11/restoration_drill_report.json",
+      "sha256": "sha256:a125a19570e729c63b53d24edb7d68d87525da73a655aa891e84bcb4ff26efb7",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E2E930B30113B3D7FB14AD4FF7237030/immutability_contract.json",
+      "sha256": "sha256:34c67720cb595fc43c3bbb5c769cf2d60551cd2d0c330067914cadece7186d14",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E2E930B30113B3D7FB14AD4FF7237030/package_manifest.json",
+      "sha256": "sha256:d618582f6d90f841950ac68302616a0ff79ac0e2936a3211dc48458fb1a1c326",
+      "size_bytes": 2303
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E2E930B30113B3D7FB14AD4FF7237030/payload/original_bytes.md",
+      "sha256": "sha256:e9353d6522983393606f1d0bbc18eed00d2ebad9a1ccd4f72c2eaacef8e7b0a7",
+      "size_bytes": 5922
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E2E930B30113B3D7FB14AD4FF7237030/restoration_drill_report.json",
+      "sha256": "sha256:22467358d6130e1d2e7090b45f98b78c6aa7296ec210d178c2413237b3f31941",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E3F9837E971B7AD8E6332990EBC6C10C/immutability_contract.json",
+      "sha256": "sha256:7362537e9c496463e49143e79b826f953db0d029fe82451a06da59ee4453ec1c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E3F9837E971B7AD8E6332990EBC6C10C/package_manifest.json",
+      "sha256": "sha256:0fe45f09fc7a0ef5b3125effc82ec57ffd8d4269749d7019283664bdc8d47680",
+      "size_bytes": 2290
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E3F9837E971B7AD8E6332990EBC6C10C/payload/original_bytes.md",
+      "sha256": "sha256:ce6073ea1cf989e0347a684c0b074df43a59244d31ecf21ff34b8db018735be5",
+      "size_bytes": 7659
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E3F9837E971B7AD8E6332990EBC6C10C/restoration_drill_report.json",
+      "sha256": "sha256:e03662787ac669637dc0d92268ea700d0ed7217584b7c0b2f390bae7b327bebc",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E57A5AE1C4A54A6DF6B532D23D8ECBE7/immutability_contract.json",
+      "sha256": "sha256:d84339a3bd93f52e4952d42b21b0209cd07c6b0aab1f9498c2c7d8721eb5ea96",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E57A5AE1C4A54A6DF6B532D23D8ECBE7/package_manifest.json",
+      "sha256": "sha256:834245b33838f8f033400f6185777ff866dceee62334106edf4d92be06e5e956",
+      "size_bytes": 2249
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E57A5AE1C4A54A6DF6B532D23D8ECBE7/payload/original_bytes.md",
+      "sha256": "sha256:c610b7206c4a3f20eb0c126f19befbf7a6bbd603ee250062ceb2f2724e1803dc",
+      "size_bytes": 3702
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E57A5AE1C4A54A6DF6B532D23D8ECBE7/restoration_drill_report.json",
+      "sha256": "sha256:ea3129e432f910a658a359e3883eee0cf42773916dd3b0248553990a1b548065",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E73C67AD3CB2BB56C3E47F0F0751F416/immutability_contract.json",
+      "sha256": "sha256:ba11794121b86169e036af47d26ec5e8ee491d20139c0df5bac4c9df8e569710",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E73C67AD3CB2BB56C3E47F0F0751F416/package_manifest.json",
+      "sha256": "sha256:42c2657c8a9424062bd2cac470cf10ce378a3c7fac9f4dcd99d97bbb834585fa",
+      "size_bytes": 2318
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E73C67AD3CB2BB56C3E47F0F0751F416/payload/original_bytes.md",
+      "sha256": "sha256:3a0b0bf2d71595b03be333727a94a0eea8cdd5e236c2797e5f1c04c591604271",
+      "size_bytes": 2270
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_E73C67AD3CB2BB56C3E47F0F0751F416/restoration_drill_report.json",
+      "sha256": "sha256:4e9051081bb0cbf48c4aa735ec403ca7e26fae5bfc8a78647c703749797c6445",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EAE324C72F57A20AA2CA1A86C4C8E764/immutability_contract.json",
+      "sha256": "sha256:2142e784c11a4e7a833aff8cd2d19d09a60f6b714e793c7882ab215531b226ca",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EAE324C72F57A20AA2CA1A86C4C8E764/package_manifest.json",
+      "sha256": "sha256:fce1fa75aca92a220f09d8f320e229b489dcd8da0ba3296b976b35e43244c3b3",
+      "size_bytes": 2228
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EAE324C72F57A20AA2CA1A86C4C8E764/payload/original_bytes.md",
+      "sha256": "sha256:9e4efde51d1127d987328e9544ff8d157738ed1cc8487601d05a791c377a54fe",
+      "size_bytes": 2163
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EAE324C72F57A20AA2CA1A86C4C8E764/restoration_drill_report.json",
+      "sha256": "sha256:4f6a584c3c4206c46931943fe0bc6ecb56ddef00708883a8697ce77b72b26a64",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EB3CF5F851504E018F2F731AF1E0ACE8/immutability_contract.json",
+      "sha256": "sha256:9315163704090afdec7b298d86a4f1b90f538c3be44b9b37320923e1fd25fe9e",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EB3CF5F851504E018F2F731AF1E0ACE8/package_manifest.json",
+      "sha256": "sha256:8b724ee52749d33b6d38421b985cb1b03be23f18327e883f8134afba240fa313",
+      "size_bytes": 2335
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EB3CF5F851504E018F2F731AF1E0ACE8/payload/original_bytes.md",
+      "sha256": "sha256:a6c357c850c4fed8d8b6038bb44ce666afcc4802a35ddf71172d2d22dab00ea5",
+      "size_bytes": 4593
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EB3CF5F851504E018F2F731AF1E0ACE8/restoration_drill_report.json",
+      "sha256": "sha256:a809f15e72ed69e01f05a4caf82086bb0e81702913026999e2c2d6aaa609134e",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EBBE703661C8D6917CB39E0BED5A27F4/immutability_contract.json",
+      "sha256": "sha256:8ba5f503487968b2ad7b46e19c2f65108cbc4f3967ac151ce7e5ae5a0ba176a0",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EBBE703661C8D6917CB39E0BED5A27F4/package_manifest.json",
+      "sha256": "sha256:0ee282c322f8a495a43d461242604331669a8f1b56ecf742c4da712c6b21c9ba",
+      "size_bytes": 2263
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EBBE703661C8D6917CB39E0BED5A27F4/payload/original_bytes.md",
+      "sha256": "sha256:79c360822886f302f31103c14616237faf523162b9d3d074695824dbb3f428af",
+      "size_bytes": 8513
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EBBE703661C8D6917CB39E0BED5A27F4/restoration_drill_report.json",
+      "sha256": "sha256:1a4cd90492e0eca8547040870561ca3f80863b8368ea4791015b487787361192",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ECDF48F78879CC0B450A51283DFD4B4F/immutability_contract.json",
+      "sha256": "sha256:52ecb6710f76c090e5014d4291a28ca987e7e6fdabc25220aaaa9350ca1f8a60",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ECDF48F78879CC0B450A51283DFD4B4F/package_manifest.json",
+      "sha256": "sha256:c8733daeb0a8fe5d0a55c7a2970074b8671d72f62d9da8a50c808122ed3194ca",
+      "size_bytes": 2118
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ECDF48F78879CC0B450A51283DFD4B4F/payload/original_bytes.md",
+      "sha256": "sha256:8a05e0d563a7eed2cca1ee5e6d2cb4837ed5e85f446cb9cd3190591c0d27db5f",
+      "size_bytes": 1687
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ECDF48F78879CC0B450A51283DFD4B4F/restoration_drill_report.json",
+      "sha256": "sha256:8fe4cafcbace295bd1f50f8698a00a011f8bdb11527ba47bbd7e250c321aad67",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ED7F3912D6E5848C743D176DFB971C29/immutability_contract.json",
+      "sha256": "sha256:d11736837afc2baa61c86e613ee888544f373713c05347e3ffbe28fe2de386d6",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ED7F3912D6E5848C743D176DFB971C29/package_manifest.json",
+      "sha256": "sha256:5c51e0493c9e4b054266d93bf53ea1b41649fcff20940e64b6993a63bd816118",
+      "size_bytes": 2317
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ED7F3912D6E5848C743D176DFB971C29/payload/original_bytes.md",
+      "sha256": "sha256:6fc2e9671b01715f3539405fed67534e3766c94b8f344a17943e77b194942352",
+      "size_bytes": 1321
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_ED7F3912D6E5848C743D176DFB971C29/restoration_drill_report.json",
+      "sha256": "sha256:7093a7de242226d0ce0b347deb49036b6f661015c9927a86aface9e4d6db8045",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EEB6FE5156476B9A348D42F280F5AC48/immutability_contract.json",
+      "sha256": "sha256:640926f790b0d10479732bb166ac37160f4a2490cda9be8acc285419a10e465b",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EEB6FE5156476B9A348D42F280F5AC48/package_manifest.json",
+      "sha256": "sha256:9eb7b62c65f0b96a7a41e9d510d8ed5e456b8a465e9c384e287ab71ace810135",
+      "size_bytes": 2289
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EEB6FE5156476B9A348D42F280F5AC48/payload/original_bytes.md",
+      "sha256": "sha256:d2320af11bec9506cfcff7ce1ab1e2f39886074b660872870a2547d45c71a75a",
+      "size_bytes": 1151
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EEB6FE5156476B9A348D42F280F5AC48/restoration_drill_report.json",
+      "sha256": "sha256:f802b32b18362e86fc3acfa4f3d8de83561f94372bc63a2f345f23a6e8ee3a7c",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EFA63326F115EA64F22A2492B45D01FC/immutability_contract.json",
+      "sha256": "sha256:0aecfcfb806e49d20155db3a2c57267f58479c9f0e7e2b726ba0076e2f63c741",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EFA63326F115EA64F22A2492B45D01FC/package_manifest.json",
+      "sha256": "sha256:bc6d61cc5ea319fc7744cb147b6cb2d872851a30cbf45e8819cc6ed5f19ffece",
+      "size_bytes": 2194
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EFA63326F115EA64F22A2492B45D01FC/payload/original_bytes.md",
+      "sha256": "sha256:dd4c9ab41cfc1265d7b98be6e4946486f565c8e4c1921f1aaca1ac20b0f34e71",
+      "size_bytes": 381
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_EFA63326F115EA64F22A2492B45D01FC/restoration_drill_report.json",
+      "sha256": "sha256:3273e1af3ade4788f09b32e127c12d984356b859bb6d3ad78c462e22fbbecc7e",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F1EAFA5463489029B42BC226EC03D066/immutability_contract.json",
+      "sha256": "sha256:7d672c418fa23e7ecba75008a658776e39fece663d3caa32c2e54169fbefbb81",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F1EAFA5463489029B42BC226EC03D066/package_manifest.json",
+      "sha256": "sha256:9db1441932b991333028982a3a43befb7835777e6fb68dc4217eff94770d2daf",
+      "size_bytes": 2200
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F1EAFA5463489029B42BC226EC03D066/payload/original_bytes.md",
+      "sha256": "sha256:b699dc94664d189de3e24761c78291e12de961da306e8897426946126836c16f",
+      "size_bytes": 1090
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F1EAFA5463489029B42BC226EC03D066/restoration_drill_report.json",
+      "sha256": "sha256:b43855bfbf627f2bc9d470ff55016447b7683ad2cae9484d492b14be61d9a524",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F2549D8013FFF86193E23B3B6D12CC44/immutability_contract.json",
+      "sha256": "sha256:26976ffb882fa48c0bce8f1e9116137c10b1ac7e56023f2a22ff710b1f3e2615",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F2549D8013FFF86193E23B3B6D12CC44/package_manifest.json",
+      "sha256": "sha256:a1f53799edcdbc2a50355c1139d86bca08bf185fe6eb6cbc6d6a3ccd3c7e0d3c",
+      "size_bytes": 2267
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F2549D8013FFF86193E23B3B6D12CC44/payload/original_bytes.md",
+      "sha256": "sha256:079b4397e7a02c317a299802256bf3d1386f9afa6e8878783183c10a7520ae31",
+      "size_bytes": 434
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F2549D8013FFF86193E23B3B6D12CC44/restoration_drill_report.json",
+      "sha256": "sha256:9f617ce27de2c6b5d403bd78906184c9b34784767edea0bc870a5d5e4ef5e7c4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F3F3C2400716340ABBEFE6F6DFC1247E/immutability_contract.json",
+      "sha256": "sha256:5db927bad2ef2bb24193a57d1a65a4147baf85eaf3e7f5005cdd54b943616865",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F3F3C2400716340ABBEFE6F6DFC1247E/package_manifest.json",
+      "sha256": "sha256:7bff1b7ec5191e287a5210a47713703a59bee9b9c1ac7a9bfc301709f6088f73",
+      "size_bytes": 2256
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F3F3C2400716340ABBEFE6F6DFC1247E/payload/original_bytes.md",
+      "sha256": "sha256:befc387bd83cf09f571bbf9f7c7eb594562cc5f55950f2abcbe73cbf8a2bae97",
+      "size_bytes": 3524
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F3F3C2400716340ABBEFE6F6DFC1247E/restoration_drill_report.json",
+      "sha256": "sha256:ec8bb6a14e48ac556a9a058cf06877805db0068c221953514391ef393d27353e",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F758A215CE6464F83E6F50C73F67D269/immutability_contract.json",
+      "sha256": "sha256:db96006ca7977f0785244f7d845ef17bc7a192e8c06cfea5a3ccfade1ad84db3",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F758A215CE6464F83E6F50C73F67D269/package_manifest.json",
+      "sha256": "sha256:1071e980ef516cb34a9f12b7a1f1d6a30b8aca43135c2fbb086db4ffd869803e",
+      "size_bytes": 2296
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F758A215CE6464F83E6F50C73F67D269/payload/original_bytes.md",
+      "sha256": "sha256:f2a7b5f5de450deab6a50da4b7b73d5ad90939066014968261708bf270e720e2",
+      "size_bytes": 6479
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F758A215CE6464F83E6F50C73F67D269/restoration_drill_report.json",
+      "sha256": "sha256:5f23ebe874c23fb0eb5037473d8437bc4e3c8a80a9b48b7a9c64b1a7c8e0111b",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F93F8D6715DDCDF46A9C82E7F21B67F7/immutability_contract.json",
+      "sha256": "sha256:2918a6fd4ae768845d7dc5ce4c24d373846986b1bc1d4552c94ee309e4fb04e8",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F93F8D6715DDCDF46A9C82E7F21B67F7/package_manifest.json",
+      "sha256": "sha256:3d16ae30dc243aed3f8c4fb67e062061084c93eb7ebe31dc1591000edb90a6ac",
+      "size_bytes": 2284
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F93F8D6715DDCDF46A9C82E7F21B67F7/payload/original_bytes.md",
+      "sha256": "sha256:6cfe64bb4ed790a9015891d0b95502a805f5700b9fafbbccb0923bf98c38db9f",
+      "size_bytes": 9075
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F93F8D6715DDCDF46A9C82E7F21B67F7/restoration_drill_report.json",
+      "sha256": "sha256:462fafad7a6948365b4dbe0c7e9dd5e0f960cbe1c0cb908cd25af50096a412d2",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F9A0F9E46C9AEB95044D2B9643CC90D7/immutability_contract.json",
+      "sha256": "sha256:02b717fc76189195289c6a3a0d7f91551cb6048d6f9066efa785111771e6e403",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F9A0F9E46C9AEB95044D2B9643CC90D7/package_manifest.json",
+      "sha256": "sha256:6bf1c94c7bb6aa04b439cd779420a8b0eaf4bd9c1c2841eff9b772674b8dd80a",
+      "size_bytes": 2201
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F9A0F9E46C9AEB95044D2B9643CC90D7/payload/original_bytes.md",
+      "sha256": "sha256:2c07063e04241d17c33506d49acfa4a101adb5976b2d1a4ba7853481e5f4e2c8",
+      "size_bytes": 5371
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_F9A0F9E46C9AEB95044D2B9643CC90D7/restoration_drill_report.json",
+      "sha256": "sha256:a1abda8860e700d220bf7aea6f91ab06c2db6c3c8278929c54e259c4ac596ca9",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FAAF400D61B1F9D61B76CF98A45E0335/immutability_contract.json",
+      "sha256": "sha256:4396651fc0ac93553f61171c2fd124b0836a76b5274f7cb0d2ff529c3394b590",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FAAF400D61B1F9D61B76CF98A45E0335/package_manifest.json",
+      "sha256": "sha256:1ace4dc33692e3652f6ac23318cffb5c5bcb108b3951e6a097c93aacf5a8f26d",
+      "size_bytes": 2235
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FAAF400D61B1F9D61B76CF98A45E0335/payload/original_bytes.md",
+      "sha256": "sha256:601aee56aa16d88b247a944f0c4fd8e9303c4c2cddfd8010aa33008370817d2e",
+      "size_bytes": 296
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FAAF400D61B1F9D61B76CF98A45E0335/restoration_drill_report.json",
+      "sha256": "sha256:daaf3cf9ef03d5fb4b87415f8fc01e0621e634a81968dd2e157c461857a5e36b",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FBEE5B5847F4B244D27E5D78688FB1D7/immutability_contract.json",
+      "sha256": "sha256:3090435bcb2c8a271a4e928a290998c074bc622bd31551773c87f97c241788a7",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FBEE5B5847F4B244D27E5D78688FB1D7/package_manifest.json",
+      "sha256": "sha256:31bd65797060505a51567c102872d1625934a985bf1ba71fbdeceb5abfcc9a63",
+      "size_bytes": 2229
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FBEE5B5847F4B244D27E5D78688FB1D7/payload/original_bytes.md",
+      "sha256": "sha256:f249bda1dea2fc84e1fd85cb5fb5040ff06a9573425939754f909431906a1e8e",
+      "size_bytes": 2301
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FBEE5B5847F4B244D27E5D78688FB1D7/restoration_drill_report.json",
+      "sha256": "sha256:2f0d8745ff17429f16a733d7ab9f6c30e8c4664defd1a77176f331a7f8b11bc4",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FE08132A0C1A7AFF3F7FC80BF9BF4576/immutability_contract.json",
+      "sha256": "sha256:b2c70517af541a73fde9fa315e92502d0ba28ff673c24c9e9f581ab9e35d8d9d",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FE08132A0C1A7AFF3F7FC80BF9BF4576/package_manifest.json",
+      "sha256": "sha256:bf46df3a40c50616aba286cf252ec3a2efc5356bf5967c626eac16e87ef07681",
+      "size_bytes": 2226
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FE08132A0C1A7AFF3F7FC80BF9BF4576/payload/original_bytes.md",
+      "sha256": "sha256:f7341cd5571d0f387c123a7e9576e393213cddcdbd1a7c7873d91ac0725934b6",
+      "size_bytes": 1666
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FE08132A0C1A7AFF3F7FC80BF9BF4576/restoration_drill_report.json",
+      "sha256": "sha256:80a6c5a5f07fbd1c10d6a2ce256f6c154bca986a237f84710822169d7a46b5e2",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FFD5179AED962A86A716545F1E24E4E3/immutability_contract.json",
+      "sha256": "sha256:854cb363c0ad69060633ee733a324c1ddfbc8338373bef7320aaac42e115014c",
+      "size_bytes": 1353
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FFD5179AED962A86A716545F1E24E4E3/package_manifest.json",
+      "sha256": "sha256:ec515a0e6c8b64dc85656885d606479cfa49f8e32f6202cf718d18d748e3b78d",
+      "size_bytes": 2579
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FFD5179AED962A86A716545F1E24E4E3/payload/original_bytes.md",
+      "sha256": "sha256:7a17034836ee80c0e51d6eb8b47f1d42bd2b978cecdbc3f3ca46ca091f18192a",
+      "size_bytes": 310
+    },
+    {
+      "path": "quarantine_packages/QUARANTINEPKG_FFD5179AED962A86A716545F1E24E4E3/restoration_drill_report.json",
+      "sha256": "sha256:a74b709e6d5e51d02d160a7a4cc754ea4988a7a698fa521690740c12c0ac0504",
+      "size_bytes": 1426
+    },
+    {
+      "path": "quarantine_registry.json",
+      "sha256": "sha256:2756a8dff6e091de6e9d69c5cf202b8eeecfa84c123110b0c5a754c35019858c",
+      "size_bytes": 1313
+    },
+    {
+      "path": "records/active_reference_records.jsonl",
+      "sha256": "sha256:2d441c4393172e78c5c23db85acf0e041883a4040cb14d1fdf180bda58c972c2",
+      "size_bytes": 7390004
+    },
+    {
+      "path": "records/observation_cycle_records.jsonl",
+      "sha256": "sha256:35f8f748a4ae812da3bb2f92c697c9593650148f395d68fd7a29921905aa1b14",
+      "size_bytes": 388938
+    },
+    {
+      "path": "records/quarantine_package_records.jsonl",
+      "sha256": "sha256:f0d1d7b373713fbd2e27d3ba3f987f4b71c41ebc41516729abb892e340d3c8a6",
+      "size_bytes": 350122
+    },
+    {
+      "path": "records/restoration_drill_records.jsonl",
+      "sha256": "sha256:d60d51737a2bfc4d2d25a41e8ff2013990aeb89d7d0af3430238b908005369f6",
+      "size_bytes": 178160
+    },
+    {
+      "path": "records/retirement_eligibility_records.jsonl",
+      "sha256": "sha256:dd6222bd5c25f6785bc2e29eea69cfd5dc22934caaebd9f5b8e9a05c8fe6b58c",
+      "size_bytes": 245539
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:e2fc1ad71143a170b4404173f04089df51c0f91b078a047a698b5ed925a9d272",
+      "size_bytes": 1603
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:f7b93feb9e41136a5f35f1196be719b01a2a934e72569e18f054dafebcad210d",
+      "size_bytes": 1921
+    },
+    {
+      "path": "residual_retirement_risk.md",
+      "sha256": "sha256:8f5620c387f98a5a24129fca047a9b4de0fb479127a0f439cf82c9404a4d6a6a",
+      "size_bytes": 427
+    },
+    {
+      "path": "restoration_drill_registry.json",
+      "sha256": "sha256:37b39651695fa471fe3df4855658df4f4389ef1f485852ec6238f8245e9accdc",
+      "size_bytes": 1188
+    },
+    {
+      "path": "retirement_eligibility_registry.json",
+      "sha256": "sha256:3e6786e94d6d7dc737d1b6caeea2d87eefec02bfd26e278a1b1518038d5cf760",
+      "size_bytes": 1240
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:01019e5b90ba1fc26395422c7b74b9a14a9b4225486f64841c7d91509b4dee68",
+      "size_bytes": 1828
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "output_manifest_digest": "sha256:707a1a8d7451889030dd13a28a2e42a3fa27c3596b2eec6f8b4fe4978ee8e4d2",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-14B",
+  "producer": "tools.strategy_factory.lcm.lcm_14b.service:LCM14BQuarantineObservationService",
+  "quarantine_id": "QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1",
+    "sha256:a3882a9fede7855fb28007b7a217b251c2ead3239a5c09bcaa75c62cdd7fc284",
+    "sha256:d3d2709e4dca759f99f086ca26af90e6e326511c77bdc402fcebb44570cce2bb",
+    "sha256:76ca001b89a328fc0a9e9b9586466b06b6818fce807392ac4863a701b5e6cf66"
+  ],
+  "validation_status": "PASS"
+}

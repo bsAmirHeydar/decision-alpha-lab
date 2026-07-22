@@ -15,7 +15,7 @@ By default this issuer tool also archives every issued license under:
   licenses/user0001-First-Middle-Last/
 
 Committed repository policy:
-  - Keep licenses/README_LICENSE_ISSUER.md in git as the guide.
+  - Keep docs/releases/legacy_migration/general/dc619e167a21_README_LICENSE_ISSUER.md in git as the guide.
   - Do not commit generated user folders.
 """
 from __future__ import annotations

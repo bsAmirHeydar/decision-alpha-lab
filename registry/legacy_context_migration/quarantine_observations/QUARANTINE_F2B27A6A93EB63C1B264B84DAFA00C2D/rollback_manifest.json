@@ -1,0 +1,34 @@
+{
+  "active_legacy_redirect_restore_required": false,
+  "canonical_source_restore_required": false,
+  "claim_ceiling": "LCM_14B_REFERENCE_ONLY",
+  "deletion_reversal_required": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-14",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "paths_to_remove": [
+    "registry/legacy_context_migration/quarantine_observations/QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D",
+    "registry/legacy_context_migration/lcm_14b",
+    "tools/strategy_factory/lcm/lcm_14b",
+    "lab/11_strategy_factory/migration/tests_lcm_14b",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_14B",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_14B"
+  ],
+  "phase_id": "LCM-14B",
+  "producer": "tools.strategy_factory.lcm.lcm_14b.service:LCM14BQuarantineObservationService",
+  "quarantine_id": "QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:ff7df7032fc0c945f512ff2e80ea3573ae479acf3a8042ebf3eb39dd6606cabf",
+  "rollback_scope": "REMOVE_LCM14B_EVIDENCE_ONLY",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1",
+    "sha256:a3882a9fede7855fb28007b7a217b251c2ead3239a5c09bcaa75c62cdd7fc284",
+    "sha256:d3d2709e4dca759f99f086ca26af90e6e326511c77bdc402fcebb44570cce2bb",
+    "sha256:76ca001b89a328fc0a9e9b9586466b06b6818fce807392ac4863a701b5e6cf66"
+  ],
+  "validation_status": "PASS",
+  "verification_command": "python -m tools.strategy_factory.lcm.lcm_14b.cli verify-package --quarantine-root <root>"
+}

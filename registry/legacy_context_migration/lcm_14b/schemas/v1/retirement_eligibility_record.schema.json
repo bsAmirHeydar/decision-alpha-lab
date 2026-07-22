@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/lcm/14b/retirement_eligibility_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "consumer_id": {},
+    "deletion_approved": {},
+    "deterministic_identity": {},
+    "external_consumer_evidence_state": {},
+    "generated_time_semantics": {},
+    "master_phase": {},
+    "owner": {},
+    "phase_id": {},
+    "producer": {},
+    "quarantine_id": {},
+    "retirement_eligibility_state": {},
+    "reviewer": {},
+    "schema_version": {},
+    "source_digests": {},
+    "validation_status": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "quarantine_id",
+    "consumer_id",
+    "retirement_eligibility_state",
+    "external_consumer_evidence_state",
+    "deletion_approved"
+  ],
+  "title": "Retirement Eligibility Record",
+  "type": "object"
+}

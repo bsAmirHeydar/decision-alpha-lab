@@ -1,8 +1,8 @@
 ---
 title: "LCM-14B — Quarantine, Observation and Retirement Eligibility"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-22
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-14B
 master_phase: LCM-14
@@ -126,3 +126,7 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: deletion proof only.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Implemented outcome — 2026-07-22
+
+LCM-14B is implemented under quarantine package `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D`. The phase creates 136 immutable documentation payload packages, retains all 136 compatibility redirects and canonical sources, executes two deterministic repository observation cycles per identity, records zero meaningful active repository references, and passes byte-exact restoration rehearsal for every package. External consumer evidence remains explicit UNKNOWN, so all 136 identities are eligible only to enter LCM-15A reference proof; none is deletion-approved. The 477 active-source identities remain unchanged and outside quarantine. Handoff: `sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8`.

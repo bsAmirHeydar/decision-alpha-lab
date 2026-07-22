@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/lcm/14b/receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "deletion_performed": {},
+    "deterministic_identity": {},
+    "generated_time_semantics": {},
+    "master_phase": {},
+    "owner": {},
+    "phase_id": {},
+    "producer": {},
+    "quarantine_package_count": {},
+    "receipt_digest": {},
+    "reviewer": {},
+    "schema_version": {},
+    "source_digests": {},
+    "validation_status": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "receipt_digest",
+    "quarantine_package_count",
+    "deletion_performed"
+  ],
+  "title": "Receipt",
+  "type": "object"
+}

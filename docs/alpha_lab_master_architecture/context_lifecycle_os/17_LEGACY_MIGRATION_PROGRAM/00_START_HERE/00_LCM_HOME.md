@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_14B_QUARANTINE_OBSERVATION_AND_RETIREMENT_ELIGIBILITY|LCM-14B — Quarantine, Observation and Retirement Eligibility]].
+The next approved implementation unit is [[LCM_15A_DELETION_CANDIDATE_INVENTORY_AND_REFERENCE_PROOF|LCM-15A — Deletion Candidate Inventory and Reference Proof]].
 
 ## Claim ceiling
 
@@ -56,6 +56,10 @@ The program may create migration evidence, canonical packages, compatibility ada
 - LCM-13C: accepted closure `CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F` with 162 state-plane records, 189 ordered events and zero reopened waves.
 - LCM-13 is closed at the reference-only claim ceiling.
 - LCM-14A: accepted deprecation and compatibility evidence under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132`; 613 identities are explicit, 136 documentation redirects are observation-eligible, and 477 active-source identities remain blocked from quarantine.
-- LCM-14 remains open until LCM-14B.
+- LCM-14 is closed by accepted LCM-14A and LCM-14B evidence.
 - LCM-15 through LCM-16 remain governed by the refined roadmap.
-- Next: LCM-14B.
+- Next: LCM-15A.
+
+### LCM-14B implementation closure — 2026-07-22
+
+Quarantine `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D` packages all 136 approved documentation originals as immutable evidence copies, preserves active redirects and canonical documents, completes two deterministic repository observation cycles and 136 restoration drills, and emits LCM-15A handoff `sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8`. External consumer evidence remains UNKNOWN and deletion approval remains zero.

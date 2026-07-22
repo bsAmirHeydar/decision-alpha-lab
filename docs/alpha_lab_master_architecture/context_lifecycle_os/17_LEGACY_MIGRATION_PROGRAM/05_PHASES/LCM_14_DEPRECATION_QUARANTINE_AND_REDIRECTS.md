@@ -70,3 +70,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 ## Current master-phase checkpoint
 
 LCM-14A is accepted under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132` and emits LCM-14B handoff `sha256:e6cdd8272af462e3dbf29a148343e6921cadf8c7b6f748c5ce0a0f0d50e8b3f1`. The master phase remains OPEN: 136 documentation redirect identities may proceed to bounded quarantine observation and restoration drills, while 477 active-source identities are non-compensatorily blocked. LCM-14 has not authorized deletion.
+
+## Closure — 2026-07-22
+
+LCM-14 is closed by LCM-14A and LCM-14B. Deprecation and redirect evidence covers 613 identities; immutable observation quarantine covers the 136 documentation redirect identities; 477 active-source identities remain explicitly blocked. No deletion occurred. Next: LCM-15A through `sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8`.
