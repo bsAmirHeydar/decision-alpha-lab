@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9EB0C16F6A
 title: "Redirect — 02 Algorithm Alternatives"
 status: compatibility-redirect
 version: 1.0.0

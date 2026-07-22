@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-8D2BF7DC667B
 title: "Redirect — 01 Cross Language Base Standard"
 status: compatibility-redirect
 version: 1.0.0

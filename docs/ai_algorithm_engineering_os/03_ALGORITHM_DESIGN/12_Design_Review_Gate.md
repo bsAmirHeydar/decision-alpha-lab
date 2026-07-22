@@ -1,4 +1,5 @@
 ---
+id: AIEOS-C4741E1E1B
 title: "Redirect — 12 Design Review Gate"
 status: compatibility-redirect
 version: 1.0.0

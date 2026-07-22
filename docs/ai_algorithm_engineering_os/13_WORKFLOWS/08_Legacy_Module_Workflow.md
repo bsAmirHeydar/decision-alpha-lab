@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8033B44F35
 title: "Redirect — 08 Legacy Module Workflow"
 status: compatibility-redirect
 version: 1.0.0

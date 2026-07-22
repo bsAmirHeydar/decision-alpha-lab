@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1EB7928FAF
 title: "Redirect — 05 Rollback Strategy"
 status: compatibility-redirect
 version: 1.0.0

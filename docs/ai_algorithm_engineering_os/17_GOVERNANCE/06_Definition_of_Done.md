@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E18E31B37F
 title: "Redirect — 06 Definition of Done"
 status: compatibility-redirect
 version: 1.0.0

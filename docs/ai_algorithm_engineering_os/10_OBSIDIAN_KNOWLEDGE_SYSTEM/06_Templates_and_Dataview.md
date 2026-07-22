@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A1C3E60959
 title: "Redirect — 06 Templates and Dataview"
 status: compatibility-redirect
 version: 1.0.0

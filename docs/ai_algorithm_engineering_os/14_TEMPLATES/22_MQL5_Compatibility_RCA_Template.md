@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-652BA9E97CB8
 title: "Redirect — 22 MQL5 Compatibility RCA Template"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-74954164AA
 title: "Redirect — 02 Human AI Boundary"
 status: compatibility-redirect
 version: 1.0.0

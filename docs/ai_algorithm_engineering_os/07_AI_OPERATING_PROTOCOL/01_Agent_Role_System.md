@@ -1,4 +1,5 @@
 ---
+id: AIEOS-BA99C9F2A0
 title: "Redirect — 01 Agent Role System"
 status: compatibility-redirect
 version: 1.0.0

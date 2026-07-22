@@ -1,4 +1,5 @@
 ---
+id: AIEOS-335EF13A2B
 title: "Redirect — 03 Bug Workflow"
 status: compatibility-redirect
 version: 1.0.0

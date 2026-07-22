@@ -1,4 +1,5 @@
 ---
+id: AIEOS-ADEA727581
 title: "Redirect — 03 Property and Invariant Testing"
 status: compatibility-redirect
 version: 1.0.0

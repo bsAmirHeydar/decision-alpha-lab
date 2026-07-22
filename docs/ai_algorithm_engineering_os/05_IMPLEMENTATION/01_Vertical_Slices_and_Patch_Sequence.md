@@ -1,4 +1,5 @@
 ---
+id: AIEOS-341A560BDF
 title: "Redirect — 01 Vertical Slices and Patch Sequence"
 status: compatibility-redirect
 version: 1.0.0

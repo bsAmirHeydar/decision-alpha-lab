@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-F7D3A9DD727D
 title: "Redirect — 16 Alpha Lab Feature Packet Template"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-88D6B0A24B42
 title: "Redirect — 12 Compile and Runtime Compatibility"
 status: compatibility-redirect
 version: 1.0.0

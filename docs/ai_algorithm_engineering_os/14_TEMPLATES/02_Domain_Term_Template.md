@@ -1,4 +1,5 @@
 ---
+id: AIEOS-06D8000D08
 title: "Redirect — 02 Domain Term Template"
 status: compatibility-redirect
 version: 1.0.0

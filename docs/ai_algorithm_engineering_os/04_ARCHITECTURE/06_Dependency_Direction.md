@@ -1,4 +1,5 @@
 ---
+id: AIEOS-220768CB16
 title: "Redirect — 06 Dependency Direction"
 status: compatibility-redirect
 version: 1.0.0

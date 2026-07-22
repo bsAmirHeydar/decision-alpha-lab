@@ -1,4 +1,5 @@
 ---
+id: AIEOS-C601CBF698
 title: "Redirect — 08 Root Cause Analysis Prompt"
 status: compatibility-redirect
 version: 1.0.0

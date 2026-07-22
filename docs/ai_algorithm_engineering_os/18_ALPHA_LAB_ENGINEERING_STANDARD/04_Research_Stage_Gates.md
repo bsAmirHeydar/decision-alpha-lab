@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-0FBE85E4923F
 title: "Redirect — 04 Research Stage Gates"
 status: compatibility-redirect
 version: 1.0.0

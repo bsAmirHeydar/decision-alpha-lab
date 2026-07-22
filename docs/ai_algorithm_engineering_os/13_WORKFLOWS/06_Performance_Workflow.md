@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9A37258A58
 title: "Redirect — 06 Performance Workflow"
 status: compatibility-redirect
 version: 1.0.0

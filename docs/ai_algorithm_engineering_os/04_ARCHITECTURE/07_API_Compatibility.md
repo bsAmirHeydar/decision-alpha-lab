@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0435C08C3F
 title: "Redirect — 07 API Compatibility"
 status: compatibility-redirect
 version: 1.0.0

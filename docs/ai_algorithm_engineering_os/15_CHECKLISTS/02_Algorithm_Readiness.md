@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E476AE0592
 title: "Redirect — 02 Algorithm Readiness"
 status: compatibility-redirect
 version: 1.0.0

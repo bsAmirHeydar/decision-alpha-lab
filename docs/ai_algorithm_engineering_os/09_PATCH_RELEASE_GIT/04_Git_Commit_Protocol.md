@@ -1,4 +1,5 @@
 ---
+id: AIEOS-6F0B2CB758
 title: "Redirect — 04 Git Commit Protocol"
 status: compatibility-redirect
 version: 1.0.0

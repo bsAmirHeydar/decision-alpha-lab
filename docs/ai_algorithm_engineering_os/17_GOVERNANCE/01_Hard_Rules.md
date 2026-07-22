@@ -1,4 +1,5 @@
 ---
+id: AIEOS-62C855398D
 title: "Redirect — 01 Hard Rules"
 status: compatibility-redirect
 version: 1.0.0

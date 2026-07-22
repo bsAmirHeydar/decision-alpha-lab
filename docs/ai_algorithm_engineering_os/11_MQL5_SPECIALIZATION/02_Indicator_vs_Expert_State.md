@@ -1,4 +1,5 @@
 ---
+id: AIEOS-66F9D8EF2F
 title: "Redirect — 02 Indicator vs Expert State"
 status: compatibility-redirect
 version: 1.0.0

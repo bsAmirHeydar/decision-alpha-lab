@@ -1,4 +1,5 @@
 ---
+id: AIEOS-C31A977B85
 title: "Redirect — 04 Requirements Extraction"
 status: compatibility-redirect
 version: 1.0.0

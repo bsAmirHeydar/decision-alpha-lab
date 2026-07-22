@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A83CEA04D7
 title: "Redirect — 05 Patch Manifest Template"
 status: compatibility-redirect
 version: 1.0.0

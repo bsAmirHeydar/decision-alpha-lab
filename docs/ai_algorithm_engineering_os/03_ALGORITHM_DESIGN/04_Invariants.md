@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0C30C08C17
 title: "Redirect — 04 Invariants"
 status: compatibility-redirect
 version: 1.0.0

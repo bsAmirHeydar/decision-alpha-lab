@@ -1,4 +1,5 @@
 ---
+id: AIEOS-DEECF79011
 title: "Redirect — 08 Model Routing"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-754DACC310
 title: "Redirect — 07 Refactor Workflow"
 status: compatibility-redirect
 version: 1.0.0

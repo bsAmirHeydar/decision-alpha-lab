@@ -1,4 +1,5 @@
 ---
+id: AIEOS-415E75A595
 title: "Redirect — 04 Refactoring Protocol"
 status: compatibility-redirect
 version: 1.0.0

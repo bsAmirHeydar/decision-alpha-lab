@@ -1,4 +1,5 @@
 ---
+id: AIEOS-3F69DE1990
 title: "Redirect — 08 Configuration and Feature Flags"
 status: compatibility-redirect
 version: 1.0.0

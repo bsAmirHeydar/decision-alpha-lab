@@ -1,4 +1,5 @@
 ---
+id: AIEOS-3880D833F2
 title: "Redirect — 11 Regression Strategy"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9C3BA9886D
 title: "Redirect — 01 Vault Architecture"
 status: compatibility-redirect
 version: 1.0.0

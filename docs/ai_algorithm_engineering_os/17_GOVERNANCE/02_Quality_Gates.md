@@ -1,4 +1,5 @@
 ---
+id: AIEOS-BBE7996A60
 title: "Redirect — 02 Quality Gates"
 status: compatibility-redirect
 version: 1.0.0

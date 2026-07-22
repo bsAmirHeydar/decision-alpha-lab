@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A3FB16ECAE
 title: "Redirect — 05 Signal Scenario Trade Separation"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-PACKAGE-REPORT
 title: "Redirect — PACKAGE REPORT"
 status: compatibility-redirect
 version: 1.0.0

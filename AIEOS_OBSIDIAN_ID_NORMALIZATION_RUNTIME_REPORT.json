@@ -1,0 +1,23 @@
+{
+  "applied_change_count": 0,
+  "backup_path": null,
+  "backup_sha256": null,
+  "canonical_map_digest": "sha256:b30d536e6ef42612b0598dfcd56d0ca4166c4de5b67d34ff92172345f931e844",
+  "changes": [],
+  "collision_count": 0,
+  "collisions": [],
+  "exempt_note_count": 7,
+  "existing_id_count_before": 246,
+  "idempotent_after_apply": true,
+  "malformed_frontmatter": [],
+  "malformed_frontmatter_count": 0,
+  "migration_id": "AIEOS_OBSIDIAN_NOTE_ID_NORMALIZATION_V1",
+  "normative_note_count": 246,
+  "note_count": 253,
+  "planned_change_count": 0,
+  "report_digest": "f242878888f6e33bdfc69612dc158ad9634790eba3f2c2fec8ce51604d1cba1d",
+  "resolved_id_count_after": 246,
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "vault_root": "docs/ai_algorithm_engineering_os"
+}

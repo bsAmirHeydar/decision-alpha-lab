@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D1B16F2265
 title: "Redirect — 09 Live Simulation"
 status: compatibility-redirect
 version: 1.0.0

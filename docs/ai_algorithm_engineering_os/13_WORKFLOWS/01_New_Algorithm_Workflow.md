@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0CA928CB41
 title: "Redirect — 01 New Algorithm Workflow"
 status: compatibility-redirect
 version: 1.0.0

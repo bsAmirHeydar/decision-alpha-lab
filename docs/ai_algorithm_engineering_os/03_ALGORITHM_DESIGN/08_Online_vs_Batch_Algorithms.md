@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8AF6C3446E
 title: "Redirect — 08 Online vs Batch Algorithms"
 status: compatibility-redirect
 version: 1.0.0

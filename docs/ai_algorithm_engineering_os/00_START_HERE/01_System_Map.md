@@ -1,4 +1,5 @@
 ---
+id: AIEOS-834106945E
 title: "Redirect — 01 System Map"
 status: compatibility-redirect
 version: 1.0.0

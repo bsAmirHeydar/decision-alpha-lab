@@ -1,4 +1,5 @@
 ---
+id: AIEOS-36AC90BB3F
 title: "Redirect — 05 MQL5 Release Checklist"
 status: compatibility-redirect
 version: 1.0.0

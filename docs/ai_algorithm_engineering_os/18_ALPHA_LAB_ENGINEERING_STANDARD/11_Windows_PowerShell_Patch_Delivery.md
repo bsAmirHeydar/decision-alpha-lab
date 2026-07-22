@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-8254EA0D9830
 title: "Redirect — 11 Windows PowerShell Patch Delivery"
 status: compatibility-redirect
 version: 1.0.0

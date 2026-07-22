@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-D94D7DDA675F
 title: "Redirect — 17 Experiment Packet Template"
 status: compatibility-redirect
 version: 1.0.0

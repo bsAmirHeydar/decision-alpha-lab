@@ -1,4 +1,5 @@
 ---
+id: AIEOS-46E0DD96A2
 title: "Redirect — 01 Master Algorithm Design Prompt"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-7B760CFA60
 title: "Redirect — 02 Stateful Divergence Example"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A1289FDAA7
 title: "Redirect — 07 Definition of Done"
 status: compatibility-redirect
 version: 1.0.0

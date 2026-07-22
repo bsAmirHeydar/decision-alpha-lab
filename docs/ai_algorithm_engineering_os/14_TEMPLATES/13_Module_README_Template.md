@@ -1,4 +1,5 @@
 ---
+id: AIEOS-6D60A42D07
 title: "Redirect — 13 Module README Template"
 status: compatibility-redirect
 version: 1.0.0

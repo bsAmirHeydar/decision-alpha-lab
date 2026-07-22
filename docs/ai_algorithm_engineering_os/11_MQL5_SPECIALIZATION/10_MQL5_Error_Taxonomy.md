@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1659F61AAD
 title: "Redirect — 10 MQL5 Error Taxonomy"
 status: compatibility-redirect
 version: 1.0.0

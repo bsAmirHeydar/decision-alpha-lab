@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1B8DF198DC
 title: "Redirect — 10 Migration Prompt"
 status: compatibility-redirect
 version: 1.0.0

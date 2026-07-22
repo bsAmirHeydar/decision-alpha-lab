@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0FE2ACC6D5
 title: "Redirect — 09 Buffers vs Objects"
 status: compatibility-redirect
 version: 1.0.0

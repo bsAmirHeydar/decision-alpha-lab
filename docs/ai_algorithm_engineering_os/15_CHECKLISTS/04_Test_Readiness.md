@@ -1,4 +1,5 @@
 ---
+id: AIEOS-BB7915F2EB
 title: "Redirect — 04 Test Readiness"
 status: compatibility-redirect
 version: 1.0.0

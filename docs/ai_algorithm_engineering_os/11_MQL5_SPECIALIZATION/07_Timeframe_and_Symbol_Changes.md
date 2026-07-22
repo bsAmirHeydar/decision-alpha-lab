@@ -1,4 +1,5 @@
 ---
+id: AIEOS-80FD0DD048
 title: "Redirect — 07 Timeframe and Symbol Changes"
 status: compatibility-redirect
 version: 1.0.0

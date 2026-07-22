@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9B2C5CBD54
 title: "Redirect — 02 Closed Ontology Rule"
 status: compatibility-redirect
 version: 1.0.0

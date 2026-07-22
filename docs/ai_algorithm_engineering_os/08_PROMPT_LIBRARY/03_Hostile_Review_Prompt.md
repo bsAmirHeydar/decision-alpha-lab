@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0B5BF25690
 title: "Redirect — 03 Hostile Review Prompt"
 status: compatibility-redirect
 version: 1.0.0

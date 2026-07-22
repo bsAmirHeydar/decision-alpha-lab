@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-6274C3604198
 title: "Redirect — 05 PowerShell Coding Standard"
 status: compatibility-redirect
 version: 1.0.0

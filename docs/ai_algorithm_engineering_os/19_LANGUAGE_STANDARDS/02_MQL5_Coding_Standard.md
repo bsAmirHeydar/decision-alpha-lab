@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-E595D058C6E1
 title: "Redirect — 02 MQL5 Coding Standard"
 status: compatibility-redirect
 version: 1.0.0

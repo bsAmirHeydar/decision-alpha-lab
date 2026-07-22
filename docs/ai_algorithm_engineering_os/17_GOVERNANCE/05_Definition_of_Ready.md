@@ -1,4 +1,5 @@
 ---
+id: AIEOS-3DAB56FFAE
 title: "Redirect — 05 Definition of Ready"
 status: compatibility-redirect
 version: 1.0.0

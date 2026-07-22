@@ -1,4 +1,5 @@
 ---
+id: AIEOS-ED7D9958A9
 title: "Redirect — 03 Live and Consumed References"
 status: compatibility-redirect
 version: 1.0.0

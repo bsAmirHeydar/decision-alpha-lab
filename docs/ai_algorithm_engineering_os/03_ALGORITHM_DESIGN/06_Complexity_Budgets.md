@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A2A946E2CE
 title: "Redirect — 06 Complexity Budgets"
 status: compatibility-redirect
 version: 1.0.0

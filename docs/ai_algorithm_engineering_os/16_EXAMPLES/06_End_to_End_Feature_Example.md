@@ -1,4 +1,5 @@
 ---
+id: AIEOS-44C1396B2B
 title: "Redirect — 06 End to End Feature Example"
 status: compatibility-redirect
 version: 1.0.0

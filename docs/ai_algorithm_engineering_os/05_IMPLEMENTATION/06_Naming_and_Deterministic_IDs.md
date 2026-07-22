@@ -1,4 +1,5 @@
 ---
+id: AIEOS-7BD9B5204E
 title: "Redirect — 06 Naming and Deterministic IDs"
 status: compatibility-redirect
 version: 1.0.0

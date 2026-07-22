@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-C80D38133017
 title: "Redirect — 06 Causal Time and Availability"
 status: compatibility-redirect
 version: 1.0.0

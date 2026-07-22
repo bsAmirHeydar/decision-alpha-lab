@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8B8E764876
 title: "Redirect — 01 Test Strategy"
 status: compatibility-redirect
 version: 1.0.0

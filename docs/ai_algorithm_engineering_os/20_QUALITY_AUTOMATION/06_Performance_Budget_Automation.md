@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-C48678669509
 title: "Redirect — 06 Performance Budget Automation"
 status: compatibility-redirect
 version: 1.0.0

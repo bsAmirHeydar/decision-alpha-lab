@@ -1,4 +1,5 @@
 ---
+id: AIEOS-7825FEBDB1
 title: "Redirect — 11 Edge Case Catalog"
 status: compatibility-redirect
 version: 1.0.0

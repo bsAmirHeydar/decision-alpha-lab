@@ -1,4 +1,5 @@
 ---
+id: AIEOS-637DCB0C96
 title: "Redirect — 04 Determinism and Invariants"
 status: compatibility-redirect
 version: 1.0.0

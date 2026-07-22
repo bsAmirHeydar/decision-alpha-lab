@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A52CBC6A2C
 title: "Redirect — 02 Minimal Safe Patch"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-A25D63D479EC
 title: "Redirect — 05 Source Data Derived Artifacts"
 status: compatibility-redirect
 version: 1.0.0

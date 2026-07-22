@@ -1,4 +1,5 @@
 ---
+id: AIEOS-98FDBCDEC0
 title: "Redirect — 04 Compile Error RCA Example"
 status: compatibility-redirect
 version: 1.0.0

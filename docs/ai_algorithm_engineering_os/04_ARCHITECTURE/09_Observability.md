@@ -1,4 +1,5 @@
 ---
+id: AIEOS-AC89647444
 title: "Redirect — 09 Observability"
 status: compatibility-redirect
 version: 1.0.0

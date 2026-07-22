@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-2F3343396102
 title: "Redirect — 08 Alpha Lab Research Reproducibility"
 status: compatibility-redirect
 version: 1.0.0

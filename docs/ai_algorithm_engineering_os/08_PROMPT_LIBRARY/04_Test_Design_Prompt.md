@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D0A69AB185
 title: "Redirect — 04 Test Design Prompt"
 status: compatibility-redirect
 version: 1.0.0

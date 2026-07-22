@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-857C8D9199CB
 title: "Redirect — 08 SQL and Tabular Standard"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-7411EA4DABDD
 title: "Redirect — 07 MQL5 String Case Compatibility Example"
 status: compatibility-redirect
 version: 1.0.0

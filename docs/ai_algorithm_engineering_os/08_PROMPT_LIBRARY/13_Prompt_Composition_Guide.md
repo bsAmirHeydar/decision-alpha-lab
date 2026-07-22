@@ -1,4 +1,5 @@
 ---
+id: AIEOS-AD8541B4A3
 title: "Redirect — 13 Prompt Composition Guide"
 status: compatibility-redirect
 version: 1.0.0

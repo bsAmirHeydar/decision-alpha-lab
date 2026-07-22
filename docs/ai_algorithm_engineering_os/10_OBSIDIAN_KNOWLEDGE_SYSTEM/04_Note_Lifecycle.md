@@ -1,4 +1,5 @@
 ---
+id: AIEOS-0B5384D9CC
 title: "Redirect — 04 Note Lifecycle"
 status: compatibility-redirect
 version: 1.0.0

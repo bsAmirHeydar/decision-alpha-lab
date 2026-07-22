@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-3AFB12318D4A
 title: "Redirect — 03 Static Compatibility Scans"
 status: compatibility-redirect
 version: 1.0.0

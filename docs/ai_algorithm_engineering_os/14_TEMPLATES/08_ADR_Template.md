@@ -1,4 +1,5 @@
 ---
+id: AIEOS-4D78C3EED4
 title: "Redirect — 08 ADR Template"
 status: compatibility-redirect
 version: 1.0.0

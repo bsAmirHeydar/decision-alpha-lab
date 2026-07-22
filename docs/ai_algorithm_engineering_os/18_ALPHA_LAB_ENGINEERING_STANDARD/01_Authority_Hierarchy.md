@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-DB06E6EA9040
 title: "Redirect — 01 Authority Hierarchy"
 status: compatibility-redirect
 version: 1.0.0

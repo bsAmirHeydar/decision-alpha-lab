@@ -1,4 +1,5 @@
 ---
+id: AIEOS-4906808069
 title: "Redirect — 04 Data Contract Template"
 status: compatibility-redirect
 version: 1.0.0

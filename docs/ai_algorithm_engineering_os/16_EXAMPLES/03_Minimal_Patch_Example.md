@@ -1,4 +1,5 @@
 ---
+id: AIEOS-2491C0E347
 title: "Redirect — 03 Minimal Patch Example"
 status: compatibility-redirect
 version: 1.0.0

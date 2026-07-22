@@ -1,4 +1,5 @@
 ---
+id: AIEOS-047F409B49
 title: "Redirect —  MOC"
 status: compatibility-redirect
 version: 1.0.0

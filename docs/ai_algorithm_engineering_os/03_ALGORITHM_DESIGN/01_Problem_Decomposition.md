@@ -1,4 +1,5 @@
 ---
+id: AIEOS-46D0B139C9
 title: "Redirect — 01 Problem Decomposition"
 status: compatibility-redirect
 version: 1.0.0

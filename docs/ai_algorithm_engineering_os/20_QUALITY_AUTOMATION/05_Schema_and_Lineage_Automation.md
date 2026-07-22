@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-BFB8105D1AC7
 title: "Redirect — 05 Schema and Lineage Automation"
 status: compatibility-redirect
 version: 1.0.0

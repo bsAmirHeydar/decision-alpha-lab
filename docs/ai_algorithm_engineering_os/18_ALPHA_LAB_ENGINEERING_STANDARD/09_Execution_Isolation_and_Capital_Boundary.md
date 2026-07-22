@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-33AED95304B1
 title: "Redirect — 09 Execution Isolation and Capital Boundary"
 status: compatibility-redirect
 version: 1.0.0

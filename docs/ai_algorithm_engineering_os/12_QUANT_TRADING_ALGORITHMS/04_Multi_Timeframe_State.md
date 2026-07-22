@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9CA8EB0FF4
 title: "Redirect — 04 Multi Timeframe State"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-05E6F6911A
 title: "Redirect — 05 Scenario Testing"
 status: compatibility-redirect
 version: 1.0.0

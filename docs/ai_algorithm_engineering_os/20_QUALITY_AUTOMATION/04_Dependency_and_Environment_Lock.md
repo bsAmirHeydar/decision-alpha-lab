@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-32A01A30412B
 title: "Redirect — 04 Dependency and Environment Lock"
 status: compatibility-redirect
 version: 1.0.0

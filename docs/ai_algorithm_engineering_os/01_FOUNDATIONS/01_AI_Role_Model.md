@@ -1,4 +1,5 @@
 ---
+id: AIEOS-CAFC13C62A
 title: "Redirect — 01 AI Role Model"
 status: compatibility-redirect
 version: 1.0.0

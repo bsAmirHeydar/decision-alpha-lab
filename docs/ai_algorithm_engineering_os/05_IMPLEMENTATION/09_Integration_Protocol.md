@@ -1,4 +1,5 @@
 ---
+id: AIEOS-AF4A5BBC21
 title: "Redirect — 09 Integration Protocol"
 status: compatibility-redirect
 version: 1.0.0

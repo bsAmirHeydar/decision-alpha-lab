@@ -1,4 +1,5 @@
 ---
+id: AIEOS-C3601863D0
 title: "Redirect — 04 Golden Master and Characterization"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-69FA545D17A8
 title: "Redirect — 09 Alpha Lab End to End Promotion Example"
 status: compatibility-redirect
 version: 1.0.0

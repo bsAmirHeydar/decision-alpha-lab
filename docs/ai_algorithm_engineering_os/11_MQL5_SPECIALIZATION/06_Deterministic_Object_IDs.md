@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E37D26E3BE
 title: "Redirect — 06 Deterministic Object IDs"
 status: compatibility-redirect
 version: 1.0.0

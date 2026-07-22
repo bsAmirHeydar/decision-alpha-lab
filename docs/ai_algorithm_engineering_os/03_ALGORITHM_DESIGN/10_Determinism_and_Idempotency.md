@@ -1,4 +1,5 @@
 ---
+id: AIEOS-9AD91E079A
 title: "Redirect — 10 Determinism and Idempotency"
 status: compatibility-redirect
 version: 1.0.0

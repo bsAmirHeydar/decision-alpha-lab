@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-22F03593FD6B
 title: "Redirect — 01 Local Preflight"
 status: compatibility-redirect
 version: 1.0.0

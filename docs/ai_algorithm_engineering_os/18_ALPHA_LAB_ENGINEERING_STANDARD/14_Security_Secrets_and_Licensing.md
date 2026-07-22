@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-B02D4B751E07
 title: "Redirect — 14 Security Secrets and Licensing"
 status: compatibility-redirect
 version: 1.0.0

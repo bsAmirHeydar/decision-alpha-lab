@@ -1,4 +1,5 @@
 ---
+id: AIEOS-403D3C73C1
 title: "Redirect — 02 Domain Ontology"
 status: compatibility-redirect
 version: 1.0.0

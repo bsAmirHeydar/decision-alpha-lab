@@ -1,4 +1,5 @@
 ---
+id: AIEOS-F42135867A
 title: "Redirect — 04 Candle Index and Time"
 status: compatibility-redirect
 version: 1.0.0

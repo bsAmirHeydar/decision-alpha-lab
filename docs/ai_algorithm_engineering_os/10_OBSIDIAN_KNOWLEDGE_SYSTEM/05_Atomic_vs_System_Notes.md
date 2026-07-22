@@ -1,4 +1,5 @@
 ---
+id: AIEOS-6E77E17FC8
 title: "Redirect — 05 Atomic vs System Notes"
 status: compatibility-redirect
 version: 1.0.0

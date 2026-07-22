@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A66E4937D4
 title: "Redirect — 04 Conversation Protocol"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-4899882D5961
 title: "Redirect — 03 Artifact Identity and Registry"
 status: compatibility-redirect
 version: 1.0.0

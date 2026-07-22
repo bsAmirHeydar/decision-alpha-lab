@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-55C1FFD5429C
 title: "Redirect — 13 Data Schema Evolution"
 status: compatibility-redirect
 version: 1.0.0

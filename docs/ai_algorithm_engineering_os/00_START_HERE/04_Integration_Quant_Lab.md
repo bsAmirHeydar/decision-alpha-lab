@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-5ED060716A19
 title: "Redirect — 04 Integration Quant Lab"
 status: compatibility-redirect
 version: 1.0.0

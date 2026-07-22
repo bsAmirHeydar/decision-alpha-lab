@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D4BF74E856
 title: "Redirect — 02 Architect Builder Reviewer Tester"
 status: compatibility-redirect
 version: 1.0.0

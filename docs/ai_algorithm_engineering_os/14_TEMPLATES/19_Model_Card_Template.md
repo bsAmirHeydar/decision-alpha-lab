@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-E1C99852E3D1
 title: "Redirect — 19 Model Card Template"
 status: compatibility-redirect
 version: 1.0.0

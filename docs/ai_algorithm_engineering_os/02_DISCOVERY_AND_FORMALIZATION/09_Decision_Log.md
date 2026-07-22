@@ -1,4 +1,5 @@
 ---
+id: AIEOS-70BB2E2218
 title: "Redirect — 09 Decision Log"
 status: compatibility-redirect
 version: 1.0.0

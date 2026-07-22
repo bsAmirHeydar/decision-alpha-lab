@@ -1,4 +1,5 @@
 ---
+id: AIEOS-62FCA61D63
 title: "Redirect — 03 AI Code Generation Standard"
 status: compatibility-redirect
 version: 1.0.0

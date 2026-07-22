@@ -1,4 +1,5 @@
 ---
+id: AIEOS-49CFDC8481
 title: "Redirect — 10 AI Output Acceptance"
 status: compatibility-redirect
 version: 1.0.0

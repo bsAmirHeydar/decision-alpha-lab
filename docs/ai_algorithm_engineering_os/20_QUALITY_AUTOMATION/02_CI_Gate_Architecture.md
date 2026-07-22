@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-08E562405687
 title: "Redirect — 02 CI Gate Architecture"
 status: compatibility-redirect
 version: 1.0.0

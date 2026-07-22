@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8E4BE71FAC
 title: "Redirect — 06 Convexity Optionality Evidence"
 status: compatibility-redirect
 version: 1.0.0

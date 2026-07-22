@@ -1,4 +1,5 @@
 ---
+id: AIEOS-51963B86CE
 title: "Redirect — 01 Raw Idea Intake"
 status: compatibility-redirect
 version: 1.0.0

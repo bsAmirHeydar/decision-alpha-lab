@@ -1,4 +1,5 @@
 ---
+id: AIEOS-CEB3432079
 title: "Redirect — 06 Visual Validation"
 status: compatibility-redirect
 version: 1.0.0

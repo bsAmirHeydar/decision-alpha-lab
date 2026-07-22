@@ -1,4 +1,5 @@
 ---
+id: AIEOS-24934C4CCA
 title: "Redirect — 11 Compile Error Prompt"
 status: compatibility-redirect
 version: 1.0.0

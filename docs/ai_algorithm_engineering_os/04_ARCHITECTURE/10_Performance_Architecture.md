@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D278E62CFA
 title: "Redirect — 10 Performance Architecture"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-577BFBB785
 title: "Redirect — 07 Documentation Prompt"
 status: compatibility-redirect
 version: 1.0.0

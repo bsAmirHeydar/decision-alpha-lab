@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1D5C613694
 title: "Redirect — 07 Pseudocode Standard"
 status: compatibility-redirect
 version: 1.0.0

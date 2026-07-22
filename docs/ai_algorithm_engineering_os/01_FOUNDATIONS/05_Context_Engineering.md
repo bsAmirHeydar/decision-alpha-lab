@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1B45ABFD88
 title: "Redirect — 05 Context Engineering"
 status: compatibility-redirect
 version: 1.0.0

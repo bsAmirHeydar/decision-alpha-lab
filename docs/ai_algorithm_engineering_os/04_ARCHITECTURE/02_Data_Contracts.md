@@ -1,4 +1,5 @@
 ---
+id: AIEOS-72B0ED097E
 title: "Redirect — 02 Data Contracts"
 status: compatibility-redirect
 version: 1.0.0

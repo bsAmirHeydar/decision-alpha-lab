@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-D7CEF508423B
 title: "Redirect — 21 Release Evidence Template"
 status: compatibility-redirect
 version: 1.0.0

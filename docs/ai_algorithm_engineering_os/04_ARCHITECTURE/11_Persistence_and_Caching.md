@@ -1,4 +1,5 @@
 ---
+id: AIEOS-96C0EE558A
 title: "Redirect — 11 Persistence and Caching"
 status: compatibility-redirect
 version: 1.0.0

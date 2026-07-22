@@ -1,4 +1,5 @@
 ---
+id: AIEOS-848761A601
 title: "Redirect — 02 MOCs and Links"
 status: compatibility-redirect
 version: 1.0.0

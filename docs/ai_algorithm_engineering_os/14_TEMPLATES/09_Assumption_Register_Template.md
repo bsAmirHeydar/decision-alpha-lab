@@ -1,4 +1,5 @@
 ---
+id: AIEOS-EA5958FD9E
 title: "Redirect — 09 Assumption Register Template"
 status: compatibility-redirect
 version: 1.0.0

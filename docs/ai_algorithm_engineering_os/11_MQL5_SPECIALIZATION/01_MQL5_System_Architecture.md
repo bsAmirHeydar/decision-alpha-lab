@@ -1,4 +1,5 @@
 ---
+id: AIEOS-B07981401D
 title: "Redirect — 01 MQL5 System Architecture"
 status: compatibility-redirect
 version: 1.0.0

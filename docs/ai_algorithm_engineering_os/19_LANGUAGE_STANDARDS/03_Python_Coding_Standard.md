@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-63A7E417D9E5
 title: "Redirect — 03 Python Coding Standard"
 status: compatibility-redirect
 version: 1.0.0

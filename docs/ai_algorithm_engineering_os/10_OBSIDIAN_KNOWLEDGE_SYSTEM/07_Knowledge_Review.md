@@ -1,4 +1,5 @@
 ---
+id: AIEOS-27CD695D5E
 title: "Redirect — 07 Knowledge Review"
 status: compatibility-redirect
 version: 1.0.0

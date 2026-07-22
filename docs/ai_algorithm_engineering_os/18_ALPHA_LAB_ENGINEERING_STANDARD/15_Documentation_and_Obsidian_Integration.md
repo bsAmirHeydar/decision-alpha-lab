@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-C151EA071025
 title: "Redirect — 15 Documentation and Obsidian Integration"
 status: compatibility-redirect
 version: 1.0.0

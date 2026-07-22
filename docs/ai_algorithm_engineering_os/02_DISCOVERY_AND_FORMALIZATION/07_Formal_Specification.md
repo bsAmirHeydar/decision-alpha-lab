@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D7F7A96BC1
 title: "Redirect — 07 Formal Specification"
 status: compatibility-redirect
 version: 1.0.0

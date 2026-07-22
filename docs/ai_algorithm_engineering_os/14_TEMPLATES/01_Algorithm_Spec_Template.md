@@ -1,4 +1,5 @@
 ---
+id: AIEOS-802FACB5F3
 title: "Redirect — 01 Algorithm Spec Template"
 status: compatibility-redirect
 version: 1.0.0

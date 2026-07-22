@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E728DC89A2
 title: "Redirect — 06 Refactor Prompt"
 status: compatibility-redirect
 version: 1.0.0

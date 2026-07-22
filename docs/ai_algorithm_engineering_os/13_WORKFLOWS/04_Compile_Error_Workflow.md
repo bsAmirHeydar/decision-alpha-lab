@@ -1,4 +1,5 @@
 ---
+id: AIEOS-3E45525405
 title: "Redirect — 04 Compile Error Workflow"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-BCCF3D5851
 title: "Redirect — 05 Chart Object Lifecycle Example"
 status: compatibility-redirect
 version: 1.0.0

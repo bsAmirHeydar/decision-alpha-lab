@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E2C35AD64A
 title: "Redirect — 03 Quickstart One Feature"
 status: compatibility-redirect
 version: 1.0.0

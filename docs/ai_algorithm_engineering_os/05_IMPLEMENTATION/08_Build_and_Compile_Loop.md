@@ -1,4 +1,5 @@
 ---
+id: AIEOS-38240746C1
 title: "Redirect — 08 Build and Compile Loop"
 status: compatibility-redirect
 version: 1.0.0

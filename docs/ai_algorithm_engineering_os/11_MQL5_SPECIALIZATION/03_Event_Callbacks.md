@@ -1,4 +1,5 @@
 ---
+id: AIEOS-78A44DC5C9
 title: "Redirect — 03 Event Callbacks"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-2FCBB05112
 title: "Redirect — 05 State Machines"
 status: compatibility-redirect
 version: 1.0.0

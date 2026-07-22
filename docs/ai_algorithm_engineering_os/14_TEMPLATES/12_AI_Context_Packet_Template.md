@@ -1,4 +1,5 @@
 ---
+id: AIEOS-613F1EBDB7
 title: "Redirect — 12 AI Context Packet Template"
 status: compatibility-redirect
 version: 1.0.0

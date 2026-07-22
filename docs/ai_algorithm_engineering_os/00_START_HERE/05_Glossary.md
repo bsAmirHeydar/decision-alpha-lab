@@ -1,4 +1,5 @@
 ---
+id: AIEOS-2EC811A423
 title: "Redirect — 05 Glossary"
 status: compatibility-redirect
 version: 1.0.0

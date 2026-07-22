@@ -1,4 +1,5 @@
 ---
+id: AIEOS-B87B7ED29C
 title: "Redirect — 14 AGENTS Template"
 status: compatibility-redirect
 version: 1.0.0

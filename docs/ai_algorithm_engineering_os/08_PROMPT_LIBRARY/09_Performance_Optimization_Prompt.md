@@ -1,4 +1,5 @@
 ---
+id: AIEOS-7C48A58C05
 title: "Redirect — 09 Performance Optimization Prompt"
 status: compatibility-redirect
 version: 1.0.0

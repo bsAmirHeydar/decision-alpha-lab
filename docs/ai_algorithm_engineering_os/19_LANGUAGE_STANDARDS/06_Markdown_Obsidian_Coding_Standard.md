@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-B341E18F96C5
 title: "Redirect — 06 Markdown Obsidian Coding Standard"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-421F52FAF2
 title: "Redirect — 12 MQL5 Patch Checklist"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-1B688E07CC
 title: "Redirect — 06 Test Case Template"
 status: compatibility-redirect
 version: 1.0.0

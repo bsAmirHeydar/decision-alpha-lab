@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-66D26464787E
 title: "Redirect — 07 JSON YAML CSV Standard"
 status: compatibility-redirect
 version: 1.0.0

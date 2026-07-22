@@ -1,4 +1,5 @@
 ---
+id: AIEOS-F347A6ED83
 title: "Redirect — 01 Market Concept Formalization"
 status: compatibility-redirect
 version: 1.0.0

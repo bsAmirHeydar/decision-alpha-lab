@@ -1,4 +1,5 @@
 ---
+id: AIEOS-49B34E8061
 title: "Redirect — 05 Debugging Prompt"
 status: compatibility-redirect
 version: 1.0.0

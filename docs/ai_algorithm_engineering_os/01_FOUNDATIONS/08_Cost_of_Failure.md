@@ -1,4 +1,5 @@
 ---
+id: AIEOS-048FCB6377
 title: "Redirect — 08 Cost of Failure"
 status: compatibility-redirect
 version: 1.0.0

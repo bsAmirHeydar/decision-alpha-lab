@@ -1,4 +1,5 @@
 ---
+id: AIEOS-37D155D3B4
 title: "Redirect — 03 Specification First"
 status: compatibility-redirect
 version: 1.0.0

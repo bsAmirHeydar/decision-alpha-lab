@@ -1,4 +1,5 @@
 ---
+id: AIEOS-78C1D1847B
 title: "Redirect — 10 Incident Template"
 status: compatibility-redirect
 version: 1.0.0

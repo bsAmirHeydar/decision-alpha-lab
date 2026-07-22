@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D45F973B6F
 title: "Redirect — 03 Zip Patch Workflow"
 status: compatibility-redirect
 version: 1.0.0

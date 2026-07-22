@@ -1,4 +1,5 @@
 ---
+id: AIEOS-452D080414
 title: "Redirect — 06 Changelog and Release Notes"
 status: compatibility-redirect
 version: 1.0.0

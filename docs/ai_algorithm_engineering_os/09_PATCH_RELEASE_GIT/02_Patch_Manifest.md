@@ -1,4 +1,5 @@
 ---
+id: AIEOS-DB8904FB52
 title: "Redirect — 02 Patch Manifest"
 status: compatibility-redirect
 version: 1.0.0

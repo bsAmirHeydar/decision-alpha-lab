@@ -1,4 +1,5 @@
 ---
+id: AIEOS-10DCFBFA02
 title: "Redirect — 02 Operating Principles"
 status: compatibility-redirect
 version: 1.0.0

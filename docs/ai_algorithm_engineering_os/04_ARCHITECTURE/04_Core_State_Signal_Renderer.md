@@ -1,4 +1,5 @@
 ---
+id: AIEOS-651AAC34D4
 title: "Redirect — 04 Core State Signal Renderer"
 status: compatibility-redirect
 version: 1.0.0

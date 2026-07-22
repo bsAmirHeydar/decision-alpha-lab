@@ -1,4 +1,5 @@
 ---
+id: AIEOS-F0C37A6A07
 title: "Redirect — 06 AI Output Acceptance"
 status: compatibility-redirect
 version: 1.0.0

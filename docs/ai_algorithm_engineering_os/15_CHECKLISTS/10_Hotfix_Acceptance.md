@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-57930737A790
 title: "Redirect — 10 Hotfix Acceptance"
 status: compatibility-redirect
 version: 1.0.0

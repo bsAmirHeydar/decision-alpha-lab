@@ -1,4 +1,5 @@
 ---
+id: AIEOS-617764E704
 title: "Redirect — 06 Hallucination Control"
 status: compatibility-redirect
 version: 1.0.0

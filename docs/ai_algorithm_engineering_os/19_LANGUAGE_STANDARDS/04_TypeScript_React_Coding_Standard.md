@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-8293A6E38CF6
 title: "Redirect — 04 TypeScript React Coding Standard"
 status: compatibility-redirect
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+id: AIEOS-45590DF9A7
 title: "Redirect — 11 MQL5 Testing Strategy"
 status: compatibility-redirect
 version: 1.0.0

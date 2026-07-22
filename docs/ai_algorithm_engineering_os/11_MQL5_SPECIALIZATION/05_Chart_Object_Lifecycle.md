@@ -1,4 +1,5 @@
 ---
+id: AIEOS-4C62B4E0DD
 title: "Redirect — 05 Chart Object Lifecycle"
 status: compatibility-redirect
 version: 1.0.0

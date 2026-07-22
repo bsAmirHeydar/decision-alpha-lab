@@ -1,4 +1,5 @@
 ---
+id: AIEOS-E86BBDD0C6
 title: "Redirect —  MOC"
 status: compatibility-redirect
 version: 1.0.0

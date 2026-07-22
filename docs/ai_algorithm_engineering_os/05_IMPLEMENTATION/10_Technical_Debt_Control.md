@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A3308A828C
 title: "Redirect — 10 Technical Debt Control"
 status: compatibility-redirect
 version: 1.0.0

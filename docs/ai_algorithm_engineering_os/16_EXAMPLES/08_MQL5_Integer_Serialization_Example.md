@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-FFB6C0643118
 title: "Redirect — 08 MQL5 Integer Serialization Example"
 status: compatibility-redirect
 version: 1.0.0

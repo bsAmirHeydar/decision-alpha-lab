@@ -1,4 +1,5 @@
 ---
+id: AIEOS-36D92A86AE
 title: "Redirect — 01 Master Feature Checklist"
 status: compatibility-redirect
 version: 1.0.0

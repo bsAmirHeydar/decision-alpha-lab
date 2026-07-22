@@ -1,4 +1,5 @@
 ---
+id: AIEOS-A1EB4B6C12
 title: "Redirect — 07 Maturity Model"
 status: compatibility-redirect
 version: 1.0.0

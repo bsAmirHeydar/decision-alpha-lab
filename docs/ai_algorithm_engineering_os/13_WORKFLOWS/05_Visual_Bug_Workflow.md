@@ -1,4 +1,5 @@
 ---
+id: AIEOS-D99BEC738A
 title: "Redirect — 05 Visual Bug Workflow"
 status: compatibility-redirect
 version: 1.0.0

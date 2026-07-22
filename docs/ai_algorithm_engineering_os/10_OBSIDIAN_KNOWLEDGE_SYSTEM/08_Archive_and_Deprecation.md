@@ -1,4 +1,5 @@
 ---
+id: AIEOS-48106C53DC
 title: "Redirect — 08 Archive and Deprecation"
 status: compatibility-redirect
 version: 1.0.0

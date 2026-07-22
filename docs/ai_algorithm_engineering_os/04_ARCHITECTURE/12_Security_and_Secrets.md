@@ -1,4 +1,5 @@
 ---
+id: AIEOS-32966109FF
 title: "Redirect — 12 Security and Secrets"
 status: compatibility-redirect
 version: 1.0.0

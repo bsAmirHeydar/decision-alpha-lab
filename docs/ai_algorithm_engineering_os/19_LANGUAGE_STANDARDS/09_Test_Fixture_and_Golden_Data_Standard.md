@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-7A3E958E2F7A
 title: "Redirect — 09 Test Fixture and Golden Data Standard"
 status: compatibility-redirect
 version: 1.0.0

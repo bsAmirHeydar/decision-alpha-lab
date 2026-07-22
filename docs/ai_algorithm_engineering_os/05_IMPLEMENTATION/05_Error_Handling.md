@@ -1,4 +1,5 @@
 ---
+id: AIEOS-19221F5456
 title: "Redirect — 05 Error Handling"
 status: compatibility-redirect
 version: 1.0.0

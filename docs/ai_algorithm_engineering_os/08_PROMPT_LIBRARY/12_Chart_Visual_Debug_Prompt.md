@@ -1,4 +1,5 @@
 ---
+id: AIEOS-5EDF5607EA
 title: "Redirect — 12 Chart Visual Debug Prompt"
 status: compatibility-redirect
 version: 1.0.0

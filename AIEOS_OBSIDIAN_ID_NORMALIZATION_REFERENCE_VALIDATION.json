@@ -1,0 +1,23 @@
+{
+  "canonical_map_digest": "sha256:b30d536e6ef42612b0598dfcd56d0ca4166c4de5b67d34ff92172345f931e844",
+  "canonical_map_entry_count": 246,
+  "central_engine_modified": false,
+  "full_engineering_policy_status": "PASS",
+  "reference_exempt_note_count": 7,
+  "reference_normative_note_count": 246,
+  "reference_unique_validator_id_count": 247,
+  "reference_vault_note_count": 253,
+  "rthp_modified": false,
+  "schema_version": "1.0.0",
+  "simulated_applied_changes": 242,
+  "simulated_existing_normative_ids": 4,
+  "simulated_idempotent_second_pass": true,
+  "simulated_missing_normative_ids": 242,
+  "simulated_output_byte_equal_to_normalized_reference": true,
+  "unit_test_count": 8,
+  "unit_test_status": "PASS",
+  "validation_digest": "sha256:9ca8f067f31765089c6a35578cfa0a7ab6980948940fb3642650728518f6d4a4",
+  "validation_id": "AIEOS_OBSIDIAN_ID_NORMALIZATION_REFERENCE_VALIDATION_V1",
+  "validator_modified": false,
+  "vault_validator_status": "PASS"
+}

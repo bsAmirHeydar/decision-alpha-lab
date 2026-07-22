@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8ED53B2CB0
 title: "Redirect — 06 Examples to Rules"
 status: compatibility-redirect
 version: 1.0.0

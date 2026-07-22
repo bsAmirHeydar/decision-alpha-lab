@@ -1,4 +1,5 @@
 ---
+id: AIEOS-45F5DE183F
 title: "Redirect — 02 Master Implementation Prompt"
 status: compatibility-redirect
 version: 1.0.0

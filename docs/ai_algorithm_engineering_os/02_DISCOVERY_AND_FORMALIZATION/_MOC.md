@@ -1,4 +1,5 @@
 ---
+id: AIEOS-80F961C774
 title: "Redirect —  MOC"
 status: compatibility-redirect
 version: 1.0.0

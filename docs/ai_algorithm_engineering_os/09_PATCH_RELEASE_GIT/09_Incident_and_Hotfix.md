@@ -1,4 +1,5 @@
 ---
+id: AIEOS-47A50C247C
 title: "Redirect — 09 Incident and Hotfix"
 status: compatibility-redirect
 version: 1.0.0

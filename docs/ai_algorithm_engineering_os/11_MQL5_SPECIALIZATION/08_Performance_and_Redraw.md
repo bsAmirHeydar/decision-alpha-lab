@@ -1,4 +1,5 @@
 ---
+id: AIEOS-F3D02B6C78
 title: "Redirect — 08 Performance and Redraw"
 status: compatibility-redirect
 version: 1.0.0

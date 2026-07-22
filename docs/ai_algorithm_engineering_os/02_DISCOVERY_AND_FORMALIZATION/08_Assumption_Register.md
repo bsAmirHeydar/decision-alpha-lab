@@ -1,4 +1,5 @@
 ---
+id: AIEOS-65E3D9FCA6
 title: "Redirect — 08 Assumption Register"
 status: compatibility-redirect
 version: 1.0.0

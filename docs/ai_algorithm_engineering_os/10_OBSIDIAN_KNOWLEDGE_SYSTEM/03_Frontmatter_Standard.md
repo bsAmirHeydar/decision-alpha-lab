@@ -1,4 +1,5 @@
 ---
+id: AIEOS-59596CA34A
 title: "Redirect — 03 Frontmatter Standard"
 status: compatibility-redirect
 version: 1.0.0

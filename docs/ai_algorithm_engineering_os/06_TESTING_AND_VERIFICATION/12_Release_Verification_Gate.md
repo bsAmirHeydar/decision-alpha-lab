@@ -1,4 +1,5 @@
 ---
+id: AIEOS-5A4E86DEA9
 title: "Redirect — 12 Release Verification Gate"
 status: compatibility-redirect
 version: 1.0.0

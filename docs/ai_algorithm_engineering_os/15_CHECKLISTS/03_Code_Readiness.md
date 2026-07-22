@@ -1,4 +1,5 @@
 ---
+id: AIEOS-39894D97B0
 title: "Redirect — 03 Code Readiness"
 status: compatibility-redirect
 version: 1.0.0

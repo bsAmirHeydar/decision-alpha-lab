@@ -1,4 +1,5 @@
 ---
+id: AIEOS-967A52278F
 title: "Redirect — 03 State Machine Template"
 status: compatibility-redirect
 version: 1.0.0

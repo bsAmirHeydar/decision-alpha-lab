@@ -1,4 +1,5 @@
 ---
+id: AIEOS-8211181431
 title: "Redirect — 01 Module Boundaries"
 status: compatibility-redirect
 version: 1.0.0

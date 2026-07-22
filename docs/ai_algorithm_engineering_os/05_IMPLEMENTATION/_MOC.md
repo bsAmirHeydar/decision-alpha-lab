@@ -1,4 +1,5 @@
 ---
+id: AIEOS-C983C77CAD
 title: "Redirect —  MOC"
 status: compatibility-redirect
 version: 1.0.0

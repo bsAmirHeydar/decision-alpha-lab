@@ -1,4 +1,5 @@
 ---
+id: AIEOS2-EC16AB976BFD
 title: "Redirect — 08 Model Governance and Promotion"
 status: compatibility-redirect
 version: 1.0.0

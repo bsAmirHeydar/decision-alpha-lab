@@ -1,4 +1,5 @@
 ---
+id: AIEOS-902296B72F
 title: "Redirect — 09 Context Budget"
 status: compatibility-redirect
 version: 1.0.0

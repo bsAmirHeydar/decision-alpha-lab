@@ -1,4 +1,5 @@
 ---
+id: AIEOS-2171E783F8
 title: "Redirect — 01 Consumed Extreme Example"
 status: compatibility-redirect
 version: 1.0.0
