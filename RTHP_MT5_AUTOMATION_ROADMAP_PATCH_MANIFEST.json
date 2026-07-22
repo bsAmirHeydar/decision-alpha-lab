@@ -1,0 +1,18 @@
+{
+  "canonical_context_modified": false,
+  "canonical_source_floor": "M1_CLOSED_BARS",
+  "capital_authority_created": false,
+  "central_engine_modified": false,
+  "documentation_language": "English",
+  "documentation_only": true,
+  "file_count": 39,
+  "implementation_status": "ROADMAP_COMPLETE_IMPLEMENTATION_NOT_STARTED",
+  "order_authority_created": false,
+  "patch_id": "RTHP_MT5_AUTOMATION_OBSIDIAN_ROADMAP_V1",
+  "primary_moc": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/RTHP_MT5_AUTOMATION/00_RTHP_MT5_AUTOMATION_MOC.md",
+  "release_date": "2026-07-22",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "sub_m1_canonical_source_allowed": false
+}

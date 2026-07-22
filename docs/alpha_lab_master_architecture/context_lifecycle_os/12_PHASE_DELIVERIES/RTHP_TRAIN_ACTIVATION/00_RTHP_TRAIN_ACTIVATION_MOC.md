@@ -8,3 +8,4 @@
 - [[06 One Shot Command]]
 - [[07 Run Evidence and Verification]]
 - [[08 Operational Blockers]]
+- [[09 MT5 M1 Automatic Intake Handoff]]

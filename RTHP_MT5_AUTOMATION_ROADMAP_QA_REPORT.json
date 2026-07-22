@@ -1,0 +1,20 @@
+{
+  "atomic_concept_count": 6,
+  "canonical_context_modified": false,
+  "central_engine_modified": false,
+  "documentation_only": true,
+  "existing_docs_added_count": 1,
+  "existing_docs_updated_count": 1,
+  "file_count": 39,
+  "intrabar_order_inference_prohibited": true,
+  "m1_floor_documented": true,
+  "mt5_official_python_api_basis_documented": true,
+  "obsidian_primary_note_count": 21,
+  "persian_character_count": 0,
+  "persian_filename_count": 0,
+  "protected_code_or_engine_paths_in_patch": [],
+  "report_id": "RTHP_MT5_AUTOMATION_ROADMAP_QA_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "sub_m1_exclusion_documented": true
+}
