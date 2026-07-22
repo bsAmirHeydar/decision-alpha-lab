@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/lcm15a/RecoveryProofRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_15A_REFERENCE_ONLY"
+    },
+    "master_phase": {
+      "const": "LCM-15"
+    },
+    "phase_id": {
+      "const": "LCM-15A"
+    },
+    "recovery_proof_pass": {
+      "type": "boolean"
+    },
+    "recovery_state": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "validation_status",
+    "candidate_id",
+    "recovery_state",
+    "recovery_proof_pass"
+  ],
+  "title": "RecoveryProofRecord",
+  "type": "object"
+}

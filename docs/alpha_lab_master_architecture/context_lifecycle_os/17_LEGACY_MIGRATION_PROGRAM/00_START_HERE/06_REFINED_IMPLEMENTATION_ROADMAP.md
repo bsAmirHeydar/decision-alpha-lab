@@ -146,3 +146,7 @@ LCM-14A is complete under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132`. All 61
 ### LCM-14B implementation closure — 2026-07-22
 
 Quarantine `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D` packages all 136 approved documentation originals as immutable evidence copies, preserves active redirects and canonical documents, completes two deterministic repository observation cycles and 136 restoration drills, and emits LCM-15A handoff `sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8`. External consumer evidence remains UNKNOWN and deletion approval remains zero.
+
+### LCM-15A accepted reference checkpoint — 2026-07-22
+
+Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 exact paths and approves 940 only for non-destructive LCM-15B relocation/reorganization. All 2,168 remain blocked from future deletion because external consumer reachability is UNKNOWN; deletion approval and deletion execution are both zero. Handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.

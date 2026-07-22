@@ -1,0 +1,54 @@
+{
+  "$id": "https://alpha-lab.local/lcm15a/DeletionCandidateRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_path": {
+      "type": "string"
+    },
+    "candidate_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_15A_REFERENCE_ONLY"
+    },
+    "future_deletion_approved": {
+      "const": false
+    },
+    "master_phase": {
+      "const": "LCM-15"
+    },
+    "phase_id": {
+      "const": "LCM-15A"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "validation_status",
+    "candidate_id",
+    "candidate_path",
+    "candidate_sha256",
+    "future_deletion_approved"
+  ],
+  "title": "DeletionCandidateRecord",
+  "type": "object"
+}

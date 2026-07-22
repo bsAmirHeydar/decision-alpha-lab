@@ -1,0 +1,43 @@
+{
+  "approved_relocation_count": 940,
+  "blocked_relocation_count": 1105,
+  "candidate_set_closed_for_snapshot": true,
+  "candidate_snapshot_digest": "sha256:6e8b6490edfe4f8bd2702ff4b9879890699f35c09308d51aee0f5081afa3d55e",
+  "category_counts": {
+    "EXACT_DUPLICATE_DOCUMENTATION": 976,
+    "QUARANTINED_DOCUMENTATION_REDIRECT": 136,
+    "ROOT_PROPOSE_ARCHIVE": 1,
+    "ROOT_PROPOSE_QUARANTINE": 21,
+    "ROOT_PROPOSE_RELOCATION": 1047
+  },
+  "claim_ceiling": "LCM_15A_REFERENCE_ONLY",
+  "deletion_performed_count": 0,
+  "deterministic_identity": true,
+  "future_deletion_approved_count": 0,
+  "future_deletion_blocked_count": 2168,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15A",
+  "producer": "tools.strategy_factory.lcm.lcm_15a.service:LCM15ADeletionCandidateService",
+  "proof_id": "DELCAND_DBF53BE0F1838F171906F990E05930D6",
+  "record_count": 2168,
+  "records_path": "records/deletion_candidate_records.jsonl",
+  "reference_snapshot_digest": "sha256:c975d483e4a0f8a45a08d9c9dcf4e4fd180ce734fec94e3d5a71130e48f8757a",
+  "registry_digest": "sha256:ec0382affbe8c03bced058d409014805df66f4b933988dd86a6ceac517f34e11",
+  "retained_redirect_count": 123,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8",
+    "sha256:900f860327bba27eb45aa79ce0137a5fff030556992ecd104fcc1fb0683e1a56",
+    "sha256:b2e960d564c8f776a3e112c49ecf618bb356dd4f69c0ee08de5da22c1cd93458",
+    "sha256:7b3d4e504b014415374f9ebe977cf372532420c668f9c0328805109c91f4e8db",
+    "sha256:1f273ab5be09dd3c6eb41edc4a6b26eba62be8509e5854f9635d641a2fdb28d4",
+    "sha256:15721311a4b61641c03ab873d86049a96d9b90fc1066f0cc7e6c3af007f0c10d"
+  ],
+  "unique_exact_path_count": 2168,
+  "validation_status": "PASS",
+  "wildcard_candidates_used": false
+}

@@ -1,0 +1,229 @@
+{
+  "approved_relocation_count": 940,
+  "candidate_count": 2168,
+  "claim_ceiling": "LCM_15A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "file_count": 41,
+  "files": [
+    {
+      "path": "LCM15A_TO_LCM15B_HANDOFF.json",
+      "sha256": "sha256:01d48217342fcc6f1b86cc0034eb54930d71874fa7a3264599dd04872f7c8f39",
+      "size_bytes": 3448
+    },
+    {
+      "path": "approved_future_deletion_pathspec.txt",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "approved_relocation_pathspec.txt",
+      "sha256": "sha256:d7a91332fd1169ff3a0d5adfcadbd00ee50cd027227329acea9a1b5d9dcb9dde",
+      "size_bytes": 97543
+    },
+    {
+      "path": "blocked_deletion_pathspec.txt",
+      "sha256": "sha256:abbf6216424d3980adc27711ec81b178a125db30f02e332a9df8199d9695f517",
+      "size_bytes": 153066
+    },
+    {
+      "path": "deletion_approval_registry.json",
+      "sha256": "sha256:2180a82d21a4cd106f40966b86cc3c73bb8ab5f6b4f91a1946a70f23ff995026",
+      "size_bytes": 1419
+    },
+    {
+      "path": "deletion_blocker_registry.json",
+      "sha256": "sha256:45eb8beafc094a240f56f8e0429138f4090740ec53e24f5fb5e7de2077b14778",
+      "size_bytes": 1376
+    },
+    {
+      "path": "deletion_candidate_ledger.json",
+      "sha256": "sha256:cb71833edc17bbfa2098ae6c7e17852d88d96901deaeff914995501ad69fa3d6",
+      "size_bytes": 1993
+    },
+    {
+      "path": "deletion_candidate_receipt.json",
+      "sha256": "sha256:b6df99a9302ed61fef4b0d82b290433b269744f7509c7598140e44539c2972ad",
+      "size_bytes": 2198
+    },
+    {
+      "path": "records/deletion_approval_records.jsonl",
+      "sha256": "sha256:70f46a670307f7b3cd6daa31e96c9c3351dc05127812b9f8693ef94378b6e648",
+      "size_bytes": 3613656
+    },
+    {
+      "path": "records/deletion_blocker_records.jsonl",
+      "sha256": "sha256:f02e7578c06ad0cb9e58acdb99eed86941d0f6ec5e6c00d6b095e411e6e62b98",
+      "size_bytes": 6556252
+    },
+    {
+      "path": "records/deletion_candidate_records.jsonl",
+      "sha256": "sha256:d3156a2bbced6352d1f09e63fbd3d3273b6c67e5c169903f95b122ba736cf90c",
+      "size_bytes": 6132561
+    },
+    {
+      "path": "records/recovery_proof_records.jsonl",
+      "sha256": "sha256:03dbb51fbd6cef40a2391092bc234497051229e480eff217356cdb132eb44b91",
+      "size_bytes": 3535883
+    },
+    {
+      "path": "records/reference_proof_records.jsonl",
+      "sha256": "sha256:6404c5be977319f406879859105c12cdfd776f6f4e98d9052e1e2567e95845fb",
+      "size_bytes": 3603890
+    },
+    {
+      "path": "records/reference_rewrite_records.jsonl",
+      "sha256": "sha256:3647241c0eef24f5cad2b82842379faa079ff1344884d511f832249d31448db5",
+      "size_bytes": 252892
+    },
+    {
+      "path": "records/successor_archive_records.jsonl",
+      "sha256": "sha256:fc49ab8fa0b28f0cf341adf4f972eb833ec8f5077cecfbe9fa2afc9a9c35286c",
+      "size_bytes": 3799975
+    },
+    {
+      "path": "recovery_proof.json",
+      "sha256": "sha256:5ae09befe6ba8a5fd76115fd1508296858210ea902c052653cca318dd294ac3c",
+      "size_bytes": 1317
+    },
+    {
+      "path": "reference_proof_registry.json",
+      "sha256": "sha256:3cc5888b7621ae5a005b3331721c98b9ee366a2a1ef3784ae058eefcbb4ce485",
+      "size_bytes": 1654
+    },
+    {
+      "path": "reference_rewrite_plan.json",
+      "sha256": "sha256:bfee8617e86700fc3ca95bac2358bc840c98146ba68c784a6ecf865442419719",
+      "size_bytes": 1286
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:44a1bd1a777fed23d6bca27a7ccad0bef7b641026c9daacd0fef258bb743f3d7",
+      "size_bytes": 1694
+    },
+    {
+      "path": "reports/determinism_report.json",
+      "sha256": "sha256:5f4fc44629b9d58f435ef40da0dbc709ed4032ffcb4aa1a63f0c2ea3566cd8c5",
+      "size_bytes": 1537
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:6aa85be05a57397c3e69df315e9f9763424adb152fb61c8ac78c3697042f74e7",
+      "size_bytes": 12029
+    },
+    {
+      "path": "residual_deletion_risk.md",
+      "sha256": "sha256:c56ddf4b77d94dc2f4a1828000effb2faf71759ffbb14404990d3dff57f7b7ab",
+      "size_bytes": 518
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:f5167b0e79fbe0a375b8e20ae882624507cba4a9ccf4e6f8c80ac5e02760063a",
+      "size_bytes": 7351
+    },
+    {
+      "path": "successor_archive_proof.json",
+      "sha256": "sha256:3d26d3e255dfb6b3497669ba3521ca99742b9a254173d74bd4ec6811600d6e14",
+      "size_bytes": 1288
+    },
+    {
+      "path": "zero_reference_evidence/shard_00.jsonl",
+      "sha256": "sha256:009a9b5cca9535b4b69143f7d08c547c7a5bd79a5bdb28869115f81df67e4577",
+      "size_bytes": 219362
+    },
+    {
+      "path": "zero_reference_evidence/shard_01.jsonl",
+      "sha256": "sha256:904d238eb1bf5a0015c29802a3fd84e20d46858d43c8e054e41d76b5b5b7d0df",
+      "size_bytes": 204843
+    },
+    {
+      "path": "zero_reference_evidence/shard_02.jsonl",
+      "sha256": "sha256:a1469a76a752e87748a2b60e835762b09d62dc7e3b6999fc5854c7e4e326cf21",
+      "size_bytes": 237417
+    },
+    {
+      "path": "zero_reference_evidence/shard_03.jsonl",
+      "sha256": "sha256:f1800c66bcd8311ff7c0c3bfb0e06c9f1cd1b1c4a49c38f1ad57021d13a88bdb",
+      "size_bytes": 239228
+    },
+    {
+      "path": "zero_reference_evidence/shard_04.jsonl",
+      "sha256": "sha256:b9ce310912cab94893eda1254f771caea3203064c54f7b5dff21d7a6a5f462af",
+      "size_bytes": 256037
+    },
+    {
+      "path": "zero_reference_evidence/shard_05.jsonl",
+      "sha256": "sha256:0eeb907f64dd80586fff6d4a14e0e94aa5ab0525dca36c8c1ba3f486ee45ca3b",
+      "size_bytes": 205817
+    },
+    {
+      "path": "zero_reference_evidence/shard_06.jsonl",
+      "sha256": "sha256:b1c1f72cbaa7d8d1fd60c5ab16f306306d1fc0f5126fe616507c1e93a13be6bf",
+      "size_bytes": 203193
+    },
+    {
+      "path": "zero_reference_evidence/shard_07.jsonl",
+      "sha256": "sha256:f080ee43b25a24cb63b7be703b0c89b16e57e1bb079e5d06e0f14afe1cf1723e",
+      "size_bytes": 215011
+    },
+    {
+      "path": "zero_reference_evidence/shard_08.jsonl",
+      "sha256": "sha256:6ff1c3aa9b9d4d33aa782c9131106f4f0ba36b1d12a3c5c74005eeaa21634793",
+      "size_bytes": 212992
+    },
+    {
+      "path": "zero_reference_evidence/shard_09.jsonl",
+      "sha256": "sha256:1740bec5992ee05f04939abdfda6d7b51d9f4bcda4b54e045b798ce6c2e02ecd",
+      "size_bytes": 236072
+    },
+    {
+      "path": "zero_reference_evidence/shard_10.jsonl",
+      "sha256": "sha256:cb119862cda0322b36d0191f3b0e0a6a38f6ce8ace98190c67b83ccd1e0b8f40",
+      "size_bytes": 242976
+    },
+    {
+      "path": "zero_reference_evidence/shard_11.jsonl",
+      "sha256": "sha256:e639010b7529ccab6695f81f0ba9ba0eb34f6198be276cf2587519a4455420f7",
+      "size_bytes": 215968
+    },
+    {
+      "path": "zero_reference_evidence/shard_12.jsonl",
+      "sha256": "sha256:315b95d5700c949cc9668a97980063802769ca4267b3bb23f9cc793e310df4b6",
+      "size_bytes": 220832
+    },
+    {
+      "path": "zero_reference_evidence/shard_13.jsonl",
+      "sha256": "sha256:3528ba5630e8d450847b82d55c48c8a58d08bc0e0c3b3aa49cccc8696d7896ae",
+      "size_bytes": 240038
+    },
+    {
+      "path": "zero_reference_evidence/shard_14.jsonl",
+      "sha256": "sha256:4ef19dde0405e926eb511450adf8bee0433fbf86384bebf26e2759d050bf72aa",
+      "size_bytes": 242293
+    },
+    {
+      "path": "zero_reference_evidence/shard_15.jsonl",
+      "sha256": "sha256:98f3cd11d209d8a9422725c3bb875464b6134b8052ce00d61933fbd1e1f03dc5",
+      "size_bytes": 211811
+    }
+  ],
+  "future_deletion_approved_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "output_manifest_digest": "sha256:49259ca4ed3206854e6c7fc8ae416de413fd18c4f0c63358da978bfe5dad71a7",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15A",
+  "producer": "tools.strategy_factory.lcm.lcm_15a.service:LCM15ADeletionCandidateService",
+  "proof_id": "DELCAND_DBF53BE0F1838F171906F990E05930D6",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8",
+    "sha256:900f860327bba27eb45aa79ce0137a5fff030556992ecd104fcc1fb0683e1a56",
+    "sha256:b2e960d564c8f776a3e112c49ecf618bb356dd4f69c0ee08de5da22c1cd93458",
+    "sha256:7b3d4e504b014415374f9ebe977cf372532420c668f9c0328805109c91f4e8db",
+    "sha256:1f273ab5be09dd3c6eb41edc4a6b26eba62be8509e5854f9635d641a2fdb28d4",
+    "sha256:15721311a4b61641c03ab873d86049a96d9b90fc1066f0cc7e6c3af007f0c10d"
+  ],
+  "validation_status": "PASS"
+}

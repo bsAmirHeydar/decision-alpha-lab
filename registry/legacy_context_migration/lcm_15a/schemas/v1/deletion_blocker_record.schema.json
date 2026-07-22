@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/lcm15a/DeletionBlockerRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocker_id": {
+      "type": "string"
+    },
+    "blocker_reason": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_15A_REFERENCE_ONLY"
+    },
+    "master_phase": {
+      "const": "LCM-15"
+    },
+    "phase_id": {
+      "const": "LCM-15A"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "validation_status",
+    "blocker_id",
+    "candidate_id",
+    "blocker_reason"
+  ],
+  "title": "DeletionBlockerRecord",
+  "type": "object"
+}

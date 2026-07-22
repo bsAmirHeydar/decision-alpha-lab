@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/lcm15a/DeletionApprovalRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_15A_REFERENCE_ONLY"
+    },
+    "future_deletion_approved": {
+      "const": false
+    },
+    "master_phase": {
+      "const": "LCM-15"
+    },
+    "phase_id": {
+      "const": "LCM-15A"
+    },
+    "role_separation_pass": {
+      "const": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "validation_status",
+    "candidate_id",
+    "role_separation_pass",
+    "future_deletion_approved"
+  ],
+  "title": "DeletionApprovalRecord",
+  "type": "object"
+}

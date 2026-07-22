@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/lcm15a/OutputManifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_15A_REFERENCE_ONLY"
+    },
+    "file_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "master_phase": {
+      "const": "LCM-15"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-15A"
+    },
+    "proof_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "validation_status",
+    "proof_id",
+    "file_count",
+    "output_manifest_digest"
+  ],
+  "title": "OutputManifest",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "claim_ceiling": "LCM_15A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "enforcement": "NON_COMPENSATORY",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15A",
+  "policy_digest": "sha256:8f53191889c07da7d3576465a9b34ab2591455d8e3d6ef551e102fa639b5d92a",
+  "policy_id": "03_CANDIDATE_SET_CLOSURE",
+  "producer": "tools.strategy_factory.lcm.lcm_15a.service:LCM15ADeletionCandidateService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8",
+    "sha256:900f860327bba27eb45aa79ce0137a5fff030556992ecd104fcc1fb0683e1a56",
+    "sha256:b2e960d564c8f776a3e112c49ecf618bb356dd4f69c0ee08de5da22c1cd93458",
+    "sha256:7b3d4e504b014415374f9ebe977cf372532420c668f9c0328805109c91f4e8db",
+    "sha256:1f273ab5be09dd3c6eb41edc4a6b26eba62be8509e5854f9635d641a2fdb28d4",
+    "sha256:15721311a4b61641c03ab873d86049a96d9b90fc1066f0cc7e6c3af007f0c10d"
+  ],
+  "statement": "Approved and blocked sets are immutable for the frozen snapshot.",
+  "validation_status": "PASS"
+}

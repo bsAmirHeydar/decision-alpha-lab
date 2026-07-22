@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_15A_DELETION_CANDIDATE_INVENTORY_AND_REFERENCE_PROOF|LCM-15A — Deletion Candidate Inventory and Reference Proof]].
+The next approved implementation unit is [[LCM_15B_ROOT_RELEASE_AND_DOCUMENTATION_REORGANIZATION|LCM-15B — Root, Release and Documentation Reorganization]].
 
 ## Claim ceiling
 
@@ -63,3 +63,7 @@ The program may create migration evidence, canonical packages, compatibility ada
 ### LCM-14B implementation closure — 2026-07-22
 
 Quarantine `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D` packages all 136 approved documentation originals as immutable evidence copies, preserves active redirects and canonical documents, completes two deterministic repository observation cycles and 136 restoration drills, and emits LCM-15A handoff `sha256:beb66a4bb6792692608c4223763f7f88198e62d63a51b217436e1b456ab02cb8`. External consumer evidence remains UNKNOWN and deletion approval remains zero.
+
+### LCM-15A accepted reference checkpoint — 2026-07-22
+
+Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 exact paths and approves 940 only for non-destructive LCM-15B relocation/reorganization. All 2,168 remain blocked from future deletion because external consumer reachability is UNKNOWN; deletion approval and deletion execution are both zero. Handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.

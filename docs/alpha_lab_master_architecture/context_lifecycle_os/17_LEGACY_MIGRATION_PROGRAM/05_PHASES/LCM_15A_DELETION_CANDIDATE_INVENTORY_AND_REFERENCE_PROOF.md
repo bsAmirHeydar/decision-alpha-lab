@@ -1,8 +1,8 @@
 ---
 title: "LCM-15A — Deletion Candidate Inventory and Reference Proof"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-22
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-15A
 master_phase: LCM-15
@@ -125,3 +125,7 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Forbidden action: deleting during LCM-15B.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Implemented outcome — 2026-07-22
+
+LCM-15A is implemented under proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6`. It freezes 2,168 exact candidate paths, including 136 LCM-14B quarantine redirects, 976 exact duplicate documentation paths and 1,069 LCM-05 root reorganization candidates. Every path has current SHA-256, successor/archive coverage, repository reference evidence, recovery instructions, separated approvals and explicit blockers. 940 candidates are approved only for non-destructive LCM-15B relocation/reorganization; 1105 are blocked from relocation and 123 already-active redirects require no move. External consumer reachability remains UNKNOWN for all candidates, so future deletion approval is zero and no file is moved, deleted or modified. Handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.

@@ -2,7 +2,7 @@
 title: "LCM-15 — Controlled Deletion and Root Hygiene"
 status: proposed-reference
 version: 2.0.0
-updated: 2026-07-19
+updated: 2026-07-22
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-15
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
@@ -66,3 +66,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+## LCM-15A checkpoint — 2026-07-22
+
+LCM-15 remains open. LCM-15A proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` closes the exact candidate, reference, recovery, approval and blocker inventories without performing relocation or deletion. Only the 940 exact paths in the approved relocation pathspec may enter LCM-15B. No path is approved for deletion.
