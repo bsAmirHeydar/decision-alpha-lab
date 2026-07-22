@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:rthp:mt5-activation-config:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "output_root",
+    "symbols",
+    "terminal",
+    "history",
+    "quality",
+    "train",
+    "source_revision",
+    "contract_roll_policy",
+    "entitlement_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbols": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary",
+        "secondary",
+        "canonical_primary_id",
+        "canonical_secondary_id"
+      ],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_primary_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_secondary_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "terminal": {
+      "type": "object"
+    },
+    "history": {
+      "type": "object"
+    },
+    "quality": {
+      "type": "object"
+    },
+    "train": {
+      "type": "object"
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_roll_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entitlement_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "implementation_validated_with": "DETERMINISTIC_FAKE_PROVIDER_AND_FULL_REGRESSION_SUITE",
+  "next_action": "Run preflight-symbols and run-symbols on the intended logged-in Windows MT5 terminal.",
+  "production_claim_allowed": false,
+  "real_broker_symbols_verified": false,
+  "real_mt5_history_acquired": false,
+  "real_mt5_initialize_executed": false,
+  "reason_code": "REAL_MT5_TERMINAL_SMOKE_REQUIRED",
+  "report_digest": "4f174b5f506f5ee5d49c6656ec143ceb2b932c12a510613fc114b3ebb0ec1b52",
+  "report_id": "RTHP_MT5_REAL_TERMINAL_EVIDENCE_STATUS_V1",
+  "schema_version": "1.0.0",
+  "status": "PENDING_EXTERNAL_EVIDENCE"
+}

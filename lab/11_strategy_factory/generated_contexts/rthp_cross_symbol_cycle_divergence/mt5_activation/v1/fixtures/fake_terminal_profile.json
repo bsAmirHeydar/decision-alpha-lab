@@ -1,0 +1,17 @@
+{
+  "terminal": {
+    "connected": true,
+    "build": 5000,
+    "path": "C:/Fake/terminal64.exe",
+    "data_path": "C:/Fake/Data"
+  },
+  "account": {
+    "login": 123,
+    "server": "FAKE-SERVER"
+  },
+  "version": [
+    5000,
+    5000,
+    "2026-01-01"
+  ]
+}

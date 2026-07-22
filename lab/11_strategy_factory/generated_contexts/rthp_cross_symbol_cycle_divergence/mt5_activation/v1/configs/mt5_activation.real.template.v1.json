@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "AUTO",
+  "output_root": "../../../../../runs/rthp_mt5/REPLACE_WITH_PAIR_RUN",
+  "symbols": {
+    "primary": "REPLACE_WITH_PRIMARY_MT5_SYMBOL",
+    "secondary": "REPLACE_WITH_SECONDARY_MT5_SYMBOL",
+    "canonical_primary_id": "REPLACE_WITH_PRIMARY_CANONICAL_ID",
+    "canonical_secondary_id": "REPLACE_WITH_SECONDARY_CANONICAL_ID"
+  },
+  "terminal": {
+    "path": null,
+    "timeout_ms": 60000,
+    "portable": false,
+    "require_connected": true
+  },
+  "history": {
+    "mode": "AUTO_COMMON_HISTORY",
+    "start_utc": null,
+    "end_utc": null,
+    "max_lookback_days": 730,
+    "minimum_common_days": 30,
+    "chunk_days": 14,
+    "overlap_minutes": 2,
+    "retry_count": 3,
+    "retry_delay_seconds": 1.0
+  },
+  "quality": {
+    "minimum_common_bars": 10000,
+    "max_symbol_specific_gap_ratio": 0.02,
+    "max_joint_gap_minutes": 240,
+    "max_unexplained_gap_minutes": 15,
+    "require_exact_m15_coverage": true,
+    "reject_sub_m1": true,
+    "drop_incomplete_current_bar": true
+  },
+  "train": {
+    "enabled": true,
+    "selected_task_ids": [],
+    "family_filter": [],
+    "minimum_mature_rows": 24,
+    "max_rows": 2000000,
+    "max_memory_mb": 8192,
+    "max_wall_seconds": 3600.0,
+    "seed": 1701
+  },
+  "source_revision": "R1",
+  "contract_roll_policy": "NO_IMPLICIT_STITCHING_V1",
+  "entitlement_id": "LOCAL_MT5_TERMINAL_SESSION"
+}

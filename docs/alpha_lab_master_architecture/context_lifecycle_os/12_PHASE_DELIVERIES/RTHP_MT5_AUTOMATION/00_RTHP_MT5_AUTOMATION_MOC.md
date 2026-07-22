@@ -57,3 +57,8 @@ The delivery is deliberately outside the central Strategy Factory, SAED, UCEE, A
 ## Lifecycle boundary
 
 This roadmap is a context-owned delivery. It is **not a replacement or renumbering of ACL-07**, whose existing responsibility remains Unified Validation. It is also not a new central-engine phase.
+
+- [[21_Implementation_Release_and_Operator_Command]]
+- [[22_M1_Materializer_Parity_and_Interval_Censoring]]
+- [[23_Read_Only_MT5_API_and_No_Trade_Authority]]
+- [[24_First_Real_Terminal_Run_Checklist]]

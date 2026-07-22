@@ -120,6 +120,15 @@ class RTHPTrainerBridge:
                 "mature_rows": len(unique_events),
                 "required_rows": self.config.split_policy.minimum_mature_rows,
             }
+        if task["kind"] == "binary":
+            unique_targets = {float(x.target) for x in task_labels}
+            if len(unique_targets) < 2:
+                return {
+                    "task_id": task_id,
+                    "status": "SKIPPED_SINGLE_CLASS_TARGET",
+                    "mature_rows": len(unique_events),
+                    "unique_target_count": len(unique_targets),
+                }
         by_event = {x.event_id: x for x in task_labels}
         split_input = [(event_id, observations[event_id].event_time_ms, observations[event_id].opportunity_cluster_id) for event_id in sorted(unique_events)]
         assignments, protocol = build_clustered_protocol(split_input, self.config.split_policy, task_id)

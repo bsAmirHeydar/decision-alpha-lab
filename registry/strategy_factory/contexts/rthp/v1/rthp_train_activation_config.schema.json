@@ -1,44 +1,163 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "registry/strategy_factory/contexts/rthp/v1/rthp_train_activation_config.schema.json",
-  "title": "RTHP Train Activation Configuration",
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
-  "required": ["schema_version", "run_id", "output_root", "data_source", "split_policy", "resource_policy"],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
-    "run_id": {"type": "string", "minLength": 1},
-    "output_root": {"type": "string", "minLength": 1},
     "data_source": {
-      "type": "object",
       "additionalProperties": false,
-      "required": ["mode", "provider", "primary_symbol", "secondary_symbol", "primary_tick_jsonl", "secondary_tick_jsonl", "timezone", "price_basis", "tick_size_source", "contract_roll_policy", "entitlement_id", "producer_version", "availability_time_policy", "source_revision"],
       "properties": {
-        "mode": {"const": "PAIRED_TICK_JSONL"},
-        "provider": {"type": "string", "minLength": 1},
-        "primary_symbol": {"type": "string", "minLength": 1},
-        "secondary_symbol": {"type": "string", "minLength": 1},
-        "primary_tick_jsonl": {"type": "string", "minLength": 1},
-        "secondary_tick_jsonl": {"type": "string", "minLength": 1},
-        "timezone": {"const": "America/New_York"},
-        "price_basis": {"const": "BID"},
-        "tick_size_source": {"type": "string", "minLength": 1},
-        "contract_roll_policy": {"type": "string", "minLength": 1},
-        "entitlement_id": {"type": "string", "minLength": 1},
-        "producer_version": {"type": "string", "minLength": 1},
-        "availability_time_policy": {"type": "string", "minLength": 1},
-        "source_revision": {"type": "string", "minLength": 1},
-        "start_time_ms": {"type": ["integer", "null"]},
-        "end_time_ms": {"type": ["integer", "null"]},
-        "max_confirmation_freshness_ms": {"type": "integer", "minimum": 0}
-      }
+        "availability_time_policy": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "contract_roll_policy": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "end_time_ms": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "entitlement_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "max_confirmation_freshness_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mode": {
+          "enum": [
+            "PAIRED_TICK_JSONL",
+            "PAIRED_M1_BAR_JSONL"
+          ]
+        },
+        "price_basis": {
+          "const": "BID"
+        },
+        "primary_m1_bar_jsonl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primary_symbol": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "primary_tick_jsonl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "producer_version": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "secondary_m1_bar_jsonl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "secondary_symbol": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "secondary_tick_jsonl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_revision": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "start_time_ms": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tick_size_source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "timezone": {
+          "const": "America/New_York"
+        }
+      },
+      "required": [
+        "mode",
+        "provider",
+        "primary_symbol",
+        "secondary_symbol",
+        "primary_tick_jsonl",
+        "secondary_tick_jsonl",
+        "timezone",
+        "price_basis",
+        "tick_size_source",
+        "contract_roll_policy",
+        "entitlement_id",
+        "producer_version",
+        "availability_time_policy",
+        "source_revision"
+      ],
+      "type": "object"
     },
-    "split_policy": {"type": "object"},
-    "resource_policy": {"type": "object"},
-    "selected_task_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "family_filter": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "train_all_mature_tasks": {"type": "boolean"},
-    "retain_materialized_views": {"type": "boolean"},
-    "fail_on_task_insufficiency": {"type": "boolean"}
-  }
+    "fail_on_task_insufficiency": {
+      "type": "boolean"
+    },
+    "family_filter": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "output_root": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resource_policy": {
+      "type": "object"
+    },
+    "retain_materialized_views": {
+      "type": "boolean"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "selected_task_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "split_policy": {
+      "type": "object"
+    },
+    "train_all_mature_tasks": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "output_root",
+    "data_source",
+    "split_policy",
+    "resource_policy"
+  ],
+  "title": "RTHP Train Activation Configuration",
+  "type": "object"
 }

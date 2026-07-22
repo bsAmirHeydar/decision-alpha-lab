@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:rthp:mt5-m1-bar:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "symbol",
+    "canonical_instrument_id",
+    "timeframe_seconds",
+    "bar_open_time_utc_ms",
+    "bar_close_time_utc_ms",
+    "known_time_utc_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "tick_volume",
+    "spread",
+    "real_volume",
+    "tick_size",
+    "source_sequence",
+    "source_terminal_id",
+    "source_revision"
+  ],
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_instrument_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeframe_seconds": {
+      "const": 60
+    },
+    "bar_open_time_utc_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "bar_close_time_utc_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "known_time_utc_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "open": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "high": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "low": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "close": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tick_volume": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "spread": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "real_volume": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tick_size": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "source_sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_terminal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

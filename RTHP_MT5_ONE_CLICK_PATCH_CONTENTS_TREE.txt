@@ -1,0 +1,82 @@
+├── COMMIT_MESSAGE_RTHP_MT5_ONE_CLICK.md
+├── INSTALL_ALPHA_LAB_RTHP_MT5_ONE_CLICK.md
+├── README_ALPHA_LAB_RTHP_MT5_ONE_CLICK.md
+├── ROLLBACK_ALPHA_LAB_RTHP_MT5_ONE_CLICK.md
+├── RTHP_MT5_ONE_CLICK_ARTIFACT_INVENTORY.csv
+├── RTHP_MT5_ONE_CLICK_FILE_HASHES.sha256
+├── RTHP_MT5_ONE_CLICK_FILE_INDEX.txt
+├── RTHP_MT5_ONE_CLICK_PATCH_CONTENTS_TREE.txt
+├── RTHP_MT5_ONE_CLICK_PATCH_MANIFEST.json
+├── RTHP_MT5_ONE_CLICK_QA_REPORT.json
+├── docs
+│   └── alpha_lab_master_architecture
+│       └── context_lifecycle_os
+│           └── 12_PHASE_DELIVERIES
+│               └── RTHP_MT5_AUTOMATION
+│                   ├── 00_RTHP_MT5_AUTOMATION_MOC.md
+│                   ├── 21_Implementation_Release_and_Operator_Command.md
+│                   ├── 22_M1_Materializer_Parity_and_Interval_Censoring.md
+│                   ├── 23_Read_Only_MT5_API_and_No_Trade_Authority.md
+│                   └── 24_First_Real_Terminal_Run_Checklist.md
+├── lab
+│   └── 11_strategy_factory
+│       ├── generated_contexts
+│       │   └── rthp_cross_symbol_cycle_divergence
+│       │       └── mt5_activation
+│       │           └── v1
+│       │               ├── BOUNDARY.md
+│       │               ├── COMMANDS.md
+│       │               ├── README.md
+│       │               ├── configs
+│       │               │   └── mt5_activation.real.template.v1.json
+│       │               ├── fixtures
+│       │               │   └── fake_terminal_profile.json
+│       │               ├── generated
+│       │               │   ├── CANONICAL_CONTEXT_IMMUTABILITY_REPORT.json
+│       │               │   ├── ENGINE_INVARIANCE_REPORT.json
+│       │               │   ├── MT5_IMPLEMENTATION_ACCEPTANCE_REPORT.json
+│       │               │   └── REAL_TERMINAL_EVIDENCE_STATUS.json
+│       │               └── requirements-windows.txt
+│       ├── python
+│       │   ├── strategy_factory_rthp_mt5_activation_v1
+│       │   │   ├── __init__.py
+│       │   │   ├── __main__.py
+│       │   │   ├── acquire.py
+│       │   │   ├── canonical.py
+│       │   │   ├── cli.py
+│       │   │   ├── config.py
+│       │   │   ├── errors.py
+│       │   │   ├── m1_schema.py
+│       │   │   ├── orchestrator.py
+│       │   │   ├── provider.py
+│       │   │   ├── quality.py
+│       │   │   ├── source_binding.py
+│       │   │   ├── symbols.py
+│       │   │   ├── terminal.py
+│       │   │   └── verify.py
+│       │   └── strategy_factory_rthp_train_activation_v1
+│       │       ├── config.py
+│       │       ├── labels.py
+│       │       ├── m1_bars.py
+│       │       ├── m1_materializer.py
+│       │       ├── pipeline.py
+│       │       └── trainer_bridge.py
+│       └── tests
+│           └── rthp_mt5_activation
+│               ├── conftest.py
+│               ├── test_config_and_boundary.py
+│               ├── test_m1_materializer.py
+│               ├── test_orchestrator.py
+│               ├── test_provider_acquisition.py
+│               └── test_quality_and_freeze.py
+└── registry
+    └── strategy_factory
+        └── contexts
+            └── rthp
+                └── v1
+                    ├── rthp_ai_role_price_path.schema.json
+                    ├── rthp_mt5_activation_config.schema.json
+                    ├── rthp_mt5_activation_registration.json
+                    ├── rthp_mt5_m1_bar.schema.json
+                    ├── rthp_mt5_reason_codes.json
+                    └── rthp_train_activation_config.schema.json

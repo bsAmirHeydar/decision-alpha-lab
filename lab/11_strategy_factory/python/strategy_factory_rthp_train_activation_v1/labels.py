@@ -47,7 +47,7 @@ class RTHPLabelCompiler:
     @staticmethod
     def _price_at(path: list[dict[str, Any]], time_ms: int, *, known_by_ms: int) -> float | None:
         candidates = [x for x in path if x["observed_at_ms"] <= time_ms and x["known_time_ms"] <= known_by_ms]
-        return None if not candidates else float(candidates[-1]["price"])
+        return None if not candidates else float(candidates[-1].get("close", candidates[-1]["price"]))
 
     @staticmethod
     def _window(path: list[dict[str, Any]], start_ms: int, end_ms: int, *, known_by_ms: int) -> list[dict[str, Any]]:
@@ -136,7 +136,16 @@ class RTHPLabelCompiler:
                         if not window:
                             stats[task_id]["missing"] += 1
                             continue
-                        signed = [self._sign(occurrence) * math.log(float(x["price"]) / start_price) for x in window if float(x["price"]) > 0]
+                        signed: list[float] = []
+                        for point in window:
+                            candidates = (point.get("low"), point.get("high")) if point.get("low") is not None and point.get("high") is not None else (point.get("price"),)
+                            for candidate_price in candidates:
+                                price = float(candidate_price)
+                                if price > 0:
+                                    signed.append(self._sign(occurrence) * math.log(price / start_price))
+                        if not signed:
+                            stats[task_id]["missing"] += 1
+                            continue
                         target = max(signed) if "_mfe_" in contract_id else max(-x for x in signed)
                     else:
                         target = signed_return

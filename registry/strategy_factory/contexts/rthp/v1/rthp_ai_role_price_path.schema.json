@@ -3,6 +3,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "active_cycle_end_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "close": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
     "evaluation_symbol_role": {
       "enum": [
         "HUNTER",
@@ -13,13 +21,42 @@
       "pattern": "^RTHPEVT_[A-F0-9]{32}$",
       "type": "string"
     },
+    "high": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "interval_end_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "interval_start_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "intrabar_order": {
+      "enum": [
+        "UNKNOWN"
+      ]
+    },
     "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "low": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "observation_cut_ms": {
       "minimum": 0,
       "type": "integer"
     },
     "observed_at_ms": {
       "minimum": 0,
       "type": "integer"
+    },
+    "open": {
+      "exclusiveMinimum": 0,
+      "type": "number"
     },
     "pair_id": {
       "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/@-]{0,255}$",
@@ -35,7 +72,10 @@
       ]
     },
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "source_content_hash": {
       "pattern": "^sha256:[0-9a-f]{64}$",
@@ -53,6 +93,11 @@
     "tick_size": {
       "exclusiveMinimum": 0,
       "type": "number"
+    },
+    "time_resolution": {
+      "enum": [
+        "M1_INTERVAL"
+      ]
     }
   },
   "required": [

@@ -12,6 +12,7 @@ from .config import ActivationConfig
 from .features import EncodedObservation, RTHPFeatureEncoder
 from .labels import RTHPLabelCompiler, read_jsonl
 from .materializer import MaterializationResult, RTHPHistoricalMaterializer
+from .m1_materializer import RTHPM1HistoricalMaterializer
 from .trainer_bridge import RTHPTrainerBridge
 
 
@@ -147,10 +148,11 @@ class RTHPTrainActivationPipeline:
             "provider": source.provider,
             "primary_symbol": source.primary_symbol,
             "secondary_symbol": source.secondary_symbol,
-            "primary_tick_jsonl": source.primary_tick_jsonl.resolve().as_uri(),
-            "secondary_tick_jsonl": source.secondary_tick_jsonl.resolve().as_uri(),
-            "primary_content_hash": "sha256:" + sha256_file(source.primary_tick_jsonl),
-            "secondary_content_hash": "sha256:" + sha256_file(source.secondary_tick_jsonl),
+            "source_mode": source.mode,
+            "primary_source_uri": source.source_paths[0].resolve().as_uri(),
+            "secondary_source_uri": source.source_paths[1].resolve().as_uri(),
+            "primary_content_hash": "sha256:" + sha256_file(source.source_paths[0]),
+            "secondary_content_hash": "sha256:" + sha256_file(source.source_paths[1]),
             "timezone": source.timezone,
             "price_basis": source.price_basis,
             "tick_size_source": source.tick_size_source,
@@ -327,7 +329,8 @@ class RTHPTrainActivationPipeline:
         try:
             write_json(staging / "source_snapshot.json", self.source_snapshot)
             write_json(staging / "activation_config.normalized.json", asdict(self.config))
-            materialization = RTHPHistoricalMaterializer(self.config).materialize(staging)
+            materializer = RTHPM1HistoricalMaterializer(self.config) if self.config.data_source.mode == "PAIRED_M1_BAR_JSONL" else RTHPHistoricalMaterializer(self.config)
+            materialization = materializer.materialize(staging)
             if materialization.occurrence_count == 0:
                 raise RuntimeError("no confirmed RTHP occurrences were materialized")
             occurrences = read_jsonl(materialization.occurrence_ledger)

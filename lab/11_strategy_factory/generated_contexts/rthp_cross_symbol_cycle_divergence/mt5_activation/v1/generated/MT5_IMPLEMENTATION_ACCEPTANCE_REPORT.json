@@ -1,0 +1,58 @@
+{
+  "automatic_steps": [
+    "mt5_terminal_discovery_and_read_only_health",
+    "symbol_resolution_and_metadata_freeze",
+    "common_utc_range_resolution",
+    "chunked_closed_m1_acquisition",
+    "overlap_deduplication_and_receipts",
+    "paired_symbol_quality_validation",
+    "immutable_source_binding",
+    "m1_interval_censored_rthp_materialization",
+    "four_ledger_generation",
+    "feature_and_label_compilation",
+    "immutable_batch_freeze",
+    "delegation_to_existing_trainers",
+    "immutable_run_verification"
+  ],
+  "canonical_context_modified": false,
+  "canonical_source_timeframe": "M1_CLOSED_BARS",
+  "capital_authority_created": false,
+  "central_engine_modified": false,
+  "entry_treatment_execution_created": false,
+  "intrabar_order_inferred": false,
+  "operator_minimum_input": [
+    "primary_mt5_symbol",
+    "secondary_mt5_symbol"
+  ],
+  "order_authority_created": false,
+  "raw_tick_canonical_source_allowed": false,
+  "read_only_mt5_methods": [
+    "initialize",
+    "terminal_info",
+    "account_info",
+    "version",
+    "symbols_get",
+    "symbol_select",
+    "symbol_info",
+    "copy_rates_range",
+    "copy_rates_from_pos",
+    "last_error",
+    "shutdown"
+  ],
+  "real_terminal_execution_status": "NOT_EXECUTED_IN_BUILD_ENVIRONMENT",
+  "release_state": "READY_FOR_REAL_MT5_TERMINAL_SMOKE",
+  "report_digest": "74f13f3305eb02a318f3bb171074fed01c32ba0eab9c268482dbcd285faed272",
+  "report_id": "RTHP_MT5_ONE_CLICK_IMPLEMENTATION_ACCEPTANCE_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "sub_m1_canonical_source_allowed": false,
+  "symbol_only_cli": [
+    "preflight-symbols",
+    "run-symbols"
+  ],
+  "synthetic_ticks_created": false,
+  "test_count": 422,
+  "test_status": "PASS",
+  "test_warnings": 4,
+  "trade_or_order_methods_present": false
+}
