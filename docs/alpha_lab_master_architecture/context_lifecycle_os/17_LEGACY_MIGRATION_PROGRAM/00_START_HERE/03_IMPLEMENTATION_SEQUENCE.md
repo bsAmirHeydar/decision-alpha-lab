@@ -120,3 +120,8 @@ Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 
 ### LCM-15B implementation checkpoint
 
 `ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381` is accepted with 940 non-destructive reorganizations, zero active residual exact-path documentation references and zero deletions. Next: LCM-15C.
+
+
+### LCM-15C implementation checkpoint
+
+`DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474` processes the exact zero-path approved deletion set, retains all 2,168 blocked candidates and authorizes only LCM-16A full-system audit next.

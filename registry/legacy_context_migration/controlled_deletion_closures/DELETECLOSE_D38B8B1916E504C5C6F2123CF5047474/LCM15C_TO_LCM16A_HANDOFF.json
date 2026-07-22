@@ -1,0 +1,88 @@
+{
+  "allowed_next_actions": [
+    "LCM16A_FULL_SYSTEM_AUDIT"
+  ],
+  "approved_deletion_count": 0,
+  "archive_restore_sample_digest": "sha256:7f35dec74421551c1804fab6fc44b74b3741b44dc8ad199682c33b789352847b",
+  "archive_restore_status": "PASS",
+  "blocked_dimensions": [
+    "NO_PATH_HAS_INDEPENDENT_DELETION_APPROVAL",
+    "EXTERNAL_CONSUMER_REACHABILITY_UNKNOWN"
+  ],
+  "blocked_path_count": 2168,
+  "candidate_count": 2168,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_15C_REFERENCE_ONLY",
+  "clean_clone_content_digest": "sha256:d1ebb1d3e9eb233992f39ed778d2dc8851b2fbe112b1e6884f52d1f161fdcff2",
+  "clean_clone_status": "PASS",
+  "clean_clone_verification_digest": "sha256:b189ddb2cbeda7997ba9e1aa754efc9f607818433fe2e68b414c0dae627a9733",
+  "closure_id": "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474",
+  "completed_gates": [
+    "EXACT_UPSTREAM_HANDOFF_BOUND",
+    "ALL_2168_CANDIDATES_HASH_LOCKED",
+    "FINAL_DELETION_PATHSPEC_EMPTY_AND_EXACT",
+    "DELETED_SET_EXACTLY_EQUALS_APPROVED_SET",
+    "ALL_BLOCKED_PATHS_RETAINED",
+    "POST_DELETE_REFERENCE_REPORT_PASS",
+    "CLEAN_CLONE_CONTENT_PARITY_PASS",
+    "CLEAN_CLONE_COMPILE_QA_DIRECT_TESTS_PASS",
+    "ARCHIVE_RECOVERY_READINESS_SAMPLE_12_OF_12_PASS",
+    "RUNTIME_ORDER_CAPITAL_DELETION_AUTHORITY_FALSE"
+  ],
+  "deleted_path_count": 0,
+  "deletion_authority_created": false,
+  "deletion_ledger_digest": "sha256:4c18701682ef1c485b75a2d7433d41724ea14a0cc47c4dfa8b3c93fbe64a0ffe",
+  "deletion_withheld": true,
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "final_active_inventory_digest": "sha256:448d34e09076f7a66f980b9286a595c295a30b7ce4adb94185917bc45a1948e2",
+  "forbidden_actions": [
+    "DELETE_ANY_RETAINED_CANDIDATE",
+    "INFER_DELETION_APPROVAL_FROM_RELOCATION",
+    "BROAD_WILDCARD_DELETE",
+    "CREATE_RUNTIME_ORDER_CAPITAL_OR_DELETION_AUTHORITY",
+    "AUTOMATIC_PROGRAM_CLOSURE"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+  "handoff_type": "LCM15C_TO_LCM16A",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-15",
+  "output_manifest_digest": "sha256:0add8ebafb52ec1d2ce8b2219c0b3b0752fd2d1f7c7b952400eb7b56e00cf44e",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "owner_approvals": [
+    "RELEASE_AND_ROOT_GOVERNANCE_OWNER",
+    "DOCUMENTATION_DOMAIN_OWNER",
+    "INDEPENDENT_MIGRATION_REVIEWER",
+    "INDEPENDENT_SECURITY_REVIEWER"
+  ],
+  "phase_id": "LCM-15C",
+  "post_delete_reference_report_digest": "sha256:f7a65f28b42fcb1193c680d88cd754297c4c13edc3b2c3e691f5275e994f2d0d",
+  "pre_delete_receipt_digest": "sha256:a2181c5b4cc01c9f5897d23a9ce69af95ffba47c6806ae3cff4608768239a382",
+  "producer": "tools.strategy_factory.lcm.lcm_15c.service:LCM15CControlledDeletionClosureService",
+  "repository_hygiene_report_digest": "sha256:07da6a0d258bda470c14c6054d54dc734f7eed22b4ee782bc27b7cbb4361194e",
+  "residual_risks": [
+    "ROOT_ALLOWLIST_VIOLATIONS_REMAIN_EXPLICIT",
+    "ROOT_COMPATIBILITY_MIRRORS_RETAINED",
+    "DOCUMENTATION_REDIRECTS_RETAINED",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS_UNKNOWN"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:d0a3cc99f22b354f91ba57a4c5518deb3b2e6c86e924d82181fb33fbc1bebac3",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+    "sha256:f587c60075f421723dc28ba6e30276de523c145e5aac55c3d70e15b8cd55037f",
+    "sha256:0b4531833ef082b937c87fe2514faf9749c8d0fb9a58ea8470d2ae6bd37090bf",
+    "sha256:9b46070599fe5b506920bf10c32d8678fa7a4349055e8f6f9325f63dfa499038",
+    "sha256:dedd2341d3f2fff66d6b51cbfbb19a360c2878c6c2067c60c4d34df5e2e1f137",
+    "sha256:6f84c5c3a0e15f1b7e3f3b96b4654c42120af4e5d914330d5a7ca592191e5ea2"
+  ],
+  "source_handoff_digest": "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+  "unknown_dimensions": [
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "validation_status": "PASS"
+}

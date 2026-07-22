@@ -1,6 +1,6 @@
 ---
 title: "LCM-15C — Controlled Deletion and Clean-Clone Verification"
-status: proposed-reference
+status: implemented
 version: 1.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -128,3 +128,18 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: full-system audit.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation receipt — 2026-07-22
+
+- Closure package: `DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474`.
+- Exact upstream handoff: `sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f`.
+- Locked deletion candidates: 2,168.
+- Independently approved deletion paths: 0.
+- Final deletion pathspec entries: 0.
+- Deleted paths: 0.
+- Blocked paths retained unchanged: 2,168.
+- Archive/recovery readiness samples: 12, all hash-exact.
+- Clean-clone verification: Git clone, manifest equality, compile, package QA and 20 direct tests.
+- Deletion authority, runtime authority, live-order authority and capital authority: false.
+- Allowed next phase: LCM-16A full-system audit only.

@@ -1,0 +1,26 @@
+{
+  "claim_ceiling": "LCM_15C_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "empty_delete_set_sample": "BLOCKED_CANDIDATE_RECOVERY_READINESS",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hash_equality_required": true,
+  "master_phase": "LCM-15",
+  "mode_encoding_capture_required": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15C",
+  "policy_digest": "sha256:69abb9b5298bbf0f3b1dab27f5bb8cb0aee3e42bde395e2732a84b8896c88a70",
+  "policy_id": "LCM15C_ARCHIVE_RECOVERY",
+  "producer": "tools.strategy_factory.lcm.lcm_15c.service:LCM15CControlledDeletionClosureService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+    "sha256:f587c60075f421723dc28ba6e30276de523c145e5aac55c3d70e15b8cd55037f",
+    "sha256:0b4531833ef082b937c87fe2514faf9749c8d0fb9a58ea8470d2ae6bd37090bf",
+    "sha256:9b46070599fe5b506920bf10c32d8678fa7a4349055e8f6f9325f63dfa499038",
+    "sha256:dedd2341d3f2fff66d6b51cbfbb19a360c2878c6c2067c60c4d34df5e2e1f137",
+    "sha256:6f84c5c3a0e15f1b7e3f3b96b4654c42120af4e5d914330d5a7ca592191e5ea2"
+  ],
+  "validation_status": "PASS"
+}

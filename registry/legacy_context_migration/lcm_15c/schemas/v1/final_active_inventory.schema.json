@@ -1,0 +1,36 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm15c/final_active_inventory.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_15C_REFERENCE_ONLY"
+    },
+    "phase_id": {
+      "const": "LCM-15C"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "claim_ceiling",
+    "validation_status",
+    "inventory_digest",
+    "retained_candidate_count",
+    "deleted_candidate_count"
+  ],
+  "title": "final_active_inventory.schema.json",
+  "type": "object"
+}

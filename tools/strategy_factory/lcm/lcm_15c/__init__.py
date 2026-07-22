@@ -1,0 +1,2 @@
+from .service import LCM15CControlledDeletionClosureService
+__all__=['LCM15CControlledDeletionClosureService']

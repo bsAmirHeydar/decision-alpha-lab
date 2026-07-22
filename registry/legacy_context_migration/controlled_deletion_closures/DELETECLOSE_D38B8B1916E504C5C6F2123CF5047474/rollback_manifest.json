@@ -1,0 +1,36 @@
+{
+  "claim_ceiling": "LCM_15C_REFERENCE_ONLY",
+  "closure_id": "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474",
+  "compatibility_record_restore_required": false,
+  "configuration_restore_required": false,
+  "deleted_path_count": 0,
+  "deleted_paths_to_restore": [],
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "persistent_state_restore_required": false,
+  "phase_id": "LCM-15C",
+  "phase_owned_paths_remove_via_patch_index": true,
+  "producer": "tools.strategy_factory.lcm.lcm_15c.service:LCM15CControlledDeletionClosureService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:d0a3cc99f22b354f91ba57a4c5518deb3b2e6c86e924d82181fb33fbc1bebac3",
+  "rollback_state": "REMOVE_PHASE_EVIDENCE_ONLY_NO_SOURCE_BYTES_CHANGED",
+  "schema_version": "1.0.0",
+  "smallest_direct_verification": [
+    "python -m tools.strategy_factory.lcm.lcm_15c.cli verify-package",
+    "python -m pytest -q lab/11_strategy_factory/migration/tests_lcm_15c"
+  ],
+  "source_digests": [
+    "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+    "sha256:f587c60075f421723dc28ba6e30276de523c145e5aac55c3d70e15b8cd55037f",
+    "sha256:0b4531833ef082b937c87fe2514faf9749c8d0fb9a58ea8470d2ae6bd37090bf",
+    "sha256:9b46070599fe5b506920bf10c32d8678fa7a4349055e8f6f9325f63dfa499038",
+    "sha256:dedd2341d3f2fff66d6b51cbfbb19a360c2878c6c2067c60c4d34df5e2e1f137",
+    "sha256:6f84c5c3a0e15f1b7e3f3b96b4654c42120af4e5d914330d5a7ca592191e5ea2"
+  ],
+  "source_restore_required": false,
+  "upstream_handoff_digest": "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+  "validation_status": "PASS"
+}

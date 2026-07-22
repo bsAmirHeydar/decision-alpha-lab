@@ -1,0 +1,37 @@
+{
+  "actual_deleted_count": 0,
+  "approved_deleted_count": 0,
+  "claim_ceiling": "LCM_15C_REFERENCE_ONLY",
+  "closure_id": "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474",
+  "deterministic_identity": true,
+  "documentation_redirect_count": 934,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15C",
+  "producer": "tools.strategy_factory.lcm.lcm_15c.service:LCM15CControlledDeletionClosureService",
+  "report_digest": "sha256:07da6a0d258bda470c14c6054d54dc734f7eed22b4ee782bc27b7cbb4361194e",
+  "report_result": "PASS_RESIDUALS_EXPLICIT",
+  "residual_risks": [
+    "ROOT_ALLOWLIST_VIOLATIONS_REMAIN_EXPLICIT",
+    "ROOT_COMPATIBILITY_MIRRORS_RETAINED",
+    "DOCUMENTATION_REDIRECTS_RETAINED",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS_UNKNOWN"
+  ],
+  "residual_violation_policy": "EXPLICIT_AND_BLOCKING_FOR_DESTRUCTIVE_CLEANUP",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "root_allowlist_violation_count": 1338,
+  "root_compatibility_mirror_count": 6,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+    "sha256:f587c60075f421723dc28ba6e30276de523c145e5aac55c3d70e15b8cd55037f",
+    "sha256:0b4531833ef082b937c87fe2514faf9749c8d0fb9a58ea8470d2ae6bd37090bf",
+    "sha256:9b46070599fe5b506920bf10c32d8678fa7a4349055e8f6f9325f63dfa499038",
+    "sha256:dedd2341d3f2fff66d6b51cbfbb19a360c2878c6c2067c60c4d34df5e2e1f137",
+    "sha256:6f84c5c3a0e15f1b7e3f3b96b4654c42120af4e5d914330d5a7ca592191e5ea2"
+  ],
+  "topology_conformance_state": "PARTIAL_WITH_EXPLICIT_RESIDUALS",
+  "validation_status": "PASS"
+}

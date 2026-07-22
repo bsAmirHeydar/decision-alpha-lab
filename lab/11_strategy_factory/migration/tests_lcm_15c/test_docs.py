@@ -1,0 +1,1 @@
+def test_docs(repo_root):p=repo_root/'docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_15C_CONTROLLED_DELETION_AND_CLEAN_CLONE_VERIFICATION.md';assert 'status: implemented' in p.read_text() and 'Implementation receipt' in p.read_text()

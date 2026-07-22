@@ -1,0 +1,130 @@
+{
+  "claim_ceiling": "LCM_15C_REFERENCE_ONLY",
+  "closure_id": "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474",
+  "deterministic_identity": true,
+  "excluded_self_paths": [
+    "output_manifest.json",
+    "LCM15C_TO_LCM16A_HANDOFF.json"
+  ],
+  "file_count": 20,
+  "files": [
+    {
+      "path": "archive_restore_sample.json",
+      "sha256": "sha256:7c5f9681137a040cccd0b29803695c363934a50d313dc92d9789ec894bb1ab4f",
+      "size_bytes": 1595
+    },
+    {
+      "path": "blocked_deletion_registry.json",
+      "sha256": "sha256:59a5f9bd0b67b328d62c05554ef1fd10941029a1e101ef98c32263801eb89b4e",
+      "size_bytes": 1444
+    },
+    {
+      "path": "clean_clone_verification.json",
+      "sha256": "sha256:5af1d6ab05310cae0c792d6b5215c19290e837fab1843ec461d99150aee813f4",
+      "size_bytes": 3977
+    },
+    {
+      "path": "deletion_event_ledger.jsonl",
+      "sha256": "sha256:0f23f585fe1645d0658f57d548a64fd0bde2f259e503ac37a09ddc5afbe69d52",
+      "size_bytes": 1289
+    },
+    {
+      "path": "deletion_ledger.json",
+      "sha256": "sha256:ad90f95417a305b5624739ce88c83c1e30606d55365ce2f7077d35d1319536c6",
+      "size_bytes": 1716
+    },
+    {
+      "path": "final_active_inventory.json",
+      "sha256": "sha256:de6bdcd39de8bb90fcb03a8a1b361738c3cebd7a0836bb084804893a5071a74e",
+      "size_bytes": 1529
+    },
+    {
+      "path": "final_deletion_pathspec.txt",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "post_delete_reference_report.json",
+      "sha256": "sha256:c29da39f603d0b6befb2468baeb5a77c2fa5ccedca2d62d56fc96285050b4876",
+      "size_bytes": 1704
+    },
+    {
+      "path": "pre_delete_receipt.json",
+      "sha256": "sha256:78fa853d905a1e96ea49bed3ec28d4bb72ba9638a22fa1da863fd7a4af971e11",
+      "size_bytes": 2144
+    },
+    {
+      "path": "records/archive_restore_sample_records.jsonl",
+      "sha256": "sha256:95fe9d0ae0d524aca7c16dca4cbe0219093dbdcb4f3053afff9a9cb77de89217",
+      "size_bytes": 21439
+    },
+    {
+      "path": "records/blocked_deletion_records.jsonl",
+      "sha256": "sha256:872c71fcc2435aba0c51b09ee289d47f1c2fa2d04a5f7efa49e70cb3d998a436",
+      "size_bytes": 3629553
+    },
+    {
+      "path": "records/clean_clone_source_manifest.jsonl",
+      "sha256": "sha256:d1ebb1d3e9eb233992f39ed778d2dc8851b2fbe112b1e6884f52d1f161fdcff2",
+      "size_bytes": 11330535
+    },
+    {
+      "path": "records/deletion_records.jsonl",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "records/pre_delete_lock_records.jsonl",
+      "sha256": "sha256:1e38d2cfec2b86deb407181cfc7e63270d1f9adc312d2efda60d27c00c03deab",
+      "size_bytes": 3864701
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:bc5dcae58691f68e43231f9ed5f9e122dec6a391f6d63a6c92e004cd5da4435e",
+      "size_bytes": 1939
+    },
+    {
+      "path": "reports/determinism_report.json",
+      "sha256": "sha256:6747f615bd5b141cedab32ee479865cf6de5ce65c9b11c578f53fc7a133645ae",
+      "size_bytes": 1780
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:6f7d675ec5a91f424836b8e1e9bf25ff69b73daf39a8f36c589650c55010c23b",
+      "size_bytes": 2258
+    },
+    {
+      "path": "repository_hygiene_report.json",
+      "sha256": "sha256:3847d7125603e30453bece91defebbb912136b5a4bd7da1fbb2a65aeb72befe5",
+      "size_bytes": 1736
+    },
+    {
+      "path": "residual_repository_hygiene_risk.md",
+      "sha256": "sha256:52bf695a6d8de7db32cb681280b7b3d5c54e87cd53846b71355f81d131812b05",
+      "size_bytes": 420
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:cb7d03f1561c65d02cfad55e3e4b2208a2c2ef11c233c3bec23da99c9c48e272",
+      "size_bytes": 1815
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-15",
+  "output_manifest_digest": "sha256:0add8ebafb52ec1d2ce8b2219c0b3b0752fd2d1f7c7b952400eb7b56e00cf44e",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-15C",
+  "producer": "tools.strategy_factory.lcm.lcm_15c.service:LCM15CControlledDeletionClosureService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:a11402e1d120630785aa127654670796f2a77278674759126d03d3104f6df26f",
+    "sha256:f587c60075f421723dc28ba6e30276de523c145e5aac55c3d70e15b8cd55037f",
+    "sha256:0b4531833ef082b937c87fe2514faf9749c8d0fb9a58ea8470d2ae6bd37090bf",
+    "sha256:9b46070599fe5b506920bf10c32d8678fa7a4349055e8f6f9325f63dfa499038",
+    "sha256:dedd2341d3f2fff66d6b51cbfbb19a360c2878c6c2067c60c4d34df5e2e1f137",
+    "sha256:6f84c5c3a0e15f1b7e3f3b96b4654c42120af4e5d914330d5a7ca592191e5ea2"
+  ],
+  "validation_status": "PASS"
+}
