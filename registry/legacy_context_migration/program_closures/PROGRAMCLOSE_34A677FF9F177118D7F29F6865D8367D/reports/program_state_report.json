@@ -1,0 +1,26 @@
+{
+  "architecture_migration_lifecycle": "LCM_00_THROUGH_LCM_16B_IMPLEMENTED_REFERENCE",
+  "artifact_kind": "PROGRAM_STATE_REPORT",
+  "capital_authorized": false,
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "migration_program_closed": false,
+  "next_lifecycle": "EVIDENCE_COMPLETION_THEN_CONTINUOUS_GOVERNANCE",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "program_operational_state": "OPEN_BLOCKED_PENDING_EXTERNAL_EVIDENCE",
+  "report_digest": "sha256:405a1ae8b2312da2d6cf8807362f2cad5c92e80562b3e4af26051f0eb09107ee",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:03ffba6876b982a934886daf44d090abd3820707ecd56c44999fef68365eaa63",
+    "sha256:df514f74f11e552dd0fa5b5e54a1e71d2f022dd5b610a4856698b3f4a3c8c481"
+  ],
+  "trading_system_production_authorized": false,
+  "validation_status": "PASS"
+}

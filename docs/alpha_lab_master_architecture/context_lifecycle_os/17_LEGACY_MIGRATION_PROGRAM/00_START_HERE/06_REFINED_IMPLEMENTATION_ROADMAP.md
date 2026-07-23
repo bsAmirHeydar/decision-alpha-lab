@@ -1,8 +1,8 @@
 ---
 title: "Refined Implementation Roadmap — Balanced Phase Partition"
 status: implemented-reference
-version: 1.1.0
-updated: 2026-07-21
+version: 1.2.0
+updated: 2026-07-23
 tags: [acl-os, lcm, legacy-migration, roadmap-amendment]
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
 ---
@@ -77,7 +77,7 @@ Changing subphase order, merging partitions, adding a fourth planned partition, 
 
 ## Immediate next action
 
-Implement LCM-14B only. It may quarantine only the 136 observation-eligible documentation redirect identities after preserving exact bytes and restoration evidence. The 477 active-source identities remain blocked. No deletion is authorized.
+LCM-16B is implemented as the final recovery and program-closure control package. Materialize Git LFS evidence, capture real MetaEditor/Strategy Tester and terminal parity receipts, resolve out-of-repository consumers, attach the three required approvals, and re-evaluate the frozen closure matrix. No LCM-17 or new deletion authority is authorized.
 
 ## LCM-08B accepted reference
 
@@ -150,3 +150,12 @@ Quarantine `QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D` packages all 136 approv
 ### LCM-15A accepted reference checkpoint — 2026-07-22
 
 Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 exact paths and approves 940 only for non-destructive LCM-15B relocation/reorganization. All 2,168 remain blocked from future deletion because external consumer reachability is UNKNOWN; deletion approval and deletion execution are both zero. Handoff: `sha256:65f12eae61307a4b008bb593e8f5d09466e3839db03e549809bcfeb1584018bd`.
+
+
+## LCM-16A implemented reference checkpoint
+
+The full-system audit `CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2` is internally valid and deliberately BLOCKED by mandatory external evidence.
+
+## LCM-16B implemented final checkpoint
+
+The program-control package `PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D` completes the planned phase graph, executes deterministic local recovery, freezes the final ledger and locator, and withholds the certificate until external evidence plus three-role approval is complete. The implementation train ends here; evidence completion re-evaluates this package rather than creating a new phase.

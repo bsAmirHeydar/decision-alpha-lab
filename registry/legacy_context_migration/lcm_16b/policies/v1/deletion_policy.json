@@ -1,0 +1,8 @@
+{
+  "approved_count": 0,
+  "candidate_count": 2168,
+  "executed_count": 0,
+  "policy_id": "LCM16B_DELETION",
+  "schema_version": "1.0.0",
+  "wildcard_delete_forbidden": true
+}

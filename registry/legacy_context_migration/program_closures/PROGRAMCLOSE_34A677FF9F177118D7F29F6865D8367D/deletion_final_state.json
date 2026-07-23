@@ -1,0 +1,28 @@
+{
+  "approved_deletion_count": 0,
+  "artifact_kind": "FINAL_DELETION_STATE",
+  "candidate_count": 2168,
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deletion_authority_created": false,
+  "deletion_pathspec_empty": true,
+  "deletion_state_digest": "sha256:2a73a4f9cb94ee14f17251faf2e2336e9890283c5296e2397ca660e7d84a931d",
+  "deterministic_identity": true,
+  "executed_deletion_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "retained_candidate_count": 2168,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "validation_status": "PASS",
+  "wildcard_delete_used": false
+}

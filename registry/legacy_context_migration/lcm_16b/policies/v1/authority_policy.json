@@ -1,0 +1,11 @@
+{
+  "broker": false,
+  "capital": false,
+  "credentials": false,
+  "deletion": false,
+  "live_order": false,
+  "network": false,
+  "policy_id": "LCM16B_AUTHORITY",
+  "runtime": false,
+  "schema_version": "1.0.0"
+}

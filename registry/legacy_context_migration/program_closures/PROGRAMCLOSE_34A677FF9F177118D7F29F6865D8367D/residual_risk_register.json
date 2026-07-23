@@ -1,0 +1,85 @@
+{
+  "artifact_kind": "RESIDUAL_RISK_REGISTER",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "open_blocking_risk_count": 5,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_decision": "BLOCKED",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "risk_count": 8,
+  "risk_register_digest": "sha256:2ce651e748c569038ee2e2bee96bbbba43344e9300c8829fb0b7a3c9d2cc3ffb",
+  "risks": [
+    {
+      "closure_evidence": "CLEAN_METAEDITOR_LOGS_AND_EX5_HASHES",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "risk_id": "RISK_METAEDITOR_EVIDENCE",
+      "severity": "HIGH",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "TESTER_REPORTS_JOURNALS_AND_REPLAY_DIGESTS",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "risk_id": "RISK_STRATEGY_TESTER_REPLAY",
+      "severity": "HIGH",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "ZERO_MISMATCH_TERMINAL_PARITY_REPORT",
+      "owner": "INDEPENDENT_MIGRATION_REVIEWER",
+      "risk_id": "RISK_TERMINAL_PARITY",
+      "severity": "HIGH",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "SCOPED_SURVEY_AND_ZERO_UNRESOLVED_CONSUMERS",
+      "owner": "INDEPENDENT_MIGRATION_REVIEWER",
+      "risk_id": "RISK_EXTERNAL_CONSUMERS",
+      "severity": "HIGH",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "MATERIALIZED_LFS_OBJECT_HASHES",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "risk_id": "RISK_GIT_LFS_MATERIALIZATION",
+      "severity": "MEDIUM",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "SEPARATE_OPERATIONAL_GIT_REMOTE_RECOVERY_DRILL",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "program_closure_blocking": false,
+      "risk_id": "RISK_REMOTE_DISASTER_RECOVERY",
+      "severity": "MEDIUM",
+      "status": "OPEN"
+    },
+    {
+      "closure_evidence": "POST_PROGRAM_GOVERNANCE_BACKLOG",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "program_closure_blocking": false,
+      "risk_id": "RISK_ROOT_RELEASE_ARTIFACT_SPRAWL",
+      "severity": "LOW",
+      "status": "ACCEPTED_RESIDUAL"
+    },
+    {
+      "closure_evidence": "CONTINUOUS_DOCUMENTATION_GOVERNANCE",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "program_closure_blocking": false,
+      "risk_id": "RISK_DOCUMENTATION_STATUS_FRESHNESS",
+      "severity": "LOW",
+      "status": "ACCEPTED_RESIDUAL"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "validation_status": "PASS"
+}

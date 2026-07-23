@@ -1,0 +1,32 @@
+{
+  "artifact_kind": "PROGRAM_CLOSURE_CERTIFICATE",
+  "capital_authority_created": false,
+  "certificate_digest": "sha256:eb67b35556cc4cd5d93274030ba4027265912724d3fd286bf2d1abbd7c1c32bf",
+  "certificate_status": "NOT_ISSUED",
+  "claim": "NO_PROGRAM_CLOSURE_CLAIM",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "decision_digest": "sha256:efc1b3f5f556be2d391bc6d58ca196ad4fb18299168a4fb9729ee76604c156b9",
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "human_approval_required": true,
+  "issued_automatically": false,
+  "live_order_authority_created": false,
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_certificate_digest": "sha256:4c0fc7936396ccb7812836667b9662cadf7a1f520bc733cee99bae0f159945cd",
+  "program_closure_decision": "BLOCKED",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "program_state": "OPEN_BLOCKED_PENDING_EVIDENCE",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:df514f74f11e552dd0fa5b5e54a1e71d2f022dd5b610a4856698b3f4a3c8c481"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/program_closure_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "const": "PROGRAM_CLOSURE_CERTIFICATE"
+    },
+    "certificate_status": {
+      "enum": [
+        "ISSUED",
+        "NOT_ISSUED"
+      ]
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "master_phase": {
+      "const": "LCM-16",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-16B",
+      "type": "string"
+    },
+    "program_closure_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "program_closure_id",
+    "artifact_kind",
+    "certificate_status",
+    "program_closure_decision",
+    "validation_status"
+  ],
+  "title": "LCM16B Program Closure Certificate",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "hash_exact_restore_required": true,
+  "local_copy_not_remote_dr": true,
+  "policy_id": "LCM16B_RECOVERY",
+  "repository_mutation_allowed": false,
+  "schema_version": "1.0.0",
+  "symlink_escape_forbidden": true
+}

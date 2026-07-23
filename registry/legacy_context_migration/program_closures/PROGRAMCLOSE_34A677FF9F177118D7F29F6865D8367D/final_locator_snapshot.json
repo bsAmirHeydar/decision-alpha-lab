@@ -1,0 +1,438 @@
+{
+  "artifact_kind": "FINAL_LOCATOR_SNAPSHOT",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "current_program_closure_package": "registry/legacy_context_migration/program_closures/PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "locator_digest": "sha256:22853209b3988c6bce477fdadea6b70e8593badfc15e9220f348704830778015",
+  "locator_resolution_status": "PASS",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "phase_locator_count": 30,
+  "phase_locators": [
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_00",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_00",
+      "phase_id": "LCM-00",
+      "root_controls": {
+        "file_hashes": "LCM_00_FILE_HASHES.sha256",
+        "file_index": "LCM_00_FILE_INDEX.txt",
+        "patch_manifest": "LCM_00_PATCH_MANIFEST.json",
+        "qa_report": "LCM_00_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_00"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_01",
+      "phase_id": "LCM-01",
+      "root_controls": {
+        "file_hashes": "LCM_01_FILE_HASHES.sha256",
+        "file_index": "LCM_01_FILE_INDEX.txt",
+        "patch_manifest": "LCM_01_PATCH_MANIFEST.json",
+        "qa_report": "LCM_01_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_01"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_02",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_02",
+      "phase_id": "LCM-02",
+      "root_controls": {
+        "file_hashes": "LCM_02_FILE_HASHES.sha256",
+        "file_index": "LCM_02_FILE_INDEX.txt",
+        "patch_manifest": "LCM_02_PATCH_MANIFEST.json",
+        "qa_report": "LCM_02_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_02"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_03",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_03",
+      "phase_id": "LCM-03",
+      "root_controls": {
+        "file_hashes": "LCM_03_FILE_HASHES.sha256",
+        "file_index": "LCM_03_FILE_INDEX.txt",
+        "patch_manifest": "LCM_03_PATCH_MANIFEST.json",
+        "qa_report": "LCM_03_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_03"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_04",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_04",
+      "phase_id": "LCM-04",
+      "root_controls": {
+        "file_hashes": "LCM_04_FILE_HASHES.sha256",
+        "file_index": "LCM_04_FILE_INDEX.txt",
+        "patch_manifest": "LCM_04_PATCH_MANIFEST.json",
+        "qa_report": "LCM_04_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_04"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_05",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_05",
+      "phase_id": "LCM-05",
+      "root_controls": {
+        "file_hashes": "LCM_05_FILE_HASHES.sha256",
+        "file_index": "LCM_05_FILE_INDEX.txt",
+        "patch_manifest": "LCM_05_PATCH_MANIFEST.json",
+        "qa_report": "LCM_05_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_05"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_06",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_06",
+      "phase_id": "LCM-06",
+      "root_controls": {
+        "file_hashes": "LCM_06_FILE_HASHES.sha256",
+        "file_index": "LCM_06_FILE_INDEX.txt",
+        "patch_manifest": "LCM_06_PATCH_MANIFEST.json",
+        "qa_report": "LCM_06_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_06"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_07",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_07",
+      "phase_id": "LCM-07",
+      "root_controls": {
+        "file_hashes": "LCM_07_FILE_HASHES.sha256",
+        "file_index": "LCM_07_FILE_INDEX.txt",
+        "patch_manifest": "LCM_07_PATCH_MANIFEST.json",
+        "qa_report": "LCM_07_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_07"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_08A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_08a",
+      "phase_id": "LCM-08A",
+      "root_controls": {
+        "file_hashes": "LCM_08A_FILE_HASHES.sha256",
+        "file_index": "LCM_08A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_08A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_08A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_08a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_08B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_08b",
+      "phase_id": "LCM-08B",
+      "root_controls": {
+        "file_hashes": "LCM_08B_FILE_HASHES.sha256",
+        "file_index": "LCM_08B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_08B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_08B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_08b"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_08C",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_08c",
+      "phase_id": "LCM-08C",
+      "root_controls": {
+        "file_hashes": "LCM_08C_FILE_HASHES.sha256",
+        "file_index": "LCM_08C_FILE_INDEX.txt",
+        "patch_manifest": "LCM_08C_PATCH_MANIFEST.json",
+        "qa_report": "LCM_08C_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_08c"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_09A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_09a",
+      "phase_id": "LCM-09A",
+      "root_controls": {
+        "file_hashes": "LCM_09A_FILE_HASHES.sha256",
+        "file_index": "LCM_09A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_09A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_09A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_09a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_09B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_09b",
+      "phase_id": "LCM-09B",
+      "root_controls": {
+        "file_hashes": "LCM_09B_FILE_HASHES.sha256",
+        "file_index": "LCM_09B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_09B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_09B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_09b"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_10A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_10a",
+      "phase_id": "LCM-10A",
+      "root_controls": {
+        "file_hashes": "LCM_10A_FILE_HASHES.sha256",
+        "file_index": "LCM_10A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_10A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_10A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_10a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_10B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_10b",
+      "phase_id": "LCM-10B",
+      "root_controls": {
+        "file_hashes": "LCM_10B_FILE_HASHES.sha256",
+        "file_index": "LCM_10B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_10B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_10B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_10b"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_10C",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_10c",
+      "phase_id": "LCM-10C",
+      "root_controls": {
+        "file_hashes": "LCM_10C_FILE_HASHES.sha256",
+        "file_index": "LCM_10C_FILE_INDEX.txt",
+        "patch_manifest": "LCM_10C_PATCH_MANIFEST.json",
+        "qa_report": "LCM_10C_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_10c"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_11A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_11a",
+      "phase_id": "LCM-11A",
+      "root_controls": {
+        "file_hashes": "LCM_11A_FILE_HASHES.sha256",
+        "file_index": "LCM_11A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_11A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_11A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_11a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_11B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_11b",
+      "phase_id": "LCM-11B",
+      "root_controls": {
+        "file_hashes": "LCM_11B_FILE_HASHES.sha256",
+        "file_index": "LCM_11B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_11B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_11B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_11b"
+    },
+    {
+      "delivery_docs": null,
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_12a",
+      "phase_id": "LCM-12A",
+      "root_controls": {
+        "file_hashes": "LCM_12A_FILE_HASHES.sha256",
+        "file_index": "LCM_12A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_12A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_12A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_12a"
+    },
+    {
+      "delivery_docs": null,
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_12b",
+      "phase_id": "LCM-12B",
+      "root_controls": {
+        "file_hashes": "LCM_12B_FILE_HASHES.sha256",
+        "file_index": "LCM_12B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_12B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_12B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_12b"
+    },
+    {
+      "delivery_docs": null,
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_13a",
+      "phase_id": "LCM-13A",
+      "root_controls": {
+        "file_hashes": "LCM_13A_FILE_HASHES.sha256",
+        "file_index": "LCM_13A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_13A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_13A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_13a"
+    },
+    {
+      "delivery_docs": null,
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_13b",
+      "phase_id": "LCM-13B",
+      "root_controls": {
+        "file_hashes": "LCM_13B_FILE_HASHES.sha256",
+        "file_index": "LCM_13B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_13B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_13B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_13b"
+    },
+    {
+      "delivery_docs": null,
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_13c",
+      "phase_id": "LCM-13C",
+      "root_controls": {
+        "file_hashes": "LCM_13C_FILE_HASHES.sha256",
+        "file_index": "LCM_13C_FILE_INDEX.txt",
+        "patch_manifest": "LCM_13C_PATCH_MANIFEST.json",
+        "qa_report": "LCM_13C_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_13c"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_14A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_14a",
+      "phase_id": "LCM-14A",
+      "root_controls": {
+        "file_hashes": "LCM_14A_FILE_HASHES.sha256",
+        "file_index": "LCM_14A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_14A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_14A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_14a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_14B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_14b",
+      "phase_id": "LCM-14B",
+      "root_controls": {
+        "file_hashes": "LCM_14B_FILE_HASHES.sha256",
+        "file_index": "LCM_14B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_14B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_14B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_14b"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_15A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_15a",
+      "phase_id": "LCM-15A",
+      "root_controls": {
+        "file_hashes": "LCM_15A_FILE_HASHES.sha256",
+        "file_index": "LCM_15A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_15A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_15A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_15a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_15B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_15b",
+      "phase_id": "LCM-15B",
+      "root_controls": {
+        "file_hashes": "LCM_15B_FILE_HASHES.sha256",
+        "file_index": "LCM_15B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_15B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_15B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_15b"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_15C",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_15c",
+      "phase_id": "LCM-15C",
+      "root_controls": {
+        "file_hashes": "LCM_15C_FILE_HASHES.sha256",
+        "file_index": "LCM_15C_FILE_INDEX.txt",
+        "patch_manifest": "LCM_15C_PATCH_MANIFEST.json",
+        "qa_report": "LCM_15C_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_15c"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16A",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_16a",
+      "phase_id": "LCM-16A",
+      "root_controls": {
+        "file_hashes": "LCM_16A_FILE_HASHES.sha256",
+        "file_index": "LCM_16A_FILE_INDEX.txt",
+        "patch_manifest": "LCM_16A_PATCH_MANIFEST.json",
+        "qa_report": "LCM_16A_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_16a"
+    },
+    {
+      "delivery_docs": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16B",
+      "direct_tests": "lab/11_strategy_factory/migration/tests_lcm_16b",
+      "phase_id": "LCM-16B",
+      "root_controls": {
+        "file_hashes": "LCM_16B_FILE_HASHES.sha256",
+        "file_index": "LCM_16B_FILE_INDEX.txt",
+        "patch_manifest": "LCM_16B_PATCH_MANIFEST.json",
+        "qa_report": "LCM_16B_QA_REPORT.json"
+      },
+      "tool_module": "tools/strategy_factory/lcm/lcm_16b"
+    }
+  ],
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "registry_handoff_count": 17,
+  "registry_handoffs": [
+    "registry/legacy_context_migration/consumer_wave_cutovers/CUTOVER_E38BEC955210CE172483EE47AA2D9E8C/LCM13B_TO_LCM13C_HANDOFF.json",
+    "registry/legacy_context_migration/controlled_deletion_closures/DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474/LCM15C_TO_LCM16A_HANDOFF.json",
+    "registry/legacy_context_migration/cutover_closures/CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F/LCM13C_TO_LCM14A_HANDOFF.json",
+    "registry/legacy_context_migration/deletion_candidate_proofs/DELCAND_DBF53BE0F1838F171906F990E05930D6/LCM15A_TO_LCM15B_HANDOFF.json",
+    "registry/legacy_context_migration/deprecation_redirects/DEPRECATION_B53138FCCDFD91CC595A818BD7153132/LCM14A_TO_LCM14B_HANDOFF.json",
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/LCM12A_TO_LCM12B_HANDOFF.json",
+    "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8/LCM12B_TO_LCM13A_HANDOFF.json",
+    "registry/legacy_context_migration/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570/LCM13A_TO_LCM13B_HANDOFF.json",
+    "registry/legacy_context_migration/full_system_audits/CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2/LCM16A_TO_LCM16B_HANDOFF.json",
+    "registry/legacy_context_migration/quarantine_observations/QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D/LCM14B_TO_LCM15A_HANDOFF.json",
+    "registry/legacy_context_migration/root_release_reorganizations/ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381/LCM15B_TO_LCM15C_HANDOFF.json",
+    "registry/legacy_context_migration/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9/LCM09B_TO_LCM10A_HANDOFF.json",
+    "registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91/LCM10C_TO_LCM11A_HANDOFF.json",
+    "registry/legacy_context_migration/treatment_execution_inventories/TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02/LCM10A_TO_LCM10B_HANDOFF.json",
+    "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/LCM10B_TO_LCM10C_HANDOFF.json",
+    "registry/legacy_context_migration/visual_object_inventories/VISINV_B28F18FA1713109D58BC932384901AA4/LCM11A_TO_LCM11B_HANDOFF.json",
+    "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/LCM11B_TO_LCM12A_HANDOFF.json"
+  ],
+  "registry_output_manifest_count": 29,
+  "registry_output_manifests": [
+    "registry/legacy_context_migration/baselines/BASELINE_E214DB424C25F427B988901324A38EE6/output_manifest.json",
+    "registry/legacy_context_migration/characterizations/CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3/output_manifest.json",
+    "registry/legacy_context_migration/classifications/CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B/output_manifest.json",
+    "registry/legacy_context_migration/consumer_wave_cutovers/CUTOVER_E38BEC955210CE172483EE47AA2D9E8C/output_manifest.json",
+    "registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1/output_manifest.json",
+    "registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3/output_manifest.json",
+    "registry/legacy_context_migration/controlled_deletion_closures/DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474/output_manifest.json",
+    "registry/legacy_context_migration/cutover_closures/CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F/output_manifest.json",
+    "registry/legacy_context_migration/deletion_candidate_proofs/DELCAND_DBF53BE0F1838F171906F990E05930D6/output_manifest.json",
+    "registry/legacy_context_migration/deprecation_redirects/DEPRECATION_B53138FCCDFD91CC595A818BD7153132/output_manifest.json",
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/output_manifest.json",
+    "registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8/output_manifest.json",
+    "registry/legacy_context_migration/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570/output_manifest.json",
+    "registry/legacy_context_migration/frameworks/FRAMEWORK_066C5FA5795AA4C283B17271E4478751/output_manifest.json",
+    "registry/legacy_context_migration/full_system_audits/CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2/output_manifest.json",
+    "registry/legacy_context_migration/identities/IDENTITY_A3F7E93C3F5154CB2616F01F5235F748/output_manifest.json",
+    "registry/legacy_context_migration/pilot_migrations/PILOTMIG_344455420C8CA68E865FD54135E891D7/output_manifest.json",
+    "registry/legacy_context_migration/quarantine_observations/QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D/output_manifest.json",
+    "registry/legacy_context_migration/root_release_reorganizations/ROOTREORG_1D879F480AD3B6F4C6EDC307D43AA381/output_manifest.json",
+    "registry/legacy_context_migration/setup_contract_freezes/SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891/output_manifest.json",
+    "registry/legacy_context_migration/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9/output_manifest.json",
+    "registry/legacy_context_migration/shared_engines/SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A/output_manifest.json",
+    "registry/legacy_context_migration/surveys/SURVEY_D4EC5C533F886BC439DAEEBDE51FA080/output_manifest.json",
+    "registry/legacy_context_migration/target_paths/TOPOLOGY_F28766C555330F0B89CC662DA8129220/output_manifest.json",
+    "registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91/output_manifest.json",
+    "registry/legacy_context_migration/treatment_execution_inventories/TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02/output_manifest.json",
+    "registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51/output_manifest.json",
+    "registry/legacy_context_migration/visual_object_inventories/VISINV_B28F18FA1713109D58BC932384901AA4/output_manifest.json",
+    "registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D/output_manifest.json"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "validation_status": "PASS"
+}

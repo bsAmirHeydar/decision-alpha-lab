@@ -1,0 +1,14 @@
+{
+  "dimensions": [
+    "GIT_LFS_MATERIALIZATION",
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "policy_id": "LCM16B_EXTERNAL_EVIDENCE",
+  "python_parity_not_terminal_parity": true,
+  "schema_version": "1.0.0",
+  "static_scan_not_compile": true,
+  "unknown_blocks": true
+}

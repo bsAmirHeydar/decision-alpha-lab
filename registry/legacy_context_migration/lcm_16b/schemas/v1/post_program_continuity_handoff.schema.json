@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/post_program_continuity_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "const": "POST_PROGRAM_CONTINUITY_HANDOFF"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "master_phase": {
+      "const": "LCM-16",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-16B",
+      "type": "string"
+    },
+    "program_closure_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "program_closure_id",
+    "artifact_kind",
+    "handoff_state",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "validation_status"
+  ],
+  "title": "LCM16B Continuity Handoff",
+  "type": "object"
+}

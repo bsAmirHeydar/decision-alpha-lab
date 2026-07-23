@@ -1,0 +1,36 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/closure_approval.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "type": "string"
+    },
+    "decision": {
+      "const": "APPROVE_PROGRAM_CLOSURE"
+    },
+    "evidence_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "ALPHA_LAB_MIGRATION_OWNER",
+        "INDEPENDENT_MIGRATION_REVIEWER",
+        "INDEPENDENT_SECURITY_REVIEWER"
+      ]
+    },
+    "signer": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "role",
+    "decision",
+    "approval_id",
+    "signer",
+    "evidence_digest"
+  ],
+  "title": "LCM16B Closure Approval",
+  "type": "object"
+}

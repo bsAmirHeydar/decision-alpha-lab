@@ -1,0 +1,54 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/recovery_drill_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "const": "RECOVERY_DRILL_PLAN"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "drills": {
+      "minItems": 4,
+      "type": "array"
+    },
+    "master_phase": {
+      "const": "LCM-16",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-16B",
+      "type": "string"
+    },
+    "program_closure_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "program_closure_id",
+    "artifact_kind",
+    "recovery_drill_id",
+    "drills",
+    "validation_status"
+  ],
+  "title": "LCM16B Recovery Drill Plan",
+  "type": "object"
+}

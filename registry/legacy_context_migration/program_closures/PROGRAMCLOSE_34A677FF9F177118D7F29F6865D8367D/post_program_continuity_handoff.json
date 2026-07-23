@@ -1,0 +1,37 @@
+{
+  "allowed_next_actions": [
+    "MATERIALIZE_GIT_LFS_OBJECTS",
+    "CAPTURE_METAEDITOR_COMPILE_EVIDENCE",
+    "CAPTURE_STRATEGY_TESTER_GOLDEN_REPLAY",
+    "CAPTURE_TERMINAL_COMPILED_PARITY",
+    "RESOLVE_EXTERNAL_CONSUMER_REACHABILITY",
+    "ATTACH_THREE_ROLE_CLOSURE_APPROVALS",
+    "REEVALUATE_LCM16B_PROGRAM_CLOSURE"
+  ],
+  "artifact_kind": "POST_PROGRAM_CONTINUITY_HANDOFF",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "forbidden_actions": [
+    "CLAIM_PROGRAM_CLOSED_WITH_BLOCKED_GATE",
+    "DELETE_RETAINED_CANDIDATES",
+    "CREATE_RUNTIME_ORDER_CAPITAL_OR_DELETION_AUTHORITY",
+    "TREAT_REFERENCE_CLOSURE_AS_TRADING_PRODUCTION_AUTHORIZATION"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:aa88993ea09cb7dda23f2cf3cc466ee689dd21fa9f20a6c47cd4b724da35bb5e",
+  "handoff_state": "NOT_ACTIVATED_PROGRAM_OPEN_BLOCKED",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:df514f74f11e552dd0fa5b5e54a1e71d2f022dd5b610a4856698b3f4a3c8c481",
+    "sha256:2ce651e748c569038ee2e2bee96bbbba43344e9300c8829fb0b7a3c9d2cc3ffb"
+  ],
+  "target_operating_model": "CONTINUOUS_REPOSITORY_GOVERNANCE",
+  "validation_status": "PASS"
+}

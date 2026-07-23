@@ -1,0 +1,82 @@
+{
+  "capital_authority_created": false,
+  "certificate_status": "NOT_ISSUED",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deletion_authority_created": false,
+  "deletion_state": {
+    "approved_count": 0,
+    "candidate_count": 2168,
+    "executed_count": 0,
+    "retained_count": 2168
+  },
+  "deterministic_rebuild": {
+    "comparison": "BYTE_EXACT_PACKAGE_TREE_MATCH",
+    "status": "PASS"
+  },
+  "direct_phase_tests": {
+    "failed": 0,
+    "passed": 35,
+    "status": "PASS"
+  },
+  "engineering_policy": {
+    "missing_expected_directories": 0,
+    "mql5_compatibility_errors": 0,
+    "mql5_compatibility_warnings": 0,
+    "obsidian_errors": 0,
+    "obsidian_note_count": 253,
+    "obsidian_unique_note_ids": 247,
+    "obsidian_warnings": 0,
+    "repository_policy_errors": 0,
+    "repository_policy_warnings": 0,
+    "status": "PASS"
+  },
+  "external_evidence": {
+    "approval_status": "BLOCKED",
+    "mandatory_dimension_ids": [
+      "GIT_LFS_MATERIALIZATION",
+      "MQL5_METAEDITOR_COMPILE",
+      "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "TERMINAL_COMPILED_PARITY",
+      "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+    ],
+    "mandatory_dimensions": 5,
+    "required_approval_roles": [
+      "ALPHA_LAB_MIGRATION_OWNER",
+      "INDEPENDENT_MIGRATION_REVIEWER",
+      "INDEPENDENT_SECURITY_REVIEWER"
+    ],
+    "status": "BLOCKED_OR_UNKNOWN"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_RECORDED_VALIDATION_RECEIPTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_authority_created": false,
+  "migration_program_closure_authorized": false,
+  "package_qa": {
+    "control_plane_path_count": 370,
+    "lcm16a_rehydration_status": "PASS",
+    "local_recovery_status": "PASS",
+    "module_count": 17,
+    "phase_count": 30,
+    "schema_count": 14,
+    "status": "PASS"
+  },
+  "patch_added_path_count": 123,
+  "patch_deleted_path_count": 0,
+  "patch_id": "LCM16BPATCH_7D2E12A8F76088B1261E2B5D81D88763",
+  "patch_integrity_status": "PASS",
+  "patch_modified_path_count": 3,
+  "patch_path_count": 126,
+  "phase_id": "LCM-16B",
+  "phase_implementation_status": "PASS",
+  "program_closure_decision": "BLOCKED",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "qa_digest": "sha256:eb08f50745fcdacba4499546def51ad2bebbe11be5bacdc690144d6938314a93",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "upstream_lcm16a": {
+    "direct_tests_failed": 0,
+    "direct_tests_passed": 23,
+    "status": "PASS"
+  },
+  "validation_status": "PASS"
+}

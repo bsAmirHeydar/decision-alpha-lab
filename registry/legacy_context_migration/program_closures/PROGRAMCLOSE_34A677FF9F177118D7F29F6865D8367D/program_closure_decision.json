@@ -1,0 +1,95 @@
+{
+  "artifact_kind": "PROGRAM_CLOSURE_DECISION",
+  "automatic_closure_allowed": false,
+  "blocked_gate_count": 6,
+  "blocked_gates": [
+    "GIT_LFS_MATERIALIZATION",
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS",
+    "HUMAN_SEPARATION_OF_DUTIES_APPROVAL"
+  ],
+  "capital_authority_created": false,
+  "certificate_status": "NOT_ISSUED",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "decision": "BLOCKED",
+  "decision_digest": "sha256:efc1b3f5f556be2d391bc6d58ca196ad4fb18299168a4fb9729ee76604c156b9",
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "failed_gate_count": 0,
+  "failed_gates": [],
+  "gate_count": 8,
+  "gates": [
+    {
+      "evidence": "sha256:34d99aa8b236a43d1abe37c69a673d81c7b5229ae8dd3213feaf9b1993161466",
+      "gate_id": "LOCAL_CONTROL_PLANE_RECOVERY",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": "sha256:34d99aa8b236a43d1abe37c69a673d81c7b5229ae8dd3213feaf9b1993161466",
+      "gate_id": "LCM16A_PACKAGE_REHYDRATION",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": null,
+      "gate_id": "GIT_LFS_MATERIALIZATION",
+      "mandatory": true,
+      "status": "BLOCKED"
+    },
+    {
+      "evidence": null,
+      "gate_id": "MQL5_METAEDITOR_COMPILE",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": null,
+      "gate_id": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": null,
+      "gate_id": "TERMINAL_COMPILED_PARITY",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": null,
+      "gate_id": "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": [],
+      "gate_id": "HUMAN_SEPARATION_OF_DUTIES_APPROVAL",
+      "mandatory": true,
+      "status": "BLOCKED"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-16",
+  "non_compensatory": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "program_decision_digest": "sha256:df514f74f11e552dd0fa5b5e54a1e71d2f022dd5b610a4856698b3f4a3c8c481",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60",
+    "sha256:34d99aa8b236a43d1abe37c69a673d81c7b5229ae8dd3213feaf9b1993161466",
+    "sha256:4d969d10272e4ee4f5b6066ffe32dcf8cc83c0bda296a2ec979fad0fccd86c86"
+  ],
+  "synthetic_policy_replay": false,
+  "validation_status": "PASS"
+}

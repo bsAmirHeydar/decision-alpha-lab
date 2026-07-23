@@ -1,0 +1,17 @@
+{
+  "allowed": [
+    "RECOVERY_DRILL",
+    "FINAL_LEDGER",
+    "CLOSURE_DECISION",
+    "CONTINUITY_HANDOFF"
+  ],
+  "forbidden": [
+    "SEMANTIC_TRADING_CHANGE",
+    "SOURCE_DELETION",
+    "LIVE_ACTIVATION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "phase_id": "LCM-16B",
+  "policy_id": "LCM16B_PHASE_BOUNDARY",
+  "schema_version": "1.0.0"
+}

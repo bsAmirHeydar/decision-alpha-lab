@@ -1,0 +1,8 @@
+{
+  "legacy_source_untouched": true,
+  "lfs_objects_untouched": true,
+  "policy_id": "LCM16B_ROLLBACK",
+  "restore_modified_docs_from_parent": true,
+  "schema_version": "1.0.0",
+  "scope": "PHASE_OWNED_ONLY"
+}

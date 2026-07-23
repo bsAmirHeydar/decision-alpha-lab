@@ -1,0 +1,31 @@
+{
+  "artifact_kind": "UPSTREAM_BINDING",
+  "binding_digest": "sha256:b96b8145c47de9cb96c0f2dd0923455e584931c47791898ef99146d4c3a2d7c6",
+  "blocked_dimensions": [
+    "GIT_LFS_MATERIALIZATION",
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0"
+  ],
+  "upstream_audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "upstream_closure_decision": "BLOCKED",
+  "upstream_handoff_digest": "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+  "upstream_handoff_file_digest": "sha256:2d2aa51ba93a21dea6a7a057e41fdc16f7935b982eeb75357419b2eee26607c0",
+  "validation_status": "PASS"
+}

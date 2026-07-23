@@ -1,0 +1,62 @@
+{
+  "artifact_kind": "RECOVERY_DRILL_RECEIPT",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "closure_policy_replay_report": {
+    "all_pass_certificate_status": "ISSUED",
+    "all_pass_replay_decision": "ACCEPTED",
+    "complete_evidence_can_close_only_with_approval": true,
+    "negative_unknown_replay_decision": "BLOCKED",
+    "report_digest": "sha256:90de119f4244a4fd64bc830d0a3d576eaf5d79e070a749732a0dfd39fbde5acd",
+    "status": "PASS",
+    "unknown_is_non_compensatory": true
+  },
+  "closure_policy_replay_status": "PASS",
+  "control_plane_report": {
+    "drill_id": "RECOVERYDRILL_B7BB014F73909B66FF72E96FE39601B8",
+    "drill_kind": "CONTROL_PLANE_HASH_ROUND_TRIP",
+    "mismatch_count": 0,
+    "mismatch_paths": [],
+    "report_digest": "sha256:db59d14e44abed1e7e2f0621c6cb2df077fcda7e795dd4f9397df7c612a943f2",
+    "repository_mutated": false,
+    "restored_path_count": 124,
+    "simulated_loss_count": 124,
+    "source_path_count": 370,
+    "status": "PASS",
+    "workspace_outside_repository": true
+  },
+  "deterministic_identity": true,
+  "full_git_remote_disaster_recovery_status": "UNKNOWN_EXTERNAL_OPERATIONAL_EVIDENCE",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "lcm16a_rehydration_report": {
+    "drill_id": "RECOVERYDRILL_B7BB014F73909B66FF72E96FE39601B8",
+    "drill_kind": "LCM16A_PACKAGE_REHYDRATION",
+    "manifest_file_count": 17,
+    "mismatch_count": 0,
+    "mismatch_paths": [],
+    "rehydrated_count": 5,
+    "report_digest": "sha256:0d02a2fabeaf01db965eedd94c20658ff34d83f6970c7a898c8177dce93e0efd",
+    "repository_mutated": false,
+    "simulated_loss_count": 5,
+    "status": "PASS",
+    "upstream_audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2"
+  },
+  "lcm16a_rehydration_status": "PASS",
+  "local_control_plane_status": "PASS",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "receipt_digest": "sha256:34d99aa8b236a43d1abe37c69a673d81c7b5229ae8dd3213feaf9b1993161466",
+  "recovery_drill_id": "RECOVERYDRILL_B7BB014F73909B66FF72E96FE39601B8",
+  "repository_mutated": false,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "validation_status": "PASS"
+}

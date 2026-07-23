@@ -1,0 +1,60 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/external_evidence_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "const": "EXTERNAL_EVIDENCE_CONTRACT"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "master_phase": {
+      "const": "LCM-16",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-16B",
+      "type": "string"
+    },
+    "program_closure_id": {
+      "type": "string"
+    },
+    "required_approval_roles": {
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_dimensions": {
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "program_closure_id",
+    "artifact_kind",
+    "required_dimensions",
+    "required_approval_roles",
+    "validation_status"
+  ],
+  "title": "LCM16B External Evidence Contract",
+  "type": "object"
+}

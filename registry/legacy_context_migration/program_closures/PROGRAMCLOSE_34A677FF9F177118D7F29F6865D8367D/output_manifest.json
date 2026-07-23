@@ -1,0 +1,130 @@
+{
+  "artifact_kind": "OUTPUT_MANIFEST",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "evidence_set_digest": "sha256:e47f96b037cd1025286b45cb11faaf549cce2710362d0f778769cc113bcf436e",
+  "file_count": 21,
+  "files": [
+    {
+      "path": "authority_final_state.json",
+      "sha256": "sha256:e9de54694cba3a5d2d33d75343a86b15f1cd8ec2983a5a2b71f703c5cf7a56c6",
+      "size_bytes": 1297
+    },
+    {
+      "path": "deletion_final_state.json",
+      "sha256": "sha256:647fe72fe628e478b4a805441024d2d12a3344418b064455ee43a387e58457b9",
+      "size_bytes": 1220
+    },
+    {
+      "path": "external_evidence_contract.json",
+      "sha256": "sha256:13398d69e51e713ea0e5f770a85a70d2b178a6bdc69d96230a817ee9a78e5c17",
+      "size_bytes": 1416
+    },
+    {
+      "path": "external_evidence_status.json",
+      "sha256": "sha256:061671f6760056862386e18533097b564324132e50be3683f7b4d81630fec66b",
+      "size_bytes": 2932
+    },
+    {
+      "path": "final_locator_snapshot.json",
+      "sha256": "sha256:c9d6afca26f9e1ba2a88d70c7ce5b9327754da461e97eba6da2a7d049e308362",
+      "size_bytes": 23251
+    },
+    {
+      "path": "final_migration_ledger.json",
+      "sha256": "sha256:274ae7c555ead7aef8c81d668f700267ed7bbdeceb55c50baef9931562883575",
+      "size_bytes": 1994
+    },
+    {
+      "path": "post_program_continuity_handoff.json",
+      "sha256": "sha256:37c569d40b7eb74864f61bffcf04adcc56a23cd63bd8a88d97884840cf5954ee",
+      "size_bytes": 1591
+    },
+    {
+      "path": "program_closure_certificate.json",
+      "sha256": "sha256:0c42cfd2e9d498138fe54f0468be39f6338bf3cb0470624b09a4c01389691704",
+      "size_bytes": 1494
+    },
+    {
+      "path": "program_closure_decision.json",
+      "sha256": "sha256:45be19a3adb78a8d1da09191a4ea8fd617098868b81edd8bc78db59322fbd4cd",
+      "size_bytes": 3147
+    },
+    {
+      "path": "records/control_plane_snapshot.jsonl",
+      "sha256": "sha256:59824202519df2df3704a099b449d4c478d7482418474de01f9288ae0599c7a8",
+      "size_bytes": 71148
+    },
+    {
+      "path": "records/phase_register.jsonl",
+      "sha256": "sha256:bf1313692701f3df251356d60727288cc2d3b729446f508d6141816a20e1772c",
+      "size_bytes": 18309
+    },
+    {
+      "path": "records/recovery_round_trip.jsonl",
+      "sha256": "sha256:66fe391cd49169c019e7582d2f39f0fd55c8c0965d637b50b68056f23cb90b63",
+      "size_bytes": 106433
+    },
+    {
+      "path": "recovery_drill_plan.json",
+      "sha256": "sha256:d37e68b563567ad5097dff90a6af9f42eaead58673c9e83d238e80a72562e8c5",
+      "size_bytes": 2384
+    },
+    {
+      "path": "recovery_drill_receipt.json",
+      "sha256": "sha256:da7a5c1e7110ae1190869b811ad5fc90888586f0c168d36acd824f1c004251a3",
+      "size_bytes": 2696
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:20ccbdbcb31b74505f42356d72b6169bc28fedd1e037ee0b7aea5e94ee53861a",
+      "size_bytes": 1173
+    },
+    {
+      "path": "reports/determinism_report.json",
+      "sha256": "sha256:04a29249659df2fcde2057337c5e0955d1da883485400cbdef21df8e58e2b81d",
+      "size_bytes": 1142
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:5869b452f45e50bf04e030dccd8bd5e92380abf62b0e91f998bc3587513d94d8",
+      "size_bytes": 1633
+    },
+    {
+      "path": "reports/program_state_report.json",
+      "sha256": "sha256:6704c19980cfc4781162dfcead46c9ab49ca2087ff64a32df356693f0dc018b0",
+      "size_bytes": 1245
+    },
+    {
+      "path": "residual_risk_register.json",
+      "sha256": "sha256:6ffccda460e364d339188b4fc4007d4011240b0d63a1fcb2800d3dbf47f3de0b",
+      "size_bytes": 3032
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:8f1e216c2e3c2433d2d70ee2a84349e536d10dbd25c41b2d32f791671c6830ec",
+      "size_bytes": 2193
+    },
+    {
+      "path": "upstream_binding.json",
+      "sha256": "sha256:733901778b20a5aba4edf73f8326df9d556035f7162d494ed0785f253e14dcea",
+      "size_bytes": 1428
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "output_manifest_digest": "sha256:35e41c72d4280d1967c3b3a0078c9054637047f1dad99f26b285d6e587ed8e39",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "self_excluded_to_prevent_recursive_hash": true,
+  "source_digests": [
+    "sha256:03ffba6876b982a934886daf44d090abd3820707ecd56c44999fef68365eaa63",
+    "sha256:df514f74f11e552dd0fa5b5e54a1e71d2f022dd5b610a4856698b3f4a3c8c481"
+  ],
+  "validation_status": "PASS"
+}

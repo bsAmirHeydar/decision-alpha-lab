@@ -1,0 +1,71 @@
+{
+  "approval_roles_required": [
+    "ALPHA_LAB_MIGRATION_OWNER",
+    "INDEPENDENT_MIGRATION_REVIEWER",
+    "INDEPENDENT_SECURITY_REVIEWER"
+  ],
+  "approval_status": "BLOCKED",
+  "approvals": [],
+  "artifact_kind": "EXTERNAL_EVIDENCE_STATUS",
+  "bundle_attached": false,
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "dimensions": [
+    {
+      "dimension": "GIT_LFS_MATERIALIZATION",
+      "evidence_digest": null,
+      "reason": "GIT_LFS_POINTERS_PRESENT",
+      "status": "BLOCKED"
+    },
+    {
+      "dimension": "MQL5_METAEDITOR_COMPILE",
+      "evidence_digest": null,
+      "reason": "EXTERNAL_EVIDENCE_BUNDLE_NOT_ATTACHED",
+      "status": "UNKNOWN"
+    },
+    {
+      "dimension": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "evidence_digest": null,
+      "reason": "EXTERNAL_EVIDENCE_BUNDLE_NOT_ATTACHED",
+      "status": "UNKNOWN"
+    },
+    {
+      "dimension": "TERMINAL_COMPILED_PARITY",
+      "evidence_digest": null,
+      "reason": "EXTERNAL_EVIDENCE_BUNDLE_NOT_ATTACHED",
+      "status": "UNKNOWN"
+    },
+    {
+      "dimension": "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS",
+      "evidence_digest": null,
+      "reason": "EXTERNAL_EVIDENCE_BUNDLE_NOT_ATTACHED",
+      "status": "UNKNOWN"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "git_lfs_paths": [
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl"
+  ],
+  "git_lfs_pointer_paths": [
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl"
+  ],
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "program_status_digest": "sha256:4c92fcf08dbca93abb9cbe1177f7ea5f776b53bd9941cfff6d36d64a213baa10",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "status_digest": "sha256:4d969d10272e4ee4f5b6066ffe32dcf8cc83c0bda296a2ec979fad0fccd86c86",
+  "validation_status": "PASS"
+}

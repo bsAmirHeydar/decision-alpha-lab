@@ -1,8 +1,8 @@
 ---
 title: "Legacy Context Migration Program — Home"
 status: proposed-reference
-version: 2.1.0
-updated: 2026-07-21
+version: 2.2.0
+updated: 2026-07-23
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Legacy Context Migration Program — Home
@@ -40,7 +40,7 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 
 `LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
 
-The next approved implementation unit is [[LCM_15B_ROOT_RELEASE_AND_DOCUMENTATION_REORGANIZATION|LCM-15B — Root, Release and Documentation Reorganization]].
+LCM-16B is the final planned implementation unit. Its recovery and closure-control package is implemented; evidence completion and re-evaluation now replace phase expansion.
 
 ## Claim ceiling
 
@@ -57,8 +57,11 @@ The program may create migration evidence, canonical packages, compatibility ada
 - LCM-13 is closed at the reference-only claim ceiling.
 - LCM-14A: accepted deprecation and compatibility evidence under `DEPRECATION_B53138FCCDFD91CC595A818BD7153132`; 613 identities are explicit, 136 documentation redirects are observation-eligible, and 477 active-source identities remain blocked from quarantine.
 - LCM-14 is closed by accepted LCM-14A and LCM-14B evidence.
-- LCM-15 through LCM-16 remain governed by the refined roadmap.
-- Next: LCM-15A.
+- LCM-15 is complete at the reference-only claim ceiling with zero approved or executed deletions.
+- LCM-16A is implemented and internally valid; mandatory external evidence remains unresolved.
+- LCM-16B recovery, final-ledger and closure-control package is implemented under `PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D`.
+- The program certificate is `NOT_ISSUED`; the current decision is `BLOCKED`.
+- Next: attach external evidence and three-role approvals, then re-evaluate LCM-16B. No LCM-17 is planned.
 
 ### LCM-14B implementation closure — 2026-07-22
 
@@ -77,3 +80,12 @@ Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 
 ### LCM-15C implementation checkpoint
 
 `DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474` processes the exact zero-path approved deletion set, retains all 2,168 blocked candidates and authorizes only LCM-16A full-system audit next.
+
+
+### LCM-16A audit checkpoint — 2026-07-23
+
+`CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2` validates the deterministic repository gates and preserves five external dimensions as BLOCKED/UNKNOWN. It issues LCM-16B handoff `sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5`.
+
+### LCM-16B final implementation checkpoint — 2026-07-23
+
+`PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D` freezes all 30 subphases, round-trips 370 migration control-plane paths, rehydrates the LCM-16A package, preserves 2,168 retained candidates and zero deletions, and publishes the final evidence/approval contract. Implementation is PASS; program decision is BLOCKED and certificate is NOT_ISSUED pending external evidence and separation-of-duties approvals.

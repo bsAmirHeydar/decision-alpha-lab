@@ -1,0 +1,57 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm16b/final_migration_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_kind": {
+      "const": "FINAL_MIGRATION_LEDGER"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "executed_deletion_count": {
+      "const": 0
+    },
+    "master_phase": {
+      "const": "LCM-16",
+      "type": "string"
+    },
+    "phase_count": {
+      "const": 30
+    },
+    "phase_id": {
+      "const": "LCM-16B",
+      "type": "string"
+    },
+    "program_closure_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "program_closure_id",
+    "artifact_kind",
+    "phase_count",
+    "program_closure_decision",
+    "executed_deletion_count",
+    "validation_status"
+  ],
+  "title": "LCM16B Final Migration Ledger",
+  "type": "object"
+}

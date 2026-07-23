@@ -1,0 +1,8 @@
+{
+  "automatic_closure_allowed": false,
+  "certificate_requires_all_pass": true,
+  "certificate_requires_human_approvals": true,
+  "non_compensatory": true,
+  "policy_id": "LCM16B_CLOSURE_DECISION",
+  "schema_version": "1.0.0"
+}

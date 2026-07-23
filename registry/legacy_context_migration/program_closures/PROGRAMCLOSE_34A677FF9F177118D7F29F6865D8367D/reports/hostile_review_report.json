@@ -1,0 +1,41 @@
+{
+  "artifact_kind": "HOSTILE_REVIEW_REPORT",
+  "case_count": 15,
+  "cases": [
+    "UPSTREAM_HANDOFF_DIGEST_TAMPER",
+    "CONTROL_PLANE_PATH_TRAVERSAL",
+    "CONTROL_PLANE_SYMLINK_ESCAPE",
+    "RESTORE_HASH_MISMATCH",
+    "LFS_POINTER_MISLABELED_AS_MATERIALIZED",
+    "METAEDITOR_LOG_WITH_NONZERO_ERRORS",
+    "MISSING_COMPILE_TARGET",
+    "TESTER_REPORT_WITHOUT_JOURNAL",
+    "TERMINAL_PARITY_MISMATCH",
+    "EXTERNAL_CONSUMER_SCOPE_WITH_UNRESOLVED_ITEMS",
+    "MISSING_SEPARATION_OF_DUTIES_APPROVAL",
+    "UNKNOWN_GATE_COMPENSATED_BY_PASS_COUNT",
+    "CERTIFICATE_ISSUED_WHILE_BLOCKED",
+    "AUTHORITY_ESCALATION",
+    "DELETION_PATHSPEC_BROADENING"
+  ],
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "deterministic_identity": true,
+  "fail_closed": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "report_digest": "sha256:c378250470ce87c8dcce5ae6ed7a4ee83bc5f6f7ec7ec9b7fea732e12b6f7b41",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "status": "PASS",
+  "validation_status": "PASS"
+}

@@ -1,0 +1,43 @@
+{
+  "artifact_kind": "ROLLBACK_MANIFEST",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "delete_on_rollback": [
+    "registry/legacy_context_migration/program_closures/PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+    "registry/legacy_context_migration/lcm_16b",
+    "tools/strategy_factory/lcm/lcm_16b",
+    "lab/11_strategy_factory/migration/tests_lcm_16b",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16B",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16B"
+  ],
+  "deterministic_identity": true,
+  "forbidden_rollback_scope": [
+    "LEGACY_SOURCE",
+    "CANONICAL_TARGET",
+    "REDIRECT",
+    "QUARANTINE_EVIDENCE",
+    "LFS_OBJECT",
+    "RUNTIME_STATE"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "restore_modified_paths_from_parent_commit": [
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/00_LCM_HOME.md",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/03_IMPLEMENTATION_SEQUENCE.md",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/06_REFINED_IMPLEMENTATION_ROADMAP.md"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:15e8d962664061718402cd77c96a68210578bcd99c36f178ca97eca3839715d3",
+  "rollback_scope": "LCM16B_OWNED_ARTIFACTS_AND_BOUNDED_ROADMAP_EDITS_ONLY",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+    "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60"
+  ],
+  "validation_status": "PASS"
+}

@@ -1,8 +1,8 @@
 ---
 title: "Implementation Sequence"
 status: proposed-reference
-version: 2.1.0
-updated: 2026-07-21
+version: 2.2.0
+updated: 2026-07-23
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Implementation Sequence
@@ -76,7 +76,7 @@ These categories may not be combined merely to reduce patch count.
 
 ## Next implementation unit
 
-[[LCM_14B_QUARANTINE_OBSERVATION_AND_RETIREMENT_ELIGIBILITY|LCM-14B — Quarantine, Observation and Retirement Eligibility]].
+LCM-16B is implemented. The next action is evidence completion and closure re-evaluation under the frozen LCM-16B contract; no additional migration phase is authorized.
 
 ## LCM-08 reference closure
 
@@ -125,3 +125,12 @@ Deletion proof package `DELCAND_DBF53BE0F1838F171906F990E05930D6` freezes 2,168 
 ### LCM-15C implementation checkpoint
 
 `DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474` processes the exact zero-path approved deletion set, retains all 2,168 blocked candidates and authorizes only LCM-16A full-system audit next.
+
+
+### LCM-16A implemented audit checkpoint
+
+`CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2` passes repository-local deterministic gates and leaves MetaEditor, Strategy Tester, terminal parity, Git LFS materialization and external-consumer evidence non-compensatorily blocked.
+
+### LCM-16B implemented final control checkpoint
+
+`PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D` completes the planned implementation sequence, executes local recovery, freezes the final ledger and withholds the certificate until every mandatory external dimension and all three human approvals pass.

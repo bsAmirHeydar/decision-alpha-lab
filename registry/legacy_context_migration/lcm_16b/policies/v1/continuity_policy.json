@@ -1,0 +1,7 @@
+{
+  "activate_only_after_certificate_issued": true,
+  "policy_id": "LCM16B_CONTINUITY",
+  "schema_version": "1.0.0",
+  "target": "CONTINUOUS_REPOSITORY_GOVERNANCE",
+  "trading_production_authority_out_of_scope": true
+}

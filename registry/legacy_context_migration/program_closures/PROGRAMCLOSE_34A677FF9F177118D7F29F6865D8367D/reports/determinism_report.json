@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "DETERMINISM_REPORT",
+  "claim_ceiling": "LCM_16B_RECOVERY_AND_PROGRAM_CLOSURE_CONTROL",
+  "decision_replay_deterministic": true,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "output_manifest_self_excluded": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16B",
+  "producer": "tools.strategy_factory.lcm.lcm_16b.build:build_program_closure_package",
+  "program_closure_id": "PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D",
+  "report_digest": "sha256:5b36a3ebc8f3c369952614ea1205f5d3b8c24c221e4463dcd19b7c48750b325b",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "snapshot_sort_order": "REPOSITORY_RELATIVE_POSIX_ASCENDING",
+  "source_digests": [
+    "sha256:26107920a6d4d024e974e9ebcac28e5d4fe4573943d010ea6ca75be925443a60",
+    "sha256:34d99aa8b236a43d1abe37c69a673d81c7b5229ae8dd3213feaf9b1993161466"
+  ],
+  "status": "PASS",
+  "temporary_workspace_in_identity": false,
+  "validation_status": "PASS",
+  "wall_clock_in_identity": false
+}

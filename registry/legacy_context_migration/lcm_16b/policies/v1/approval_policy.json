@@ -1,0 +1,10 @@
+{
+  "policy_id": "LCM16B_APPROVAL",
+  "required_roles": [
+    "ALPHA_LAB_MIGRATION_OWNER",
+    "INDEPENDENT_MIGRATION_REVIEWER",
+    "INDEPENDENT_SECURITY_REVIEWER"
+  ],
+  "schema_version": "1.0.0",
+  "separation_of_duties_required": true
+}

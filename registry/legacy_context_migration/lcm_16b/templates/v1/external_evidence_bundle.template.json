@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_id": "REPLACE_WITH_IMMUTABLE_EVIDENCE_ID",
+  "source_audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "dimensions": {
+    "GIT_LFS_MATERIALIZATION": {
+      "status": "UNKNOWN"
+    },
+    "MQL5_METAEDITOR_COMPILE": {
+      "status": "UNKNOWN",
+      "metaeditor_build": null,
+      "terminal_build": null,
+      "targets": []
+    },
+    "STRATEGY_TESTER_GOLDEN_REPLAY": {
+      "status": "UNKNOWN",
+      "terminal_build": null,
+      "targets": []
+    },
+    "TERMINAL_COMPILED_PARITY": {
+      "status": "UNKNOWN",
+      "case_count": 0,
+      "mismatch_count": null,
+      "report_path": null,
+      "report_path_sha256": null
+    },
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS": {
+      "status": "UNKNOWN",
+      "scope_statement": null,
+      "searched_locations": [],
+      "owner_attestation_id": null,
+      "unresolved_consumer_count": null,
+      "report_path": null,
+      "report_path_sha256": null
+    }
+  },
+  "approvals": []
+}

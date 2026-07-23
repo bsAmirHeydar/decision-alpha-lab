@@ -1,0 +1,7 @@
+{
+  "accepted_residuals_must_have_owner": true,
+  "blocking_risks_must_be_open": true,
+  "no_silent_risk_downgrade": true,
+  "policy_id": "LCM16B_RESIDUAL_RISK",
+  "schema_version": "1.0.0"
+}
