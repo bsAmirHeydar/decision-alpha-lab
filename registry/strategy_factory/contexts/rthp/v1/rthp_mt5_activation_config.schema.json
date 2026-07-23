@@ -63,7 +63,50 @@
       "type": "object"
     },
     "quality": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "minimum_common_bars": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_symbol_specific_gap_ratio": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "max_joint_gap_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_unexplained_gap_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "require_exact_m15_coverage": {
+          "type": "boolean"
+        },
+        "reject_sub_m1": {
+          "const": true
+        },
+        "drop_incomplete_current_bar": {
+          "const": true
+        },
+        "session_calendar_profile": {
+          "enum": [
+            "AUTO",
+            "WEEKLY_ONLY_V1",
+            "US_INDEX_CFD_NY_V1"
+          ]
+        },
+        "max_scheduled_closure_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "require_scheduled_closure_boundary_bars": {
+          "type": "boolean"
+        }
+      }
     },
     "train": {
       "type": "object"

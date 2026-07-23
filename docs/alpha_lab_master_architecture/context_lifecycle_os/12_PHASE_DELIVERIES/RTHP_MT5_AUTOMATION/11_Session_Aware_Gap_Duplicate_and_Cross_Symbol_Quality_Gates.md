@@ -56,3 +56,16 @@ BLOCKED
 ```
 
 A warning may never silently become a pass unless its classification and policy are recorded.
+
+## Implemented delivery — version 1.1.0
+
+The quality gate now emits `RTHP_MT5_M1_QUALITY_V2` and resolves the configured session calendar profile before judging long paired gaps.
+
+- `AUTO` resolves both matching US index CFD symbols to `US_INDEX_CFD_NY_V1`.
+- Unknown or mixed instruments remain on `WEEKLY_ONLY_V1`.
+- Holiday classification requires paired gap identity, a declared holiday rule, an allowed duration, and exact boundary bars for both symbols.
+- Accepted closures remain absent and are never forward-filled.
+- Unrecognized long paired gaps block with `UNEXPLAINED_JOINT_GAP_EXCEEDS_POLICY`.
+- The 2026 Memorial Day 305-minute paired closure is covered by a deterministic regression test.
+
+See [[27_Holiday_and_Session_Aware_Gap_Classification]].

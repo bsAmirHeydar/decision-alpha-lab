@@ -1,16 +1,28 @@
 {
-  "adapter_version": "1.0.1",
+  "adapter_version": "1.1.0",
   "canonical_context_change_allowed": false,
   "canonical_source_timeframe": "M1_CLOSED_BARS",
-  "latest_closed_m1_policy": "POSITION_ONE_WITH_HISTORY_WARMUP_RETRY",
+  "holiday_rule_version": "US_MARKET_HOLIDAYS_V1",
+  "latest_closed_m1_policy": "POSITION_ONE_PROVIDER_CONTRACT_WITH_HISTORY_WARMUP_RETRY",
+  "local_wall_clock_is_closure_authority": false,
   "python_import": "strategy_factory_rthp_mt5_activation_v1:RTHPMT5Automation",
+  "quality_report_schema": "registry/strategy_factory/contexts/rthp/v1/rthp_mt5_quality_report.schema.json",
   "read_only": true,
+  "real_mt5_smoke_evidence_status": "PASS",
   "registration_id": "RTHP_MT5_AUTOMATIC_M1_ACTIVATION_V1",
   "resolved_source_mode": "PAIRED_M1_BAR_JSONL",
+  "scheduled_closure_boundary_evidence_required": true,
+  "scheduled_closure_forward_fill_allowed": false,
   "schema_version": "1.0.0",
+  "session_calendar_profile_default": "AUTO",
   "shared_engine_change_allowed": false,
   "source_mode": "MT5_M1_AUTOMATIC",
-  "status": "READY_FOR_REAL_TERMINAL_SMOKE",
+  "source_position_one_is_closed_by_provider_contract": true,
+  "status": "REAL_MT5_SMOKE_PROVEN_LONG_HORIZON_CALENDAR_HARDENED",
   "sub_m1_allowed": false,
+  "supported_session_calendar_profiles": [
+    "WEEKLY_ONLY_V1",
+    "US_INDEX_CFD_NY_V1"
+  ],
   "trading_authority": false
 }

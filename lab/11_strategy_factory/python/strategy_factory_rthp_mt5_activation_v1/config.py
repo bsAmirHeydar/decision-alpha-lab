@@ -34,6 +34,9 @@ class QualityConfig:
     require_exact_m15_coverage: bool = True
     reject_sub_m1: bool = True
     drop_incomplete_current_bar: bool = True
+    session_calendar_profile: str = "AUTO"
+    max_scheduled_closure_minutes: int = 1_440
+    require_scheduled_closure_boundary_bars: bool = True
 
 @dataclass(frozen=True, slots=True)
 class TrainConfig:
@@ -95,13 +98,19 @@ def load_mt5_activation_config(path: str|Path) -> MT5ActivationConfig:
         history,
         QualityConfig(int(qr.get('minimum_common_bars',10000)),float(qr.get('max_symbol_specific_gap_ratio',0.02)),
                       int(qr.get('max_joint_gap_minutes',240)),int(qr.get('max_unexplained_gap_minutes',15)),
-                      bool(qr.get('require_exact_m15_coverage',True)),bool(qr.get('reject_sub_m1',True)),bool(qr.get('drop_incomplete_current_bar',True))),
+                      bool(qr.get('require_exact_m15_coverage',True)),bool(qr.get('reject_sub_m1',True)),bool(qr.get('drop_incomplete_current_bar',True)),
+                      str(qr.get('session_calendar_profile','AUTO')).upper(),int(qr.get('max_scheduled_closure_minutes',1440)),
+                      bool(qr.get('require_scheduled_closure_boundary_bars',True))),
         TrainConfig(bool(train.get('enabled',True)),tuple(str(x) for x in train.get('selected_task_ids',())),tuple(str(x) for x in train.get('family_filter',())),
                     int(train.get('minimum_mature_rows',24)),int(train.get('max_rows',2000000)),int(train.get('max_memory_mb',8192)),
                     float(train.get('max_wall_seconds',3600.0)),int(train.get('seed',1701))),
         str(raw.get('source_revision','R1')),str(raw.get('contract_roll_policy','NO_IMPLICIT_STITCHING_V1')),
         str(raw.get('entitlement_id','LOCAL_MT5_TERMINAL_SESSION')))
     if not config.quality.reject_sub_m1: raise ValueError('canonical MT5 profile must reject sub-M1 data')
+    if config.quality.session_calendar_profile not in {'AUTO','WEEKLY_ONLY_V1','US_INDEX_CFD_NY_V1'}:
+        raise ValueError('unsupported session calendar profile')
+    if config.quality.max_scheduled_closure_minutes < config.quality.max_joint_gap_minutes:
+        raise ValueError('max_scheduled_closure_minutes must be at least max_joint_gap_minutes')
     return config
 
 

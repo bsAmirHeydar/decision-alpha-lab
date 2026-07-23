@@ -1,4 +1,5 @@
 {
+  "adapter_version": "1.1.0",
   "automatic_steps": [
     "mt5_terminal_discovery_and_read_only_health",
     "symbol_resolution_and_metadata_freeze",
@@ -6,6 +7,7 @@
     "chunked_closed_m1_acquisition",
     "overlap_deduplication_and_receipts",
     "paired_symbol_quality_validation",
+    "holiday_and_session_aware_joint_gap_classification",
     "immutable_source_binding",
     "m1_interval_censored_rthp_materialization",
     "four_ledger_generation",
@@ -18,13 +20,16 @@
   "canonical_source_timeframe": "M1_CLOSED_BARS",
   "capital_authority_created": false,
   "central_engine_modified": false,
+  "cross_platform_governance_hardening": "PASS",
   "entry_treatment_execution_created": false,
+  "holiday_rule_version": "US_MARKET_HOLIDAYS_V1",
   "intrabar_order_inferred": false,
   "operator_minimum_input": [
     "primary_mt5_symbol",
     "secondary_mt5_symbol"
   ],
   "order_authority_created": false,
+  "production_model_claim_allowed": false,
   "raw_tick_canonical_source_allowed": false,
   "read_only_mt5_methods": [
     "initialize",
@@ -39,11 +44,14 @@
     "last_error",
     "shutdown"
   ],
-  "real_terminal_execution_status": "NOT_EXECUTED_IN_BUILD_ENVIRONMENT",
-  "release_state": "READY_FOR_REAL_MT5_TERMINAL_SMOKE",
-  "report_digest": "74f13f3305eb02a318f3bb171074fed01c32ba0eab9c268482dbcd285faed272",
+  "real_terminal_evidence_receipt": "REAL_MT5_SMOKE_TRAIN_EVIDENCE.json",
+  "real_terminal_execution_status": "PASS_USER_SUPPLIED_REAL_TERMINAL_EVIDENCE",
+  "release_state": "REAL_MT5_SMOKE_PROVEN_LONG_HORIZON_CALENDAR_HARDENED",
+  "report_digest": "130f0eb981a97d25f6b4140697c82359a31b92df0b64c6039cd23e5ade1b4aa0",
   "report_id": "RTHP_MT5_ONE_CLICK_IMPLEMENTATION_ACCEPTANCE_V1",
+  "scheduled_closure_forward_fill_allowed": false,
   "schema_version": "1.0.0",
+  "session_calendar_profile_default": "AUTO",
   "status": "PASS",
   "sub_m1_canonical_source_allowed": false,
   "symbol_only_cli": [
@@ -51,8 +59,9 @@
     "run-symbols"
   ],
   "synthetic_ticks_created": false,
-  "test_count": 422,
+  "test_count": 435,
   "test_status": "PASS",
   "test_warnings": 4,
-  "trade_or_order_methods_present": false
+  "trade_or_order_methods_present": false,
+  "windows_expected_symlink_capability_skip_count": 1
 }

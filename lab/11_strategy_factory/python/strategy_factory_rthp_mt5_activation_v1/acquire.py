@@ -22,26 +22,33 @@ def _latest_closed(
 ) -> datetime:
     """Return the close time of the newest fully closed M1 bar.
 
-    MT5 position zero is the currently forming bar.  Reading from position one
-    makes the closed-bar boundary explicit and avoids depending on a provider
-    returning more than the live bar during terminal-history warm-up.  A newly
-    initialized terminal can also need a short synchronization interval before
-    closed history becomes available, so the same retry policy used by the
-    range downloader is applied here.
+    MetaTrader numbers bars from the present into the past: position zero is
+    the current bar and position one is the immediately preceding bar.  The
+    adapter therefore treats every row returned from ``start_pos=1`` as closed
+    by provider contract.  It must not reclassify that bar with the workstation
+    wall clock because terminal data can be ahead of or behind a misconfigured
+    local clock even when the broker history is valid.
+
+    ``now`` remains in the signature for API compatibility and deterministic
+    tests, but it is deliberately not used as closure authority.
     """
 
+    del now
     attempts: list[dict[str, Any]] = []
-    now_s = int(now.astimezone(timezone.utc).timestamp())
 
     for attempt in range(retry_count + 1):
         rows = provider.copy_rates_from_pos(symbol, 1, 10)
         row_count = 0 if rows is None else len(rows)
 
         if row_count > 0:
-            opens = sorted(int(row["time"]) for row in rows)
-            closed = [bar_open for bar_open in opens if bar_open + 60 <= now_s]
-            if closed:
-                return datetime.fromtimestamp(max(closed) + 60, timezone.utc)
+            opens: list[int] = []
+            for row in rows:
+                try:
+                    opens.append(int(row["time"]))
+                except (KeyError, TypeError, ValueError, OverflowError):
+                    continue
+            if opens:
+                return datetime.fromtimestamp(max(opens) + 60, timezone.utc)
 
         attempts.append(
             {
@@ -61,20 +68,23 @@ def _latest_closed(
     )
 
 def resolve_range(provider: MT5Provider, primary: ResolvedSymbol, secondary: ResolvedSymbol, history, now: datetime) -> tuple[datetime,datetime]:
+    latest_common_end = min(
+        _latest_closed(provider, primary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
+        _latest_closed(provider, secondary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
+    )
+
     if history.mode=='EXPLICIT_UTC_RANGE':
-        start=datetime.fromisoformat(history.start_utc.replace('Z','+00:00')).astimezone(timezone.utc); end=datetime.fromisoformat(history.end_utc.replace('Z','+00:00')).astimezone(timezone.utc)
+        start=datetime.fromisoformat(history.start_utc.replace('Z','+00:00')).astimezone(timezone.utc)
+        requested_end=datetime.fromisoformat(history.end_utc.replace('Z','+00:00')).astimezone(timezone.utc)
+        end=min(requested_end, latest_common_end)
     else:
-        end=min(
-            _latest_closed(provider, primary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
-            _latest_closed(provider, secondary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
-        )
+        end=latest_common_end
         start=end-timedelta(days=history.max_lookback_days)
-    start=start.replace(second=0,microsecond=0); end=end.replace(second=0,microsecond=0)
-    # Never request or materialize the currently forming M1 bar. An explicit
-    # future end is safely capped at the latest fully closed UTC minute.
-    latest_closed_minute = now.astimezone(timezone.utc).replace(second=0, microsecond=0)
-    end = min(end, latest_closed_minute)
-    if start>=end: raise RTHPMT5Error('MT5_RANGE_INVALID','Resolved common range is empty')
+
+    start=start.replace(second=0,microsecond=0)
+    end=end.replace(second=0,microsecond=0)
+    if start>=end:
+        raise RTHPMT5Error('MT5_RANGE_INVALID','Resolved common range is empty')
     return start,end
 
 def acquire_symbol(provider: MT5Provider, symbol: ResolvedSymbol, start: datetime, end: datetime, history, terminal_id: str, revision: str) -> AcquisitionResult:

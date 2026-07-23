@@ -1,4 +1,4 @@
-from datetime import datetime,timezone
+from datetime import datetime,timedelta,timezone
 from strategy_factory_rthp_mt5_activation_v1.acquire import _latest_closed,acquire_symbol,resolve_range
 from strategy_factory_rthp_mt5_activation_v1.config import load_mt5_activation_config
 from strategy_factory_rthp_mt5_activation_v1.symbols import resolve_symbol
@@ -48,3 +48,47 @@ def test_latest_closed_uses_closed_position_and_retries(fake_provider):
         ("FAKE_A", 1, 10),
         ("FAKE_A", 1, 10),
     ]
+
+
+def test_latest_closed_trusts_position_one_when_workstation_clock_lags(fake_provider):
+    provider = _WarmupProvider(fake_provider.data["FAKE_A"])
+    provider._attempt = 1
+    workstation_now = datetime(2026, 1, 1, 0, 0, tzinfo=timezone.utc)
+
+    latest = _latest_closed(
+        provider,
+        "FAKE_A",
+        workstation_now,
+        retry_count=0,
+        retry_delay_seconds=0.0,
+    )
+
+    expected_open = max(int(row["time"]) for row in fake_provider.data["FAKE_A"][-10:])
+    assert latest == datetime.fromtimestamp(expected_open + 60, timezone.utc)
+    assert provider.calls == [("FAKE_A", 1, 10)]
+
+
+def test_auto_range_uses_common_provider_closed_bar_not_local_wall_clock(config_path, fake_provider):
+    from dataclasses import replace
+
+    config = load_mt5_activation_config(config_path)
+    primary = resolve_symbol(fake_provider, config.primary_symbol, config.canonical_primary_id)
+    secondary = resolve_symbol(fake_provider, config.secondary_symbol, config.canonical_secondary_id)
+    history = replace(config.history, mode="AUTO_COMMON_HISTORY", max_lookback_days=2)
+    workstation_now = datetime(2026, 1, 1, 0, 0, tzinfo=timezone.utc)
+
+    start, end = resolve_range(
+        fake_provider,
+        primary,
+        secondary,
+        history,
+        workstation_now,
+    )
+
+    expected_open = min(
+        max(int(row["time"]) for row in fake_provider.data["FAKE_A"][-10:]),
+        max(int(row["time"]) for row in fake_provider.data["FAKE_B"][-10:]),
+    )
+    expected_end = datetime.fromtimestamp(expected_open + 60, timezone.utc)
+    assert end == expected_end
+    assert start == expected_end - timedelta(days=2)

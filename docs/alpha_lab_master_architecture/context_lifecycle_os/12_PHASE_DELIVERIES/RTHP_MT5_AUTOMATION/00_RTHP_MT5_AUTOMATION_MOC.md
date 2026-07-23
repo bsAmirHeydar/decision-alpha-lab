@@ -1,8 +1,8 @@
 ---
 title: RTHP MT5 Automatic M1 Data Acquisition and One-Click Train — MOC
-status: roadmap-approved-for-implementation
-version: 1.0.0
-updated: 2026-07-22
+status: implemented-real-mt5-smoke-proven
+version: 1.1.0
+updated: 2026-07-23
 tags: [rthp, mt5, m1, data-acquisition, train-activation, roadmap]
 ---
 
@@ -63,3 +63,8 @@ This roadmap is a context-owned delivery. It is **not a replacement or renumberi
 - [[23_Read_Only_MT5_API_and_No_Trade_Authority]]
 - [[24_First_Real_Terminal_Run_Checklist]]
 - [[25_Latest_Closed_M1_History_Warmup_Hotfix]]
+- [[26_Provider_Closed_Bar_Authority_and_Workstation_Clock_Skew_Hotfix]]
+
+- [[27_Holiday_and_Session_Aware_Gap_Classification]]
+- [[28_Cross_Platform_Governance_Hardening]]
+- [[29_Real_MT5_Smoke_Train_Evidence]]

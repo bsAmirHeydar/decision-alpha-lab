@@ -1408,6 +1408,7 @@
     "tools/strategy_factory/acl_os/validate_acl_os_architecture_delivery.py": "211959a0a63fb98fa6425397ada2391830fbeaacd320381f69b423396e6fe6b6",
     "tools/strategy_factory/acl_os/validate_context_package.py": "d13768c922a18fad5730852d20217a8e5c2dd4c1054a180aa0e4fded550ffa20"
   },
+  "hash_policy": "TEXT_LF_CANONICAL_BINARY_RAW_V1",
   "protected_prefixes": [
     "lab/11_strategy_factory/python/strategy_factory_contexts_v3",
     "lab/11_strategy_factory/python/strategy_factory_dataset_v3",
@@ -1422,7 +1423,7 @@
     "tools/strategy_factory/acl_os",
     "registry/acl_os"
   ],
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "snapshot_hash": "69a9da0718c4bc3ab81a29ae0041c954105732b21d85994903ecbf5516cfb40c",
   "snapshot_id": "rthp-ai-input-central-engine-baseline-v1"
 }

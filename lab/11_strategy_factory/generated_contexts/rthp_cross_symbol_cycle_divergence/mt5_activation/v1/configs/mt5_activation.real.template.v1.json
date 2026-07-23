@@ -32,7 +32,10 @@
     "max_unexplained_gap_minutes": 15,
     "require_exact_m15_coverage": true,
     "reject_sub_m1": true,
-    "drop_incomplete_current_bar": true
+    "drop_incomplete_current_bar": true,
+    "session_calendar_profile": "AUTO",
+    "max_scheduled_closure_minutes": 1440,
+    "require_scheduled_closure_boundary_bars": true
   },
   "train": {
     "enabled": true,

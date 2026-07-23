@@ -34,7 +34,7 @@ class RTHPMT5Automation:
           'data_source':{'mode':'PAIRED_M1_BAR_JSONL','provider':'MetaTrader5','primary_symbol':self.config.primary_symbol,'secondary_symbol':self.config.secondary_symbol,
                          'primary_m1_bar_jsonl':ppath.as_posix(),'secondary_m1_bar_jsonl':spath.as_posix(),'timezone':'America/New_York','price_basis':'BID',
                          'tick_size_source':'MT5_SYMBOL_TRADE_TICK_SIZE','contract_roll_policy':self.config.contract_roll_policy,'entitlement_id':self.config.entitlement_id,
-                         'producer_version':'strategy_factory_rthp_mt5_activation_v1@1.0.0','availability_time_policy':'M1_BAR_CLOSE_UTC_MS',
+                         'producer_version':'strategy_factory_rthp_mt5_activation_v1@1.1.0','availability_time_policy':'M1_BAR_CLOSE_UTC_MS',
                          'source_revision':self.config.source_revision,'start_time_ms':None,'end_time_ms':None,'max_confirmation_freshness_ms':0},
           'split_policy':{'minimum_mature_rows':self.config.train.minimum_mature_rows,'oof_train_fraction':0.20,'oof_calibration_fraction':0.05,
                           'oof_threshold_fraction':0.05,'oof_holdout_fraction':0.10,'final_train_fraction':0.35,'final_calibration_fraction':0.05,

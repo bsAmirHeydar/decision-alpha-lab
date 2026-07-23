@@ -64,3 +64,14 @@ The delivery is complete when:
 7. run verification passes;
 8. no central engine or canonical Context file changed;
 9. no trading authority exists.
+
+## Implemented acceptance evidence — version 1.1.0
+
+- Linux reference regression: `435 passed`.
+- Windows expected regression: all tests pass, with one environment-only skip when the host lacks symlink creation privilege.
+- Engine-boundary hashing is EOL-stable and remains semantic-change-sensitive.
+- ACL-03 recompilation accepts EOL-only Windows checkouts through an ephemeral canonical mirror and still rejects semantic drift.
+- Real MT5 smoke Train and immutable verification passed against `#USSPX500` and `#USNDAQ100`.
+- Long-horizon holiday classification is covered without threshold inflation or forward fill.
+
+See [[28_Cross_Platform_Governance_Hardening]] and [[29_Real_MT5_Smoke_Train_Evidence]].

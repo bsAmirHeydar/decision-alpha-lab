@@ -7,6 +7,7 @@ from typing import Any
 
 from tools.strategy_factory.acl_os.acl_03.service import ACL03ContextCompilerService
 from .acl03_bindings import build_rthp_bindings, validate_rthp_acl03_bundle
+from .canonical_source import canonical_context_mirror
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -23,13 +24,14 @@ def compile_rthp_acl03(
 ) -> dict[str, Any]:
     readiness_doc = _load(acl02_readiness_path)
     readiness = readiness_doc.get("readiness", readiness_doc)
-    result = ACL03ContextCompilerService().compile(
-        package_root,
-        compiled_root,
-        _load(authority_permit_path),
-        _load(semantic_approval_path),
-        readiness,
-    )
+    with canonical_context_mirror(package_root) as canonical_root:
+        result = ACL03ContextCompilerService().compile(
+            canonical_root,
+            compiled_root,
+            _load(authority_permit_path),
+            _load(semantic_approval_path),
+            readiness,
+        )
     binding_bundle = build_rthp_bindings(package_root, compiled_root, binding_root)
     validation = validate_rthp_acl03_bundle(package_root, compiled_root, binding_root)
     return {

@@ -1,0 +1,33 @@
+{
+  "acl03_ephemeral_canonical_source_mirror": true,
+  "adapter_version_after": "1.1.0",
+  "adapter_version_before": "1.0.2",
+  "canonical_context_modified": false,
+  "canonical_source_timeframe": "M1_CLOSED_BARS",
+  "capital_authority_created": false,
+  "central_engine_modified": false,
+  "engine_snapshot_hash_policy": "TEXT_LF_CANONICAL_BINARY_RAW_V1",
+  "holiday_rule_version": "US_MARKET_HOLIDAYS_V1",
+  "linux_reference_passed": 435,
+  "memorial_day_2026_regression_minutes": 305,
+  "order_authority_created": false,
+  "path_count": 42,
+  "predictive_edge_claim_allowed": false,
+  "production_trading_claim_allowed": false,
+  "real_mt5_smoke_train_evidence": "PASS",
+  "real_mt5_smoke_verified_file_count": 33,
+  "report_id": "RTHP_MT5_SESSION_GOVERNANCE_CONSOLIDATION_PATCH_MANIFEST_V1",
+  "scheduled_closure_boundary_bars_required": true,
+  "scheduled_closure_forward_fill_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_drift_remains_blocking": true,
+  "session_calendar_profile_default": "AUTO",
+  "status": "PASS",
+  "supported_session_calendar_profiles": [
+    "WEEKLY_ONLY_V1",
+    "US_INDEX_CFD_NY_V1"
+  ],
+  "test_cases_collected": 435,
+  "windows_expected_environment_skips": 1,
+  "windows_symlink_privilege_skip_is_environment_only": true
+}

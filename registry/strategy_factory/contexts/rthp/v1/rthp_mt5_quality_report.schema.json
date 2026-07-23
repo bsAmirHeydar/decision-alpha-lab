@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:rthp:mt5-quality-report:1.1.0",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "report_id",
+    "schema_version",
+    "status",
+    "blockers",
+    "canonical_source_timeframe",
+    "session_calendar_profile",
+    "holiday_rule_version",
+    "scheduled_closure_intervals",
+    "unexplained_long_joint_gap_intervals",
+    "forward_fill_allowed",
+    "report_digest"
+  ],
+  "properties": {
+    "report_id": {"const": "RTHP_MT5_M1_QUALITY_V2"},
+    "schema_version": {"const": "1.1.0"},
+    "status": {"enum": ["PASS", "PASS_WITH_DECLARED_NON_CRITICAL_GAPS", "BLOCKED"]},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "canonical_source_timeframe": {"const": "M1_CLOSED_BARS"},
+    "session_calendar_profile": {"enum": ["WEEKLY_ONLY_V1", "US_INDEX_CFD_NY_V1"]},
+    "holiday_rule_version": {"const": "US_MARKET_HOLIDAYS_V1"},
+    "scheduled_closure_intervals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "closure_id",
+          "holiday_id",
+          "holiday_date_ny",
+          "profile",
+          "start_utc_ms",
+          "end_utc_ms",
+          "duration_minutes",
+          "boundary_bars_confirmed",
+          "classification_basis"
+        ]
+      }
+    },
+    "unexplained_long_joint_gap_intervals": {"type": "array"},
+    "scheduled_closures_are_forward_filled": {"const": false},
+    "forward_fill_allowed": {"const": false},
+    "m15_missingness_is_unconfirmed": {"const": true},
+    "report_digest": {"type": "string", "minLength": 64}
+  }
+}
