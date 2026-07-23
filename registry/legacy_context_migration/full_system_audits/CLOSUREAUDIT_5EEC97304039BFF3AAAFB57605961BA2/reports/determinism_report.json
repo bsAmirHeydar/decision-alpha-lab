@@ -1,0 +1,29 @@
+{
+  "all_machine_artifacts_have_object_digests": true,
+  "artifact_kind": "DETERMINISM_REPORT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "baseline_amendment_byte_stable": true,
+  "baseline_amendment_rebuilt_from_bound_inputs": true,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "evidence_set_digest": "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+  "external_evidence_can_change_status_only_with_bound_logs": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "report_digest": "sha256:a89c39f959ee61de026d80d91c0c513f64932d8475fb876027d494242567ea2e",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "suite_commands_and_working_directories_recorded": true,
+  "validation_status": "PASS",
+  "wall_clock_excluded_from_identity": true
+}

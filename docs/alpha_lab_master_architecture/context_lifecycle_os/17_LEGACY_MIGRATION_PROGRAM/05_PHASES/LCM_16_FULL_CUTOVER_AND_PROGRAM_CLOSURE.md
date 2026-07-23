@@ -1,8 +1,8 @@
 ---
 title: "LCM-16 — Full Cutover and Program Closure"
-status: proposed-reference
+status: in-progress-reference
 version: 2.0.0
-updated: 2026-07-19
+updated: 2026-07-23
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-16
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
@@ -65,3 +65,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+## Current master-phase state — 2026-07-23
+
+LCM-16A has an implemented, internally valid audit package, but its non-compensatory closure decision is `BLOCKED`. LCM-16B recovery-drill preparation is allowed; final program closure remains forbidden until real MetaEditor, Strategy Tester/golden replay, terminal parity and external-consumer evidence resolve the mandatory unknowns and the Git LFS evidence objects are materialized in the execution checkout.
+

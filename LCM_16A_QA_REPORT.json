@@ -1,0 +1,82 @@
+{
+  "acl_os_tests": {
+    "failed": 0,
+    "passed": 826,
+    "status": "PASS"
+  },
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deletion_authority_created": false,
+  "direct_phase_tests": {
+    "failed": 0,
+    "passed": 23,
+    "status": "PASS"
+  },
+  "engineering_policy": {
+    "layout_missing_directories": 0,
+    "mql5_static_errors": 0,
+    "mql5_static_warnings": 0,
+    "obsidian_errors": 0,
+    "obsidian_notes": 253,
+    "obsidian_unique_ids": 247,
+    "obsidian_warnings": 0,
+    "repository_policy_errors": 0,
+    "repository_policy_warnings": 0,
+    "status": "PASS"
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_RECORDED_VALIDATION_RECEIPTS_NO_WALL_CLOCK_IDENTITY",
+  "historical_lcm15_tests": {
+    "failed": 0,
+    "passed": 60,
+    "status": "PASS"
+  },
+  "live_order_authority_created": false,
+  "mandatory_blockers": [
+    "GIT_LFS_MATERIALIZATION_IN_SOURCE_ARCHIVE",
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "migration_program_closure_authorized": false,
+  "mql5_inventory": {
+    "metaeditor_status": "UNKNOWN",
+    "mq5": 293,
+    "mqh": 2266,
+    "static_status": "PASS",
+    "strategy_tester_status": "UNKNOWN",
+    "total": 2559
+  },
+  "package_qa": {
+    "amendment_count": 242,
+    "baseline_count": 2168,
+    "missing_count": 0,
+    "module_count": 15,
+    "schema_count": 16,
+    "status": "PASS",
+    "unchanged_count": 1926
+  },
+  "patch_id": "LCM16APATCH_C21357F481196C5A5E989912C158F492",
+  "patch_integrity_status": "PASS",
+  "phase_closure_decision": "BLOCKED",
+  "phase_id": "LCM-16A",
+  "qa_digest": "sha256:94fed8a9bac757e826a29c795cb29fed412e9bf7cb242377a1ea5f686c58437a",
+  "regression_evidence": {
+    "deterministic_failed_test_count": 0,
+    "passed_test_count": 3975,
+    "source_archive_lfs_blocked_test_count": 3,
+    "suite_count": 60,
+    "validation_status": "PASS_WITH_RESIDUALS"
+  },
+  "rthp_targeted_tests": {
+    "failed": 0,
+    "passed": 56,
+    "status": "PASS_WITH_NUMERICAL_WARNINGS",
+    "warnings": 4
+  },
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "validation_status": "PASS"
+}

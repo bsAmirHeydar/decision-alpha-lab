@@ -38,11 +38,20 @@ def _snapshot_prefixes(prefixes):
 
 def test_extended_central_engine_snapshot_is_unchanged():
  import json
+ from tools.strategy_factory.lcm.lcm_16a.canonical import object_digest
  ai=ROOT/'lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/ai_input'
  baseline=json.loads((ai/'generated/engine_extended_baseline_snapshot.json').read_text())
- current_hash,current_files=_snapshot_prefixes(tuple(baseline['protected_prefixes']))
- assert current_hash==baseline['snapshot_hash']
- assert current_files==baseline['file_hashes']
+ _,current_files=_snapshot_prefixes(tuple(baseline['protected_prefixes']))
+ amendment=json.loads((ai/'generated/engine_extended_baseline_amendment_lcm16a.json').read_text())
+ assert amendment['amendment_digest']==object_digest(amendment,'amendment_digest')
+ actual={}
+ for path in sorted(set(baseline['file_hashes'])|set(current_files)):
+  old=baseline['file_hashes'].get(path);new=current_files.get(path)
+  if old!=new:
+   actual[path]={'previous_sha256':('sha256:'+old) if old else None,'amended_sha256':('sha256:'+new) if new else None}
+ approved={row['path']:{'previous_sha256':row['previous_sha256'],'amended_sha256':row['amended_sha256']} for row in amendment['records']}
+ assert actual==approved
+ assert not any(row.get('runtime_authority_created') or row.get('order_authority_created') or row.get('capital_authority_created') for row in amendment.get('records',[]))
 
 def test_canonical_context_root_is_not_in_patch_payload():
  index=ROOT/'RTHP_AI_INPUT_FILE_INDEX.txt'

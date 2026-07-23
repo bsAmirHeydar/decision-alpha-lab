@@ -1,0 +1,266 @@
+{
+  "artifact_kind": "CROSS_LANGUAGE_PARITY_REPORT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "known_time_parity_status": "PASS_REFERENCE_ONLY",
+  "master_phase": "LCM-16",
+  "overall_closure_impact": "BLOCKED_BY_TERMINAL_PARITY_UNKNOWN",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "proof_ceiling": "PYTHON_AND_STATIC_REFERENCE_PARITY_NOT_TERMINAL_COMPILED_PARITY",
+  "python_reference_vector_parity_status": "PASS",
+  "reference_suite_count": 13,
+  "reference_suite_passed_test_count": 2223,
+  "reference_suites": [
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i14_runtime_compilation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 126,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I14",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i16_context_onboarding"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 127,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I16",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i19_production_operations"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 221,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I19",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_38_immutable_runtime_mql5_parity"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 287,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_38",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_39_prospective_shadow_micro_live"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 589,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_39",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_41_continuous_surveillance_retirement"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 657,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_41",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_context"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 19,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_CONTEXT",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_ai_input"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 33,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_AI_INPUT",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_train_activation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 12,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_TRAIN",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_mt5_activation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 11,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_MT5",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 94,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "FP_I15_AND_NDS_864",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 39,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "NDS_864_REFERENCE",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/flag_counting/test_nds_hook_864_exact_acceleration.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 8,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "NDS_864_ACCELERATION",
+      "working_directory": "."
+    }
+  ],
+  "report_digest": "sha256:178b37886fcd3dcb9b11a5f4d596fe31374aec9990b4adc7a159a83d8157e2d3",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "state_event_decision_request_parity_status": "PASS_REFERENCE_ONLY",
+  "terminal_compiled_mql5_parity_status": "UNKNOWN",
+  "validation_status": "PASS"
+}

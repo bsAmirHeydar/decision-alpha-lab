@@ -1,0 +1,42 @@
+{
+  "artifact_kind": "SECURITY_AUTHORITY_AUDIT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "credential_authority_created": false,
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "heuristic_secret_assignment_hit_count": 0,
+  "heuristic_secret_assignment_hits": [],
+  "live_order_authority_created": false,
+  "master_phase": "LCM-16",
+  "network_authority_created": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_forbidden_capability_hit_count": 0,
+  "phase_forbidden_capability_hits": [],
+  "phase_id": "LCM-16A",
+  "phase_python_file_count": 15,
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "report_digest": "sha256:2f88b88f1cb3b03f04df5d140f13517c4788ebb0f4e65f4828d308b49c082621",
+  "reviewed_false_positive_paths": [
+    "tools/strategy_factory/acl_os/acl_03/security.py",
+    "tools/strategy_factory/acl_os/acl_12/scanners.py",
+    "lab/11_strategy_factory/python/saed_v4_conformal_ood_selective_control/security.py",
+    "lab/11_strategy_factory/acl_os/tests_acl_12/test_scanners.py"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "security_reviewer": "INDEPENDENT_SECURITY_REVIEWER",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "unreviewed_private_key_marker_count": 0,
+  "unreviewed_private_key_marker_paths": [],
+  "validation_status": "PASS"
+}

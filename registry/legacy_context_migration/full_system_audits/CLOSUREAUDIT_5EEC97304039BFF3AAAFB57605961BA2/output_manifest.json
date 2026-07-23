@@ -1,0 +1,112 @@
+{
+  "artifact_kind": "OUTPUT_MANIFEST",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "evidence_set_digest": "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+  "file_count": 17,
+  "files": [
+    {
+      "path": "baseline_amendment.json",
+      "sha256": "sha256:9aea0b7c534bcd90a3f5659bdda84dc8765bb1195574b2a3c29bcdc74169a0d7",
+      "size_bytes": 1104
+    },
+    {
+      "path": "records/baseline_amendments.jsonl",
+      "sha256": "sha256:d870a041d1531732534e4fbd81560396087c8183f4ccd077586ec0f760fc9205",
+      "size_bytes": 139830
+    },
+    {
+      "path": "records/regression_execution_receipt.json",
+      "sha256": "sha256:47c71383e198fd97f91edc07110b4c5fc08bd695075b5197e5a29f0849d5ad13",
+      "size_bytes": 25963
+    },
+    {
+      "path": "closure_test_matrix.json",
+      "sha256": "sha256:1d9283e10eed98d8bbdf4ba1246b1f2a5d679a7305d30f40af8de781c9008350",
+      "size_bytes": 4049
+    },
+    {
+      "path": "registry_conformance_report.json",
+      "sha256": "sha256:5c66318caa2580f75fb99fd984bd2fa04e980304639847e0755fc0353bebeaac",
+      "size_bytes": 2346
+    },
+    {
+      "path": "python_regression_report.json",
+      "sha256": "sha256:c2b1a6a630dedce62d379d51dc03501c94202fa12f9478664dda3ea63da71076",
+      "size_bytes": 25902
+    },
+    {
+      "path": "schema_validation_report.json",
+      "sha256": "sha256:859883893a2a003018f82c42baafc50ed3a1c98e8fcd1752eacc14269c1e58aa",
+      "size_bytes": 1405
+    },
+    {
+      "path": "mql5_compile_matrix.json",
+      "sha256": "sha256:56bc84507eca1b6b65522d46a3a81b53e384dee35f63ff835cad42fdb6b02a2d",
+      "size_bytes": 2237
+    },
+    {
+      "path": "strategy_tester_matrix.json",
+      "sha256": "sha256:fb4ee2762db1c95c12258c3c023bdcb49da32c65d7126e3de9df0e981821ce5a",
+      "size_bytes": 2750
+    },
+    {
+      "path": "cross_language_parity_report.json",
+      "sha256": "sha256:16199ababd3607c377c0d707ac31859f2167875579c2cc9d0fc0d31604ca62fb",
+      "size_bytes": 6738
+    },
+    {
+      "path": "security_authority_audit.json",
+      "sha256": "sha256:47d98e23d4f84dfe6ea8dc59ae9d4e3537629b8d84e93aef6f0a02fc21aa5c23",
+      "size_bytes": 1917
+    },
+    {
+      "path": "documentation_integrity_report.json",
+      "sha256": "sha256:0b79f92f798fdcb873c355dd17feab0b3aba8f08a3275cd11a8d4afc9d5a5c7d",
+      "size_bytes": 1761
+    },
+    {
+      "path": "rollback_manifest.json",
+      "sha256": "sha256:fae63db7c80c8ecd66d53d87542f822fad1e747c60ea88f40136d5e64813304f",
+      "size_bytes": 2996
+    },
+    {
+      "path": "LCM16A_TO_LCM16B_HANDOFF.json",
+      "sha256": "sha256:2d2aa51ba93a21dea6a7a057e41fdc16f7935b982eeb75357419b2eee26607c0",
+      "size_bytes": 3324
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:de8f7470a12b61e456ddcd55282ea3b6bfc935831cd7e4c0144d5d8426db49c7",
+      "size_bytes": 1881
+    },
+    {
+      "path": "reports/determinism_report.json",
+      "sha256": "sha256:6af80d16768722f6092cf043361b5e3c7b6d0d3dc1bc620b05b40592c6dcb35a",
+      "size_bytes": 1436
+    },
+    {
+      "path": "reports/hostile_review_report.json",
+      "sha256": "sha256:b0716e91840fd66ceec3479312be1b96ec92c22801dffed5955779b83f186bbd",
+      "size_bytes": 2357
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "output_manifest_digest": "sha256:08cda0af2255d78740477c362a444d015af0bf2d715b07b3082704af0f8db9ef",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "self_excluded_to_prevent_recursive_hash": true,
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "validation_status": "PASS"
+}

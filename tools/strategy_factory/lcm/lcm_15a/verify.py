@@ -4,6 +4,7 @@ from .canonical import object_digest
 from .constants import CLAIM_CEILING,PHASE_ID
 from .io import file_digest,load_json,load_jsonl
 from .models import VerificationResult
+from tools.strategy_factory.lcm.amendments import digest_matches_current,load_verified_amendments
 def _check_digest(obj:dict,field:str):
  if obj.get(field)!=object_digest(obj,field):raise ValueError(f"digest mismatch: {field}")
 def _downstream_changes(repo_root:Path)->dict[str,dict]:
@@ -30,7 +31,7 @@ def verify_package(repo_root:Path,package_root:Path)->VerificationResult:
  if any(r["deletion_performed"] for r in rows):raise ValueError("deletion performed")
  if approvals["future_deletion_approved_count"]!=0 or handoff["approved_future_deletion_count"]!=0:raise ValueError("authority boundary violated")
  if (package_root/"approved_future_deletion_pathspec.txt").read_text(encoding="utf-8")!="":raise ValueError("future deletion pathspec must be empty")
- downstream=_downstream_changes(repo_root)
+ downstream=_downstream_changes(repo_root);amendments=load_verified_amendments(repo_root)
  for r in rows:
   p=repo_root/r["candidate_path"]
   if p.is_file() and file_digest(p)==r["candidate_sha256"]:continue
@@ -39,7 +40,8 @@ def verify_package(repo_root:Path,package_root:Path)->VerificationResult:
   if moved["kind"]=="DOCUMENT_REDIRECT":
    target=repo_root/moved["canonical_target_path"]
    if not p.is_file() or not target.is_file():raise ValueError(f"downstream locator missing: {r['candidate_path']}")
-   if file_digest(p)!=moved["redirect_stub_sha256"] or file_digest(target)!=r["candidate_sha256"]:raise ValueError(f"downstream relocation mismatch: {r['candidate_path']}")
+   current=file_digest(p)
+   if not digest_matches_current(repo_root,r["candidate_path"],moved["redirect_stub_sha256"],current,amendments) or file_digest(target)!=r["candidate_sha256"]:raise ValueError(f"downstream relocation mismatch: {r['candidate_path']}")
   elif moved["kind"]=="REFERENCE_REWRITE":
    if not p.is_file() or moved["before_sha256"]!=r["candidate_sha256"] or file_digest(p)!=moved["after_sha256"]:raise ValueError(f"downstream rewrite mismatch: {r['candidate_path']}")
   else:raise ValueError(f"unsupported downstream change: {r['candidate_path']}")

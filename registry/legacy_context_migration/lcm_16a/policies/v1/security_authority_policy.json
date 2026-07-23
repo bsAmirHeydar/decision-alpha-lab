@@ -1,0 +1,17 @@
+{
+  "all_authority_flags_default_false": true,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "phase_id": "LCM-16A",
+  "phase_owned_forbidden_capabilities": [
+    "NETWORK_CLIENT",
+    "PROCESS_SPAWN",
+    "FILE_DELETION",
+    "RUNTIME_ACTIVATION",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ALLOCATION",
+    "BROKER_CREDENTIAL_ACCESS"
+  ],
+  "policy_id": "LCM16A_SECURITY_AUTHORITY_POLICY_V1",
+  "secret_fixture_markers_must_not_be_reported_as_live_secrets": true,
+  "validation_status": "PASS"
+}

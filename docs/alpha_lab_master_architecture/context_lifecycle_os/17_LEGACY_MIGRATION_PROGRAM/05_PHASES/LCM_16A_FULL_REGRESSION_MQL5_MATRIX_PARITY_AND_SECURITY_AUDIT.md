@@ -1,8 +1,8 @@
 ---
 title: "LCM-16A — Full Regression, MQL5 Matrix, Parity and Security Audit"
-status: proposed-reference
+status: implemented-reference
 version: 1.0.0
-updated: 2026-07-19
+updated: 2026-07-23
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-16A
 master_phase: LCM-16
@@ -136,3 +136,9 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: recovery drill and human closure decision.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+## Implementation status — 2026-07-23
+
+LCM-16A is implemented as audit package `CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2`. The package validates the exact LCM-15C handoff, records a 242-path AIEOS baseline amendment against the 2,168-path lock set, orchestrates 60 governed regression suites, validates repository JSON/YAML/schema definitions, inventories 2,559 MQL5 source files, and publishes parity, security, documentation, hostile-review, determinism, rollback and handoff evidence.
+
+Current deterministic result: 3,975 tests passed and zero deterministic product failures in the supplied source-archive environment. Three LCM-12A evidence tests remain environment-blocked because two Git LFS objects are pointers rather than materialized objects. Real MetaEditor compilation, Strategy Tester/golden replay, terminal-compiled parity and out-of-repository external-consumer reachability remain mandatory `UNKNOWN/BLOCKED`. Therefore the LCM-16A implementation package is valid, while the closure decision is `BLOCKED`; automatic Legacy Migration Program closure is forbidden.
+

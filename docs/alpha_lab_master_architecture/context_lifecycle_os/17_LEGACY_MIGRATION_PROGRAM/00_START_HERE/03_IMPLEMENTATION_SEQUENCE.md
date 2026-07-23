@@ -48,7 +48,7 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | LCM-15A | Deletion Candidate Inventory and Reference Proof | No |
 | LCM-15B | Root, Release and Documentation Reorganization | Non-destructive moves only |
 | LCM-15C | Controlled Deletion and Clean-Clone Verification | Yes, exact approved ledger only |
-| LCM-16A | Full Regression, MQL5 Matrix, Parity and Security Audit | No |
+| LCM-16A | Full Regression, MQL5 Matrix, Parity and Security Audit | Implemented reference; closure BLOCKED by external evidence |
 | LCM-16B | Recovery Drill, Final Ledger and Program Closure | No |
 
 ## Master-phase completion rule

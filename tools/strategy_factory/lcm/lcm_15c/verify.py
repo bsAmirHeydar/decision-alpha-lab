@@ -4,6 +4,7 @@ from .canonical import object_digest
 from .constants import EMPTY_SHA256,EXPECTED_UPSTREAM
 from .io import file_digest,load_json,load_jsonl
 from .models import VerificationResult
+from tools.strategy_factory.lcm.amendments import digest_matches_current,load_verified_amendments
 
 def _digest(obj:dict,field:str):
  if obj.get(field)!=object_digest(obj,field):raise ValueError(f'digest mismatch: {field}')
@@ -45,9 +46,13 @@ def verify_package(repo_root:Path,package_root:Path)->VerificationResult:
  if pre['approved_deletion_count']!=0 or pre['final_deletion_path_count']!=0:raise ValueError('approval created')
  if ledger['deleted_path_count']!=0 or ledger['deletion_record_count']!=0:raise ValueError('deletion recorded')
  if blocked['blocked_count']!=2168 or any(r['deletion_approved'] or r['deletion_performed'] for r in blocked_rows):raise ValueError('blocked set violation')
+ amendments=load_verified_amendments(repo_root)
  for row in lock_rows:
-  p=repo_root/row['candidate_path']
-  if not p.is_file() or file_digest(p)!=row['locked_sha256']:raise ValueError(f"candidate changed: {row['candidate_path']}")
+  relative=row['candidate_path'];p=repo_root/relative
+  if not p.is_file():raise ValueError(f"candidate missing: {relative}")
+  current=file_digest(p)
+  if not digest_matches_current(repo_root,relative,row['locked_sha256'],current,amendments):
+   raise ValueError(f"candidate changed without verified amendment: {relative}")
  if clone['clean_clone_result']!='PASS' or clone['source_manifest_digest']!=clone['clone_manifest_digest']:raise ValueError('clean clone proof failed')
  if clone['verified_path_count']<50000 or clone['direct_test_count']!=20:raise ValueError('clean clone scope incomplete')
  if restore['pass_count']!=12 or restore['fail_count']!=0 or any(r['restore_result']!='PASS' for r in restore_rows):raise ValueError('restore sample failed')

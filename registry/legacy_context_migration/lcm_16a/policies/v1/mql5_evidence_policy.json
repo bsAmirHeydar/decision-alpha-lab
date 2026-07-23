@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "metaeditor_environment_must_be_recorded": true,
+  "phase_id": "LCM-16A",
+  "policy_id": "LCM16A_MQL5_EVIDENCE_POLICY_V1",
+  "python_mirror_is_metaeditor_evidence": false,
+  "static_scan_is_compile_evidence": false,
+  "strategy_tester_environment_must_be_recorded": true,
+  "unavailable_external_tool_status": "UNKNOWN",
+  "validation_status": "PASS"
+}

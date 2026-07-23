@@ -1,0 +1,20 @@
+{
+  "broad_aggregate_pytest_is_not_a_valid_substitute": true,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "git_lfs_materialization_required_for_lcm12a": true,
+  "per_suite_working_directory_allowed": true,
+  "phase_id": "LCM-16A",
+  "policy_id": "LCM16A_REGRESSION_MATRIX_POLICY_V1",
+  "required_families": [
+    "ENGINEERING_POLICY",
+    "LCM_STABLE_CHAIN",
+    "ACL_OS",
+    "STRATEGY_FACTORY_CORE",
+    "UCEE_HIGH_RISK",
+    "SAED_HIGH_RISK",
+    "RTHP_GOLDEN_CONTEXT",
+    "FP_I15",
+    "NDS_864"
+  ],
+  "validation_status": "PASS"
+}

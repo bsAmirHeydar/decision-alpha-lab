@@ -1,0 +1,1131 @@
+{
+  "artifact_kind": "PYTHON_REGRESSION_REPORT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "blocked_evidence_suites": [
+    "TESTS_LCM_12A"
+  ],
+  "blocked_suites": [],
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "deterministic_product_failure_count": 0,
+  "failed_suites": [],
+  "failed_test_count": 0,
+  "full_lcm12a_requires_materialized_git_lfs": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "passed_test_count": 3975,
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.regression:run",
+  "report_digest": "sha256:774fb409cae61ca2b978d5f1238a737843b5517a8009a46263026285dcec0744",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "suite_count": 60,
+  "suites": [
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "tools/engineering/run_engineering_policy.py",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 0,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ENGINEERING_POLICY",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_09b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 36,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_09B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_10a",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 23,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_10A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_10b",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_10b/test_rebuild.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 34,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_10B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_10c"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 15,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_10C",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_11a"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 16,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_11A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_11b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 24,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_11B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [
+        "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
+        "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl"
+      ],
+      "blocked_tests": [
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_authority.py",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_references.py",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_unknowns.py"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_12a",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_package_verify.py",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_authority.py",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_references.py",
+        "--ignore",
+        "lab/11_strategy_factory/migration/tests_lcm_12a/test_unknowns.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 16,
+      "reason": "GIT_LFS_OBJECTS_NOT_MATERIALIZED",
+      "status": "PASS_WITH_BLOCKED_EVIDENCE",
+      "suite_id": "TESTS_LCM_12A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_12b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 16,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_12B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_13a"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 24,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_13A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_13b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 18,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_13B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_13c"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 18,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_13C",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_14a"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 25,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_14A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_14b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_14B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_15a"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_15A",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_15b"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_15B",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/migration/tests_lcm_15c"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "TESTS_LCM_15C",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_00"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 78,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_00",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_01"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 78,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_01",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_02"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 80,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_02",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_03"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 106,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_03",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_04"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 51,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_04",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_05"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 62,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_05",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_06"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 25,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_06",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_07"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 44,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_07",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_08"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 39,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_08",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_09"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 32,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_09",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_10"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 34,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_10",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_11"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 33,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_11",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_12"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 39,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_12",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_13"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 43,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_13",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_14"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 43,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_14",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/acl_os/tests_acl_15"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 39,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "ACL_OS_15",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 19,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE01",
+      "working_directory": "lab/11_strategy_factory/tests/phase01_contracts"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 33,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE03",
+      "working_directory": "lab/11_strategy_factory/tests/phase03_market"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 25,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE09",
+      "working_directory": "lab/11_strategy_factory/tests/phase09_outcome"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 11,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE10",
+      "working_directory": "lab/11_strategy_factory/tests/phase10_research"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 31,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE11",
+      "working_directory": "lab/11_strategy_factory/tests/phase11_statistics"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 19,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE12",
+      "working_directory": "lab/11_strategy_factory/tests/phase12_validation"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 24,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE13",
+      "working_directory": "lab/11_strategy_factory/tests/phase13_training"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 19,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE14",
+      "working_directory": "lab/11_strategy_factory/tests/phase14_governance"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 23,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE15",
+      "working_directory": "lab/11_strategy_factory/tests/phase15_inference"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 14,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE17",
+      "working_directory": "lab/11_strategy_factory/tests/phase17_execution"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 16,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE18",
+      "working_directory": "lab/11_strategy_factory/tests/phase18_live"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 32,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE19",
+      "working_directory": "lab/11_strategy_factory/tests/phase19_monitoring"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "."
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 13,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SF_PHASE20",
+      "working_directory": "lab/11_strategy_factory/tests/phase20_integration"
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i14_runtime_compilation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 126,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I14",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i16_context_onboarding"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 127,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I16",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_uce_i19_production_operations"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 221,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "UCE_I19",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_31_formal_verification_safety_case"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 302,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_31",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_38_immutable_runtime_mql5_parity"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 287,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_38",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_39_prospective_shadow_micro_live"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 589,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_39",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/phase_saed_v4_41_continuous_surveillance_retirement"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 657,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "SAED_V4_41",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_context"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 19,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_CONTEXT",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_ai_input"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 33,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_AI_INPUT",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_train_activation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 12,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_TRAIN",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/11_strategy_factory/tests/rthp_mt5_activation"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 11,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "RTHP_MT5",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i15/tests"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 94,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "FP_I15_AND_NDS_864",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 39,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "NDS_864_REFERENCE",
+      "working_directory": "."
+    },
+    {
+      "blocked_paths": [],
+      "blocked_tests": [],
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/flag_counting/test_nds_hook_864_exact_acceleration.py"
+      ],
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 8,
+      "reason": null,
+      "status": "PASS",
+      "suite_id": "NDS_864_ACCELERATION",
+      "working_directory": "."
+    }
+  ],
+  "validation_status": "PASS_WITH_RESIDUALS"
+}

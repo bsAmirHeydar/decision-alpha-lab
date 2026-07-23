@@ -1,0 +1,22 @@
+{
+  "aggregate_success_cannot_compensate": true,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "phase_id": "LCM-16A",
+  "policy_id": "LCM16A_EVIDENCE_STATUS_POLICY_V1",
+  "rules": {
+    "BLOCKED": "REQUIRED_INPUT_OR_ENVIRONMENT_UNAVAILABLE",
+    "FAILED": "DETERMINISTIC_GATE_FAILED",
+    "PARTIAL": "EVIDENCE_EXISTS_BUT_ACCEPTANCE_INCOMPLETE",
+    "PASS": "REQUIRED_EVIDENCE_PRESENT_AND_VERIFIED",
+    "UNKNOWN": "NO_DEFENSIBLE_PASS_OR_FAIL_EVIDENCE"
+  },
+  "statuses": [
+    "PASS",
+    "FAILED",
+    "BLOCKED",
+    "UNKNOWN",
+    "PARTIAL"
+  ],
+  "unknown_is_blocking_for_mandatory_gate": true,
+  "validation_status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "phase_id": "LCM-16A",
+  "policy_id": "LCM16A_DOCUMENTATION_INTEGRITY_POLICY_V1",
+  "required_checks": [
+    "ENGINEERING_POLICY",
+    "OBSIDIAN_VALIDATION",
+    "CANONICAL_PHASE_NAVIGATION",
+    "RELEASE_LOOKUP",
+    "STATUS_FRESHNESS_REVIEW"
+  ],
+  "semantic_status_drift_must_be_residualized": true,
+  "structural_pass_does_not_erase_semantic_drift": true,
+  "validation_status": "PASS"
+}

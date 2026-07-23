@@ -1,0 +1,117 @@
+{
+  "artifact_kind": "CLOSURE_TEST_MATRIX",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "automatic_program_closure_allowed": false,
+  "blocking_gate_count": 5,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_failure_count": 0,
+  "deterministic_identity": true,
+  "gate_count": 14,
+  "gates": [
+    {
+      "evidence": "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+      "gate_id": "UPSTREAM_LCM15C_HANDOFF",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+      "gate_id": "BASELINE_AMENDMENT_REPRODUCIBILITY",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": "sha256:c8a9d0564be960e23069b6f62cae38d5af3ca7b47273777b7c0d92df80f96ea3",
+      "gate_id": "REGISTRY_CONFORMANCE",
+      "mandatory": true,
+      "status": "PASS_WITH_RESIDUALS"
+    },
+    {
+      "evidence": "sha256:774fb409cae61ca2b978d5f1238a737843b5517a8009a46263026285dcec0744",
+      "gate_id": "PYTHON_REGRESSION",
+      "mandatory": true,
+      "status": "PASS_WITH_RESIDUALS"
+    },
+    {
+      "evidence": "sha256:c6f8516e1d83ffbdcb62a915d399c6c87bf49dc5fcc2d9a0009c780130954946",
+      "gate_id": "JSON_YAML_SCHEMA_DEFINITIONS",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": "sha256:c825de1cd3b1457b012da8782f72964cf6a1fea03b3a9bce9a03934207966680",
+      "gate_id": "MQL5_STATIC_COMPATIBILITY",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
+        "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl"
+      ],
+      "gate_id": "GIT_LFS_MATERIALIZATION",
+      "mandatory": true,
+      "status": "BLOCKED"
+    },
+    {
+      "evidence": [],
+      "gate_id": "MQL5_METAEDITOR_COMPILE",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": [],
+      "gate_id": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": "sha256:178b37886fcd3dcb9b11a5f4d596fe31374aec9990b4adc7a159a83d8157e2d3",
+      "gate_id": "CROSS_LANGUAGE_REFERENCE_PARITY",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": [],
+      "gate_id": "TERMINAL_COMPILED_PARITY",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence": "sha256:2f88b88f1cb3b03f04df5d140f13517c4788ebb0f4e65f4828d308b49c082621",
+      "gate_id": "SECURITY_AND_AUTHORITY",
+      "mandatory": true,
+      "status": "PASS"
+    },
+    {
+      "evidence": "sha256:6c41f344d48403f67afa2b481f8d466caae79d9a01f5fc26b5bdbec6c2763678",
+      "gate_id": "DOCUMENTATION_INTEGRITY",
+      "mandatory": true,
+      "status": "PASS_WITH_RESIDUALS"
+    },
+    {
+      "evidence": [],
+      "gate_id": "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS",
+      "mandatory": true,
+      "status": "UNKNOWN"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-16",
+  "matrix_digest": "sha256:31393b47fddd574e0f26a462616b9a4adca16a2d2e83a9bdf22b534dc6dd991d",
+  "non_compensatory": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_decision": "BLOCKED",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "validation_status": "PASS"
+}

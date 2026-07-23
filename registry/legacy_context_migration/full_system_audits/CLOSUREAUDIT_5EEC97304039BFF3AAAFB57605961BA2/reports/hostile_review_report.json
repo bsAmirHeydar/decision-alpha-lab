@@ -1,0 +1,66 @@
+{
+  "artifact_kind": "HOSTILE_REVIEW_REPORT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "checks": [
+    {
+      "case": "SILENT_REBASELINE",
+      "finding": "Every changed path binds old/new hash and approved AIEOS cause.",
+      "status": "PASS"
+    },
+    {
+      "case": "AMENDMENT_OUTSIDE_AIEOS",
+      "finding": "Zero amendment rows outside docs/ai_algorithm_engineering_os/.",
+      "status": "PASS"
+    },
+    {
+      "case": "MISSING_LFS_MISLABELED_FAILURE",
+      "finding": "Pointer-only objects are BLOCKED evidence, not semantic product failures.",
+      "status": "PASS"
+    },
+    {
+      "case": "STATIC_SCAN_MISLABELED_COMPILE",
+      "finding": "MetaEditor remains UNKNOWN.",
+      "status": "PASS"
+    },
+    {
+      "case": "PYTHON_PARITY_MISLABELED_TERMINAL_PARITY",
+      "finding": "Terminal parity remains UNKNOWN.",
+      "status": "PASS"
+    },
+    {
+      "case": "SECRET_FIXTURE_FALSE_POSITIVE",
+      "finding": "Two scanner fixtures/constants were reviewed; no unreviewed PEM marker remains.",
+      "status": "PASS"
+    },
+    {
+      "case": "AUTHORITY_FLAG_ESCALATION",
+      "finding": "Runtime, order, capital and deletion authority remain false.",
+      "status": "PASS"
+    },
+    {
+      "case": "AGGREGATE_PASS_OVERRIDES_UNKNOWN",
+      "finding": "Non-compensatory matrix remains BLOCKED.",
+      "status": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "failed_hostile_case_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hostile_case_count": 8,
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "report_digest": "sha256:079eff50205dec6330c2388034b9c53db55aa715cb8e442ee196bf27af2b14b2",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "validation_status": "PASS"
+}

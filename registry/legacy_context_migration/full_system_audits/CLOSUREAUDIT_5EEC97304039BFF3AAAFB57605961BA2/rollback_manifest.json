@@ -1,0 +1,61 @@
+{
+  "artifact_kind": "ROLLBACK_MANIFEST",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "bounded_modified_paths": [
+    "tools/strategy_factory/lcm/amendments.py",
+    "tools/strategy_factory/lcm/lcm_15a/verify.py",
+    "tools/strategy_factory/lcm/lcm_15b/verify.py",
+    "tools/strategy_factory/lcm/lcm_15c/verify.py",
+    "tools/strategy_factory/acl_os/acl_00/cli.py",
+    "lab/11_strategy_factory/acl_os/tests_acl_00/test_cli_delivery.py",
+    "lab/11_strategy_factory/tests/rthp_ai_input/test_rthp_engine_boundary.py",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT.md"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "forbidden_rollback_actions": [
+    "DELETE_LEGACY_CANDIDATES",
+    "DELETE_GIT_LFS_OBJECTS",
+    "RECONSTRUCT_LOST_BEHAVIOR_FROM_PROSE",
+    "BROAD_WILDCARD_DELETE",
+    "CREATE_RUNTIME_ORDER_CAPITAL_OR_DELETION_AUTHORITY"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-16",
+  "new_bounded_compatibility_evidence_paths": [
+    "lab/11_strategy_factory/generated_contexts/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_extended_baseline_amendment_lcm16a.json"
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "phase_owned_paths": [
+    "registry/legacy_context_migration/full_system_audits/CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+    "registry/legacy_context_migration/lcm_16a",
+    "tools/strategy_factory/lcm/lcm_16a",
+    "lab/11_strategy_factory/migration/tests_lcm_16a",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16A",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16A"
+  ],
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_manifest_digest": "sha256:f4f41ec34791ef3a868421bde889c736257c851567cd065fadd9519459640e0e",
+  "rollback_order": [
+    "RESTORE_BOUNDED_MODIFIED_PATHS_FROM_PRE_PATCH_COMMIT",
+    "REMOVE_ONLY_PHASE_OWNED_PATHS_LISTED_BY_PATCH_INDEX",
+    "VERIFY_UPSTREAM_LCM15C_PACKAGE",
+    "RUN_LCM15A_LCM15B_LCM15C_DIRECT_TESTS",
+    "RUN_ENGINEERING_POLICY"
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "validation_status": "PASS"
+}

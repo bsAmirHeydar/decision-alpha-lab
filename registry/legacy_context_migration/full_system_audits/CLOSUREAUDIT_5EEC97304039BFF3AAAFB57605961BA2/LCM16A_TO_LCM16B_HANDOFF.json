@@ -1,0 +1,80 @@
+{
+  "allowed_next_actions": [
+    "LCM16B_RECOVERY_DRILL_PREPARATION",
+    "CAPTURE_EXTERNAL_METAEDITOR_AND_STRATEGY_TESTER_EVIDENCE",
+    "RESOLVE_EXTERNAL_CONSUMER_REACHABILITY"
+  ],
+  "artifact_kind": "LCM16A_TO_LCM16B_HANDOFF",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "blocked_dimensions": [
+    "GIT_LFS_MATERIALIZATION",
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "closure_decision": "BLOCKED",
+  "closure_test_matrix_digest": "sha256:31393b47fddd574e0f26a462616b9a4adca16a2d2e83a9bdf22b534dc6dd991d",
+  "completed_gates": [
+    "UPSTREAM_LCM15C_HANDOFF",
+    "BASELINE_AMENDMENT_REPRODUCIBILITY",
+    "REGISTRY_CONFORMANCE",
+    "PYTHON_REGRESSION",
+    "JSON_YAML_SCHEMA_DEFINITIONS",
+    "MQL5_STATIC_COMPATIBILITY",
+    "CROSS_LANGUAGE_REFERENCE_PARITY",
+    "SECURITY_AND_AUTHORITY",
+    "DOCUMENTATION_INTEGRITY"
+  ],
+  "deletion_authority_created": false,
+  "deterministic_identity": true,
+  "evidence_set_digest": "sha256:fa0964bb16d10ddb868d2e588fae15df96eb355581c209d56a9e6aa0b011a3c0",
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "DECLARE_LEGACY_MIGRATION_PROGRAM_CLOSED",
+    "DELETE_ANY_RETAINED_CANDIDATE",
+    "INFER_METAEDITOR_PASS_FROM_STATIC_SCAN",
+    "INFER_TERMINAL_PARITY_FROM_PYTHON_PARITY",
+    "IGNORE_MANDATORY_UNKNOWN_OR_BLOCKED_GATE",
+    "CREATE_RUNTIME_ORDER_CAPITAL_OR_DELETION_AUTHORITY"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:665145b8db3b89247ddfcc02da5850f10f4c65b3f4cc650680c3feaec5c949e5",
+  "handoff_type": "LCM16A_TO_LCM16B",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-16",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-16A",
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "residual_risks": [
+    "METAEDITOR_COMPILE_EVIDENCE_NOT_CAPTURED",
+    "STRATEGY_TESTER_GOLDEN_REPLAY_NOT_CAPTURED",
+    "TERMINAL_COMPILED_PARITY_NOT_CAPTURED",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS_UNKNOWN",
+    "SOURCE_ARCHIVE_GIT_LFS_OBJECTS_NOT_MATERIALIZED",
+    "DOCUMENTATION_STATUS_FRESHNESS_RESIDUALS",
+    "ROOT_RELEASE_ARTIFACT_SPRAWL"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_baseline_amendment_digest": "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+  "source_closure_id": "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "source_handoff_digest": "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+  "unknown_dimensions": [
+    "MQL5_METAEDITOR_COMPILE",
+    "STRATEGY_TESTER_GOLDEN_REPLAY",
+    "TERMINAL_COMPILED_PARITY",
+    "OUT_OF_REPOSITORY_EXTERNAL_CONSUMERS"
+  ],
+  "validation_status": "PASS"
+}

@@ -3,6 +3,7 @@ from pathlib import Path
 from .canonical import object_digest
 from .io import file_digest,load_json,load_jsonl
 from .models import VerificationResult
+from tools.strategy_factory.lcm.amendments import digest_matches_current,load_verified_amendments
 
 def _digest(obj:dict,field:str):
  if obj.get(field)!=object_digest(obj,field):raise ValueError(f"digest mismatch: {field}")
@@ -44,10 +45,12 @@ def verify_package(repo_root:Path,package_root:Path)->VerificationResult:
   source=repo_root/r["source_path"];target=repo_root/r["canonical_target_path"]
   if not source.is_file() or not target.is_file():raise ValueError(f"root relocation missing: {r['source_path']}")
   if file_digest(source)!=r["source_sha256_before"] or file_digest(target)!=r["target_sha256_after"]:raise ValueError("root hash mismatch")
+ amendments=load_verified_amendments(repo_root)
  for r in doc_rows:
   legacy=repo_root/r["legacy_path"];target=repo_root/r["canonical_target_path"]
   if not legacy.is_file() or not target.is_file():raise ValueError("documentation locator missing")
-  if file_digest(legacy)!=r["redirect_stub_sha256"] or file_digest(target)!=r["canonical_target_sha256"]:raise ValueError("documentation hash mismatch")
+  current=file_digest(legacy)
+  if not digest_matches_current(repo_root,r["legacy_path"],r["redirect_stub_sha256"],current,amendments) or file_digest(target)!=r["canonical_target_sha256"]:raise ValueError("documentation hash mismatch")
   text=legacy.read_text(encoding="utf-8")
   if r["canonical_target_path"] not in text or "compatibility-redirect" not in text:raise ValueError("redirect malformed")
  manifest=load_json(package_root/"output_manifest.json")

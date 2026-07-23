@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/lcm-16a/lcm-16a-baseline-amendment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "amendment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_16A_REFERENCE_ONLY"
+    },
+    "phase_id": {
+      "const": "LCM-16A"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "BLOCKED",
+        "UNKNOWN",
+        "PARTIAL",
+        "PASS_WITH_RESIDUALS"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "claim_ceiling",
+    "validation_status",
+    "amendment_digest",
+    "upstream_closure_id",
+    "amended_path_count"
+  ],
+  "title": "LCM-16A Baseline Amendment",
+  "type": "object"
+}

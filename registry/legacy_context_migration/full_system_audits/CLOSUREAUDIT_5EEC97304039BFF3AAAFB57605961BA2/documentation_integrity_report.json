@@ -1,0 +1,39 @@
+{
+  "artifact_kind": "DOCUMENTATION_INTEGRITY_REPORT",
+  "audit_id": "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2",
+  "claim_ceiling": "LCM_16A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "documentation_freshness_status": "PASS_WITH_RESIDUALS",
+  "engineering_policy_status": "PASS",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "known_status_freshness_residuals": [
+    "NDS roadmap overview lags the Phase 55 v1.2 implementation artifacts.",
+    "RTHP gap/status overview can lag delivered train/MT5 activation artifacts.",
+    "Root release artifact sprawl remains an explicit LCM-16B hygiene risk."
+  ],
+  "master_phase": "LCM-16",
+  "obsidian_error_count": 0,
+  "obsidian_note_count": 253,
+  "obsidian_unique_id_count": 247,
+  "obsidian_vault_status": "PASS",
+  "obsidian_warning_count": 0,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_atomic_concept_count": 12,
+  "phase_delivery_document_count": 21,
+  "phase_id": "LCM-16A",
+  "phase_spec_present": true,
+  "producer": "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package",
+  "report_digest": "sha256:6c41f344d48403f67afa2b481f8d466caae79d9a01f5fc26b5bdbec6c2763678",
+  "repository_markdown_file_count": 25570,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "root_direct_file_count": 1469,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:f2b0c1fe625b23d8ad99c7f3bdafb882ef9140119bac43a369eda19ea415090b",
+    "sha256:16c3a0cfe1f9ebb2455cc813eafc10c9fadcc96b330f7b42fa565f39d92674c5",
+    "sha256:e254882241e6be6a81ccdeeb1e820a871a1183a132eb0f2378c7b824eedbdbe8",
+    "sha256:fccc54d12c913bdf4c315be894aedb427bf5c96b0eb980177987c2177186250b"
+  ],
+  "validation_status": "PASS_WITH_RESIDUALS"
+}
