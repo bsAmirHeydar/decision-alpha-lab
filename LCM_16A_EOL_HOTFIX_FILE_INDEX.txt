@@ -1,0 +1,17 @@
+COMMIT_MESSAGE_ALPHA_LAB_LCM_16A_EOL_HOTFIX.md
+INSTALL_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+LCM_16A_EOL_HOTFIX_ARTIFACT_INVENTORY.csv
+LCM_16A_EOL_HOTFIX_FILE_HASHES.sha256
+LCM_16A_EOL_HOTFIX_FILE_INDEX.txt
+LCM_16A_EOL_HOTFIX_PATCH_CONTENTS_TREE.txt
+LCM_16A_EOL_HOTFIX_PATCH_MANIFEST.json
+LCM_16A_EOL_HOTFIX_QA_REPORT.json
+README_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+ROLLBACK_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+docs/alpha_lab_master_architecture/11_PHASE_DELIVERIES/LCM_16A/LCM16A_WINDOWS_EOL_PORTABILITY_HOTFIX.md
+lab/11_strategy_factory/migration/tests_lcm_16a/test_windows_eol_portability.py
+tools/strategy_factory/lcm/lcm_15a/verify.py
+tools/strategy_factory/lcm/lcm_15b/verify.py
+tools/strategy_factory/lcm/lcm_15c/verify.py
+tools/strategy_factory/lcm/lcm_16a/baseline.py
+tools/strategy_factory/lcm/portable_integrity.py

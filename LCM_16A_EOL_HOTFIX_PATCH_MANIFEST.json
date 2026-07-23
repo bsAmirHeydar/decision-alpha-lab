@@ -1,0 +1,43 @@
+{
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_16A_EOL_PORTABILITY_HOTFIX_REFERENCE_ONLY",
+  "control_path_count": 6,
+  "credential_authority_created": false,
+  "deletion_authority_created": false,
+  "deletion_path_count": 0,
+  "forbidden_normalization": [
+    "WHITESPACE",
+    "TABS",
+    "UNICODE",
+    "CSV_VALUES",
+    "JSON_VALUES",
+    "ORDERING",
+    "BINARY_BYTES"
+  ],
+  "hotfix_id": "WINDOWS_EOL_PORTABILITY_V1",
+  "incident": "WINDOWS_WORKTREE_LF_CRLF_FALSE_BASELINE_DRIFT",
+  "known_trigger_path": "ACL_OS_06_ARTIFACT_INVENTORY.csv",
+  "line_ending_expansion_bytes": 343,
+  "live_order_authority_created": false,
+  "locked_lf_sha256": "sha256:9d31fc29d99420a931ac6763e8447341d05921f55ce3ec5a295f932bdca27a9d",
+  "locked_lf_size_bytes": 61140,
+  "manifest_digest": "sha256:808545dc87729524974ceea052b0b6073d9ef58982fab2fd69ddd6ba86c62cd1",
+  "network_authority_created": false,
+  "new_hotfix_receipt_created": true,
+  "normalization_scope": [
+    "RAW_BYTES",
+    "UTF8_LF",
+    "UTF8_CRLF",
+    "UTF8_LEGACY_CR"
+  ],
+  "original_lcm16a_patch_receipt_rewritten": false,
+  "patch_id": "LCM16AEOLHOTFIX_4F9C85B0C8A168A71EEB56B9E56311A7",
+  "path_count": 17,
+  "payload_path_count": 11,
+  "phase_closure_decision": "BLOCKED_UNCHANGED_EXTERNAL_EVIDENCE_REQUIRED",
+  "phase_id": "LCM-16A",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "validation_status": "PASS",
+  "windows_crlf_size_bytes": 61483
+}

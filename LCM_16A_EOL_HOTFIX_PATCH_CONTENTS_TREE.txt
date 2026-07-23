@@ -1,0 +1,20 @@
+Patch ID: LCM16AEOLHOTFIX_4F9C85B0C8A168A71EEB56B9E56311A7
+Path count: 17
+
+ADDED_OR_REPLACED_AFTER_LCM16A       COMMIT_MESSAGE_ALPHA_LAB_LCM_16A_EOL_HOTFIX.md
+ADDED_OR_REPLACED_AFTER_LCM16A       INSTALL_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+ADDED                                LCM_16A_EOL_HOTFIX_ARTIFACT_INVENTORY.csv
+ADDED                                LCM_16A_EOL_HOTFIX_FILE_HASHES.sha256
+ADDED                                LCM_16A_EOL_HOTFIX_FILE_INDEX.txt
+ADDED                                LCM_16A_EOL_HOTFIX_PATCH_CONTENTS_TREE.txt
+ADDED                                LCM_16A_EOL_HOTFIX_PATCH_MANIFEST.json
+ADDED                                LCM_16A_EOL_HOTFIX_QA_REPORT.json
+ADDED_OR_REPLACED_AFTER_LCM16A       README_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+ADDED_OR_REPLACED_AFTER_LCM16A       ROLLBACK_ALPHA_LAB_LCM_16A_EOL_PORTABILITY_HOTFIX.md
+ADDED_OR_REPLACED_AFTER_LCM16A       docs/alpha_lab_master_architecture/11_PHASE_DELIVERIES/LCM_16A/LCM16A_WINDOWS_EOL_PORTABILITY_HOTFIX.md
+ADDED_OR_REPLACED_AFTER_LCM16A       lab/11_strategy_factory/migration/tests_lcm_16a/test_windows_eol_portability.py
+MODIFIED                             tools/strategy_factory/lcm/lcm_15a/verify.py
+MODIFIED                             tools/strategy_factory/lcm/lcm_15b/verify.py
+MODIFIED                             tools/strategy_factory/lcm/lcm_15c/verify.py
+ADDED_OR_REPLACED_AFTER_LCM16A       tools/strategy_factory/lcm/lcm_16a/baseline.py
+ADDED_OR_REPLACED_AFTER_LCM16A       tools/strategy_factory/lcm/portable_integrity.py
