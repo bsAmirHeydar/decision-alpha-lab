@@ -1,0 +1,25 @@
+{
+  "adapter_version_after": "1.0.1",
+  "adapter_version_before": "1.0.0",
+  "canonical_context_modified": false,
+  "capital_authority_created": false,
+  "central_engine_modified": false,
+  "corrective_actions": [
+    "query_latest_closed_m1_from_position_one",
+    "reuse_bounded_history_retry_policy",
+    "record_probe_attempt_evidence",
+    "retain_fail_closed_behavior_after_retry_exhaustion"
+  ],
+  "documentation_language": "English",
+  "entry_treatment_execution_created": false,
+  "focused_test_count": 2,
+  "hash_ledger_entry_count": 15,
+  "order_authority_created": false,
+  "patch_id": "RTHP_MT5_LATEST_CLOSED_M1_HISTORY_WARMUP_HOTFIX_V1_0_1",
+  "path_count": 16,
+  "regression_test_count": 423,
+  "regression_warning_count": 4,
+  "root_cause": "POSITION_ZERO_LIVE_BAR_AND_NO_HISTORY_WARMUP_RETRY",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

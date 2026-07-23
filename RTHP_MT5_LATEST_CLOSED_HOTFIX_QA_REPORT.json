@@ -1,0 +1,20 @@
+{
+  "canonical_context_modified": false,
+  "central_engine_modified": false,
+  "direct_mt5_closed_m1_probe_passed": true,
+  "failure_after_retry_exhaustion": "FAIL_CLOSED",
+  "focused_tests": "2 passed",
+  "forming_bar_excluded": true,
+  "full_relevant_regression": "423 passed, 4 warnings",
+  "hash_ledger_entry_count": 15,
+  "history_warmup_retry_enabled": true,
+  "latest_closed_position": "1",
+  "path_count": 16,
+  "persian_character_count": 0,
+  "persian_filename_count": 0,
+  "real_terminal_failure_reproduced": true,
+  "report_id": "RTHP_MT5_LATEST_CLOSED_HOTFIX_QA_V1",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "warnings_classification": "PRE_EXISTING_SKLEARN_NUMERICAL_WARNINGS_OUTSIDE_HOTFIX_SCOPE"
+}

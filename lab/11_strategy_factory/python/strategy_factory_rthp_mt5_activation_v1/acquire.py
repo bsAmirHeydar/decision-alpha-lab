@@ -13,20 +13,61 @@ from .symbols import ResolvedSymbol
 class AcquisitionResult:
     symbol: ResolvedSymbol; bars: tuple[CanonicalM1Bar,...]; receipts: tuple[dict[str,Any],...]
 
-def _latest_closed(provider: MT5Provider, symbol: str, now: datetime) -> datetime:
-    rows=provider.copy_rates_from_pos(symbol,0,10)
-    if rows is None: raise RTHPMT5Error('MT5_LATEST_BAR_FAILED',f'Could not read latest M1 bars for {symbol}',{'last_error':provider.last_error()})
-    opens=sorted(int(row['time']) for row in rows)
-    now_s=int(now.timestamp())
-    closed=[x for x in opens if x+60<=now_s]
-    if not closed: raise RTHPMT5Error('MT5_NO_CLOSED_M1_BAR',f'No closed M1 bar available for {symbol}')
-    return datetime.fromtimestamp(max(closed)+60,timezone.utc)
+def _latest_closed(
+    provider: MT5Provider,
+    symbol: str,
+    now: datetime,
+    retry_count: int,
+    retry_delay_seconds: float,
+) -> datetime:
+    """Return the close time of the newest fully closed M1 bar.
+
+    MT5 position zero is the currently forming bar.  Reading from position one
+    makes the closed-bar boundary explicit and avoids depending on a provider
+    returning more than the live bar during terminal-history warm-up.  A newly
+    initialized terminal can also need a short synchronization interval before
+    closed history becomes available, so the same retry policy used by the
+    range downloader is applied here.
+    """
+
+    attempts: list[dict[str, Any]] = []
+    now_s = int(now.astimezone(timezone.utc).timestamp())
+
+    for attempt in range(retry_count + 1):
+        rows = provider.copy_rates_from_pos(symbol, 1, 10)
+        row_count = 0 if rows is None else len(rows)
+
+        if row_count > 0:
+            opens = sorted(int(row["time"]) for row in rows)
+            closed = [bar_open for bar_open in opens if bar_open + 60 <= now_s]
+            if closed:
+                return datetime.fromtimestamp(max(closed) + 60, timezone.utc)
+
+        attempts.append(
+            {
+                "attempt": attempt + 1,
+                "returned_count": row_count,
+                "last_error": provider.last_error(),
+            }
+        )
+
+        if attempt < retry_count:
+            time.sleep(retry_delay_seconds * (attempt + 1))
+
+    raise RTHPMT5Error(
+        "MT5_NO_CLOSED_M1_BAR",
+        f"No closed M1 bar available for {symbol} after history synchronization retries",
+        {"attempts": attempts, "start_pos": 1, "count": 10},
+    )
 
 def resolve_range(provider: MT5Provider, primary: ResolvedSymbol, secondary: ResolvedSymbol, history, now: datetime) -> tuple[datetime,datetime]:
     if history.mode=='EXPLICIT_UTC_RANGE':
         start=datetime.fromisoformat(history.start_utc.replace('Z','+00:00')).astimezone(timezone.utc); end=datetime.fromisoformat(history.end_utc.replace('Z','+00:00')).astimezone(timezone.utc)
     else:
-        end=min(_latest_closed(provider,primary.broker_symbol,now),_latest_closed(provider,secondary.broker_symbol,now))
+        end=min(
+            _latest_closed(provider, primary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
+            _latest_closed(provider, secondary.broker_symbol, now, history.retry_count, history.retry_delay_seconds),
+        )
         start=end-timedelta(days=history.max_lookback_days)
     start=start.replace(second=0,microsecond=0); end=end.replace(second=0,microsecond=0)
     # Never request or materialize the currently forming M1 bar. An explicit

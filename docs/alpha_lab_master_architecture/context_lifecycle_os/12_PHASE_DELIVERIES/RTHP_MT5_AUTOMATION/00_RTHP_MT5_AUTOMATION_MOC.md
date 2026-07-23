@@ -62,3 +62,4 @@ This roadmap is a context-owned delivery. It is **not a replacement or renumberi
 - [[22_M1_Materializer_Parity_and_Interval_Censoring]]
 - [[23_Read_Only_MT5_API_and_No_Trade_Authority]]
 - [[24_First_Real_Terminal_Run_Checklist]]
+- [[25_Latest_Closed_M1_History_Warmup_Hotfix]]
