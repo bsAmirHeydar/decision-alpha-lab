@@ -1,0 +1,11 @@
+{
+  "deletion_authority": false,
+  "part_id": "UC03-P1",
+  "program_id": "UCPS",
+  "schema_version": "1.1.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "status": "ACCEPTED",
+  "uc03_part2_authorized": true,
+  "uc04_authorized": false
+}

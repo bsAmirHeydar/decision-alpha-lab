@@ -6,7 +6,7 @@ from hashlib import sha256
 from datetime import datetime, timezone
 import argparse,csv,json,zipfile
 
-META={'EXP0019_FP_I02_FILE_INDEX.txt','EXP0019_FP_I02_FILE_HASHES.sha256','EXP0019_FP_I02_PATCH_MANIFEST.json'}
+META={'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I02_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I02_PATCH_MANIFEST.json'}
 PHASE='lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02'
 DOC='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
 
@@ -22,7 +22,7 @@ def owned(root:Path)->list[Path]:
     specific=[
         'mql5/Experts/FaerieProtocolTests/EXP0019_FP_I02_ContractKernelSelfTest.mq5',
         'mql5/Experts/FaerieProtocol/EXP0019_FP_I02_ContractKernelDiagnostic.mq5',
-        'README_EXP0019_FP_I02_CORE_KERNEL.md','INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','EXP0019_FP_I02_QA_REPORT.json',
+        'releases/history/exp0019/readmes/README_EXP0019_FP_I02_CORE_KERNEL.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I02_QA_REPORT.json',
         'tools/exp0019/check_fp_i02_boundaries.py','tools/exp0019/check_fp_i02_mql5_static.py','tools/exp0019/generate_fp_i02_vectors.py',
         'tools/exp0019/validate_fp_i02_delivery.py','tools/exp0019/build_fp_i02_release.py',
         'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json',
@@ -49,7 +49,7 @@ def main()->int:
         writer=csv.DictWriter(handle,fieldnames=['path','sha256','size_bytes']);writer.writeheader();writer.writerows(rows)
     initial=owned(root)
     rels=sorted({p.relative_to(root).as_posix() for p in initial}|META)
-    (root/'EXP0019_FP_I02_FILE_INDEX.txt').write_text('\n'.join(rels)+'\n',encoding='utf-8')
+    (root/'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt').write_text('\n'.join(rels)+'\n',encoding='utf-8')
     manifest={
         'patch_id':'decision-alpha-lab-exp0019-faerie-protocol-fp-i02-core-kernel','patch_version':'1.0.0','phase_id':'FP-I02',
         'title':'Core Context Types, Identity, Configuration, Reason Codes, Relations, State Machines, and Schemas',
@@ -58,13 +58,13 @@ def main()->int:
         'public_schema_count':18,'relation_count':7,'reason_code_count':35,'public_contract_count':16,'state_machine_count':4,
         'mql5_include_count':11,'mql5_entrypoint_count':2,'runtime_authority':'NONE','open_decisions':['FP-DEC-012'],
         'metaeditor_compile_status':'pending_local_windows','next_phase':'FP-I03 New York Time, Trading-Day, Session, and Week Kernel',
-        'file_index':'EXP0019_FP_I02_FILE_INDEX.txt','file_hashes':'EXP0019_FP_I02_FILE_HASHES.sha256',
+        'file_index':'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt','file_hashes':'releases/history/exp0019/hashes/EXP0019_FP_I02_FILE_HASHES.sha256',
     }
-    (root/'EXP0019_FP_I02_PATCH_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+    (root/'releases/history/exp0019/manifests/EXP0019_FP_I02_PATCH_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n',encoding='utf-8')
     paths=owned(root)
-    (root/'EXP0019_FP_I02_FILE_INDEX.txt').write_text('\n'.join(p.relative_to(root).as_posix() for p in paths)+'\n',encoding='utf-8')
+    (root/'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt').write_text('\n'.join(p.relative_to(root).as_posix() for p in paths)+'\n',encoding='utf-8')
     paths=owned(root)
-    (root/'EXP0019_FP_I02_FILE_HASHES.sha256').write_text('\n'.join(f'{digest(p)}  {p.relative_to(root).as_posix()}' for p in paths if p.name!='EXP0019_FP_I02_FILE_HASHES.sha256')+'\n',encoding='utf-8')
+    (root/'releases/history/exp0019/hashes/EXP0019_FP_I02_FILE_HASHES.sha256').write_text('\n'.join(f'{digest(p)}  {p.relative_to(root).as_posix()}' for p in paths if p.name!='releases/history/exp0019/hashes/EXP0019_FP_I02_FILE_HASHES.sha256')+'\n',encoding='utf-8')
     if args.zip:
         target=Path(args.zip).resolve();target.parent.mkdir(parents=True,exist_ok=True)
         with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as archive:

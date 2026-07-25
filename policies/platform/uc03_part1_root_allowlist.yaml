@@ -1,0 +1,30 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-03
+part_id: UC03-P1
+root_file_limit: 20
+required_root_files:
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - AGENTS.md
+  - CODE_OF_CONDUCT.md
+  - COMMIT_MESSAGE.md
+  - COMMIT_MESSAGE.txt
+  - CONTRIBUTING.md
+  - FILE_INDEX.txt
+  - LICENSE
+  - PATCH_MANIFEST.json
+  - QA_REPORT.json
+  - README.md
+  - requirements.txt
+forbidden_new_root_patterns:
+  - README_*
+  - INSTALL_*
+  - ROLLBACK_*
+  - COMMIT_MESSAGE_*
+  - '*_FILE_INDEX.txt'
+  - '*_FILE_HASHES.sha256'
+  - '*_PATCH_MANIFEST.json'
+  - '*_QA_REPORT.json'
+  - '*_ARTIFACT_INVENTORY.csv'

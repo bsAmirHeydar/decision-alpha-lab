@@ -35,8 +35,8 @@ def owned_paths(root: Path) -> list[Path]:
             if path.is_file() and path.name not in {'.DS_Store'} and path.suffix != '.pyc' and '__pycache__' not in path.parts:
                 paths.add(path)
     specific = [
-        'README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','EXPAND_REMOVE_UCEE_I10_PATCH.ps1','COMMIT_MESSAGE.md',
-        'UCEE_I10_PATCH_MANIFEST.json','UCEE_I10_QA_REPORT.json','UCEE_I10_FILE_INDEX.txt','UCEE_I10_FILE_HASHES.sha256',
+        'releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I10_PATCH.ps1','COMMIT_MESSAGE.md',
+        'releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json','releases/history/ucee/reports/UCEE_I10_QA_REPORT.json','releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt','releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256',
         'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I10_DEEP_MULTI_VIEW_GRAPH_AND_REGIME_PACK.md',
         'mql5/Experts/StrategyFactory/UCE_I10_DeepViewsDiagnostic.mq5',
         'mql5/Experts/StrategyFactoryTests/UCE_I10_DeepViewsSelfTest.mq5',
@@ -78,7 +78,7 @@ def main() -> int:
     generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
 
     # Build inventory without self-referential root index/hash/manifest files.
-    paths = [p for p in owned_paths(root) if p.name not in {'UCEE_I10_FILE_INDEX.txt','UCEE_I10_FILE_HASHES.sha256','UCEE_I10_PATCH_MANIFEST.json','UCE_I10_ARTIFACT_INVENTORY.csv'}]
+    paths = [p for p in owned_paths(root) if p.name not in {'releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt','releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256','releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json','UCE_I10_ARTIFACT_INVENTORY.csv'}]
     rows = []
     for path in paths:
         rel = path.relative_to(root).as_posix()
@@ -91,10 +91,10 @@ def main() -> int:
         writer.writeheader(); writer.writerows(rows)
 
     # Recompute list including the freshly generated inventory, still excluding self-referential release indexes.
-    paths = [p for p in owned_paths(root) if p.name not in {'UCEE_I10_FILE_INDEX.txt','UCEE_I10_FILE_HASHES.sha256','UCEE_I10_PATCH_MANIFEST.json'}]
+    paths = [p for p in owned_paths(root) if p.name not in {'releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt','releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256','releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json'}]
     entries = [(p.relative_to(root).as_posix(), digest(p), p.stat().st_size) for p in paths]
-    (root / 'UCEE_I10_FILE_INDEX.txt').write_text('\n'.join(rel for rel,_,_ in entries)+'\n', encoding='utf-8')
-    (root / 'UCEE_I10_FILE_HASHES.sha256').write_text('\n'.join(f'{h}  {rel}' for rel,h,_ in entries)+'\n', encoding='utf-8')
+    (root / 'releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt').write_text('\n'.join(rel for rel,_,_ in entries)+'\n', encoding='utf-8')
+    (root / 'releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256').write_text('\n'.join(f'{h}  {rel}' for rel,h,_ in entries)+'\n', encoding='utf-8')
 
     docs = list((root / 'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i10').rglob('*.md'))
     schemas = [root / f'lab/11_strategy_factory/schemas/v3/{name}.schema.json' for name in SCHEMAS]
@@ -110,9 +110,9 @@ def main() -> int:
         'metaeditor_compile_status':'pending_local_windows',
         'file_count':len(entries)+3,
         'next_phase':'UCE-I11 Experiment DAG, Search, and Budgeting',
-        'file_index':'UCEE_I10_FILE_INDEX.txt','file_hashes':'UCEE_I10_FILE_HASHES.sha256',
+        'file_index':'releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt','file_hashes':'releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256',
     }
-    (root / 'UCEE_I10_PATCH_MANIFEST.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+    (root / 'releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n', encoding='utf-8')
 
     if args.zip_path:
         target = Path(args.zip_path).resolve()

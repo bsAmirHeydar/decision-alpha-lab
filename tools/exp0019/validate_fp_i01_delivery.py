@@ -3,7 +3,7 @@ from pathlib import Path
 import sys,json,csv,ast
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 required=[
-'README_EXP0019_FP_I01_COMPATIBILITY.md','INSTALL_EXP0019_FP_I01_COMPATIBILITY.md','COMMIT_MESSAGE.md','EXP0019_FP_I01_QA_REPORT.json',
+'releases/history/exp0019/readmes/README_EXP0019_FP_I01_COMPATIBILITY.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I01_COMPATIBILITY.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I01_QA_REPORT.json',
 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/config/FP_I01_COMPATIBILITY_POLICY.v1.json',
 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/artifacts/FP_I01_ADAPTER_REGISTRY.v1.json',
 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/artifacts/FP_I01_GOLDEN_ADAPTER_FIXTURES.v1.json',
@@ -44,7 +44,7 @@ if status.exists():
  d=json.loads(status.read_text())
  if d.get('python_test_count')!=39:errors.append('phase test count mismatch')
  if d.get('metaeditor_compile_status')!='pending_local_windows':errors.append('metaeditor status dishonest')
-index=root/'EXP0019_FP_I01_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I01_FILE_INDEX.txt'
 if index.exists():
  paths=index.read_text().splitlines()
  for prefix in ('mql5/Include/IntermarketDivergenceExecution/CG/','mql5/Include/DayeTrader/EXP0018/'):

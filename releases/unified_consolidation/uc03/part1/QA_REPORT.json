@@ -1,0 +1,16 @@
+{
+  "direct_tests": "6/6 PASS",
+  "frozen_hash_dependency": false,
+  "git_runtime_index": true,
+  "idempotent_second_run": "PASS",
+  "partial_resume_test": "PASS",
+  "reference_partial_resume_result": {
+    "conflict_count": 0,
+    "relocation_count": 1471,
+    "replacement_count": 1761,
+    "rewrite_file_count": 173,
+    "root_file_count": 14
+  },
+  "schema_version": "1.1.0",
+  "status": "PASS"
+}

@@ -1,7 +1,7 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parents[3]
-index=ROOT/'SAED_V4_11_FILE_INDEX.txt';ledger=ROOT/'SAED_V4_11_FILE_HASHES.sha256';manifest_path=ROOT/'SAED_V4_11_PATCH_MANIFEST.json'
+index=ROOT/'releases/history/saed/indexes/SAED_V4_11_FILE_INDEX.txt';ledger=ROOT/'releases/history/saed/hashes/SAED_V4_11_FILE_HASHES.sha256';manifest_path=ROOT/'releases/history/saed/manifests/SAED_V4_11_PATCH_MANIFEST.json'
 assert index.is_file() and ledger.is_file() and manifest_path.is_file()
 paths=[x.strip() for x in index.read_text(encoding='utf-8').splitlines() if x.strip()]
 assert len(paths)==len(set(paths))
@@ -13,7 +13,7 @@ for line in ledger.read_text(encoding='utf-8').splitlines():
  digest,path=line.split('  ',1);expected[path]=digest
 for path,digest in expected.items():
  actual=hashlib.sha256((ROOT/path).read_bytes()).hexdigest();assert actual==digest,(path,digest,actual)
-assert set(expected)==set(paths)-{'SAED_V4_11_FILE_HASHES.sha256'}
+assert set(expected)==set(paths)-{'releases/history/saed/hashes/SAED_V4_11_FILE_HASHES.sha256'}
 manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
 assert manifest['phase']=='SAED_V4_11' and manifest['version']=='1.0.0'
 assert manifest['file_count']==len(paths) and manifest['hash_count']==len(expected)

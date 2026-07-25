@@ -4,7 +4,7 @@ import csv,json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04';docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i04'
 required=[
- 'README_EXP0019_FP_I04_DATA_SYNC.md','INSTALL_EXP0019_FP_I04_DATA_SYNC.md','COMMIT_MESSAGE.md','EXP0019_FP_I04_QA_REPORT.json',
+ 'releases/history/exp0019/readmes/README_EXP0019_FP_I04_DATA_SYNC.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I04_DATA_SYNC.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I04_QA_REPORT.json',
  f'{phase}/artifacts/FP_I04_DATA_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_DATA_REASON_REGISTRY.v1.json',
  f'{phase}/artifacts/FP_I04_SYMBOL_PAIR_PROFILES.v1.json',f'{phase}/artifacts/FP_I04_GOLDEN_SYNC_VECTORS.v1.json',
  f'{phase}/artifacts/FP_I04_CONFORMANCE_REPORT.json',f'{phase}/artifacts/FP_I04_GAP_FIXTURE_CATALOG.v1.json',
@@ -41,7 +41,7 @@ if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 mqls=list((root/'mql5/Include/FaerieProtocol/EXP0019/Data').glob('*.mqh'))
 if len(mqls)!=13:errors.append(f'MQL5 include count {len(mqls)} != 13')
 json_files=[
- f'{phase}/artifacts/FP_I04_DATA_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_DATA_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_SYMBOL_PAIR_PROFILES.v1.json',f'{phase}/artifacts/FP_I04_GOLDEN_SYNC_VECTORS.v1.json',f'{phase}/artifacts/FP_I04_CONFORMANCE_REPORT.json',f'{phase}/artifacts/FP_I04_GAP_FIXTURE_CATALOG.v1.json',f'{phase}/artifacts/FP_I04_REVISION_FIXTURE_CATALOG.v1.json',f'{phase}/artifacts/FP_I04_PHASE_STATUS.json',f'{phase}/artifacts/FP_I04_HANDOFF_TO_FP_I05.json',f'{phase}/artifacts/FP_I04_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I04_DATA_SYNC_PROFILES.v1.json','EXP0019_FP_I04_QA_REPORT.json']
+ f'{phase}/artifacts/FP_I04_DATA_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_DATA_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_SYMBOL_PAIR_PROFILES.v1.json',f'{phase}/artifacts/FP_I04_GOLDEN_SYNC_VECTORS.v1.json',f'{phase}/artifacts/FP_I04_CONFORMANCE_REPORT.json',f'{phase}/artifacts/FP_I04_GAP_FIXTURE_CATALOG.v1.json',f'{phase}/artifacts/FP_I04_REVISION_FIXTURE_CATALOG.v1.json',f'{phase}/artifacts/FP_I04_PHASE_STATUS.json',f'{phase}/artifacts/FP_I04_HANDOFF_TO_FP_I05.json',f'{phase}/artifacts/FP_I04_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I04_DATA_SYNC_PROFILES.v1.json','releases/history/exp0019/reports/EXP0019_FP_I04_QA_REPORT.json']
 json_files += [f'{phase}/examples/{p.name}' for p in (root/f'{phase}/examples').glob('*.json')]
 for rel in json_files:
     path=root/rel
@@ -64,7 +64,7 @@ contracts=root/f'{phase}/artifacts/FP_I04_DATA_CONTRACT_REGISTRY.v1.json';reason
 if contracts.exists() and json.loads(contracts.read_text()).get('contract_count')!=15:errors.append('contract count mismatch')
 if reasons.exists() and json.loads(reasons.read_text()).get('reason_count')!=30:errors.append('reason count mismatch')
 for cache in (root/phase).rglob('__pycache__'):errors.append('release cache '+str(cache.relative_to(root)))
-index=root/'EXP0019_FP_I04_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I04_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text().splitlines():
         if any(f'/phase_i0{i}/' in rel for i in range(4)) or rel.startswith(('mql5/Include/DayeTrader/','lab/10_infrastructure/EXP0018_')):errors.append('forbidden owned path '+rel)

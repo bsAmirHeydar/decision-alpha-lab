@@ -20,7 +20,7 @@ for path in list(python_root.glob('*.py')) + list(mql_root.glob('*.mqh')):
         if token in text:
             errors.append(f'forbidden authority/history token {token!r} in {path.relative_to(root)}')
 
-index = root / 'EXP0019_FP_I02_FILE_INDEX.txt'
+index = root / 'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt'
 if index.exists():
     forbidden_prefixes = (
         'lab/10_infrastructure/EXP0017_', 'lab/10_infrastructure/EXP0018_',

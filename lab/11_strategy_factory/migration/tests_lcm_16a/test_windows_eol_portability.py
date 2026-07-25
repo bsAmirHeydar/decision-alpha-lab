@@ -40,6 +40,6 @@ def test_binary_payload_is_raw_byte_strict(tmp_path: Path) -> None:
 
 def test_known_acl06_windows_worktree_representation() -> None:
     root = Path(__file__).resolve().parents[4]
-    path = root / "ACL_OS_06_ARTIFACT_INVENTORY.csv"
+    path = root / "releases/history/acl_os/inventories/ACL_OS_06_ARTIFACT_INVENTORY.csv"
     locked_lf = "sha256:9d31fc29d99420a931ac6763e8447341d05921f55ce3ec5a295f932bdca27a9d"
     assert matches_expected_digest(path, locked_lf)

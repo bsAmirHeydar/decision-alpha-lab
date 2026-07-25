@@ -6,7 +6,7 @@ def row(path: str, *, production: bool = False, category: str = "source_code") -
 
 
 def test_root_release_artifact_is_externalized() -> None:
-    result = classify_artifact(row("README_ALPHA_LAB_LCM_16B.md", category="documentation"))
+    result = classify_artifact(row("releases/history/lcm/readmes/README_ALPHA_LAB_LCM_16B.md", category="documentation"))
     assert result["canonical_owner"] == "release_history"
     assert result["planning_disposition"] == "EXTERNALIZE"
     assert result["destructive_authority"] is False

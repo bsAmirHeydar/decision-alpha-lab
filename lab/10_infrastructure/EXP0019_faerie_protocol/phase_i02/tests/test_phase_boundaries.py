@@ -5,7 +5,7 @@ PHASE = ROOT / "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02"
 
 
 def test_phase_does_not_modify_previous_context_or_shared_core_paths():
-    index = ROOT / "EXP0019_FP_I02_FILE_INDEX.txt"
+    index = ROOT / "releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt"
     if not index.exists():
         return
     forbidden = (

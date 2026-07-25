@@ -8,10 +8,10 @@ errors: list[str] = []
 phase = 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06'
 docrel = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i06'
 required = [
-    'README_EXP0019_FP_I06_RELATION_ENGINE.md',
-    'INSTALL_EXP0019_FP_I06_RELATION_ENGINE.md',
+    'releases/history/exp0019/readmes/README_EXP0019_FP_I06_RELATION_ENGINE.md',
+    'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I06_RELATION_ENGINE.md',
     'COMMIT_MESSAGE.md',
-    'EXP0019_FP_I06_QA_REPORT.json',
+    'releases/history/exp0019/reports/EXP0019_FP_I06_QA_REPORT.json',
     f'{phase}/artifacts/FP_I06_CONTRACT_REGISTRY.v1.json',
     f'{phase}/artifacts/FP_I06_HUNT_REASON_REGISTRY.v1.json',
     f'{phase}/artifacts/FP_I06_RELATION_REGISTRY.v1.json',
@@ -84,7 +84,7 @@ json_files = [
     f'{phase}/artifacts/FP_I06_HANDOFF_TO_FP_I07.json',
     f'{phase}/artifacts/FP_I06_ACCEPTANCE_EVIDENCE.json',
     f'{phase}/config/FP_I06_RELATION_ENGINE_PROFILES.v1.json',
-    'EXP0019_FP_I06_QA_REPORT.json',
+    'releases/history/exp0019/reports/EXP0019_FP_I06_QA_REPORT.json',
 ]
 json_files += [f'{phase}/examples/{p.name}' for p in (root / f'{phase}/examples').glob('*.json')]
 for rel in json_files:
@@ -134,7 +134,7 @@ if relations.exists():
 for cache in (root / phase).rglob('__pycache__'):
     errors.append('release cache ' + str(cache.relative_to(root)))
 
-index = root / 'EXP0019_FP_I06_FILE_INDEX.txt'
+index = root / 'releases/history/exp0019/indexes/EXP0019_FP_I06_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text(encoding='utf-8').splitlines():
         if any(f'/phase_i0{i}/' in rel for i in range(6)) or rel.startswith(('mql5/Include/DayeTrader/', 'lab/10_infrastructure/EXP0018_')):

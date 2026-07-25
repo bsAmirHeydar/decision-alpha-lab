@@ -6,7 +6,7 @@ status: approved
 domain: unified-consolidation-platform-seal
 version: 1.0.0
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-25
 tags:
   - consolidation
   - platform-seal
@@ -63,3 +63,17 @@ The stage stops immediately on evidence loss, unexplained semantic drift, unknow
 ## Handoff rule
 
 The next stage receives a hash-bound manifest, accepted exit report, unresolved-risk list and exact rollback/recovery instructions.
+
+## Atomic delivery structure
+
+UC-03 is one architectural stage delivered through three bounded physical-migration patches:
+
+1. **Part 1 — Repository Skeleton and Root Cleanup:** create the approved top-level boundaries, relocate historical delivery artifacts from the repository root, preserve their bytes and rewrite active references.
+2. **Part 2 — Code, Context, Test and MQL5 Relocation:** move executable assets and introduce bounded compatibility shims without semantic consolidation.
+3. **Part 3 — Documentation, Registry, Release Finalization and Clean Replay:** complete physical relocation, close compatibility use, run before/after characterization and authorize UC-04.
+
+A completed Part 1 authorizes only Part 2. It does not authorize UC-04, semantic merging, source retirement or deletion.
+
+## Current execution record
+
+- [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/00_MOC|UC-03 physical-reorganization records]]

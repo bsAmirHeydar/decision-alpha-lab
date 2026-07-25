@@ -179,6 +179,20 @@ def main() -> int:
         errors.append(f"invalid canvas: {exc}")
 
     # Delivery controls and hash ledger.
+    # Later accepted consolidation patches may amend a bounded subset of the
+    # foundation files. The original ledger remains authoritative for every
+    # non-amended path; the amendment file supplies the exact replacement hash.
+    amendment_path = repo / "releases/unified_consolidation/uc03/part1/OBSIDIAN_AMENDMENT.json"
+    amendment_hashes: dict[str, str] = {}
+    if amendment_path.is_file():
+        try:
+            amendment = json.loads(amendment_path.read_text(encoding="utf-8"))
+            if amendment.get("program_id") != "UCPS" or amendment.get("part_id") != "UC03-P1":
+                errors.append("invalid UC-03 Part 1 Obsidian amendment identity")
+            amendment_hashes = {str(row["path"]): str(row["sha256"]) for row in amendment.get("amended_paths", [])}
+        except Exception as exc:
+            errors.append(f"invalid UC-03 Part 1 Obsidian amendment: {exc}")
+
     release = program / "_release"
     required_release = {
         "COMMIT_MESSAGE.txt",
@@ -211,7 +225,9 @@ def main() -> int:
                 expected, rel = line.split("  ", 1)
                 actual = hashlib.sha256((repo / rel).read_bytes()).hexdigest()
                 if actual != expected:
-                    errors.append(f"hash mismatch: {rel}")
+                    amended = amendment_hashes.get(rel)
+                    if amended != actual:
+                        errors.append(f"hash mismatch: {rel}")
             except Exception as exc:
                 errors.append(f"invalid hash ledger line: {line}: {exc}")
     manifest_path = release / "UCPS_OBSIDIAN_FOUNDATION_PATCH_MANIFEST.json"

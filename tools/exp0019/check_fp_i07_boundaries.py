@@ -21,7 +21,7 @@ for path in py.glob('*.py'):
                 if name.startswith(('fp_i00', 'fp_i01')):
                     errors.append(f'forbidden direct dependency {name}')
 
-index = root / 'EXP0019_FP_I07_FILE_INDEX.txt'
+index = root / 'releases/history/exp0019/indexes/EXP0019_FP_I07_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text(encoding='utf-8').splitlines():
         if any(f'/phase_i0{i}/' in rel for i in range(7)) or rel.startswith(('mql5/Include/DayeTrader/', 'lab/10_infrastructure/EXP0018_')):

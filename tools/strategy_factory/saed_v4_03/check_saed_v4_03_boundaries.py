@@ -1,6 +1,6 @@
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
-idx=ROOT/'SAED_V4_03_FILE_INDEX.txt'
+idx=ROOT/'releases/history/saed/indexes/SAED_V4_03_FILE_INDEX.txt'
 allowed=(
 'lab/11_strategy_factory/python/saed_v4_event_model/',
 'lab/11_strategy_factory/tests/phase_saed_v4_03_continuous_time_event_model/',

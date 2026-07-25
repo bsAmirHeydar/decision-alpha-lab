@@ -22,7 +22,7 @@ SCHEMAS = (
     "experiment_isolated_process_result",
 )
 STATUS_BASE = "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation"
-RELEASE_META = {"UCEE_I11_FILE_INDEX.txt", "UCEE_I11_FILE_HASHES.sha256", "UCEE_I11_PATCH_MANIFEST.json"}
+RELEASE_META = {"releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt", "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256", "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json"}
 
 
 def digest(path: Path) -> str:
@@ -46,14 +46,14 @@ def owned_paths(root: Path) -> list[Path]:
                     paths.add(path)
 
     specific = [
-        "README_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
-        "INSTALL_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
-        "EXPAND_REMOVE_UCEE_I11_PATCH.ps1",
+        "releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
+        "releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
+        "releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I11_PATCH.ps1",
         "COMMIT_MESSAGE.md",
-        "UCEE_I11_QA_REPORT.json",
-        "UCEE_I11_FILE_INDEX.txt",
-        "UCEE_I11_FILE_HASHES.sha256",
-        "UCEE_I11_PATCH_MANIFEST.json",
+        "releases/history/ucee/reports/UCEE_I11_QA_REPORT.json",
+        "releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt",
+        "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256",
+        "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json",
         "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I11_EXPERIMENT_DAG_SEARCH_AND_BUDGETING.md",
         "mql5/Experts/StrategyFactory/UCE_I11_ExperimentOrchestrationDiagnostic.mq5",
         "mql5/Experts/StrategyFactoryTests/UCE_I11_ExperimentContractsSelfTest.mq5",
@@ -112,11 +112,11 @@ def main() -> int:
     # Index includes every patch-owned file, including release metadata names, so Git staging is exact.
     pre_meta_paths = [path for path in owned_paths(root) if path.name not in RELEASE_META]
     indexed_relatives = sorted({path.relative_to(root).as_posix() for path in pre_meta_paths} | RELEASE_META)
-    (root / "UCEE_I11_FILE_INDEX.txt").write_text("\n".join(indexed_relatives) + "\n", encoding="utf-8")
+    (root / "releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt").write_text("\n".join(indexed_relatives) + "\n", encoding="utf-8")
 
-    hash_paths = [path for path in owned_paths(root) if path.name not in {"UCEE_I11_FILE_HASHES.sha256", "UCEE_I11_PATCH_MANIFEST.json"}]
+    hash_paths = [path for path in owned_paths(root) if path.name not in {"releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256", "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json"}]
     hashes = [(path.relative_to(root).as_posix(), digest(path)) for path in hash_paths]
-    (root / "UCEE_I11_FILE_HASHES.sha256").write_text(
+    (root / "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256").write_text(
         "\n".join(f"{value}  {relative}" for relative, value in hashes) + "\n",
         encoding="utf-8",
     )
@@ -141,27 +141,27 @@ def main() -> int:
         "engineering_policy_check_count": args.engineering_checks,
         "metaeditor_compile_status": "pending_local_windows",
         "file_count": len(indexed_relatives),
-        "file_index": "UCEE_I11_FILE_INDEX.txt",
-        "file_hashes": "UCEE_I11_FILE_HASHES.sha256",
+        "file_index": "releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt",
+        "file_hashes": "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256",
         "next_phase": "UCE-I12 Statistical Anti-Overfit and Multiplicity Control",
     }
-    (root / "UCEE_I11_PATCH_MANIFEST.json").write_text(
+    (root / "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
 
     # Regenerate index once manifest exists; all metadata are now part of the owned set.
     release_paths = owned_paths(root)
     indexed_relatives = [path.relative_to(root).as_posix() for path in release_paths]
-    (root / "UCEE_I11_FILE_INDEX.txt").write_text("\n".join(indexed_relatives) + "\n", encoding="utf-8")
+    (root / "releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt").write_text("\n".join(indexed_relatives) + "\n", encoding="utf-8")
     manifest["file_count"] = len(indexed_relatives)
-    (root / "UCEE_I11_PATCH_MANIFEST.json").write_text(
+    (root / "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
 
     # Final hashes deliberately exclude the hash file itself, but include index and manifest.
     release_paths = owned_paths(root)
-    final_hash_paths = [path for path in release_paths if path.name != "UCEE_I11_FILE_HASHES.sha256"]
-    (root / "UCEE_I11_FILE_HASHES.sha256").write_text(
+    final_hash_paths = [path for path in release_paths if path.name != "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256"]
+    (root / "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256").write_text(
         "\n".join(
             f"{digest(path)}  {path.relative_to(root).as_posix()}" for path in final_hash_paths
         ) + "\n",

@@ -1,8 +1,8 @@
 from __future__ import annotations
 import hashlib,json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[3]; idx=ROOT/'SAED_V4_37_FILE_INDEX.txt'; hashes=ROOT/'SAED_V4_37_FILE_HASHES.sha256'; manifest=ROOT/'SAED_V4_37_PATCH_MANIFEST.json'
-for p in [idx,hashes,manifest,ROOT/'SAED_V4_37_QA_REPORT.json',ROOT/'SAED_V4_37_ARTIFACT_INVENTORY.csv']:
+ROOT=Path(__file__).resolve().parents[3]; idx=ROOT/'releases/history/saed/indexes/SAED_V4_37_FILE_INDEX.txt'; hashes=ROOT/'releases/history/saed/hashes/SAED_V4_37_FILE_HASHES.sha256'; manifest=ROOT/'releases/history/saed/manifests/SAED_V4_37_PATCH_MANIFEST.json'
+for p in [idx,hashes,manifest,ROOT/'releases/history/saed/reports/SAED_V4_37_QA_REPORT.json',ROOT/'releases/history/saed/inventories/SAED_V4_37_ARTIFACT_INVENTORY.csv']:
  if not p.exists():raise SystemExit(f'missing {p.name}')
 paths=[x for x in idx.read_text().splitlines() if x]
 missing=[x for x in paths if not (ROOT/x).exists()]

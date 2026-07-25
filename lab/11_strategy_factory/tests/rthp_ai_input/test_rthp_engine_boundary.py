@@ -11,7 +11,7 @@ PROTECTED=(
 )
 
 def test_patch_index_contains_no_central_engine_path():
- index=ROOT/'RTHP_AI_INPUT_FILE_INDEX.txt'
+ index=ROOT/'releases/history/rthp/indexes/RTHP_AI_INPUT_FILE_INDEX.txt'
  if not index.exists(): return
  paths=[x.strip().replace('\\','/') for x in index.read_text().splitlines() if x.strip()]
  assert not [p for p in paths if any(p.startswith(prefix) for prefix in PROTECTED)]
@@ -54,7 +54,7 @@ def test_extended_central_engine_snapshot_is_unchanged():
  assert not any(row.get('runtime_authority_created') or row.get('order_authority_created') or row.get('capital_authority_created') for row in amendment.get('records',[]))
 
 def test_canonical_context_root_is_not_in_patch_payload():
- index=ROOT/'RTHP_AI_INPUT_FILE_INDEX.txt'
+ index=ROOT/'releases/history/rthp/indexes/RTHP_AI_INPUT_FILE_INDEX.txt'
  if not index.exists(): return
  forbidden='lab/11_strategy_factory/contexts/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1/'
  assert not [x for x in index.read_text().splitlines() if x.replace('\\','/').startswith(forbidden)]

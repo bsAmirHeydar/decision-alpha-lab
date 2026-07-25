@@ -3,7 +3,7 @@ from pathlib import Path
 import json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05';docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i05'
-required=['README_EXP0019_FP_I05_REFERENCE_ENGINE.md','INSTALL_EXP0019_FP_I05_REFERENCE_ENGINE.md','COMMIT_MESSAGE.md','EXP0019_FP_I05_QA_REPORT.json',f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_REFERENCE_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_GOLDEN_REFERENCE_VECTORS.v1.json',f'{phase}/artifacts/FP_I05_PHASE_STATUS.json',f'{phase}/artifacts/FP_I05_HANDOFF_TO_FP_I06.json',f'{phase}/artifacts/FP_I05_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I05_REFERENCE_ENGINE_PROFILES.v1.json',f'{docrel}/00_FP_I05_DELIVERY_MOC.md','mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05/FP_I05_All.mqh','mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceDiagnostic.mq5','mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I05_ReferenceSelfTest.mq5','tools/exp0019/check_fp_i05_boundaries.py','tools/exp0019/check_fp_i05_mql5_static.py','tools/exp0019/generate_fp_i05_vectors.py','tools/exp0019/validate_fp_i05_delivery.py','tools/exp0019/build_fp_i05_release.py']
+required=['releases/history/exp0019/readmes/README_EXP0019_FP_I05_REFERENCE_ENGINE.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I05_REFERENCE_ENGINE.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I05_QA_REPORT.json',f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_REFERENCE_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_GOLDEN_REFERENCE_VECTORS.v1.json',f'{phase}/artifacts/FP_I05_PHASE_STATUS.json',f'{phase}/artifacts/FP_I05_HANDOFF_TO_FP_I06.json',f'{phase}/artifacts/FP_I05_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I05_REFERENCE_ENGINE_PROFILES.v1.json',f'{docrel}/00_FP_I05_DELIVERY_MOC.md','mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05/FP_I05_All.mqh','mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceDiagnostic.mq5','mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I05_ReferenceSelfTest.mq5','tools/exp0019/check_fp_i05_boundaries.py','tools/exp0019/check_fp_i05_mql5_static.py','tools/exp0019/generate_fp_i05_vectors.py','tools/exp0019/validate_fp_i05_delivery.py','tools/exp0019/build_fp_i05_release.py']
 for rel in required:
     if not (root/rel).is_file():errors.append('missing '+rel)
 expected_modules={'__init__.py','benchmark.py','canonical.py','checkpoint.py','cli.py','conformance.py','constants.py','contracts.py','enums.py','errors.py','golden.py','reference_engine.py','registry.py','revision.py','selector.py','store.py','window_builder.py'}
@@ -28,7 +28,7 @@ concepts=list((root/'docs/obsidian_deep/01_concepts').glob('FP-I05_*.md'))
 if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 mqls=list((root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05').glob('*.mqh'))
 if len(mqls)!=9:errors.append(f'MQL5 include count {len(mqls)} != 9')
-json_files=[f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_REFERENCE_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_GOLDEN_REFERENCE_VECTORS.v1.json',f'{phase}/artifacts/FP_I05_PHASE_STATUS.json',f'{phase}/artifacts/FP_I05_HANDOFF_TO_FP_I06.json',f'{phase}/artifacts/FP_I05_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I05_REFERENCE_ENGINE_PROFILES.v1.json','EXP0019_FP_I05_QA_REPORT.json']
+json_files=[f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_REFERENCE_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_GOLDEN_REFERENCE_VECTORS.v1.json',f'{phase}/artifacts/FP_I05_PHASE_STATUS.json',f'{phase}/artifacts/FP_I05_HANDOFF_TO_FP_I06.json',f'{phase}/artifacts/FP_I05_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I05_REFERENCE_ENGINE_PROFILES.v1.json','releases/history/exp0019/reports/EXP0019_FP_I05_QA_REPORT.json']
 json_files += [f'{phase}/examples/{p.name}' for p in (root/f'{phase}/examples').glob('*.json')]
 for rel in json_files:
     path=root/rel
@@ -46,7 +46,7 @@ if status_path.exists():
 contracts=root/f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json'
 if contracts.exists() and json.loads(contracts.read_text()).get('contract_count')!=12:errors.append('contract count mismatch')
 for cache in (root/phase).rglob('__pycache__'):errors.append('release cache '+str(cache.relative_to(root)))
-index=root/'EXP0019_FP_I05_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I05_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text().splitlines():
         if any(f'/phase_i0{i}/' in rel for i in range(5)) or rel.startswith(('mql5/Include/DayeTrader/','lab/10_infrastructure/EXP0018_')):errors.append('forbidden owned path '+rel)

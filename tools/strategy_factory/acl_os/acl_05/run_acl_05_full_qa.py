@@ -24,7 +24,7 @@ def run() -> dict:
     replay=verify_frozen_batch(REPO_ROOT/"lab/11_strategy_factory/acl_os/fixtures/acl_05/reference_batch")
     result={"phase":"ACL-05","claim_ceiling":"RESEARCH_BATCH_FREEZE_REFERENCE_ONLY","static":static,"delivery":delivery,"commands":commands,"reference_replay":replay,"metaeditor_compile_performed":False,"mt5_runtime_parity_claimed":False,"production_authorization_claimed":False}
     result["passed"]=static["passed"] and delivery["passed"] and all(c["passed"] for c in commands) and replay["passed"]
-    out=REPO_ROOT/"ACL_OS_05_QA_REPORT.json"
+    out=REPO_ROOT/"releases/history/acl_os/reports/ACL_OS_05_QA_REPORT.json"
     out.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps(result,indent=2,sort_keys=True))
     return result

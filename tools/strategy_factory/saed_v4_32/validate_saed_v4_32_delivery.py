@@ -2,7 +2,7 @@ from __future__ import annotations
 import csv,hashlib,json
 from pathlib import Path
 from _common import ROOT
-idx=ROOT/"SAED_V4_32_FILE_INDEX.txt"; inv=ROOT/"SAED_V4_32_ARTIFACT_INVENTORY.csv"; hashes=ROOT/"SAED_V4_32_FILE_HASHES.sha256"; manifest=ROOT/"SAED_V4_32_PATCH_MANIFEST.json"; qa=ROOT/"SAED_V4_32_QA_REPORT.json"
+idx=ROOT/"releases/history/saed/indexes/SAED_V4_32_FILE_INDEX.txt"; inv=ROOT/"releases/history/saed/inventories/SAED_V4_32_ARTIFACT_INVENTORY.csv"; hashes=ROOT/"releases/history/saed/hashes/SAED_V4_32_FILE_HASHES.sha256"; manifest=ROOT/"releases/history/saed/manifests/SAED_V4_32_PATCH_MANIFEST.json"; qa=ROOT/"releases/history/saed/reports/SAED_V4_32_QA_REPORT.json"
 for p in [idx,inv,hashes,manifest,qa]: assert p.exists(),p
 files=[x.strip() for x in idx.read_text().splitlines() if x.strip()]
 assert files==sorted(set(files))

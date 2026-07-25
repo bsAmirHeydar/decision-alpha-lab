@@ -2,7 +2,7 @@ from pathlib import Path
 import csv, hashlib, json
 
 ROOT=Path(__file__).resolve().parents[3]
-INDEX=ROOT/"SAED_V4_27_FILE_INDEX.txt"; LEDGER=ROOT/"SAED_V4_27_FILE_HASHES.sha256"; MANIFEST=ROOT/"SAED_V4_27_PATCH_MANIFEST.json"; QA=ROOT/"SAED_V4_27_QA_REPORT.json"; INVENTORY=ROOT/"SAED_V4_27_ARTIFACT_INVENTORY.csv"
+INDEX=ROOT/"releases/history/saed/indexes/SAED_V4_27_FILE_INDEX.txt"; LEDGER=ROOT/"releases/history/saed/hashes/SAED_V4_27_FILE_HASHES.sha256"; MANIFEST=ROOT/"releases/history/saed/manifests/SAED_V4_27_PATCH_MANIFEST.json"; QA=ROOT/"releases/history/saed/reports/SAED_V4_27_QA_REPORT.json"; INVENTORY=ROOT/"releases/history/saed/inventories/SAED_V4_27_ARTIFACT_INVENTORY.csv"
 assert all(p.is_file() for p in [INDEX,LEDGER,MANIFEST,QA,INVENTORY])
 paths=[line.strip() for line in INDEX.read_text(encoding="utf-8").splitlines() if line.strip()]
 assert paths==sorted(paths) and len(paths)==len(set(paths))
@@ -12,7 +12,7 @@ expected={}
 for line in LEDGER.read_text(encoding="utf-8").splitlines():
     if line.strip():
         digest,path=line.split("  ",1); expected[path]=digest
-assert set(expected)==set(paths)-{"SAED_V4_27_FILE_HASHES.sha256"}
+assert set(expected)==set(paths)-{"releases/history/saed/hashes/SAED_V4_27_FILE_HASHES.sha256"}
 for path,digest in expected.items(): assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
 manifest=json.loads(MANIFEST.read_text(encoding="utf-8")); qa=json.loads(QA.read_text(encoding="utf-8")); status=json.loads((ROOT/"lab/11_strategy_factory/phase_status/SAED_V4_27.json").read_text(encoding="utf-8"))
 assert manifest["phase"]=="SAED_V4_27" and manifest["version"]=="1.0.0" and manifest["qa_passed"]

@@ -17,6 +17,6 @@ def main() -> int:
     }
     report["passed"]=architecture["passed"] and template["passed"] and proc.returncode==0
     report["status"]="passed_reference_architecture_qa" if report["passed"] else "failed"
-    dump_json(REPO_ROOT/"ACL_OS_ARCHITECTURE_QA_REPORT.json",report)
+    dump_json(REPO_ROOT/"releases/history/acl_os/reports/ACL_OS_ARCHITECTURE_QA_REPORT.json",report)
     print(json.dumps(report,indent=2,sort_keys=True)); return 0 if report["passed"] else 1
 if __name__=="__main__": raise SystemExit(main())

@@ -18,7 +18,7 @@ def test_phase_module_has_no_order_or_chart_api() -> None:
 
 
 def test_patch_index_contains_no_existing_implementation_paths() -> None:
-    lines = (REPO / "LCM_09A_FILE_INDEX.txt").read_text(encoding="utf-8").splitlines()
+    lines = (REPO / "releases/history/lcm/indexes/LCM_09A_FILE_INDEX.txt").read_text(encoding="utf-8").splitlines()
     forbidden_prefixes = (
         "mql5/",
         "lab/10_infrastructure/",

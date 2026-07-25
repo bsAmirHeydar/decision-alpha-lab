@@ -9,7 +9,7 @@ def test_all_previous_context_test_entrypoints_still_exist():
     assert all((ROOT/r['relative_path']).is_file() for r in rows)
 
 def test_previous_context_sources_are_not_owned_by_i01():
-    index=ROOT/'EXP0019_FP_I01_FILE_INDEX.txt'
+    index=ROOT/'releases/history/exp0019/indexes/EXP0019_FP_I01_FILE_INDEX.txt'
     if index.exists():
         paths=index.read_text().splitlines()
         assert not any(p.startswith('mql5/Include/IntermarketDivergenceExecution/CG/') for p in paths)

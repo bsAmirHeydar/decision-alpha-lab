@@ -2,12 +2,12 @@
 from pathlib import Path
 import hashlib, zipfile
 ROOT=Path(__file__).resolve().parents[2]
-index=ROOT/'UCEE_I18_FILE_INDEX.txt'
+index=ROOT/'releases/history/ucee/indexes/UCEE_I18_FILE_INDEX.txt'
 paths=[line.strip() for line in index.read_text().splitlines() if line.strip()]
-hash_file=ROOT/'UCEE_I18_FILE_HASHES.sha256'
+hash_file=ROOT/'releases/history/ucee/hashes/UCEE_I18_FILE_HASHES.sha256'
 lines=[]
 for rel in paths:
-    if rel=='UCEE_I18_FILE_HASHES.sha256':
+    if rel=='releases/history/ucee/hashes/UCEE_I18_FILE_HASHES.sha256':
         continue
     path=ROOT/rel
     if not path.is_file():

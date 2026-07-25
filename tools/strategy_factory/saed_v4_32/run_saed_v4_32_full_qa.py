@@ -128,6 +128,6 @@ qa = {
         "production_authorization": "not_claimed"
     }
 }
-(ROOT / "SAED_V4_32_QA_REPORT.json").write_text(json.dumps(qa, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+(ROOT / "releases/history/saed/reports/SAED_V4_32_QA_REPORT.json").write_text(json.dumps(qa, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 runpy.run_path(str(tool / "validate_saed_v4_32_status.py"), run_name="__main__")
 print(f"V4-32 full QA passed: {python_tests} tests, {qa['closed_schema_pairs']} schema pairs, {obsidian_notes} notes, {mql5_files} MQL5 static files")

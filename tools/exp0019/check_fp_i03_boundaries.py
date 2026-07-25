@@ -24,7 +24,7 @@ for path in phase.rglob('*'):
         for token in ('ordersend','positionopen','webrequest','objectcreate('):
             if token in text: errors.append(f'forbidden authority token {token} in {path.relative_to(root)}')
 # Phase may depend on FP-I02 and shared Daye time, but cannot own/modify those paths.
-index=root/'EXP0019_FP_I03_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I03_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text(encoding='utf-8').splitlines():
         if rel.startswith(('mql5/Include/DayeTrader/','lab/10_infrastructure/EXP0018_','lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/')):

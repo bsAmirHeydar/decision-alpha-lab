@@ -123,7 +123,7 @@ qa = {
         "independent_replication": "pending_external",
     },
 }
-(ROOT / "SAED_V4_29_QA_REPORT.json").write_text(
+(ROOT / "releases/history/saed/reports/SAED_V4_29_QA_REPORT.json").write_text(
     json.dumps(qa, indent=2, sort_keys=True) + "\n",
     encoding="utf-8",
 )

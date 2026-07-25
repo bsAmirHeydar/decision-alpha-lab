@@ -15,13 +15,13 @@ doc_root = root / "docs/execution/EXP0019_faerie_protocol_contextual_divergence/
 concept_root = root / "docs/obsidian_deep/01_concepts"
 
 required = [
-    "README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
-    "INSTALL_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
+    "releases/history/exp0019/readmes/README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
+    "releases/history/exp0019/installers/INSTALL_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
     "COMMIT_MESSAGE.md",
-    "EXP0019_FP_I00_FILE_INDEX.txt",
-    "EXP0019_FP_I00_FILE_HASHES.sha256",
-    "EXP0019_FP_I00_PATCH_MANIFEST.json",
-    "EXP0019_FP_I00_QA_REPORT.json",
+    "releases/history/exp0019/indexes/EXP0019_FP_I00_FILE_INDEX.txt",
+    "releases/history/exp0019/hashes/EXP0019_FP_I00_FILE_HASHES.sha256",
+    "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json",
+    "releases/history/exp0019/reports/EXP0019_FP_I00_QA_REPORT.json",
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/README.md",
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/run_phase_i00.py",
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/config/FP_I00_GOVERNANCE_POLICY.v1.json",
@@ -85,8 +85,8 @@ for rel in [
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_VALIDATION_REPORT.json",
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_PHASE_STATUS.json",
     "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_HANDOFF_TO_FP_I01.json",
-    "EXP0019_FP_I00_PATCH_MANIFEST.json",
-    "EXP0019_FP_I00_QA_REPORT.json",
+    "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json",
+    "releases/history/exp0019/reports/EXP0019_FP_I00_QA_REPORT.json",
 ]:
     path = root / rel
     if path.exists():

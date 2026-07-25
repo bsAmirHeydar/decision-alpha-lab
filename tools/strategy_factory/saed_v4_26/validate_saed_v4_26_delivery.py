@@ -4,11 +4,11 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parents[3]
-INDEX = ROOT / "SAED_V4_26_FILE_INDEX.txt"
-LEDGER = ROOT / "SAED_V4_26_FILE_HASHES.sha256"
-MANIFEST = ROOT / "SAED_V4_26_PATCH_MANIFEST.json"
-QA = ROOT / "SAED_V4_26_QA_REPORT.json"
-INVENTORY = ROOT / "SAED_V4_26_ARTIFACT_INVENTORY.csv"
+INDEX = ROOT / "releases/history/saed/indexes/SAED_V4_26_FILE_INDEX.txt"
+LEDGER = ROOT / "releases/history/saed/hashes/SAED_V4_26_FILE_HASHES.sha256"
+MANIFEST = ROOT / "releases/history/saed/manifests/SAED_V4_26_PATCH_MANIFEST.json"
+QA = ROOT / "releases/history/saed/reports/SAED_V4_26_QA_REPORT.json"
+INVENTORY = ROOT / "releases/history/saed/inventories/SAED_V4_26_ARTIFACT_INVENTORY.csv"
 assert all(path.is_file() for path in [INDEX, LEDGER, MANIFEST, QA, INVENTORY])
 
 paths = [line.strip() for line in INDEX.read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -22,7 +22,7 @@ for line in LEDGER.read_text(encoding="utf-8").splitlines():
     if line.strip():
         digest, path = line.split("  ", 1)
         expected[path] = digest
-assert set(expected) == set(paths) - {"SAED_V4_26_FILE_HASHES.sha256"}
+assert set(expected) == set(paths) - {"releases/history/saed/hashes/SAED_V4_26_FILE_HASHES.sha256"}
 for path, digest in expected.items():
     assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
 

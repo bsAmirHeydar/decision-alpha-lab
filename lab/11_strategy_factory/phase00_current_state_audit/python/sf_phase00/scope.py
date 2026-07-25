@@ -9,13 +9,13 @@ SELF_PREFIXES = (
 )
 
 SELF_ROOT_FILES = {
-    "README_STRATEGY_FACTORY_PHASE00_IMPLEMENTATION.md",
-    "INSTALL_STRATEGY_FACTORY_PHASE00_IMPLEMENTATION.md",
+    "releases/history/strategy_factory/readmes/README_STRATEGY_FACTORY_PHASE00_IMPLEMENTATION.md",
+    "releases/history/strategy_factory/installers/INSTALL_STRATEGY_FACTORY_PHASE00_IMPLEMENTATION.md",
     "COMMIT_MESSAGE.md",
-    "STRATEGY_FACTORY_PHASE00_PATCH_MANIFEST.json",
-    "STRATEGY_FACTORY_PHASE00_QA_REPORT.json",
-    "STRATEGY_FACTORY_PHASE00_FILE_INDEX.txt",
-    "STRATEGY_FACTORY_PHASE00_FILE_HASHES.sha256",
+    "releases/history/strategy_factory/manifests/STRATEGY_FACTORY_PHASE00_PATCH_MANIFEST.json",
+    "releases/history/strategy_factory/reports/STRATEGY_FACTORY_PHASE00_QA_REPORT.json",
+    "releases/history/strategy_factory/indexes/STRATEGY_FACTORY_PHASE00_FILE_INDEX.txt",
+    "releases/history/strategy_factory/hashes/STRATEGY_FACTORY_PHASE00_FILE_HASHES.sha256",
 }
 
 

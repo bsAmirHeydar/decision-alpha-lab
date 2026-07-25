@@ -8,10 +8,10 @@ errors: list[str] = []
 phase = 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07'
 docrel = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i07'
 required = [
-    'README_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
-    'INSTALL_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
+    'releases/history/exp0019/readmes/README_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
+    'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
     'COMMIT_MESSAGE.md',
-    'EXP0019_FP_I07_QA_REPORT.json',
+    'releases/history/exp0019/reports/EXP0019_FP_I07_QA_REPORT.json',
     f'{phase}/artifacts/FP_I07_CONTRACT_REGISTRY.v1.json',
     f'{phase}/artifacts/FP_I07_CONFIRMATION_REASON_REGISTRY.v1.json',
     f'{phase}/artifacts/FP_I07_GOLDEN_CONFIRMATION_VECTORS.v1.json',
@@ -68,7 +68,7 @@ json_files = [
     f'{phase}/artifacts/FP_I07_HANDOFF_TO_FP_I08.json',
     f'{phase}/artifacts/FP_I07_ACCEPTANCE_EVIDENCE.json',
     f'{phase}/config/FP_I07_CONFIRMATION_PROFILES.v1.json',
-    'EXP0019_FP_I07_QA_REPORT.json',
+    'releases/history/exp0019/reports/EXP0019_FP_I07_QA_REPORT.json',
 ]
 for rel in json_files:
     path = root / rel

@@ -3,11 +3,11 @@ from __future__ import annotations
 import hashlib,json,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
-INDEX=ROOT/'SAED_V4_00_FILE_INDEX.txt'; LEDGER=ROOT/'SAED_V4_00_FILE_HASHES.sha256'
+INDEX=ROOT/'releases/history/saed/indexes/SAED_V4_00_FILE_INDEX.txt'; LEDGER=ROOT/'releases/history/saed/hashes/SAED_V4_00_FILE_HASHES.sha256'
 files=[x.strip() for x in INDEX.read_text(encoding='utf-8').splitlines() if x.strip()]
 lines=[]
 for rel in files:
- if rel=='SAED_V4_00_FILE_HASHES.sha256': continue
+ if rel=='releases/history/saed/hashes/SAED_V4_00_FILE_HASHES.sha256': continue
  lines.append(f"{hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()}  {rel}")
 LEDGER.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 out=Path('/mnt/data/decision-alpha-lab-saed-v4-00-program-constitution-v1.0.0.zip')

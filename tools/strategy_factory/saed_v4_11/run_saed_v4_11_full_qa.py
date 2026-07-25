@@ -16,5 +16,5 @@ for command in commands:
  results.append({'command':' '.join([Path(command[0]).name,*command[1:]]),'returncode':result.returncode,'passed':result.returncode==0})
  if result.returncode:break
 report={'phase':'SAED_V4_11','version':'1.0.0','passed':len(results)==len(commands) and all(x['passed'] for x in results),'results':results,'evidence_scope':'local_reference_synthetic','test_count':116,'schema_pair_count':37,'obsidian_note_count':95,'mql5_static_file_count':10,'external_evidence':{'real_corpus_training':'not_claimed','distributed_training':'not_claimed','gpu_reproduction':'not_claimed','metaeditor_compile':'pending_local_windows','prospective_paper':'not_claimed','shadow':'not_claimed','live':'not_claimed'}}
-(ROOT/'SAED_V4_11_QA_REPORT.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+(ROOT/'releases/history/saed/reports/SAED_V4_11_QA_REPORT.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n',encoding='utf-8')
 raise SystemExit(0 if report['passed'] else 1)

@@ -2,10 +2,10 @@ from __future__ import annotations
 import csv,hashlib,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
-INDEX=ROOT/"SAED_V4_30_FILE_INDEX.txt"
-LEDGER=ROOT/"SAED_V4_30_FILE_HASHES.sha256"
-INVENTORY=ROOT/"SAED_V4_30_ARTIFACT_INVENTORY.csv"
-MANIFEST=ROOT/"SAED_V4_30_PATCH_MANIFEST.json"
+INDEX=ROOT/"releases/history/saed/indexes/SAED_V4_30_FILE_INDEX.txt"
+LEDGER=ROOT/"releases/history/saed/hashes/SAED_V4_30_FILE_HASHES.sha256"
+INVENTORY=ROOT/"releases/history/saed/inventories/SAED_V4_30_ARTIFACT_INVENTORY.csv"
+MANIFEST=ROOT/"releases/history/saed/manifests/SAED_V4_30_PATCH_MANIFEST.json"
 paths=[line.strip() for line in INDEX.read_text(encoding="utf-8").splitlines() if line.strip()]
 assert paths==sorted(paths) and len(paths)==len(set(paths))
 for path in paths:
@@ -14,7 +14,7 @@ for path in paths:
 expected={}
 for line in LEDGER.read_text(encoding="utf-8").splitlines():
  digest,path=line.split("  ",1); expected[path]=digest
-assert set(expected)==set(paths)-{"SAED_V4_30_FILE_HASHES.sha256"}
+assert set(expected)==set(paths)-{"releases/history/saed/hashes/SAED_V4_30_FILE_HASHES.sha256"}
 for path,digest in expected.items():
  observed=hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
  assert observed==digest,f"hash mismatch: {path}"
@@ -25,7 +25,7 @@ assert manifest["phase"]=="SAED_V4_30" and manifest["version"]=="1.0.0" and mani
 assert manifest["file_count"]==len(paths) and manifest["hash_count"]==len(expected)
 assert manifest["next_phase"]=="SAED_V4_31"
 status=json.loads((ROOT/"lab/11_strategy_factory/phase_status/SAED_V4_30.json").read_text(encoding="utf-8"))
-qa=json.loads((ROOT/"SAED_V4_30_QA_REPORT.json").read_text(encoding="utf-8"))
+qa=json.loads((ROOT/"releases/history/saed/reports/SAED_V4_30_QA_REPORT.json").read_text(encoding="utf-8"))
 assert status["qa_passed"] and qa["passed"] and status["python_tests"]>=200
 assert status["closed_schema_pairs"]==25 and status["obsidian_notes"]==272 and status["mql5_static_files"]==22
 ar=ROOT/"lab/11_strategy_factory/artifacts/saed_v4_30"

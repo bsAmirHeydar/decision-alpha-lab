@@ -6,7 +6,7 @@ status: canonical
 domain: unified-consolidation-platform-seal
 version: 1.0.0
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-25
 tags:
   - consolidation
   - platform-seal
@@ -21,6 +21,7 @@ These are the only seven execution stages. Each stage produces real repository o
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/01_UC01_Preserve_And_Baseline|UC-01 — Preserve and Baseline]]
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/02_UC02_Standardize_And_Assign_Authority|UC-02 — Standardize and Assign Authority]]
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically|UC-03 — Reorganize Physically]]
+  - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/00_MOC|UC-03 physical-reorganization records]]
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/04_UC04_Unify_Semantics_And_Logic|UC-04 — Unify Semantics and Logic]]
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/05_UC05_Mechanize_The_Platform|UC-05 — Mechanize the Platform]]
 - [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/06_UC06_Migrate_And_Cut_Over|UC-06 — Migrate and Cut Over]]

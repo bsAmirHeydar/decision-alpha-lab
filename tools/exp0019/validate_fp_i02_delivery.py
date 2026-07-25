@@ -8,7 +8,7 @@ root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02'
 docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
 required=[
- 'README_EXP0019_FP_I02_CORE_KERNEL.md','INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','EXP0019_FP_I02_QA_REPORT.json',
+ 'releases/history/exp0019/readmes/README_EXP0019_FP_I02_CORE_KERNEL.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I02_QA_REPORT.json',
  f'{phase}/artifacts/FP_I02_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I02_REASON_CODE_REGISTRY.v1.json',
  f'{phase}/artifacts/FP_I02_RELATION_REGISTRY.v2.json',f'{phase}/artifacts/FP_I02_STATE_MACHINE_REGISTRY.v1.json',
  f'{phase}/artifacts/FP_I02_GOLDEN_IDENTITY_VECTORS.v1.json',f'{phase}/artifacts/FP_I02_CONFORMANCE_REPORT.json',
@@ -52,7 +52,7 @@ json_files=[
  f'{phase}/artifacts/FP_I02_RELATION_REGISTRY.v2.json',f'{phase}/artifacts/FP_I02_STATE_MACHINE_REGISTRY.v1.json',
  f'{phase}/artifacts/FP_I02_GOLDEN_IDENTITY_VECTORS.v1.json',f'{phase}/artifacts/FP_I02_CONFORMANCE_REPORT.json',
  f'{phase}/artifacts/FP_I02_PHASE_STATUS.json',f'{phase}/artifacts/FP_I02_HANDOFF_TO_FP_I03.json',f'{phase}/artifacts/FP_I02_ACCEPTANCE_EVIDENCE.json',
- f'{phase}/config/FP_I02_CONFIGURATION_PROFILES.v1.json','EXP0019_FP_I02_QA_REPORT.json'
+ f'{phase}/config/FP_I02_CONFIGURATION_PROFILES.v1.json','releases/history/exp0019/reports/EXP0019_FP_I02_QA_REPORT.json'
 ]
 for rel in json_files:
  path=root/rel
@@ -82,7 +82,7 @@ if relations.exists() and json.loads(relations.read_text()).get('relation_count'
 if contracts.exists() and json.loads(contracts.read_text()).get('contract_count')!=16:errors.append('contract artifact count mismatch')
 
 for cache in (root/phase).rglob('__pycache__'):errors.append('release cache '+str(cache.relative_to(root)))
-index=root/'EXP0019_FP_I02_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt'
 if index.exists():
  for rel in index.read_text().splitlines():
   if rel.startswith(('lab/10_infrastructure/EXP0017_','lab/10_infrastructure/EXP0018_','mql5/Include/AlphaLab/')):

@@ -11,9 +11,9 @@ import json
 import zipfile
 
 ROOT_META = {
-    "EXP0019_FP_I00_FILE_INDEX.txt",
-    "EXP0019_FP_I00_FILE_HASHES.sha256",
-    "EXP0019_FP_I00_PATCH_MANIFEST.json",
+    "releases/history/exp0019/indexes/EXP0019_FP_I00_FILE_INDEX.txt",
+    "releases/history/exp0019/hashes/EXP0019_FP_I00_FILE_HASHES.sha256",
+    "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json",
 }
 
 
@@ -40,13 +40,13 @@ def owned_paths(root: Path) -> list[Path]:
     for path in (root / "docs/obsidian_deep/01_concepts").glob("EXP0019_FP_I00_*.md"):
         paths.add(path)
     specific = [
-        "README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
-        "INSTALL_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
+        "releases/history/exp0019/readmes/README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
+        "releases/history/exp0019/installers/INSTALL_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
         "COMMIT_MESSAGE.md",
-        "EXP0019_FP_I00_FILE_INDEX.txt",
-        "EXP0019_FP_I00_FILE_HASHES.sha256",
-        "EXP0019_FP_I00_PATCH_MANIFEST.json",
-        "EXP0019_FP_I00_QA_REPORT.json",
+        "releases/history/exp0019/indexes/EXP0019_FP_I00_FILE_INDEX.txt",
+        "releases/history/exp0019/hashes/EXP0019_FP_I00_FILE_HASHES.sha256",
+        "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json",
+        "releases/history/exp0019/reports/EXP0019_FP_I00_QA_REPORT.json",
         "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I00_GOVERNANCE_BASELINE_FREEZE_AND_SOURCE-CONTROL_HARNESS.md",
         "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
         "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv",
@@ -81,9 +81,9 @@ def main() -> int:
         writer = csv.DictWriter(handle, fieldnames=("path", "sha256", "size_bytes"))
         writer.writeheader(); writer.writerows(rows)
 
-    index = root / "EXP0019_FP_I00_FILE_INDEX.txt"
-    manifest_path = root / "EXP0019_FP_I00_PATCH_MANIFEST.json"
-    hash_path = root / "EXP0019_FP_I00_FILE_HASHES.sha256"
+    index = root / "releases/history/exp0019/indexes/EXP0019_FP_I00_FILE_INDEX.txt"
+    manifest_path = root / "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json"
+    hash_path = root / "releases/history/exp0019/hashes/EXP0019_FP_I00_FILE_HASHES.sha256"
     # Create placeholders so all release metadata is included in the final owned set.
     for path in (index, manifest_path, hash_path):
         if not path.exists():

@@ -3,8 +3,8 @@ from pathlib import Path
 import json,hashlib
 ROOT=Path(__file__).resolve().parents[2]
 errors=[]
-index=ROOT/'UCEE_I13_FILE_INDEX.txt'
-if not index.exists():errors.append('missing UCEE_I13_FILE_INDEX.txt');paths=[]
+index=ROOT/'releases/history/ucee/indexes/UCEE_I13_FILE_INDEX.txt'
+if not index.exists():errors.append('missing releases/history/ucee/indexes/UCEE_I13_FILE_INDEX.txt');paths=[]
 else:paths=[x.strip() for x in index.read_text().splitlines() if x.strip()]
 if len(paths)!=len(set(paths)):errors.append('duplicate file-index entries')
 for rel in paths:
@@ -15,14 +15,14 @@ for rel in paths:
         try:json.loads(p.read_text(encoding='utf-8'))
         except Exception as e:errors.append(f'invalid JSON {rel}: {e}')
 
-hash_path=ROOT/'UCEE_I13_FILE_HASHES.sha256'
-if not hash_path.exists():errors.append('missing UCEE_I13_FILE_HASHES.sha256')
+hash_path=ROOT/'releases/history/ucee/hashes/UCEE_I13_FILE_HASHES.sha256'
+if not hash_path.exists():errors.append('missing releases/history/ucee/hashes/UCEE_I13_FILE_HASHES.sha256')
 else:
     declared={}
     for line in hash_path.read_text().splitlines():
         if line.strip():
             digest,rel=line.split('  ',1);declared[rel]=digest
-    expected=set(paths)-{'UCEE_I13_FILE_HASHES.sha256'}
+    expected=set(paths)-{'releases/history/ucee/hashes/UCEE_I13_FILE_HASHES.sha256'}
     if set(declared)!=expected:errors.append('hash manifest paths do not match file index')
     for rel,digest in declared.items():
         if (ROOT/rel).is_file() and hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()!=digest:errors.append(f'hash mismatch {rel}')

@@ -84,15 +84,15 @@ def main() -> int:
         "lab/11_strategy_factory/test_vectors/v3/uce_i01_negative_vectors.json",
         "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I01.json",
         "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I01_HANDOFF_TO_UCE_I02.json",
-        "UCEE_I01_PATCH_MANIFEST.json",
-        "UCEE_I01_QA_REPORT.json",
-        "UCEE_I01_FILE_INDEX.txt",
-        "UCEE_I01_FILE_HASHES.sha256",
+        "releases/history/ucee/manifests/UCEE_I01_PATCH_MANIFEST.json",
+        "releases/history/ucee/reports/UCEE_I01_QA_REPORT.json",
+        "releases/history/ucee/indexes/UCEE_I01_FILE_INDEX.txt",
+        "releases/history/ucee/hashes/UCEE_I01_FILE_HASHES.sha256",
     ):
         if not (root / rel).is_file():
             errors.append(f"missing delivery artifact: {rel}")
 
-    hash_file = root / "UCEE_I01_FILE_HASHES.sha256"
+    hash_file = root / "releases/history/ucee/hashes/UCEE_I01_FILE_HASHES.sha256"
     if hash_file.is_file():
         for line_number, line in enumerate(hash_file.read_text(encoding="utf-8").splitlines(), 1):
             parts = line.split("  ", 1)

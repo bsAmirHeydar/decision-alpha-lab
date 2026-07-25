@@ -33,7 +33,7 @@ def validate(repo: Path=REPO_ROOT) -> dict:
         except Exception as exc: yaml_errors.append(f"{p.relative_to(repo)}: {exc}")
     checks.append(result(not yaml_errors,"YAML_PARSE","registry YAML parses",errors=yaml_errors))
     required=[
-      "README_ALPHA_LAB_CONTEXT_LIFECYCLE_OS_ARCHITECTURE.md","ACL_OS_ARCHITECTURE_PATCH_MANIFEST.json",
+      "releases/history/misc/readmes/README_ALPHA_LAB_CONTEXT_LIFECYCLE_OS_ARCHITECTURE.md","releases/history/acl_os/manifests/ACL_OS_ARCHITECTURE_PATCH_MANIFEST.json",
       "registry/acl_os/README.md","lab/11_strategy_factory/contexts/_template/context_manifest.yaml",
       "tools/strategy_factory/acl_os/scaffold_context.py","tools/strategy_factory/acl_os/validate_context_package.py"
     ]

@@ -12,6 +12,6 @@ def main() -> int:
     proc=subprocess.run([sys.executable,"-m","pytest","-q","lab/11_strategy_factory/acl_os/tests_acl_04"],cwd=REPO_ROOT,text=True,capture_output=True,env=env)
     validation=validate(REPO_ROOT)
     out={"passed":proc.returncode==0 and validation["passed"],"pytest":{"returncode":proc.returncode,"stdout":proc.stdout[-30000:],"stderr":proc.stderr[-10000:]},"validation":validation,"claim_ceiling":"SETUP_DEFINITION_REFERENCE_ONLY","live_order_submission_allowed":False,"capital_activation_allowed":False}
-    dump_json(REPO_ROOT/"ACL_OS_04_QA_REPORT.json",out); print(json.dumps(out,indent=2,sort_keys=True)); return 0 if out["passed"] else 1
+    dump_json(REPO_ROOT/"releases/history/acl_os/reports/ACL_OS_04_QA_REPORT.json",out); print(json.dumps(out,indent=2,sort_keys=True)); return 0 if out["passed"] else 1
 
 if __name__=="__main__": raise SystemExit(main())

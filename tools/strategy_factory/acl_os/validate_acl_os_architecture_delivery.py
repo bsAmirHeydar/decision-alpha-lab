@@ -4,7 +4,7 @@ from pathlib import Path
 from .common import REPO_ROOT
 
 def validate(repo: Path=REPO_ROOT) -> dict:
-    errors=[]; index=repo/"ACL_OS_ARCHITECTURE_FILE_INDEX.txt"; ledger=repo/"ACL_OS_ARCHITECTURE_FILE_HASHES.sha256"
+    errors=[]; index=repo/"releases/history/acl_os/indexes/ACL_OS_ARCHITECTURE_FILE_INDEX.txt"; ledger=repo/"releases/history/acl_os/hashes/ACL_OS_ARCHITECTURE_FILE_HASHES.sha256"
     if not index.is_file(): errors.append("missing file index")
     else:
         for rel in index.read_text(encoding="utf-8").splitlines():

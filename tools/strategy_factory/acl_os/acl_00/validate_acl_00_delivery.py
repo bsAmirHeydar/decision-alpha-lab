@@ -4,7 +4,7 @@ from pathlib import Path
 from ..common import REPO_ROOT
 
 def main()->int:
-    index=REPO_ROOT/"ACL_OS_00_FILE_INDEX.txt"; ledger=REPO_ROOT/"ACL_OS_00_FILE_HASHES.sha256"
+    index=REPO_ROOT/"releases/history/acl_os/indexes/ACL_OS_00_FILE_INDEX.txt"; ledger=REPO_ROOT/"releases/history/acl_os/hashes/ACL_OS_00_FILE_HASHES.sha256"
     errors=[]
     if not index.is_file() or not ledger.is_file(): errors.append("missing index or hash ledger")
     else:
@@ -13,7 +13,7 @@ def main()->int:
         for rel in files:
             p=REPO_ROOT/rel
             if not p.is_file(): errors.append(f"missing {rel}"); continue
-            if rel in {"ACL_OS_00_FILE_HASHES.sha256", "ACL_OS_00_ARTIFACT_INVENTORY.csv", "ACL_OS_00_QA_REPORT.json"}:
+            if rel in {"releases/history/acl_os/hashes/ACL_OS_00_FILE_HASHES.sha256", "releases/history/acl_os/inventories/ACL_OS_00_ARTIFACT_INVENTORY.csv", "releases/history/acl_os/reports/ACL_OS_00_QA_REPORT.json"}:
                 continue
             got=hashlib.sha256(p.read_bytes()).hexdigest(); exp=entries.get(rel)
             if exp!=got: errors.append(f"hash mismatch {rel}")

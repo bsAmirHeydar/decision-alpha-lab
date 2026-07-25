@@ -33,7 +33,7 @@ for name in ('wave_a_source_inventory.json','wave_b_source_inventory.json','wave
  if p.exists():
   d=json.loads(p.read_text())
   if d.get('activation_policy')!='differential_parity_before_behavior_change':errors.append(f'unsafe_activation_policy:{name}')
-index=ROOT/'UCEE_I16_FILE_INDEX.txt'
+index=ROOT/'releases/history/ucee/indexes/UCEE_I16_FILE_INDEX.txt'
 if index.exists():
  paths=[x.strip() for x in index.read_text().splitlines() if x.strip()]
  core_prefixes=('lab/11_strategy_factory/python/strategy_factory_contracts_v3/','lab/11_strategy_factory/python/strategy_factory_economics_v3/','lab/11_strategy_factory/python/strategy_factory_experiments_v3/','lab/11_strategy_factory/python/strategy_factory_promotion_v3/','lab/11_strategy_factory/python/strategy_factory_policy_v3/','lab/11_strategy_factory/python/strategy_factory_runtime_v3/')

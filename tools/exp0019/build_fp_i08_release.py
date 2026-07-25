@@ -12,9 +12,9 @@ PHASE = 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08'
 DOCS = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i08'
 PROGRAM = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program'
 META = {
-    'EXP0019_FP_I08_FILE_INDEX.txt',
-    'EXP0019_FP_I08_FILE_HASHES.sha256',
-    'EXP0019_FP_I08_PATCH_MANIFEST.json',
+    'releases/history/exp0019/indexes/EXP0019_FP_I08_FILE_INDEX.txt',
+    'releases/history/exp0019/hashes/EXP0019_FP_I08_FILE_HASHES.sha256',
+    'releases/history/exp0019/manifests/EXP0019_FP_I08_PATCH_MANIFEST.json',
 }
 
 def digest(path: Path) -> str:
@@ -35,13 +35,13 @@ def owned(root: Path) -> list[Path]:
     for path in (root / 'docs/obsidian_deep/01_concepts').glob('FP-I08_*.md'):
         paths.add(path)
     for rel in (
-        'README_EXP0019_FP_I08_WEEKLY_ENGINE.md',
-        'INSTALL_EXP0019_FP_I08_WEEKLY_ENGINE.md',
+        'releases/history/exp0019/readmes/README_EXP0019_FP_I08_WEEKLY_ENGINE.md',
+        'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I08_WEEKLY_ENGINE.md',
         'COMMIT_MESSAGE.md',
-        'EXP0019_FP_I08_QA_REPORT.json',
-        'EXP0019_FP_I08_FILE_INDEX.txt',
-        'EXP0019_FP_I08_FILE_HASHES.sha256',
-        'EXP0019_FP_I08_PATCH_MANIFEST.json',
+        'releases/history/exp0019/reports/EXP0019_FP_I08_QA_REPORT.json',
+        'releases/history/exp0019/indexes/EXP0019_FP_I08_FILE_INDEX.txt',
+        'releases/history/exp0019/hashes/EXP0019_FP_I08_FILE_HASHES.sha256',
+        'releases/history/exp0019/manifests/EXP0019_FP_I08_PATCH_MANIFEST.json',
         f'{PROGRAM}/fp_implementation_phase_registry.v1.json',
         f'{PROGRAM}/fp_implementation_task_ledger.v1.csv',
         'mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I08_WeeklyDiagnostic.mq5',
@@ -115,25 +115,25 @@ def main() -> int:
         'upstream_regression_note': 'FP-I00/FP-I01 pinned assets and EXP0018 Daye tree are absent from supplied base archive',
         'next_phase': 'FP-I09 Signal Ledger, Deduplication, Pair-Session Arbitration, Checkpoints, and Restart',
     }
-    (root / 'EXP0019_FP_I08_FILE_INDEX.txt').write_text(
+    (root / 'releases/history/exp0019/indexes/EXP0019_FP_I08_FILE_INDEX.txt').write_text(
         '\n'.join(path.relative_to(root).as_posix() for path in final) + '\n', encoding='utf-8'
     )
-    (root / 'EXP0019_FP_I08_PATCH_MANIFEST.json').write_text(
+    (root / 'releases/history/exp0019/manifests/EXP0019_FP_I08_PATCH_MANIFEST.json').write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8'
     )
 
     final = owned(root)
-    (root / 'EXP0019_FP_I08_FILE_HASHES.sha256').write_text(
+    (root / 'releases/history/exp0019/hashes/EXP0019_FP_I08_FILE_HASHES.sha256').write_text(
         '\n'.join(
             f'{digest(path)}  {path.relative_to(root).as_posix()}'
             for path in final
-            if path.name != 'EXP0019_FP_I08_FILE_HASHES.sha256'
+            if path.name != 'releases/history/exp0019/hashes/EXP0019_FP_I08_FILE_HASHES.sha256'
         ) + '\n',
         encoding='utf-8',
     )
     final = owned(root)
     manifest['file_count'] = len(final)
-    (root / 'EXP0019_FP_I08_PATCH_MANIFEST.json').write_text(
+    (root / 'releases/history/exp0019/manifests/EXP0019_FP_I08_PATCH_MANIFEST.json').write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8'
     )
 

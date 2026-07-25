@@ -29,7 +29,7 @@ def main()->int:
       "lab/11_strategy_factory/test_vectors/v3/uce_i02_context_package_vectors.json","lab/11_strategy_factory/test_vectors/v3/uce_i02_negative_vectors.json",
       "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I02.json",
       "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I02_HANDOFF_TO_UCE_I03.json",
-      "UCEE_I02_PATCH_MANIFEST.json","UCEE_I02_QA_REPORT.json","UCEE_I02_FILE_INDEX.txt","UCEE_I02_FILE_HASHES.sha256"]
+      "releases/history/ucee/manifests/UCEE_I02_PATCH_MANIFEST.json","releases/history/ucee/reports/UCEE_I02_QA_REPORT.json","releases/history/ucee/indexes/UCEE_I02_FILE_INDEX.txt","releases/history/ucee/hashes/UCEE_I02_FILE_HASHES.sha256"]
     for rel in required:
         if not (root/rel).is_file(): errors.append(f"missing delivery artifact: {rel}")
     for cache in list(root.rglob("__pycache__"))+list(root.rglob(".pytest_cache")):
@@ -44,7 +44,7 @@ def main()->int:
         if not a.passed: errors.append("synthetic reference conformance failed")
         if not b.passed: errors.append("EXP0017 reference conformance failed")
     except Exception as exc: errors.append(f"conformance execution failed: {type(exc).__name__}: {exc}")
-    hf=root/"UCEE_I02_FILE_HASHES.sha256"
+    hf=root/"releases/history/ucee/hashes/UCEE_I02_FILE_HASHES.sha256"
     if hf.is_file():
         for n,line in enumerate(hf.read_text(encoding="utf-8").splitlines(),1):
             if not line.strip(): continue

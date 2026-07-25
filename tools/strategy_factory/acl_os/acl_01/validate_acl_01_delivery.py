@@ -3,7 +3,7 @@ import hashlib,json
 from ..common import REPO_ROOT
 
 def main()->int:
-    index=REPO_ROOT/"ACL_OS_01_FILE_INDEX.txt"; ledger=REPO_ROOT/"ACL_OS_01_FILE_HASHES.sha256"; errors=[]; files=[]
+    index=REPO_ROOT/"releases/history/acl_os/indexes/ACL_OS_01_FILE_INDEX.txt"; ledger=REPO_ROOT/"releases/history/acl_os/hashes/ACL_OS_01_FILE_HASHES.sha256"; errors=[]; files=[]
     if not index.is_file() or not ledger.is_file(): errors.append("missing index or hash ledger")
     else:
         files=[x.strip() for x in index.read_text(encoding="utf-8").splitlines() if x.strip()]
@@ -11,7 +11,7 @@ def main()->int:
         for rel in files:
             p=REPO_ROOT/rel
             if not p.is_file(): errors.append(f"missing {rel}"); continue
-            if rel in {"ACL_OS_01_FILE_HASHES.sha256","ACL_OS_01_ARTIFACT_INVENTORY.csv","ACL_OS_01_QA_REPORT.json"}: continue
+            if rel in {"releases/history/acl_os/hashes/ACL_OS_01_FILE_HASHES.sha256","releases/history/acl_os/inventories/ACL_OS_01_ARTIFACT_INVENTORY.csv","releases/history/acl_os/reports/ACL_OS_01_QA_REPORT.json"}: continue
             got=hashlib.sha256(p.read_bytes()).hexdigest(); exp=entries.get(rel)
             if exp!=got: errors.append(f"hash mismatch {rel}")
     out={"passed":not errors,"errors":errors,"indexed_files":len(files)}; print(json.dumps(out,indent=2,sort_keys=True)); return 0 if out["passed"] else 1

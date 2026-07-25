@@ -14,7 +14,7 @@ for base in owned:
             if token in text:errors.append(f'forbidden authority {token}: {p.relative_to(root)}')
         if p.suffix in {'.mqh','.mq5'} and re.search(r'(NthSunday|SecondSunday|FirstSunday|NewYork.*Offset)',text,re.I):
             errors.append(f'duplicate New York time implementation: {p.relative_to(root)}')
-index=root/'EXP0019_FP_I01_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I01_FILE_INDEX.txt'
 if index.exists():
     paths=index.read_text().splitlines()
     for prefix in ('mql5/Include/IntermarketDivergenceExecution/CG/','mql5/Include/DayeTrader/EXP0018/'):

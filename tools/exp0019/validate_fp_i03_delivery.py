@@ -6,7 +6,7 @@ root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03'
 docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i03'
 required=[
- 'README_EXP0019_FP_I03_TIME_CALENDAR.md','INSTALL_EXP0019_FP_I03_TIME_CALENDAR.md','COMMIT_MESSAGE.md','EXP0019_FP_I03_QA_REPORT.json',
+ 'releases/history/exp0019/readmes/README_EXP0019_FP_I03_TIME_CALENDAR.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I03_TIME_CALENDAR.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I03_QA_REPORT.json',
  f'{phase}/artifacts/FP_I03_TIME_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I03_TIME_REASON_REGISTRY.v1.json',
  f'{phase}/artifacts/FP_I03_SESSION_REGISTRY.v1.json',f'{phase}/artifacts/FP_I03_GOLDEN_TIME_VECTORS.v1.json',
  f'{phase}/artifacts/FP_I03_CONFORMANCE_REPORT.json',f'{phase}/artifacts/FP_I03_BOUNDARY_FIXTURE_CATALOG.v1.json',
@@ -52,7 +52,7 @@ json_files=[
  f'{phase}/artifacts/FP_I03_CONFORMANCE_REPORT.json',f'{phase}/artifacts/FP_I03_BOUNDARY_FIXTURE_CATALOG.v1.json',
  f'{phase}/artifacts/FP_I03_DST_TRANSITION_TABLE_2007_2035.v1.json',f'{phase}/artifacts/FP_I03_PHASE_STATUS.json',
  f'{phase}/artifacts/FP_I03_HANDOFF_TO_FP_I04.json',f'{phase}/artifacts/FP_I03_ACCEPTANCE_EVIDENCE.json',
- f'{phase}/config/FP_I03_TIME_CALENDAR_PROFILES.v1.json','EXP0019_FP_I03_QA_REPORT.json'
+ f'{phase}/config/FP_I03_TIME_CALENDAR_PROFILES.v1.json','releases/history/exp0019/reports/EXP0019_FP_I03_QA_REPORT.json'
 ]
 json_files += [f'{phase}/examples/{p.name}' for p in (root/f'{phase}/examples').glob('*.json')]
 for rel in json_files:
@@ -79,7 +79,7 @@ if contracts.exists() and json.loads(contracts.read_text()).get('contract_count'
 if reasons.exists() and json.loads(reasons.read_text()).get('reason_count')!=15:errors.append('reason count mismatch')
 if sessions.exists() and len(json.loads(sessions.read_text()).get('registry',{}).get('sessions',[]))!=3:errors.append('session count mismatch')
 for cache in (root/phase).rglob('__pycache__'):errors.append('release cache '+str(cache.relative_to(root)))
-index=root/'EXP0019_FP_I03_FILE_INDEX.txt'
+index=root/'releases/history/exp0019/indexes/EXP0019_FP_I03_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text().splitlines():
         if rel.startswith(('mql5/Include/DayeTrader/','lab/10_infrastructure/EXP0018_','lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/')):

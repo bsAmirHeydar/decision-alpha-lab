@@ -8,7 +8,7 @@ def test_phase_python_has_no_trading_or_drawing_authority():
     assert all(token not in text for token in forbidden)
 
 def test_phase_does_not_modify_previous_phase_packages():
-    index=ROOT/'EXP0019_FP_I04_FILE_INDEX.txt'
+    index=ROOT/'releases/history/exp0019/indexes/EXP0019_FP_I04_FILE_INDEX.txt'
     if index.exists():
         paths=index.read_text().splitlines()
         assert not any('/phase_i0'+str(i)+'/' in p for p in paths for i in range(4))

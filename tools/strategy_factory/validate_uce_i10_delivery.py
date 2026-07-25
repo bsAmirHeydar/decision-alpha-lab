@@ -10,9 +10,9 @@ import sys
 root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
 errors: list[str] = []
 required = [
-    'README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md',
-    'INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md',
-    'EXPAND_REMOVE_UCEE_I10_PATCH.ps1',
+    'releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md',
+    'releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md',
+    'releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I10_PATCH.ps1',
     'COMMIT_MESSAGE.md',
     'mql5/Include/AlphaLab/StrategyFactory/DeepViews/UCEI10_All.mqh',
     'mql5/Include/AlphaLab/StrategyFactory/DeepViews/UCEI10_DependencyTransferContracts.mqh',
@@ -72,7 +72,7 @@ for relative in (
     'lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I10.json',
     'lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I10_HANDOFF_TO_UCE_I11.json',
     'lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation/artifacts/UCE_I10_ACCEPTANCE_EVIDENCE.json',
-    'UCEE_I10_PATCH_MANIFEST.json', 'UCEE_I10_QA_REPORT.json',
+    'releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json', 'releases/history/ucee/reports/UCEE_I10_QA_REPORT.json',
 ):
     path = root / relative
     if path.exists():

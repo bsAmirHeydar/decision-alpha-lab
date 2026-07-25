@@ -1,21 +1,68 @@
 #!/usr/bin/env python3
-"""Audit expected Decision Alpha Lab repository stage directories."""
-from pathlib import Path
+"""Audit the active Alpha Lab repository topology across consolidation stages."""
+from __future__ import annotations
+
+import json
 import sys
+from pathlib import Path
 
-EXPECTED=[
- 'docs','lab/01_observation','lab/02_hypotheses','lab/03_experiments','lab/04_analysis',
- 'lab/05_validation','lab/06_production','lab/07_monitoring','lab/08_archive',
- 'lab/09_execution','lab/10_infrastructure','registry','data'
-]
+LEGACY_EXPECTED = (
+    'docs', 'lab/01_observation', 'lab/02_hypotheses', 'lab/03_experiments',
+    'lab/04_analysis', 'lab/05_validation', 'lab/06_production',
+    'lab/07_monitoring', 'lab/08_archive', 'lab/09_execution',
+    'lab/10_infrastructure', 'registry', 'data',
+)
+UC03_PART1_EXPECTED = (
+    'src/engine', 'contexts', 'adapters', 'contracts', 'schemas', 'policies',
+    'registry', 'configs', 'mql5', 'tests', 'docs', 'ops', 'tools', 'products',
+    'examples', 'releases/history',
+)
+UC03_PART1_ROOT_ALLOWLIST = {
+    '.editorconfig', '.gitattributes', '.gitignore', 'AGENTS.md',
+    'CODE_OF_CONDUCT.md', 'COMMIT_MESSAGE.md', 'COMMIT_MESSAGE.txt',
+    'CONTRIBUTING.md', 'FILE_INDEX.txt', 'LICENSE', 'PATCH_MANIFEST.json',
+    'QA_REPORT.json', 'README.md', 'requirements.txt',
+}
 
-def main():
- root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve(); missing=[]
- for rel in EXPECTED:
-  if not (root/rel).is_dir(): missing.append(rel)
- print(f'Root: {root}')
- print(f'Missing expected directories: {len(missing)}')
- for rel in missing: print('MISSING:',rel)
- return 1 if missing else 0
 
-if __name__=='__main__': raise SystemExit(main())
+def _part1_active(root: Path) -> bool:
+    receipt = root / 'registry/consolidation/uc03/part1/part1_exit_decision.json'
+    if not receipt.is_file():
+        return False
+    try:
+        data = json.loads(receipt.read_text(encoding='utf-8'))
+    except Exception:
+        return False
+    return data.get('status') == 'ACCEPTED' and data.get('part_id') == 'UC03-P1'
+
+
+def main() -> int:
+    root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
+    part1 = _part1_active(root)
+    expected = tuple(dict.fromkeys(LEGACY_EXPECTED + (UC03_PART1_EXPECTED if part1 else ())))
+    missing = [rel for rel in expected if not (root / rel).is_dir()]
+    errors: list[str] = [f'missing expected directory: {rel}' for rel in missing]
+
+    root_files = sorted(path.name for path in root.iterdir() if path.is_file())
+    if part1:
+        unexpected = sorted(set(root_files) - UC03_PART1_ROOT_ALLOWLIST)
+        missing_root = sorted(UC03_PART1_ROOT_ALLOWLIST - set(root_files))
+        if unexpected:
+            errors.append(f'root contains non-allowlisted files: {unexpected}')
+        if missing_root:
+            errors.append(f'root is missing required files: {missing_root}')
+        if len(root_files) > 20:
+            errors.append(f'root file limit exceeded: {len(root_files)} > 20')
+
+    print(f'Root: {root}')
+    print(f'Consolidation mode: {"UC03-P1" if part1 else "PRE-UC03"}')
+    print(f'Missing expected directories: {len(missing)}')
+    print(f'Root files: {len(root_files)}')
+    print(f'Errors: {len(errors)}')
+    for error in errors:
+        print('ERROR:', error)
+    return 1 if errors else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

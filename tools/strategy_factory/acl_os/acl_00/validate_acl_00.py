@@ -136,11 +136,11 @@ def validate(repo: Path = REPO_ROOT) -> dict:
     )
 
     required = [
-        "ACL_OS_00_PATCH_MANIFEST.json",
-        "ACL_OS_00_FILE_INDEX.txt",
-        "ACL_OS_00_FILE_HASHES.sha256",
-        "README_ALPHA_LAB_ACL_OS_00.md",
-        "INSTALL_ALPHA_LAB_ACL_OS_00.md",
+        "releases/history/acl_os/manifests/ACL_OS_00_PATCH_MANIFEST.json",
+        "releases/history/acl_os/indexes/ACL_OS_00_FILE_INDEX.txt",
+        "releases/history/acl_os/hashes/ACL_OS_00_FILE_HASHES.sha256",
+        "releases/history/acl_os/readmes/README_ALPHA_LAB_ACL_OS_00.md",
+        "releases/history/acl_os/installers/INSTALL_ALPHA_LAB_ACL_OS_00.md",
     ]
     missing = [item for item in required if not (repo / item).is_file()]
     checks.append(

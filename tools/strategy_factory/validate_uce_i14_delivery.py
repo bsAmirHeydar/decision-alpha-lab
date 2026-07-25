@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import json,hashlib
-ROOT=Path(__file__).resolve().parents[2];errors=[];index=ROOT/'UCEE_I14_FILE_INDEX.txt'
+ROOT=Path(__file__).resolve().parents[2];errors=[];index=ROOT/'releases/history/ucee/indexes/UCEE_I14_FILE_INDEX.txt'
 paths=[x.strip() for x in index.read_text().splitlines() if x.strip()] if index.exists() else []
-if not index.exists():errors.append('missing UCEE_I14_FILE_INDEX.txt')
+if not index.exists():errors.append('missing releases/history/ucee/indexes/UCEE_I14_FILE_INDEX.txt')
 if len(paths)!=len(set(paths)):errors.append('duplicate file-index entries')
 for rel in paths:
  if not (ROOT/rel).is_file():errors.append(f'missing indexed file {rel}')
@@ -12,13 +12,13 @@ for rel in paths:
  if p.suffix=='.json':
   try:json.loads(p.read_text(encoding='utf-8'))
   except Exception as e:errors.append(f'invalid JSON {rel}: {e}')
-hp=ROOT/'UCEE_I14_FILE_HASHES.sha256'
-if not hp.exists():errors.append('missing UCEE_I14_FILE_HASHES.sha256')
+hp=ROOT/'releases/history/ucee/hashes/UCEE_I14_FILE_HASHES.sha256'
+if not hp.exists():errors.append('missing releases/history/ucee/hashes/UCEE_I14_FILE_HASHES.sha256')
 else:
  declared={}
  for line in hp.read_text().splitlines():
   if line.strip():digest,rel=line.split('  ',1);declared[rel]=digest
- expected=set(paths)-{'UCEE_I14_FILE_HASHES.sha256'}
+ expected=set(paths)-{'releases/history/ucee/hashes/UCEE_I14_FILE_HASHES.sha256'}
  if set(declared)!=expected:errors.append('hash manifest paths do not match file index')
  for rel,digest in declared.items():
   if (ROOT/rel).is_file() and hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()!=digest:errors.append(f'hash mismatch {rel}')

@@ -1,0 +1,20 @@
+{
+  "deletion_authority": false,
+  "delivery_mode": "RUNTIME_HEAD_RESUME_RESCUE",
+  "direct_test_count": 6,
+  "expected_apply_script_count": 1,
+  "expected_dynamic_receipt_count": 3,
+  "frozen_hash_policy": "ADVISORY_ONLY",
+  "part_id": "UC03-P1",
+  "planned_root_relocation_count": 1471,
+  "planned_root_retained_count": 14,
+  "program_id": "UCPS",
+  "resume_current_partial_state": true,
+  "runtime_hash_policy": "SOURCE_TO_DESTINATION_BYTE_EQUALITY",
+  "schema_version": "1.1.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "static_path_count": 30,
+  "title": "Repository Skeleton and Root Cleanup \u2014 Runtime-Head Resume Rescue",
+  "uc04_authority": false
+}

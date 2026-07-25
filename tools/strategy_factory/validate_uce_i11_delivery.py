@@ -17,9 +17,9 @@ DOC_REL = "docs/strategy_factory_universal_context_exploitation_engine/implement
 STATUS_BASE = "lab/11_strategy_factory/implementation_program/universal_context_exploitation_engine/v3_implementation"
 
 required = [
-    "README_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
-    "INSTALL_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
-    "EXPAND_REMOVE_UCEE_I11_PATCH.ps1",
+    "releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
+    "releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I11_IMPLEMENTATION.md",
+    "releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I11_PATCH.ps1",
     "COMMIT_MESSAGE.md",
     f"{PACKAGE_REL}/compiler.py",
     f"{PACKAGE_REL}/search.py",
@@ -102,7 +102,7 @@ json_paths = [
     f"{STATUS_BASE}/phase_status/UCE_I11.json",
     f"{STATUS_BASE}/phase_status/UCE_I11_HANDOFF_TO_UCE_I12.json",
     f"{STATUS_BASE}/artifacts/UCE_I11_ACCEPTANCE_EVIDENCE.json",
-    "UCEE_I11_PATCH_MANIFEST.json", "UCEE_I11_QA_REPORT.json",
+    "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json", "releases/history/ucee/reports/UCEE_I11_QA_REPORT.json",
 ]
 json_paths.extend(f"lab/11_strategy_factory/examples/uce_i11/{name}" for name in (
     "experiment_declaration.json", "experiment_manifest_golden.json", "failure_injection_plan.json",

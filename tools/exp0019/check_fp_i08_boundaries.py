@@ -17,7 +17,7 @@ for path in (phase / 'python/fp_i08_weekly').glob('*.py'):
             errors.append(f'forbidden authority {token} in {path.relative_to(root)}')
     ast.parse(text)
 
-index = root / 'EXP0019_FP_I08_FILE_INDEX.txt'
+index = root / 'releases/history/exp0019/indexes/EXP0019_FP_I08_FILE_INDEX.txt'
 if index.exists():
     for rel in index.read_text(encoding='utf-8').splitlines():
         if any(f'/phase_i0{i}/' in rel for i in range(8)):

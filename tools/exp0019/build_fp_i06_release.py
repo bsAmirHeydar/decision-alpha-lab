@@ -8,7 +8,7 @@ import json
 import zipfile
 
 STATUS = 'lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06'
-META = {'EXP0019_FP_I06_FILE_INDEX.txt', 'EXP0019_FP_I06_FILE_HASHES.sha256', 'EXP0019_FP_I06_PATCH_MANIFEST.json'}
+META = {'releases/history/exp0019/indexes/EXP0019_FP_I06_FILE_INDEX.txt', 'releases/history/exp0019/hashes/EXP0019_FP_I06_FILE_HASHES.sha256', 'releases/history/exp0019/manifests/EXP0019_FP_I06_PATCH_MANIFEST.json'}
 
 
 def digest(path: Path) -> str:
@@ -31,13 +31,13 @@ def owned(root: Path) -> list[Path]:
     for p in (root / 'docs/obsidian_deep/01_concepts').glob('FP-I06_*.md'):
         paths.add(p)
     specific = [
-        'README_EXP0019_FP_I06_RELATION_ENGINE.md',
-        'INSTALL_EXP0019_FP_I06_RELATION_ENGINE.md',
+        'releases/history/exp0019/readmes/README_EXP0019_FP_I06_RELATION_ENGINE.md',
+        'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I06_RELATION_ENGINE.md',
         'COMMIT_MESSAGE.md',
-        'EXP0019_FP_I06_QA_REPORT.json',
-        'EXP0019_FP_I06_FILE_INDEX.txt',
-        'EXP0019_FP_I06_FILE_HASHES.sha256',
-        'EXP0019_FP_I06_PATCH_MANIFEST.json',
+        'releases/history/exp0019/reports/EXP0019_FP_I06_QA_REPORT.json',
+        'releases/history/exp0019/indexes/EXP0019_FP_I06_FILE_INDEX.txt',
+        'releases/history/exp0019/hashes/EXP0019_FP_I06_FILE_HASHES.sha256',
+        'releases/history/exp0019/manifests/EXP0019_FP_I06_PATCH_MANIFEST.json',
         'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I06_RELATION_COMPILER_HUNT_FACTS_FIRST-SWEEP_CLASSIFICATION_AND_CANDIDATES.md',
         'mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I06_RelationDiagnostic.mq5',
         'mql5/Experts/EXP0019/FaerieProtocolTests/EXP0019_FP_I06_RelationSelfTest.mq5',
@@ -103,21 +103,21 @@ def main() -> int:
         'runtime_authority': 'NONE',
         'next_phase': 'FP-I07 Host-Candle Confirmation, Strict Session Deadline, Invalidation, and Lifecycle',
     }
-    (root / 'EXP0019_FP_I06_FILE_INDEX.txt').write_text(
+    (root / 'releases/history/exp0019/indexes/EXP0019_FP_I06_FILE_INDEX.txt').write_text(
         '\n'.join(p.relative_to(root).as_posix() for p in final) + '\n', encoding='utf-8'
     )
-    (root / 'EXP0019_FP_I06_PATCH_MANIFEST.json').write_text(
+    (root / 'releases/history/exp0019/manifests/EXP0019_FP_I06_PATCH_MANIFEST.json').write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8'
     )
 
     final = owned(root)
-    (root / 'EXP0019_FP_I06_FILE_HASHES.sha256').write_text(
-        '\n'.join(f'{digest(p)}  {p.relative_to(root).as_posix()}' for p in final if p.name != 'EXP0019_FP_I06_FILE_HASHES.sha256') + '\n',
+    (root / 'releases/history/exp0019/hashes/EXP0019_FP_I06_FILE_HASHES.sha256').write_text(
+        '\n'.join(f'{digest(p)}  {p.relative_to(root).as_posix()}' for p in final if p.name != 'releases/history/exp0019/hashes/EXP0019_FP_I06_FILE_HASHES.sha256') + '\n',
         encoding='utf-8',
     )
     final = owned(root)
     manifest['file_count'] = len(final)
-    (root / 'EXP0019_FP_I06_PATCH_MANIFEST.json').write_text(
+    (root / 'releases/history/exp0019/manifests/EXP0019_FP_I06_PATCH_MANIFEST.json').write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8'
     )
 
