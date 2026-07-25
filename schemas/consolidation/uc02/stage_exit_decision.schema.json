@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "destructive_authority": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "stage_id": {
+      "const": "UC-02"
+    },
+    "status": {
+      "enum": [
+        "PENDING",
+        "BLOCKED",
+        "FAILED",
+        "ACCEPTED"
+      ]
+    },
+    "uc03_authorized": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "program_id",
+    "stage_id",
+    "status",
+    "uc03_authorized",
+    "destructive_authority"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,77 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+layers:
+- kernel
+- market
+- context
+- treatment
+- research
+- evidence
+- policy
+- capital
+- portfolio
+- runtime
+- execution
+- monitoring
+allowed_dependencies:
+  kernel: []
+  market:
+  - kernel
+  context:
+  - kernel
+  - market
+  treatment:
+  - kernel
+  - market
+  - context
+  research:
+  - kernel
+  - market
+  - context
+  - treatment
+  evidence:
+  - kernel
+  - research
+  policy:
+  - kernel
+  - evidence
+  capital:
+  - kernel
+  - evidence
+  - policy
+  portfolio:
+  - kernel
+  - capital
+  - policy
+  runtime:
+  - kernel
+  - context
+  - treatment
+  - policy
+  - capital
+  - portfolio
+  execution:
+  - kernel
+  - runtime
+  - adapters
+  monitoring:
+  - kernel
+  - runtime
+  - execution
+  - evidence
+forbidden_edges:
+- kernel -> context-specific package
+- runtime -> training implementation
+- research -> broker/order API
+- context -> execution private implementation
+- adapter -> doctrine mutation
+- MQL5 -> architecture authority
+cycle_policy: No production dependency cycles.
+parallel_engine_policy: No new system may independently own identity, lifecycle, registry, authority, evidence or runtime.

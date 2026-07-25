@@ -1,0 +1,34 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+canonical_roots:
+  architecture: docs/architecture
+  standards: docs/standards
+  contexts: docs/contexts
+  operations: docs/operations
+  decisions: docs/decisions
+  generated: docs/generated
+document_classes:
+  NORMATIVE_AUTHORED: Human-maintained architecture, policy, contract explanation, ADR or runbook.
+  CONTEXT_AUTHORED: Doctrine, limitations, falsification and operator guidance for one Context.
+  GENERATED_PROJECTION: Generated from a machine-readable source and never independently authoritative.
+  HISTORICAL_RELEASE: Superseded phase, patch, QA, install or rollback material preserved in history.
+source_of_truth_priority:
+- machine contract
+- normative authored document
+- generated projection
+- historical release
+one_concept_one_authority: true
+obsidian_is_projection_not_parallel_source: true
+succession_requires:
+- successor id
+- source hash
+- redirect window
+- consumer rewrite
+- archive evidence

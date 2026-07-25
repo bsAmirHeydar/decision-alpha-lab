@@ -1,0 +1,45 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+product_name: Alpha Lab
+repository_name: decision-alpha-lab
+repository_is_product_boundary: true
+nested_product_root_forbidden: true
+forbidden_nested_product_paths:
+- src/alpha_lab
+- alpha_lab
+canonical_production_root: src/engine
+context_root: contexts
+external_boundary_root: adapters
+constitutional_invariants:
+- One canonical owner per production capability.
+- One production import root after UC-04.
+- No Context-specific branch in the shared engine.
+- Research cannot acquire order or capital authority.
+- Generated artifacts are never edited as authored source.
+- No destructive action before consumer cutover, parity and preservation evidence.
+- The prompt is never an architecture authority.
+change_control:
+  platform_change_requires:
+  - ADR
+  - contract_version
+  - migration_plan
+  - tests
+  - rollback
+  context_change_may_use:
+  - context contract
+  - extension manifest
+  - fixtures
+  - tests
+  emergency_waiver_requires:
+  - owner
+  - expiry
+  - risk
+  - compensating control
+  - removal plan

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "broker_authority": {
+      "const": false
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "destructive_authority": {
+      "const": false
+    },
+    "order_authority": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "stage_id": {
+      "const": "UC-02"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "status",
+    "destructive_authority",
+    "runtime_authority",
+    "order_authority",
+    "broker_authority",
+    "capital_authority"
+  ],
+  "type": "object"
+}

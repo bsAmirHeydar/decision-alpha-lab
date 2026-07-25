@@ -1,0 +1,30 @@
+{
+  "claim_ceiling": "Standards, classification, authority freeze and guards only; no move, merge, delete, runtime, order, broker or capital authority.",
+  "deleted_file_count": 0,
+  "destructive_authority": false,
+  "direct_test_count": 23,
+  "dynamic_authority_package_generated_at_install": true,
+  "json_schema_count": 4,
+  "machine_contract_count": 12,
+  "modified_file_count": 0,
+  "new_file_count": 56,
+  "obsidian_note_count": 112,
+  "program_id": "UCPS",
+  "reference_snapshot_counts": {
+    "artifact_count": 52467,
+    "artifact_coverage_ratio": 1.0,
+    "capability_count": 39754,
+    "documentation_count": 27187,
+    "owner_count": 24,
+    "package_count": 3245,
+    "review_required_count": 130,
+    "system_count": 10,
+    "unresolved_count": 0
+  },
+  "release_id": "UC02_AUTHORITY_FREEZE_V1",
+  "stage_id": "UC-02",
+  "static_file_index": "releases/unified_consolidation/uc02/UC02_PATCH_FILE_INDEX.txt",
+  "static_patch_only": true,
+  "total_path_count": 56,
+  "version": "1.0.0"
+}

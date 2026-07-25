@@ -1,0 +1,87 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+systems:
+  STRATEGY_FACTORY:
+    decision: MERGE_AND_RETIRE_PARALLEL_PLATFORM
+    canonical_destinations:
+    - src/engine
+    - contexts
+    - adapters
+    - tests
+    special_rule: V1/V2/V3 names do not survive as platform authorities.
+  ACL_OS:
+    decision: DISTRIBUTE_AND_RETIRE_PARALLEL_OS
+    canonical_destinations:
+    - src/engine/kernel
+    - src/engine/context
+    - src/engine/evidence
+    - src/engine/policy
+    special_rule: Lifecycle governance becomes shared engine capability.
+  UCEE:
+    decision: DISTRIBUTE_AND_RETIRE_PARALLEL_ENGINE
+    canonical_destinations:
+    - src/engine/treatment
+    - src/engine/research
+    - src/engine/evidence
+    - src/engine/policy
+    - src/engine/portfolio
+    - src/engine/runtime
+    - src/engine/execution
+    special_rule: No independent UCEE authority remains.
+  SAED_V3:
+    decision: SUPERSEDE_AFTER_PARITY
+    canonical_destinations:
+    - src/engine/extensions/saed
+    - tests
+    special_rule: Unique behavior is preserved; duplicated platform primitives are removed.
+  SAED_V4:
+    decision: CONVERT_TO_BOUNDED_EXTENSION
+    canonical_destinations:
+    - src/engine/extensions/saed
+    - src/engine/research
+    - src/engine/treatment
+    special_rule: SAED cannot own identity, registry, lifecycle, authority, capital or execution.
+  AIEOS:
+    decision: CONVERT_TO_STANDARDS_AND_ENGINEERING_TOOLS
+    canonical_destinations:
+    - docs/standards
+    - policies
+    - tools/engineering
+    special_rule: AIEOS is not a second operating system.
+  LCM:
+    decision: RETAIN_REUSABLE_MAINTENANCE_AND_ARCHIVE_PROGRAM
+    canonical_destinations:
+    - tools/maintenance
+    - releases/archive
+    special_rule: No LCM-17; phase machinery leaves the final working tree.
+  RTHP:
+    decision: CONVERT_TO_GOLDEN_CONTEXT
+    canonical_destinations:
+    - contexts/rthp
+    - src/engine
+    special_rule: Shared mechanisms leave RTHP-specific packages.
+  NDS:
+    decision: CLASSIFY_AS_CONTEXT_EXECUTION_ADAPTER_FIXTURE_OR_HISTORY
+    canonical_destinations:
+    - contexts
+    - mql5
+    - adapters
+    - tests
+    - releases/archive
+    special_rule: NDS is never a platform authority.
+  EXPERIMENTS:
+    decision: CLASSIFY_AS_CONTEXT_EXPERIMENT_FIXTURE_OR_HISTORY
+    canonical_destinations:
+    - contexts
+    - examples
+    - tests
+    - releases/archive
+    special_rule: Experiments do not become shared engine by naming convention.
+unlisted_system_rule: Classify by capability; no unlisted parallel authority is allowed.

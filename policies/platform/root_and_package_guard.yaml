@@ -1,0 +1,57 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+root_target_max_files: 20
+future_allowed_top_level_roots:
+- src
+- contexts
+- adapters
+- contracts
+- schemas
+- policies
+- registry
+- configs
+- mql5
+- tests
+- docs
+- ops
+- tools
+- products
+- examples
+- releases
+- .github
+- .obsidian
+grandfather_source: UC-01 artifact inventory
+differential_enforcement: true
+forbidden_new_root_patterns:
+- README_*
+- INSTALL_*
+- ROLLBACK_*
+- COMMIT_MESSAGE_*
+- '*_FILE_INDEX.txt'
+- '*_FILE_HASHES.sha256'
+- '*_PATCH_MANIFEST.json'
+- '*_QA_REPORT.json'
+- '*_ARTIFACT_INVENTORY.csv'
+forbidden_new_parallel_engine_patterns:
+- strategy_factory_*
+- ucee_*
+- acl_os_*
+- saed_v*
+- '*_operating_system'
+- '*_engine_v2'
+- '*_engine_v3'
+forbidden_new_nested_product_roots:
+- alpha_lab
+- src/alpha_lab
+allowed_new_tool_roots:
+- tools/consolidation
+- tools/engineering
+- tools/maintenance
+guard_mode_until_seal: Block additions relative to UC-01; do not pretend grandfathered debt is compliant.

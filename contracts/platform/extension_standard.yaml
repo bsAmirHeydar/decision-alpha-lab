@@ -1,0 +1,33 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+extension_types:
+- DetectorPlugin
+- FeaturePlugin
+- LabelPlugin
+- TreatmentPlugin
+- DataAdapter
+- ModelAdapter
+- BrokerAdapter
+- VisualizerPlugin
+required_manifest_fields:
+- extension_id
+- type
+- version
+- owner
+- capabilities
+- inputs
+- outputs
+- failure_semantics
+- security_scope
+- conformance_suite
+private_kernel_import_forbidden: true
+authority_escalation_forbidden: true
+load_without_manifest_forbidden: true
+compatibility: Extensions bind only through versioned public contracts.

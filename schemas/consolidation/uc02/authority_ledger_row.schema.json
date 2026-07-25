@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "broker_authority": {
+      "const": false
+    },
+    "canonical_owner": {
+      "type": "string"
+    },
+    "canonical_target": {
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "destructive_authority": {
+      "const": false
+    },
+    "migration_action": {
+      "type": "string"
+    },
+    "migration_wave": {
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "path": {
+      "type": "string"
+    },
+    "planning_disposition": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false
+    }
+  },
+  "required": [
+    "path",
+    "canonical_owner",
+    "canonical_target",
+    "planning_disposition",
+    "migration_action",
+    "migration_wave"
+  ],
+  "type": "object"
+}

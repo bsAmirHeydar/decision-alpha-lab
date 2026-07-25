@@ -1,0 +1,29 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+states:
+- ACTIVE
+- DEPRECATED
+- COMPATIBILITY_WINDOW
+- RETIRED
+- HISTORICAL
+retirement_prerequisites:
+- preservation certificate
+- consumer inventory
+- consumer cutover
+- behavior parity
+- rollback proof
+- owner approval
+compatibility_window_requires:
+- telemetry
+- owner
+- expiry
+- removal issue
+silent_deletion_forbidden: true
+permanent_redirect_forbidden: true

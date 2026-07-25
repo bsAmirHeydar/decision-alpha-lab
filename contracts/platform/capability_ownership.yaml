@@ -1,0 +1,94 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+ownership_cardinality: exactly_one_canonical_owner
+domains:
+  kernel:
+    target_root: src/engine/kernel
+    owner_role: KERNEL_OWNER
+  market:
+    target_root: src/engine/market
+    owner_role: MARKET_OWNER
+  context:
+    target_root: src/engine/context
+    owner_role: CONTEXT_OWNER
+  treatment:
+    target_root: src/engine/treatment
+    owner_role: TREATMENT_OWNER
+  research:
+    target_root: src/engine/research
+    owner_role: RESEARCH_OWNER
+  evidence:
+    target_root: src/engine/evidence
+    owner_role: EVIDENCE_OWNER
+  policy:
+    target_root: src/engine/policy
+    owner_role: POLICY_OWNER
+  capital:
+    target_root: src/engine/capital
+    owner_role: CAPITAL_OWNER
+  portfolio:
+    target_root: src/engine/portfolio
+    owner_role: PORTFOLIO_OWNER
+  runtime:
+    target_root: src/engine/runtime
+    owner_role: RUNTIME_OWNER
+  execution:
+    target_root: src/engine/execution
+    owner_role: EXECUTION_OWNER
+  monitoring:
+    target_root: src/engine/monitoring
+    owner_role: MONITORING_OWNER
+  memory:
+    target_root: src/engine/memory
+    owner_role: MEMORY_OWNER
+  adapters:
+    target_root: adapters
+    owner_role: ADAPTERS_OWNER
+  contracts:
+    target_root: contracts
+    owner_role: CONTRACTS_OWNER
+  schemas:
+    target_root: schemas
+    owner_role: SCHEMAS_OWNER
+  registry:
+    target_root: registry
+    owner_role: REGISTRY_OWNER
+  configuration:
+    target_root: configs
+    owner_role: CONFIGURATION_OWNER
+  mql5:
+    target_root: mql5
+    owner_role: MQL5_OWNER
+  testing:
+    target_root: tests
+    owner_role: TESTING_OWNER
+  documentation:
+    target_root: docs
+    owner_role: DOCUMENTATION_OWNER
+  engineering:
+    target_root: tools
+    owner_role: ENGINEERING_OWNER
+  operations:
+    target_root: ops
+    owner_role: OPERATIONS_OWNER
+  products:
+    target_root: products
+    owner_role: PRODUCTS_OWNER
+  examples:
+    target_root: examples
+    owner_role: EXAMPLES_OWNER
+  release_history:
+    target_root: releases/history
+    owner_role: RELEASE_HISTORY_OWNER
+  historical_archive:
+    target_root: releases/archive
+    owner_role: HISTORICAL_ARCHIVE_OWNER
+cross_domain_behavior: Shared behavior is extracted behind contracts; duplicate ownership is forbidden.
+unowned_capability_is_blocking: true

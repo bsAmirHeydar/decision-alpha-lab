@@ -1,0 +1,27 @@
+name: UC-02 Authority Guard
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  authority-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade pyyaml jsonschema pytest
+      - name: Verify frozen architecture contracts
+        run: python -m tools.consolidation.uc02.cli verify-static-patch --repo-root .
+      - name: Reject new root clutter and parallel engines
+        run: python -m tools.consolidation.uc02.cli guard --repo-root . --require-authority-package
+      - name: Verify accepted authority package
+        run: python -m tools.consolidation.uc02.cli verify --repo-root .
+      - name: Run UC-02 negative and conformance tests
+        run: python -m pytest -q tests/consolidation/uc02

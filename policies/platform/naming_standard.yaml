@@ -1,0 +1,46 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+repository: decision-alpha-lab
+product: Alpha Lab
+cli: alpha
+python_import_root_target: engine
+path_rules:
+  directories: snake_case
+  python_modules: snake_case
+  python_classes: PascalCase
+  python_functions: snake_case
+  constants: UPPER_SNAKE_CASE
+  mql5_public_prefix: AL_
+  canonical_file_version_in_metadata: true
+forbidden_canonical_name_tokens:
+- final2
+- newer
+- latest_fixed
+- copy
+- copy_2
+- phase_implementation
+identity_prefixes:
+- CTX_
+- SETUP_
+- TRT_
+- TASK_
+- BATCH_
+- MODEL_
+- EVD_
+- POLICY_
+- RUNTIME_
+- RUN_
+- INCIDENT_
+identity_rule: Artifact identity is stable metadata; filesystem path is not identity.
+versioning:
+  semantic_versioning: true
+  breaking_contract_change: major
+  compatible_extension: minor
+  repair: patch

@@ -1,0 +1,29 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+identity_fields:
+- artifact_id
+- artifact_type
+- version
+- owner
+- created_at
+- source_digest
+path_is_identity: false
+content_addressed_outputs: true
+canonical_serialization_required: true
+lineage_fields:
+- parent_ids
+- compiler_version
+- contract_digest
+- input_digests
+generated_header_fields:
+- DO_NOT_EDIT
+- generated_from
+- source_digest
+- compiler_version

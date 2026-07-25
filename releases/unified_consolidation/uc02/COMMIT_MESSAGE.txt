@@ -1,0 +1,1 @@
+feat(consolidation): freeze UC-02 platform authority and standards

@@ -1,0 +1,33 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-02
+status: APPROVED
+destructive_authority: false
+runtime_authority: false
+order_authority: false
+broker_authority: false
+capital_authority: false
+planning_dispositions:
+- KEEP_CANONICAL
+- MOVE
+- MERGE
+- GENERATE
+- EXTERNALIZE
+- DELETE
+final_dispositions:
+- ACTIVE_CANONICAL
+- ACTIVE_EXTENSION
+- FIXTURE_ONLY
+- HISTORICAL_ONLY
+- SUPERSEDED
+- REJECTED_WITH_EVIDENCE
+unknown_is_final: false
+delete_is_plan_not_authority: true
+required_fields:
+- path
+- canonical_owner
+- canonical_target
+- planning_disposition
+- migration_action
+- migration_wave
+- rationale
