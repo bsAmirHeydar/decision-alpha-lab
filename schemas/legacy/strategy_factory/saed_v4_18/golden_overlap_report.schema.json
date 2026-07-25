@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_overlap_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "fallback": {
+      "type": "string"
+    },
+    "minimum_effective_sample_size": {
+      "type": "number"
+    },
+    "overlap_floor": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "treatments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "below_floor_share": {
+            "type": "number"
+          },
+          "effective_sample_size": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "median": {
+            "type": "number"
+          },
+          "min": {
+            "type": "number"
+          },
+          "p01": {
+            "type": "number"
+          },
+          "p10": {
+            "type": "number"
+          },
+          "p90": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "below_floor_share",
+          "effective_sample_size",
+          "max",
+          "median",
+          "min",
+          "p01",
+          "p10",
+          "p90",
+          "passed",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "fallback",
+    "minimum_effective_sample_size",
+    "overlap_floor",
+    "passed",
+    "phase",
+    "report_hash",
+    "treatments"
+  ],
+  "title": "GOLDEN_OVERLAP_REPORT",
+  "type": "object"
+}

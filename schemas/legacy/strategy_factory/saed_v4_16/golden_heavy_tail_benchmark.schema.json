@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_heavy_tail_benchmark.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "finite": {
+      "type": "boolean"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "lower_tail_expected_shortfall": {
+      "type": "number"
+    },
+    "lower_tail_var": {
+      "type": "integer"
+    },
+    "maximum": {
+      "type": "integer"
+    },
+    "minimum": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "sample_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "finite",
+    "kind",
+    "lower_tail_expected_shortfall",
+    "lower_tail_var",
+    "maximum",
+    "minimum",
+    "passed",
+    "phase",
+    "report_hash",
+    "sample_count"
+  ],
+  "title": "GOLDEN_HEAVY_TAIL_BENCHMARK",
+  "type": "object"
+}

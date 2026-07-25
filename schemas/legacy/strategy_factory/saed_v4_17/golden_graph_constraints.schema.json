@@ -1,0 +1,105 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_graph_constraints.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "acyclic_required": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "forbidden_edges": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "latent_edges_sensitivity_only": {
+      "type": "boolean"
+    },
+    "max_parents": {
+      "type": "integer"
+    },
+    "negative_controls_disconnected_from_target": {
+      "type": "boolean"
+    },
+    "no_future_to_past": {
+      "type": "boolean"
+    },
+    "required_edges": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "temporal_tiers": {
+      "additionalProperties": false,
+      "properties": {
+        "context_state": {
+          "type": "integer"
+        },
+        "execution_friction": {
+          "type": "integer"
+        },
+        "instrument_z": {
+          "type": "integer"
+        },
+        "liquidity_state": {
+          "type": "integer"
+        },
+        "mediator_fill_quality": {
+          "type": "integer"
+        },
+        "negative_control_exposure": {
+          "type": "integer"
+        },
+        "negative_control_outcome": {
+          "type": "integer"
+        },
+        "outcome_proxy": {
+          "type": "integer"
+        },
+        "structure_state": {
+          "type": "integer"
+        },
+        "treatment_proxy": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "context_state",
+        "execution_friction",
+        "instrument_z",
+        "liquidity_state",
+        "mediator_fill_quality",
+        "negative_control_exposure",
+        "negative_control_outcome",
+        "outcome_proxy",
+        "structure_state",
+        "treatment_proxy"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "acyclic_required",
+    "exact_version",
+    "forbidden_edges",
+    "latent_edges_sensitivity_only",
+    "max_parents",
+    "negative_controls_disconnected_from_target",
+    "no_future_to_past",
+    "required_edges",
+    "temporal_tiers"
+  ],
+  "title": "GOLDEN_GRAPH_CONSTRAINTS",
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_competing_event_swap.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "mutated_causes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mutation_detected": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash_unchanged": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "source_causes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "kind",
+    "mutated_causes",
+    "mutation_detected",
+    "passed",
+    "phase",
+    "registry_hash_unchanged",
+    "report_hash",
+    "source_causes"
+  ],
+  "title": "GOLDEN_COMPETING_EVENT_SWAP",
+  "type": "object"
+}

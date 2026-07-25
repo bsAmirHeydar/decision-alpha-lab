@@ -1,0 +1,84 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_candidate_metrics.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "central_interval_coverage": {
+            "type": "number"
+          },
+          "central_interval_width": {
+            "type": "number"
+          },
+          "concordance_index": {
+            "type": "number"
+          },
+          "evaluation_rows": {
+            "type": "integer"
+          },
+          "integrated_brier_score": {
+            "type": "number"
+          },
+          "pinball_loss": {
+            "type": "number"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quantile_crossing_count": {
+            "type": "integer"
+          },
+          "reference_score": {
+            "type": "number"
+          },
+          "tail_exceedance_error": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "algorithm",
+          "candidate_id",
+          "central_interval_coverage",
+          "central_interval_width",
+          "concordance_index",
+          "evaluation_rows",
+          "integrated_brier_score",
+          "pinball_loss",
+          "production_eligible",
+          "quantile_crossing_count",
+          "reference_score",
+          "tail_exceedance_error"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "report_hash",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_CANDIDATE_METRICS",
+  "type": "object"
+}

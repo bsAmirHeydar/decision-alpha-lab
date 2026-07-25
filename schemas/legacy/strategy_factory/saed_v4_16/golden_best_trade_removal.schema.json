@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_best_trade_removal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "baseline_mean": {
+      "type": "number"
+    },
+    "best_trade_dependence_detected": {
+      "type": "boolean"
+    },
+    "delta": {
+      "type": "number"
+    },
+    "evaluation_count": {
+      "type": "integer"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "mean_after_best_trade_removal": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_mean",
+    "best_trade_dependence_detected",
+    "delta",
+    "evaluation_count",
+    "kind",
+    "mean_after_best_trade_removal",
+    "passed",
+    "phase",
+    "report_hash"
+  ],
+  "title": "GOLDEN_BEST_TRADE_REMOVAL",
+  "type": "object"
+}

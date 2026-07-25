@@ -1,9 +1,0 @@
-{
-  "expected_context_candidate_count": 321,
-  "expected_no_authority": true,
-  "expected_source_digest": "sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f",
-  "expected_source_path": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
-  "fixture_id": "LCM08A_REFERENCE_PILOT_FIXTURE_V1",
-  "schema_version": "1.0.0",
-  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1"
-}

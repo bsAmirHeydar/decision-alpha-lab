@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "type": "string"
+    },
+    "external_weights_used": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_evidence": {
+      "type": "boolean"
+    },
+    "protected_evidence_used": {
+      "type": "boolean"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "real_data_used": {
+      "type": "boolean"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "upstream_fusion_hash": {
+      "type": "string"
+    },
+    "upstream_handoff_hash": {
+      "type": "string"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "upstream_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoint_registry_hash",
+    "dataset_hash",
+    "evidence_class",
+    "external_weights_used",
+    "phase",
+    "production_evidence",
+    "protected_evidence_used",
+    "provenance_hash",
+    "provenance_id",
+    "real_data_used",
+    "tournament_hash",
+    "upstream_fusion_hash",
+    "upstream_handoff_hash",
+    "upstream_phase",
+    "upstream_registry_hash"
+  ],
+  "title": "PROVENANCE",
+  "type": "object"
+}

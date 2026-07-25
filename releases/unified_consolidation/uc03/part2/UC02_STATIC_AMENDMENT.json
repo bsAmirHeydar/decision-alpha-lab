@@ -1,0 +1,32 @@
+{
+  "amended_paths": [
+    {
+      "path": "policies/platform/root_and_package_guard.yaml",
+      "sha256": "1637fc511a4fbb7d7c1395db2d476d6a9f08d1a5cb153a516f794547b0c7b366"
+    },
+    {
+      "path": "tests/consolidation/uc02/test_classification.py",
+      "sha256": "f33d84fa20cfc12ae1f6dc76e136bf68458460a54c21217dcd1c0ad440734ce8"
+    },
+    {
+      "path": "tools/consolidation/uc02/classification.py",
+      "sha256": "3fd20a597b9241b06f590dc19387346a05586381beff6e6b8adf49c546054066"
+    },
+    {
+      "path": "tools/consolidation/uc02/guard.py",
+      "sha256": "6429937d435927721d4ca367c209b901259a4744c927d1818cb56ea98634997e"
+    },
+    {
+      "path": "tools/consolidation/uc02/verify.py",
+      "sha256": "1c7965ab205622a048660f7edef6e1e58b785474a22996029cdff10a77c11d56"
+    }
+  ],
+  "deletion_authority": false,
+  "part_id": "UC03-P2",
+  "program_id": "UCPS",
+  "reason": "Bounded physical-relocation amendment generated from the runtime checkout.",
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "upstream_stage": "UC-02"
+}

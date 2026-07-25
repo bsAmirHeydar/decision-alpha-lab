@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_candidate_checkpoints.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "checkpoint_hash": {
+        "type": "string"
+      },
+      "checkpoint_id": {
+        "type": "string"
+      },
+      "claim_tier": {
+        "type": "string"
+      },
+      "dr_value": {
+        "type": "number"
+      },
+      "lower_bound": {
+        "type": "number"
+      },
+      "phase": {
+        "type": "string"
+      },
+      "policy_id": {
+        "type": "string"
+      },
+      "promotion_authority": {
+        "type": "boolean"
+      },
+      "research_only": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "checkpoint_hash",
+      "checkpoint_id",
+      "claim_tier",
+      "dr_value",
+      "lower_bound",
+      "phase",
+      "policy_id",
+      "promotion_authority",
+      "research_only"
+    ],
+    "type": "object"
+  },
+  "title": "GOLDEN_CANDIDATE_CHECKPOINTS",
+  "type": "array"
+}

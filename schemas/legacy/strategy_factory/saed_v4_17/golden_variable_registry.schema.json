@@ -1,0 +1,84 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_variable_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "environment_id": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "latent_variables_claimable": {
+      "type": "boolean"
+    },
+    "outcome_proxy_id": {
+      "type": "string"
+    },
+    "treatment_proxy_id": {
+      "type": "string"
+    },
+    "variables": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "known_time_rule": {
+            "type": "string"
+          },
+          "manipulable": {
+            "type": "boolean"
+          },
+          "measurement_unit": {
+            "type": "string"
+          },
+          "negative_control": {
+            "type": "boolean"
+          },
+          "observed": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "temporal_tier": {
+            "type": "integer"
+          },
+          "variable_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "known_time_rule",
+          "manipulable",
+          "measurement_unit",
+          "negative_control",
+          "observed",
+          "role",
+          "temporal_tier",
+          "variable_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "environment_id",
+    "exact_version",
+    "frozen",
+    "known_time_only",
+    "latent_variables_claimable",
+    "outcome_proxy_id",
+    "treatment_proxy_id",
+    "variables"
+  ],
+  "title": "GOLDEN_VARIABLE_REGISTRY",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_hidden_confounder_sensitivity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "base_association_score": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "robustness_claim_allowed": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjusted_association_score": {
+            "type": "number"
+          },
+          "confounder_strength": {
+            "type": "number"
+          },
+          "identification_survives": {
+            "type": "boolean"
+          },
+          "magnitude_retained_fraction": {
+            "type": "number"
+          },
+          "sign_preserved": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "adjusted_association_score",
+          "confounder_strength",
+          "identification_survives",
+          "magnitude_retained_fraction",
+          "sign_preserved"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "base_association_score",
+    "phase",
+    "report_hash",
+    "robustness_claim_allowed",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_HIDDEN_CONFOUNDER_SENSITIVITY",
+  "type": "object"
+}

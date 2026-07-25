@@ -1,0 +1,123 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_synthetic_ground_truth.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "benchmark_only": {
+      "type": "boolean"
+    },
+    "ground_truth_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "potential_outcomes": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "true_effects_vs_baseline": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "true_propensities": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "potential_outcomes",
+          "row_id",
+          "true_effects_vs_baseline",
+          "true_propensities"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selectable": {
+      "type": "boolean"
+    },
+    "visible_to_estimators": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "benchmark_only",
+    "ground_truth_hash",
+    "phase",
+    "rows",
+    "selectable",
+    "visible_to_estimators"
+  ],
+  "title": "GOLDEN_SYNTHETIC_GROUND_TRUTH",
+  "type": "object"
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_future_suffix_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "audit_type": {
+      "type": "string"
+    },
+    "differential_external_replay_required": {
+      "type": "boolean"
+    },
+    "folds": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evaluation_min": {
+            "type": "integer"
+          },
+          "fold_id": {
+            "type": "string"
+          },
+          "future_suffix_rows": {
+            "type": "integer"
+          },
+          "future_suffix_rows_in_evaluation": {
+            "type": "integer"
+          },
+          "future_suffix_rows_in_training": {
+            "type": "integer"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "train_max": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "evaluation_min",
+          "fold_id",
+          "future_suffix_rows",
+          "future_suffix_rows_in_evaluation",
+          "future_suffix_rows_in_training",
+          "passed",
+          "train_max"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_type",
+    "differential_external_replay_required",
+    "folds",
+    "passed",
+    "phase",
+    "report_hash"
+  ],
+  "title": "GOLDEN_FUTURE_SUFFIX_AUDIT",
+  "type": "object"
+}

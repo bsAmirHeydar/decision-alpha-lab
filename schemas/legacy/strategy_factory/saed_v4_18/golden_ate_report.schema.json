@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_ate_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "baseline_treatment_id": {
+      "type": "string"
+    },
+    "effects": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "estimand": {
+            "type": "string"
+          },
+          "estimate": {
+            "type": "number"
+          },
+          "lower_95": {
+            "type": "number"
+          },
+          "row_count": {
+            "type": "integer"
+          },
+          "standard_error": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          },
+          "upper_95": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "estimand",
+          "estimate",
+          "lower_95",
+          "row_count",
+          "standard_error",
+          "treatment_id",
+          "upper_95"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "estimator": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_treatment_id",
+    "effects",
+    "estimator",
+    "phase",
+    "report_hash",
+    "synthetic_only"
+  ],
+  "title": "GOLDEN_ATE_REPORT",
+  "type": "object"
+}

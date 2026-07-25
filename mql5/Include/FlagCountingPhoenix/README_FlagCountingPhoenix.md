@@ -705,7 +705,7 @@ with `FLAG_COUNTING_CURRENT_CANON.md`.
 
 Phoenix now includes `FP_StaticQaTypes.mqh`, `FP_StaticQaRules.mqh`, `FP_StaticQaAudit.mqh`, and `FP_StaticQaEngine.mqh`. Level 18 runs after Level 17 decision lock and before `FP_SUMMARY`, emits `FP_LEVEL18`, and can optionally write `latest_static_qa.csv`.
 
-This layer is read-only. It checks final runtime contracts, identity pass, interface contract version, partition consistency, counter sanity, report alignment, and I/O error state. Source-side checks that MQL cannot do internally are handled by `tools/flag_counting/static_qa.py`.
+This layer is read-only. It checks final runtime contracts, identity pass, interface contract version, partition consistency, counter sanity, report alignment, and I/O error state. Source-side checks that MQL cannot do internally are handled by `contexts/legacy/tools/flag_counting/static_qa.py`.
 
 
 ## Debug lock: F2/F3 child-start chronology
@@ -719,7 +719,7 @@ F2 and F3 follow the child-start rule: only Origin is backfilled into the parent
 `FlagCountingPhoenixExperiment.mq5` now includes an offline fail-closed runtime gate before Level 01. The issuer generates a bundle with:
 
 ```powershell
-python tools/flag_counting/offline_license_keygen.py --account <LOGIN> --server "<SERVER>" --expires <YYYYMMDD>
+python contexts/legacy/tools/flag_counting/offline_license_keygen.py --account <LOGIN> --server "<SERVER>" --expires <YYYYMMDD>
 ```
 
 The recipient fills the neutral-looking runtime fields:

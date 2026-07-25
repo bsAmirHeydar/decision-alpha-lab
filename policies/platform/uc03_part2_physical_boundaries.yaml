@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-03
+part_id: UC03-P2
+production_root: src/engine
+context_root: contexts
+active_test_root: tests
+mql5_root: mql5
+legacy_namespace_required: true
+compatibility_window:
+  python_bootstrap: sitecustomize.py
+  tool_namespace_shims: true
+  removal_stage: UC-07
+forbidden_authority:
+  semantic_merge: true
+  deletion: true
+  runtime: true
+  order: true
+  capital: true
+exit:
+  authorizes: UC03-P3
+  does_not_authorize: UC-04

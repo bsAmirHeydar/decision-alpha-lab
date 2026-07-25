@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/negative_vectors.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "vectors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_directive": {
+            "type": "string"
+          },
+          "expected_error": {
+            "type": "string"
+          },
+          "mutation": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_error",
+          "mutation",
+          "name",
+          "expected_directive"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "vectors"
+  ],
+  "title": "negative_vectors",
+  "type": "object"
+}

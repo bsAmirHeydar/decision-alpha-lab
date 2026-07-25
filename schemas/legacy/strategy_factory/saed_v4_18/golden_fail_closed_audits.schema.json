@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_fail_closed_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "case_count": {
+      "type": "integer"
+    },
+    "cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "case": {
+            "type": "string"
+          },
+          "directive": {
+            "type": "string"
+          },
+          "mutation": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "case",
+          "directive",
+          "mutation",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_count",
+    "cases",
+    "passed",
+    "phase",
+    "report_hash"
+  ],
+  "title": "GOLDEN_FAIL_CLOSED_AUDITS",
+  "type": "object"
+}

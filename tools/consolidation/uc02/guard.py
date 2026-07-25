@@ -32,6 +32,8 @@ def _package_key(path: str) -> str:
         return path
     if parts[0] == "lab" and len(parts) >= 4 and parts[1] == "11_strategy_factory" and parts[2] == "python":
         return "/".join(parts[:4])
+    if len(parts) >= 4 and parts[:3] == ("src", "engine", "packages"):
+        return "/".join(parts[:4])
     if parts[0] == "tools" and len(parts) >= 3:
         return "/".join(parts[:3])
     if parts[0] in {"src", "contexts", "adapters", "mql5", "tests", "docs", "registry", "policies", "contracts", "schemas", "releases"}:
@@ -64,9 +66,12 @@ def run_guard(repo_root: Path, *, require_authority_package: bool = False, recei
     current_packages = {_package_key(path) for path in current_paths}
 
     allowed_top_levels = set(policy.get("future_allowed_top_level_roots", []))
+    allowed_root_files = set(policy.get("allowed_new_root_files", []))
     new_root_files = sorted(current_root_files - baseline_root_files)
     forbidden_patterns = list(policy.get("forbidden_new_root_patterns", []))
     for path in new_root_files:
+        if path in allowed_root_files:
+            continue
         if any(fnmatch.fnmatch(path, pattern) for pattern in forbidden_patterns):
             errors.append(f"forbidden new root release artifact: {path}")
         else:
@@ -78,10 +83,25 @@ def run_guard(repo_root: Path, *, require_authority_package: bool = False, recei
 
     parallel_patterns = list(policy.get("forbidden_new_parallel_engine_patterns", []))
     allowed_tool_roots = set(policy.get("allowed_new_tool_roots", []))
+    authorized_relocated_packages: set[str] = set()
+    part2_receipt = repo_root / "registry/consolidation/uc03/part2/code_relocation_receipt.json"
+    if part2_receipt.is_file():
+        try:
+            receipt = read_json(part2_receipt)
+            if receipt.get("status") == "PASS" and receipt.get("part_id") == "UC03-P2":
+                authorized_relocated_packages = {
+                    _package_key(str(row.get("destination", "")))
+                    for row in receipt.get("relocations", [])
+                    if row.get("destination")
+                }
+        except Exception as exc:
+            errors.append(f"invalid UC-03 Part 2 relocation receipt: {exc}")
     for package in sorted(current_packages - baseline_packages):
         leaf = PurePosixPath(package).name
         normalized = package.lower()
-        if package.startswith(tuple(allowed_tool_roots)):
+        if package in authorized_relocated_packages:
+            continue
+        if allowed_tool_roots and package.startswith(tuple(allowed_tool_roots)):
             continue
         if any(fnmatch.fnmatch(leaf.lower(), pattern.lower()) for pattern in parallel_patterns):
             errors.append(f"forbidden new parallel engine package: {package}")

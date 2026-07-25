@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_frontdoor_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "candidate_mediators": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "frontdoor_candidate_exists": {
+      "type": "boolean"
+    },
+    "frontdoor_identification_claim_allowed": {
+      "type": "boolean"
+    },
+    "outcome_proxy_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "treatment_proxy_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "candidate_mediators",
+    "frontdoor_candidate_exists",
+    "frontdoor_identification_claim_allowed",
+    "outcome_proxy_id",
+    "phase",
+    "reason",
+    "treatment_proxy_id"
+  ],
+  "title": "GOLDEN_FRONTDOOR_AUDIT",
+  "type": "object"
+}

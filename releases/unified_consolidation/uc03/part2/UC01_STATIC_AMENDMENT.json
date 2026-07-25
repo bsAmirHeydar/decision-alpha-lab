@@ -1,0 +1,20 @@
+{
+  "amended_paths": [
+    {
+      "path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/10_EXECUTION_RECORDS/13_Baseline_Stabilization_Repair_Record.md",
+      "sha256": "044436c8f0cb60733411b70368a9aa18f35ad4f7effa574706d1a77c41bf63f9"
+    },
+    {
+      "path": "tools/consolidation/uc01/verify.py",
+      "sha256": "6ed5856222bf9fabb0b6d3d80803edd012cb78a905ecd3d756e629be48db2246"
+    }
+  ],
+  "deletion_authority": false,
+  "part_id": "UC03-P2",
+  "program_id": "UCPS",
+  "reason": "Bounded physical-relocation amendment generated from the runtime checkout.",
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "upstream_stage": "UC-01"
+}

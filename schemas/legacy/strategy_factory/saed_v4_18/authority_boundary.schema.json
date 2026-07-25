@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "forbidden_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "production_treatment_ranking_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "real_causal_claim_authority": {
+      "type": "boolean"
+    },
+    "research_reference_only": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_operations",
+    "claim_ceiling",
+    "decision_authority",
+    "execution_authority",
+    "forbidden_operations",
+    "phase",
+    "production_authority",
+    "production_treatment_ranking_authority",
+    "promotion_authority",
+    "real_causal_claim_authority",
+    "research_reference_only",
+    "runtime_authority"
+  ],
+  "title": "AUTHORITY_BOUNDARY",
+  "type": "object"
+}

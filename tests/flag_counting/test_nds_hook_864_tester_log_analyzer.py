@@ -5,7 +5,7 @@ import sys
 import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
-PATH=ROOT/'tools/flag_counting/analyze_nds_hook_864_tester_log.py'
+PATH=ROOT/'contexts/legacy/tools/flag_counting/analyze_nds_hook_864_tester_log.py'
 spec=importlib.util.spec_from_file_location('nds_hook_864_log',PATH)
 assert spec and spec.loader
 m=importlib.util.module_from_spec(spec); sys.modules[spec.name]=m; spec.loader.exec_module(m)

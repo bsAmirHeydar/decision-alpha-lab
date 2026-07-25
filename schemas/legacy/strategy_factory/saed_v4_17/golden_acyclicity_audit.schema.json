@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_acyclicity_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "audit_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "topological_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "acyclic",
+    "audit_hash",
+    "candidate_id",
+    "edge_count",
+    "node_count",
+    "passed",
+    "phase",
+    "topological_order"
+  ],
+  "title": "GOLDEN_ACYCLICITY_AUDIT",
+  "type": "object"
+}

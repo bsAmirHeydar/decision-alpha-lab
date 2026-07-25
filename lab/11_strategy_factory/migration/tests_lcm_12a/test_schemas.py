@@ -1,4 +1,0 @@
-from pathlib import Path
-from tools.strategy_factory.lcm.lcm_12a.schema_validation import validate_schemas
-ROOT=Path(__file__).resolve().parents[4]
-def test_schemas_are_valid():assert validate_schemas(ROOT/'registry/legacy_context_migration/lcm_12a/schemas/v1')==[]

@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 // Level 18 is the post-ladder compile/static QA guard. It is read-only and runs
 // after Level 17. Runtime checks are paired with the repository-side Python
-// scanner in tools/flag_counting/static_qa.py.
+// scanner in contexts/legacy/tools/flag_counting/static_qa.py.
 // ============================================================================
 
 #define FP_STATIC_QA_CONTRACT_VERSION "18.00"

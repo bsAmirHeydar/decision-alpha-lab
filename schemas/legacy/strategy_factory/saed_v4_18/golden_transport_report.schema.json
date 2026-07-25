@@ -1,0 +1,85 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_transport_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "environment_count": {
+      "type": "integer"
+    },
+    "environments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "environment_id": {
+            "type": "string"
+          },
+          "row_count": {
+            "type": "integer"
+          },
+          "values": {
+            "additionalProperties": false,
+            "properties": {
+              "policy_conservative_lcb": {
+                "type": "number"
+              },
+              "policy_fixed_a": {
+                "type": "number"
+              },
+              "policy_fixed_b": {
+                "type": "number"
+              },
+              "policy_fixed_manual": {
+                "type": "number"
+              },
+              "policy_manual_rule": {
+                "type": "number"
+              },
+              "policy_skip_all": {
+                "type": "number"
+              },
+              "policy_uplift_argmax": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "policy_conservative_lcb",
+              "policy_fixed_a",
+              "policy_fixed_b",
+              "policy_fixed_manual",
+              "policy_manual_rule",
+              "policy_skip_all",
+              "policy_uplift_argmax"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "environment_id",
+          "row_count",
+          "values"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "transport_claim": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "environment_count",
+    "environments",
+    "phase",
+    "report_hash",
+    "transport_claim"
+  ],
+  "title": "GOLDEN_TRANSPORT_REPORT",
+  "type": "object"
+}

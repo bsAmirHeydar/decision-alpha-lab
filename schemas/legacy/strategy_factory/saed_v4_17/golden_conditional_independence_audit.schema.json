@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_conditional_independence_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "test_count": {
+      "type": "integer"
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "conditioning_set": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "partial_correlation": {
+            "type": "number"
+          },
+          "raw_correlation": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conditioning_set",
+          "independent",
+          "partial_correlation",
+          "raw_correlation",
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "report_hash",
+    "test_count",
+    "tests"
+  ],
+  "title": "GOLDEN_CONDITIONAL_INDEPENDENCE_AUDIT",
+  "type": "object"
+}

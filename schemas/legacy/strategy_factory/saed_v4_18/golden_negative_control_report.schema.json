@@ -1,0 +1,104 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_negative_control_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "maximum_absolute_value": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_values": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "direct_method_value": {
+            "type": "number"
+          },
+          "dr_value": {
+            "type": "number"
+          },
+          "effective_sample_size": {
+            "type": "number"
+          },
+          "incremental_dr_vs_baseline": {
+            "type": "number"
+          },
+          "incremental_lcb_vs_baseline": {
+            "type": "number"
+          },
+          "ipw_value": {
+            "type": "number"
+          },
+          "lower_95": {
+            "type": "number"
+          },
+          "lower_tail_cvar_10": {
+            "type": "number"
+          },
+          "matched_rows": {
+            "type": "integer"
+          },
+          "multiplicity_adjusted_lower": {
+            "type": "number"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "row_count": {
+            "type": "integer"
+          },
+          "standard_error": {
+            "type": "number"
+          },
+          "support_rate": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "direct_method_value",
+          "dr_value",
+          "effective_sample_size",
+          "incremental_dr_vs_baseline",
+          "incremental_lcb_vs_baseline",
+          "ipw_value",
+          "lower_95",
+          "lower_tail_cvar_10",
+          "matched_rows",
+          "multiplicity_adjusted_lower",
+          "policy_id",
+          "row_count",
+          "standard_error",
+          "support_rate"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "test": {
+      "type": "string"
+    },
+    "threshold": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "maximum_absolute_value",
+    "passed",
+    "phase",
+    "policy_values",
+    "report_hash",
+    "test",
+    "threshold"
+  ],
+  "title": "GOLDEN_NEGATIVE_CONTROL_REPORT",
+  "type": "object"
+}

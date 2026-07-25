@@ -1,0 +1,173 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/v4_16_to_v4_17_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "assert_causality": {
+          "type": "boolean"
+        },
+        "build_reference_causal_mechanism_discovery": {
+          "type": "boolean"
+        },
+        "mutate_v4_16_evidence": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_distributional_survival_tail_evidence": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "sign_promotion": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "assert_causality",
+        "build_reference_causal_mechanism_discovery",
+        "mutate_v4_16_evidence",
+        "rank_treatments",
+        "read_frozen_distributional_survival_tail_evidence",
+        "select_treatment",
+        "send_order",
+        "sign_promotion"
+      ],
+      "type": "object"
+    },
+    "censoring_policy_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "censoring_audited": {
+          "type": "boolean"
+        },
+        "competing_risk_simplex_verified": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "distribution_calibration_bounded": {
+          "type": "boolean"
+        },
+        "event_registry_frozen": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_dataset_passed": {
+          "type": "boolean"
+        },
+        "quantile_crossing_eliminated": {
+          "type": "boolean"
+        },
+        "tail_stress_suite_passed": {
+          "type": "boolean"
+        },
+        "upstream_v4_15_binding_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "censoring_audited",
+        "competing_risk_simplex_verified",
+        "deterministic_replay_passed",
+        "distribution_calibration_bounded",
+        "event_registry_frozen",
+        "future_suffix_forbidden",
+        "known_time_dataset_passed",
+        "quantile_crossing_eliminated",
+        "tail_stress_suite_passed",
+        "upstream_v4_15_binding_verified"
+      ],
+      "type": "object"
+    },
+    "event_definition_registry_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "survival_dataset_hash": {
+      "type": "string"
+    },
+    "tail_calibration_report_hash": {
+      "type": "string"
+    },
+    "time_calibration_report_hash": {
+      "type": "string"
+    },
+    "upstream_v4_15_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "censoring_policy_hash",
+    "entry_gates",
+    "event_definition_registry_hash",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "model_checkpoint_registry_hash",
+    "next_phase",
+    "phase",
+    "reference_champion_id",
+    "survival_dataset_hash",
+    "tail_calibration_report_hash",
+    "time_calibration_report_hash",
+    "upstream_v4_15_handoff_hash"
+  ],
+  "title": "V4_16_TO_V4_17_HANDOFF",
+  "type": "object"
+}

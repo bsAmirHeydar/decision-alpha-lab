@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/reference_model_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "calibration_split_only": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "horizons_seconds": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "interval_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "min_tail_effective_samples": {
+      "type": "integer"
+    },
+    "monotone_quantiles": {
+      "type": "boolean"
+    },
+    "preserve_empirical_baseline": {
+      "type": "boolean"
+    },
+    "quantiles": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "separate_zero_mass": {
+      "type": "boolean"
+    },
+    "tail_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "calibration_split_only",
+    "exact_version",
+    "horizons_seconds",
+    "interval_levels",
+    "min_tail_effective_samples",
+    "monotone_quantiles",
+    "preserve_empirical_baseline",
+    "quantiles",
+    "separate_zero_mass",
+    "tail_levels"
+  ],
+  "title": "reference_model_config",
+  "type": "object"
+}

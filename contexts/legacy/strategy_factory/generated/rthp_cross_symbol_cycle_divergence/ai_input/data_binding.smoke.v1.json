@@ -1,0 +1,19 @@
+{
+  "alpha_claim_allowed": false,
+  "binding_digest": "f308ebe0307f145fbf285846d097caa6623254d51f0fac016a14b548be7d05d5",
+  "binding_id": "RTHP_AI_DATA_BINDING_SMOKE_V1",
+  "binding_status": "RESOLVED_SMOKE_ONLY",
+  "package_id": "rthp.cross_symbol_cycle_divergence",
+  "package_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "artifact_uri": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/fixtures/rthp_ai_smoke_records.jsonl",
+      "content_hash": "92894126fdd02a825cc43aa950e2ccb81a40c7c846ed5a851dc7d3655a481042",
+      "known_time_field": "known_time_ms",
+      "required": true,
+      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
+      "source_id": "RTHP_SMOKE_OCCURRENCES"
+    }
+  ]
+}

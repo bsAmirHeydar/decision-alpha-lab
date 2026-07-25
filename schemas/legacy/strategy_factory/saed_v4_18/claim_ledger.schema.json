@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/claim_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "allowed_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "forbidden_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_claims",
+    "forbidden_claims",
+    "phase"
+  ],
+  "title": "CLAIM_LEDGER",
+  "type": "object"
+}

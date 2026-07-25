@@ -1,0 +1,559 @@
+{
+  "authority": {
+    "broker_authority": false,
+    "execution_authority": false,
+    "network_authority": false,
+    "shared_core_mutation": false
+  },
+  "context_id": "FP-CONTEXT-001",
+  "decision_freeze": {
+    "open_decisions": {
+      "context_id": "FP-CONTEXT-001",
+      "open_decisions": [
+        {
+          "allowed_options": [
+            "PLAN_CREATED",
+            "ORDER_ATTEMPTED",
+            "ORDER_ACCEPTED",
+            "FILLED",
+            "TWO_STAGE"
+          ],
+          "canonical_live_behavior": "DISABLED_UNTIL_FROZEN",
+          "decision_id": "FP-DEC-012",
+          "documentation": "39_QUOTA_CONSUMPTION_EXPLAINER_AND_OPEN_DECISION.md",
+          "status": "open",
+          "topic": "quota_consumption_moment"
+        }
+      ],
+      "schema_version": "2.0.0"
+    },
+    "open_decisions_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_open_decisions.v2.json",
+    "open_decisions_sha256": "8865c4c2d02825d32605caacf10c85f725091bf5d5e610ce3dfb89e3b372c098",
+    "owner_decisions": {
+      "context_id": "FP-CONTEXT-001",
+      "decision_set_id": "FP-OWNER-DECISIONS-2026-07-13-V2",
+      "decisions": [
+        {
+          "canonical_policy": "CALENDAR_DAY_DEPTH",
+          "decision_id": "FP-DEC-001",
+          "normative_interpretation": "Count exact calendar-day offsets; weekends and missing-data days occupy offsets and are not replaced by older valid sessions.",
+          "owner_option": "A",
+          "question": "N lookback counting",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "ALLOW_UNTIL_PROTECTED_TOUCH",
+          "decision_id": "FP-DEC-002",
+          "normative_interpretation": "A reference side remains eligible across later check windows until the protected symbol touches that same side; hunter touch alone does not globally consume it.",
+          "owner_option": "B",
+          "question": "Reference reuse across later stages",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "STRICT_SAME_SESSION_CLOSE",
+          "decision_id": "FP-DEC-003",
+          "normative_interpretation": "The confirmation candle must close inside the owning check session; otherwise the candidate expires and is never transferred to the next session.",
+          "owner_option": "B",
+          "question": "Confirmation crossing session boundary",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "M1_ONLY",
+          "decision_id": "FP-DEC-004",
+          "normative_interpretation": "Historical and live first-sweep ordering use M1 only; ticks do not change the canonical winner.",
+          "owner_option": "A",
+          "question": "First-sweep time authority",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "HOST_CHART_TIMEFRAME_RESOLVED_AT_INIT",
+          "decision_id": "FP-DEC-005",
+          "normative_interpretation": "Use the current chart timeframe, resolve it at initialization, and include the resolved timeframe in configuration and signal identity.",
+          "owner_option": "A",
+          "question": "Confirmation timeframe",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700",
+          "decision_id": "FP-DEC-006",
+          "normative_interpretation": "Build weekly windows in America/New_York time from Sunday 18:00 inclusive to Friday 17:00 exclusive, DST-aware and broker-independent.",
+          "owner_option": "B",
+          "question": "Weekly window boundary",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH",
+          "decision_id": "FP-DEC-007",
+          "normative_interpretation": "A previously asymmetric weekly context becomes neutralized when the second symbol touches the corresponding weekly side; historical evidence is retained.",
+          "owner_option": "C",
+          "question": "WW lifecycle neutralization",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "WW_GATE_AND_TRADEABLE_SETUP",
+          "decision_id": "FP-DEC-008",
+          "normative_interpretation": "WW is both a directional gate for lower relations and an independently executable setup, subject to the same risk, quota, and geometry controls.",
+          "owner_option": "B",
+          "question": "WW tradeability",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW",
+          "decision_id": "FP-DEC-009",
+          "normative_interpretation": "When weekly data is valid but no active WW exists, both directions are permitted. Missing weekly data remains a distinct fail-closed data state.",
+          "owner_option": "A",
+          "question": "No active WW behavior",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "NEWEST_ACTIVE_CONFIRMED_WW_WINS",
+          "decision_id": "FP-DEC-010",
+          "normative_interpretation": "The most recently confirmed, still-active WW controls direction. Older opposite WW events remain in the ledger but are not the active gate.",
+          "owner_option": "B",
+          "question": "Opposing WW conflict",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION",
+          "decision_id": "FP-DEC-011",
+          "normative_interpretation": "Across the two symbols and all relations, only the first eligible entry in each A/L/N session may proceed.",
+          "owner_option": "A",
+          "question": "Session quota scope",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "OPEN_QUOTA_CONSUMPTION_MOMENT",
+          "decision_id": "FP-DEC-012",
+          "normative_interpretation": "Owner requested clarification. Detection, drawing, arbitration, and reservation can be implemented; permanent quota consumption for live execution must remain configurable or disabled until frozen.",
+          "owner_option": "UNANSWERED",
+          "question": "Quota consumption moment",
+          "status": "OPEN_DECISION"
+        },
+        {
+          "canonical_policy": "EARLIEST_HUNT_M1_TIME_WINS",
+          "decision_id": "FP-DEC-013",
+          "normative_interpretation": "The primary winner is the candidate with the earliest canonical M1 hunt time. Stable technical tie-breaks apply only when hunt timestamps are equal.",
+          "owner_option": "A",
+          "question": "Simultaneous signal priority",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "SELL_STOP_PLUS_ONE_SPREAD",
+          "decision_id": "FP-DEC-014",
+          "normative_interpretation": "For SELL trades, protective stop equals the raw structural stop plus one contemporaneous spread snapshot; risk sizing uses the adjusted stop distance.",
+          "owner_option": "B",
+          "question": "SELL stop spread adjustment",
+          "status": "OWNER_CONFIRMED"
+        },
+        {
+          "canonical_policy": "ALWAYS_DRAW_WITH_DISTINCT_STYLE",
+          "decision_id": "FP-DEC-015",
+          "normative_interpretation": "Signals suppressed by WW, quota, data state, or execution eligibility remain visible with distinct color/opacity/style and explicit reason codes.",
+          "owner_option": "B",
+          "question": "Suppressed signal drawing",
+          "status": "OWNER_CONFIRMED"
+        }
+      ],
+      "open_decision_ids": [
+        "FP-DEC-012"
+      ],
+      "schema_version": "2.0.0",
+      "source_language": "fa"
+    },
+    "owner_decisions_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_owner_decisions.v2.json",
+    "owner_decisions_sha256": "c6bc86b6adaeaced109c23efd5125d739f1a9c52eb061d6307b3a1b9f5fb3f26"
+  },
+  "documentation_freeze": {
+    "aggregate_sha256": "5ca3d87dee6db1ec4fc03ff0cfc85ac7fbc28275d050f2ffaddf3ae251b6c54b",
+    "file_count": 861,
+    "root": "docs/execution/EXP0019_faerie_protocol_contextual_divergence"
+  },
+  "experiment_id": "EXP0019",
+  "implementation_program": {
+    "path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
+    "program_id": "FP-IMP-001",
+    "program_version": "1.0.0",
+    "sha256": "6456069bdd4886de0577855563fff7e80d4e62e92301fd5d3f79c84636775cc7"
+  },
+  "manifest_hash": "48702831d99fd4b5c73f3e5cdecce762d08c29bf101429499d0c3b3e9da896ec",
+  "next_phase": "FP-I01",
+  "open_decision_ids": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I00",
+  "phase_ownership": [
+    {
+      "mutation_policy": "OWNED",
+      "owner_phase": "FP-I00",
+      "ownership_class": "GOVERNANCE_CODE_AND_EVIDENCE",
+      "path_prefix": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "mutation_policy": "OWNED",
+      "owner_phase": "FP-I00",
+      "ownership_class": "OBSIDIAN_PHASE_DELIVERY",
+      "path_prefix": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "mutation_policy": "OWNED",
+      "owner_phase": "FP-I00",
+      "ownership_class": "ATOMIC_CONCEPTS",
+      "path_prefix": "docs/obsidian_deep/01_concepts/EXP0019_FP_I00_",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "mutation_policy": "OWNED",
+      "owner_phase": "FP-I00",
+      "ownership_class": "ROOT_RELEASE_METADATA",
+      "path_prefix": "EXP0019_FP_I00_",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    }
+  ],
+  "phase_version": "1.0.0",
+  "previous_context_tests": [
+    {
+      "compile_required": true,
+      "context_id": "EXP0017",
+      "execution_command": "MetaEditor compile EXP0017_CG_Time_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Time_Anatomy.mq5",
+      "test_id": "EXP0017_CGT_TIME_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0017",
+      "execution_command": "MetaEditor compile EXP0017_CG_Reference_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Reference_Anatomy.mq5",
+      "test_id": "EXP0017_CGR_REFERENCE_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0017",
+      "execution_command": "MetaEditor compile EXP0017_CG_Hunt_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Hunt_Anatomy.mq5",
+      "test_id": "EXP0017_CGH_HUNT_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0017",
+      "execution_command": "MetaEditor compile EXP0017_CG_Divergence_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Divergence_Anatomy.mq5",
+      "test_id": "EXP0017_CGD_DIVERGENCE_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0017",
+      "execution_command": "MetaEditor compile EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+      "test_id": "EXP0017_CGV_VISUAL_LEDGER",
+      "test_type": "MQL5_DIAGNOSTIC"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Time_Foundation.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_TimeSelfTest.mqh",
+      "test_id": "EXP0018_TIME_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Data_Sync_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_DataSelfTest.mqh",
+      "test_id": "EXP0018_DATA_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Hunt_Observation_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_HuntSelfTest.mqh",
+      "test_id": "EXP0018_HUNT_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Close_Confirmation_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationSelfTest.mqh",
+      "test_id": "EXP0018_CONFIRMATION_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
+      "test_id": "EXP0018_LIFECYCLE_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": true,
+      "context_id": "EXP0018",
+      "execution_command": "Compile EXP0018_Daye_Historical_Replay_Anatomy.mq5",
+      "exists": false,
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ReplaySelfTest.mqh",
+      "test_id": "EXP0018_REPLAY_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST"
+    },
+    {
+      "compile_required": false,
+      "context_id": "EXP0018",
+      "execution_command": "python -m unittest contexts/legacy/infrastructure/exp0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
+      "exists": false,
+      "relative_path": "contexts/legacy/infrastructure/exp0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
+      "test_id": "EXP0018_PHASE00_PYTHON",
+      "test_type": "PYTHON"
+    }
+  ],
+  "relation_registry": {
+    "path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_relation_registry.v2.json",
+    "relation_count": 7,
+    "sha256": "598bbcc39e9f2a38d455da206decb5c6676c7d7a4ef8da8b6249d9b4fb3adb93"
+  },
+  "schema_version": "1.0.0",
+  "shared_dependencies": [
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGT_TIME_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I01",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGR_REFERENCE_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I01",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGH_HUNT_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I01",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGD_DIVERGENCE_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I01",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGC_CONFIRMATION_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I01",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGV_VISUAL_LEDGER_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "required_for_phase": "FP-I11",
+      "reuse_classification": "PATTERN_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "CGX_EXECUTION_RISK_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG/Execution",
+      "required_for_phase": "FP-I15",
+      "reuse_classification": "PATTERN_REUSE",
+      "semantic_owner": "EXP0017 Cycle Group Execution"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_TIME_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I03",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_DATA_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I04",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_PERIOD_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I05",
+      "reuse_classification": "PATTERN_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_RELATIONSHIP_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I06",
+      "reuse_classification": "PATTERN_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_HUNT_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I06",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_CONFIRMATION_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I07",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_LIFECYCLE_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I07",
+      "reuse_classification": "ADAPTER_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "DAYE_RENDER_REPLAY_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "required_for_phase": "FP-I11",
+      "reuse_classification": "PATTERN_REUSE",
+      "semantic_owner": "EXP0018 Daye"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "SF03_MARKET_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Market",
+      "required_for_phase": "FP-I04",
+      "reuse_classification": "DIRECT_REUSE",
+      "semantic_owner": "Strategy Factory Market"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "UCEI05_ECONOMICS_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Economics",
+      "required_for_phase": "FP-I15",
+      "reuse_classification": "DIRECT_REUSE",
+      "semantic_owner": "Strategy Factory Economics"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "SF17_PAPER_EXECUTION_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Execution",
+      "required_for_phase": "FP-I15",
+      "reuse_classification": "DIRECT_REUSE",
+      "semantic_owner": "Strategy Factory Execution"
+    },
+    {
+      "aggregate_sha256": "",
+      "dependency_id": "SF18_LIVE_SAFETY_CORE",
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
+      "mutation_allowed": false,
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Live",
+      "required_for_phase": "FP-I16",
+      "reuse_classification": "DIRECT_REUSE",
+      "semantic_owner": "Strategy Factory Live"
+    }
+  ],
+  "source_control": {
+    "branch": "UNAVAILABLE",
+    "changed_paths": [],
+    "clean": null,
+    "git_available": false,
+    "head_commit": "UNAVAILABLE",
+    "ignored_phase_changed_paths": [],
+    "mode": "ARCHIVE_OR_NON_GIT",
+    "phase_clean": null,
+    "remote_urls": [],
+    "unrelated_changed_paths": []
+  },
+  "source_freeze": {
+    "expected_source_count": 3,
+    "hash_contract_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/source_audit/SOURCE_HASHES.sha256",
+    "hash_contract_sha256": "9a82db73b7990a0e9c8bf100b309e1ee008d66ca08037b99b96b9b4e4f3a9a23"
+  }
+}

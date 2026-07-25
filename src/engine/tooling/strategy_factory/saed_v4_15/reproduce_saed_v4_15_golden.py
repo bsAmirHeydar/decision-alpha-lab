@@ -1,0 +1,10 @@
+from tools.repository_paths import find_repository_root
+from pathlib import Path
+import json,sys
+ROOT=find_repository_root(__file__);sys.path.insert(0,str(ROOT/'src/engine/packages'))
+from saed_v4_multimodal_fusion.service import build_reference_bundle
+load=lambda p:json.loads((ROOT/p).read_text(encoding='utf-8'))
+b=build_reference_bundle(load('releases/history/strategy_factory/artifacts/saed_v4_14/V4_14_TO_V4_15_HANDOFF.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_CHECKPOINT_REGISTRY.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_ADAPTER_FEATURES.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_TOKEN_SEQUENCE.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_CALIBRATION_REPORT.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_DOMAIN_SHIFT_REPORT.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_14/GOLDEN_TOURNAMENT.JSON'),load('releases/history/strategy_factory/artifacts/saed_v4_04/GOLDEN_MULTIMODAL_VIEW_PACKAGE.json'),load('releases/history/strategy_factory/artifacts/saed_v4_04/V4_04_TO_V4_05_HANDOFF.json'),load('examples/legacy/strategy_factory/saed_v4_15/reference_fusion_config.json'),load('examples/legacy/strategy_factory/saed_v4_15/reference_candidate_catalog.json'),load('examples/legacy/strategy_factory/saed_v4_15/reference_support_policy.json'),load('examples/legacy/strategy_factory/saed_v4_15/reference_missingness_policy.json'),load('examples/legacy/strategy_factory/saed_v4_15/reference_compute_exposure_budget.json'))
+checks={'aligned_view_set':'GOLDEN_ALIGNED_VIEW_SET.JSON','domain_subset_matrix':'GOLDEN_DOMAIN_SUBSET_MATRIX.JSON','foundation_subset_matrix':'GOLDEN_FOUNDATION_SUBSET_MATRIX.JSON','tournament':'GOLDEN_TOURNAMENT.JSON','checkpoint_registry':'GOLDEN_CHECKPOINT_REGISTRY.JSON','handoff':'V4_15_TO_V4_16_HANDOFF.JSON'}
+for k,f in checks.items():assert b[k]==load('releases/history/strategy_factory/artifacts/saed_v4_15/'+f),k
+print('SAED V4-15 deterministic golden reproduction passed')

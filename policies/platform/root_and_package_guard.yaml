@@ -8,6 +8,8 @@ order_authority: false
 broker_authority: false
 capital_authority: false
 root_target_max_files: 20
+allowed_new_root_files:
+- sitecustomize.py
 future_allowed_top_level_roots:
 - src
 - contexts

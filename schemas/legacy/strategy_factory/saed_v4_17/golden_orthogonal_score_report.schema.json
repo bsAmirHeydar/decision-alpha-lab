@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_orthogonal_score_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "causal_effect_claim_allowed": {
+      "type": "boolean"
+    },
+    "controls": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evaluation_rows": {
+      "type": "integer"
+    },
+    "lower_reference_bound": {
+      "type": "number"
+    },
+    "orthogonal_association_score": {
+      "type": "number"
+    },
+    "outcome_proxy_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "standard_error_reference": {
+      "type": "number"
+    },
+    "treatment_proxy_id": {
+      "type": "string"
+    },
+    "upper_reference_bound": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "causal_effect_claim_allowed",
+    "controls",
+    "evaluation_rows",
+    "lower_reference_bound",
+    "orthogonal_association_score",
+    "outcome_proxy_id",
+    "phase",
+    "production_eligible",
+    "report_hash",
+    "standard_error_reference",
+    "treatment_proxy_id",
+    "upper_reference_bound"
+  ],
+  "title": "GOLDEN_ORTHOGONAL_SCORE_REPORT",
+  "type": "object"
+}

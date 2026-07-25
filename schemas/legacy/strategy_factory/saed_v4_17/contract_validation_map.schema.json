@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/contract_validation_map.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "closed_contracts": {
+      "type": "boolean"
+    },
+    "contract_count": {
+      "type": "integer"
+    },
+    "contracts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "document": {
+            "type": "string"
+          },
+          "schema": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "document",
+          "schema"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "unknown_fields_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "closed_contracts",
+    "contract_count",
+    "contracts",
+    "phase",
+    "unknown_fields_forbidden"
+  ],
+  "title": "CONTRACT_VALIDATION_MAP",
+  "type": "object"
+}

@@ -1,9 +1,0 @@
-from pathlib import Path
-import json,sys
-ROOT=Path(__file__).resolve().parents[3];sys.path.insert(0,str(ROOT/'lab/11_strategy_factory/python'))
-from saed_v4_distributional_survival_tail.service import build_reference_bundle
-load=lambda p:json.loads((ROOT/p).read_text(encoding='utf-8'))
-b=build_reference_bundle(load('lab/11_strategy_factory/artifacts/saed_v4_15/V4_15_TO_V4_16_HANDOFF.JSON'),load('lab/11_strategy_factory/artifacts/saed_v4_15/GOLDEN_CHECKPOINT_REGISTRY.JSON'),load('lab/11_strategy_factory/artifacts/saed_v4_15/GOLDEN_FUSION_OUTPUTS.JSON'),load('lab/11_strategy_factory/artifacts/saed_v4_15/GOLDEN_ALIGNED_VIEW_SET.JSON'),load('lab/11_strategy_factory/artifacts/saed_v4_15/GOLDEN_INTEGRITY_RECEIPT.JSON'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_event_definition_registry.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_censoring_policy.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_dataset_spec.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_model_config.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_candidate_catalog.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_tail_policy.json'),load('lab/11_strategy_factory/examples/saed_v4_16/reference_compute_exposure_budget.json'))
-checks={'survival_dataset':'GOLDEN_SURVIVAL_DATASET.JSON','survival_predictions':'GOLDEN_SURVIVAL_PREDICTIONS.JSON','distributional_predictions':'GOLDEN_DISTRIBUTIONAL_PREDICTIONS.JSON','tail_calibration_report':'GOLDEN_TAIL_CALIBRATION_REPORT.JSON','tournament':'GOLDEN_TOURNAMENT.JSON','checkpoint_registry':'GOLDEN_CHECKPOINT_REGISTRY.JSON','handoff':'V4_16_TO_V4_17_HANDOFF.JSON'}
-for k,f in checks.items():assert b[k]==load('lab/11_strategy_factory/artifacts/saed_v4_16/'+f),k
-print('SAED V4-16 deterministic golden reproduction passed')

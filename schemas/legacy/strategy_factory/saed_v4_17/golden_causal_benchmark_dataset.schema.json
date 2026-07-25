@@ -1,0 +1,161 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_causal_benchmark_dataset.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "dataset_hash": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "environment_count": {
+      "type": "integer"
+    },
+    "future_suffix_access_count": {
+      "type": "integer"
+    },
+    "known_time_ordered": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "environment_id": {
+            "type": "string"
+          },
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "row_hash": {
+            "type": "string"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "source_v4_16_row_id": {
+            "type": "string"
+          },
+          "split": {
+            "type": "string"
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "values": {
+            "additionalProperties": false,
+            "properties": {
+              "context_state": {
+                "type": "number"
+              },
+              "environment_code": {
+                "type": "number"
+              },
+              "execution_friction": {
+                "type": "number"
+              },
+              "instrument_z": {
+                "type": "number"
+              },
+              "liquidity_state": {
+                "type": "number"
+              },
+              "mediator_fill_quality": {
+                "type": "number"
+              },
+              "negative_control_exposure": {
+                "type": "number"
+              },
+              "negative_control_outcome": {
+                "type": "number"
+              },
+              "outcome_proxy": {
+                "type": "number"
+              },
+              "structure_state": {
+                "type": "number"
+              },
+              "treatment_proxy": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "context_state",
+              "environment_code",
+              "execution_friction",
+              "instrument_z",
+              "liquidity_state",
+              "mediator_fill_quality",
+              "negative_control_exposure",
+              "negative_control_outcome",
+              "outcome_proxy",
+              "structure_state",
+              "treatment_proxy"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "environment_id",
+          "future_suffix_accessed",
+          "known_as_of",
+          "ordinal",
+          "production_eligible",
+          "row_hash",
+          "row_id",
+          "source_v4_16_row_id",
+          "split",
+          "synthetic",
+          "values"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_v4_16_dataset_hash": {
+      "type": "string"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    },
+    "variable_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_hash",
+    "dataset_id",
+    "environment_count",
+    "future_suffix_access_count",
+    "known_time_ordered",
+    "phase",
+    "protected_evidence_exposures",
+    "row_count",
+    "rows",
+    "source_v4_16_dataset_hash",
+    "synthetic_only",
+    "variable_count"
+  ],
+  "title": "GOLDEN_CAUSAL_BENCHMARK_DATASET",
+  "type": "object"
+}

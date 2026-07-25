@@ -144,8 +144,21 @@ def classify_artifact(row: dict) -> dict:
     rationale: str
     confidence = "HIGH"
 
+    # UC-03 physical relocation does not change canonical ownership.
+    if path.startswith("releases/history/"):
+        domain, disposition, target, wave, action = "release_history", "EXTERNALIZE", "releases/history", "UC03-W08-RELEASES", "KEEP_AS_HISTORY"
+        rationale = "Relocated delivery history remains release history and is not an active platform capability."
+    elif system_id == "RTHP" and root in {"src", "lab", "tools", "contexts"}:
+        domain, disposition, target, wave, action = "context", "MERGE", "contexts/rthp", "UC03-W02-CODE", "SPLIT_SHARED_AND_CONTEXT"
+        rationale = "RTHP-specific semantics remain Context-owned after physical relocation."
+    elif system_id == "SAED_V4" and root in {"src", "lab", "tools"}:
+        domain, disposition, target, wave, action = _saed_domain(path), "MERGE", "src/engine/extensions/saed", "UC03-W02-CODE", "CONVERT_TO_EXTENSION"
+        rationale = "SAED V4 remains a bounded extension rather than a parallel platform."
+    elif system_id == "LCM" and root in {"src", "lab", "tools"}:
+        domain, disposition, target, wave, action = "engineering", "MERGE", "tools/maintenance", "UC03-W11-OPS", "RETAIN_REUSABLE_MAINTENANCE_ONLY"
+        rationale = "Reusable LCM verification and recovery logic becomes maintenance tooling."
     # Repository-level canonical files.
-    if "/" not in path and path in {
+    elif "/" not in path and path in {
         "README.md", "AGENTS.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE",
         "pyproject.toml", "uv.lock", ".gitignore", ".gitattributes", ".editorconfig",
     }:

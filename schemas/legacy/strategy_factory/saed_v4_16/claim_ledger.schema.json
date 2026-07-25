@@ -1,0 +1,157 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/claim_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "aalen_johansen_shaped_reference": {
+          "type": "boolean"
+        },
+        "best_trade_removal": {
+          "type": "boolean"
+        },
+        "causal_claim": {
+          "type": "boolean"
+        },
+        "cause_specific_discrete_hazard_reference": {
+          "type": "boolean"
+        },
+        "censored_is_not_outcome": {
+          "type": "boolean"
+        },
+        "chronological_synthetic_survival_dataset": {
+          "type": "boolean"
+        },
+        "closed_event_and_censoring_contracts": {
+          "type": "boolean"
+        },
+        "competing_risk_simplex_enforced": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "distributional_survival_tail_boundary_implemented": {
+          "type": "boolean"
+        },
+        "economic_uplift_established": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance": {
+          "type": "boolean"
+        },
+        "heavy_tail_benchmark": {
+          "type": "boolean"
+        },
+        "immutable_checkpoint_registry": {
+          "type": "boolean"
+        },
+        "informative_censoring_sensitivity": {
+          "type": "boolean"
+        },
+        "ipcw_reference_implementation": {
+          "type": "boolean"
+        },
+        "kaplan_meier_baseline_preserved": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "monotone_quantile_reference": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "promotion_authorization": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        },
+        "real_model_training": {
+          "type": "boolean"
+        },
+        "real_outcome_prediction": {
+          "type": "boolean"
+        },
+        "right_and_interval_censoring_semantics": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime_activation": {
+          "type": "boolean"
+        },
+        "tail_calibration_diagnostics": {
+          "type": "boolean"
+        },
+        "tail_event_holdout": {
+          "type": "boolean"
+        },
+        "tail_value_at_risk_and_expected_shortfall": {
+          "type": "boolean"
+        },
+        "treatment_ranking": {
+          "type": "boolean"
+        },
+        "treatment_selection": {
+          "type": "boolean"
+        },
+        "zero_mass_modeled_separately": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "aalen_johansen_shaped_reference",
+        "best_trade_removal",
+        "causal_claim",
+        "cause_specific_discrete_hazard_reference",
+        "censored_is_not_outcome",
+        "chronological_synthetic_survival_dataset",
+        "closed_event_and_censoring_contracts",
+        "competing_risk_simplex_enforced",
+        "deterministic_replay",
+        "distributional_survival_tail_boundary_implemented",
+        "economic_uplift_established",
+        "future_suffix_invariance",
+        "heavy_tail_benchmark",
+        "immutable_checkpoint_registry",
+        "informative_censoring_sensitivity",
+        "ipcw_reference_implementation",
+        "kaplan_meier_baseline_preserved",
+        "live_trading",
+        "monotone_quantile_reference",
+        "production_authorization",
+        "promotion_authorization",
+        "real_alpha",
+        "real_model_training",
+        "real_outcome_prediction",
+        "right_and_interval_censoring_semantics",
+        "risk_allocation",
+        "runtime_activation",
+        "tail_calibration_diagnostics",
+        "tail_event_holdout",
+        "tail_value_at_risk_and_expected_shortfall",
+        "treatment_ranking",
+        "treatment_selection",
+        "zero_mass_modeled_separately"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claims",
+    "phase"
+  ],
+  "title": "CLAIM_LEDGER",
+  "type": "object"
+}

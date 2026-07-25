@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_subgroup_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "subgroup_count": {
+      "type": "integer"
+    },
+    "subgroups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "feature": {
+            "type": "string"
+          },
+          "mean_predicted_effects": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual"
+            ],
+            "type": "object"
+          },
+          "row_count": {
+            "type": "integer"
+          },
+          "subgroup": {
+            "type": "string"
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "feature",
+          "mean_predicted_effects",
+          "row_count",
+          "subgroup",
+          "threshold"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "report_hash",
+    "subgroup_count",
+    "subgroups"
+  ],
+  "title": "GOLDEN_SUBGROUP_REPORT",
+  "type": "object"
+}

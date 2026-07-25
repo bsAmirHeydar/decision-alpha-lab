@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_split_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "audits": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evaluation_rows": {
+            "type": "integer"
+          },
+          "fold_id": {
+            "type": "string"
+          },
+          "future_training_detected": {
+            "type": "boolean"
+          },
+          "overlap_rows": {
+            "type": "integer"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "sibling_cluster_splits": {
+            "type": "integer"
+          },
+          "train_rows": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "evaluation_rows",
+          "fold_id",
+          "future_training_detected",
+          "overlap_rows",
+          "passed",
+          "sibling_cluster_splits",
+          "train_rows"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fold_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audits",
+    "fold_count",
+    "passed",
+    "phase"
+  ],
+  "title": "GOLDEN_SPLIT_AUDIT",
+  "type": "object"
+}

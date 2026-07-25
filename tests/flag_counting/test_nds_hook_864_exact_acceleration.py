@@ -10,7 +10,7 @@ BACKTEST = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh"
 EVIDENCE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Evidence.mqh"
 EVIDENCE_ENGINE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1EvidenceEngine.mqh"
 EXECUTION = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh"
-RUNNER = ROOT / "tools/flag_counting/run_nds_hook_864_cycle_r1_tests.py"
+RUNNER = ROOT / "contexts/legacy/tools/flag_counting/run_nds_hook_864_cycle_r1_tests.py"
 EA = ROOT / "mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5"
 
 

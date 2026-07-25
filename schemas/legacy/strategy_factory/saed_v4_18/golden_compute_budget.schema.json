@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_compute_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "hidden_evaluation_query_limit": {
+      "type": "integer"
+    },
+    "max_bootstrap_replicates": {
+      "type": "integer"
+    },
+    "max_cross_fit_folds": {
+      "type": "integer"
+    },
+    "max_estimators": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_policies": {
+      "type": "integer"
+    },
+    "max_retries": {
+      "type": "integer"
+    },
+    "max_rows": {
+      "type": "integer"
+    },
+    "max_sensitivity_runs": {
+      "type": "integer"
+    },
+    "max_treatments": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "hidden_evaluation_query_limit",
+    "max_bootstrap_replicates",
+    "max_cross_fit_folds",
+    "max_estimators",
+    "max_failures",
+    "max_policies",
+    "max_retries",
+    "max_rows",
+    "max_sensitivity_runs",
+    "max_treatments",
+    "protected_evidence_exposure_limit"
+  ],
+  "title": "GOLDEN_COMPUTE_BUDGET",
+  "type": "object"
+}

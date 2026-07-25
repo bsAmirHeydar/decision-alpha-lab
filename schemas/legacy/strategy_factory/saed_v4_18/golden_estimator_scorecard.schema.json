@@ -1,0 +1,200 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_estimator_scorecard.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "baseline_treatment_id": {
+      "type": "string"
+    },
+    "methods": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {
+                "type": "string"
+              },
+              "cross_fitted": {
+                "type": "boolean"
+              },
+              "effects": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "estimate": {
+                      "type": "number"
+                    },
+                    "treatment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "estimate",
+                    "treatment_id"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "estimator_id": {
+                "type": "string"
+              },
+              "orthogonal": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "algorithm",
+              "cross_fitted",
+              "effects",
+              "estimator_id",
+              "orthogonal"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {
+                "type": "string"
+              },
+              "cross_fitted": {
+                "type": "boolean"
+              },
+              "effects": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "estimate": {
+                      "type": "number"
+                    },
+                    "lower_95": {
+                      "type": "number"
+                    },
+                    "standard_error": {
+                      "type": "number"
+                    },
+                    "treatment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "estimate",
+                    "lower_95",
+                    "standard_error",
+                    "treatment_id"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "estimator_id": {
+                "type": "string"
+              },
+              "orthogonal": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "algorithm",
+              "cross_fitted",
+              "effects",
+              "estimator_id",
+              "orthogonal"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {
+                "type": "string"
+              },
+              "cross_fitted": {
+                "type": "boolean"
+              },
+              "effects": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "estimand": {
+                      "type": "string"
+                    },
+                    "estimate": {
+                      "type": "number"
+                    },
+                    "lower_95": {
+                      "type": "number"
+                    },
+                    "row_count": {
+                      "type": "integer"
+                    },
+                    "standard_error": {
+                      "type": "number"
+                    },
+                    "treatment_id": {
+                      "type": "string"
+                    },
+                    "upper_95": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "estimand",
+                    "estimate",
+                    "lower_95",
+                    "row_count",
+                    "standard_error",
+                    "treatment_id",
+                    "upper_95"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "estimator_id": {
+                "type": "string"
+              },
+              "orthogonal": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "algorithm",
+              "cross_fitted",
+              "effects",
+              "estimator_id",
+              "orthogonal"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "selection_basis": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "baseline_treatment_id",
+    "methods",
+    "phase",
+    "report_hash",
+    "selection_basis"
+  ],
+  "title": "GOLDEN_ESTIMATOR_SCORECARD",
+  "type": "object"
+}

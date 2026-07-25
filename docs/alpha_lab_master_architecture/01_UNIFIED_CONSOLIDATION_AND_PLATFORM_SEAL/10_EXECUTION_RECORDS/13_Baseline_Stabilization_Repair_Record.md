@@ -35,17 +35,17 @@ The patch modifies no historical commit. Original malformed bytes remain recover
 
 ## Exact repair set
 
-1. `lab/11_strategy_factory/python/saed_v4_anytime_valid_online_fdr/cli.py`
-2. `lab/11_strategy_factory/python/saed_v4_complete_search_exposure_ledger/cli.py`
-3. `lab/11_strategy_factory/python/saed_v4_decision_focused_treatment_selection/cli.py`
-4. `lab/11_strategy_factory/python/saed_v4_foundation_model_adapters/cli.py`
-5. `lab/11_strategy_factory/python/saed_v4_generative_path_stress_lab/cli.py`
-6. `lab/11_strategy_factory/python/saed_v4_independent_multi_lab_replication/cli.py`
-7. `lab/11_strategy_factory/python/saed_v4_mechanistic_interpretability/cli.py`
-8. `lab/11_strategy_factory/python/saed_v4_multimodal_views/cli.py`
-9. `lab/11_strategy_factory/python/saed_v4_offline_policy_research/cli.py`
-10. `lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/serialization.py`
-11. `tools/strategy_factory/generate_uce_i13_vectors.py`
+1. `src/engine/packages/saed_v4_anytime_valid_online_fdr/cli.py`
+2. `src/engine/packages/saed_v4_complete_search_exposure_ledger/cli.py`
+3. `src/engine/packages/saed_v4_decision_focused_treatment_selection/cli.py`
+4. `src/engine/packages/saed_v4_foundation_model_adapters/cli.py`
+5. `src/engine/packages/saed_v4_generative_path_stress_lab/cli.py`
+6. `src/engine/packages/saed_v4_independent_multi_lab_replication/cli.py`
+7. `src/engine/packages/saed_v4_mechanistic_interpretability/cli.py`
+8. `src/engine/packages/saed_v4_multimodal_views/cli.py`
+9. `src/engine/packages/saed_v4_offline_policy_research/cli.py`
+10. `src/engine/packages/saed_v4_self_supervised_pretraining/serialization.py`
+11. `src/engine/tooling/strategy_factory/generate_uce_i13_vectors.py`
 
 ## Permitted transformation
 

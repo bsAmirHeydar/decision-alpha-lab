@@ -46,7 +46,7 @@ $badPaths = @(
   "mql5/Experts/M0007_FlagCountingF1",
   "mql5/Include/H0007_FlagCountingF1",
   "mql5/Include/M0007_FlagCountingF1",
-  "lab/09_execution/mql5/H0007_FlagCountingF1"
+  "src/engine/legacy/execution/runtime/mql5/H0007_FlagCountingF1"
 )
 foreach ($p in $badPaths) {
   if (Test-Path $p) { Remove-Item -Recurse -Force $p }

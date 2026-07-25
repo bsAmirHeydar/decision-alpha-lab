@@ -1,0 +1,50 @@
+{
+  "aieos_vault": {
+    "errors": 0,
+    "notes": 253,
+    "warnings": 0
+  },
+  "direct_tests": {
+    "failed": 0,
+    "passed": 6
+  },
+  "engineering_policy": {
+    "checks": 5,
+    "failed": 0,
+    "passed": 5
+  },
+  "full_runtime_apply": {
+    "conflicts": 0,
+    "relocations": 12291,
+    "status": "PASS"
+  },
+  "limitations": [
+    "MetaEditor compile and Strategy Tester are not claimed by this physical relocation part."
+  ],
+  "mql5_static": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "obsidian_program": {
+    "errors": 0,
+    "notes": 120,
+    "warnings": 0
+  },
+  "part_id": "UC03-P2",
+  "program_id": "UCPS",
+  "resume_check": {
+    "mode": "accepted receipt fast path",
+    "status": "PASS"
+  },
+  "runtime_verify": {
+    "errors": 0,
+    "status": "PASS"
+  },
+  "schema_version": "1.0.0",
+  "stage_id": "UC-03",
+  "status": "PASS",
+  "upstream_migration_aware_tests": {
+    "failed": 0,
+    "passed": 12
+  }
+}

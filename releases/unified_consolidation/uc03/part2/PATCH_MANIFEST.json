@@ -1,0 +1,34 @@
+{
+  "capital_authority": false,
+  "deletion_authority": false,
+  "delivery_mode": "RUNTIME_DRIVEN_PHYSICAL_RELOCATION",
+  "next_authorized_part": "UC03-P3",
+  "order_authority": false,
+  "part_id": "UC03-P2",
+  "program_id": "UCPS",
+  "reference_execution": {
+    "compatibility_shim_count": 10,
+    "conflict_count": 0,
+    "file_relocation_count": 12291,
+    "lab_file_count_after": 0,
+    "replacement_count": 6370,
+    "rewrite_file_count": 1416,
+    "root_file_count_after": 15
+  },
+  "runtime_authority": false,
+  "runtime_plan": {
+    "compatibility_shims": 10,
+    "index_generation": "git runtime changes after APPLY.ps1",
+    "physical_move_rules": 54,
+    "source_of_truth": "runtime checkout after accepted UC-03 Part 1"
+  },
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "static_add_count": 23,
+  "static_delete_count": 0,
+  "static_modify_count": 7,
+  "static_path_count": 30,
+  "title": "Code Context Test and MQL5 Relocation",
+  "uc04_authorized": false
+}

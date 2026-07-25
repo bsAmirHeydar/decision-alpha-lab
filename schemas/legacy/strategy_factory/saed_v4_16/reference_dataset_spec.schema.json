@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/reference_dataset_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "calibration_rows": {
+      "type": "integer"
+    },
+    "chronological_split": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "feature_dim": {
+      "type": "integer"
+    },
+    "frozen_fusion_features": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "selection_validation_rows": {
+      "type": "integer"
+    },
+    "spacing_seconds": {
+      "type": "integer"
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    },
+    "train_rows": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "calibration_rows",
+    "chronological_split",
+    "exact_version",
+    "feature_dim",
+    "frozen_fusion_features",
+    "row_count",
+    "seed",
+    "selection_validation_rows",
+    "spacing_seconds",
+    "start_time",
+    "synthetic_only",
+    "train_rows"
+  ],
+  "title": "reference_dataset_spec",
+  "type": "object"
+}

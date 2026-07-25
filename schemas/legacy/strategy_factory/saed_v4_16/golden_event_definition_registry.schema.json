@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_event_definition_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "causes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "censor_label": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "interval_censoring_enabled": {
+      "type": "boolean"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "mutually_exclusive_terminal_causes": {
+      "type": "boolean"
+    },
+    "time_origin": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "causes",
+    "censor_label",
+    "exact_version",
+    "frozen",
+    "interval_censoring_enabled",
+    "known_time_only",
+    "mutually_exclusive_terminal_causes",
+    "time_origin"
+  ],
+  "title": "GOLDEN_EVENT_DEFINITION_REGISTRY",
+  "type": "object"
+}

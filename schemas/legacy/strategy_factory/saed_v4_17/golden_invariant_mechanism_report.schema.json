@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_invariant_mechanism_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "invariant_count": {
+      "type": "integer"
+    },
+    "mechanism_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "environment_statistics": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "coefficients": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                "environment_id": {
+                  "type": "string"
+                },
+                "residual_mean": {
+                  "type": "number"
+                },
+                "residual_std": {
+                  "type": "number"
+                },
+                "rows": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "coefficients",
+                "environment_id",
+                "residual_mean",
+                "residual_std",
+                "rows"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "invariant": {
+            "type": "boolean"
+          },
+          "maximum_coefficient_l1_drift": {
+            "type": "number"
+          },
+          "maximum_residual_mean_gap": {
+            "type": "number"
+          },
+          "maximum_residual_scale_gap": {
+            "type": "number"
+          },
+          "parents": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "environment_statistics",
+          "invariant",
+          "maximum_coefficient_l1_drift",
+          "maximum_residual_mean_gap",
+          "maximum_residual_scale_gap",
+          "parents",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "invariant_count",
+    "mechanism_count",
+    "phase",
+    "report_hash",
+    "rows"
+  ],
+  "title": "GOLDEN_INVARIANT_MECHANISM_REPORT",
+  "type": "object"
+}

@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_18/golden_treatment_ranking.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "production_ranking_authority": {
+      "type": "boolean"
+    },
+    "ranking": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "estimate": {
+            "type": "number"
+          },
+          "lower_95": {
+            "type": "number"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "estimate",
+          "lower_95",
+          "rank",
+          "research_only",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ranking_basis": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "production_ranking_authority",
+    "ranking",
+    "ranking_basis",
+    "report_hash"
+  ],
+  "title": "GOLDEN_TREATMENT_RANKING",
+  "type": "object"
+}

@@ -1,0 +1,259 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_survival_predictions.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "horizons_seconds": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "cause_cumulative_incidence": {
+            "additionalProperties": false,
+            "properties": {
+              "cancellation": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "expiry": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "fill": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "invalidation": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "stop": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "target": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "trail_exit": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "cancellation",
+              "expiry",
+              "fill",
+              "invalidation",
+              "stop",
+              "target",
+              "trail_exit"
+            ],
+            "type": "object"
+          },
+          "expected_remaining_opportunity_seconds": {
+            "type": "number"
+          },
+          "horizons_seconds": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "prediction_hash": {
+            "type": "string"
+          },
+          "prediction_id": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "survival_probability": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "synthetic_reference": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "cause_cumulative_incidence",
+          "expected_remaining_opportunity_seconds",
+          "horizons_seconds",
+          "known_as_of",
+          "prediction_hash",
+          "prediction_id",
+          "production_eligible",
+          "row_id",
+          "survival_probability",
+          "synthetic_reference"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "prediction_count": {
+      "type": "integer"
+    },
+    "states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "cause_hazards": {
+            "additionalProperties": false,
+            "properties": {
+              "cancellation": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "expiry": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "fill": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "invalidation": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "stop": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "target": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "trail_exit": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "cancellation",
+              "expiry",
+              "fill",
+              "invalidation",
+              "stop",
+              "target",
+              "trail_exit"
+            ],
+            "type": "object"
+          },
+          "feature_scale": {
+            "type": "number"
+          },
+          "horizons_seconds": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "km_survival": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "state_hash": {
+            "type": "string"
+          },
+          "survival_family": {
+            "type": "string"
+          },
+          "train_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "algorithm",
+          "candidate_id",
+          "cause_hazards",
+          "feature_scale",
+          "horizons_seconds",
+          "km_survival",
+          "state_hash",
+          "survival_family",
+          "train_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "candidate_count",
+    "horizons_seconds",
+    "items",
+    "phase",
+    "prediction_count",
+    "states"
+  ],
+  "title": "GOLDEN_SURVIVAL_PREDICTIONS",
+  "type": "object"
+}

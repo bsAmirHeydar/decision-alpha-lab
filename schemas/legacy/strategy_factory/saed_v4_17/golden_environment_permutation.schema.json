@@ -1,0 +1,86 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_environment_permutation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "causal_claim_from_permutation_allowed": {
+      "type": "boolean"
+    },
+    "graph_hash_unchanged": {
+      "type": "boolean"
+    },
+    "marginals_preserved": {
+      "type": "boolean"
+    },
+    "original_environment_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "env_0": {
+          "type": "integer"
+        },
+        "env_1": {
+          "type": "integer"
+        },
+        "env_2": {
+          "type": "integer"
+        },
+        "env_3": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "env_0",
+        "env_1",
+        "env_2",
+        "env_3"
+      ],
+      "type": "object"
+    },
+    "permuted_environment_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "env_0": {
+          "type": "integer"
+        },
+        "env_1": {
+          "type": "integer"
+        },
+        "env_2": {
+          "type": "integer"
+        },
+        "env_3": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "env_0",
+        "env_1",
+        "env_2",
+        "env_3"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "causal_claim_from_permutation_allowed",
+    "graph_hash_unchanged",
+    "marginals_preserved",
+    "original_environment_counts",
+    "permuted_environment_counts",
+    "phase",
+    "report_hash",
+    "row_count"
+  ],
+  "title": "GOLDEN_ENVIRONMENT_PERMUTATION",
+  "type": "object"
+}

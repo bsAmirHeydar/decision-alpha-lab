@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/golden_residual_independence_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "maximum_absolute_residual_parent_correlation": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "parent": {
+            "type": "string"
+          },
+          "residual_parent_correlation": {
+            "type": "number"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent",
+          "residual_parent_correlation",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "maximum_absolute_residual_parent_correlation",
+    "phase",
+    "report_hash",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_RESIDUAL_INDEPENDENCE_AUDIT",
+  "type": "object"
+}

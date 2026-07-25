@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_17/reference_compute_exposure_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "hidden_evaluation_query_limit": {
+      "type": "integer"
+    },
+    "max_bootstrap_replicates": {
+      "type": "integer"
+    },
+    "max_candidates": {
+      "type": "integer"
+    },
+    "max_conditional_tests": {
+      "type": "integer"
+    },
+    "max_edges_evaluated": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_retries": {
+      "type": "integer"
+    },
+    "max_rows": {
+      "type": "integer"
+    },
+    "max_stress_runs": {
+      "type": "integer"
+    },
+    "max_variables": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "hidden_evaluation_query_limit",
+    "max_bootstrap_replicates",
+    "max_candidates",
+    "max_conditional_tests",
+    "max_edges_evaluated",
+    "max_failures",
+    "max_retries",
+    "max_rows",
+    "max_stress_runs",
+    "max_variables",
+    "protected_evidence_exposure_limit"
+  ],
+  "title": "reference_compute_exposure_budget",
+  "type": "object"
+}

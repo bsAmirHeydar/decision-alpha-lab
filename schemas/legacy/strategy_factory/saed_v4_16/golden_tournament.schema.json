@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/golden_tournament.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "baseline_candidate_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "baseline_score": {
+      "type": "number"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_decision": {
+      "type": "string"
+    },
+    "ranking": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "reference_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "algorithm",
+          "candidate_id",
+          "rank",
+          "reference_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "reference_champion_score": {
+      "type": "number"
+    },
+    "synthetic_reference_only": {
+      "type": "boolean"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_candidate_id",
+    "baseline_preserved",
+    "baseline_score",
+    "candidate_count",
+    "phase",
+    "production_authority",
+    "promotion_decision",
+    "ranking",
+    "reference_champion_id",
+    "reference_champion_score",
+    "synthetic_reference_only",
+    "tournament_hash",
+    "tournament_id"
+  ],
+  "title": "GOLDEN_TOURNAMENT",
+  "type": "object"
+}

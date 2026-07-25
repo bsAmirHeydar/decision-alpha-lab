@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
-$LogDir = Join-Path $ProjectRoot "lab\03_experiments\EXP0013_astro_feature_store\compile_logs"
+$LogDir = Join-Path $ProjectRoot "contexts\legacy\lab_experiments\EXP0013_astro_feature_store\compile_logs"
 
 function Find-MetaEditor {
     $candidates = Get-ChildItem "C:\Program Files\Meta" -Directory -ErrorAction SilentlyContinue |

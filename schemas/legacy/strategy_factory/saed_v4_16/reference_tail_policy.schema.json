@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/legacy/strategy_factory/saed_v4_16/reference_tail_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "best_trade_removal_required": {
+      "type": "boolean"
+    },
+    "cluster_bootstrap_required": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "expected_shortfall_required": {
+      "type": "boolean"
+    },
+    "heavy_tail_benchmark_required": {
+      "type": "boolean"
+    },
+    "insufficient_sample_action": {
+      "type": "string"
+    },
+    "lower_tail_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "tail_event_holdout_required": {
+      "type": "boolean"
+    },
+    "unsupported_extreme_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "best_trade_removal_required",
+    "cluster_bootstrap_required",
+    "exact_version",
+    "expected_shortfall_required",
+    "heavy_tail_benchmark_required",
+    "insufficient_sample_action",
+    "lower_tail_levels",
+    "tail_event_holdout_required",
+    "unsupported_extreme_action"
+  ],
+  "title": "reference_tail_policy",
+  "type": "object"
+}

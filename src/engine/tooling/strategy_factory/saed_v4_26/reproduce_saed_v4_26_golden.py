@@ -1,0 +1,10 @@
+from tools.repository_paths import find_repository_root
+from pathlib import Path
+import json,sys
+ROOT=find_repository_root(__file__); sys.path.insert(0,str(ROOT/"src/engine/packages"))
+from saed_v4_mechanistic_interpretability import run
+E=ROOT/"examples/legacy/strategy_factory/saed_v4_26"; A=ROOT/"releases/history/strategy_factory/artifacts/saed_v4_26"; load=lambda p:json.loads(p.read_text())
+o=run(load(E/"FULL_REFERENCE_CONFIG.JSON"),load(E/"UPSTREAM_V4_25_DOCUMENTS.JSON"),load(E/"MODEL_MECHANISM_RECORDS.JSON"))
+M={"upstream_receipt":"GOLDEN_UPSTREAM_RECEIPT.JSON","dataset_summary":"GOLDEN_MECHANISM_DATASET_SUMMARY.JSON","attributions":"GOLDEN_FROZEN_FEATURE_ATTRIBUTIONS.JSON","pathways":"GOLDEN_TRANSFER_PATHWAY_ATTRIBUTIONS.JSON","adaptation_mechanisms":"GOLDEN_ADAPTATION_PARAMETER_MECHANISMS.JSON","calibration_mechanisms":"GOLDEN_CONTINUAL_CALIBRATION_MECHANISMS.JSON","concept_probes":"GOLDEN_CONCEPT_PROBE_RESULTS.JSON","causal_traces":"GOLDEN_CAUSAL_TRACE_RESULTS.JSON","activation_patches":"GOLDEN_ACTIVATION_PATCH_RESULTS.JSON","counterfactuals":"GOLDEN_COUNTERFACTUAL_EXPLANATIONS.JSON","sparse_dictionary":"GOLDEN_SPARSE_DICTIONARY_REPORT.JSON","faithfulness":"GOLDEN_FAITHFULNESS_REPORT.JSON","sanity":"GOLDEN_SANITY_CHECK_REPORT.JSON","stability":"GOLDEN_MECHANISM_STABILITY_REPORT.JSON","shortcut_audit":"GOLDEN_SHORTCUT_AUDIT.JSON","failure_catalogue":"GOLDEN_MECHANISTIC_FAILURE_CATALOGUE.JSON","trial_ledger":"GOLDEN_TRIAL_LEDGER.JSON","exposure_ledger":"GOLDEN_EXPOSURE_LEDGER.JSON","budget_snapshot":"GOLDEN_BUDGET_SNAPSHOT.JSON","known_time_review":"KNOWN_TIME_LEAKAGE_REVIEW.JSON","security_review":"SECURITY_REVIEW.JSON","model_risk_review":"MODEL_RISK_REVIEW.JSON","authority_boundary":"GOLDEN_AUTHORITY_BOUNDARY.JSON","certificate":"GOLDEN_MECHANISTIC_INTERPRETABILITY_CERTIFICATE.JSON","handoff":"V4_26_TO_V4_27_HANDOFF.JSON","replay_receipt":"GOLDEN_REPLAY_RECEIPT.JSON"}
+for k,n in M.items(): assert o[k]==load(A/n),k
+print(f"V4-26 golden reproduction passed: {len(M)} exact artifacts")

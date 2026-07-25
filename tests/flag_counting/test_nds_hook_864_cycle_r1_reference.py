@@ -7,7 +7,7 @@ from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULE_PATH = ROOT / "tools/flag_counting/nds_hook_864_cycle_r1_reference.py"
+MODULE_PATH = ROOT / "contexts/legacy/tools/flag_counting/nds_hook_864_cycle_r1_reference.py"
 spec = importlib.util.spec_from_file_location("nds_hook_864_ref", MODULE_PATH)
 assert spec and spec.loader
 m = importlib.util.module_from_spec(spec)
@@ -261,7 +261,7 @@ class Hook864ReferenceTests(unittest.TestCase):
         self.assertIn("approved_fixed_reward_must_be_exactly_1R", reason)
 
     def test_machine_readable_profile_contract_is_locked(self):
-        path = ROOT / "lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/profile_contract.json"
+        path = ROOT / "contexts/legacy/lab_experiments/EXP_flag_counting/hook_864_cycle_r1/profile_contract.json"
         contract = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(contract["profile"], "HOOK_864_CYCLE_R1")
         self.assertEqual(contract["entry"]["ratio"], 0.864)
@@ -273,7 +273,7 @@ class Hook864ReferenceTests(unittest.TestCase):
         self.assertFalse(contract["activation_allowed"])
 
     def test_golden_vectors_match_reference_geometry_and_runtime(self):
-        path = ROOT / "lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/test_vectors.json"
+        path = ROOT / "contexts/legacy/lab_experiments/EXP_flag_counting/hook_864_cycle_r1/test_vectors.json"
         vectors = json.loads(path.read_text(encoding="utf-8"))["vectors"]
         by_id = {item["id"]: item for item in vectors}
         pos = by_id["POS_X3_PHASE04_CLOSED_UNTOUCHED"]

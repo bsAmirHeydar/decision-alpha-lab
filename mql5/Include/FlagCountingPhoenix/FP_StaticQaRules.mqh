@@ -224,7 +224,7 @@ void FP_StaticQaAddPrintSafetyChecks(FP_StaticQaReport &report,
    FP_StaticQaAddCheck(report, rows, "print_safety", "NO_EMPTY_PRINT_SENTINEL", "warn",
                        true, "runtime_sentinal_pass", "source_scanner_confirms", "python_static_qa_scans_for_empty_Print_calls");
    FP_StaticQaAddCheck(report, rows, "toolchain", "STATIC_QA_SCRIPT_REGISTERED", (qa_cfg.require_static_tool_present ? "error" : "warn"),
-                       true, "tools/flag_counting/static_qa.py", "present_in_repo", "source_side_static_qa_tool_is_part_of_patch");
+                       true, "contexts/legacy/tools/flag_counting/static_qa.py", "present_in_repo", "source_side_static_qa_tool_is_part_of_patch");
 }
 
 void FP_StaticQaAddInputContractChecks(FP_StaticQaReport &report,
