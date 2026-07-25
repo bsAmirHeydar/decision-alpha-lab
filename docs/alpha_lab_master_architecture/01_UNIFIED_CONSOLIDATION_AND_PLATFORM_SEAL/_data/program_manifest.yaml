@@ -1,0 +1,15 @@
+program_id: UCPS
+name: Unified Consolidation and Platform Seal
+version: 1.0.0
+status: documentation_foundation_ready
+stage_count: 7
+stages:
+  - {id: UC-01, name: Preserve and Baseline, destructive_authority: false}
+  - {id: UC-02, name: Standardize and Assign Authority, destructive_authority: false}
+  - {id: UC-03, name: Reorganize Physically, destructive_authority: move_only}
+  - {id: UC-04, name: Unify Semantics and Logic, destructive_authority: parity_gated}
+  - {id: UC-05, name: Mechanize the Platform, destructive_authority: replacement_gated}
+  - {id: UC-06, name: Migrate and Cut Over, destructive_authority: cutover_gated}
+  - {id: UC-07, name: Delete and Seal, destructive_authority: deletion_gated}
+next_stage: UC-01
+phase_expansion_allowed: false

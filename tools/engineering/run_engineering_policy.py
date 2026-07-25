@@ -67,6 +67,14 @@ def _checks(python: str) -> tuple[Check, ...]:
             ),
         ),
         Check(
+            "Unified consolidation Obsidian program",
+            (
+                python,
+                "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
+                "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL",
+            ),
+        ),
+        Check(
             "MQL5 compatibility",
             (python, "tools/engineering/check_mql5_compatibility.py", "."),
         ),

@@ -6,7 +6,7 @@ status: canonical
 domain: alpha-lab-master-architecture
 version: 1.0.0
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-07-23
 tags:
   - alpha-lab
   - master-architecture
@@ -80,6 +80,7 @@ The long-term goal is that **only the context-specific meaning and extraction lo
 - [[00_MASTER_ARCHITECTURE/14_Architectural_Risks_And_Controls|Architectural Risks and Controls]]
 - [[00_MASTER_ARCHITECTURE/15_Persian_Master_Overview|Persian Master Overview]]
 - [[00_MASTER_ARCHITECTURE/16_Source_Library_Map|Source Library Map]]
+- [[00_MASTER_ARCHITECTURE/17_Unified_Consolidation_And_Platform_Seal|Unified Consolidation and Platform Seal]]
 
 ## Canonical Source Libraries
 

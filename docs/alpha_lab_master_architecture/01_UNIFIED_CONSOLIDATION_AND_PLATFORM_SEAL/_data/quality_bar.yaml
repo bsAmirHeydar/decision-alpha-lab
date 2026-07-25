@@ -1,0 +1,12 @@
+seal_requirements:
+  p0_defects: 0
+  p1_defects: 0
+  unknown_required_evidence: 0
+  unresolved_consumers: 0
+  active_legacy_imports: 0
+  active_compatibility_redirects: 0
+  unowned_production_files: 0
+  duplicate_canonical_capabilities: 0
+  golden_contexts: 3
+  clean_clone: PASS
+  recovery_drill: PASS

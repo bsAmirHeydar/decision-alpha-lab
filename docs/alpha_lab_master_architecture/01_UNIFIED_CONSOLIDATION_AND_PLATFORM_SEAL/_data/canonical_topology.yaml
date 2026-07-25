@@ -1,0 +1,24 @@
+root_allowlist_target_max_files: 20
+roots:
+  src/engine: shared production logic
+  contexts: authored context packages
+  adapters: external boundaries
+  contracts: normative interfaces
+  schemas: validation authority
+  policies: machine governance
+  registry: identity lineage and state
+  configs: non-secret configuration
+  mql5: terminal source and tests
+  tests: unified verification
+  docs: architecture standards contexts operations decisions
+  ops: operational automation
+  tools: developer and maintenance utilities
+  products: product surfaces
+  examples: bounded examples
+  releases: indexed active release metadata
+forbidden_after_seal:
+  - production code under lab
+  - shared engine under tools
+  - root phase bundles
+  - nested alpha_lab product directory
+  - generated run output in authored source

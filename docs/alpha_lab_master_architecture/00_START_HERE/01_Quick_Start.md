@@ -6,7 +6,7 @@ status: canonical
 domain: alpha-lab-master-architecture
 version: 1.0.0
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-07-23
 tags:
   - alpha-lab
   - quick-start
@@ -24,6 +24,7 @@ tags:
 7. [[00_MASTER_ARCHITECTURE/08_Capital_And_Portfolio_Architecture|Capital and Portfolio]]
 8. [[00_MASTER_ARCHITECTURE/10_Assumption_Aware_Monitoring|Assumption-Aware Monitoring]]
 9. [[00_MASTER_ARCHITECTURE/13_Implementation_Program|Implementation Program]]
+10. [[00_MASTER_ARCHITECTURE/17_Unified_Consolidation_And_Platform_Seal|Unified Consolidation and Platform Seal]]
 
 ## Visual map
 

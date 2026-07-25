@@ -1,0 +1,15 @@
+planning_dispositions:
+  - KEEP_CANONICAL
+  - MOVE
+  - MERGE
+  - GENERATE
+  - EXTERNALIZE
+  - DELETE
+final_dispositions:
+  - ACTIVE_CANONICAL
+  - ACTIVE_EXTENSION
+  - FIXTURE_ONLY
+  - HISTORICAL_ONLY
+  - SUPERSEDED
+  - REJECTED_WITH_EVIDENCE
+unknown_is_final: false

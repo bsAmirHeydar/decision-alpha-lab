@@ -1,0 +1,10 @@
+precedence:
+  - machine_contract_schema_policy
+  - accepted_adr
+  - accepted_stage_charter_and_exit_report
+  - canonical_human_documentation
+  - generated_projection
+  - historical_reference
+one_concept_one_authority: true
+redirects_are_temporary: true
+historical_phase_records_are_active_authority: false

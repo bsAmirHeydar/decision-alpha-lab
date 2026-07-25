@@ -1,0 +1,14 @@
+{
+  "patch_id": "UCPS_OBSIDIAN_FOUNDATION_20260723",
+  "title": "Unified Consolidation and Platform Seal \u2014 Obsidian Foundation",
+  "version": "1.0.0",
+  "created": "2026-07-23",
+  "base_requirement": "Repository after LCM-16A and LCM-16B patches",
+  "scope": "Canonical Obsidian program, machine-readable program contracts, visual canvas, vault validation and master-navigation integration",
+  "new_file_count": 98,
+  "modified_file_count": 5,
+  "deleted_file_count": 0,
+  "total_path_count": 103,
+  "claim_ceiling": "DOCUMENTATION_AND_PROGRAM_GOVERNANCE_ONLY",
+  "next_stage": "UC-01"
+}

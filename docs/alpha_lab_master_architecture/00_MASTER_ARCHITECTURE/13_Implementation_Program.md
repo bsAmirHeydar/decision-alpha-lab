@@ -6,7 +6,7 @@ status: canonical
 domain: alpha-lab-master-architecture
 version: 1.0.0
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-07-23
 tags:
   - alpha-lab
   - master-architecture
@@ -81,3 +81,7 @@ Consolidation cycle
 ```
 
 This preserves speed without letting architectural entropy erase the compounding effect.
+
+## 11. Consolidation and Platform Seal
+
+The current repository has accumulated multiple reference engines, phase packages and duplicated authorities. The canonical consolidation successor is [[01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/00_START_HERE/00_Home|Unified Consolidation and Platform Seal]]. Its seven stages preserve all behavior, establish one authority, reorganize files, merge duplicated logic, mechanize Context workflows, cut over consumers, delete obsolete duplicates and issue the final platform seal.

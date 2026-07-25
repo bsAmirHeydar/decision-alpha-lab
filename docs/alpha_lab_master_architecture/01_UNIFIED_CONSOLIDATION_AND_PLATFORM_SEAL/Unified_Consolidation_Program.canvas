@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# Unified Consolidation & Platform Seal\n**Preserve \u2192 Standardize \u2192 Reorganize \u2192 Unify \u2192 Mechanize \u2192 Cut Over \u2192 Delete & Seal**",
+      "x": 400,
+      "y": -260,
+      "width": 680,
+      "height": 160,
+      "color": "4"
+    },
+    {
+      "id": "s1",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/01_UC01_Preserve_And_Baseline.md",
+      "x": -900,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "s2",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/02_UC02_Standardize_And_Assign_Authority.md",
+      "x": -600,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "s3",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically.md",
+      "x": -300,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "4"
+    },
+    {
+      "id": "s4",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/04_UC04_Unify_Semantics_And_Logic.md",
+      "x": 0,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "5"
+    },
+    {
+      "id": "s5",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/05_UC05_Mechanize_The_Platform.md",
+      "x": 300,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "s6",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/06_UC06_Migrate_And_Cut_Over.md",
+      "x": 600,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "s7",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/07_UC07_Delete_And_Seal.md",
+      "x": 900,
+      "y": 40,
+      "width": 260,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "factory",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/04_MECHANIZED_CONTEXT_FACTORY/00_MOC.md",
+      "x": 0,
+      "y": 300,
+      "width": 320,
+      "height": 120,
+      "color": "5"
+    },
+    {
+      "id": "quality",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/06_QUALITY_SECURITY_AND_OPERATIONS/00_MOC.md",
+      "x": 450,
+      "y": 300,
+      "width": 320,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "logic",
+      "type": "file",
+      "file": "01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/05_LOGIC_PRESERVATION_AND_CONSOLIDATION/00_MOC.md",
+      "x": -450,
+      "y": 300,
+      "width": 320,
+      "height": 120,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e12",
+      "fromNode": "s1",
+      "fromSide": "right",
+      "toNode": "s2",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "e23",
+      "fromNode": "s2",
+      "fromSide": "right",
+      "toNode": "s3",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "e34",
+      "fromNode": "s3",
+      "fromSide": "right",
+      "toNode": "s4",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "e45",
+      "fromNode": "s4",
+      "fromSide": "right",
+      "toNode": "s5",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "e56",
+      "fromNode": "s5",
+      "fromSide": "right",
+      "toNode": "s6",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "e67",
+      "fromNode": "s6",
+      "fromSide": "right",
+      "toNode": "s7",
+      "toSide": "left",
+      "label": "accepted handoff"
+    },
+    {
+      "id": "ef",
+      "fromNode": "s5",
+      "fromSide": "bottom",
+      "toNode": "factory",
+      "toSide": "top"
+    },
+    {
+      "id": "el",
+      "fromNode": "s4",
+      "fromSide": "bottom",
+      "toNode": "logic",
+      "toSide": "top"
+    },
+    {
+      "id": "eq",
+      "fromNode": "s7",
+      "fromSide": "bottom",
+      "toNode": "quality",
+      "toSide": "top"
+    }
+  ]
+}

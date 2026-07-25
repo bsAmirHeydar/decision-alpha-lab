@@ -1,0 +1,20 @@
+required_dimensions:
+  - structure
+  - behavior
+  - dependencies
+  - documentation
+  - security
+  - authority
+  - reproducibility
+  - recovery
+  - external_evidence
+result_values: [PASS, FAILED, BLOCKED, NOT_APPLICABLE]
+non_compensatory: true
+stage_exit_requires:
+  - exact change manifest
+  - output digests
+  - test receipts
+  - recovery receipt
+  - defect and risk ledger
+  - approvals
+  - hash-bound next-stage handoff

@@ -1,0 +1,17 @@
+states:
+  - DRAFT
+  - VALIDATED
+  - COMPILED
+  - REPLAY_VERIFIED
+  - DATA_READY
+  - MATERIALIZED
+  - RESEARCH_READY
+  - TRAINED
+  - EVIDENCE_COMPLETE
+  - PAPER_ELIGIBLE
+  - SHADOW_ELIGIBLE
+  - CAPITAL_REVIEW
+  - RUNTIME_ELIGIBLE
+transition_requires_evidence: true
+folder_presence_is_state: false
+ai_statement_is_state: false
