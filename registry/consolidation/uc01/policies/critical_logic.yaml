@@ -1,0 +1,19 @@
+policy_id: UC01-CRITICAL-LOGIC-V1
+stage: UC-01
+domains:
+  - kernel
+  - market
+  - context
+  - treatment
+  - research
+  - evidence
+  - capital
+  - runtime
+  - execution
+  - monitoring
+required_evidence:
+  - immutable source hash
+  - public symbol surface fingerprint
+  - domain-level executable test evidence
+claim_ceiling: preservation_characterization_only
+retirement_authority: false

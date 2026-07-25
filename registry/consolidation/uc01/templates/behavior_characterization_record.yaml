@@ -1,0 +1,10 @@
+record_id: REPLACE_WITH_RECORD_ID
+source_path: REPLACE_WITH_SOURCE_PATH
+source_sha256: REPLACE_WITH_SHA256
+critical_domains: []
+public_surface_fingerprint_sha256: REPLACE_WITH_SHA256
+executable_tests: []
+golden_fixtures: []
+known_behavioral_gaps: []
+reviewer: REPLACE_WITH_REVIEWER
+retirement_allowed: false

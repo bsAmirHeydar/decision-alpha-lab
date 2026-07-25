@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:external-consumer-survey:v1",
+  "title": "UC-01 External Consumer Survey",
+  "type": "object",
+  "required": ["scope_id", "surveyed_locations", "unresolved_locations", "completed_by", "completed_at"],
+  "properties": {
+    "scope_id": {"type": "string", "minLength": 1},
+    "surveyed_locations": {"type": "array"},
+    "unresolved_locations": {"type": "array"},
+    "completed_by": {"type": "string", "minLength": 1},
+    "completed_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

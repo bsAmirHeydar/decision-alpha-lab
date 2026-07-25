@@ -1,0 +1,11 @@
+policy_id: UC01-PRESERVATION-V1
+stage: UC-01
+required_external_artifacts:
+  - annotated Git tag at pre-consolidation HEAD
+  - archive branch at pre-consolidation HEAD
+  - verified Git bundle containing all refs
+  - materialized source archive matching the baseline root digest
+repository_commit_policy:
+  external_backups_in_git: false
+  receipts_and_hashes_in_git: true
+  secrets_must_not_be_copied_to_reports: true

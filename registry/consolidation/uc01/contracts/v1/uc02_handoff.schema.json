@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:uc02-handoff:v1",
+  "title": "UC-01 to UC-02 Handoff",
+  "type": "object",
+  "required": ["status", "from_stage", "to_stage", "baseline_id", "claim_ceiling"],
+  "properties": {
+    "status": {"enum": ["ISSUED", "NOT_ISSUED"]},
+    "from_stage": {"const": "UC-01"},
+    "to_stage": {"const": "UC-02"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+environment_id: REPLACE_WITH_ENVIRONMENT_ID
+machine_role: development
+operating_system: REPLACE
+python:
+  executable: REPLACE
+  version: REPLACE
+metatrader_terminals: []
+metaeditor_installations: []
+brokers: []
+data_roots: []
+scheduled_jobs: []
+external_consumers: []
+secret_values_recorded: false

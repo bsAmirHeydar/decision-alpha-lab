@@ -8,7 +8,6 @@ def main(argv=None):
     p.add_argument("--config",required=True); p.add_argument("--upstream",required=True); p.add_argument("--records",required=True); p.add_argument("--output",required=True)
     a=p.parse_args(argv)
     load=lambda x:json.loads(Path(x).read_text(encoding="utf-8"))
-    Path(a.output).write_text(json.dumps(run(load(a.config),load(a.upstream),load(a.records)),indent=2,sort_keys=True)+"
-",encoding="utf-8")
+    Path(a.output).write_text(json.dumps(run(load(a.config),load(a.upstream),load(a.records)),indent=2,sort_keys=True)+"\n",encoding="utf-8")
     return 0
 if __name__=="__main__": raise SystemExit(main())

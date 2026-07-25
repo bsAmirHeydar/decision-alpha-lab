@@ -1,0 +1,18 @@
+policy_id: UC01-ARTIFACT-CLASSIFICATION-V1
+stage: UC-01
+required_dimensions:
+  - category
+  - lifecycle
+  - authorship
+  - owner_domain
+  - criticality
+  - language
+  - git_status
+  - lfs_pointer
+uc01_disposition: UNASSESSED_UNTIL_UC02
+forbidden_uc01_dispositions:
+  - DELETE
+  - MOVE
+  - MERGE
+  - RETIRE
+  - CUTOVER

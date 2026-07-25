@@ -1,0 +1,18 @@
+scope_id: REPLACE_WITH_SCOPE_ID
+surveyed_locations:
+  - location_type: local_repository
+    location: decision-alpha-lab
+    status: surveyed
+  - location_type: MetaTrader_terminal
+    location: REPLACE_WITH_TERMINAL_PATH
+    status: unresolved
+  - location_type: external_repository
+    location: REPLACE_WITH_REPOSITORY
+    status: unresolved
+unresolved_locations:
+  - REPLACE_WITH_UNRESOLVED_SCOPE
+completed_by: REPLACE_WITH_REVIEWER
+completed_at: REPLACE_WITH_RFC3339_TIME
+notes: >-
+  Do not mark an external scope surveyed unless paths, jobs, terminal profiles,
+  scheduled tasks, imports, includes and deployment consumers were inspected.

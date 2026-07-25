@@ -1,0 +1,61 @@
+{
+  "baseline_stabilization": {
+    "pre_patch_preservation_required": true,
+    "repair_class": "mechanical_newline_literal_syntax_restoration",
+    "repair_count": 11,
+    "semantic_change_claimed": false,
+    "status": "PASS"
+  },
+  "claim_ceiling": "Static UC-01 implementation plus eleven bounded syntax restorations; authoritative baseline is generated on the user repository.",
+  "deleted_path_count": 0,
+  "destructive_authority": false,
+  "direct_tests": {
+    "failed": 0,
+    "passed": 26,
+    "status": "PASS"
+  },
+  "engineering_policy": {
+    "checks": 5,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "modified_path_count": 11,
+  "new_path_count": 63,
+  "obsidian_program_validation": {
+    "errors": 0,
+    "notes": 96,
+    "status": "PASS",
+    "warnings": 0
+  },
+  "program_id": "UCPS",
+  "reference_full_snapshot_capture": {
+    "artifact_count": 52374,
+    "authoritative": false,
+    "blocking_item_count": 0,
+    "consumer_edge_count": 141545,
+    "critical_logic_count": 13540,
+    "documentation_count": 27187,
+    "documentation_id_collision_count": 256,
+    "documentation_link_count": 110852,
+    "expected_authoritative_difference": "Git LFS is materialized and Git preservation/recovery/qualification receipts are produced on the user repository.",
+    "lfs_pointer_count_in_archive_snapshot": 2,
+    "mql5_authority_surface_count": 171,
+    "mql5_include_edge_count": 3276,
+    "mql5_source_count": 2559,
+    "mql5_symbol_count": 19839,
+    "path_reference_count": 5540,
+    "python_import_edge_count": 21877,
+    "python_parse_issue_count": 0,
+    "python_source_count": 5544,
+    "python_symbol_count": 19915,
+    "reason": "The archive-overlay reference capture validates scanner scalability and coverage. The authoritative UC-01 baseline is generated after patch application on the materialized Git repository.",
+    "schema_count": 3358,
+    "status": "CAPTURE_PASS_EXTERNAL_EVIDENCE_PENDING",
+    "test_symbol_count": 5634
+  },
+  "release_id": "UC01_IMPLEMENTATION_V1",
+  "resumable_capture_steps": 6,
+  "stage_id": "UC-01",
+  "static_path_count": 74,
+  "status": "PASS"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:baseline-manifest:v1",
+  "title": "UC-01 Baseline Manifest",
+  "type": "object",
+  "required": ["baseline_id", "program_id", "stage_id", "implementation_version", "repository_root_digest_sha256", "artifact_count", "immutable", "claim_ceiling"],
+  "properties": {
+    "baseline_id": {"type": "string", "pattern": "^UC01BASE_[0-9A-F]{32}$"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC-01"},
+    "repository_root_digest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "artifact_count": {"type": "integer", "minimum": 1},
+    "immutable": {"const": true}
+  },
+  "additionalProperties": true
+}

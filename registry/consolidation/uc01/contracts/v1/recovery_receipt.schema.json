@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:recovery-receipt:v1",
+  "title": "UC-01 Recovery Drill Receipt",
+  "type": "object",
+  "required": ["status"],
+  "properties": {
+    "status": {"enum": ["PASS", "BLOCKED", "FAILED"]},
+    "workspace_destroyed_after_drill": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

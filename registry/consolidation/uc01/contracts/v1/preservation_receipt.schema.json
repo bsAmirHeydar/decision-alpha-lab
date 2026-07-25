@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:preservation-receipt:v1",
+  "title": "UC-01 Preservation Receipt",
+  "type": "object",
+  "required": ["status", "git_preservation", "source_archive", "external_artifacts_committed_to_git"],
+  "properties": {
+    "status": {"enum": ["PASS", "BLOCKED", "FAILED"]},
+    "external_artifacts_committed_to_git": {"const": false}
+  },
+  "additionalProperties": true
+}

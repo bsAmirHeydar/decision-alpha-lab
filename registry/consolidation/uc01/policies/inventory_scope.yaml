@@ -1,0 +1,16 @@
+policy_id: UC01-INVENTORY-SCOPE-V1
+stage: UC-01
+include:
+  - all Git tracked files
+  - all non-ignored untracked files present after the UC-01 static patch overlay
+  - materialized Git LFS content
+exclude:
+  - .git
+  - transient caches
+  - .alpha runtime workspace
+  - registry/consolidation/uc01/baselines/UC01_BASELINE_V1
+rules:
+  paths_are_repository_relative: true
+  every_included_path_must_have_sha256: true
+  every_included_path_must_have_total_classification: true
+  baseline_output_must_not_hash_itself: true

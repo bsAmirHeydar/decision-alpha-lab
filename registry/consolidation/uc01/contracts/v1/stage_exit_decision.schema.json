@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:stage-exit-decision:v1",
+  "title": "UC-01 Stage Exit Decision",
+  "type": "object",
+  "required": ["program_id", "stage_id", "baseline_id", "status", "gates", "destructive_authority", "uc02_authorized"],
+  "properties": {
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC-01"},
+    "status": {"enum": ["BLOCKED", "FAILED", "ACCEPTED"]},
+    "destructive_authority": {"const": false},
+    "uc02_authorized": {"type": "boolean"},
+    "gates": {"type": "object", "minProperties": 8}
+  },
+  "additionalProperties": true
+}

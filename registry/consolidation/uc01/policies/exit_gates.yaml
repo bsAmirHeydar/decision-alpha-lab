@@ -1,0 +1,16 @@
+policy_id: UC01-EXIT-GATES-V1
+stage: UC-01
+non_compensatory: true
+gates:
+  - artifact_hash_and_classification
+  - symbol_and_logic_inventory
+  - lfs_materialization
+  - critical_behavior_characterization
+  - git_and_source_preservation
+  - clean_restore
+  - qualification
+  - no_destructive_change
+accepted_status: ACCEPTED
+blocked_status: BLOCKED
+failed_status: FAILED
+uc02_handoff_requires: ACCEPTED

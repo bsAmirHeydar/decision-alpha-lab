@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:alpha-lab:uc01:artifact-record:v1",
+  "title": "UC-01 Artifact Record",
+  "type": "object",
+  "required": ["path", "sha256", "size", "category", "lifecycle", "owner_domain", "criticality", "disposition"],
+  "properties": {
+    "path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "size": {"type": "integer", "minimum": 0},
+    "category": {"type": "string", "minLength": 1},
+    "lifecycle": {"type": "string", "minLength": 1},
+    "owner_domain": {"type": "string", "minLength": 1},
+    "criticality": {"enum": ["normal", "medium", "high", "critical"]},
+    "disposition": {"const": "UNASSESSED_UNTIL_UC02"}
+  },
+  "additionalProperties": true
+}
