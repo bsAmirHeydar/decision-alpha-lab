@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import ast
-import hashlib
 import json
 import os
 import subprocess
@@ -17,6 +16,7 @@ from .apply import (
     REGISTRY_DIRECTORY_RULES,
     SHIM_PATHS,
 )
+from tools.consolidation.ci.portable_hash import hash_matches
 
 REQUIRED_DOC_DIRS = (
     "docs/architecture/master",
@@ -35,14 +35,6 @@ REQUIRED_REGISTRY_DIRS = (
 
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
-
-
-def rewrite_hashes(path: Path) -> set[str]:
-    """Return hashes stable across Git's platform-specific text checkout."""
-    raw = path.read_bytes()
-    lf = raw.replace(b"\r\n", b"\n")
-    crlf = lf.replace(b"\n", b"\r\n")
-    return {hashlib.sha256(value).hexdigest() for value in (raw, lf, crlf)}
 
 
 def imported_modules(path: Path) -> set[str]:
@@ -148,7 +140,7 @@ def verify(repo: Path, ci_fast: bool = False) -> list[str]:
     sample_rewrites = rewrite_rows if not ci_fast else rewrite_rows[:512]
     for row in sample_rewrites:
         path = repo / str(row.get("path", ""))
-        if not path.is_file() or str(row.get("after_sha256", "")) not in rewrite_hashes(path):
+        if not path.is_file() or not hash_matches(path, str(row.get("after_sha256", ""))):
             errors.append(f"rewrite output mismatch: {row.get('path')}")
 
     clean = read_json(output / "clean_replay_receipt.json")
