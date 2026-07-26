@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from typing import Any
+
+from .portable_hash import hash_matches
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -13,13 +14,6 @@ def _read_json(path: Path) -> dict[str, Any]:
         raise ValueError(f"JSON root must be an object: {path}")
     return value
 
-
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def _check_authority_false(errors: list[str], label: str, payload: dict[str, Any]) -> None:
@@ -85,8 +79,16 @@ def verify(repo_root: Path) -> dict[str, Any]:
 
     verified_amendment_paths = 0
     expected_by_path: dict[str, tuple[str, str]] = {}
-    for label in ("UC-01 migration amendment", "UC-02 migration amendment", "CI recovery amendment"):
-        amendment = _read_json(required_files[label])
+    amendment_sources = [
+        ("UC-01 migration amendment", required_files["UC-01 migration amendment"]),
+        ("UC-02 migration amendment", required_files["UC-02 migration amendment"]),
+        ("CI recovery amendment", required_files["CI recovery amendment"]),
+    ]
+    recovery_v2 = repo / "releases/unified_consolidation/ci_recovery_02/UC02_STATIC_AMENDMENT.json"
+    if recovery_v2.is_file():
+        amendment_sources.append(("CI recovery 02 amendment", recovery_v2))
+    for label, amendment_path in amendment_sources:
+        amendment = _read_json(amendment_path)
         if amendment.get("stage_id") != "UC-03":
             errors.append(f"{label} has the wrong stage identity")
         _check_authority_false(errors, label, amendment)
@@ -111,8 +113,7 @@ def verify(repo_root: Path) -> dict[str, Any]:
         if not path.is_file():
             errors.append(f"{label} path is missing: {relative}")
             continue
-        actual = _sha256(path)
-        if actual != expected:
+        if not hash_matches(path, expected):
             errors.append(f"{label} hash mismatch: {relative}")
         else:
             verified_amendment_paths += 1

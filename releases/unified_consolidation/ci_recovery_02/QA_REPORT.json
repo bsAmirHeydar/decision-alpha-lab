@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "checks": {
+    "engineering_policy": "PASS",
+    "uc02_authority_continuity": "PASS",
+    "uc02_static_verification": "PASS",
+    "uc03_part2_topology_ci_fast": "PASS",
+    "portable_hash_tests": "PASS",
+    "lf_crlf_simulation": "PASS"
+  },
+  "authority": {
+    "deletion": false,
+    "semantic_merge": false,
+    "runtime": false,
+    "order": false,
+    "broker": false,
+    "capital": false
+  }
+}

@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Iterable
 
 from .apply import ACTIVE_REWRITE_ROOTS, DIRECTORY_RULES, EXCLUDED_DIRS, FILE_RULES, TEXT_EXTENSIONS, TOOL_SHIMS
+from tools.consolidation.ci.portable_hash import hash_matches
 
 REQUIRED_DESTINATIONS = (
     "src/engine/packages",
@@ -90,7 +91,7 @@ def active_stale_references(repo: Path) -> list[str]:
         "tests/consolidation/uc03p2/",
         "tools/engineering/audit_repository_layout.py",
         "tools/repository_paths.py",
-        "sitecustomize.py",
+        "releases/history/misc/documents/sitecustomize.py",
         "releases/unified_consolidation/uc03/part2/",
         "registry/consolidation/uc03/part2/",
         "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/",
@@ -211,8 +212,8 @@ def _base_topology_errors(repo: Path) -> tuple[list[str], int, int]:
         if files != ["__init__.py"]:
             errors.append(f"tool compatibility namespace contains unexpected files: {old}: {files}")
 
-    if not (repo / "sitecustomize.py").is_file():
-        errors.append("sitecustomize.py compatibility bootstrap is missing")
+    if not (repo / "releases/history/misc/documents/sitecustomize.py").is_file():
+        errors.append("releases/history/misc/documents/sitecustomize.py compatibility bootstrap is missing")
     root_file_count = len([path for path in repo.iterdir() if path.is_file()])
     if root_file_count > 20:
         errors.append("repository root file limit exceeded")
@@ -270,7 +271,7 @@ def fast_receipt_errors(repo: Path) -> list[str]:
         if not relative or not path.is_file():
             errors.append(f"rewritten file is missing: {relative}")
             continue
-        if expected and _sha256(path) != expected:
+        if expected and not hash_matches(path, expected):
             errors.append(f"rewritten file hash mismatch: {relative}")
         if relative.endswith(".py"):
             rewritten_python.append(path)

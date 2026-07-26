@@ -1,0 +1,20 @@
+{
+  "amended_paths": [
+    {
+      "path": "tools/consolidation/uc02/verify.py",
+      "sha256": "f6b1528f967da5f7f55fcd60c7cc720ff968a090e65a61541117e3535d934dea"
+    }
+  ],
+  "broker_authority": false,
+  "capital_authority": false,
+  "deletion_authority": false,
+  "order_authority": false,
+  "part_id": "CI-RECOVERY-02",
+  "program_id": "UCPS",
+  "reason": "Cross-platform LF/CRLF portable verification for consolidation CI.",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "upstream_stage": "UC-02"
+}

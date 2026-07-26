@@ -36,6 +36,29 @@ def normalize_wikilink(raw: str) -> str:
     return raw.split("|", 1)[0].split("#", 1)[0].strip().replace("\\", "/").removesuffix(".md")
 
 
+def hash_variants(path: Path) -> set[str]:
+    raw = path.read_bytes()
+    variants = {hashlib.sha256(raw).hexdigest()}
+    if b"\x00" in raw[:4096]:
+        return variants
+    had_bom = raw.startswith(b"\xef\xbb\xbf")
+    body = raw[3:] if had_bom else raw
+    try:
+        text = body.decode("utf-8")
+    except UnicodeDecodeError:
+        return variants
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    for newline in ("\n", "\r\n"):
+        payload = normalized.replace("\n", newline).encode("utf-8")
+        variants.add(hashlib.sha256(payload).hexdigest())
+        variants.add(hashlib.sha256(b"\xef\xbb\xbf" + payload).hexdigest())
+    return variants
+
+
+def hash_matches(path: Path, expected: str) -> bool:
+    return expected.lower() in hash_variants(path)
+
+
 def main() -> int:
     program = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[1]).resolve()
     vault = program.parent.resolve()
@@ -182,16 +205,47 @@ def main() -> int:
     # Later accepted consolidation patches may amend a bounded subset of the
     # foundation files. The original ledger remains authoritative for every
     # non-amended path; the amendment file supplies the exact replacement hash.
+    amendment_hashes: dict[str, list[str]] = {}
+
+    def add_amendment(relative: str, digest: str) -> None:
+        if relative and digest:
+            amendment_hashes.setdefault(relative, []).append(digest.lower())
+
     amendment_path = repo / "releases/unified_consolidation/uc03/part1/OBSIDIAN_AMENDMENT.json"
-    amendment_hashes: dict[str, str] = {}
     if amendment_path.is_file():
         try:
             amendment = json.loads(amendment_path.read_text(encoding="utf-8"))
             if amendment.get("program_id") != "UCPS" or amendment.get("part_id") != "UC03-P1":
                 errors.append("invalid UC-03 Part 1 Obsidian amendment identity")
-            amendment_hashes = {str(row["path"]): str(row["sha256"]) for row in amendment.get("amended_paths", [])}
+            for row in amendment.get("amended_paths", []):
+                add_amendment(str(row.get("path", "")), str(row.get("sha256", "")))
         except Exception as exc:
             errors.append(f"invalid UC-03 Part 1 Obsidian amendment: {exc}")
+
+    for receipt_path in (
+        repo / "registry/consolidation/uc03/part1/reference_rewrite_receipt.json",
+        repo / "registry/consolidation/uc03/part2/compatibility_rewrite_receipt.json",
+    ):
+        if not receipt_path.is_file():
+            continue
+        try:
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8-sig"))
+            if receipt.get("status") != "PASS":
+                errors.append(f"rewrite receipt is not PASS: {receipt_path.relative_to(repo)}")
+                continue
+            for row in receipt.get("files", []):
+                add_amendment(str(row.get("path", "")), str(row.get("after_sha256", "")))
+        except Exception as exc:
+            errors.append(f"invalid rewrite receipt {receipt_path.relative_to(repo)}: {exc}")
+
+    recovery_amendment = repo / "releases/unified_consolidation/ci_recovery_02/OBSIDIAN_FOUNDATION_AMENDMENT.json"
+    if recovery_amendment.is_file():
+        try:
+            payload = json.loads(recovery_amendment.read_text(encoding="utf-8"))
+            for row in payload.get("amended_paths", []):
+                add_amendment(str(row.get("path", "")), str(row.get("sha256", "")))
+        except Exception as exc:
+            errors.append(f"invalid CI recovery Obsidian amendment: {exc}")
 
     release = program / "_release"
     required_release = {
@@ -223,10 +277,10 @@ def main() -> int:
         for line in ledger_lines:
             try:
                 expected, rel = line.split("  ", 1)
-                actual = hashlib.sha256((repo / rel).read_bytes()).hexdigest()
-                if actual != expected:
-                    amended = amendment_hashes.get(rel)
-                    if amended != actual:
+                target = repo / rel
+                if not hash_matches(target, expected):
+                    amended = amendment_hashes.get(rel, [])
+                    if not any(hash_matches(target, candidate) for candidate in amended):
                         errors.append(f"hash mismatch: {rel}")
             except Exception as exc:
                 errors.append(f"invalid hash ledger line: {line}: {exc}")

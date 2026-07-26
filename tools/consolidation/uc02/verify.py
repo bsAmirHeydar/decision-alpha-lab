@@ -10,6 +10,7 @@ import jsonschema
 from .constants import AUTHORITY_DOMAINS, AUTHORITY_ROOT, DYNAMIC_OUTPUTS, PLANNING_DISPOSITIONS, RELEASE_ROOT, SCHEMA_ROOT
 from .contracts import validate_contracts
 from .io_utils import iter_jsonl_gz, read_json, sha256_file
+from tools.consolidation.ci.portable_hash import hash_matches
 
 
 def verify_static_patch(repo_root: Path) -> dict:
@@ -19,6 +20,7 @@ def verify_static_patch(repo_root: Path) -> dict:
     amendment_paths = (
         repo_root / "releases/unified_consolidation/uc03/part2/UC02_STATIC_AMENDMENT.json",
         repo_root / "releases/unified_consolidation/ci_recovery_01/UC02_STATIC_AMENDMENT.json",
+        repo_root / "releases/unified_consolidation/ci_recovery_02/UC02_STATIC_AMENDMENT.json",
     )
     amendment_hashes: dict[str, str] = {}
     for amendment_path in amendment_paths:
@@ -61,8 +63,8 @@ def verify_static_patch(repo_root: Path) -> dict:
             if not target.is_file():
                 errors.append(f"static hash target missing: {rel}")
             else:
-                actual = sha256_file(target)
-                if actual != expected and amendment_hashes.get(rel) != actual:
+                amendment_expected = amendment_hashes.get(rel)
+                if not hash_matches(target, expected) and not (amendment_expected and hash_matches(target, amendment_expected)):
                     errors.append(f"static hash mismatch: {rel}")
     if manifest_path.is_file():
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

@@ -1,0 +1,13 @@
+docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py
+releases/unified_consolidation/ci_recovery_02/COMMIT_MESSAGE.txt
+releases/unified_consolidation/ci_recovery_02/OBSIDIAN_FOUNDATION_AMENDMENT.json
+releases/unified_consolidation/ci_recovery_02/PATCH_FILE_INDEX.txt
+releases/unified_consolidation/ci_recovery_02/PATCH_MANIFEST.json
+releases/unified_consolidation/ci_recovery_02/QA_REPORT.json
+releases/unified_consolidation/ci_recovery_02/README.md
+releases/unified_consolidation/ci_recovery_02/UC02_STATIC_AMENDMENT.json
+tests/consolidation/ci/test_portable_hash.py
+tools/consolidation/ci/portable_hash.py
+tools/consolidation/ci/verify_migration_continuity.py
+tools/consolidation/uc02/verify.py
+tools/consolidation/uc03p2/verify.py

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "patch_id": "CI-RECOVERY-02",
+  "title": "Cross-platform consolidation status check recovery",
+  "change_type": "verification-only",
+  "deleted_file_count": 0,
+  "authority": {
+    "deletion": false,
+    "semantic_merge": false,
+    "runtime": false,
+    "order": false,
+    "broker": false,
+    "capital": false
+  }
+}
