@@ -1,0 +1,143 @@
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+
+def _read_json(path: Path) -> dict[str, Any]:
+    value = json.loads(path.read_text(encoding="utf-8-sig"))
+    if not isinstance(value, dict):
+        raise ValueError(f"JSON root must be an object: {path}")
+    return value
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _check_authority_false(errors: list[str], label: str, payload: dict[str, Any]) -> None:
+    for key in (
+        "deletion_authority",
+        "semantic_merge_authority",
+        "runtime_authority",
+        "order_authority",
+        "broker_authority",
+        "capital_authority",
+    ):
+        if payload.get(key) is True:
+            errors.append(f"{label} unexpectedly grants {key}")
+
+
+def verify(repo_root: Path) -> dict[str, Any]:
+    repo = repo_root.resolve()
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    required_files = {
+        "UC-01 static manifest": repo / "releases/unified_consolidation/uc01/UC01_PATCH_MANIFEST.json",
+        "UC-02 static manifest": repo / "releases/unified_consolidation/uc02/UC02_PATCH_MANIFEST.json",
+        "UC-03 Part 1 decision": repo / "registry/consolidation/uc03/part1/part1_exit_decision.json",
+        "UC-03 Part 2 decision": repo / "registry/consolidation/uc03/part2/part2_exit_decision.json",
+        "UC-03 Part 2 relocation receipt": repo / "registry/consolidation/uc03/part2/code_relocation_receipt.json",
+        "UC-03 Part 2 rewrite receipt": repo / "registry/consolidation/uc03/part2/compatibility_rewrite_receipt.json",
+        "UC-01 migration amendment": repo / "releases/unified_consolidation/uc03/part2/UC01_STATIC_AMENDMENT.json",
+        "UC-02 migration amendment": repo / "releases/unified_consolidation/uc03/part2/UC02_STATIC_AMENDMENT.json",
+        "CI recovery amendment": repo / "releases/unified_consolidation/ci_recovery_01/UC02_STATIC_AMENDMENT.json",
+    }
+    for label, path in required_files.items():
+        if not path.is_file():
+            errors.append(f"missing {label}: {path.relative_to(repo)}")
+
+    if errors:
+        return {"status": "FAILED", "errors": errors, "warnings": warnings}
+
+    part1 = _read_json(required_files["UC-03 Part 1 decision"])
+    part2 = _read_json(required_files["UC-03 Part 2 decision"])
+    relocation = _read_json(required_files["UC-03 Part 2 relocation receipt"])
+    rewrite = _read_json(required_files["UC-03 Part 2 rewrite receipt"])
+
+    if part1.get("status") != "ACCEPTED":
+        errors.append("UC-03 Part 1 decision is not ACCEPTED")
+    if part2.get("status") != "ACCEPTED" or part2.get("uc03_part3_authorized") is not True:
+        errors.append("UC-03 Part 2 decision is not ACCEPTED or does not authorize Part 3")
+    if part2.get("uc04_authorized") is True:
+        errors.append("UC-03 Part 2 must not authorize UC-04")
+    if relocation.get("status") != "PASS" or int(relocation.get("file_relocation_count", 0)) <= 0:
+        errors.append("UC-03 Part 2 relocation receipt is not PASS")
+    if int(relocation.get("conflict_count", 0)) != 0:
+        errors.append("UC-03 Part 2 relocation receipt contains unresolved conflicts")
+    if rewrite.get("status") != "PASS" or int(rewrite.get("modified_file_count", 0)) <= 0:
+        errors.append("UC-03 Part 2 rewrite receipt is not PASS")
+
+    for label, payload in (
+        ("UC-03 Part 1 decision", part1),
+        ("UC-03 Part 2 decision", part2),
+        ("UC-03 Part 2 relocation receipt", relocation),
+    ):
+        _check_authority_false(errors, label, payload)
+
+    verified_amendment_paths = 0
+    expected_by_path: dict[str, tuple[str, str]] = {}
+    for label in ("UC-01 migration amendment", "UC-02 migration amendment", "CI recovery amendment"):
+        amendment = _read_json(required_files[label])
+        if amendment.get("stage_id") != "UC-03":
+            errors.append(f"{label} has the wrong stage identity")
+        _check_authority_false(errors, label, amendment)
+        rows = amendment.get("amended_paths", [])
+        if not isinstance(rows, list) or not rows:
+            errors.append(f"{label} contains no amended paths")
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                errors.append(f"{label} has an invalid amended path row")
+                continue
+            relative = str(row.get("path", ""))
+            expected = str(row.get("sha256", "")).lower()
+            if not relative or not expected:
+                errors.append(f"{label} has an incomplete amended path row")
+                continue
+            # Later bounded amendments supersede earlier hashes for the same path.
+            expected_by_path[relative] = (expected, label)
+
+    for relative, (expected, label) in sorted(expected_by_path.items()):
+        path = repo / relative
+        if not path.is_file():
+            errors.append(f"{label} path is missing: {relative}")
+            continue
+        actual = _sha256(path)
+        if actual != expected:
+            errors.append(f"{label} hash mismatch: {relative}")
+        else:
+            verified_amendment_paths += 1
+
+    result = {
+        "status": "PASS" if not errors else "FAILED",
+        "errors": errors,
+        "warnings": warnings,
+        "relocation_count": int(relocation.get("file_relocation_count", 0)),
+        "rewrite_file_count": int(rewrite.get("modified_file_count", 0)),
+        "verified_amendment_path_count": verified_amendment_paths,
+        "historical_dynamic_uc01_uc02_package_required": False,
+        "continuity_basis": "UC-03 accepted decisions, relocation receipt, rewrite receipt and bounded static amendments",
+    }
+    return result
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--repo-root", default=".")
+    args = parser.parse_args()
+    result = verify(Path(args.repo_root))
+    print(json.dumps(result, indent=2, sort_keys=True))
+    return 0 if result["status"] == "PASS" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

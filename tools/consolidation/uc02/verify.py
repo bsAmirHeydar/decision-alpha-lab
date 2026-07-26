@@ -16,16 +16,22 @@ def verify_static_patch(repo_root: Path) -> dict:
     repo_root = repo_root.resolve()
     release = repo_root / RELEASE_ROOT
     errors: list[str] = []
-    amendment_path = repo_root / "releases/unified_consolidation/uc03/part2/UC02_STATIC_AMENDMENT.json"
+    amendment_paths = (
+        repo_root / "releases/unified_consolidation/uc03/part2/UC02_STATIC_AMENDMENT.json",
+        repo_root / "releases/unified_consolidation/ci_recovery_01/UC02_STATIC_AMENDMENT.json",
+    )
     amendment_hashes: dict[str, str] = {}
-    if amendment_path.is_file():
+    for amendment_path in amendment_paths:
+        if not amendment_path.is_file():
+            continue
         try:
             amendment = json.loads(amendment_path.read_text(encoding="utf-8"))
-            if amendment.get("program_id") != "UCPS" or amendment.get("part_id") != "UC03-P2":
-                errors.append("invalid UC-03 Part 2 UC-02 amendment identity")
-            amendment_hashes = {str(row["path"]): str(row["sha256"]) for row in amendment.get("amended_paths", [])}
+            if amendment.get("program_id") != "UCPS" or amendment.get("upstream_stage") != "UC-02":
+                errors.append(f"invalid UC-02 amendment identity: {amendment_path.relative_to(repo_root)}")
+            for row in amendment.get("amended_paths", []):
+                amendment_hashes[str(row["path"])] = str(row["sha256"])
         except Exception as exc:
-            errors.append(f"invalid UC-03 Part 2 UC-02 amendment: {exc}")
+            errors.append(f"invalid UC-02 amendment {amendment_path.relative_to(repo_root)}: {exc}")
     index = release / "UC02_PATCH_FILE_INDEX.txt"
     ledger = release / "UC02_PATCH_FILE_HASHES.sha256"
     manifest_path = release / "UC02_PATCH_MANIFEST.json"

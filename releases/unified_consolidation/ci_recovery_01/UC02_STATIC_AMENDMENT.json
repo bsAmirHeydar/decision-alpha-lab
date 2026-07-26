@@ -1,0 +1,28 @@
+{
+  "amended_paths": [
+    {
+      "path": ".github/workflows/uc02-authority-guard.yml",
+      "sha256": "2fc6686eb24d278a5ad92d2211011000f60e4890d374a184f4baf020f12f5090"
+    },
+    {
+      "path": "tests/consolidation/uc02/conftest.py",
+      "sha256": "ce054bf3fdfeff6a32d457cb75f16daa0f61cf67ef9709fcaeaa11fd930ce3c3"
+    },
+    {
+      "path": "tools/consolidation/uc02/verify.py",
+      "sha256": "706f67490adabff461ad49c13ea61dc3d4cfa1908b1eb5c1de0ed5b58278a489"
+    }
+  ],
+  "broker_authority": false,
+  "capital_authority": false,
+  "deletion_authority": false,
+  "order_authority": false,
+  "part_id": "CI-RECOVERY-01",
+  "program_id": "UCPS",
+  "reason": "Migration-aware CI recovery after accepted UC-03 physical relocation.",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "upstream_stage": "UC-02"
+}

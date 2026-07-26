@@ -2,11 +2,13 @@ from __future__ import annotations
 
 import argparse
 import ast
+import hashlib
 import importlib
 import json
 import os
 import sys
 from pathlib import Path
+from typing import Iterable
 
 from .apply import ACTIVE_REWRITE_ROOTS, DIRECTORY_RULES, EXCLUDED_DIRS, FILE_RULES, TEXT_EXTENSIONS, TOOL_SHIMS
 
@@ -19,8 +21,27 @@ REQUIRED_DESTINATIONS = (
     "mql5/legacy/strategy_factory_lab",
 )
 
+RELOCATION_RECEIPT = Path("registry/consolidation/uc03/part2/code_relocation_receipt.json")
+REWRITE_RECEIPT = Path("registry/consolidation/uc03/part2/compatibility_rewrite_receipt.json")
+DECISION_PATH = Path("registry/consolidation/uc03/part2/part2_exit_decision.json")
 
-def iter_python(root: Path):
+
+def _read_json(path: Path) -> dict:
+    value = json.loads(path.read_text(encoding="utf-8-sig"))
+    if not isinstance(value, dict):
+        raise ValueError(f"JSON root must be an object: {path}")
+    return value
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def iter_python(root: Path) -> Iterable[Path]:
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = [item for item in dirnames if item not in EXCLUDED_DIRS and item != ".git"]
         current = Path(dirpath)
@@ -29,8 +50,22 @@ def iter_python(root: Path):
                 yield current / filename
 
 
-def syntax_errors(repo: Path) -> list[str]:
+def _parse_paths(repo: Path, paths: Iterable[Path]) -> list[str]:
     errors: list[str] = []
+    seen: set[Path] = set()
+    for path in paths:
+        path = path.resolve()
+        if path in seen or not path.is_file():
+            continue
+        seen.add(path)
+        try:
+            ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
+        except (SyntaxError, UnicodeDecodeError) as exc:
+            errors.append(f"python parse failure: {path.relative_to(repo)}: {exc}")
+    return errors
+
+
+def syntax_errors(repo: Path) -> list[str]:
     roots = (
         repo / "src/engine",
         repo / "contexts/legacy",
@@ -38,15 +73,7 @@ def syntax_errors(repo: Path) -> list[str]:
         repo / "tests/legacy",
         repo / "tools",
     )
-    for root in roots:
-        if not root.exists():
-            continue
-        for path in iter_python(root):
-            try:
-                ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
-            except (SyntaxError, UnicodeDecodeError) as exc:
-                errors.append(f"python parse failure: {path.relative_to(repo)}: {exc}")
-    return errors
+    return _parse_paths(repo, (path for root in roots if root.exists() for path in iter_python(root)))
 
 
 def active_stale_references(repo: Path) -> list[str]:
@@ -124,14 +151,14 @@ def import_errors(repo: Path) -> list[str]:
         "strategy_factory_validation",
         "strategy_factory_research",
     ]
-    probes = []
+    probes: list[str] = []
     for item in preferred + candidates[:8]:
         if item in candidates and item not in probes:
             probes.append(item)
     for name in probes:
         try:
             importlib.import_module(name)
-        except Exception as exc:  # import compatibility is the contract under test
+        except Exception as exc:
             errors.append(f"import probe failed: {name}: {type(exc).__name__}: {exc}")
 
     for name in ("tools.strategy_factory", "tools.strategy_factory.lcm", "tools.strategy_factory.acl_os"):
@@ -142,21 +169,24 @@ def import_errors(repo: Path) -> list[str]:
     return errors
 
 
-def verify(repo: Path) -> dict:
-    repo = repo.resolve()
+def _base_topology_errors(repo: Path) -> tuple[list[str], int, int]:
     errors: list[str] = []
-    decision = repo / "registry/consolidation/uc03/part2/part2_exit_decision.json"
+    decision = repo / DECISION_PATH
     if not decision.is_file():
         errors.append("part2 exit decision is missing")
     else:
-        data = json.loads(decision.read_text(encoding="utf-8"))
+        data = _read_json(decision)
         if data.get("status") != "ACCEPTED" or not data.get("uc03_part3_authorized"):
             errors.append("part2 exit decision is not accepted")
         if data.get("uc04_authorized"):
             errors.append("part2 must not authorize UC-04")
+        for key in ("deletion_authority", "semantic_merge_authority", "runtime_authority", "order_authority", "capital_authority"):
+            if data.get(key) is True:
+                errors.append(f"part2 decision unexpectedly grants {key}")
 
     lab = repo / "lab"
-    if lab.exists() and any(path.is_file() for path in lab.rglob("*")):
+    lab_file_count = sum(1 for path in lab.rglob("*") if path.is_file()) if lab.exists() else 0
+    if lab_file_count:
         errors.append("lab still contains files")
 
     for destination in REQUIRED_DESTINATIONS:
@@ -170,7 +200,6 @@ def verify(repo: Path) -> dict:
         if source not in shim_sources and source_path.exists() and any(path.is_file() for path in source_path.rglob("*")):
             errors.append(f"source still contains files: {source}")
         if not destination_path.exists():
-            # Some optional source trees may not exist in every checkout.
             continue
 
     for old, _ in TOOL_SHIMS:
@@ -184,19 +213,92 @@ def verify(repo: Path) -> dict:
 
     if not (repo / "sitecustomize.py").is_file():
         errors.append("sitecustomize.py compatibility bootstrap is missing")
-    if len([path for path in repo.iterdir() if path.is_file()]) > 20:
+    root_file_count = len([path for path in repo.iterdir() if path.is_file()])
+    if root_file_count > 20:
         errors.append("repository root file limit exceeded")
+    return errors, lab_file_count, root_file_count
 
-    errors.extend(syntax_errors(repo))
-    errors.extend(active_stale_references(repo))
-    errors.extend(import_errors(repo))
+
+def fast_receipt_errors(repo: Path) -> list[str]:
+    errors: list[str] = []
+    relocation_path = repo / RELOCATION_RECEIPT
+    rewrite_path = repo / REWRITE_RECEIPT
+    if not relocation_path.is_file():
+        return ["code relocation receipt is missing"]
+    if not rewrite_path.is_file():
+        return ["compatibility rewrite receipt is missing"]
+
+    relocation = _read_json(relocation_path)
+    rewrite = _read_json(rewrite_path)
+    if relocation.get("status") != "PASS" or int(relocation.get("conflict_count", 0)) != 0:
+        errors.append("code relocation receipt is not a clean PASS")
+    if rewrite.get("status") != "PASS":
+        errors.append("compatibility rewrite receipt is not PASS")
+
+    relocation_rows = relocation.get("relocations", [])
+    if not isinstance(relocation_rows, list) or len(relocation_rows) != int(relocation.get("file_relocation_count", -1)):
+        errors.append("code relocation receipt count mismatch")
+        relocation_rows = []
+
+    python_candidates: list[Path] = []
+    for row in relocation_rows:
+        if not isinstance(row, dict):
+            errors.append("invalid relocation row")
+            continue
+        destination = str(row.get("destination", ""))
+        path = repo / destination
+        if not destination or not path.is_file():
+            errors.append(f"relocated destination is missing: {destination}")
+            if len(errors) >= 50:
+                return errors
+            continue
+        if destination.endswith(".py"):
+            python_candidates.append(path)
+
+    rewrite_rows = rewrite.get("files", [])
+    if not isinstance(rewrite_rows, list) or len(rewrite_rows) != int(rewrite.get("modified_file_count", -1)):
+        errors.append("rewrite receipt count mismatch")
+        rewrite_rows = []
+    rewritten_python: list[Path] = []
+    for row in rewrite_rows:
+        if not isinstance(row, dict):
+            errors.append("invalid rewrite row")
+            continue
+        relative = str(row.get("path", ""))
+        expected = str(row.get("after_sha256", "")).lower()
+        path = repo / relative
+        if not relative or not path.is_file():
+            errors.append(f"rewritten file is missing: {relative}")
+            continue
+        if expected and _sha256(path) != expected:
+            errors.append(f"rewritten file hash mismatch: {relative}")
+        if relative.endswith(".py"):
+            rewritten_python.append(path)
+
+    # CI parses every rewritten Python file plus a deterministic relocation sample.
+    sampled = sorted(python_candidates, key=lambda item: item.as_posix())[:256]
+    errors.extend(_parse_paths(repo, [*rewritten_python, *sampled]))
+    return errors
+
+
+def verify(repo: Path, *, ci_fast: bool = False) -> dict:
+    repo = repo.resolve()
+    errors, lab_file_count, root_file_count = _base_topology_errors(repo)
+    if ci_fast:
+        errors.extend(fast_receipt_errors(repo))
+        errors.extend(import_errors(repo))
+    else:
+        errors.extend(syntax_errors(repo))
+        errors.extend(active_stale_references(repo))
+        errors.extend(import_errors(repo))
 
     result = {
         "status": "PASS" if not errors else "FAIL",
+        "mode": "CI_FAST" if ci_fast else "FULL",
         "error_count": len(errors),
         "errors": errors,
-        "lab_file_count": sum(1 for path in lab.rglob("*") if path.is_file()) if lab.exists() else 0,
-        "root_file_count": len([path for path in repo.iterdir() if path.is_file()]),
+        "lab_file_count": lab_file_count,
+        "root_file_count": root_file_count,
     }
     print(json.dumps(result, indent=2, sort_keys=True))
     return result
@@ -205,8 +307,9 @@ def verify(repo: Path) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", default=".")
+    parser.add_argument("--ci-fast", action="store_true")
     arguments = parser.parse_args()
-    return 0 if verify(Path(arguments.repo_root))["status"] == "PASS" else 1
+    return 0 if verify(Path(arguments.repo_root), ci_fast=arguments.ci_fast)["status"] == "PASS" else 1
 
 
 if __name__ == "__main__":

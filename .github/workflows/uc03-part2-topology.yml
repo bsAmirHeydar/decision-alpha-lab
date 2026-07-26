@@ -5,12 +5,21 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: uc03-part2-topology-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   topology:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - run: python -m tools.consolidation.uc03p2.verify --repo-root .
+          python-version: '3.13'
+      - name: Verify accepted UC-03 Part 2 topology
+        run: python -m tools.consolidation.uc03p2.verify --repo-root . --ci-fast

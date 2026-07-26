@@ -1,0 +1,1 @@
+fix(ci): restore consolidation status checks after UC-03 relocation
