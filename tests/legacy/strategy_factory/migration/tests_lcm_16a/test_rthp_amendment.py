@@ -1,5 +1,5 @@
 import json
-from tools.strategy_factory.lcm.lcm_16a.canonical import object_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.canonical import object_digest
 
 
 def test_rthp_protected_engine_amendment_is_exact(root):

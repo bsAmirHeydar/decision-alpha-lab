@@ -13,8 +13,8 @@ FILES = {
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/11_overlap_arbitration_and_rr_entry_repricing.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Overlap Wider and RR Repricing.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/11_overlap_arbitration_and_rr_entry_repricing.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Overlap Wider and RR Repricing.md",
 }
 
 

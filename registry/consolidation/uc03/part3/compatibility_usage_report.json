@@ -1,0 +1,19 @@
+{
+  "retired_shim_count": 10,
+  "retired_shims": [
+    "tools/strategy_factory/__init__.py",
+    "tools/cme_bridge/__init__.py",
+    "tools/astro_live_bridge/__init__.py",
+    "tools/astro_feature_builder/__init__.py",
+    "tools/astro_ml/__init__.py",
+    "tools/astro_validation/__init__.py",
+    "tools/flag_counting/__init__.py",
+    "tools/exp0019/__init__.py",
+    "tools/stc_smt_deployment/__init__.py",
+    "tools/alpha_lens_mobile/__init__.py"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "status": "PASS",
+  "usage_count": 0
+}

@@ -1,7 +1,7 @@
-from tools.strategy_factory.acl_os.acl_14.authority import validate_permit
-from tools.strategy_factory.acl_os.acl_14.canonical import with_digest
-from tools.strategy_factory.acl_os.acl_14.handoff_input import load_acl13_bundle
-from tools.strategy_factory.acl_os.acl_14.request import validate_request
+from src.engine.tooling.strategy_factory.acl_os.acl_14.authority import validate_permit
+from src.engine.tooling.strategy_factory.acl_os.acl_14.canonical import with_digest
+from src.engine.tooling.strategy_factory.acl_os.acl_14.handoff_input import load_acl13_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_14.request import validate_request
 import pytest
 
 def test_acl13_bundle(acl13_root):

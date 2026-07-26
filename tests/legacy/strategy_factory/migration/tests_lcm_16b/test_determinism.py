@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_16b.canonical import object_digest
-from tools.strategy_factory.lcm.lcm_16b.io import load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.canonical import object_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json
 
 
 def test_canonical_digest_stable():

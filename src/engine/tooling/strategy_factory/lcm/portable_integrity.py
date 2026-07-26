@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 LCM16A_AUDIT_RELATIVE = Path(
-    "registry/legacy_context_migration/full_system_audits/"
+    "registry/history/lcm/full_system_audits/"
     "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2"
 )
 BASELINE_DOCUMENT = "baseline_amendment.json"
@@ -166,7 +166,7 @@ def load_verified_lcm16a_amendments(repo_root: Path) -> dict[str, dict[str, Any]
         path = row.get("candidate_path")
         previous = row.get("previous_sha256")
         amended = row.get("amended_sha256")
-        if not isinstance(path, str) or not path.startswith("docs/ai_algorithm_engineering_os/"):
+        if not isinstance(path, str) or not path.startswith("docs/history/aieos_legacy/"):
             raise ValueError(f"unapproved LCM-16A amendment scope: {path}")
         if path in amendments:
             raise ValueError(f"duplicate LCM-16A amendment path: {path}")

@@ -1,6 +1,6 @@
 import copy,json,pytest
-from tools.strategy_factory.acl_os.acl_08.report_policy import validate_policy
-from tools.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
+from src.engine.tooling.strategy_factory.acl_os.acl_08.report_policy import validate_policy
+from src.engine.tooling.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
 
 def test_policy_valid(policy): assert validate_policy(policy)['policy_id']=='ACL08_REPORT_POLICY_V1'
 def test_policy_digest_tamper_rejected(policy):

@@ -1,0 +1,13 @@
+{
+  "consumer_cutover_allowed": false,
+  "cutover_authority_phase": "LCM-13_OR_EXPLICIT_LATER_AUTHORITY",
+  "historical_token": "MIGRATED_CUTOVER_READY",
+  "historical_token_semantics": "REFERENCE_PACKAGE_AND_PARITY_READY_WITHIN_LCM08C_ONLY",
+  "human_owner_gate_remains_required": true,
+  "known_time_gate_remains_required": true,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:c37d7cb31e7d243769eac76a11e57b5006793fee166d08814e9635b7d9766557",
+  "policy_id": "LCM08C_HISTORICAL_DISPOSITION_SEMANTICS_V1",
+  "production_or_live_readiness_claimed": false,
+  "schema_version": "1.0.0"
+}

@@ -1,7 +1,7 @@
 import json,pytest
-from tools.strategy_factory.acl_os.acl_12.service import ACL12SecurityHardeningService
-from tools.strategy_factory.acl_os.acl_12.verify import verify_output
-from tools.strategy_factory.acl_os.acl_12.errors import PublicationError
+from src.engine.tooling.strategy_factory.acl_os.acl_12.service import ACL12SecurityHardeningService
+from src.engine.tooling.strategy_factory.acl_os.acl_12.verify import verify_output
+from src.engine.tooling.strategy_factory.acl_os.acl_12.errors import PublicationError
 def test_build_service(ACL11,permit,tmp_path):
     out=tmp_path/'out'; r=ACL12SecurityHardeningService().build(ACL11,permit,out); assert r['control_count']==33 and verify_output(out)['passed']
 def test_reference_output_verifies(ACL12): assert verify_output(ACL12)['passed']

@@ -1,8 +1,8 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
-from tools.strategy_factory.lcm.lcm_08a.upstream import load
-from tools.strategy_factory.lcm.lcm_08a.portfolio import build
-from tools.strategy_factory.lcm.lcm_08a.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_08a.upstream import load
+from src.engine.tooling.strategy_factory.lcm.lcm_08a.portfolio import build
+from src.engine.tooling.strategy_factory.lcm.lcm_08a.canonical import digest_object
 
 ROOT=find_repository_root(__file__)
 

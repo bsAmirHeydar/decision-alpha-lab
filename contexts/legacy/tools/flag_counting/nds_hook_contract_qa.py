@@ -26,11 +26,11 @@ REQUIRED_FILES = (
     "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh",
-    "docs/nds_hook_architecture/65_phase48_post_f3_hook_recognition_doctrine.md",
-    "docs/nds_hook_architecture/66_phase49_post_f3_recognition_code_step7.md",
-    "docs/hook_validity/HOOK-VAL-0001_Valid_Hook_Philosophy_and_Filtering_Policy.md",
-    "docs/hook_validity/HOOK-VAL-0002_Hook_After_Hook_Chained_Node_Architecture.md",
-    "docs/hook_validity/HOOK-VAL-0003_Hook_After_Opposing_F3_Architecture.md",
+    "docs/contexts/legacy/nds/hook/65_phase48_post_f3_hook_recognition_doctrine.md",
+    "docs/contexts/legacy/nds/hook/66_phase49_post_f3_recognition_code_step7.md",
+    "docs/contexts/legacy/hook_validity/HOOK-VAL-0001_Valid_Hook_Philosophy_and_Filtering_Policy.md",
+    "docs/contexts/legacy/hook_validity/HOOK-VAL-0002_Hook_After_Hook_Chained_Node_Architecture.md",
+    "docs/contexts/legacy/hook_validity/HOOK-VAL-0003_Hook_After_Opposing_F3_Architecture.md",
 )
 
 

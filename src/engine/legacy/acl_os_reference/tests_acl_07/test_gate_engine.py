@@ -1,5 +1,5 @@
-from tools.strategy_factory.acl_os.acl_07.gate_engine import preliminary,replace_family_gates
-from tools.strategy_factory.acl_os.acl_07.handoff_input import load_acl06_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_07.gate_engine import preliminary,replace_family_gates
+from src.engine.tooling.strategy_factory.acl_os.acl_07.handoff_input import load_acl06_bundle
 
 def _first(acl06_root,policy):
  b=load_acl06_bundle(acl06_root); c=dict(b['candidates'][0]); c['_test_accuracy']=b['segments_by_setup'][c['setup_id']]['TEST']['accuracy']; return c,b['segments_by_setup'][c['setup_id']],b

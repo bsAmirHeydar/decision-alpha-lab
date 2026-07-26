@@ -9,7 +9,7 @@ from pathlib import Path
 REPO_ROOT = find_repository_root(__file__)
 RUNNER_PATH = REPO_ROOT / "tools/engineering/run_engineering_policy.py"
 POLICY_PATH = REPO_ROOT / "tools/engineering/validate_alpha_lab_policy.py"
-CANONICAL_VAULT = "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os"
+CANONICAL_VAULT = "docs/architecture/master/ai_algorithm_engineering_os"
 
 
 def load_module(name: str, path: Path):
@@ -43,7 +43,7 @@ def test_preflight_runs_the_canonical_vault_validator() -> None:
 def test_repository_policy_requires_canonical_entry_points() -> None:
     policy = load_module("alpha_lab_policy_validator", POLICY_PATH)
     canonical_prefix = f"{CANONICAL_VAULT}/"
-    legacy_prefix = "docs/ai_algorithm_engineering_os/"
+    legacy_prefix = "docs/history/aieos_legacy/"
     required_vault_paths = [
         path for path in policy.REQUIRED if "ai_algorithm_engineering_os" in path
     ]

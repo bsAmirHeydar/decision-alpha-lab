@@ -19,8 +19,8 @@ def validate(root: Path=REPO_ROOT) -> dict:
     for path in policies:
         try: add(isinstance(yaml.safe_load(path.read_text(encoding="utf-8")),dict),"ACL04_POLICY_PARSE",str(path.relative_to(root)))
         except Exception as exc: add(False,"ACL04_POLICY_PARSE",str(exc),path=str(path))
-    phase_docs=list((root/"docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_04").glob("*.md")); add(len(phase_docs)>=45,"ACL04_PHASE_DOCS",f"{len(phase_docs)} notes")
-    atomic=list((root/"docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_04").glob("*.md")); add(len(atomic)>=100,"ACL04_ATOMIC_DOCS",f"{len(atomic)} notes")
+    phase_docs=list((root/"docs/architecture/master/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_04").glob("*.md")); add(len(phase_docs)>=45,"ACL04_PHASE_DOCS",f"{len(phase_docs)} notes")
+    atomic=list((root/"docs/architecture/master/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_04").glob("*.md")); add(len(atomic)>=100,"ACL04_ATOMIC_DOCS",f"{len(atomic)} notes")
     mql=list((root/"mql5/legacy/strategy_factory_lab/Include/AlphaLab/ACL_OS/ACL04").glob("*.mqh")); add(len(mql)>=12,"ACL04_MQL5_STATIC",f"{len(mql)} files")
     forbidden=["OrderSend(","CTrade","PositionOpen(","WebRequest(","capital_activation_allowed=true","live_order_submission_allowed=true"]
     for path in mql:

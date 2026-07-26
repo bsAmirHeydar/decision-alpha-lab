@@ -3,9 +3,9 @@ import json
 from pathlib import Path
 import pytest
 
-from tools.strategy_factory.lcm.lcm_00.errors import IntegrityError
-from tools.strategy_factory.lcm.lcm_00.manifest import build_baseline_manifest
-from tools.strategy_factory.lcm.lcm_00.verify import verify_baseline_package, verify_repository_against_baseline
+from src.engine.tooling.strategy_factory.lcm.lcm_00.errors import IntegrityError
+from src.engine.tooling.strategy_factory.lcm.lcm_00.manifest import build_baseline_manifest
+from src.engine.tooling.strategy_factory.lcm.lcm_00.verify import verify_baseline_package, verify_repository_against_baseline
 
 
 def test_reference_baseline_package_verifies(baseline_root):
@@ -32,7 +32,7 @@ def test_repository_verifier_detects_changed_byte(tmp_path, baseline_root):
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_bytes(source.read_bytes()+b"tamper")
     mini={**manifest,"record_count":1,"records":[first],"manifest_digest":""}
-    from tools.strategy_factory.lcm.lcm_00.canonical import digest_object
+    from src.engine.tooling.strategy_factory.lcm.lcm_00.canonical import digest_object
     mini["manifest_digest"]=digest_object(mini,"manifest_digest")
     mini_root=tmp_path/"baseline"
     mini_root.mkdir()
@@ -44,7 +44,7 @@ def test_repository_verifier_detects_changed_byte(tmp_path, baseline_root):
 
 def test_undeclared_post_freeze_file_detected(tmp_path, baseline_root):
     empty={"schema_version":"1.0.0","baseline_id":"B","phase_id":"LCM-00","path_semantics":"ROOT_RELATIVE_POSIX_BYTE_EXACT","scope_policy_digest":"sha256:x","record_count":0,"records":[],"manifest_digest":""}
-    from tools.strategy_factory.lcm.lcm_00.canonical import digest_object
+    from src.engine.tooling.strategy_factory.lcm.lcm_00.canonical import digest_object
     empty["manifest_digest"]=digest_object(empty,"manifest_digest")
     br=tmp_path/"b"; br.mkdir(); (br/"baseline_manifest.json").write_text(json.dumps(empty),encoding="utf-8")
     repo=tmp_path/"r"; repo.mkdir(); (repo/"unexpected.txt").write_text("x")

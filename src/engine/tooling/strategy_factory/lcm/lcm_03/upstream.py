@@ -6,11 +6,11 @@ from .errors import IntegrityError
 from .io import read_json
 
 def latest_classification(repo_root: Path) -> Path:
-    roots=sorted((repo_root/'registry/legacy_context_migration/classifications').glob('CLASSIFICATION_*'))
+    roots=sorted((repo_root/'registry/history/lcm/classifications').glob('CLASSIFICATION_*'))
     if not roots: raise IntegrityError('LCM-02 classification package not found')
     return roots[-1]
 def survey_root(repo_root: Path, survey_id: str) -> Path:
-    root=repo_root/'registry/legacy_context_migration/surveys'/survey_id
+    root=repo_root/'registry/history/lcm/surveys'/survey_id
     if not root.is_dir(): raise IntegrityError('bound LCM-01 survey not found')
     return root
 def verify_classification(root: Path) -> dict:

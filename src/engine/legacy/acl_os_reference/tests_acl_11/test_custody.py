@@ -1,7 +1,7 @@
-from tools.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
-from tools.strategy_factory.acl_os.acl_11.registries import parity_registry
-from tools.strategy_factory.acl_os.acl_11.parity import assess
-from tools.strategy_factory.acl_os.acl_11.custody import *
+from src.engine.tooling.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_11.registries import parity_registry
+from src.engine.tooling.strategy_factory.acl_os.acl_11.parity import assess
+from src.engine.tooling.strategy_factory.acl_os.acl_11.custody import *
 def make(acl10):
     b=load_acl10_bundle(acl10); a=assess(b,parity_registry(),'2026-07-18T04:00:00Z'); g=build_generation_manifest(b,a); s=build_signing_plan(g); c=build_conformance_matrix(a); d=issue_decision(b,a,g,s,c,'2026-07-18T04:00:00Z'); return b,a,g,s,c,d
 def test_empty_generation_manifest(acl10): assert make(acl10)[2]['generation_count']==0

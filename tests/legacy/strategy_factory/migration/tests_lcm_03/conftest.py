@@ -7,6 +7,6 @@ import pytest
 def repo_root(): return find_repository_root(__file__)
 @pytest.fixture(scope='session')
 def identity_root(repo_root):
-    roots=sorted((repo_root/'registry/legacy_context_migration/identities').glob('IDENTITY_*'))
+    roots=sorted((repo_root/'registry/history/lcm/identities').glob('IDENTITY_*'))
     assert roots
     return roots[-1]

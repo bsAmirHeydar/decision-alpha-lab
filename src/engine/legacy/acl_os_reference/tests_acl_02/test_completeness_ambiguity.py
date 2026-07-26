@@ -1,7 +1,7 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
-from tools.strategy_factory.acl_os.acl_02.completeness import evaluate_completeness
-from tools.strategy_factory.acl_os.acl_02.ambiguity import AmbiguityAnalyzer
+from src.engine.tooling.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
+from src.engine.tooling.strategy_factory.acl_os.acl_02.completeness import evaluate_completeness
+from src.engine.tooling.strategy_factory.acl_os.acl_02.ambiguity import AmbiguityAnalyzer
 
 def load(root):
  p=ContextPackageLoader(root).load();p.pop("_paths");return p

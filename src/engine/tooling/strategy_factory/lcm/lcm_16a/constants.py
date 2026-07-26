@@ -6,11 +6,11 @@ CLAIM_CEILING = "LCM_16A_REFERENCE_ONLY"
 SCHEMA_VERSION = "1.0.0"
 AUDIT_ID = "CLOSUREAUDIT_5EEC97304039BFF3AAAFB57605961BA2"
 PACKAGE_RELATIVE = (
-    Path("registry/legacy_context_migration/full_system_audits") / AUDIT_ID
+    Path("registry/history/lcm/full_system_audits") / AUDIT_ID
 )
 UPSTREAM_CLOSURE_ID = "DELETECLOSE_D38B8B1916E504C5C6F2123CF5047474"
 UPSTREAM_PACKAGE_RELATIVE = (
-    Path("registry/legacy_context_migration/controlled_deletion_closures")
+    Path("registry/history/lcm/controlled_deletion_closures")
     / UPSTREAM_CLOSURE_ID
 )
 UPSTREAM_HANDOFF_DIGEST = (

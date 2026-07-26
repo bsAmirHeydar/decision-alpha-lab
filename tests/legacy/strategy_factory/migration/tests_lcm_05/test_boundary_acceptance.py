@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_05.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_05.io import read_json
 
 def test_generated_noncanonical(topology_root):
     b=read_json(topology_root/'topology/authored_generated_boundary.json');assert b['generated_can_be_domain_authority'] is False;assert b['generated_can_override_authored'] is False

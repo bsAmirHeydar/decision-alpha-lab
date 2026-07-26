@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12a.io import load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12a.io import load_jsonl
 def test_unknown_queue_is_explicit_and_scoped(mapping_root,load):
     q=load("documentation_unknown_queue.json")
     rows=load_jsonl(mapping_root/q["unknowns_path"])

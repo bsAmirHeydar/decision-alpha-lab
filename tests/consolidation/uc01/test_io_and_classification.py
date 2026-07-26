@@ -23,5 +23,5 @@ def test_artifact_classification_is_total() -> None:
     assert classify_category("docs/readme.md") == "documentation"
     assert classify_category("registry/x/state.json") == "registry_state"
     assert classify_category("something.unknown") == "other_artifact"
-    assert classify_lifecycle("docs/root_archive/old.md") == "historical_or_archived"
+    assert classify_lifecycle("docs/history/root_archive/old.md") == "historical_or_archived"
     assert owner_domain("tools/strategy_factory/x.py") == "strategy_factory"

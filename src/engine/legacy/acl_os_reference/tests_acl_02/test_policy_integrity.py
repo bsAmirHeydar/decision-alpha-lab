@@ -1,5 +1,5 @@
 import hashlib,json,yaml
-from tools.strategy_factory.acl_os.acl_02.policies import POLICY_ROOT,SCHEMA_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_02.policies import POLICY_ROOT,SCHEMA_ROOT
 
 def test_policy_files_parse():
  for p in POLICY_ROOT.glob("*.yaml"):assert isinstance(yaml.safe_load(p.read_text()),dict)

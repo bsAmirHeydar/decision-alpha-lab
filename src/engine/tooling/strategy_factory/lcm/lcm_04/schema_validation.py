@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 
 def validate(repo_root: Path):
-    root=repo_root/'registry/legacy_context_migration/lcm_04/schemas/v1';bad=[];count=0
+    root=repo_root/'registry/history/lcm/lcm_04/schemas/v1';bad=[];count=0
     try:
         import jsonschema
     except ImportError:

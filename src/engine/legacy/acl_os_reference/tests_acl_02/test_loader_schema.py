@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
-from tools.strategy_factory.acl_os.acl_02.schema_validation import validate_schemas
-from tools.strategy_factory.acl_os.acl_02.policies import SCHEMA_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
+from src.engine.tooling.strategy_factory.acl_os.acl_02.schema_validation import validate_schemas
+from src.engine.tooling.strategy_factory.acl_os.acl_02.policies import SCHEMA_ROOT
 
 def test_loads_all_sections(valid_root):
  p=ContextPackageLoader(valid_root).load();assert len(p)>=17;assert p["manifest"]["context_id"]=="CTX_REFERENCE_ALPHA"

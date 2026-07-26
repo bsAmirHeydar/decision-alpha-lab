@@ -251,5 +251,5 @@
   "map_id": "AIEOS_CANONICAL_NOTE_ID_MAP_V1",
   "normative_note_count": 246,
   "schema_version": "1.0.0",
-  "vault_root": "docs/ai_algorithm_engineering_os"
+  "vault_root": "docs/history/aieos_legacy"
 }

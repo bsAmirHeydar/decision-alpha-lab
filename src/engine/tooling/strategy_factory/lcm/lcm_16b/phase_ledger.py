@@ -24,7 +24,7 @@ def _qa_status(path: Path) -> tuple[str, str | None]:
 def build_phase_register(repo_root: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     docs_root = repo_root / (
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/"
+        "docs/architecture/master/context_lifecycle_os/"
         "17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES"
     )
     for index, phase_id in enumerate(PHASE_SEQUENCE):
@@ -100,19 +100,19 @@ def control_plane_paths(repo_root: Path) -> list[Path]:
             paths.add(path)
 
     roadmap_paths = (
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/00_LCM_HOME.md",
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/02_PROGRAM_ARCHITECTURE_AND_CRITICAL_PATH.md",
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/03_IMPLEMENTATION_SEQUENCE.md",
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/06_REFINED_IMPLEMENTATION_ROADMAP.md",
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/01_GOVERNANCE/MIGRATION_STATE_MACHINE.md",
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/01_GOVERNANCE/MIGRATION_CONSTITUTION.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/00_LCM_HOME.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/02_PROGRAM_ARCHITECTURE_AND_CRITICAL_PATH.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/03_IMPLEMENTATION_SEQUENCE.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/06_REFINED_IMPLEMENTATION_ROADMAP.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/01_GOVERNANCE/MIGRATION_STATE_MACHINE.md",
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/01_GOVERNANCE/MIGRATION_CONSTITUTION.md",
     )
     for relative in roadmap_paths:
         path = repo_root / relative
         if path.is_file():
             paths.add(path)
 
-    registry_root = repo_root / "registry/legacy_context_migration"
+    registry_root = repo_root / "registry/history/lcm"
     for pattern in ("*HANDOFF.json", "output_manifest.json", "rollback_manifest.json"):
         for path in registry_root.rglob(pattern):
             if path.is_file() and "program_closures" not in path.parts:

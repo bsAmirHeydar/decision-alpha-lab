@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 REPO = find_repository_root(__file__)
-ROOT = REPO / "registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3"
+ROOT = REPO / "registry/history/lcm/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3"
 
 def rows(name):
     return [json.loads(x) for x in (ROOT / name).read_text().splitlines() if x.strip()]

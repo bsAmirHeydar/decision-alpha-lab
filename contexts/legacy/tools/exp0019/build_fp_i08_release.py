@@ -9,8 +9,8 @@ import json
 import zipfile
 
 PHASE = 'contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i08'
-DOCS = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i08'
-PROGRAM = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program'
+DOCS = 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i08'
+PROGRAM = 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program'
 META = {
     'releases/history/exp0019/indexes/EXP0019_FP_I08_FILE_INDEX.txt',
     'releases/history/exp0019/hashes/EXP0019_FP_I08_FILE_HASHES.sha256',
@@ -32,7 +32,7 @@ def owned(root: Path) -> list[Path]:
     add_tree(paths, root / PHASE)
     add_tree(paths, root / DOCS)
     add_tree(paths, root / 'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I08')
-    for path in (root / 'docs/obsidian_deep/01_concepts').glob('FP-I08_*.md'):
+    for path in (root / 'docs/history/obsidian/deep/01_concepts').glob('FP-I08_*.md'):
         paths.add(path)
     for rel in (
         'releases/history/exp0019/readmes/README_EXP0019_FP_I08_WEEKLY_ENGINE.md',
@@ -63,7 +63,7 @@ def counts(root: Path) -> dict[str, int]:
         'public_schema_count': len(list((root / f'{PHASE}/schemas').glob('*.schema.json'))),
         'mql5_include_count': len(list((root / 'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I08').glob('*.mqh'))),
         'delivery_doc_count': len(list((root / DOCS).rglob('*.md'))),
-        'atomic_concept_count': len(list((root / 'docs/obsidian_deep/01_concepts').glob('FP-I08_*.md'))),
+        'atomic_concept_count': len(list((root / 'docs/history/obsidian/deep/01_concepts').glob('FP-I08_*.md'))),
     }
 
 def main() -> int:

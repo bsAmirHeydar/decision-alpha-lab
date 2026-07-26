@@ -1,6 +1,6 @@
 from dataclasses import replace
-from tools.strategy_factory.acl_os.acl_01.compatibility import CompatibilityRequirement
-from tools.strategy_factory.acl_os.acl_01.migrations import MigrationPlan
+from src.engine.tooling.strategy_factory.acl_os.acl_01.compatibility import CompatibilityRequirement
+from src.engine.tooling.strategy_factory.acl_os.acl_01.migrations import MigrationPlan
 
 def test_compatible_provider(registry,descriptor,permit_factory):
     registry.artifacts[descriptor.identity.artifact_id]=descriptor

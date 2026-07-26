@@ -1,4 +1,4 @@
-from tools.strategy_factory.acl_os.acl_12.scanners import scan_secrets,scan_static,scan_mql5,scan_paths
+from src.engine.tooling.strategy_factory.acl_os.acl_12.scanners import scan_secrets,scan_static,scan_mql5,scan_paths
 def test_reference_secret_scan_passes(ACL11): assert scan_secrets(ACL11)['passed']
 def test_secret_scanner_detects_key(tmp_path):
     (tmp_path/'x.txt').write_text('-----BEGIN PRIVATE KEY-----\nabc')

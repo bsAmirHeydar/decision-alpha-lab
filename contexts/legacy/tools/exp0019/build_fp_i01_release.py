@@ -10,7 +10,7 @@ def owned(root):
  paths=set();dirs=[
  'contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i01',
  'mql5/Include/FaerieProtocol/EXP0019/Compatibility',
- 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i01']
+ 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i01']
  for rel in dirs:
   for p in (root/rel).rglob('*'):
    if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':paths.add(p)
@@ -20,7 +20,7 @@ def owned(root):
  'contexts/legacy/tools/exp0019/check_fp_i01_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i01_mql5_static.py','contexts/legacy/tools/exp0019/validate_fp_i01_delivery.py','contexts/legacy/tools/exp0019/build_fp_i01_release.py']:
   p=root/rel
   if p.is_file():paths.add(p)
- for p in (root/'docs/obsidian_deep/01_concepts').glob('EXP0019_FP_I01_*.md'):paths.add(p)
+ for p in (root/'docs/history/obsidian/deep/01_concepts').glob('EXP0019_FP_I01_*.md'):paths.add(p)
  for name in META:
   p=root/name
   if p.is_file():paths.add(p)

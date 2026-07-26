@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_16b import evidence as module
-from tools.strategy_factory.lcm.lcm_16b.evidence import (
+from src.engine.tooling.strategy_factory.lcm.lcm_16b import evidence as module
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.evidence import (
     _validate_approvals,
     _validate_consumers,
     _validate_metaeditor,

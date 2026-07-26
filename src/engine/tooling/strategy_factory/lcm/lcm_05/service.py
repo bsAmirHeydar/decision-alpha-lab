@@ -38,7 +38,7 @@ def _authored_generated_boundary():
       {'class_id':'RELEASE_ARTIFACT','canonical_authority_allowed':False,'hand_edit_allowed':False,'rebuild_required':True},
       {'class_id':'MIGRATION_REGISTRY','canonical_authority_allowed':False,'hand_edit_allowed':False,'rebuild_required':True},
     ]
-    out={'schema_version':'1.0.0','boundary_id':'LCM05_AUTHORED_GENERATED_BOUNDARY_V1','classes':classes,'generated_can_override_authored':False,'generated_can_be_domain_authority':False,'generated_rebuild_command':'python -m tools.strategy_factory.lcm.lcm_05.cli build --repo-root . --destination registry/legacy_context_migration/target_paths','boundary_digest':None}
+    out={'schema_version':'1.0.0','boundary_id':'LCM05_AUTHORED_GENERATED_BOUNDARY_V1','classes':classes,'generated_can_override_authored':False,'generated_can_be_domain_authority':False,'generated_rebuild_command':'python -m src.engine.tooling.strategy_factory.lcm.lcm_05.cli build --repo-root . --destination registry/history/lcm/target_paths','boundary_digest':None}
     out['boundary_digest']=digest_object(out,'boundary_digest');return out
 
 def _layer_policy():

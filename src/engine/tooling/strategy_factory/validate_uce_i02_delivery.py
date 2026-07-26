@@ -19,7 +19,7 @@ def main()->int:
         except Exception as exc: errors.append(f"invalid JSON {p.name}: {exc}");continue
         if data.get("$schema")!="https://json-schema.org/draft/2020-12/schema": errors.append(f"wrong schema draft: {p.name}")
         if data.get("additionalProperties") is not False: errors.append(f"open top-level schema: {p.name}")
-    docs=root/"docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i02";notes=list(docs.rglob("*.md"))
+    docs=root/"docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i02";notes=list(docs.rglob("*.md"))
     if len(notes)<36: errors.append(f"expected at least 36 English notes including ADRs, found {len(notes)}")
     for p in notes:
         text=p.read_text(encoding="utf-8")

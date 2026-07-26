@@ -9,11 +9,11 @@ def collect_valid_entity_ids(repo_root:Path):
     ids=set()
     for path in repo_root.rglob("*"):
         rel=path.relative_to(repo_root).as_posix()
-        if rel.startswith(("registry/legacy_context_migration/documentation_authority_mappings/","registry/legacy_context_migration/lcm_12a/")):continue
+        if rel.startswith(("registry/history/lcm/documentation_authority_mappings/","registry/history/lcm/lcm_12a/")):continue
         for part in path.parts:
             stem=Path(part).stem
             if _ID_PATTERN.fullmatch(stem):ids.add(stem)
-        if path.is_file() and path.suffix.lower()==".json" and path.stat().st_size<=200_000 and (rel.startswith("registry/legacy_context_migration/") or rel.startswith("registry/acl_os/")):
+        if path.is_file() and path.suffix.lower()==".json" and path.stat().st_size<=200_000 and (rel.startswith("registry/history/lcm/") or rel.startswith("registry/history/acl/")):
             text=path.read_text(encoding="utf-8",errors="ignore")
             ids.update(_ID_PATTERN.findall(text))
     ids.update({"LCM-12A","LCM-12B","LCM-11B","LCM-10C","LCM_ROADMAP_R1_BALANCED_PARTITION"})

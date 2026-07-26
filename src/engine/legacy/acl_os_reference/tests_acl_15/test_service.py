@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.acl_os.acl_15.service import ACL15FleetOperationsClosureService
-from tools.strategy_factory.acl_os.acl_15.verify import verify_output
+from src.engine.tooling.strategy_factory.acl_os.acl_15.service import ACL15FleetOperationsClosureService
+from src.engine.tooling.strategy_factory.acl_os.acl_15.verify import verify_output
 def test_build_and_verify(tmp_path,acl14_root,permit,policy):
  out=tmp_path/'out'; r=ACL15FleetOperationsClosureService().build(acl14_root,permit,policy,out); assert r['passed']; assert verify_output(out)['passed']
 def test_deterministic_replay(tmp_path,acl14_root,permit,policy):

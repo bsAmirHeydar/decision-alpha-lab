@@ -21,7 +21,7 @@ def main() -> int:
     args = parser.parse_args()
     root = Path(args.root).resolve()
     ea_rel = "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
-    doc_rel = "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/09_strategy_tester_license_gate.md"
+    doc_rel = "docs/contexts/legacy/nds/entry/phase52_hook_limit_f123_execution/09_strategy_tester_license_gate.md"
     ea_path = root / ea_rel
     doc_path = root / doc_rel
     ea = ea_path.read_text(encoding="utf-8", errors="ignore") if ea_path.is_file() else ""

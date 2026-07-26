@@ -1,0 +1,19 @@
+schema_version: 1.0.0
+program_id: UCPS
+stage_id: UC-03
+part_id: UC03-P3
+claim_ceiling: physical_reorganization_only
+documentation:
+  canonical_root: docs/architecture/master
+  standards_root: docs/standards
+  operations_root: docs/operations
+  context_root: docs/contexts
+  historical_root: docs/history
+registry:
+  live_root: registry
+  historical_root: registry/history
+compatibility:
+  temporary_tools_namespaces_must_reach_zero_consumers: true
+  semantic_merge_allowed: false
+exit:
+  uc04_authorized_only_after_all_gates_pass: true

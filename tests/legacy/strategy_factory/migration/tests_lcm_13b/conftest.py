@@ -10,6 +10,6 @@ def repo_root() -> Path:
 
 @pytest.fixture(scope="session")
 def cutover_root(repo_root: Path) -> Path:
-    matches = sorted((repo_root / "registry/legacy_context_migration/consumer_wave_cutovers").glob("CUTOVER_*"))
+    matches = sorted((repo_root / "registry/history/lcm/consumer_wave_cutovers").glob("CUTOVER_*"))
     assert len(matches) == 1
     return matches[0]

@@ -9,7 +9,7 @@ checks={
  'mql5_includes':len(list((root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I12').glob('*.mqh')))>=12,
  'production_indicator':(root/'mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5').exists(),
  'operator_self_test':(root/'mql5/Tests/Indicators/EXP0019/FaerieProtocol/EXP0019_FP_I12_OperatorUXSelfTest.mq5').exists(),
- 'docs':len(list((root/'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i12').rglob('*.md')))>=60,
+ 'docs':len(list((root/'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i12').rglob('*.md')))>=60,
  'panel':(root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I12/FP_IndicatorPanel.mqh').exists(),
  'alerts':(root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I12/FP_AlertRouter.mqh').exists(),
  'exporter':(root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I12/FP_AuditExporter.mqh').exists(),

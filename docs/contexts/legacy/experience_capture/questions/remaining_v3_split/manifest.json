@@ -1,0 +1,44 @@
+{
+  "artifact": "remaining_questions_v3_split",
+  "purpose": "Store each remaining question as a separate folder/file while preserving previous professional answer workflow.",
+  "safe_overlay": true,
+  "new_path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split",
+  "does_not_overwrite_answers": true,
+  "question_count": 21,
+  "question_codes": [
+    "ENT-R03",
+    "ENT-R04",
+    "DST-R01",
+    "DST-R02",
+    "DST-R03",
+    "RSK-R01",
+    "RSK-R02",
+    "EXE-R01",
+    "EXE-R02",
+    "EXE-R03",
+    "EXE-R04",
+    "DATA-R01",
+    "DATA-R02",
+    "DATA-R03",
+    "DATA-R04",
+    "AI-R01",
+    "AI-R02",
+    "AI-R03",
+    "TEST-R01",
+    "TEST-R02",
+    "SYS-R01"
+  ],
+  "answer_workflow": {
+    "path": "docs/contexts/legacy/experience_capture/answers/<QUESTION_CODE>/",
+    "files": [
+      "question_en.md",
+      "answer_raw_en.md",
+      "answer_normalized_en.md",
+      "notes_en.md",
+      "manifest.json",
+      "images/"
+    ],
+    "one_answer_record_per_question": true
+  },
+  "created_at_utc": "2026-07-04T08:57:11.784659+00:00"
+}

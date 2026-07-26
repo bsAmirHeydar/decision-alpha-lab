@@ -1,0 +1,28 @@
+{
+  "question_code": "EXE-R04",
+  "title": "Execution Audit and Reconciliation",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/contexts/legacy/experience_capture/answers/EXE-R04/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "execution_audit_ledger_v1.csv",
+    "intent_to_order_reconciliation_v1.csv",
+    "fill_quality_model_v1.csv",
+    "split_order_audit_v1.csv"
+  ]
+}

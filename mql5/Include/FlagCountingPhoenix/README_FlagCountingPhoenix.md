@@ -5,7 +5,7 @@
 Phoenix must be implemented and audited from:
 
 ```text
-docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+docs/contexts/legacy/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
 ```
 
 That file is the source of truth. This README is an implementation index only.

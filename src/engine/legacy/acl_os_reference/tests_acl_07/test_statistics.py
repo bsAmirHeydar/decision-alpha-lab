@@ -1,4 +1,4 @@
-from tools.strategy_factory.acl_os.acl_07.statistics import binomial_upper_tail,wilson_lower,benjamini_hochberg,max_drawdown,population_std
+from src.engine.tooling.strategy_factory.acl_os.acl_07.statistics import binomial_upper_tail,wilson_lower,benjamini_hochberg,max_drawdown,population_std
 
 def test_binomial_none_on_zero(): assert binomial_upper_tail(0,0) is None
 def test_binomial_perfect_small(): assert binomial_upper_tail(3,3)==0.125

@@ -2,7 +2,7 @@ id: EXP_flag_counting
 title: Unified F-counting structural experiment
 status: active
 language: mql5
-source_of_truth: docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+source_of_truth: docs/contexts/legacy/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
 entrypoint: mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
 modules:
   - mql5/Include/FlagCountingPhoenix/FP_Types.mqh

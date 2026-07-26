@@ -1,7 +1,7 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_02.questionnaire import QuestionCatalog
-from tools.strategy_factory.acl_os.acl_02.interview import InterviewSession
-from tools.strategy_factory.acl_os.acl_02.wizard import IntakeWizard
+from src.engine.tooling.strategy_factory.acl_os.acl_02.questionnaire import QuestionCatalog
+from src.engine.tooling.strategy_factory.acl_os.acl_02.interview import InterviewSession
+from src.engine.tooling.strategy_factory.acl_os.acl_02.wizard import IntakeWizard
 
 def test_question_catalog_has_depth():assert len(QuestionCatalog().all())>=20
 def test_wizard_lists_required():assert len(IntakeWizard("CTX_TEST","S1").next_questions())>0

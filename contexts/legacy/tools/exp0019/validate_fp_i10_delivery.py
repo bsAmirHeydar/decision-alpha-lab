@@ -9,6 +9,6 @@ checks={
 'mql5_includes':len(list((root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I10').glob('*.mqh')))>=10,
 'indicator_entry':(root/'mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5').exists(),
 'self_test':(root/'mql5/Tests/Indicators/EXP0019/FaerieProtocol/EXP0019_FP_I10_IndicatorSelfTest.mq5').exists(),
-'docs':len(list((root/'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i10').rglob('*.md')))>=45,
+'docs':len(list((root/'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i10').rglob('*.md')))>=45,
 }
 print(json.dumps(checks,indent=2)); raise SystemExit(0 if all(checks.values()) else 1)

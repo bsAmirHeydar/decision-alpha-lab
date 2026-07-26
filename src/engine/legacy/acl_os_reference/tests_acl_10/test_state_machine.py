@@ -1,7 +1,7 @@
-from tools.strategy_factory.acl_os.acl_10.handoff_input import load_acl09_bundle
-from tools.strategy_factory.acl_os.acl_10.subject_projection import project_subjects
-from tools.strategy_factory.acl_os.acl_10.prerequisite_evaluator import build_matrix
-from tools.strategy_factory.acl_os.acl_10.decision_engine import build_decisions
+from src.engine.tooling.strategy_factory.acl_os.acl_10.handoff_input import load_acl09_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_10.subject_projection import project_subjects
+from src.engine.tooling.strategy_factory.acl_os.acl_10.prerequisite_evaluator import build_matrix
+from src.engine.tooling.strategy_factory.acl_os.acl_10.decision_engine import build_decisions
 
 def _all(acl09_root,policy):
     b=load_acl09_bundle(acl09_root); s=project_subjects(b); m=build_matrix(s,b,policy); return b,s,m,build_decisions(s,m,policy,'2026-07-18T03:00:00Z')

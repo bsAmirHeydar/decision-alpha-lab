@@ -10,7 +10,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $Root = (Resolve-Path $ProjectRoot).Path
-$ArchiveRoot = Join-Path $Root "docs\root_archive"
+$ArchiveRoot = Join-Path $Root "docs\history\root_archive"
 
 $Groups = @{
     "00_start_here" = @("00_*.md")
@@ -42,7 +42,7 @@ function Move-DocFile {
     $TargetPath = Join-Path $TargetDir $File.Name
 
     if ($WhatIfOnly) {
-        Write-Host "WHATIF: $($File.Name) -> docs\root_archive\$GroupName\$($File.Name)"
+        Write-Host "WHATIF: $($File.Name) -> docs\history\root_archive\$GroupName\$($File.Name)"
         return $true
     }
 

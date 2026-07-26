@@ -5,7 +5,7 @@ from .errors import IntegrityError
 from .io import read_json,read_jsonl
 
 def latest_identity(repo_root: Path) -> Path:
-    roots=sorted((repo_root/'registry/legacy_context_migration/identities').glob('IDENTITY_*'))
+    roots=sorted((repo_root/'registry/history/lcm/identities').glob('IDENTITY_*'))
     if not roots: raise IntegrityError('LCM-03 identity package not found')
     return roots[-1]
 

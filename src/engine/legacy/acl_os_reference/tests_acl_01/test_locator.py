@@ -1,6 +1,6 @@
 from dataclasses import replace
-from tools.strategy_factory.acl_os.acl_01.locator import ArtifactLocator
-from tools.strategy_factory.acl_os.acl_01.types import RegistryStatus
+from src.engine.tooling.strategy_factory.acl_os.acl_01.locator import ArtifactLocator
+from src.engine.tooling.strategy_factory.acl_os.acl_01.types import RegistryStatus
 
 def setup(registry,descriptor,permit_factory):
     assert not registry.register_artifact(descriptor,permit_factory("REGISTER_ARTIFACT",subject=descriptor.identity.artifact_id))

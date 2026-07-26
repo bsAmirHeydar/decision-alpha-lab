@@ -3,14 +3,14 @@ import shutil
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_14a.constants import UPSTREAM_CLOSURE_ROOT
-from tools.strategy_factory.lcm.lcm_14a.schema_validation import validate_schema_directory
-from tools.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
-from tools.strategy_factory.lcm.lcm_14a.static_validation import static_validate
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.constants import UPSTREAM_CLOSURE_ROOT
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.schema_validation import validate_schema_directory
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.static_validation import static_validate
 
 
 def test_schema_directory(repo_root):
-    assert validate_schema_directory(repo_root / "registry/legacy_context_migration/lcm_14a/schemas/v1") == []
+    assert validate_schema_directory(repo_root / "registry/history/lcm/lcm_14a/schemas/v1") == []
 
 
 def test_static_authority_boundary(repo_root):

@@ -21,7 +21,7 @@ from .io import dump_json, dump_jsonl, iter_jsonl, load_json
 from .models import BuildResult
 from .planner import ConsumerWavePlanner
 
-UPSTREAM_ROOT = Path("registry/legacy_context_migration/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570")
+UPSTREAM_ROOT = Path("registry/history/lcm/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570")
 UPSTREAM_HANDOFF = UPSTREAM_ROOT / "LCM13A_TO_LCM13B_HANDOFF.json"
 CONSUMERS_PATH = UPSTREAM_ROOT / "records/exact_consumer_inventory.jsonl"
 ELIGIBILITY_PATH = UPSTREAM_ROOT / "records/consumer_eligibility_records.jsonl"

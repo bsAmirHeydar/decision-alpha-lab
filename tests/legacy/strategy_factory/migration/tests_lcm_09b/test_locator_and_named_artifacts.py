@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_09b.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.canonical import digest_object
 from .conftest import ROOT,j
 
 def test_required_artifact_locator_is_complete_and_digest_bound():

@@ -18,4 +18,4 @@ DAL_M0004_FINAL_RUN_SHUFFLE_STRESS
 DAL_M0004_FINAL_BLOCK_CONCENTRATION_STRESS
 ```
 
-Acceptance is documented in `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`.
+Acceptance is documented in `docs/operations/mql5_native/H0004_BRANCH_REGIME_CLUSTERING.md`.

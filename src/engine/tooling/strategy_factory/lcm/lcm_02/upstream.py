@@ -6,7 +6,7 @@ from .errors import IntegrityError
 from .io import read_json
 
 def latest_survey(repo_root: Path) -> Path:
-    roots=sorted((repo_root/'registry/legacy_context_migration/surveys').glob('SURVEY_*'))
+    roots=sorted((repo_root/'registry/history/lcm/surveys').glob('SURVEY_*'))
     if not roots: raise IntegrityError('LCM-01 survey not found')
     return roots[-1]
 def verify_survey(root: Path) -> dict:

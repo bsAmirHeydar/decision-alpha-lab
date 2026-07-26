@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 from pathlib import Path
 import re, yaml
 ROOT=find_repository_root(__file__)
-vault=ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4'
+vault=ROOT/'docs/history/systems/saed_v4'
 new_roots=[vault/'62_PHASE_DELIVERIES_V4/V4_02',vault/'63_ATOMIC_CONCEPTS_V4/V4_02']
 files=list(vault.rglob('*.md'));stems={p.stem for p in files};titles={};front=[];broken=[]
 for p in files:

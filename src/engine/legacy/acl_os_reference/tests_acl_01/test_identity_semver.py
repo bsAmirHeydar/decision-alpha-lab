@@ -1,7 +1,7 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_01.identity import build_artifact_id,parse_artifact_id,validate_component
-from tools.strategy_factory.acl_os.acl_01.errors import IdentityError,ContractError
-from tools.strategy_factory.acl_os.acl_01.semver import Version,satisfies,highest_satisfying
+from src.engine.tooling.strategy_factory.acl_os.acl_01.identity import build_artifact_id,parse_artifact_id,validate_component
+from src.engine.tooling.strategy_factory.acl_os.acl_01.errors import IdentityError,ContractError
+from src.engine.tooling.strategy_factory.acl_os.acl_01.semver import Version,satisfies,highest_satisfying
 
 @pytest.mark.parametrize("value",["alpha","alpha-1","ctx_nds","a1","a-b_c2"])
 def test_valid_components(value): validate_component(value)

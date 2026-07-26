@@ -8,11 +8,11 @@ REQUIRED=[
 'src/engine/packages/strategy_factory_treatment_compiler_v3/state_machine.py',
 'tests/fixtures/legacy/strategy_factory/v3/uce_i04_treatment_compiler_vectors.json',
 'tests/fixtures/legacy/strategy_factory/v3/uce_i04_golden_path_library.json',
-'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i04/00_UCE_I04_DELIVERY_MOC.md',
+'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i04/00_UCE_I04_DELIVERY_MOC.md',
 'releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I04_HANDOFF_TO_UCE_I05.json']
 def main():
  root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve(); failures=[x for x in REQUIRED if not (root/x).exists()]
- docs=root/'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i04'
+ docs=root/'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i04'
  if docs.exists() and len(list(docs.glob('*.md')))<25: failures.append('fewer than 25 UCE-I04 phase documents')
  schemas=root/'schemas/legacy/strategy_factory/v3'
  if len(list(schemas.glob('*treatment*.schema.json')))<4: failures.append('insufficient treatment schemas')

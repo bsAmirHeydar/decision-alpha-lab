@@ -51,8 +51,18 @@ def _write_github_summary(results: list[tuple[Check, int]]) -> None:
     Path(summary_path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def _first_existing(*candidates: str) -> str:
+    for candidate in candidates:
+        if Path(candidate).exists():
+            return candidate
+    return candidates[0]
+
+
 def _checks(python: str) -> tuple[Check, ...]:
     """Return the single ordered preflight contract used locally and in CI."""
+    master = _first_existing("docs/architecture/master", "docs/architecture/master")
+    aieos = f"{master}/ai_algorithm_engineering_os"
+    program = f"{master}/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL"
     return (
         Check(
             "Repository policy",
@@ -62,16 +72,16 @@ def _checks(python: str) -> tuple[Check, ...]:
             "Obsidian operating system",
             (
                 python,
-                "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/tools/validate_vault.py",
-                "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os",
+                f"{aieos}/tools/validate_vault.py",
+                aieos,
             ),
         ),
         Check(
             "Unified consolidation Obsidian program",
             (
                 python,
-                "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
-                "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL",
+                f"{program}/tools/validate_program_vault.py",
+                program,
             ),
         ),
         Check(

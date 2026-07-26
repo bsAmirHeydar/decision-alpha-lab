@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 import yaml
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.acl_04.policies import SCHEMA_ROOT,POLICY_ROOT
-from tools.strategy_factory.acl_os.acl_04.validate_acl_04 import validate
-from tools.strategy_factory.acl_os.acl_04.cli import main
+from src.engine.tooling.strategy_factory.acl_os.acl_04.policies import SCHEMA_ROOT,POLICY_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_04.validate_acl_04 import validate
+from src.engine.tooling.strategy_factory.acl_os.acl_04.cli import main
 
 
 def test_all_schemas_are_valid_and_closed():

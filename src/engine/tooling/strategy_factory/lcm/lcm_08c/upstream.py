@@ -9,8 +9,8 @@ PILOT_ID = "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1"
 EXPECTED_LCM08B_HANDOFF = "sha256:c5695d5a671b09723851df4989a8a617242b5a2a7518885040cfb0b986451381"
 
 def load_upstream(repo_root: Path) -> dict:
-    portfolio_root = repo_root / "registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
-    pilot_root = repo_root / "registry/legacy_context_migration/pilot_migrations/PILOTMIG_344455420C8CA68E865FD54135E891D7"
+    portfolio_root = repo_root / "registry/history/lcm/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    pilot_root = repo_root / "registry/history/lcm/pilot_migrations/PILOTMIG_344455420C8CA68E865FD54135E891D7"
     rows = load_jsonl(portfolio_root / "portfolio/context_portfolio_registry.jsonl")
     assignment = load_json(portfolio_root / "waves/context_wave_assignment.json")
     summary = load_json(portfolio_root / "reports/context_portfolio_summary.json")

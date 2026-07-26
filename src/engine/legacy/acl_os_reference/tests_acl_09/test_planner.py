@@ -1,5 +1,5 @@
 import json
-from tools.strategy_factory.acl_os.acl_09.service import ACL09MemoryPlannerService
+from src.engine.tooling.strategy_factory.acl_os.acl_09.service import ACL09MemoryPlannerService
 
 def build(acl08_root,permit,memory_policy,planner_policy,tmp_path,prior=None,at='2026-07-18T02:00:00Z'):
  d=tmp_path/'out'; ACL09MemoryPlannerService().build(acl08_root,permit,memory_policy,planner_policy,d,at,prior); return d

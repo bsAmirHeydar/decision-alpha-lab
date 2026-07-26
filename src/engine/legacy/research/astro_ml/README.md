@@ -13,7 +13,7 @@ contexts/legacy/lab_experiments/EXP0016_astro_meta_learner/README.md
 The antifragile learning doctrine is here:
 
 ```text
-docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
+docs/operations/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
 ```
 
 ---

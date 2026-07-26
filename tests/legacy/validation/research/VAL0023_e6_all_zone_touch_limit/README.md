@@ -209,11 +209,11 @@ With the default `InpRewardR = 0.0`, the order starts without a fixed TP and the
 For detailed reasoning behind the execution logic, see:
 
 ```text
-docs/debug/E0006/README.md
-docs/debug/E0006/ENTRY_QUALIFICATION_README.md
-docs/debug/E0006/REVISIT_ONLY_README.md
-docs/debug/E0006/EXIT_AND_RISK_README.md
-docs/debug/E0006/INPUT_REFERENCE_README.md
+docs/history/debug/E0006/README.md
+docs/history/debug/E0006/ENTRY_QUALIFICATION_README.md
+docs/history/debug/E0006/REVISIT_ONLY_README.md
+docs/history/debug/E0006/EXIT_AND_RISK_README.md
+docs/history/debug/E0006/INPUT_REFERENCE_README.md
 ```
 
 These files document the current E0006 lifecycle: all-zone execution, internal same-side hunt qualification, revisit-only filtering, position caps, node-price/zone-back stop anchors, and internal opposite-node TP management.
@@ -221,7 +221,7 @@ These files document the current E0006 lifecycle: all-zone execution, internal s
 
 ## Release 109 modular kernel
 
-Reusable E0006 logic is now documented in `docs/debug/E0006/MODULE_KERNEL_README.md` and implemented under `mql5/Include/DecisionAlphaLab/Execution/E0006/`. New executors should compose from `DAL_E0006Modules.mqh` instead of copying local helper functions.
+Reusable E0006 logic is now documented in `docs/history/debug/E0006/MODULE_KERNEL_README.md` and implemented under `mql5/Include/DecisionAlphaLab/Execution/E0006/`. New executors should compose from `DAL_E0006Modules.mqh` instead of copying local helper functions.
 
 
 ## Release 110 revisit secondary-node anchors

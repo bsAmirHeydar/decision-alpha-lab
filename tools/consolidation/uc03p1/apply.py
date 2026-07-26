@@ -223,8 +223,8 @@ def iter_text_files(repo: Path):
     active_roots = (
         '.github', 'tools', 'tests', 'lab', 'src', 'contexts', 'adapters',
         'configs', 'ops', 'policies', 'contracts', 'schemas',
-        'docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL',
-        'docs/alpha_lab_master_architecture/00_START_HERE',
+        'docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL',
+        'docs/architecture/master/00_START_HERE',
     )
     for relative_root in active_roots:
         root = repo / relative_root

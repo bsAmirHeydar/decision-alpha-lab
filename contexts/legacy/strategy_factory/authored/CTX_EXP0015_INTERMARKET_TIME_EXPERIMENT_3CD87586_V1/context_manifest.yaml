@@ -8,8 +8,8 @@ owner_role: CONTEXT_DOMAIN_OWNER
 reviewer_role: INDEPENDENT_MIGRATION_REVIEWER
 legacy_source_path: contexts/legacy/lab_experiments/EXP0015_intermarket_time_divergence/experiment.py
 legacy_source_sha256: sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f
-implementation_module: tools.strategy_factory.lcm.lcm_08b.context_core
-compatibility_adapter_module: tools.strategy_factory.lcm.lcm_08b.legacy_adapter
+implementation_module: src.engine.tooling.strategy_factory.lcm.lcm_08b.context_core
+compatibility_adapter_module: src.engine.tooling.strategy_factory.lcm.lcm_08b.legacy_adapter
 consumer_cutover: false
 runtime_authority: false
 live_order_authority: false

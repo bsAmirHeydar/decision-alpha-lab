@@ -26,7 +26,7 @@
       "content_hash": "UNRESOLVED",
       "known_time_field": "known_time_ms",
       "required": true,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
       "source_id": "RTHP_CANONICAL_OCCURRENCE_LEDGER"
     },
     {
@@ -34,7 +34,7 @@
       "content_hash": "UNRESOLVED",
       "known_time_field": "exhaustion_known_time_ms",
       "required": true,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
       "source_id": "RTHP_REFERENCE_STATE_LEDGER"
     },
     {
@@ -42,7 +42,7 @@
       "content_hash": "UNRESOLVED",
       "known_time_field": "known_time_ms",
       "required": true,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json",
       "source_id": "RTHP_CYCLE_INSTANCE_LEDGER"
     },
     {
@@ -51,7 +51,7 @@
       "known_time_field": "known_time_ms",
       "label_only": true,
       "required": true,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json",
       "source_id": "RTHP_ROLE_PRICE_PATH_LEDGER"
     }
   ]

@@ -1,7 +1,7 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 REPO_ROOT=find_repository_root(__file__)
-REGISTRY_ROOT=REPO_ROOT/'registry/acl_os/acl_07'
+REGISTRY_ROOT=REPO_ROOT/'registry/history/acl/acl_07'
 SCHEMA_ROOT=REGISTRY_ROOT/'schemas/v1'
 POLICY_ROOT=REGISTRY_ROOT/'policies/v1'
 PHASE_ID='ACL-07'; PHASE_VERSION='1.0.0'; VALIDATOR_VERSION='1.0.0'

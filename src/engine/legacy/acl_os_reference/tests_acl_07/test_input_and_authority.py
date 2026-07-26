@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_07.handoff_input import load_acl06_bundle
-from tools.strategy_factory.acl_os.acl_07.authority import validate_authority
-from tools.strategy_factory.acl_os.acl_07.errors import AuthorityError
+from src.engine.tooling.strategy_factory.acl_os.acl_07.handoff_input import load_acl06_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_07.authority import validate_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_07.errors import AuthorityError
 
 def test_acl06_bundle_loads(acl06_root):
  b=load_acl06_bundle(acl06_root); assert len(b['candidates'])==12 and len(b['segments_by_setup'])==12

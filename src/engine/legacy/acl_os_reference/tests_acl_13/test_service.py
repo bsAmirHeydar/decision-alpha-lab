@@ -1,5 +1,5 @@
-from tools.strategy_factory.acl_os.acl_13.service import ACL13OneHourAssessmentService
-from tools.strategy_factory.acl_os.acl_13.verify import verify_output
+from src.engine.tooling.strategy_factory.acl_os.acl_13.service import ACL13OneHourAssessmentService
+from src.engine.tooling.strategy_factory.acl_os.acl_13.verify import verify_output
 def test_build_reference(tmp_path,acl12,permit,assessment_request,budget):
     out=tmp_path/'out'; result=ACL13OneHourAssessmentService().build(acl12,permit,assessment_request,budget,out)
     assert result['passed'] and result['pilot_design_allowed'] and not result['pilot_execution_allowed']

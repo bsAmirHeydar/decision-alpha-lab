@@ -9,7 +9,7 @@ from .verify import verify_installation, verify_package
 
 
 def main(argv=None):
-    parser=argparse.ArgumentParser(prog='python -m tools.strategy_factory.lcm.lcm_08a.cli')
+    parser=argparse.ArgumentParser(prog='python -m src.engine.tooling.strategy_factory.lcm.lcm_08a.cli')
     sub=parser.add_subparsers(dest='command',required=True)
     p=sub.add_parser('build');p.add_argument('--repo-root',required=True);p.add_argument('--destination',required=True);p.add_argument('--issued-at',default='2026-07-19T00:00:00Z')
     p=sub.add_parser('verify-package');p.add_argument('--portfolio-root',required=True)

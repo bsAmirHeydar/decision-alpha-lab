@@ -1,6 +1,6 @@
 from tools.repository_paths import find_repository_root
-from tools.strategy_factory.lcm.lcm_07.clustering import cluster,select
-from tools.strategy_factory.lcm.lcm_07.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_07.clustering import cluster,select
+from src.engine.tooling.strategy_factory.lcm.lcm_07.io import read_json
 from pathlib import Path
 
 def test_exact_cluster_fixture():

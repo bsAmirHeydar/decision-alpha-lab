@@ -1,20 +1,20 @@
 from __future__ import annotations
 import json,subprocess,sys
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.common import REPO_ROOT
-from tools.strategy_factory.acl_os.acl_01.io import save_registry
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_01.io import save_registry
 
 def test_all_schemas_closed_and_valid():
-    root=REPO_ROOT/"registry/acl_os/acl_01/schemas/v1"
+    root=REPO_ROOT/"registry/history/acl/acl_01/schemas/v1"
     for p in root.glob("*.schema.json"):
         obj=json.loads(p.read_text()); Draft202012Validator.check_schema(obj); assert obj["additionalProperties"] is False
 
 def test_policy_files_are_present():
-    root=REPO_ROOT/"registry/acl_os/acl_01/policies/v1"; assert len(list(root.glob("*.yaml")))==15
+    root=REPO_ROOT/"registry/history/acl/acl_01/policies/v1"; assert len(list(root.glob("*.yaml")))==15
 
 def test_cli_validate(registry,tmp_path):
     p=tmp_path/"registry.json"; save_registry(p,registry)
-    proc=subprocess.run([sys.executable,"-m","tools.strategy_factory.acl_os.acl_01.cli","--registry",str(p),"--repo-root",str(tmp_path),"validate"],cwd=REPO_ROOT,text=True,capture_output=True)
+    proc=subprocess.run([sys.executable,"-m","src.engine.tooling.strategy_factory.acl_os.acl_01.cli","--registry",str(p),"--repo-root",str(tmp_path),"validate"],cwd=REPO_ROOT,text=True,capture_output=True)
     assert proc.returncode==0,proc.stderr+proc.stdout
 
 def test_mql5_boundary_static():

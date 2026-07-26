@@ -1,7 +1,7 @@
 from copy import deepcopy
-from tools.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
-from tools.strategy_factory.acl_os.acl_04.constraints import evaluate_policy
-from tools.strategy_factory.acl_os.acl_04.baseline import compile_baselines
+from src.engine.tooling.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
+from src.engine.tooling.strategy_factory.acl_os.acl_04.constraints import evaluate_policy
+from src.engine.tooling.strategy_factory.acl_os.acl_04.baseline import compile_baselines
 
 
 def codes(findings): return {x['code'] for x in findings}

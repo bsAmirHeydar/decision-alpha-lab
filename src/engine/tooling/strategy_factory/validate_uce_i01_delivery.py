@@ -68,7 +68,7 @@ def main() -> int:
         if data.get("additionalProperties") is not False:
             errors.append(f"open top-level object in {path.name}")
 
-    docs = root / "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i01"
+    docs = root / "docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i01"
     notes = list(docs.rglob("*.md"))
     if len(notes) < 29:
         errors.append(f"expected at least 29 English phase notes including ADRs, found {len(notes)}")

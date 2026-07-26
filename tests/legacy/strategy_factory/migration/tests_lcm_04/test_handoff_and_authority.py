@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_04.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_04.io import read_json
 
 def test_handoff_blocks_materialization(char_root):
     h=read_json(char_root/'handoff/lcm04_to_lcm05_handoff.json');assert not h['legacy_characterization_complete'] and not h['target_path_materialization_allowed']

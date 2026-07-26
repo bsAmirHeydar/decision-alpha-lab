@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_07.validation_policy import validate_policy
-from tools.strategy_factory.acl_os.acl_07.gate_registry import registry_snapshot,validate_registry
-from tools.strategy_factory.acl_os.acl_07.errors import PolicyError
+from src.engine.tooling.strategy_factory.acl_os.acl_07.validation_policy import validate_policy
+from src.engine.tooling.strategy_factory.acl_os.acl_07.gate_registry import registry_snapshot,validate_registry
+from src.engine.tooling.strategy_factory.acl_os.acl_07.errors import PolicyError
 
 def test_policy_accepts(policy): assert validate_policy(policy)['policy_id']
 def test_policy_denies_promotion(policy): assert validate_policy(policy)['promotion_authority_granted'] is False

@@ -1,8 +1,8 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_10.canonical import with_digest
-from tools.strategy_factory.acl_os.acl_10.errors import PolicyError
-from tools.strategy_factory.acl_os.acl_10.promotion_policy import validate_promotion_policy
-from tools.strategy_factory.acl_os.acl_10.state_registry import state_registry_snapshot,transition_registry_snapshot,prerequisite_registry_snapshot,validate_registries
+from src.engine.tooling.strategy_factory.acl_os.acl_10.canonical import with_digest
+from src.engine.tooling.strategy_factory.acl_os.acl_10.errors import PolicyError
+from src.engine.tooling.strategy_factory.acl_os.acl_10.promotion_policy import validate_promotion_policy
+from src.engine.tooling.strategy_factory.acl_os.acl_10.state_registry import state_registry_snapshot,transition_registry_snapshot,prerequisite_registry_snapshot,validate_registries
 
 def test_policy_valid(policy): assert validate_promotion_policy(policy)['evaluation_mode']=='EVALUATE_ONLY'
 def test_unknown_must_block(policy):

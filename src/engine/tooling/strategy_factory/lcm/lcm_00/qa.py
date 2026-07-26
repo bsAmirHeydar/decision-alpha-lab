@@ -11,9 +11,9 @@ from .verify import verify_baseline_package
 
 
 def run_qa(repo_root: Path, baseline_root: Path) -> dict:
-    schema_root = repo_root / "registry/legacy_context_migration/lcm_00/schemas/v1"
+    schema_root = repo_root / "registry/history/lcm/lcm_00/schemas/v1"
     schemas = load_schemas(schema_root)
-    registry = validate_registry_tree(repo_root / "registry/legacy_context_migration/lcm_00")
+    registry = validate_registry_tree(repo_root / "registry/history/lcm/lcm_00")
     baseline = verify_baseline_package(baseline_root)
     compile_result = subprocess.run(
         [sys.executable, "-m", "compileall", "-q", str(repo_root / "src/engine/tooling/strategy_factory/lcm/lcm_00")],

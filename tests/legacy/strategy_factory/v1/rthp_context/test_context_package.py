@@ -1,6 +1,6 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
-from tools.strategy_factory.contexts.rthp.validation import validate_package
+from src.engine.tooling.strategy_factory.contexts.rthp.validation import validate_package
 ROOT=find_repository_root(__file__)
 PKG=ROOT/'contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1'
 def test_package_valid():

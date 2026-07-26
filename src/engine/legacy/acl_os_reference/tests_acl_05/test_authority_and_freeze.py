@@ -1,9 +1,9 @@
 import copy
 import pytest
-from tools.strategy_factory.acl_os.acl_05.authority import validate_authority
-from tools.strategy_factory.acl_os.acl_05.candidate_freeze import freeze_candidates
-from tools.strategy_factory.acl_os.acl_05.canonical import digest_object
-from tools.strategy_factory.acl_os.acl_05.handoff_input import load_acl04_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_05.authority import validate_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_05.candidate_freeze import freeze_candidates
+from src.engine.tooling.strategy_factory.acl_os.acl_05.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_05.handoff_input import load_acl04_bundle
 
 def redigest(doc,field): doc[field]=digest_object({k:v for k,v in doc.items() if k!=field}); return doc
 

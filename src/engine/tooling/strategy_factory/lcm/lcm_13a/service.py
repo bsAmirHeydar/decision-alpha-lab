@@ -23,12 +23,12 @@ from .harness import DualRunHarness
 from .io import dump_json, dump_jsonl, iter_jsonl, load_json
 from .models import BuildResult
 
-CTX_ROOT = Path("registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3")
-SETUP_ROOT = Path("registry/legacy_context_migration/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9")
-TREAT_ROOT = Path("registry/legacy_context_migration/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91")
-TREAT_PACKAGE_ROOT = Path("registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51")
-VISUAL_ROOT = Path("registry/legacy_context_migration/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D")
-DOC_ROOT = Path("registry/legacy_context_migration/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8")
+CTX_ROOT = Path("registry/history/lcm/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3")
+SETUP_ROOT = Path("registry/history/lcm/setup_package_migrations/SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9")
+TREAT_ROOT = Path("registry/history/lcm/treatment_execution_closures/TREATCLOSE_3EBD9196597715D81966936D37F1DF91")
+TREAT_PACKAGE_ROOT = Path("registry/history/lcm/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51")
+VISUAL_ROOT = Path("registry/history/lcm/visualizer_migrations/VISMIG_0938A2A7868358466B7B877BD1E5251D")
+DOC_ROOT = Path("registry/history/lcm/documentation_reconciliations/DOCRECON_F60803B1B8316F47D966D02CB905ACC8")
 CTX_HANDOFF = CTX_ROOT / "handoff/lcm08c_to_lcm09a_handoff.json"
 SETUP_HANDOFF = SETUP_ROOT / "LCM09B_TO_LCM10A_HANDOFF.json"
 TREAT_HANDOFF = TREAT_ROOT / "LCM10C_TO_LCM11A_HANDOFF.json"
@@ -616,7 +616,7 @@ class LCM13ADualRunService:
         rollback = {
             **common,
             "rollback_id": stable_id("ROLLBACK", dual_run_id),
-            "remove_paths": [f"registry/legacy_context_migration/dual_run_evidence/{dual_run_id}"],
+            "remove_paths": [f"registry/history/lcm/dual_run_evidence/{dual_run_id}"],
             "restore_paths": [],
             "consumer_switch_reversal_count": 0,
             "source_restoration_required": False,

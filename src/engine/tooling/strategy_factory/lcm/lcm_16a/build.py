@@ -13,9 +13,9 @@ from typing import Any
 import yaml
 from jsonschema.validators import validator_for
 
-from tools.strategy_factory.lcm.lcm_16a.baseline import build_baseline_amendment
-from tools.strategy_factory.lcm.lcm_16a.canonical import object_digest
-from tools.strategy_factory.lcm.lcm_16a.constants import (
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.baseline import build_baseline_amendment
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.canonical import object_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.constants import (
     AIEOS_MANIFEST_DIGEST,
     AUDIT_ID,
     CLAIM_CEILING,
@@ -26,13 +26,13 @@ from tools.strategy_factory.lcm.lcm_16a.constants import (
     UPSTREAM_HANDOFF_DIGEST,
     UPSTREAM_PACKAGE_RELATIVE,
 )
-from tools.strategy_factory.lcm.lcm_16a.io import file_digest
-from tools.strategy_factory.lcm.lcm_16a.regression import LFS_PATHS, lfs_materialized
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.io import file_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.regression import LFS_PATHS, lfs_materialized
 
 OWNER = "ALPHA_LAB_MIGRATION_OWNER"
 REVIEWER = "INDEPENDENT_MIGRATION_REVIEWER"
 SECURITY_REVIEWER = "INDEPENDENT_SECURITY_REVIEWER"
-PRODUCER = "tools.strategy_factory.lcm.lcm_16a.build:build_audit_package"
+PRODUCER = "src.engine.tooling.strategy_factory.lcm.lcm_16a.build:build_audit_package"
 DIGEST_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 
 
@@ -129,8 +129,8 @@ def scan_registry(repo_root: Path, syntax: dict[str, Any]) -> dict[str, Any]:
     required = [
         UPSTREAM_PACKAGE_RELATIVE.as_posix(),
         PACKAGE_RELATIVE.as_posix(),
-        "registry/legacy_context_migration/lcm_16a/policies/v1",
-        "registry/legacy_context_migration/lcm_16a/schemas/v1",
+        "registry/history/lcm/lcm_16a/policies/v1",
+        "registry/history/lcm/lcm_16a/schemas/v1",
     ]
     required_presence = {path: (repo_root / path).exists() for path in required}
     lfs_ok, lfs_pointers = lfs_materialized(repo_root)
@@ -284,11 +284,11 @@ def security_scan(repo_root: Path) -> dict[str, Any]:
 
 def docs_inventory(repo_root: Path) -> dict[str, Any]:
     delivery = repo_root / (
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/"
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/"
         "11_PHASE_DELIVERIES/LCM_16A"
     )
     atomic = repo_root / (
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/"
+        "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/"
         "12_ATOMIC_CONCEPTS/LCM_16A"
     )
     return {
@@ -297,7 +297,7 @@ def docs_inventory(repo_root: Path) -> dict[str, Any]:
         "phase_atomic_concept_count": sum(1 for p in atomic.glob("*.md") if p.is_file()),
         "phase_spec_present": (
             repo_root
-            / "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT.md"
+            / "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT.md"
         ).is_file(),
         "root_direct_file_count": sum(1 for p in repo_root.iterdir() if p.is_file()),
         "known_status_freshness_residuals": [
@@ -325,7 +325,7 @@ def build_audit_package(repo_root: Path, regression_raw_path: Path) -> dict[str,
     raw = json.loads(regression_raw_path.read_text(encoding="utf-8"))
     normalized = normalize_regression(raw)
     regression_receipt = {
-        **base("REGRESSION_EXECUTION_RECEIPT", sources, producer="tools.strategy_factory.lcm.lcm_16a.regression:run"),
+        **base("REGRESSION_EXECUTION_RECEIPT", sources, producer="src.engine.tooling.strategy_factory.lcm.lcm_16a.regression:run"),
         **normalized,
         "execution_environment": {
             "os_family": platform.system(),
@@ -368,7 +368,7 @@ def build_audit_package(repo_root: Path, regression_raw_path: Path) -> dict[str,
     write_json(package_root / "registry_conformance_report.json", registry_report)
 
     python_report = {
-        **base("PYTHON_REGRESSION_REPORT", sources_with_regression, producer="tools.strategy_factory.lcm.lcm_16a.regression:run"),
+        **base("PYTHON_REGRESSION_REPORT", sources_with_regression, producer="src.engine.tooling.strategy_factory.lcm.lcm_16a.regression:run"),
         "suites": normalized["suites"],
         "suite_count": normalized["suite_count"],
         "passed_test_count": normalized["passed_test_count"],
@@ -489,11 +489,11 @@ def build_audit_package(repo_root: Path, regression_raw_path: Path) -> dict[str,
         **base("ROLLBACK_MANIFEST", sources_with_regression),
         "phase_owned_paths": [
             PACKAGE_RELATIVE.as_posix(),
-            "registry/legacy_context_migration/lcm_16a",
+            "registry/history/lcm/lcm_16a",
             "src/engine/tooling/strategy_factory/lcm/lcm_16a",
             "tests/legacy/strategy_factory/migration/tests_lcm_16a",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16A",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16A",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16A",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16A",
         ],
         "bounded_modified_paths": [
             "src/engine/tooling/strategy_factory/lcm/amendments.py",
@@ -503,7 +503,7 @@ def build_audit_package(repo_root: Path, regression_raw_path: Path) -> dict[str,
             "src/engine/tooling/strategy_factory/acl_os/acl_00/cli.py",
             "src/engine/legacy/acl_os_reference/tests_acl_00/test_cli_delivery.py",
             "tests/legacy/strategy_factory/v1/rthp_ai_input/test_rthp_engine_boundary.py",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT.md",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/05_PHASES/LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT.md",
         ],
         "new_bounded_compatibility_evidence_paths": [
             "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_extended_baseline_amendment_lcm16a.json"
@@ -582,7 +582,7 @@ def build_audit_package(repo_root: Path, regression_raw_path: Path) -> dict[str,
         **base("HOSTILE_REVIEW_REPORT", sources_with_regression),
         "checks": [
             {"case": "SILENT_REBASELINE", "status": "PASS", "finding": "Every changed path binds old/new hash and approved AIEOS cause."},
-            {"case": "AMENDMENT_OUTSIDE_AIEOS", "status": "PASS", "finding": "Zero amendment rows outside docs/ai_algorithm_engineering_os/."},
+            {"case": "AMENDMENT_OUTSIDE_AIEOS", "status": "PASS", "finding": "Zero amendment rows outside docs/history/aieos_legacy/."},
             {"case": "MISSING_LFS_MISLABELED_FAILURE", "status": "PASS", "finding": "Pointer-only objects are BLOCKED evidence, not semantic product failures."},
             {"case": "STATIC_SCAN_MISLABELED_COMPILE", "status": "PASS", "finding": "MetaEditor remains UNKNOWN."},
             {"case": "PYTHON_PARITY_MISLABELED_TERMINAL_PARITY", "status": "PASS", "finding": "Terminal parity remains UNKNOWN."},

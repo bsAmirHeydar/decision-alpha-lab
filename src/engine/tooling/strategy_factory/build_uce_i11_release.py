@@ -35,7 +35,7 @@ def owned_paths(root: Path) -> list[Path]:
         "src/engine/packages/strategy_factory_experiments_v3",
         "tests/legacy/strategy_factory/v1/phase_uce_i11_experiments",
         "examples/legacy/strategy_factory/uce_i11",
-        "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i11",
+        "docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i11",
         "mql5/Include/AlphaLab/StrategyFactory/ExperimentOrchestration",
     )
     for relative in owned_dirs:
@@ -54,7 +54,7 @@ def owned_paths(root: Path) -> list[Path]:
         "releases/history/ucee/indexes/UCEE_I11_FILE_INDEX.txt",
         "releases/history/ucee/hashes/UCEE_I11_FILE_HASHES.sha256",
         "releases/history/ucee/manifests/UCEE_I11_PATCH_MANIFEST.json",
-        "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I11_EXPERIMENT_DAG_SEARCH_AND_BUDGETING.md",
+        "docs/history/systems/ucee/implementation_program/phases/UCE_I11_EXPERIMENT_DAG_SEARCH_AND_BUDGETING.md",
         "mql5/Experts/StrategyFactory/UCE_I11_ExperimentOrchestrationDiagnostic.mq5",
         "mql5/Tests/Experts/StrategyFactory/UCE_I11_ExperimentContractsSelfTest.mq5",
         "mql5/Tests/Experts/StrategyFactory/UCE_I11_BudgetAndReproSelfTest.mq5",
@@ -72,7 +72,7 @@ def owned_paths(root: Path) -> list[Path]:
         "src/engine/tooling/strategy_factory/build_uce_i11_release.py",
     ]
     specific.extend(f"schemas/legacy/strategy_factory/v3/{name}.schema.json" for name in SCHEMAS)
-    for path in (root / "docs/obsidian_deep/01_concepts").glob("UCE-I11*.md"):
+    for path in (root / "docs/history/obsidian/deep/01_concepts").glob("UCE-I11*.md"):
         paths.add(path)
     for relative in specific:
         path = root / relative
@@ -121,8 +121,8 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    docs = list((root / "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i11").rglob("*.md"))
-    concepts = list((root / "docs/obsidian_deep/01_concepts").glob("UCE-I11*.md"))
+    docs = list((root / "docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i11").rglob("*.md"))
+    concepts = list((root / "docs/history/obsidian/deep/01_concepts").glob("UCE-I11*.md"))
     manifest = {
         "patch_id": "decision-alpha-lab-ucee-i11-experiment-dag-search-scheduling-budget-governance",
         "patch_version": "1.0.0",

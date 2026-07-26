@@ -4,13 +4,13 @@ import re
 
 ROOT = find_repository_root(__file__)
 paths = [
-    ROOT / "docs/strategy_factory_sovereign_context_intelligence_v4/60_IMPLEMENTATION_PROGRAM_V4/V4_28_Anytime_Valid_Online_FDR.md"
+    ROOT / "docs/history/systems/saed_v4/60_IMPLEMENTATION_PROGRAM_V4/V4_28_Anytime_Valid_Online_FDR.md"
 ]
 paths += sorted(
-    (ROOT / "docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_28").glob("*.md")
+    (ROOT / "docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_28").glob("*.md")
 )
 paths += sorted(
-    (ROOT / "docs/strategy_factory_sovereign_context_intelligence_v4/63_ATOMIC_CONCEPTS_V4/V4_28").glob("*.md")
+    (ROOT / "docs/history/systems/saed_v4/63_ATOMIC_CONCEPTS_V4/V4_28").glob("*.md")
 )
 assert len(paths) == 261, len(paths)
 

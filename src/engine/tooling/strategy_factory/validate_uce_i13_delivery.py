@@ -32,7 +32,7 @@ schemas=list((ROOT/'schemas/legacy/strategy_factory/v3').glob('policy_*.schema.j
 new=[p for p in schemas if p.name!='policy_support_audit.schema.json']
 if len(new)!=25:errors.append(f'expected 25 I13 policy schemas, found {len(new)}')
 if len(list((ROOT/'src/engine/packages/strategy_factory_policy_v3').glob('*.py')))!=20:errors.append('expected 20 Python modules')
-if len(list((ROOT/'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i13').glob('*.md')))!=37:errors.append('expected 37 delivery documents')
+if len(list((ROOT/'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i13').glob('*.md')))!=37:errors.append('expected 37 delivery documents')
 if len(list((ROOT/'mql5/Include/AlphaLab/StrategyFactory/HybridPolicy').glob('*.mqh')))!=9:errors.append('expected 9 MQL5 include files')
 if errors:print('\n'.join(errors));raise SystemExit(1)
 print(f'UCE-I13 delivery validation: PASS ({len(paths)} indexed files)')

@@ -2,17 +2,17 @@ import json
 from pathlib import Path
 import jsonschema
 
-from tools.strategy_factory.lcm.lcm_00.schema_validation import load_schemas
-from tools.strategy_factory.lcm.lcm_00.static_validation import validate_registry_tree
+from src.engine.tooling.strategy_factory.lcm.lcm_00.schema_validation import load_schemas
+from src.engine.tooling.strategy_factory.lcm.lcm_00.static_validation import validate_registry_tree
 
 
 def test_all_schemas_are_draft_2020_12(repo_root):
-    schemas=load_schemas(repo_root/"registry/legacy_context_migration/lcm_00/schemas/v1")
+    schemas=load_schemas(repo_root/"registry/history/lcm/lcm_00/schemas/v1")
     assert len(schemas) >= 20
 
 
 def test_registry_tree_parses(repo_root):
-    result=validate_registry_tree(repo_root/"registry/legacy_context_migration/lcm_00")
+    result=validate_registry_tree(repo_root/"registry/history/lcm/lcm_00")
     assert result["passed"]
     assert result["json_count"] >= 50
 

@@ -2,10 +2,10 @@ from tools.repository_paths import find_repository_root
 from pathlib import Path
 import re
 ROOT=find_repository_root(__file__)
-roots=[ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_11',ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/63_ATOMIC_CONCEPTS_V4/V4_11']
+roots=[ROOT/'docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_11',ROOT/'docs/history/systems/saed_v4/63_ATOMIC_CONCEPTS_V4/V4_11']
 files=[p for r in roots for p in r.glob('*.md')]
 assert len(files)>=90
-all_md=list((ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4').rglob('*.md'))
+all_md=list((ROOT/'docs/history/systems/saed_v4').rglob('*.md'))
 stems={p.stem for p in all_md};names={p.name for p in all_md}
 broken=[]
 for p in files:

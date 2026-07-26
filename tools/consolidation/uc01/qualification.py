@@ -17,7 +17,7 @@ def run_qualification(repo_root: Path, *, include_full_regression: bool = True) 
         commands.append((
             "lcm16a_full_regression",
             (
-                sys.executable, "-m", "tools.strategy_factory.lcm.lcm_16a.regression",
+                sys.executable, "-m", "src.engine.tooling.strategy_factory.lcm.lcm_16a.regression",
                 "--repo-root", ".",
                 "--output", str((repo_root / "registry/consolidation/uc01/baselines/UC01_BASELINE_V1/lcm16a_regression_receipt.json").resolve()),
             ),

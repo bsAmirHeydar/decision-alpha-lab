@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 from pathlib import Path
 import re,yaml
 ROOT=find_repository_root(__file__)
-folders=[ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_03',ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/63_ATOMIC_CONCEPTS_V4/V4_03']
+folders=[ROOT/'docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_03',ROOT/'docs/history/systems/saed_v4/63_ATOMIC_CONCEPTS_V4/V4_03']
 titles={};errors=[]
 for folder in folders:
     for p in folder.glob('*.md'):

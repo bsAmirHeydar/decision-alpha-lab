@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12b.io import load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_12b.io import load_json
 def test_handoff_only_allows_dual_run_next(reconciliation_root):
     handoff=load_json(reconciliation_root/"LCM12B_TO_LCM13A_HANDOFF.json")
     assert handoff["handoff_type"]=="LCM12B_TO_LCM13A"

@@ -1,8 +1,8 @@
 import json,hashlib,copy
 from pathlib import Path
 import pytest
-from tools.strategy_factory.acl_os.acl_03.service import ACL03ContextCompilerService
-from tools.strategy_factory.acl_os.acl_03.errors import PrerequisiteError
+from src.engine.tooling.strategy_factory.acl_os.acl_03.service import ACL03ContextCompilerService
+from src.engine.tooling.strategy_factory.acl_os.acl_03.errors import PrerequisiteError
 
 def test_end_to_end_compile(tmp_path,context_root,permit,approval,readiness):
     out=tmp_path/"compiled";r=ACL03ContextCompilerService().compile(context_root,out,permit,approval,readiness);assert r["passed"];assert r["onboarding"]["highest_state"]=="CONTEXT_COMPILED";assert (out/"compilation_receipt.json").is_file();assert (out/"handoff/acl04_handoff.json").is_file()

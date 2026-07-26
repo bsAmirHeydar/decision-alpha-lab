@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
 def test_redirects_are_loop_free_and_targets_exist(repo_root,reconciliation_root):
     reg=load_json(reconciliation_root/"documentation_redirect_registry.json")
     rows=list(iter_jsonl(reconciliation_root/reg["redirect_records_path"]))

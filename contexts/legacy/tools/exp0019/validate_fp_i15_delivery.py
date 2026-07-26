@@ -8,7 +8,7 @@ checks={
  'tests':len(list((ph/'tests').glob('test_*.py'))),
  'schemas':len(list((ph/'schemas').glob('*.schema.json'))),
  'mql_includes':len(list((root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I15').glob('*.mqh'))),
- 'docs':len(list((root/'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i15').rglob('*.md'))),
+ 'docs':len(list((root/'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i15').rglob('*.md'))),
 }
 minimum={'python_modules':20,'tests':15,'schemas':18,'mql_includes':13,'docs':60}
 failed=[k for k,v in checks.items() if v<minimum[k]]

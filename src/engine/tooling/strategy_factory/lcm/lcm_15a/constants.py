@@ -4,4 +4,4 @@ MASTER_PHASE='LCM-15'
 CLAIM_CEILING='LCM_15A_REFERENCE_ONLY'
 SCHEMA_VERSION='1.0.0'
 PROOF_ID='DELCAND_DBF53BE0F1838F171906F990E05930D6'
-PACKAGE_RELATIVE=Path("registry/legacy_context_migration/deletion_candidate_proofs")/PROOF_ID
+PACKAGE_RELATIVE=Path("registry/history/lcm/deletion_candidate_proofs")/PROOF_ID

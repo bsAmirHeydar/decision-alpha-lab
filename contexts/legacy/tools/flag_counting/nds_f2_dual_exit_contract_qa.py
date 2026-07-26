@@ -14,8 +14,8 @@ FILES = {
     "manager": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/12_dual_exit_fixed_f2_and_f3_flag_retest.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Dual Exit - Fixed F2 or F3 Retest.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/12_dual_exit_fixed_f2_and_f3_flag_retest.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Dual Exit - Fixed F2 or F3 Retest.md",
 }
 
 

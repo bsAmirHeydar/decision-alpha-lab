@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from jsonschema import Draft202012Validator
 def validate_registry(root:Path)->dict:
-    errors=[]; schemas=list((root/'registry/acl_os/acl_12/schemas/v1').glob('*.json')); policies=list((root/'registry/acl_os/acl_12/policies/v1').glob('*.json'))
+    errors=[]; schemas=list((root/'registry/history/acl/acl_12/schemas/v1').glob('*.json')); policies=list((root/'registry/history/acl/acl_12/policies/v1').glob('*.json'))
     for p in schemas:
         try: Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8')))
         except Exception as exc: errors.append(f'{p}:{exc}')

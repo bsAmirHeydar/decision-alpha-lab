@@ -15,9 +15,9 @@ FILES = {
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "trade_engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "contract": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
-    "root_fix": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Canonical Point-2 Projection Root Fix.md",
+    "contract": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
+    "root_fix": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Canonical Point-2 Projection Root Fix.md",
 }
 
 # These are the exact hashes of the already-approved Phoenix F architecture at

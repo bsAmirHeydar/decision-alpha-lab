@@ -1,0 +1,29 @@
+name: UC03 Physical Closure
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uc03-physical-closure-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade pyyaml pytest
+      - name: Verify accepted UC-03 physical closure
+        run: python -m tools.consolidation.uc03p3.verify --repo-root . --ci-fast
+      - name: Run UC-03 Part 3 conformance tests
+        run: python -m pytest -q tests/consolidation/uc03p3

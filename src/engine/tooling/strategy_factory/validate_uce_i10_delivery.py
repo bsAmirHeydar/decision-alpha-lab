@@ -32,7 +32,7 @@ required = [
     'schemas/legacy/strategy_factory/v3/dependency_probe.schema.json',
     'schemas/legacy/strategy_factory/v3/transfer_boundary.schema.json',
     'tests/fixtures/legacy/strategy_factory/v3/uce_i10_deep_view_conformance_vectors.json',
-    'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i10/00_UCE_I10_DELIVERY_MOC.md',
+    'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i10/00_UCE_I10_DELIVERY_MOC.md',
     'src/engine/tooling/strategy_factory/apply_uce_i10_patch.ps1',
     'src/engine/tooling/strategy_factory/build_uce_i10_release.py',
     'releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I10.json',
@@ -96,7 +96,7 @@ phase_tests = list((root / 'tests/legacy/strategy_factory/v1/phase_uce_i10_deep_
 if len(phase_tests) < 17:
     errors.append(f'insufficient I10 test modules: {len(phase_tests)}')
 
-docs = root / 'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i10'
+docs = root / 'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i10'
 notes = list(docs.rglob('*.md')) if docs.exists() else []
 if len(notes) < 31:
     errors.append(f'insufficient detailed Obsidian documentation: {len(notes)}')

@@ -2,7 +2,7 @@ from pathlib import Path
 import json,re,yaml
 
 def validate(root: Path) -> dict:
-    docs=root/"docs/strategy_factory_context_intelligence_edge_discovery_v3"
+    docs=root/"docs/history/systems/saed_v3"
     md=list(docs.rglob("*.md")); stems={p.stem for p in md}; missing=[]
     for p in md:
         text=p.read_text(encoding="utf-8")

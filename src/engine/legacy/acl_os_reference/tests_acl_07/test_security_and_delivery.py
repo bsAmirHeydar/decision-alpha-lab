@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.acl_os.acl_07.delivery_validator import validate_delivery
-from tools.strategy_factory.acl_os.acl_07.static_validator import validate_registry_files
+from src.engine.tooling.strategy_factory.acl_os.acl_07.delivery_validator import validate_delivery
+from src.engine.tooling.strategy_factory.acl_os.acl_07.static_validator import validate_registry_files
 
 def test_registry_files_valid(): assert validate_registry_files()['passed']
 def test_schema_count(): assert validate_registry_files()['schema_count']>=18

@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_13.budget import validate_budget,usage_report
-from tools.strategy_factory.acl_os.acl_13.slice import build_fast_slice
-from tools.strategy_factory.acl_os.acl_13.errors import BudgetError
+from src.engine.tooling.strategy_factory.acl_os.acl_13.budget import validate_budget,usage_report
+from src.engine.tooling.strategy_factory.acl_os.acl_13.slice import build_fast_slice
+from src.engine.tooling.strategy_factory.acl_os.acl_13.errors import BudgetError
 def test_budget_valid(budget,assessment_request): assert validate_budget(budget,assessment_request)['within_budget']
 def test_one_hour_exact_budget_required(budget,assessment_request):
     b=copy.deepcopy(budget); b['wall_clock_budget_seconds']=7200

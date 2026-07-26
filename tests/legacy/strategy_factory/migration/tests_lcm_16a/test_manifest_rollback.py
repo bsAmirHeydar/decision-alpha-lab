@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_16a.io import file_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.io import file_digest
 
 
 def test_output_manifest_matches_package(load, audit_root):

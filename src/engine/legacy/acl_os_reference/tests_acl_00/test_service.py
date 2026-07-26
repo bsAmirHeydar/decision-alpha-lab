@@ -3,10 +3,10 @@ from dataclasses import replace
 import json
 from pathlib import Path
 import pytest
-from tools.strategy_factory.acl_os.common import REPO_ROOT
-from tools.strategy_factory.acl_os.acl_00.io import load_bundle
-from tools.strategy_factory.acl_os.acl_00.service import ACL00ControlPlane,EvaluationBundle
-from tools.strategy_factory.acl_os.acl_00.types import Decision,LifecycleState
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_00.io import load_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_00.service import ACL00ControlPlane,EvaluationBundle
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import Decision,LifecycleState
 
 FIX=REPO_ROOT/"lab"/"11_strategy_factory"/"acl_os"/"fixtures"/"acl_00"
 

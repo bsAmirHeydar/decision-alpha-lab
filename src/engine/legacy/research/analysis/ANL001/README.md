@@ -41,10 +41,10 @@ status: "scaffold"
 
 ## Related documents
 
-- [[docs/evidence/anl001/692b0b9aa0db_notes|Notes]]
+- [[docs/operations/evidence/anl001/692b0b9aa0db_notes|Notes]]
 
 ## Obsidian links
 
 - [[00_OBSIDIAN_START_HERE|Start Here]]
-- [[docs/obsidian/00_command_center|Command Center]]
-- [[docs/obsidian/01_maps/all_documents_index|All Documents Index]]
+- [[docs/history/obsidian/base/00_command_center|Command Center]]
+- [[docs/history/obsidian/base/01_maps/all_documents_index|All Documents Index]]

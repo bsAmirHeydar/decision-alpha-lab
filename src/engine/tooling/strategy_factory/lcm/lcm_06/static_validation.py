@@ -6,7 +6,7 @@ from pathlib import Path
 
 def validate(repo_root):
     repo_root = Path(repo_root)
-    policies = sorted((repo_root / "registry/legacy_context_migration/lcm_06/policies").glob("*.json"))
+    policies = sorted((repo_root / "registry/history/lcm/lcm_06/policies").glob("*.json"))
     parsed = [json.loads(path.read_text(encoding="utf-8")) for path in policies]
     forbidden: list[dict] = []
 

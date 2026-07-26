@@ -16,6 +16,6 @@ def repo_root() -> Path:
 
 @pytest.fixture
 def baseline_root(repo_root: Path) -> Path:
-    roots = sorted((repo_root / "registry/legacy_context_migration/baselines").glob("BASELINE_*"))
+    roots = sorted((repo_root / "registry/history/lcm/baselines").glob("BASELINE_*"))
     assert roots
     return roots[-1]

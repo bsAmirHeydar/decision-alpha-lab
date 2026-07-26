@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_05.schema_validation import validate as schemas
-from tools.strategy_factory.lcm.lcm_05.static_validation import validate as static
+from src.engine.tooling.strategy_factory.lcm.lcm_05.schema_validation import validate as schemas
+from src.engine.tooling.strategy_factory.lcm.lcm_05.static_validation import validate as static
 
 def test_schemas(repo_root):
     r=schemas(repo_root);assert r['passed'];assert r['schema_count']==29

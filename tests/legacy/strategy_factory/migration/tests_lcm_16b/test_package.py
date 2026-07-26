@@ -1,8 +1,8 @@
 import json
 
-from tools.strategy_factory.lcm.lcm_16b.constants import PHASE_SEQUENCE, UPSTREAM_HANDOFF_DIGEST
-from tools.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
-from tools.strategy_factory.lcm.lcm_16b.verify import verify_program_closure_package
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.constants import PHASE_SEQUENCE, UPSTREAM_HANDOFF_DIGEST
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.verify import verify_program_closure_package
 
 
 def test_package_verifies(repo_root, package_root):

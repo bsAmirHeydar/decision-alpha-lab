@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 REPO = find_repository_root(__file__)
-DUAL_ROOT = REPO / "registry/legacy_context_migration/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570"
+DUAL_ROOT = REPO / "registry/history/lcm/dual_run_evidence/DUALRUN_7302C947E4F606482E1D09A8FF069570"
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))

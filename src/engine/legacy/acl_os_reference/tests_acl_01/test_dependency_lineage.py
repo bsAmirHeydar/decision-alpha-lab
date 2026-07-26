@@ -1,7 +1,7 @@
 from dataclasses import replace
 from datetime import datetime,timezone
-from tools.strategy_factory.acl_os.acl_01.dependency import DependencyEdge
-from tools.strategy_factory.acl_os.acl_01.lineage import LineageEdge
+from src.engine.tooling.strategy_factory.acl_os.acl_01.dependency import DependencyEdge
+from src.engine.tooling.strategy_factory.acl_os.acl_01.lineage import LineageEdge
 
 def register_two(registry,descriptor,permit_factory):
     p=permit_factory("REGISTER_ARTIFACT",subject=descriptor.identity.artifact_id); assert not registry.register_artifact(descriptor,p)

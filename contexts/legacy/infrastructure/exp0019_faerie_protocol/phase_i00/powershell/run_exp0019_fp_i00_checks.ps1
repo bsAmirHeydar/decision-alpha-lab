@@ -36,7 +36,7 @@ try {
 
     if ($SourceRoot) {
         $ResolvedSource = (Resolve-Path -LiteralPath $SourceRoot).Path
-        $Contract = Join-Path $Repo "docs\execution\EXP0019_faerie_protocol_contextual_divergence\source_audit\SOURCE_HASHES.sha256"
+        $Contract = Join-Path $Repo "docs\operations\execution\EXP0019_faerie_protocol_contextual_divergence\source_audit\SOURCE_HASHES.sha256"
         Write-Host "[FP-I00] Verifying external source package..."
         @"
 from pathlib import Path

@@ -17,7 +17,7 @@ The system is designed as a skeptical learning machine. It fetches or builds its
 The antifragile thinking doctrine is documented here:
 
 ```text
-docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
+docs/operations/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
 ```
 
 ---
@@ -497,7 +497,7 @@ Documentation:
 
 ```text
 contexts/legacy/lab_experiments/EXP0016_astro_meta_learner/README.md
-docs/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
+docs/operations/evidence/exp0016_antifragile_astro_learning_doctrine/a5f84b716738_ANTIFRAGILE_LEARNING_DOCTRINE.md
 src/engine/legacy/research/astro_ml/README.md
 ```
 

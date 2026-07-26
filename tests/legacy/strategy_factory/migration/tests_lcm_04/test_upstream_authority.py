@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_04.upstream import latest_identity,verify_identity
-from tools.strategy_factory.lcm.lcm_04.authority import build_permit,verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_04.upstream import latest_identity,verify_identity
+from src.engine.tooling.strategy_factory.lcm.lcm_04.authority import build_permit,verify_permit
 
 def test_upstream_integrity(repo_root): assert verify_identity(latest_identity(repo_root))['handoff']['handoff_type']=='LCM03_TO_LCM04'
 def test_permit_denies_legacy_execution(repo_root):

@@ -1,5 +1,5 @@
 import csv, json
-from tools.strategy_factory.lcm.lcm_01.verify import verify_survey_package
+from src.engine.tooling.strategy_factory.lcm.lcm_01.verify import verify_survey_package
 
 def test_reference_package_verifies(survey_root):
     r=verify_survey_package(survey_root); assert r['passed']; assert r['artifact_count']>30000

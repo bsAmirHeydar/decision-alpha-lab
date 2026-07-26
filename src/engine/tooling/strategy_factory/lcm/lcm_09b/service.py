@@ -10,7 +10,7 @@ from .io import dump_json,dump_jsonl,load_json,load_jsonl
 from .parity import compare_traces
 from .provenance import build_provenance
 
-PRODUCER="tools.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService"
+PRODUCER="src.engine.tooling.strategy_factory.lcm.lcm_09b.service:LCM09BSetupMigrationService"
 TIME_SEMANTICS="DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
 def meta(*digests:str,status:str="BLOCKED")->dict[str,Any]:return {"schema_version":SCHEMA_VERSION,"producer":PRODUCER,"source_digests":list(digests),"generated_time_semantics":TIME_SEMANTICS,"owner":"ALPHA_LAB_MIGRATION_OWNER","claim_ceiling":CLAIM_CEILING,"validation_status":status}
 class LCM09BSetupMigrationService:

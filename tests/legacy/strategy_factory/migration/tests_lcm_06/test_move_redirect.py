@@ -1,6 +1,6 @@
 import pytest
-from tools.strategy_factory.lcm.lcm_06.move_plan import build as move
-from tools.strategy_factory.lcm.lcm_06.redirect_generator import build as redirect
+from src.engine.tooling.strategy_factory.lcm.lcm_06.move_plan import build as move
+from src.engine.tooling.strategy_factory.lcm.lcm_06.redirect_generator import build as redirect
 def test_move_preview_only():
     r=move("a/b.mqh","c/d.mqh","sha256:"+"1"*64);assert not r["execute_allowed"] and not r["target_materialization_allowed"]
 @pytest.mark.parametrize("kind,legacy,target",[

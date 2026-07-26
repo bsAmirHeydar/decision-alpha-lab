@@ -1,6 +1,6 @@
 import pytest
-from tools.strategy_factory.lcm.lcm_07.authority import build_permit,verify_permit
-from tools.strategy_factory.lcm.lcm_07.errors import PolicyError
+from src.engine.tooling.strategy_factory.lcm.lcm_07.authority import build_permit,verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_07.errors import PolicyError
 
 def test_permit_denies_all_mutation():
  p=build_permit("sha256:"+"1"*64,"FRAMEWORK_X","2026-07-19T00:00:00Z");assert verify_permit(p,p["source_handoff_digest"],"FRAMEWORK_X")

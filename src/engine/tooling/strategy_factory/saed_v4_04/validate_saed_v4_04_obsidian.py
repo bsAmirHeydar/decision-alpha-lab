@@ -1,7 +1,7 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 import re,yaml
-ROOT=find_repository_root(__file__);folders=[ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_04',ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/63_ATOMIC_CONCEPTS_V4/V4_04']
+ROOT=find_repository_root(__file__);folders=[ROOT/'docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_04',ROOT/'docs/history/systems/saed_v4/63_ATOMIC_CONCEPTS_V4/V4_04']
 notes=[p for f in folders for p in f.glob('*.md')];titles={};names={p.stem for p in ROOT.rglob('*.md')};errors=[]
 for p in notes:
  text=p.read_text()

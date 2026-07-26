@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_02.ownership import family_roles,owner_binding
-from tools.strategy_factory.lcm.lcm_02.authority import build_permit,verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_02.ownership import family_roles,owner_binding
+from src.engine.tooling.strategy_factory.lcm.lcm_02.authority import build_permit,verify_permit
 import pytest
 
 def test_role_registry_has_no_invented_human():

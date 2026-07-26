@@ -5,7 +5,7 @@ from .canonical import digest_object, stable_id, slug
 
 def proposed_target(row,authority):
     path=row["path"]
-    if path.startswith("docs/alpha_lab_master_architecture/"):
+    if path.startswith("docs/architecture/master/"):
         return path,"NO_MOVE_CANONICAL_TOPOLOGY"
     name=Path(path).name
     identity_token=row["document_id"].split("_",1)[-1][:12].lower()
@@ -13,11 +13,11 @@ def proposed_target(row,authority):
     for token in name.replace("-","_").split("_"):
         if token.startswith("LCM") and any(c.isdigit() for c in token):phase=token;break
     if name.startswith(("README_","INSTALL_","ROLLBACK_","COMMIT_MESSAGE_")) or name.endswith("_ARTIFACT_INVENTORY.csv"):
-        return f"docs/releases/legacy_migration/{phase.lower()}/{identity_token}_{name}","PROPOSED_RELEASE_EVIDENCE_RELOCATION"
+        return f"docs/history/delivery/releases/legacy_migration/{phase.lower()}/{identity_token}_{name}","PROPOSED_RELEASE_EVIDENCE_RELOCATION"
     if authority=="GENERATED_PROJECTION":
-        return f"docs/generated/{slug(row['topic_key']).lower()}/{identity_token}_{name}","PROPOSED_GENERATED_BOUNDARY"
+        return f"docs/history/generated/{slug(row['topic_key']).lower()}/{identity_token}_{name}","PROPOSED_GENERATED_BOUNDARY"
     if authority=="SUPPORTING_EVIDENCE":
-        return f"docs/evidence/{slug(row['topic_key']).lower()}/{identity_token}_{name}","PROPOSED_SUPPORTING_EVIDENCE_BOUNDARY"
+        return f"docs/operations/evidence/{slug(row['topic_key']).lower()}/{identity_token}_{name}","PROPOSED_SUPPORTING_EVIDENCE_BOUNDARY"
     return path,"NO_APPROVED_TARGET"
 
 def build_map(rows,authority_rows,exact_membership,normalized_membership,entity_refs,inbound_counts,contradictions):

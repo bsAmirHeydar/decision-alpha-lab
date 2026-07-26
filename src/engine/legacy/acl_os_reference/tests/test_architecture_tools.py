@@ -3,11 +3,11 @@ import json
 from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.common import REPO_ROOT, SCHEMA_ROOT, TEMPLATE_ROOT, load_json
-from tools.strategy_factory.acl_os.scaffold_context import scaffold
-from tools.strategy_factory.acl_os.validate_context_package import validate_context
-from tools.strategy_factory.acl_os.generate_context_readiness_report import readiness
-from tools.strategy_factory.acl_os.validate_acl_os_architecture import validate
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT, SCHEMA_ROOT, TEMPLATE_ROOT, load_json
+from src.engine.tooling.strategy_factory.acl_os.scaffold_context import scaffold
+from src.engine.tooling.strategy_factory.acl_os.validate_context_package import validate_context
+from src.engine.tooling.strategy_factory.acl_os.generate_context_readiness_report import readiness
+from src.engine.tooling.strategy_factory.acl_os.validate_acl_os_architecture import validate
 
 def test_all_public_schemas_are_valid():
     files=list(SCHEMA_ROOT.glob("*.schema.json")); assert len(files)>=10

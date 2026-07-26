@@ -10,7 +10,7 @@ try {
     # lab/cache_nodes, or lab/cache_metrics.
     $pathsToRemove = @(
         "apps",
-        "docs/ui",
+        "docs/operations/ui",
         "node_modules",
         "apps/web/node_modules",
         "apps/web/dist",

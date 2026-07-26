@@ -1,8 +1,8 @@
 from pathlib import Path
 import pytest
 
-from tools.strategy_factory.lcm.lcm_00.errors import DestinationConflict
-from tools.strategy_factory.lcm.lcm_00.io import atomic_directory
+from src.engine.tooling.strategy_factory.lcm.lcm_00.errors import DestinationConflict
+from src.engine.tooling.strategy_factory.lcm.lcm_00.io import atomic_directory
 
 
 def test_reference_restore_rehearsal_passed(baseline_root):

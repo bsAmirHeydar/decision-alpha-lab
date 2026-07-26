@@ -1,0 +1,22 @@
+{
+  "amends": [
+    "LCM08A_PILOT_SELECTION_POLICY_V1",
+    "LCM08A_WAVE_ASSIGNMENT_POLICY_V1"
+  ],
+  "capital_authority_created": false,
+  "consumer_cutover_allowed": false,
+  "human_semantic_owner_status_at_lcm08a": "UNRESOLVED_HUMAN_ASSIGNEE",
+  "live_order_authority_created": false,
+  "observed_behavior_captured_at_lcm08a": false,
+  "pilot_execution_lane": "WAVE_01_LOW_RISK_PILOT",
+  "pilot_execution_lane_is_risk_reclassification": false,
+  "policy_digest": "sha256:2993fee33739ef50e06a5cf169abf79e05a5efabdd9e949e266bc46ab7a8f232",
+  "policy_id": "LCM08A_PILOT_LANE_SEMANTICS_AMENDMENT_V1",
+  "portfolio_wave_assignment": "WAVE_03_EXP0015_EXP0016_EXP0017",
+  "production_readiness": "BLOCKED",
+  "reason": "The historical selected_wave field denotes the bounded LCM-08B execution lane; the portfolio wave remains the family migration assignment.",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "selected_risk_class": "HIGH"
+}

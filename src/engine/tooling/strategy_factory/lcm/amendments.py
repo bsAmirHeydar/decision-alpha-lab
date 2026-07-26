@@ -32,7 +32,7 @@ def load_jsonl(path: Path) -> list[dict]:
 
 def load_verified_amendments(repo_root: Path) -> dict[str, dict]:
     amendments: dict[str, dict] = {}
-    audit_root = repo_root / "registry/legacy_context_migration/full_system_audits"
+    audit_root = repo_root / "registry/history/lcm/full_system_audits"
     if not audit_root.is_dir():
         return amendments
     for document_path in sorted(audit_root.glob("*/baseline_amendment.json")):

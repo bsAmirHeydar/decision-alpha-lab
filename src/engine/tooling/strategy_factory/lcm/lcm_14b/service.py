@@ -13,7 +13,7 @@ class LCM14BQuarantineObservationService:
         upstream=load_json(self.repo_root/UPSTREAM_DEPRECATION_ROOT/'LCM14A_TO_LCM14B_HANDOFF.json')
         if upstream.get('handoff_digest')!=EXPECTED_UPSTREAM_HANDOFF or not verify_embedded_digest(upstream,'handoff_digest'):
             raise ValueError('UPSTREAM_HANDOFF_INVALID')
-        source=self.repo_root/'registry/legacy_context_migration/quarantine_observations/QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D'
+        source=self.repo_root/'registry/history/lcm/quarantine_observations/QUARANTINE_F2B27A6A93EB63C1B264B84DAFA00C2D'
         if not source.is_dir(): raise FileNotFoundError(source)
         target=(output_parent if output_parent.is_absolute() else self.repo_root/output_parent)/source.name
         if target.resolve()!=source.resolve():

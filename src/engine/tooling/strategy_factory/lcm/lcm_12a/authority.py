@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 
 CANONICAL_PREFIXES = (
-    "docs/alpha_lab_master_architecture/",
+    "docs/architecture/master/",
     "docs/architecture/",
     "docs/doctrine/",
     "docs/specifications/",
@@ -18,7 +18,7 @@ def owner_for(row):
     match = re.search(r"(?im)^\s*(?:owner|maintainer|author)\s*:\s*[\"']?([^\n\"']+)", text[:5000])
     if match:
         return match.group(1).strip(), "DECLARED"
-    if path.startswith("docs/alpha_lab_master_architecture/"):
+    if path.startswith("docs/architecture/master/"):
         return "ALPHA_LAB_ARCHITECTURE_OWNER", "PATH_POLICY"
     if path.startswith("docs/"):
         return "ALPHA_LAB_DOCUMENTATION_OWNER", "PATH_POLICY"

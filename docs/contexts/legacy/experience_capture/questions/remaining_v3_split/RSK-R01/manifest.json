@@ -1,0 +1,28 @@
+{
+  "question_code": "RSK-R01",
+  "title": "Risk Budget Across Convex Opportunity Set",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/contexts/legacy/experience_capture/answers/RSK-R01/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "risk_budget_per_opportunity_set_v1.csv",
+    "risk_allocation_policy_v1.csv",
+    "conditional_risk_reservation_v1.csv",
+    "split_order_risk_aggregation_v1.csv"
+  ]
+}

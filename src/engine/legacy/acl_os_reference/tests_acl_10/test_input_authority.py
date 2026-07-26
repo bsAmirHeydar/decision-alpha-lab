@@ -1,8 +1,8 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_10.authority import verify_authority_permit
-from tools.strategy_factory.acl_os.acl_10.canonical import with_digest
-from tools.strategy_factory.acl_os.acl_10.handoff_input import load_acl09_bundle
-from tools.strategy_factory.acl_os.acl_10.errors import AuthorityError,IntegrityError
+from src.engine.tooling.strategy_factory.acl_os.acl_10.authority import verify_authority_permit
+from src.engine.tooling.strategy_factory.acl_os.acl_10.canonical import with_digest
+from src.engine.tooling.strategy_factory.acl_os.acl_10.handoff_input import load_acl09_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_10.errors import AuthorityError,IntegrityError
 
 def test_acl09_bundle_loads(acl09_root):
     bundle=load_acl09_bundle(acl09_root); assert bundle['handoff']['reporting_eligible_candidate_count']==0; assert len(bundle['decisions'])==12

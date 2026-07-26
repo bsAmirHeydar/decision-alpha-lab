@@ -1,0 +1,26 @@
+{
+  "authority": {
+    "capital": false,
+    "deletion": false,
+    "order": false,
+    "runtime": false,
+    "semantic_merge": false
+  },
+  "delivery_type": "runtime_physical_reorganization",
+  "next_stage": "UC-04",
+  "part_id": "UC03-P3",
+  "program_id": "UCPS",
+  "reference_execution": {
+    "commit_path_count": 36851,
+    "documentation_relocation_count": 26234,
+    "registry_relocation_count": 9756,
+    "replacement_count": 5779,
+    "retired_shim_count": 10,
+    "rewrite_file_count": 1450,
+    "staging_pathspec_count": 1606
+  },
+  "runtime_generated_commit_index": true,
+  "schema_version": "1.0.0",
+  "stage_id": "UC-03",
+  "title": "Documentation, Registry, Release History and Physical Closure"
+}

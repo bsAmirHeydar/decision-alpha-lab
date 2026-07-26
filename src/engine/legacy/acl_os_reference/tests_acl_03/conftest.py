@@ -1,11 +1,11 @@
 from pathlib import Path
 import copy
 import pytest
-from tools.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
-from tools.strategy_factory.acl_os.acl_02.service import ACL02ContextIntakeService
-from tools.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
-from tools.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
-from tools.strategy_factory.acl_os.common import REPO_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
+from src.engine.tooling.strategy_factory.acl_os.acl_02.service import ACL02ContextIntakeService
+from src.engine.tooling.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
+from src.engine.tooling.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT
 
 @pytest.fixture
 def context_root(): return REPO_ROOT/"src/engine/legacy/acl_os_reference/fixtures/acl_03/valid_context"

@@ -1,5 +1,5 @@
 from pathlib import Path
-from tools.strategy_factory.acl_os.acl_06.replay import verify_research_run
+from src.engine.tooling.strategy_factory.acl_os.acl_06.replay import verify_research_run
 def test_reference_run_passes(build):
     r=build(); assert r['passed'] and r['task_count']==54 and r['candidate_count']==12
 def test_lanes_are_segregated(build):

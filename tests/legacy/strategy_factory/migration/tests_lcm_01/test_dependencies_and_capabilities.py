@@ -1,7 +1,7 @@
 import csv
 
-from tools.strategy_factory.lcm.lcm_01.mql5_scan import scan as mql_scan
-from tools.strategy_factory.lcm.lcm_01.python_scan import scan as py_scan
+from src.engine.tooling.strategy_factory.lcm.lcm_01.mql5_scan import scan as mql_scan
+from src.engine.tooling.strategy_factory.lcm.lcm_01.python_scan import scan as py_scan
 
 
 def test_unresolved_edges_are_preserved(survey_root):

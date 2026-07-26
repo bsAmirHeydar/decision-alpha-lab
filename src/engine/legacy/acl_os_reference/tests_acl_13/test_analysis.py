@@ -1,8 +1,8 @@
-from tools.strategy_factory.acl_os.acl_13.slice import build_fast_slice
-from tools.strategy_factory.acl_os.acl_13.support import build_support
-from tools.strategy_factory.acl_os.acl_13.baselines import build_baselines
-from tools.strategy_factory.acl_os.acl_13.discovery import build_catalog
-from tools.strategy_factory.acl_os.acl_13.value import build_value
+from src.engine.tooling.strategy_factory.acl_os.acl_13.slice import build_fast_slice
+from src.engine.tooling.strategy_factory.acl_os.acl_13.support import build_support
+from src.engine.tooling.strategy_factory.acl_os.acl_13.baselines import build_baselines
+from src.engine.tooling.strategy_factory.acl_os.acl_13.discovery import build_catalog
+from src.engine.tooling.strategy_factory.acl_os.acl_13.value import build_value
 def docs(assessment_request,budget):
     s=build_fast_slice(assessment_request); sup=build_support(s); base=build_baselines(s,budget['max_random_trials']); cat=build_catalog(assessment_request,s); val=build_value(s,sup,base,cat); return s,sup,base,cat,val
 def test_occurrence_support(assessment_request,budget): assert docs(assessment_request,budget)[1]['context_occurrences']==16

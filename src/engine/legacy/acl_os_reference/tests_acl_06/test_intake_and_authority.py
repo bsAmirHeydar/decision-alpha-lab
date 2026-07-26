@@ -1,5 +1,5 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_06.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_06.canonical import digest_object
 def redigest(d,field): d[field]=digest_object({k:v for k,v in d.items() if k!=field}); return d
 def test_wrong_authority_action_denied(build,inputs):
     p=copy.deepcopy(inputs['authority_permit']); p['action']='ACL06_FORBIDDEN'; redigest(p,'permit_digest')

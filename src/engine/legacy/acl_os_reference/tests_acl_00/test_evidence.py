@@ -2,8 +2,8 @@ from __future__ import annotations
 from dataclasses import replace
 from datetime import timedelta
 import pytest
-from tools.strategy_factory.acl_os.acl_00.evidence import EvidenceEvaluator
-from tools.strategy_factory.acl_os.acl_00.types import EvidenceClass
+from src.engine.tooling.strategy_factory.acl_os.acl_00.evidence import EvidenceEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import EvidenceClass
 
 
 def test_valid_semantic_evidence(valid_bundle):

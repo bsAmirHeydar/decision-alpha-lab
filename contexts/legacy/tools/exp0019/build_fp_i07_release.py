@@ -17,7 +17,7 @@ def owned(root: Path) -> list[Path]:
     paths: set[Path] = set()
     for rel in (
         STATUS,
-        'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i07',
+        'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i07',
         'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07',
     ):
         base = root / rel
@@ -25,7 +25,7 @@ def owned(root: Path) -> list[Path]:
             for path in base.rglob('*'):
                 if path.is_file() and '__pycache__' not in path.parts and '.pytest_cache' not in path.parts and path.suffix != '.pyc':
                     paths.add(path)
-    for path in (root / 'docs/obsidian_deep/01_concepts').glob('FP-I07_*.md'):
+    for path in (root / 'docs/history/obsidian/deep/01_concepts').glob('FP-I07_*.md'):
         paths.add(path)
     for rel in (
         'releases/history/exp0019/readmes/README_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',

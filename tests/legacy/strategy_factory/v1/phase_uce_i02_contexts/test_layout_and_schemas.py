@@ -11,7 +11,7 @@ def test_required_phase_files_exist():
       "mql5/Tests/Experts/StrategyFactory/UCE_I02_ContextPackageSelfTest.mq5",
       "src/engine/packages/strategy_factory_contexts_v3/__init__.py",
       "schemas/legacy/strategy_factory/v3/context_package_manifest.schema.json",
-      "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i02/00_UCE_I02_MOC.md",
+      "docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i02/00_UCE_I02_MOC.md",
     ]
     for rel in required: assert (r/rel).is_file(),rel
 

@@ -6,8 +6,8 @@ import pytest
 ROOT=find_repository_root(__file__)
 if str(ROOT) not in sys.path:
     sys.path.insert(0,str(ROOT))
-from tools.strategy_factory.acl_os.acl_05.io import load_json
-from tools.strategy_factory.acl_os.acl_05.service import ACL05ImmutableBatchService
+from src.engine.tooling.strategy_factory.acl_os.acl_05.io import load_json
+from src.engine.tooling.strategy_factory.acl_os.acl_05.service import ACL05ImmutableBatchService
 
 @pytest.fixture(scope="session")
 def repo_root(): return ROOT

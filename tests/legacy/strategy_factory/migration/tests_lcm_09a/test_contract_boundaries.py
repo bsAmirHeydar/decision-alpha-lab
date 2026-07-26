@@ -1,7 +1,7 @@
 from .conftest import ROOT,j
 def contracts():return [j("setup_contracts/"+p.name) for p in sorted((ROOT/"setup_contracts").glob("*.json"))]
 def test_contract_count_and_digests():
- from tools.strategy_factory.lcm.lcm_09a.canonical import digest_object
+ from src.engine.tooling.strategy_factory.lcm.lcm_09a.canonical import digest_object
  c=contracts(); assert len(c)==60; assert all(digest_object(x,"contract_digest")==x["contract_digest"] for x in c)
 def test_no_broker_drawing_or_quota_semantics_embedded():
  for c in contracts():

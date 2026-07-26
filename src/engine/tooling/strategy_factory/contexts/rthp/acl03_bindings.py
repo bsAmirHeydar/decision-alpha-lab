@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.acl_os.acl_03.canonical import digest_object, stable_id
+from src.engine.tooling.strategy_factory.acl_os.acl_03.canonical import digest_object, stable_id
 
 
 def _load(path: Path) -> dict[str, Any]:

@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from tools.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
 
 
 def tree_digest(root: Path) -> str:

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from tools.strategy_factory.lcm.lcm_09b.source_digest import source_binding_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.source_digest import source_binding_digest
 
 
 def test_text_digest_is_identical_for_lf_and_crlf(tmp_path: Path):

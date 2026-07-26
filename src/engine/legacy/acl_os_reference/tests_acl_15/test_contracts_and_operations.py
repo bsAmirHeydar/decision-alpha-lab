@@ -1,8 +1,8 @@
-from tools.strategy_factory.acl_os.acl_15.contracts import build_contracts
-from tools.strategy_factory.acl_os.acl_15.operations import build_operations
-from tools.strategy_factory.acl_os.acl_15.registry import build_registries
-from tools.strategy_factory.acl_os.acl_15.handoff_input import load_acl14_bundle
-from tools.strategy_factory.acl_os.acl_15.authority import verify_permit
+from src.engine.tooling.strategy_factory.acl_os.acl_15.contracts import build_contracts
+from src.engine.tooling.strategy_factory.acl_os.acl_15.operations import build_operations
+from src.engine.tooling.strategy_factory.acl_os.acl_15.registry import build_registries
+from src.engine.tooling.strategy_factory.acl_os.acl_15.handoff_input import load_acl14_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_15.authority import verify_permit
 def _all(acl14_root,permit,policy):
  b=load_acl14_bundle(acl14_root)['binding']; a=verify_permit(permit,b,'2026-07-18T11:00:00Z'); c=build_contracts(b,policy,a,'2026-07-18T11:00:00Z'); return b,c,build_operations(b,c,policy,'2026-07-18T11:00:00Z')
 def test_closed_registries():

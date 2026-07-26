@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.lcm.portable_integrity import (
+from src.engine.tooling.strategy_factory.lcm.portable_integrity import (
     BASELINE_DOCUMENT,
     BASELINE_RECORDS,
     EXPECTED_AMENDMENT_COUNT,

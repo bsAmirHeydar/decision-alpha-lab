@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-from tools.strategy_factory.acl_os.acl_01.scanner import RepositoryScanner
-from tools.strategy_factory.acl_os.acl_01.service import ACL01RepositoryControlPlane
+from src.engine.tooling.strategy_factory.acl_os.acl_01.scanner import RepositoryScanner
+from src.engine.tooling.strategy_factory.acl_os.acl_01.service import ACL01RepositoryControlPlane
 
 def test_snapshot_deterministic(registry): assert registry.digest==registry.digest
 
@@ -29,8 +29,8 @@ def test_service_registration_checks_missing_bytes(registry,descriptor,permit_fa
     assert any(x.code=="ARTIFACT_FILE_MISSING" for x in reasons)
 
 def test_bootstrap_registry_is_self_consistent():
-    from tools.strategy_factory.acl_os.acl_01.bootstrap_registry import build
-    from tools.strategy_factory.acl_os.common import REPO_ROOT
+    from src.engine.tooling.strategy_factory.acl_os.acl_01.bootstrap_registry import build
+    from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT
     reg=build(REPO_ROOT)
     assert reg.artifacts and reg.schemas and not reg.validate_graphs()
     assert all(d.identity.namespace=="acl-os" for d in reg.artifacts.values())

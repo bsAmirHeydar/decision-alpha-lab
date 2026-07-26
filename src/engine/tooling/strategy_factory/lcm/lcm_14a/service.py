@@ -585,7 +585,7 @@ class LCM14ADeprecationRedirectService:
             "source_files_modified": [],
             "legacy_originals_modified": False,
             "production_bindings_modified": False,
-            "generated_package_root": f"registry/legacy_context_migration/deprecation_redirects/{deprecation_id}",
+            "generated_package_root": f"registry/history/lcm/deprecation_redirects/{deprecation_id}",
             "restore_handoff_digest": handoff["handoff_digest"],
             "post_rollback_verification": [
                 "VERIFY_LCM13C_HANDOFF_DIGEST",

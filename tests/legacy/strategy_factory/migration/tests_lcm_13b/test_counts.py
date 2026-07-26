@@ -1,5 +1,5 @@
 from __future__ import annotations
-from tools.strategy_factory.lcm.lcm_13b.io import iter_jsonl, load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.io import iter_jsonl, load_json
 
 def test_exact_consumer_accounting(cutover_root):
     bindings = list(iter_jsonl(cutover_root / "records/active_consumer_bindings.jsonl"))

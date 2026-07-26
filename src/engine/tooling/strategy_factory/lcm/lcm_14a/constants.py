@@ -4,12 +4,12 @@ PHASE_ID = "LCM-14A"
 MASTER_PHASE = "LCM-14"
 CLAIM_CEILING = "LCM_14A_REFERENCE_ONLY"
 SCHEMA_VERSION = "1.0.0"
-PRODUCER = "tools.strategy_factory.lcm.lcm_14a.service:LCM14ADeprecationRedirectService"
+PRODUCER = "src.engine.tooling.strategy_factory.lcm.lcm_14a.service:LCM14ADeprecationRedirectService"
 OWNER = "ALPHA_LAB_MIGRATION_OWNER"
 REVIEWER = "INDEPENDENT_MIGRATION_REVIEWER"
 GENERATED_TIME_SEMANTICS = "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
-UPSTREAM_CLOSURE_ROOT = "registry/legacy_context_migration/cutover_closures/CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F"
-UPSTREAM_CUTOVER_ROOT = "registry/legacy_context_migration/consumer_wave_cutovers/CUTOVER_E38BEC955210CE172483EE47AA2D9E8C"
+UPSTREAM_CLOSURE_ROOT = "registry/history/lcm/cutover_closures/CUTOVERCLOSE_0E477DA8D23F1B8DEB35DDD90B925F4F"
+UPSTREAM_CUTOVER_ROOT = "registry/history/lcm/consumer_wave_cutovers/CUTOVER_E38BEC955210CE172483EE47AA2D9E8C"
 DOMAINS = ("CONTEXT", "DOCUMENTATION", "TREATMENT", "VISUAL")
 DEPRECATION_STATES = (
     "DEPRECATED_REDIRECT_ACTIVE",
@@ -44,10 +44,10 @@ TEXT_SUFFIXES = frozenset({
 })
 ACTIVE_ROOTS = ("lab", "mql5", "tools", "docs", ".github", "config", "configs", "presets")
 GENERATED_SCAN_ROOTS = (
-    "registry/legacy_context_migration/consumer_wave_cutovers",
-    "registry/legacy_context_migration/cutover_closures",
-    "registry/legacy_context_migration/dual_run_evidence",
-    "registry/legacy_context_migration/documentation_reconciliations",
-    "registry/legacy_context_migration/treatment_package_migrations",
-    "registry/legacy_context_migration/visualizer_migrations",
+    "registry/history/lcm/consumer_wave_cutovers",
+    "registry/history/lcm/cutover_closures",
+    "registry/history/lcm/dual_run_evidence",
+    "registry/history/lcm/documentation_reconciliations",
+    "registry/history/lcm/treatment_package_migrations",
+    "registry/history/lcm/visualizer_migrations",
 )

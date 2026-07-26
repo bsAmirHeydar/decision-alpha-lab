@@ -3,7 +3,7 @@
 
 Remove-Item -Recurse -Force apps/web -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force apps/api -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force docs/ui -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force docs/operations/ui -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force apps/web/node_modules -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force apps/web/dist -ErrorAction SilentlyContinue

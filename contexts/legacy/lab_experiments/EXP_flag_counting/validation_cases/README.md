@@ -4,7 +4,7 @@ This folder stores Level 13 validation baselines for the Phoenix flag-counting e
 
 Level 13 does not invent expected counts. The workflow is:
 
-1. Pick a case id from `docs/flag_counting/VALIDATION_CASE_REGISTRY.md`.
+1. Pick a case id from `docs/contexts/legacy/flag_counting/VALIDATION_CASE_REGISTRY.md`.
 2. Pin broker symbol, timeframe, bar count/range, MT5 build, Phoenix inputs, and source commit.
 3. Run `FlagCountingPhoenixExperiment.mq5` with export and validation enabled.
 4. Save the generated CSV files from `MQL5/Files/FlagCountingPhoenix/` next to the case report.

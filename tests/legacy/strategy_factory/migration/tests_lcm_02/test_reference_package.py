@@ -1,5 +1,5 @@
 import csv
-from tools.strategy_factory.lcm.lcm_02.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_02.verify import verify_package
 
 def test_reference_package(classification_root): assert verify_package(classification_root)['passed']
 def test_all_artifacts_unique(classification_root):

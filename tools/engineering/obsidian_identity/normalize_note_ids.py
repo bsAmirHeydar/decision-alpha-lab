@@ -216,7 +216,7 @@ def plan(vault: Path, canonical_map: dict[str, str] | None = None) -> tuple[tupl
         updated[path] = new_raw
         changes.append(
             PlannedChange(
-                path=f"docs/ai_algorithm_engineering_os/{rel}",
+                path=f"docs/history/aieos_legacy/{rel}",
                 note_id=note_id,
                 before_sha256=_sha256(raw),
                 after_sha256=_sha256(new_raw),
@@ -277,7 +277,7 @@ def write_json(path: Path, value: dict) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", default=".")
-    parser.add_argument("--vault", default="docs/ai_algorithm_engineering_os")
+    parser.add_argument("--vault", default="docs/history/aieos_legacy")
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--backup-zip")
     parser.add_argument("--report", required=True)

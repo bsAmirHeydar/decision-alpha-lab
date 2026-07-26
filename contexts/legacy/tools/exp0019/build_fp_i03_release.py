@@ -10,17 +10,17 @@ META={'releases/history/exp0019/indexes/EXP0019_FP_I03_FILE_INDEX.txt','releases
 def digest(path):return sha256(path.read_bytes()).hexdigest()
 def owned(root):
     paths=set()
-    dirs=[STATUS,'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i03','mql5/Include/FaerieProtocol/EXP0019/Time']
+    dirs=[STATUS,'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i03','mql5/Include/FaerieProtocol/EXP0019/Time']
     for rel in dirs:
         base=root/rel
         if base.exists():
             for p in base.rglob('*'):
                 if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':paths.add(p)
-    for p in (root/'docs/obsidian_deep/01_concepts').glob('FP-I03_*.md'):paths.add(p)
+    for p in (root/'docs/history/obsidian/deep/01_concepts').glob('FP-I03_*.md'):paths.add(p)
     specific=[
       'releases/history/exp0019/readmes/README_EXP0019_FP_I03_TIME_CALENDAR.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I03_TIME_CALENDAR.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I03_QA_REPORT.json',
       'releases/history/exp0019/indexes/EXP0019_FP_I03_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I03_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I03_PATCH_MANIFEST.json',
-      'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I03_NEW_YORK_TIME_TRADING-DAY_SESSION_AND_WEEK_KERNEL.md',
+      'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I03_NEW_YORK_TIME_TRADING-DAY_SESSION_AND_WEEK_KERNEL.md',
       'mql5/Tests/Experts/FaerieProtocol/EXP0019_FP_I03_TimeCalendarSelfTest.mq5','mql5/Experts/FaerieProtocol/EXP0019_FP_I03_TimeCalendarDiagnostic.mq5',
       'contexts/legacy/tools/exp0019/check_fp_i03_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i03_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i03_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i03_delivery.py','contexts/legacy/tools/exp0019/build_fp_i03_release.py']
     for rel in specific:

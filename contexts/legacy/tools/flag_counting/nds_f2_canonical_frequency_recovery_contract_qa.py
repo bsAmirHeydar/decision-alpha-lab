@@ -14,8 +14,8 @@ FILES = {
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
     "phase": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2HigherTimeframePhaseFilter.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Canonical Frequency Recovery and Multi-Count HTF Gate.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Canonical Frequency Recovery and Multi-Count HTF Gate.md",
 }
 
 

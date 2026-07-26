@@ -455,7 +455,7 @@ class LCM13CRollbackClosureService:
             "closure_id": closure_id,
             "restore_upstream_handoff_digest": handoff["handoff_digest"],
             "restore_upstream_cutover_id": handoff["cutover_id"],
-            "remove_phase_owned_root": f"registry/legacy_context_migration/cutover_closures/{closure_id}",
+            "remove_phase_owned_root": f"registry/history/lcm/cutover_closures/{closure_id}",
             "git_revert_only_sufficient": False,
             "live_state_restoration_required": False,
             "compatibility_records_must_remain_until_lcm14a_decision": True,

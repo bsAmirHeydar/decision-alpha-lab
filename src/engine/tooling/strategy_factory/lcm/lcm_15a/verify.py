@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools.strategy_factory.lcm.portable_integrity import (
+from src.engine.tooling.strategy_factory.lcm.portable_integrity import (
     current_matches_expected_or_amended,
     load_verified_lcm16a_amendments,
     matches_expected_digest,
@@ -19,7 +19,7 @@ def _check_digest(obj: dict, field: str) -> None:
 
 
 def _downstream_changes(repo_root: Path) -> dict[str, dict]:
-    base = repo_root / "registry/legacy_context_migration/root_release_reorganizations"
+    base = repo_root / "registry/history/lcm/root_release_reorganizations"
     if not base.is_dir():
         return {}
     packages = sorted(path for path in base.iterdir() if path.is_dir())

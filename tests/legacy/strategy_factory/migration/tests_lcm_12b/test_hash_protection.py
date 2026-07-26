@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
 def test_hash_protected_paths_remain_active_compatibility(reconciliation_root):
     reg=load_json(reconciliation_root/"documentation_redirect_registry.json")
     rows=list(iter_jsonl(reconciliation_root/reg["redirect_records_path"]))

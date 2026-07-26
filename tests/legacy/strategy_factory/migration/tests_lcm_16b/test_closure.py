@@ -1,6 +1,6 @@
-from tools.strategy_factory.lcm.lcm_16b.closure import evaluate_program_closure, run_policy_replay
-from tools.strategy_factory.lcm.lcm_16b.constants import REQUIRED_EXTERNAL_DIMENSIONS
-from tools.strategy_factory.lcm.lcm_16b.io import load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.closure import evaluate_program_closure, run_policy_replay
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.constants import REQUIRED_EXTERNAL_DIMENSIONS
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json
 
 
 def _recovery():

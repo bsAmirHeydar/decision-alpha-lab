@@ -2,8 +2,8 @@ import json
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_14a.io import iter_jsonl
-from tools.strategy_factory.lcm.lcm_14a.resolver import CompatibilityRedirectResolver
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.io import iter_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.resolver import CompatibilityRedirectResolver
 
 
 def load(path):

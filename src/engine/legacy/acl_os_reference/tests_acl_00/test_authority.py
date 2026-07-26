@@ -1,8 +1,8 @@
 from __future__ import annotations
 import pytest
-from tools.strategy_factory.acl_os.acl_00.authority import AuthorityEvaluator
-from tools.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle
-from tools.strategy_factory.acl_os.acl_00.types import Actor
+from src.engine.tooling.strategy_factory.acl_os.acl_00.authority import AuthorityEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import Actor
 
 @pytest.fixture
 def evaluator(): return AuthorityEvaluator(PolicyBundle.load())

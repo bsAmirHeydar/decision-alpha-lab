@@ -1,9 +1,9 @@
 import copy
 import pytest
 
-from tools.strategy_factory.lcm.lcm_00.amendment import build_amendment, validate_amendment
-from tools.strategy_factory.lcm.lcm_00.authority import build_reference_permit, validate_permit, validate_ownership_registry
-from tools.strategy_factory.lcm.lcm_00.errors import AuthorityError, ContractViolation
+from src.engine.tooling.strategy_factory.lcm.lcm_00.amendment import build_amendment, validate_amendment
+from src.engine.tooling.strategy_factory.lcm.lcm_00.authority import build_reference_permit, validate_permit, validate_ownership_registry
+from src.engine.tooling.strategy_factory.lcm.lcm_00.errors import AuthorityError, ContractViolation
 
 
 def test_reference_permit_denies_all_dangerous_capabilities():

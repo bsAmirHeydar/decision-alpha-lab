@@ -1,7 +1,7 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 import json
-from tools.strategy_factory.lcm.lcm_08b.parity import compare_case
+from src.engine.tooling.strategy_factory.lcm.lcm_08b.parity import compare_case
 
 REPO=find_repository_root(__file__)
 CTX=REPO/'contexts/legacy/strategy_factory/authored/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1'

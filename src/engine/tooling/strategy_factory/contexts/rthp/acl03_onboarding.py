@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.acl_os.acl_03.service import ACL03ContextCompilerService
+from src.engine.tooling.strategy_factory.acl_os.acl_03.service import ACL03ContextCompilerService
 from .acl03_bindings import build_rthp_bindings, validate_rthp_acl03_bundle
 from .canonical_source import canonical_context_mirror
 

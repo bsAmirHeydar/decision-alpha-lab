@@ -4,8 +4,8 @@ from pathlib import Path
 from .schema_validation import validate_schemas
 
 def run(repo_root: Path):
-    schema_count=validate_schemas(repo_root/'registry/legacy_context_migration/lcm_03/schemas/v1')
-    policies=list((repo_root/'registry/legacy_context_migration/lcm_03/policies/v1').glob('*.json'))
+    schema_count=validate_schemas(repo_root/'registry/history/lcm/lcm_03/schemas/v1')
+    policies=list((repo_root/'registry/history/lcm/lcm_03/policies/v1').glob('*.json'))
     for p in policies: json.loads(p.read_text(encoding='utf-8'))
     mql_root=repo_root/'mql5/legacy/strategy_factory_lab/Include/AlphaLab/LCM/LCM03'
     forbidden=[]

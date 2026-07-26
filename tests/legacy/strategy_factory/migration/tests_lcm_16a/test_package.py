@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_16a.service import LCM16AFullSystemAuditService
-from tools.strategy_factory.lcm.lcm_16a.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.service import LCM16AFullSystemAuditService
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.verify import verify_package
 
 
 def test_package_verifies(root, audit_root):

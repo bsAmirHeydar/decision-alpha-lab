@@ -1,6 +1,6 @@
-from tools.strategy_factory.lcm.lcm_06.schema_validation import validate as schemas
-from tools.strategy_factory.lcm.lcm_06.static_validation import validate as static
-from tools.strategy_factory.lcm.lcm_06.delivery_validation import validate as delivery
+from src.engine.tooling.strategy_factory.lcm.lcm_06.schema_validation import validate as schemas
+from src.engine.tooling.strategy_factory.lcm.lcm_06.static_validation import validate as static
+from src.engine.tooling.strategy_factory.lcm.lcm_06.delivery_validation import validate as delivery
 def test_schemas(repo_root): r=schemas(repo_root);assert r["passed"] and r["schema_count"]>=25
 def test_static(repo_root): r=static(repo_root);assert r["passed"] and r["policy_count"]>=20
 def test_delivery(repo_root): assert delivery(repo_root)["passed"]

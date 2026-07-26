@@ -3,10 +3,10 @@ import json
 from pathlib import Path
 import pytest
 
-from tools.strategy_factory.acl_os.acl_00.audit import AuditLedger
-from tools.strategy_factory.acl_os.acl_00.errors import IntegrityError, ConcurrencyError
-from tools.strategy_factory.acl_os.acl_00.store import InMemoryStateStore, SubjectState
-from tools.strategy_factory.acl_os.acl_00.types import LifecycleState
+from src.engine.tooling.strategy_factory.acl_os.acl_00.audit import AuditLedger
+from src.engine.tooling.strategy_factory.acl_os.acl_00.errors import IntegrityError, ConcurrencyError
+from src.engine.tooling.strategy_factory.acl_os.acl_00.store import InMemoryStateStore, SubjectState
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import LifecycleState
 
 
 def test_audit_chain_roundtrip(tmp_path: Path):

@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
 
 def test_locator_cardinality(identity_root):
     ids=list(read_jsonl(identity_root/'identities/canonical_identity_candidates.jsonl'));loc=list(read_jsonl(identity_root/'locators/artifact_locator_records.jsonl'));assert len(ids)==len(loc)

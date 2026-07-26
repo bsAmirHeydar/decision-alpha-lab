@@ -1,0 +1,227 @@
+{
+  "directory_rules": [
+    {
+      "destination": "docs/architecture/master",
+      "source": "docs/alpha_lab_master_architecture"
+    },
+    {
+      "destination": "docs/history/aieos_legacy",
+      "source": "docs/ai_algorithm_engineering_os"
+    },
+    {
+      "destination": "docs/standards/engineering",
+      "source": "docs/engineering"
+    },
+    {
+      "destination": "docs/standards/knowledge",
+      "source": "docs/knowledge"
+    },
+    {
+      "destination": "docs/standards/articles",
+      "source": "docs/articles"
+    },
+    {
+      "destination": "docs/operations/process",
+      "source": "docs/process"
+    },
+    {
+      "destination": "docs/operations/research",
+      "source": "docs/research"
+    },
+    {
+      "destination": "docs/operations/evidence",
+      "source": "docs/evidence"
+    },
+    {
+      "destination": "docs/operations/execution",
+      "source": "docs/execution"
+    },
+    {
+      "destination": "docs/operations/ui",
+      "source": "docs/ui"
+    },
+    {
+      "destination": "docs/operations/mql5_native",
+      "source": "docs/mql_native"
+    },
+    {
+      "destination": "docs/operations/ai_execution",
+      "source": "docs/ai_execution"
+    },
+    {
+      "destination": "docs/contexts/legacy/experience_capture",
+      "source": "docs/experience_capture"
+    },
+    {
+      "destination": "docs/contexts/legacy/flag_counting",
+      "source": "docs/flag_counting"
+    },
+    {
+      "destination": "docs/contexts/legacy/hook_validity",
+      "source": "docs/hook_validity"
+    },
+    {
+      "destination": "docs/contexts/legacy/nds/entry",
+      "source": "docs/nds_entry_architecture"
+    },
+    {
+      "destination": "docs/contexts/legacy/nds/hook",
+      "source": "docs/nds_hook_architecture"
+    },
+    {
+      "destination": "docs/contexts/legacy/zone_af",
+      "source": "docs/zone_af"
+    },
+    {
+      "destination": "docs/history/obsidian/base",
+      "source": "docs/obsidian"
+    },
+    {
+      "destination": "docs/history/obsidian/deep",
+      "source": "docs/obsidian_deep"
+    },
+    {
+      "destination": "docs/history/obsidian/hook",
+      "source": "docs/obsidian_hook"
+    },
+    {
+      "destination": "docs/history/obsidian/zone",
+      "source": "docs/obsidian_zone"
+    },
+    {
+      "destination": "docs/history/debug",
+      "source": "docs/debug"
+    },
+    {
+      "destination": "docs/history/generated",
+      "source": "docs/generated"
+    },
+    {
+      "destination": "docs/history/delivery/patches",
+      "source": "docs/patches"
+    },
+    {
+      "destination": "docs/history/delivery/releases",
+      "source": "docs/releases"
+    },
+    {
+      "destination": "docs/history/reports",
+      "source": "docs/reports"
+    },
+    {
+      "destination": "docs/history/root_archive",
+      "source": "docs/root_archive"
+    },
+    {
+      "destination": "docs/history/systems/strategy_factory",
+      "source": "docs/strategy_factory"
+    },
+    {
+      "destination": "docs/history/systems/saed_v3",
+      "source": "docs/strategy_factory_context_intelligence_edge_discovery_v3"
+    },
+    {
+      "destination": "docs/history/systems/strategy_factory_implementation",
+      "source": "docs/strategy_factory_implementation"
+    },
+    {
+      "destination": "docs/history/systems/strategy_factory_roadmap",
+      "source": "docs/strategy_factory_implementation_roadmap"
+    },
+    {
+      "destination": "docs/history/systems/setup_ai_v1",
+      "source": "docs/strategy_factory_setup_ai_edge_discovery"
+    },
+    {
+      "destination": "docs/history/systems/setup_ai_v2",
+      "source": "docs/strategy_factory_setup_ai_edge_discovery_institutional_v2"
+    },
+    {
+      "destination": "docs/history/systems/saed_v4",
+      "source": "docs/strategy_factory_sovereign_context_intelligence_v4"
+    },
+    {
+      "destination": "docs/history/systems/ucee",
+      "source": "docs/strategy_factory_universal_context_exploitation_engine"
+    },
+    {
+      "destination": "docs/history/systems/strategy_factory_v2",
+      "source": "docs/strategy_factory_v2"
+    }
+  ],
+  "file_rules": [
+    {
+      "destination": "docs/README.md",
+      "source": "docs/00_project_index.md"
+    },
+    {
+      "destination": "docs/architecture/overview.md",
+      "source": "docs/architecture.md"
+    },
+    {
+      "destination": "docs/architecture/laboratory.md",
+      "source": "docs/laboratory_architecture.md"
+    },
+    {
+      "destination": "docs/architecture/project_layout.md",
+      "source": "docs/PROJECT_LAYOUT.md"
+    },
+    {
+      "destination": "docs/standards/atomic_live_research_contract.md",
+      "source": "docs/atomic_live_research_contract.md"
+    },
+    {
+      "destination": "docs/standards/glossary.md",
+      "source": "docs/glossary.md"
+    },
+    {
+      "destination": "docs/standards/manifesto.md",
+      "source": "docs/manifesto.md"
+    },
+    {
+      "destination": "docs/standards/principles.md",
+      "source": "docs/principles.md"
+    },
+    {
+      "destination": "docs/operations/research/roadmap.md",
+      "source": "docs/research-roadmap.md"
+    },
+    {
+      "destination": "docs/operations/research/lessons_and_failure_modes.md",
+      "source": "docs/research_lessons_and_failure_modes.md"
+    },
+    {
+      "destination": "docs/operations/research/astro_ml_training_quickstart.md",
+      "source": "docs/astro_ml_training_quickstart.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/exp0015/cme_live_backtest_plan.md",
+      "source": "docs/EXP0015_cme_live_backtest_plan.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/exp0015/cme_live_provider_patch.md",
+      "source": "docs/EXP0015_cme_live_provider_patch.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/mql_visual/live_all_in_one_apply.md",
+      "source": "docs/MQL_LIVE_ALL_IN_ONE_APPLY.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/mql_visual/native_migration_decision.md",
+      "source": "docs/MQL_NATIVE_MIGRATION_DECISION.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/mql_visual/live_visual_lab.md",
+      "source": "docs/mql_live_visual_lab.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/mql_visual/live_visual_lab_debug_packages.md",
+      "source": "docs/mql_live_visual_lab_debug_packages.md"
+    },
+    {
+      "destination": "docs/contexts/legacy/mql_visual/visual_lab.md",
+      "source": "docs/mql_visual_lab.md"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

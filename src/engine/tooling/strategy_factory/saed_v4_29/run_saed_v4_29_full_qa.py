@@ -46,7 +46,7 @@ for name in [
 
 AR = ROOT / "releases/history/strategy_factory/artifacts/saed_v4_29"
 SC = ROOT / "schemas/legacy/strategy_factory/saed_v4_29"
-DOC = ROOT / "docs/strategy_factory_sovereign_context_intelligence_v4"
+DOC = ROOT / "docs/history/systems/saed_v4"
 MQL = list((ROOT / "mql5/Include/DecisionAlphaLab/StrategyFactory/SAED/V4_29").glob("*.mqh"))
 MQL += list((ROOT / "mql5/Experts/DecisionAlphaLab/StrategyFactory/SAED/V4_29").glob("*.mq5"))
 certificate = json.loads((AR / "GOLDEN_HIDDEN_EVALUATION_AIR_GAP_CERTIFICATE.JSON").read_text())

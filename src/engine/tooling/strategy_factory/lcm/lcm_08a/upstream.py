@@ -14,14 +14,14 @@ def _need(path: Path) -> Path:
 
 def load(repo_root: Path) -> dict:
     root = repo_root.resolve()
-    survey = root / "registry/legacy_context_migration/surveys" / SURVEY_ID
-    classification = root / "registry/legacy_context_migration/classifications" / CLASSIFICATION_ID
-    identity = root / "registry/legacy_context_migration/identities" / IDENTITY_ID
-    characterization = root / "registry/legacy_context_migration/characterizations" / CHARACTERIZATION_ID
-    topology = root / "registry/legacy_context_migration/target_paths" / TOPOLOGY_ID
-    framework = root / "registry/legacy_context_migration/frameworks" / FRAMEWORK_ID
-    shared = root / "registry/legacy_context_migration/shared_engines" / SHARED_ENGINE_ID
-    roadmap = root / "registry/legacy_context_migration/roadmaps" / ROADMAP_ID
+    survey = root / "registry/history/lcm/surveys" / SURVEY_ID
+    classification = root / "registry/history/lcm/classifications" / CLASSIFICATION_ID
+    identity = root / "registry/history/lcm/identities" / IDENTITY_ID
+    characterization = root / "registry/history/lcm/characterizations" / CHARACTERIZATION_ID
+    topology = root / "registry/history/lcm/target_paths" / TOPOLOGY_ID
+    framework = root / "registry/history/lcm/frameworks" / FRAMEWORK_ID
+    shared = root / "registry/history/lcm/shared_engines" / SHARED_ENGINE_ID
+    roadmap = root / "registry/history/lcm/roadmaps" / ROADMAP_ID
     handoff_path = _need(shared / "handoff/lcm07_to_lcm08_handoff.json")
     handoff = load_json(handoff_path)
     if handoff.get("handoff_type") != "LCM07_TO_LCM08":

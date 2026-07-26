@@ -1,8 +1,8 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
-from tools.strategy_factory.lcm.lcm_07.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_07.verify import verify_package
 
-def latest(root):return sorted((root/"registry/legacy_context_migration/shared_engines").glob("SHAREDENG_*"))[-1]
+def latest(root):return sorted((root/"registry/history/lcm/shared_engines").glob("SHAREDENG_*"))[-1]
 def test_reference_package_verifies():
  root=find_repository_root(__file__);r=verify_package(latest(root));assert r["passed"];assert r["materialized_engine_count"]==0
 def test_handoff_exists_and_blocks_extraction():

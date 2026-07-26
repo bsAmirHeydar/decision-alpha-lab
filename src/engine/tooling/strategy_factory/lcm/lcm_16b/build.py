@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.lcm.lcm_16a.canonical import object_digest as upstream_object_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.canonical import object_digest as upstream_object_digest
 
 from .canonical import object_digest
 from .closure import evaluate_program_closure, run_policy_replay
@@ -73,7 +73,7 @@ def _verify_upstream(repo_root: Path) -> dict[str, Any]:
 
 
 def _final_locator(repo_root: Path, phases: list[dict[str, Any]], source_digests: list[str]) -> dict[str, Any]:
-    registry_root = repo_root / "registry/legacy_context_migration"
+    registry_root = repo_root / "registry/history/lcm"
     handoffs = sorted(path.relative_to(repo_root).as_posix() for path in registry_root.rglob("*HANDOFF.json") if path.is_file() and "program_closures" not in path.parts)
     manifests = sorted(path.relative_to(repo_root).as_posix() for path in registry_root.rglob("output_manifest.json") if path.is_file() and "program_closures" not in path.parts)
     locators = []
@@ -383,16 +383,16 @@ def build_program_closure_package(repo_root: Path, package_root: Path | None = N
         "rollback_scope": "LCM16B_OWNED_ARTIFACTS_AND_BOUNDED_ROADMAP_EDITS_ONLY",
         "delete_on_rollback": [
             PACKAGE_RELATIVE.as_posix(),
-            "registry/legacy_context_migration/lcm_16b",
+            "registry/history/lcm/lcm_16b",
             "src/engine/tooling/strategy_factory/lcm/lcm_16b",
             "tests/legacy/strategy_factory/migration/tests_lcm_16b",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16B",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16B",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_16B",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_16B",
         ],
         "restore_modified_paths_from_parent_commit": [
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/00_LCM_HOME.md",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/03_IMPLEMENTATION_SEQUENCE.md",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/06_REFINED_IMPLEMENTATION_ROADMAP.md",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/00_LCM_HOME.md",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/03_IMPLEMENTATION_SEQUENCE.md",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/00_START_HERE/06_REFINED_IMPLEMENTATION_ROADMAP.md",
         ],
         "forbidden_rollback_scope": ["LEGACY_SOURCE", "CANONICAL_TARGET", "REDIRECT", "QUARANTINE_EVIDENCE", "LFS_OBJECT", "RUNTIME_STATE"],
         "validation_status": "PASS",
@@ -403,7 +403,7 @@ def build_program_closure_package(repo_root: Path, package_root: Path | None = N
         "upstream_binding.json": finalize({**base("UPSTREAM_BINDING", upstream_sources), "upstream_audit_id": UPSTREAM_AUDIT_ID, "upstream_handoff_digest": UPSTREAM_HANDOFF_DIGEST, "upstream_handoff_file_digest": UPSTREAM_HANDOFF_FILE_DIGEST, "upstream_closure_decision": handoff["closure_decision"], "blocked_dimensions": handoff["blocked_dimensions"], "validation_status": "PASS"}, "binding_digest"),
         "recovery_drill_plan.json": finalize({**base("RECOVERY_DRILL_PLAN", source_digests), **recovery_plan}, "program_plan_digest"),
         "recovery_drill_receipt.json": recovery_receipt,
-        "external_evidence_contract.json": finalize({**base("EXTERNAL_EVIDENCE_CONTRACT", upstream_sources), "required_dimensions": [item["dimension"] for item in evidence["dimensions"]], "required_approval_roles": evidence["approval_roles_required"], "evidence_bundle_schema": "registry/legacy_context_migration/lcm_16b/schemas/v1/external_evidence_bundle.schema.json", "automatic_closure_forbidden": True, "validation_status": "PASS"}, "contract_digest"),
+        "external_evidence_contract.json": finalize({**base("EXTERNAL_EVIDENCE_CONTRACT", upstream_sources), "required_dimensions": [item["dimension"] for item in evidence["dimensions"]], "required_approval_roles": evidence["approval_roles_required"], "evidence_bundle_schema": "registry/history/lcm/lcm_16b/schemas/v1/external_evidence_bundle.schema.json", "automatic_closure_forbidden": True, "validation_status": "PASS"}, "contract_digest"),
         "external_evidence_status.json": finalize({**base("EXTERNAL_EVIDENCE_STATUS", source_digests), **evidence}, "program_status_digest"),
         "final_locator_snapshot.json": locator,
         "final_migration_ledger.json": ledger,

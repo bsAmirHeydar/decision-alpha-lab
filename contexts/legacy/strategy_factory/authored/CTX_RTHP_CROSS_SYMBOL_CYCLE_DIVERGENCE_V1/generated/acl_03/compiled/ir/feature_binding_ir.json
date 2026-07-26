@@ -19,7 +19,7 @@
       "known_time_safe": true,
       "missingness_vector": "REQUIRED",
       "runtime_order": 0,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_event.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_event.schema.json",
       "view_id": "RTHP_EVENT_VIEW"
     },
     {
@@ -36,7 +36,7 @@
       "known_time_safe": true,
       "missingness_vector": "REQUIRED",
       "runtime_order": 1,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json",
       "view_id": "RTHP_REFERENCE_STATE_VIEW"
     }
   ],

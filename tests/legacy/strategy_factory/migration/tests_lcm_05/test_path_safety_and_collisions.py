@@ -1,7 +1,7 @@
 import pytest
-from tools.strategy_factory.lcm.lcm_05.io import read_json
-from tools.strategy_factory.lcm.lcm_05.path_policy import validate
-from tools.strategy_factory.lcm.lcm_05.errors import PathSafetyError
+from src.engine.tooling.strategy_factory.lcm.lcm_05.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_05.path_policy import validate
+from src.engine.tooling.strategy_factory.lcm.lcm_05.errors import PathSafetyError
 
 def test_reference_paths_safe(topology_root):
     r=read_json(topology_root/'paths/target_path_safety_report.json');assert r['windows_safe'];assert r['unsafe_target_count']==0;assert r['max_target_path_length']<=220

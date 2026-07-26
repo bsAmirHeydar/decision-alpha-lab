@@ -13,7 +13,7 @@ errors: list[str] = []
 
 PACKAGE_REL = "src/engine/packages/strategy_factory_experiments_v3"
 TEST_REL = "tests/legacy/strategy_factory/v1/phase_uce_i11_experiments"
-DOC_REL = "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i11"
+DOC_REL = "docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i11"
 STATUS_BASE = "releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation"
 
 required = [
@@ -32,7 +32,7 @@ required = [
     f"{PACKAGE_REL}/registry.py",
     "tests/fixtures/legacy/strategy_factory/v3/uce_i11_experiment_conformance_vectors.json",
     f"{DOC_REL}/00_UCE_I11_DELIVERY_MOC.md",
-    "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I11_EXPERIMENT_DAG_SEARCH_AND_BUDGETING.md",
+    "docs/history/systems/ucee/implementation_program/phases/UCE_I11_EXPERIMENT_DAG_SEARCH_AND_BUDGETING.md",
     "mql5/Include/AlphaLab/StrategyFactory/ExperimentOrchestration/UCEI11_All.mqh",
     "mql5/Experts/StrategyFactory/UCE_I11_ExperimentOrchestrationDiagnostic.mq5",
     "mql5/Tests/Experts/StrategyFactory/UCE_I11_ExperimentContractsSelfTest.mq5",
@@ -144,7 +144,7 @@ for note in doc_notes:
     if note.parent == doc_root and note.name != "00_UCE_I11_DELIVERY_MOC.md" and len(text.splitlines()) < 70:
         errors.append(f"chapter is not detailed enough: {note.relative_to(root)}")
 
-concepts = sorted((root / "docs/obsidian_deep/01_concepts").glob("UCE-I11*.md"))
+concepts = sorted((root / "docs/history/obsidian/deep/01_concepts").glob("UCE-I11*.md"))
 if len(concepts) != 7:
     errors.append(f"expected 7 atomic concepts, got {len(concepts)}")
 

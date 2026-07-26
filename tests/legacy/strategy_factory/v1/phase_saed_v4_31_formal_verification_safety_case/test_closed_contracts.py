@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 import copy,json,pytest
 from pathlib import Path
 ROOT=find_repository_root(__file__); AR=ROOT/"releases/history/strategy_factory/artifacts/saed_v4_31"; SC=ROOT/"schemas/legacy/strategy_factory/saed_v4_31"
-from tools.strategy_factory.saed_v4_31._schema_validator import validate
+from src.engine.tooling.strategy_factory.saed_v4_31._schema_validator import validate
 NAMES=sorted(x.name for x in AR.glob("*.JSON"))
 @pytest.mark.parametrize("name",NAMES)
 def test_golden_schema_pair(name):

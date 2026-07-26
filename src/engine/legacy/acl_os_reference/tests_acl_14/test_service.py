@@ -1,5 +1,5 @@
-from tools.strategy_factory.acl_os.acl_14.service import ACL14FirstRealContextPilotService
-from tools.strategy_factory.acl_os.acl_14.verify import verify_output
+from src.engine.tooling.strategy_factory.acl_os.acl_14.service import ACL14FirstRealContextPilotService
+from src.engine.tooling.strategy_factory.acl_os.acl_14.verify import verify_output
 
 def test_build_and_verify(tmp_path,acl13_root,permit,pilot_request,policy):
     out=tmp_path/'out'

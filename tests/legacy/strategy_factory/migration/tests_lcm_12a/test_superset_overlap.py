@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12a.io import load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12a.io import load_jsonl
 def test_supersets_record_unique_content(mapping_root):
     rows=load_jsonl(mapping_root/"analysis/documentation_superset_analysis.jsonl")
     assert all(r["superset_unique_line_count"]==len(r["superset_unique_line_digests"]) for r in rows)

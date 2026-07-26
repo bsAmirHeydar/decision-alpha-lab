@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 from pathlib import Path
 import shutil
 import pytest
-from tools.strategy_factory.acl_os.acl_10.io import load_json
+from src.engine.tooling.strategy_factory.acl_os.acl_10.io import load_json
 
 REPO = find_repository_root(__file__)
 ACL09 = REPO / "src/engine/legacy/acl_os_reference/fixtures/acl_09/reference_memory"

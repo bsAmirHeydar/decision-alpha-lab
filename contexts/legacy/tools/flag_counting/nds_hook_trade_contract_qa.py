@@ -26,14 +26,14 @@ REQUIRED_FILES = (
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh",
-    "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/README.md",
-    "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/03_single_exposure_state_machine.md",
-    "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/04_same_direction_f123_exit.md",
-    "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
-    "docs/obsidian_hook/03_architecture/Phase 52 NDS Hook Limit F123 Execution.md",
-    "docs/obsidian_hook/08_entry_execution/NDS Hook Limit Entry Contract.md",
-    "docs/obsidian_hook/08_entry_execution/NDS Single Exposure Lock.md",
-    "docs/obsidian_hook/08_entry_execution/NDS Same Direction F123 Exit.md",
+    "docs/contexts/legacy/nds/entry/phase52_hook_limit_f123_execution/README.md",
+    "docs/contexts/legacy/nds/entry/phase52_hook_limit_f123_execution/03_single_exposure_state_machine.md",
+    "docs/contexts/legacy/nds/entry/phase52_hook_limit_f123_execution/04_same_direction_f123_exit.md",
+    "docs/history/obsidian/hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+    "docs/history/obsidian/hook/03_architecture/Phase 52 NDS Hook Limit F123 Execution.md",
+    "docs/history/obsidian/hook/08_entry_execution/NDS Hook Limit Entry Contract.md",
+    "docs/history/obsidian/hook/08_entry_execution/NDS Single Exposure Lock.md",
+    "docs/history/obsidian/hook/08_entry_execution/NDS Same Direction F123 Exit.md",
 )
 
 

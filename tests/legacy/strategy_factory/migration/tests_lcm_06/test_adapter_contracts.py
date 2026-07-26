@@ -1,6 +1,6 @@
 import pytest,copy
-from tools.strategy_factory.lcm.lcm_06.adapter_contracts import build,verify
-from tools.strategy_factory.lcm.lcm_06.errors import PolicyError
+from src.engine.tooling.strategy_factory.lcm.lcm_06.adapter_contracts import build,verify
+from src.engine.tooling.strategy_factory.lcm.lcm_06.errors import PolicyError
 @pytest.mark.parametrize("kind",["CONTEXT","SETUP","TREATMENT","VISUALIZER"])
 def test_adapter_types(kind):
     a=build("A",kind,"S","T");assert verify(a);assert not a["execution_authority"]

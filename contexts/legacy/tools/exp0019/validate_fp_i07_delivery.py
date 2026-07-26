@@ -6,7 +6,7 @@ import sys
 root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
 errors: list[str] = []
 phase = 'contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i07'
-docrel = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i07'
+docrel = 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i07'
 required = [
     'releases/history/exp0019/readmes/README_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
     'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I07_CONFIRMATION_ENGINE.md',
@@ -36,7 +36,7 @@ mods = list((root / f'{phase}/python/fp_i07_confirmation').glob('*.py'))
 tests = list((root / f'{phase}/tests').glob('test_*.py'))
 schemas = list((root / f'{phase}/schemas').glob('*.schema.json'))
 docs = list((root / docrel).rglob('*.md'))
-concepts = list((root / 'docs/obsidian_deep/01_concepts').glob('FP-I07_*.md'))
+concepts = list((root / 'docs/history/obsidian/deep/01_concepts').glob('FP-I07_*.md'))
 mql = list((root / 'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07').glob('*.mqh'))
 expected = (19, 14, 15, 49, 7, 14)
 actual = (len(mods), len(tests), len(schemas), len(docs), len(concepts), len(mql))

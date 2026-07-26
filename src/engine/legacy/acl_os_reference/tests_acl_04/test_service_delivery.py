@@ -1,8 +1,8 @@
 from pathlib import Path
 import hashlib
 import json
-from tools.strategy_factory.acl_os.acl_04.service import ACL04DualSetupFactoryService
-from tools.strategy_factory.acl_os.acl_04.canonical import verify_embedded_digest
+from src.engine.tooling.strategy_factory.acl_os.acl_04.service import ACL04DualSetupFactoryService
+from src.engine.tooling.strategy_factory.acl_os.acl_04.canonical import verify_embedded_digest
 
 
 def build(fixtures,out):

@@ -21,7 +21,7 @@ mods={p.name for p in base.glob('*.py')};expected={'__init__.py','adapters.py','
 if mods!=expected:errors.append(f'python modules mismatch missing={expected-mods} extra={mods-expected}')
 tests=list((root/'contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i01/tests').glob('test_*.py'))
 if len(tests)<12:errors.append(f'insufficient test modules {len(tests)}')
-docroot=root/'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i01'
+docroot=root/'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i01'
 docs=list(docroot.rglob('*.md'))
 if len(docs)<35:errors.append(f'insufficient docs {len(docs)}')
 for p in docs:

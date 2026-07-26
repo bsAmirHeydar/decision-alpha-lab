@@ -10,7 +10,7 @@ title: "Redirect — {title}"
 status: compatibility-redirect
 phase_id: LCM-12B
 claim_ceiling: LCM_12B_REFERENCE_ONLY
-producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+producer: src.engine.tooling.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
 source_document_id: {document_id}
 source_digest: {source_digest}
 canonical_target: {target_path}

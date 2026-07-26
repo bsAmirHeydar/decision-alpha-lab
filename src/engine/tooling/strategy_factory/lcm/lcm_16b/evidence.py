@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.lcm.lcm_16a.regression import LFS_PATHS, lfs_materialized
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.regression import LFS_PATHS, lfs_materialized
 
 from .canonical import object_digest
 from .constants import (
@@ -203,8 +203,8 @@ def validate_external_evidence_bundle(repo_root: Path, evidence_root: Path, bund
     if set(raw_dimensions) != set(REQUIRED_EXTERNAL_DIMENSIONS):
         raise ValueError("external evidence dimension set is not exact")
 
-    compile_matrix = load_json(repo_root / "registry/legacy_context_migration/full_system_audits" / UPSTREAM_AUDIT_ID / "mql5_compile_matrix.json")
-    tester_matrix = load_json(repo_root / "registry/legacy_context_migration/full_system_audits" / UPSTREAM_AUDIT_ID / "strategy_tester_matrix.json")
+    compile_matrix = load_json(repo_root / "registry/history/lcm/full_system_audits" / UPSTREAM_AUDIT_ID / "mql5_compile_matrix.json")
+    tester_matrix = load_json(repo_root / "registry/history/lcm/full_system_audits" / UPSTREAM_AUDIT_ID / "strategy_tester_matrix.json")
     compile_targets = [item["path"] for item in compile_matrix["representative_compile_targets"]]
     tester_targets = [item["path"] for item in tester_matrix["targets"]]
 

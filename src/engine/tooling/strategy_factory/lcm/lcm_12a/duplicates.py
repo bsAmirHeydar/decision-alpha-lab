@@ -6,7 +6,7 @@ from .canonical import digest_object, stable_id
 def _rank(row):
     path = row["path"]
     rank = 50
-    if path.startswith("docs/alpha_lab_master_architecture/"): rank = 0
+    if path.startswith("docs/architecture/master/"): rank = 0
     elif path.startswith("docs/"): rank = 10
     elif "/docs/" in path: rank = 20
     elif "/fixtures/" in path: rank = 40

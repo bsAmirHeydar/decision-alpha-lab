@@ -1,5 +1,5 @@
-from tools.strategy_factory.acl_os.acl_08.delivery_validator import validate_delivery
-from tools.strategy_factory.acl_os.acl_08.static_validator import validate_registry_files
+from src.engine.tooling.strategy_factory.acl_os.acl_08.delivery_validator import validate_delivery
+from src.engine.tooling.strategy_factory.acl_os.acl_08.static_validator import validate_registry_files
 
 
 def test_registry_files_valid():
@@ -22,6 +22,6 @@ def test_mql_guards_present(repo_root):
 
 
 def test_docs_are_present(repo_root):
-    root = repo_root / "docs/alpha_lab_master_architecture/context_lifecycle_os"
+    root = repo_root / "docs/architecture/master/context_lifecycle_os"
     assert (root / "12_PHASE_DELIVERIES/ACL_08/00_MOC.md").exists()
     assert (root / "13_ATOMIC_CONCEPTS/ACL_08/000_MOC.md").exists()

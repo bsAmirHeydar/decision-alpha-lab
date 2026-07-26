@@ -12,8 +12,8 @@ FILES = {
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F-Phase Filter.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Higher-Timeframe F-Phase Filter.md",
 }
 
 

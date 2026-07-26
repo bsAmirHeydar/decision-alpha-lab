@@ -1,5 +1,5 @@
 import copy
-from tools.strategy_factory.acl_os.acl_05.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_05.canonical import digest_object
 
 def redigest(doc,field): doc[field]=digest_object({k:v for k,v in doc.items() if k!=field}); return doc
 

@@ -1,0 +1,25 @@
+{
+  "directory_rules": [
+    {
+      "destination": "registry/history/lcm",
+      "source": "registry/legacy_context_migration"
+    },
+    {
+      "destination": "registry/history/acl",
+      "source": "registry/acl_os"
+    },
+    {
+      "destination": "registry/history/strategy_factory",
+      "source": "registry/strategy_factory"
+    },
+    {
+      "destination": "registry/history/patches",
+      "source": "registry/patches"
+    },
+    {
+      "destination": "registry/history/releases",
+      "source": "registry/releases"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

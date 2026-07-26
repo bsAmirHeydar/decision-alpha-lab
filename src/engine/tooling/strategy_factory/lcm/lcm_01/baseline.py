@@ -21,7 +21,7 @@ class BaselineBinding:
 
 def locate_latest_baseline(repo_root: Path) -> Path:
     roots = sorted(
-        (repo_root / "registry/legacy_context_migration/baselines").glob("BASELINE_*")
+        (repo_root / "registry/history/lcm/baselines").glob("BASELINE_*")
     )
     if not roots:
         raise IntegrityError("LCM-00 baseline package not found")

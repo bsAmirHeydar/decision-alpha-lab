@@ -2,7 +2,7 @@
 from pathlib import Path
 import csv,json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
-phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i04';docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i04'
+phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i04';docrel='docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i04'
 required=[
  'releases/history/exp0019/readmes/README_EXP0019_FP_I04_DATA_SYNC.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I04_DATA_SYNC.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I04_QA_REPORT.json',
  f'{phase}/artifacts/FP_I04_DATA_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I04_DATA_REASON_REGISTRY.v1.json',
@@ -14,7 +14,7 @@ required=[
  'mql5/Include/FaerieProtocol/EXP0019/Data/FP_I04_All.mqh',
  'mql5/Tests/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncSelfTest.mq5','mql5/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncDiagnostic.mq5',
  'contexts/legacy/tools/exp0019/check_fp_i04_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i04_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i04_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i04_delivery.py','contexts/legacy/tools/exp0019/build_fp_i04_release.py',
- f'{docrel}/00_FP_I04_DELIVERY_MOC.md','docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I04_MULTI-SYMBOL_M1_SYNCHRONIZATION_COVERAGE_AND_DATA_REVISION.md']
+ f'{docrel}/00_FP_I04_DELIVERY_MOC.md','docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I04_MULTI-SYMBOL_M1_SYNCHRONIZATION_COVERAGE_AND_DATA_REVISION.md']
 for rel in required:
     if not (root/rel).is_file():errors.append('missing '+rel)
 expected_modules={'__init__.py','backfill.py','bar_validation.py','canonical.py','cli.py','conformance.py','constants.py','contracts.py','coverage.py','cursor.py','enums.py','errors.py','golden.py','normalization.py','registry.py','revision.py','symbol_resolver.py','synchronization.py'}
@@ -36,7 +36,7 @@ for path in docs:
     text=path.read_text(encoding='utf-8')
     if not text.startswith('---\n'):errors.append('missing frontmatter '+str(path.relative_to(root)))
     if path.parent==root/docrel and path.name!='00_FP_I04_DELIVERY_MOC.md' and len(text.splitlines())<85:errors.append('short chapter '+str(path.relative_to(root)))
-concepts=list((root/'docs/obsidian_deep/01_concepts').glob('FP-I04_*.md'))
+concepts=list((root/'docs/history/obsidian/deep/01_concepts').glob('FP-I04_*.md'))
 if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 mqls=list((root/'mql5/Include/FaerieProtocol/EXP0019/Data').glob('*.mqh'))
 if len(mqls)!=13:errors.append(f'MQL5 include count {len(mqls)} != 13')

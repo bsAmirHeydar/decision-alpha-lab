@@ -136,7 +136,7 @@ def run(config: RunConfig) -> Path:
         ),
         "OBSIDIAN_REDIRECT_STUB": (
             "docs/legacy/reference.md",
-            "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/04_MIGRATION_MECHANICS/MIGRATION_PACKET_AND_MANIFEST.md",
+            "docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/04_MIGRATION_MECHANICS/MIGRATION_PACKET_AND_MANIFEST.md",
         ),
         "PYTHON_IMPORT_SHIM": (
             "tools/legacy/reference.py",

@@ -2,7 +2,7 @@
 from pathlib import Path
 import csv, json, re, sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve()
-base=root/'docs/execution/EXP0019_faerie_protocol_contextual_divergence'
+base=root/'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence'
 prog=base/'implementation_program'
 errors=[]
 required=[

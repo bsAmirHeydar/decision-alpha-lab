@@ -1,7 +1,7 @@
 import copy, json
 import pytest
-from tools.strategy_factory.acl_os.acl_05.canonical import digest_object
-from tools.strategy_factory.acl_os.acl_05.contracts import compile_dataset_snapshot, validate_label_contract, validate_split_contract, validate_environment_lock, validate_compute_budget
+from src.engine.tooling.strategy_factory.acl_os.acl_05.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_05.contracts import compile_dataset_snapshot, validate_label_contract, validate_split_contract, validate_environment_lock, validate_compute_budget
 
 def redigest(doc,field): doc[field]=digest_object({k:v for k,v in doc.items() if k!=field}); return doc
 

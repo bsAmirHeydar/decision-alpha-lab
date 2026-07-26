@@ -1,7 +1,7 @@
 from __future__ import annotations
 import hashlib
 from pathlib import Path
-from tools.strategy_factory.lcm.lcm_13b.service import LCM13BConsumerWaveCutoverService
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.service import LCM13BConsumerWaveCutoverService
 
 def tree_digest(root: Path) -> str:
     h = hashlib.sha256()

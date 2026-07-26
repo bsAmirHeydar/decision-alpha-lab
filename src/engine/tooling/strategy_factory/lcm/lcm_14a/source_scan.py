@@ -6,7 +6,7 @@ from pathlib import Path
 
 from .canonical import canonical_json
 
-SNAPSHOT_ROOT = Path("registry/legacy_context_migration/lcm_14a")
+SNAPSHOT_ROOT = Path("registry/history/lcm/lcm_14a")
 SNAPSHOT_FILE = "reference_scan_snapshot.jsonl"
 SUMMARY_FILE = "reference_scan_snapshot_summary.json"
 

@@ -8,7 +8,7 @@ $ErrorActionPreference = "Stop"
 $Repo = (Resolve-Path -LiteralPath $RepoRoot).Path
 $Source = (Resolve-Path -LiteralPath $SourceRoot).Path
 $PythonRoot = Join-Path $Repo "contexts\legacy\infrastructure\exp0019_faerie_protocol\phase_i00\python"
-$Contract = Join-Path $Repo "docs\execution\EXP0019_faerie_protocol_contextual_divergence\source_audit\SOURCE_HASHES.sha256"
+$Contract = Join-Path $Repo "docs\operations\execution\EXP0019_faerie_protocol_contextual_divergence\source_audit\SOURCE_HASHES.sha256"
 $PreviousPythonPath = $env:PYTHONPATH
 try {
     $env:PYTHONPATH = $PythonRoot

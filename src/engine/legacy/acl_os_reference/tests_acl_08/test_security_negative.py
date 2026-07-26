@@ -1,6 +1,6 @@
 import json,shutil,pytest
-from tools.strategy_factory.acl_os.acl_08.replay_validator import verify_generated_root
-from tools.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
+from src.engine.tooling.strategy_factory.acl_os.acl_08.replay_validator import verify_generated_root
+from src.engine.tooling.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
 
 def build(acl07_root,permit,policy,tmp_path):
  d=tmp_path/'out'; ACL08ReportingExperienceService().build(acl07_root,permit,policy,d,'2026-07-18T01:00:00Z'); return d

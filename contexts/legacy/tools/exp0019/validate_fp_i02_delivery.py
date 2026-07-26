@@ -6,7 +6,7 @@ import csv,json,sys
 
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i02'
-docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
+docrel='docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
 required=[
  'releases/history/exp0019/readmes/README_EXP0019_FP_I02_CORE_KERNEL.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I02_QA_REPORT.json',
  f'{phase}/artifacts/FP_I02_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I02_REASON_CODE_REGISTRY.v1.json',
@@ -44,7 +44,7 @@ for path in docs:
  text=path.read_text(encoding='utf-8')
  if not text.startswith('---\n'):errors.append('missing frontmatter '+str(path.relative_to(root)))
  if path.parent==docroot and path.name!='00_FP_I02_DELIVERY_MOC.md' and len(text.splitlines())<80:errors.append('short chapter '+str(path.relative_to(root)))
-concepts=list((root/'docs/obsidian_deep/01_concepts').glob('FP-I02_*.md'))
+concepts=list((root/'docs/history/obsidian/deep/01_concepts').glob('FP-I02_*.md'))
 if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 
 json_files=[

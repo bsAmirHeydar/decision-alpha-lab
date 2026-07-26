@@ -3,7 +3,7 @@ from pathlib import Path
 import csv, json, sys
 
 repo=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve()
-base=repo/'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/07_phase00_doctrine_freeze_v2'
+base=repo/'docs/operations/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/07_phase00_doctrine_freeze_v2'
 errors=[]; warnings=[]
 required=[base/'00_INDEX.md',base/'01_MASTER_BASELINE.md',base/'15_ARCHITECT_DECISION_WORKBOOK.md',base/'20_DOCTRINE_FREEZE_GATE.md',base/'data/EXP0018_PHASE00_DECISION_LEDGER_V2.csv',base/'data/EXP0018_PHASE00_DOCTRINE_SNAPSHOT_V2.json']
 for p in required:

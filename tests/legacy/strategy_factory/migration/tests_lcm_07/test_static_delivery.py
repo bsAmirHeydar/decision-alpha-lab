@@ -1,8 +1,8 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 
-from tools.strategy_factory.lcm.lcm_07.schema_validation import validate
-from tools.strategy_factory.lcm.lcm_07.static_validation import scan
+from src.engine.tooling.strategy_factory.lcm.lcm_07.schema_validation import validate
+from src.engine.tooling.strategy_factory.lcm.lcm_07.static_validation import scan
 
 
 def test_no_forbidden_api_in_python_package():
@@ -12,7 +12,7 @@ def test_no_forbidden_api_in_python_package():
 
 def test_schemas_are_draft_2020_12_valid():
     root = find_repository_root(__file__)
-    result = validate(root / "registry/legacy_context_migration/lcm_07/schemas/v1", root)
+    result = validate(root / "registry/history/lcm/lcm_07/schemas/v1", root)
     assert result["passed"]
     assert result["schema_count"] >= 20
 

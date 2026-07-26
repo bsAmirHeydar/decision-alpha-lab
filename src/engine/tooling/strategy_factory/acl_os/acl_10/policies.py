@@ -1,7 +1,7 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 BASE = find_repository_root(__file__)
-REGISTRY_ROOT = BASE/'registry/acl_os/acl_10'
+REGISTRY_ROOT = BASE/'registry/history/acl/acl_10'
 SCHEMA_ROOT = REGISTRY_ROOT/'schemas/v1'
 POLICY_ROOT = REGISTRY_ROOT/'policies/v1'
 HANDOFF_IN = 'ACL09_TO_ACL10'

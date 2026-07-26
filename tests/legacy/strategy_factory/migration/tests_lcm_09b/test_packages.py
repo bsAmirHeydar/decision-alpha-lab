@@ -1,5 +1,5 @@
 from .conftest import ROOT,j
-from tools.strategy_factory.lcm.lcm_09b.contracts import validate_package
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.contracts import validate_package
 def test_all_packages_validate_and_fail_closed():
  for row in j("canonical_setup_registry.json")["packages"]:
   p=j(row["package_path"]);assert validate_package(p)==[]

@@ -1,7 +1,7 @@
 from copy import deepcopy
 import pytest
-from tools.strategy_factory.acl_os.acl_04.ai_generator import generate_ai_setups
-from tools.strategy_factory.acl_os.acl_04.errors import ContractError
+from src.engine.tooling.strategy_factory.acl_os.acl_04.ai_generator import generate_ai_setups
+from src.engine.tooling.strategy_factory.acl_os.acl_04.errors import ContractError
 
 
 def test_ai_generation_is_deterministic(fixtures):

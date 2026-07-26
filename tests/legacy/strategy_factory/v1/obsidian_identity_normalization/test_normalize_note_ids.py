@@ -30,7 +30,7 @@ def test_canonical_map_matches_vault_standard():
 
 
 def test_inserts_only_id_and_is_idempotent(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     note = vault / "01_FOUNDATIONS/01_AI_Role_Model.md"
     original = "---\ntitle: AI Role Model\nstatus: active\n---\n# Body\n"
     write(note, original)
@@ -44,7 +44,7 @@ def test_inserts_only_id_and_is_idempotent(tmp_path):
 
 
 def test_preserves_existing_custom_id(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     note = vault / "A.md"
     write(note, "---\nid: CUSTOM-1\ntitle: A\n---\n# A\n")
     changes, *_ = module.plan(vault)
@@ -53,7 +53,7 @@ def test_preserves_existing_custom_id(tmp_path):
 
 
 def test_duplicate_existing_id_fails_closed(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     write(vault / "A.md", "---\nid: DUP\ntitle: A\n---\n# A\n")
     write(vault / "B.md", "---\nid: DUP\ntitle: B\n---\n# B\n")
     changes, _originals, _updated, _existing, collisions, malformed = module.plan(vault)
@@ -62,7 +62,7 @@ def test_duplicate_existing_id_fails_closed(tmp_path):
 
 
 def test_malformed_frontmatter_fails_closed(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     write(vault / "A.md", "# No frontmatter\n")
     changes, _originals, _updated, _existing, collisions, malformed = module.plan(vault)
     assert changes == ()
@@ -70,7 +70,7 @@ def test_malformed_frontmatter_fails_closed(tmp_path):
 
 
 def test_crlf_and_bom_are_preserved(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     note = vault / "A.md"
     note.parent.mkdir(parents=True, exist_ok=True)
     raw = b"\xef\xbb\xbf---\r\ntitle: A\r\n---\r\n# A\r\n"
@@ -84,7 +84,7 @@ def test_crlf_and_bom_are_preserved(tmp_path):
 
 
 def test_exempt_readme_is_unchanged(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     readme = vault / "README.md"
     write(readme, "# README\n")
     changes, *_ = module.plan(vault)
@@ -92,7 +92,7 @@ def test_exempt_readme_is_unchanged(tmp_path):
 
 
 def test_existing_id_mismatch_against_canonical_map_fails_closed(tmp_path):
-    vault = tmp_path / "docs/ai_algorithm_engineering_os"
+    vault = tmp_path / "docs/history/aieos_legacy"
     write(vault / "A.md", "---\nid: WRONG\ntitle: A\n---\n# A\n")
     changes, _originals, _updated, _existing, collisions, malformed = module.plan(vault, {"A.md": "EXPECTED"})
     assert changes == ()

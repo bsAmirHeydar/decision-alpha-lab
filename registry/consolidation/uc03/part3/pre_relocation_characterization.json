@@ -1,0 +1,31 @@
+{
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "-m",
+        "tools.consolidation.uc03p2.verify",
+        "--repo-root",
+        ".",
+        "--ci-fast"
+      ],
+      "output_sha256": "e16f4ed5e3210d94551c80e90ee8dbe3f569474a8a03e7739f0b95e4ebe8eddf",
+      "output_tail": "{\n  \"error_count\": 0,\n  \"errors\": [],\n  \"lab_file_count\": 0,\n  \"mode\": \"CI_FAST\",\n  \"root_file_count\": 16,\n  \"status\": \"PASS\"\n}\n",
+      "return_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "-m",
+        "tools.consolidation.uc03p3.probe",
+        "--repo-root",
+        "."
+      ],
+      "output_sha256": "5390974b2a45ea4166c8bd8629fc178fba86b179e1c626584e0ebe6119311497",
+      "output_tail": "{\n  \"modules\": [\n    {\n      \"file\": \"C:\\\\Users\\\\SARMAYEHM-PC\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\D0E8209F77C8CF37AD8BF550E51FF075\\\\MQL5\\\\Shared Projects\\\\decision-alpha-lab\\\\src\\\\engine\\\\packages\\\\strategy_factory_context\\\\__init__.py\",\n      \"module\": \"strategy_factory_context\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"file\": \"C:\\\\Users\\\\SARMAYEHM-PC\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\D0E8209F77C8CF37AD8BF550E51FF075\\\\MQL5\\\\Shared Projects\\\\decision-alpha-lab\\\\src\\\\engine\\\\packages\\\\strategy_factory_statistics\\\\__init__.py\",\n      \"module\": \"strategy_factory_statistics\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"file\": \"C:\\\\Users\\\\SARMAYEHM-PC\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\D0E8209F77C8CF37AD8BF550E51FF075\\\\MQL5\\\\Shared Projects\\\\decision-alpha-lab\\\\src\\\\engine\\\\packages\\\\strategy_factory_validation\\\\__init__.py\",\n      \"module\": \"strategy_factory_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"file\": \"C:\\\\Users\\\\SARMAYEHM-PC\\\\AppData\\\\Roaming\\\\MetaQuotes\\\\Terminal\\\\D0E8209F77C8CF37AD8BF550E51FF075\\\\MQL5\\\\Shared Projects\\\\decision-alpha-lab\\\\tools\\\\strategy_factory\\\\__init__.py\",\n      \"module\": \"tools.strategy_factory\",\n      \"status\": \"PASS\"\n    }\n  ],\n  \"mql5_source_count\": 2520,\n  \"status\": \"PASS\"\n}\n",
+      "return_code": 0
+    }
+  ],
+  "phase": "PRE_RELOCATION",
+  "status": "PASS"
+}

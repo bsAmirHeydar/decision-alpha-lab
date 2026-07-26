@@ -20,7 +20,7 @@ class ACL02ContextIntakeService:
         completeness=evaluate_completeness(package);ambiguity=AmbiguityAnalyzer().analyze(package)
         clock=validate_causal_clock(package["causal_clock"]);semantic=validate_semantics(package);security=classify_security(package);authority=validate_authority_binding(package["manifest"],authority_permit)
         report=build_readiness(package["manifest"]["context_id"],completeness,ambiguity,clock,semantic,security,schema,authority)
-        result={"package_digest":__import__('tools.strategy_factory.acl_os.acl_02.canonical',fromlist=['digest_object']).digest_object(package),"readiness":report,"components":{"schema_findings":schema,"completeness":completeness,"ambiguity":ambiguity,"causal_clock":clock,"semantics":semantic,"security":security,"authority":authority}}
+        result={"package_digest":__import__('src.engine.tooling.strategy_factory.acl_os.acl_02.canonical',fromlist=['digest_object']).digest_object(package),"readiness":report,"components":{"schema_findings":schema,"completeness":completeness,"ambiguity":ambiguity,"causal_clock":clock,"semantics":semantic,"security":security,"authority":authority}}
         if output_dir:
             dump_json(output_dir/"context_intake_result.json",result);write_projection(output_dir/"CONTEXT_INTAKE_READINESS.md",report)
         return result

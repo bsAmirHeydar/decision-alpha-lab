@@ -1,11 +1,11 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 import json,yaml,hashlib
-from tools.strategy_factory.lcm.lcm_08b.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_08b.verify import verify_package
 
 REPO=find_repository_root(__file__)
 CTX=REPO/'contexts/legacy/strategy_factory/authored/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1'
-PILOT=REPO/'registry/legacy_context_migration/pilot_migrations/PILOTMIG_344455420C8CA68E865FD54135E891D7'
+PILOT=REPO/'registry/history/lcm/pilot_migrations/PILOTMIG_344455420C8CA68E865FD54135E891D7'
 
 def test_context_contracts_and_authority_boundaries():
     manifest=yaml.safe_load((CTX/'context_manifest.yaml').read_text())

@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.lcm.lcm_03.authority import build_permit,verify_permit
-from tools.strategy_factory.lcm.lcm_03.errors import AuthorityError
-from tools.strategy_factory.lcm.lcm_03.upstream import latest_classification,verify_classification
+from src.engine.tooling.strategy_factory.lcm.lcm_03.authority import build_permit,verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_03.errors import AuthorityError
+from src.engine.tooling.strategy_factory.lcm.lcm_03.upstream import latest_classification,verify_classification
 
 def test_upstream(repo_root): assert verify_classification(latest_classification(repo_root))['classification_id'].startswith('CLASSIFICATION_')
 def test_permit(repo_root):

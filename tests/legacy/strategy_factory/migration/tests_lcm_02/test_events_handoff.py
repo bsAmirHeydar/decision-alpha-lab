@@ -1,6 +1,6 @@
 import json,pytest
-from tools.strategy_factory.lcm.lcm_02.event_ledger import verify
-from tools.strategy_factory.lcm.lcm_02.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_02.event_ledger import verify
+from src.engine.tooling.strategy_factory.lcm.lcm_02.canonical import digest_object
 
 def test_event_chain(classification_root): verify(json.loads((classification_root/'events/classification_event_ledger.json').read_text()))
 def test_event_tamper_detected(classification_root):

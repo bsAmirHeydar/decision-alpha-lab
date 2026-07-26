@@ -1,8 +1,8 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
-from tools.strategy_factory.acl_os.acl_03.occurrence_ir import compile_occurrence_ir,build_occurrence_id
-from tools.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
-from tools.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.occurrence_ir import compile_occurrence_ir,build_occurrence_id
+from src.engine.tooling.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
 
 def test_detector_is_deterministic(package): assert compile_detector_ir(package)[0]==compile_detector_ir(package)[0]
 def test_detector_has_no_executable_code(package):

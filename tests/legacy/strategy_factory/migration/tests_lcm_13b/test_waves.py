@@ -1,6 +1,6 @@
 from __future__ import annotations
-from tools.strategy_factory.lcm.lcm_13b.constants import EVENT_TYPES, WAVE_SIZE_LIMITS
-from tools.strategy_factory.lcm.lcm_13b.io import iter_jsonl, load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.constants import EVENT_TYPES, WAVE_SIZE_LIMITS
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.io import iter_jsonl, load_json
 
 def test_wave_limits_and_exact_coverage(cutover_root):
     registry = load_json(cutover_root / "consumer_wave_registry.json")

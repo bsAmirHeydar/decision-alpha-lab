@@ -1,7 +1,7 @@
 from pathlib import Path
-from tools.strategy_factory.acl_os.acl_05.canonical import digest_object
-from tools.strategy_factory.acl_os.acl_05.io import load_json
-from tools.strategy_factory.acl_os.acl_05.replay import verify_frozen_batch
+from src.engine.tooling.strategy_factory.acl_os.acl_05.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_05.io import load_json
+from src.engine.tooling.strategy_factory.acl_os.acl_05.replay import verify_frozen_batch
 
 def test_reference_build_passes(build):
     r=build(); assert r["passed"] and r["research_candidate_count"]==11 and r["diagnostic_candidate_count"]==1

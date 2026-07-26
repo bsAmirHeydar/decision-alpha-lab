@@ -10,9 +10,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 LFS_PATHS = (
-    "registry/legacy_context_migration/documentation_authority_mappings/"
+    "registry/history/lcm/documentation_authority_mappings/"
     "DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
-    "registry/legacy_context_migration/documentation_authority_mappings/"
+    "registry/history/lcm/documentation_authority_mappings/"
     "DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl",
 )
 

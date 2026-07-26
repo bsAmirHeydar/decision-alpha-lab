@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12a.io import load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12a.io import load_jsonl
 def test_every_active_document_classified(mapping_root,load):
     reg=load("documentation_authority_registry.json")
     rows=load_jsonl(mapping_root/reg["records_path"])

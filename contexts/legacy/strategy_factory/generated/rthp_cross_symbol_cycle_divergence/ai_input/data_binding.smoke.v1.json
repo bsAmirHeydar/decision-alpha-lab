@@ -12,7 +12,7 @@
       "content_hash": "92894126fdd02a825cc43aa950e2ccb81a40c7c846ed5a851dc7d3655a481042",
       "known_time_field": "known_time_ms",
       "required": true,
-      "schema_ref": "registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
+      "schema_ref": "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json",
       "source_id": "RTHP_SMOKE_OCCURRENCES"
     }
   ]

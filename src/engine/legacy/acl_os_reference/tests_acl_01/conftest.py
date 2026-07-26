@@ -2,12 +2,12 @@ from __future__ import annotations
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
 import pytest
-from tools.strategy_factory.acl_os.acl_01.canonical import digest_file
-from tools.strategy_factory.acl_os.acl_01.identity import build_artifact_id
-from tools.strategy_factory.acl_os.acl_01.policies import PolicyBundle
-from tools.strategy_factory.acl_os.acl_01.registry import RepositoryRegistry
-from tools.strategy_factory.acl_os.acl_01.types import ArtifactDescriptor,ArtifactIdentity,ArtifactMutability,RegistryMutationPermit
-from tools.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle as ACL00PolicyBundle
+from src.engine.tooling.strategy_factory.acl_os.acl_01.canonical import digest_file
+from src.engine.tooling.strategy_factory.acl_os.acl_01.identity import build_artifact_id
+from src.engine.tooling.strategy_factory.acl_os.acl_01.policies import PolicyBundle
+from src.engine.tooling.strategy_factory.acl_os.acl_01.registry import RepositoryRegistry
+from src.engine.tooling.strategy_factory.acl_os.acl_01.types import ArtifactDescriptor,ArtifactIdentity,ArtifactMutability,RegistryMutationPermit
+from src.engine.tooling.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle as ACL00PolicyBundle
 
 @pytest.fixture
 def policies(): return PolicyBundle.load()

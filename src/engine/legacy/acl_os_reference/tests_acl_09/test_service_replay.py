@@ -1,6 +1,6 @@
 import json,pytest
-from tools.strategy_factory.acl_os.acl_09.service import ACL09MemoryPlannerService
-from tools.strategy_factory.acl_os.acl_09.replay_validator import verify_generated_root
+from src.engine.tooling.strategy_factory.acl_os.acl_09.service import ACL09MemoryPlannerService
+from src.engine.tooling.strategy_factory.acl_os.acl_09.replay_validator import verify_generated_root
 
 def test_service_builds(acl08_root,permit,memory_policy,planner_policy,tmp_path):
  d=tmp_path/'out'; r=ACL09MemoryPlannerService().build(acl08_root,permit,memory_policy,planner_policy,d,'2026-07-18T02:00:00Z'); assert d.exists() and r['memory_run_id'] and r['artifact_count']>0

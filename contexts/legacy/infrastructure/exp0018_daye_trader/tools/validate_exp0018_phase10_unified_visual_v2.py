@@ -20,7 +20,7 @@ for rel in [
 'mql5/Include/DayeTrader/EXP0018/DAYE_VisualIdentity.mqh',
 'mql5/Include/DayeTrader/EXP0018/DAYE_VisualObjectManager.mqh',
 'mql5/Include/DayeTrader/EXP0018/DAYE_VisualSelfTest.mqh',
-'docs/obsidian_deep/00_mocs/CG_EXP0018_PHASE10_UNIFIED_VISUAL_ANATOMY_MOC.md']:
+'docs/history/obsidian/deep/00_mocs/CG_EXP0018_PHASE10_UNIFIED_VISUAL_ANATOMY_MOC.md']:
     req(rel)
 
 if contract_path.exists():
@@ -56,7 +56,7 @@ if expert_path.exists():
     for token in ['InpRenderMicro225Boundaries=true','InpRenderTDO=true','InpRenderTWO=true','InpRenderExtendedSessionTrueOpens=false','InpRenderProvisionalWeekBoundaries=false']:
         if token not in et: errors.append(f'expert_default_missing:{token}')
 
-phase_dir=ROOT/'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2'
+phase_dir=ROOT/'docs/operations/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2'
 if not phase_dir.exists() or len(list(phase_dir.glob('*.md')))<35: errors.append('phase_docs_below_35')
 
 if errors:

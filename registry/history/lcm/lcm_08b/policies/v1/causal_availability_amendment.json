@@ -1,0 +1,16 @@
+{
+  "amendment_scope": "CAUSAL_AVAILABILITY_OF_LEGACY_PARITY_FIELDS",
+  "consumer_cutover_allowed": false,
+  "consumer_input_use_before_causal_projection_allowed": false,
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "core_occurrence_available_at": "valid_from_time",
+  "destination_confirm_time_available_at": "destination_confirm_time_when_confirmed_otherwise_valid_until_time",
+  "destination_late_confirmed_available_at": "destination_confirm_time_when_true_otherwise_valid_until_time",
+  "legacy_outcome_columns_boundary": "ADAPTER_ONLY_RESEARCH_OUTCOME_NOT_CONTEXT_INPUT",
+  "policy_digest": "sha256:fa3246dec401af8143199e8afec7550bf1330e6865ad28f05e1f7297e2f814d1",
+  "policy_id": "LCM08B_CAUSAL_AVAILABILITY_AMENDMENT_V1",
+  "production_readiness_claimed": false,
+  "required_projection_api": "tools.strategy_factory.lcm.lcm_08b.context_core.project_occurrence_as_of",
+  "schema_version": "1.0.0",
+  "whole_batch_event_row_available_at_valid_from": false
+}

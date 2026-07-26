@@ -1,8 +1,8 @@
 from copy import deepcopy
 import pytest
-from tools.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
-from tools.strategy_factory.acl_os.acl_04.expressions import normalize_expression, walk_atoms, expression_depth
-from tools.strategy_factory.acl_os.acl_04.errors import ContractError
+from src.engine.tooling.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
+from src.engine.tooling.strategy_factory.acl_os.acl_04.expressions import normalize_expression, walk_atoms, expression_depth
+from src.engine.tooling.strategy_factory.acl_os.acl_04.errors import ContractError
 
 
 def test_human_dsl_compiles(fixtures):

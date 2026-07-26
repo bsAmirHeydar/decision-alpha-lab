@@ -1,8 +1,8 @@
 from pathlib import Path
 import pytest
-from tools.strategy_factory.acl_os.acl_05.canonical import digest_bytes
-from tools.strategy_factory.acl_os.acl_05.event_ledger import EventLedger, verify_event_ledger
-from tools.strategy_factory.acl_os.acl_05.object_store import ContentAddressedStore
+from src.engine.tooling.strategy_factory.acl_os.acl_05.canonical import digest_bytes
+from src.engine.tooling.strategy_factory.acl_os.acl_05.event_ledger import EventLedger, verify_event_ledger
+from src.engine.tooling.strategy_factory.acl_os.acl_05.object_store import ContentAddressedStore
 
 def test_store_uses_exact_byte_digest(tmp_path):
     s=ContentAddressedStore(tmp_path,10,1000); r=s.put(logical_id="TEST_OBJECT",artifact_class="TEST",media_type="text/plain",payload=b"abc",semantic_digest=None,source_path="test"); assert r["blob_digest"]==digest_bytes(b"abc")

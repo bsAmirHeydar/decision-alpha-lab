@@ -24,14 +24,14 @@ def run(repo_root: Path, closure_root: Path) -> dict:
     if hits:
         raise VerificationError(f"forbidden authority API hits: {hits}")
     phase_doc = repo_root / (
-        "docs/alpha_lab_master_architecture/context_lifecycle_os/"
+        "docs/architecture/master/context_lifecycle_os/"
         "17_LEGACY_MIGRATION_PROGRAM/05_PHASES/"
         "LCM_08C_CONTEXT_WAVE_MIGRATION_AND_CONTEXT_PORTFOLIO_CLOSURE.md"
     )
     if "status: accepted-reference" not in phase_doc.read_text(encoding="utf-8"):
         raise VerificationError("phase status not accepted-reference")
     schema = validate_schema_directory(
-        repo_root / "registry/legacy_context_migration/lcm_08c/schemas/v1"
+        repo_root / "registry/history/lcm/lcm_08c/schemas/v1"
     )
     return {
         **result,

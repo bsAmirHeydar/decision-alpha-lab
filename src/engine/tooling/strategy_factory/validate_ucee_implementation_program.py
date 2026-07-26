@@ -3,7 +3,7 @@ from __future__ import annotations
 import csv, json, sys
 from pathlib import Path
 
-root = Path(sys.argv[1] if len(sys.argv)>1 else 'docs/strategy_factory_universal_context_exploitation_engine/implementation_program')
+root = Path(sys.argv[1] if len(sys.argv)>1 else 'docs/history/systems/ucee/implementation_program')
 repo = root.parents[2]
 mach = repo / 'releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation'
 errors=[]

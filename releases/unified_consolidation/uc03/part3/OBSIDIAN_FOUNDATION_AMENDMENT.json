@@ -1,0 +1,28 @@
+{
+  "amended_paths": [
+    {
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically.md",
+      "path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically.md",
+      "sha256": "c8dcf9b70ef18ba86963561345f180d6591be2920b49b5d6d3361277a13216e3"
+    },
+    {
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/00_MOC.md",
+      "path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/00_MOC.md",
+      "sha256": "d02f0b63a65b1dbcfd9e83affccf57a9cc20b3a1361e732597e1e3a98fe70dfe"
+    },
+    {
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
+      "path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
+      "sha256": "d63267a8719edee866b6495865c4914af9890fe1e1d4ed55058a62f580699f73"
+    },
+    {
+      "historical_path": "tools/engineering/run_engineering_policy.py",
+      "path": "tools/engineering/run_engineering_policy.py",
+      "sha256": "a6c7431d2b6ff9ce3db084cb26fd779099cd38f53897b8823aff8293f91e2e16"
+    }
+  ],
+  "part_id": "UC03-P3",
+  "program_id": "UCPS",
+  "schema_version": "1.0.0",
+  "stage_id": "UC-03"
+}

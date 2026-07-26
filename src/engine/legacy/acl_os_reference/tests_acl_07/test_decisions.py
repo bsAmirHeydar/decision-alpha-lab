@@ -1,6 +1,6 @@
-from tools.strategy_factory.acl_os.acl_07.decision_engine import decide
-from tools.strategy_factory.acl_os.acl_07.gate_engine import result
-from tools.strategy_factory.acl_os.acl_07.policies import GATE_IDS
+from src.engine.tooling.strategy_factory.acl_os.acl_07.decision_engine import decide
+from src.engine.tooling.strategy_factory.acl_os.acl_07.gate_engine import result
+from src.engine.tooling.strategy_factory.acl_os.acl_07.policies import GATE_IDS
 
 def gates(status='PASS'): return {g:result(g,status,[],{},[]) for g in GATE_IDS}
 def candidate(lane='RESEARCH',origin='AI'): return {'setup_id':'S','candidate_id':'C','candidate_result_digest':'sha256:'+'0'*64,'lane':lane,'origin':origin}

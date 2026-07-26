@@ -13,8 +13,8 @@ FILES = {
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "manager": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/15_higher_timeframe_f3_flag_retest_exit.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F3 Flag-Retest Exit.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/15_higher_timeframe_f3_flag_retest_exit.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Higher-Timeframe F3 Flag-Retest Exit.md",
 }
 
 

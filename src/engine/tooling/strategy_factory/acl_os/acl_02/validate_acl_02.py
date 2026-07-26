@@ -19,8 +19,8 @@ def validate(root:Path=REPO_ROOT)->dict:
         except Exception as e:add(False,"POLICY_PARSE",str(e),path=str(p))
     template=root/"contexts/legacy/strategy_factory/authored/_acl_02_template"; required=["context_manifest.yaml","owners.yaml","doctrine/context_doctrine.md","contracts/scope.yaml","contracts/ontology.yaml","contracts/causal_clock.yaml","contracts/data_contract.yaml","contracts/state_machine.yaml","contracts/occurrence_contract.yaml","contracts/reference_contract.yaml","contracts/feature_views.yaml","contracts/treatment_envelope.yaml","contracts/acceptance_gates.yaml","security/security_profile.yaml","fixtures/example_catalog.yaml","governance/amendment_policy.yaml"]
     for rel in required:add((template/rel).is_file(),"TEMPLATE_REQUIRED",rel)
-    docs=root/"docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_02";notes=list(docs.glob("*.md"));add(len(notes)>=40,"PHASE_DOCS",f"{len(notes)} phase notes")
-    atomic=list((root/"docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_02").glob("*.md"));add(len(atomic)>=80,"ATOMIC_DOCS",f"{len(atomic)} atomic notes")
+    docs=root/"docs/architecture/master/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_02";notes=list(docs.glob("*.md"));add(len(notes)>=40,"PHASE_DOCS",f"{len(notes)} phase notes")
+    atomic=list((root/"docs/architecture/master/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_02").glob("*.md"));add(len(atomic)>=80,"ATOMIC_DOCS",f"{len(atomic)} atomic notes")
     mql=list((root/"mql5/legacy/strategy_factory_lab/Include/AlphaLab/ACL_OS/ACL02").glob("*.mqh"));add(len(mql)>=8,"MQL5_STATIC",f"{len(mql)} files")
     forbidden=["OrderSend(","CTrade","PositionOpen(","capital_activation_allowed=true","live_order_submission_allowed=true"]
     for p in mql:

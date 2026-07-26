@@ -6,6 +6,6 @@ def repo_root():
     return find_repository_root(__file__)
 @pytest.fixture
 def reconciliation_root(repo_root):
-    roots = sorted((repo_root / "registry/legacy_context_migration/documentation_reconciliations").glob("DOCRECON_*"))
+    roots = sorted((repo_root / "registry/history/lcm/documentation_reconciliations").glob("DOCRECON_*"))
     assert roots
     return roots[-1]

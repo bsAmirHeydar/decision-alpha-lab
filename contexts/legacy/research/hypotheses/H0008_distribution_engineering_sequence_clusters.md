@@ -3,15 +3,15 @@ title: "Redirect — H0008 distribution engineering sequence clusters"
 status: compatibility-redirect
 phase_id: LCM-12B
 claim_ceiling: LCM_12B_REFERENCE_ONLY
-producer: tools.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
+producer: src.engine.tooling.strategy_factory.lcm.lcm_12b.service:LCM12BDocumentationReconciliationService
 source_document_id: DOC_CC5E415D24B33CA22A9DBB976ECBBD5C
 source_digest: sha256:ed3126efad917bba31eac1a84efd656fe4f5001243b924058f0415fdc86ab804
-canonical_target: docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md
+canonical_target: docs/operations/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters.md
 generated_at: null
 generated_time_semantics: DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY
 ---
 # Redirect
 
-This legacy locator is retained for compatibility. The canonical document is [[docs/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008 distribution engineering sequence clusters]].
+This legacy locator is retained for compatibility. The canonical document is [[docs/operations/evidence/h0008_distribution_engineering_conditional_sequence_extraction/cc5e415d24b3_H0008_distribution_engineering_sequence_clusters|H0008 distribution engineering sequence clusters]].
 
 Do not edit this redirect as doctrine.

@@ -21,11 +21,15 @@ UC03_PART2_EXPECTED = (
     "src/engine/packages", "src/engine/legacy", "src/engine/tooling/strategy_factory",
     "contexts/legacy", "tests/legacy", "mql5/legacy/strategy_factory_lab",
 )
+UC03_PART3_EXPECTED = (
+    "docs/architecture/master", "docs/standards", "docs/operations",
+    "docs/contexts", "docs/history", "registry/history",
+)
 ROOT_ALLOWLIST = {
     ".editorconfig", ".gitattributes", ".gitignore", "AGENTS.md",
     "CODE_OF_CONDUCT.md", "COMMIT_MESSAGE.md", "COMMIT_MESSAGE.txt",
     "CONTRIBUTING.md", "FILE_INDEX.txt", "LICENSE", "PATCH_MANIFEST.json",
-    "QA_REPORT.json", "README.md", "requirements.txt", "sitecustomize.py",
+    "QA_REPORT.json", "README.md", "requirements.txt", "releases/history/misc/documents/sitecustomize.py",
 }
 
 
@@ -44,8 +48,12 @@ def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     part1 = _accepted(root, "registry/consolidation/uc03/part1/part1_exit_decision.json", "UC03-P1")
     part2 = _accepted(root, "registry/consolidation/uc03/part2/part2_exit_decision.json", "UC03-P2")
+    part3 = _accepted(root, "registry/consolidation/uc03/part3/part3_exit_decision.json", "UC03-P3")
 
-    if part2:
+    if part3:
+        expected = tuple(dict.fromkeys(UC03_PART1_EXPECTED + UC03_PART2_EXPECTED + UC03_PART3_EXPECTED))
+        mode = "UC03-CLOSED"
+    elif part2:
         expected = tuple(dict.fromkeys(UC03_PART1_EXPECTED + UC03_PART2_EXPECTED))
         mode = "UC03-P2"
     elif part1:
@@ -59,14 +67,14 @@ def main() -> int:
     errors = [f"missing expected directory: {relative}" for relative in missing]
 
     root_files = sorted(path.name for path in root.iterdir() if path.is_file())
-    if part1 or part2:
+    if part1 or part2 or part3:
         unexpected = sorted(set(root_files) - ROOT_ALLOWLIST)
         if unexpected:
             errors.append(f"root contains non-allowlisted files: {unexpected}")
         if len(root_files) > 20:
             errors.append(f"root file limit exceeded: {len(root_files)} > 20")
 
-    if part2:
+    if part2 or part3:
         lab = root / "lab"
         lab_files = [path for path in lab.rglob("*") if path.is_file()] if lab.exists() else []
         if lab_files:
@@ -81,6 +89,17 @@ def main() -> int:
             ]
         if unexpected_tool_files:
             errors.append(f"tools/strategy_factory contains production files: {unexpected_tool_files[:10]}")
+
+    if part3:
+        shim_paths = (
+            "tools/strategy_factory", "tools/cme_bridge", "tools/astro_live_bridge",
+            "tools/astro_feature_builder", "tools/astro_ml", "tools/astro_validation",
+            "tools/flag_counting", "tools/exp0019", "tools/stc_smt_deployment",
+            "tools/alpha_lens_mobile",
+        )
+        remaining = [relative for relative in shim_paths if (root / relative).exists()]
+        if remaining:
+            errors.append(f"temporary compatibility namespaces remain: {remaining}")
 
     print(f"Root: {root}")
     print(f"Consolidation mode: {mode}")

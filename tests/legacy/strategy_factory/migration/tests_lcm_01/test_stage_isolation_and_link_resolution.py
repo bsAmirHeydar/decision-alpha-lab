@@ -1,7 +1,7 @@
 import json
 
-from tools.strategy_factory.lcm.lcm_01.docs_scan import _resolve
-from tools.strategy_factory.lcm.lcm_01.stage_worker import STAGES
+from src.engine.tooling.strategy_factory.lcm.lcm_01.docs_scan import _resolve
+from src.engine.tooling.strategy_factory.lcm.lcm_01.stage_worker import STAGES
 
 
 def test_parent_relative_document_link_stays_inside_repository():

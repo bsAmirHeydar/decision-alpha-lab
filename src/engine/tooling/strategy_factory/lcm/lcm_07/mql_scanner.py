@@ -20,7 +20,7 @@ API_PATTERNS={
 }
 
 def _protected(repo):
-    roots=sorted((repo/"registry/legacy_context_migration/classifications").glob("CLASSIFICATION_*/protection/protected_platform_assets.csv"))
+    roots=sorted((repo/"registry/history/lcm/classifications").glob("CLASSIFICATION_*/protection/protected_platform_assets.csv"))
     out=set()
     if roots:
         with roots[-1].open(encoding="utf-8-sig",newline="") as f:

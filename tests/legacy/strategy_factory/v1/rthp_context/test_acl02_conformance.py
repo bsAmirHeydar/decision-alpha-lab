@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 import json
 from pathlib import Path
 
-from tools.strategy_factory.acl_os.acl_02.service import ACL02ContextIntakeService
+from src.engine.tooling.strategy_factory.acl_os.acl_02.service import ACL02ContextIntakeService
 
 ROOT = find_repository_root(__file__)
 PACKAGE = ROOT / "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"

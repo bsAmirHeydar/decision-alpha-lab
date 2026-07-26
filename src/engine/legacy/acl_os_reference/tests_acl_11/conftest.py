@@ -14,5 +14,5 @@ def acl10(root):
 
 @pytest.fixture
 def permit(root):
-    from tools.strategy_factory.acl_os.acl_11.io import load_json
+    from src.engine.tooling.strategy_factory.acl_os.acl_11.io import load_json
     return load_json(root / 'src/engine/legacy/acl_os_reference/fixtures/acl_11/authority_permit.json')

@@ -1,10 +1,10 @@
 from __future__ import annotations
 from dataclasses import replace
 from datetime import timedelta
-from tools.strategy_factory.acl_os.acl_00.canonical import HMACSignatureAdapter,StructuralSignatureVerifier,digest_object
-from tools.strategy_factory.acl_os.acl_00.claims import ClaimCeilingEvaluator
-from tools.strategy_factory.acl_os.acl_00.types import Reason,WaiverRecord
-from tools.strategy_factory.acl_os.acl_00.waivers import WaiverEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.canonical import HMACSignatureAdapter,StructuralSignatureVerifier,digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_00.claims import ClaimCeilingEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import Reason,WaiverRecord
+from src.engine.tooling.strategy_factory.acl_os.acl_00.waivers import WaiverEvaluator
 
 
 def test_hmac_signature_roundtrip():

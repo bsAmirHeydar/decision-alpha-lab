@@ -25,7 +25,7 @@ else:
   if (ROOT/rel).is_file() and hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()!=digest:errors.append(f'hash mismatch {rel}')
 if len(list((ROOT/'src/engine/packages/strategy_factory_runtime_v3').glob('*.py')))!=24:errors.append('expected 24 Python modules')
 if len(list((ROOT/'schemas/legacy/strategy_factory/v3').glob('runtime_*.schema.json')))!=25:errors.append('expected 25 runtime schemas')
-if len(list((ROOT/'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i14').glob('*.md')))!=38:errors.append('expected 38 delivery documents')
+if len(list((ROOT/'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i14').glob('*.md')))!=38:errors.append('expected 38 delivery documents')
 if len(list((ROOT/'mql5/Include/AlphaLab/StrategyFactory/ImmutableRuntime').glob('*.mqh')))!=12:errors.append('expected 12 MQL5 include files')
 if errors:print('\n'.join(errors));raise SystemExit(1)
 print(f'UCE-I14 delivery validation: PASS ({len(paths)} indexed files)')

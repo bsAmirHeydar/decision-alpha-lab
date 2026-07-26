@@ -34,7 +34,7 @@ def validate(repo: Path=REPO_ROOT) -> dict:
     checks.append(result(not yaml_errors,"YAML_PARSE","registry YAML parses",errors=yaml_errors))
     required=[
       "releases/history/misc/readmes/README_ALPHA_LAB_CONTEXT_LIFECYCLE_OS_ARCHITECTURE.md","releases/history/acl_os/manifests/ACL_OS_ARCHITECTURE_PATCH_MANIFEST.json",
-      "registry/acl_os/README.md","contexts/legacy/strategy_factory/authored/_template/context_manifest.yaml",
+      "registry/history/acl/README.md","contexts/legacy/strategy_factory/authored/_template/context_manifest.yaml",
       "src/engine/tooling/strategy_factory/acl_os/scaffold_context.py","src/engine/tooling/strategy_factory/acl_os/validate_context_package.py"
     ]
     missing=[x for x in required if not (repo/x).is_file()]

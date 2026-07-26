@@ -4,7 +4,7 @@ from pathlib import Path
 import csv,json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
 phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i03'
-docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i03'
+docrel='docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i03'
 required=[
  'releases/history/exp0019/readmes/README_EXP0019_FP_I03_TIME_CALENDAR.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I03_TIME_CALENDAR.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I03_QA_REPORT.json',
  f'{phase}/artifacts/FP_I03_TIME_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I03_TIME_REASON_REGISTRY.v1.json',
@@ -19,7 +19,7 @@ required=[
  'contexts/legacy/tools/exp0019/check_fp_i03_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i03_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i03_vectors.py',
  'contexts/legacy/tools/exp0019/validate_fp_i03_delivery.py','contexts/legacy/tools/exp0019/build_fp_i03_release.py',
  f'{docrel}/00_FP_I03_DELIVERY_MOC.md',
- 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I03_NEW_YORK_TIME_TRADING-DAY_SESSION_AND_WEEK_KERNEL.md',
+ 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I03_NEW_YORK_TIME_TRADING-DAY_SESSION_AND_WEEK_KERNEL.md',
 ]
 for rel in required:
     if not (root/rel).is_file():errors.append('missing '+rel)
@@ -42,7 +42,7 @@ for path in docs:
     text=path.read_text(encoding='utf-8')
     if not text.startswith('---\n'):errors.append('missing frontmatter '+str(path.relative_to(root)))
     if path.parent==root/docrel and path.name!='00_FP_I03_DELIVERY_MOC.md' and len(text.splitlines())<90:errors.append('short chapter '+str(path.relative_to(root)))
-concepts=list((root/'docs/obsidian_deep/01_concepts').glob('FP-I03_*.md'))
+concepts=list((root/'docs/history/obsidian/deep/01_concepts').glob('FP-I03_*.md'))
 if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 mqls=list((root/'mql5/Include/FaerieProtocol/EXP0019/Time').glob('*.mqh'))
 if len(mqls)!=12:errors.append(f'MQL5 include count {len(mqls)} != 12')

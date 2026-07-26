@@ -1,6 +1,6 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
-from tools.strategy_factory.acl_os.acl_11.errors import IntegrityError
+from src.engine.tooling.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_11.errors import IntegrityError
 def test_acl10_bundle_loads(acl10):
     b=load_acl10_bundle(acl10); assert b['runtime']['runtime_candidate_count']==0
 def test_binding_is_content_addressed(acl10):

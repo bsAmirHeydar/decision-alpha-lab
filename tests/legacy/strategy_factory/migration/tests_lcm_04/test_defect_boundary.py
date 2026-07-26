@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_04.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_04.io import read_json
 
 def test_empty_register_does_not_claim_no_defects(char_root):
     d=read_json(char_root/'defects/observed_defect_register.json');assert d['record_count']==0 and not d['absence_of_record_is_absence_of_defect_claim']

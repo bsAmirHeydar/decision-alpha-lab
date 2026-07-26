@@ -13,14 +13,68 @@ from .io_utils import iter_jsonl_gz, read_json, sha256_file
 from tools.consolidation.ci.portable_hash import hash_matches
 
 
+def _part3_relocations(repo_root: Path) -> dict[str, str]:
+    output: dict[str, str] = {}
+    for relative in (
+        "registry/consolidation/uc03/part3/documentation_relocation_receipt.json",
+        "registry/consolidation/uc03/part3/registry_relocation_receipt.json",
+    ):
+        path = repo_root / relative
+        if not path.is_file():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8-sig"))
+        except Exception:
+            continue
+        if payload.get("status") != "PASS":
+            continue
+        for row in payload.get("relocations", []):
+            if not isinstance(row, dict):
+                continue
+            source = str(row.get("source", "")).replace("\\", "/")
+            destination = str(row.get("destination", "")).replace("\\", "/")
+            if source and destination:
+                output[source] = destination
+    return output
+
+
+def _part3_rewrites(repo_root: Path) -> dict[str, dict]:
+    path = repo_root / "registry/consolidation/uc03/part3/reference_rewrite_receipt.json"
+    if not path.is_file():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+    if payload.get("status") != "PASS":
+        return {}
+    return {str(row.get("path", "")): row for row in payload.get("files", []) if isinstance(row, dict)}
+
+
+def _matches_with_part3(path: Path, relative: str, expected_values: list[str], rewrites: dict[str, dict]) -> bool:
+    if any(value and hash_matches(path, value) for value in expected_values):
+        return True
+    row = rewrites.get(relative)
+    if not row:
+        return False
+    before = str(row.get("before_sha256", "")).lower()
+    after = str(row.get("after_sha256", "")).lower()
+    if before not in {value.lower() for value in expected_values if value}:
+        return False
+    return bool(after and hash_matches(path, after))
+
+
 def verify_static_patch(repo_root: Path) -> dict:
     repo_root = repo_root.resolve()
     release = repo_root / RELEASE_ROOT
     errors: list[str] = []
+    part3_rewrites = _part3_rewrites(repo_root)
+    part3_relocations = _part3_relocations(repo_root)
     amendment_paths = (
         repo_root / "releases/unified_consolidation/uc03/part2/UC02_STATIC_AMENDMENT.json",
         repo_root / "releases/unified_consolidation/ci_recovery_01/UC02_STATIC_AMENDMENT.json",
         repo_root / "releases/unified_consolidation/ci_recovery_02/UC02_STATIC_AMENDMENT.json",
+        repo_root / "releases/unified_consolidation/uc03/part3/UC02_STATIC_AMENDMENT.json",
     )
     amendment_hashes: dict[str, str] = {}
     for amendment_path in amendment_paths:
@@ -46,8 +100,9 @@ def verify_static_patch(repo_root: Path) -> dict:
     if len(paths) != len(set(paths)):
         errors.append("static file index contains duplicates")
     for rel in paths:
-        if not (repo_root / rel).is_file():
-            errors.append(f"static indexed file missing: {rel}")
+        resolved_rel = part3_relocations.get(rel, rel)
+        if not (repo_root / resolved_rel).is_file():
+            errors.append(f"static indexed file missing after relocation: {rel}")
     ledger_rows = []
     if ledger.is_file():
         for line in ledger.read_text(encoding="utf-8").splitlines():
@@ -59,12 +114,16 @@ def verify_static_patch(repo_root: Path) -> dict:
                 errors.append(f"invalid hash ledger line: {line}")
                 continue
             ledger_rows.append(rel)
-            target = repo_root / rel
+            resolved_rel = part3_relocations.get(rel, rel)
+            target = repo_root / resolved_rel
             if not target.is_file():
-                errors.append(f"static hash target missing: {rel}")
+                errors.append(f"static hash target missing after relocation: {rel}")
             else:
-                amendment_expected = amendment_hashes.get(rel)
-                if not hash_matches(target, expected) and not (amendment_expected and hash_matches(target, amendment_expected)):
+                amendment_expected = amendment_hashes.get(rel) or amendment_hashes.get(resolved_rel)
+                expected_values = [expected]
+                if amendment_expected:
+                    expected_values.append(amendment_expected)
+                if not _matches_with_part3(target, resolved_rel, expected_values, part3_rewrites):
                     errors.append(f"static hash mismatch: {rel}")
     if manifest_path.is_file():
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

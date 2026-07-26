@@ -2,7 +2,7 @@ from tools.repository_paths import find_repository_root
 import csv, json, unittest
 from pathlib import Path
 ROOT=find_repository_root(__file__)
-BASE=ROOT/'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/07_phase00_doctrine_freeze_v2'
+BASE=ROOT/'docs/operations/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/07_phase00_doctrine_freeze_v2'
 class Phase00DoctrineTests(unittest.TestCase):
     def test_decisions_and_adrs(self):
         with open(BASE/'data/EXP0018_PHASE00_DECISION_LEDGER_V2.csv',encoding='utf-8-sig',newline='') as f:

@@ -3,8 +3,8 @@ from pathlib import Path
 import json
 ROOT=find_repository_root(__file__)
 bases=[
-    ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_21',
-    ROOT/'docs/strategy_factory_sovereign_context_intelligence_v4/63_ATOMIC_CONCEPTS_V4/V4_21',
+    ROOT/'docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_21',
+    ROOT/'docs/history/systems/saed_v4/63_ATOMIC_CONCEPTS_V4/V4_21',
 ]
 files=sorted(p for b in bases for p in b.rglob('*.md'))
 assert len(files)>=100

@@ -1,6 +1,6 @@
 import copy,json,shutil,pytest
-from tools.strategy_factory.acl_os.acl_09.handoff_input import load_acl08_bundle
-from tools.strategy_factory.acl_os.acl_09.authority import validate_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_09.handoff_input import load_acl08_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_09.authority import validate_authority
 
 def test_acl08_bundle_loads(acl08_root): assert load_acl08_bundle(acl08_root)['handoff']['handoff_type']=='ACL08_TO_ACL09'
 def test_twelve_records_verified(acl08_root): assert len(load_acl08_bundle(acl08_root)['records'])==12

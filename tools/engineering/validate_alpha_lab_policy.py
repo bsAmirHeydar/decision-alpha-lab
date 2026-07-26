@@ -6,25 +6,41 @@ from pathlib import Path
 
 REQUIRED = [
     'AGENTS.md',
-    'docs/engineering/ALPHA_LAB_ENGINEERING_HANDBOOK.md',
-    'docs/engineering/ALPHA_LAB_POLICY_HIERARCHY.md',
-    'docs/engineering/ALPHA_LAB_CODE_STYLE_STANDARD.md',
-    'docs/engineering/ALPHA_LAB_QUALITY_GATE_MATRIX.md',
-    'docs/engineering/ALPHA_LAB_MQL5_COMPATIBILITY_STANDARD.md',
-    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/00_START_HERE/00_Home.md',
-    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/_MOC.md',
-    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/19_LANGUAGE_STANDARDS/_MOC.md',
-    'docs/alpha_lab_master_architecture/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/_MOC.md',
+    'docs/standards/engineering/ALPHA_LAB_ENGINEERING_HANDBOOK.md',
+    'docs/standards/engineering/ALPHA_LAB_POLICY_HIERARCHY.md',
+    'docs/standards/engineering/ALPHA_LAB_CODE_STYLE_STANDARD.md',
+    'docs/standards/engineering/ALPHA_LAB_QUALITY_GATE_MATRIX.md',
+    'docs/standards/engineering/ALPHA_LAB_MQL5_COMPATIBILITY_STANDARD.md',
+    'docs/architecture/master/ai_algorithm_engineering_os/00_START_HERE/00_Home.md',
+    'docs/architecture/master/ai_algorithm_engineering_os/18_ALPHA_LAB_ENGINEERING_STANDARD/_MOC.md',
+    'docs/architecture/master/ai_algorithm_engineering_os/19_LANGUAGE_STANDARDS/_MOC.md',
+    'docs/architecture/master/ai_algorithm_engineering_os/20_QUALITY_AUTOMATION/_MOC.md',
 ]
 PLACEHOLDER = re.compile(r'\[(?:FEATURE-ID|PATCH-ID|NNNN|Title|ID)\]')
 ALLOWED_PLACEHOLDER_DIRS = {'templates','14_TEMPLATES','08_PROMPT_LIBRARY','16_EXAMPLES'}
+
+
+def _resolve_required_path(root: Path, relative: str) -> Path:
+    path = root / relative
+    if path.exists():
+        return path
+    fallbacks = {
+        "docs/architecture/master/": "docs/architecture/master/",
+        "docs/standards/engineering/": "docs/standards/engineering/",
+    }
+    for prefix, legacy_prefix in fallbacks.items():
+        if relative.startswith(prefix):
+            legacy = root / relative.replace(prefix, legacy_prefix, 1)
+            if legacy.exists():
+                return legacy
+    return path
 
 
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
     errors=[]; warnings=[]
     for rel in REQUIRED:
-        p=root/rel
+        p=_resolve_required_path(root, rel)
         if not p.is_file(): errors.append(f'missing required policy file: {rel}')
         elif not p.read_text(encoding='utf-8',errors='replace').strip(): errors.append(f'empty policy file: {rel}')
     agents=root/'AGENTS.md'

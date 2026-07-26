@@ -5,9 +5,9 @@
     "src/engine/packages/strategy_factory_rthp_context_v1",
     "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input",
     "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence",
-    "registry/strategy_factory/contexts/rthp/v1",
+    "registry/history/strategy_factory/contexts/rthp/v1",
     "tests/legacy/strategy_factory/v1/rthp_ai_input",
-    "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_03/RTHP"
+    "docs/architecture/master/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_03/RTHP"
   ],
   "before_snapshot_hash": "69a9da0718c4bc3ab81a29ae0041c954105732b21d85994903ecbf5516cfb40c",
   "central_engine_modified": false,
@@ -26,7 +26,7 @@
     "src/engine/packages/strategy_factory_policy_v3",
     "src/engine/packages/strategy_factory_runtime_v3",
     "src/engine/tooling/strategy_factory/acl_os",
-    "registry/acl_os"
+    "registry/history/acl"
   ],
   "report_digest": "4c44e3a8cefea846b6caae16ac70057b197fe55671814469367e30a242c7c1b9",
   "report_id": "RTHP_AI_INPUT_ENGINE_INVARIANCE_REPORT_V1",

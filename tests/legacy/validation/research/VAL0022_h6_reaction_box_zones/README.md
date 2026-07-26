@@ -170,7 +170,7 @@ Release 134 quiet + backfill maturity fix:
 - Disable heavy Journal prints by default with `InpH6PrintAudit=false`.
 - Fix historical/backfill logic: if a zone reached a horizon before a later zone-back retouch, the box is drawn and preserved.
 - Later retouch no longer prevents drawing a box that would have appeared candle-by-candle.
-- Add `docs/debug/H6_BOX_ALGORITHM_README.md` as the canonical H6 box algorithm specification.
+- Add `docs/history/debug/H6_BOX_ALGORITHM_README.md` as the canonical H6 box algorithm specification.
 
 
 Release 135 M0001 event-source refactor:

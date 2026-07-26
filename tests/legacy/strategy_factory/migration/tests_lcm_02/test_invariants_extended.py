@@ -2,7 +2,7 @@ import csv
 import json
 from collections import Counter
 
-from tools.strategy_factory.lcm.lcm_02.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_02.canonical import digest_object
 
 
 def _rows(root):

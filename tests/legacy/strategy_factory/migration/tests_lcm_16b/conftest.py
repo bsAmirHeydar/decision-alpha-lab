@@ -11,4 +11,4 @@ def repo_root() -> Path:
 
 @pytest.fixture(scope="session")
 def package_root(repo_root: Path) -> Path:
-    return repo_root / "registry/legacy_context_migration/program_closures/PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D"
+    return repo_root / "registry/history/lcm/program_closures/PROGRAMCLOSE_34A677FF9F177118D7F29F6865D8367D"

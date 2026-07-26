@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "aieos_vault": "PASS",
+    "apply_runtime": "PASS",
+    "compatibility_consumers_remaining": 0,
+    "engineering_policy": "5/5 PASS",
+    "mql5_static": "PASS",
+    "obsidian_program": "PASS",
+    "part3_tests": "6 passed",
+    "part3_verify": "PASS",
+    "relocation_conflicts": 0,
+    "uc02_static_continuity": "PASS",
+    "uc03_part2_continuity": "PASS",
+    "uc04_authorized": true
+  },
+  "reference_counts": {
+    "commit_path_count": 36851,
+    "documentation_relocation_count": 26234,
+    "registry_relocation_count": 9756,
+    "replacement_count": 5779,
+    "retired_shim_count": 10,
+    "rewrite_file_count": 1450,
+    "staging_pathspec_count": 1606
+  },
+  "reference_environment": "clean post-UC03-Part2 repository",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

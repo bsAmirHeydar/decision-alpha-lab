@@ -1,5 +1,5 @@
 import json
-from tools.strategy_factory.lcm.lcm_06.trace_comparator import compare
+from src.engine.tooling.strategy_factory.lcm.lcm_06.trace_comparator import compare
 def load(repo_root,name): return json.loads((repo_root/f"tests/legacy/strategy_factory/migration/fixtures/lcm_06/traces/{name}.json").read_text())
 def test_exact_hard_parity(repo_root): assert compare(load(repo_root,"legacy_exact"),load(repo_root,"canonical_exact"))["comparison_status"]=="PASS"
 def test_soft_mismatch(repo_root): assert compare(load(repo_root,"legacy_exact"),load(repo_root,"canonical_soft"))["comparison_status"]=="SOFT_MISMATCH"

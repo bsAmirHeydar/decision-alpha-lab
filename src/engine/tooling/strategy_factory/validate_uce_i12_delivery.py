@@ -6,7 +6,7 @@ import json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve(); errors=[]
 PACKAGE_REL='src/engine/packages/strategy_factory_promotion_v3'
 TEST_REL='tests/legacy/strategy_factory/v1/phase_uce_i12_promotion'
-DOC_REL='docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i12'
+DOC_REL='docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i12'
 STATUS='releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation'
 MODULES={'__init__.py','calibration.py','canonical.py','cli.py','conformance.py','contracts.py','enums.py','errors.py','evidence.py','gate.py','golden.py','multiplicity.py','nulls.py','registry.py','scorecard.py','stress.py','uncertainty.py','winner_overfit.py'}
 SCHEMAS=(
@@ -14,7 +14,7 @@ SCHEMAS=(
 required=[
 'releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I12_IMPLEMENTATION.md','releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I12_IMPLEMENTATION.md','releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I12_PATCH.ps1','COMMIT_MESSAGE.md',
 f'{PACKAGE_REL}/uncertainty.py',f'{PACKAGE_REL}/multiplicity.py',f'{PACKAGE_REL}/winner_overfit.py',f'{PACKAGE_REL}/nulls.py',f'{PACKAGE_REL}/stress.py',f'{PACKAGE_REL}/calibration.py',f'{PACKAGE_REL}/gate.py',f'{PACKAGE_REL}/evidence.py',
-'tests/fixtures/legacy/strategy_factory/v3/uce_i12_promotion_conformance_vectors.json',f'{DOC_REL}/00_UCE_I12_DELIVERY_MOC.md','docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I12_STATISTICAL_AND_ANTI_OVERFIT_PROMOTION_GATE.md',
+'tests/fixtures/legacy/strategy_factory/v3/uce_i12_promotion_conformance_vectors.json',f'{DOC_REL}/00_UCE_I12_DELIVERY_MOC.md','docs/history/systems/ucee/implementation_program/phases/UCE_I12_STATISTICAL_AND_ANTI_OVERFIT_PROMOTION_GATE.md',
 'mql5/Include/AlphaLab/StrategyFactory/StatisticalPromotion/UCEI12_All.mqh','mql5/Experts/StrategyFactory/UCE_I12_StatisticalPromotionDiagnostic.mq5','mql5/Tests/Experts/StrategyFactory/UCE_I12_PromotionContractsSelfTest.mq5','mql5/Tests/Experts/StrategyFactory/UCE_I12_NonCompensatoryGateSelfTest.mq5',
 f'{STATUS}/phase_status/UCE_I12.json',f'{STATUS}/phase_status/UCE_I12_HANDOFF_TO_UCE_I13.json',f'{STATUS}/artifacts/UCE_I12_ACCEPTANCE_EVIDENCE.json',
 'src/engine/tooling/strategy_factory/check_uce_i12_boundaries.py','src/engine/tooling/strategy_factory/check_uce_i12_mql5_static.py','src/engine/tooling/strategy_factory/compile_uce_i12_statistical_promotion.ps1','src/engine/tooling/strategy_factory/generate_uce_i12_vectors.py','src/engine/tooling/strategy_factory/run_uce_i12_tests.ps1','src/engine/tooling/strategy_factory/validate_uce_i12_delivery.py','src/engine/tooling/strategy_factory/build_uce_i12_release.py','src/engine/packages/pyproject.toml']
@@ -42,7 +42,7 @@ for p in docs:
     if not text.startswith('---\n'): errors.append(f'missing frontmatter {p.relative_to(root)}')
     for heading in ('## Core invariants','## Failure matrix','## Executable test obligations','## Operator runbook','## Evidence retained'):
         if heading not in text: errors.append(f'{p.relative_to(root)} missing {heading}')
-concepts=list((root/'docs/obsidian_deep/01_concepts').glob('UCE-I12_*.md'))
+concepts=list((root/'docs/history/obsidian/deep/01_concepts').glob('UCE-I12_*.md'))
 if len(concepts)<8: errors.append(f'insufficient atomic concepts: {len(concepts)}')
 mql=list((root/'mql5/Include/AlphaLab/StrategyFactory/StatisticalPromotion').glob('UCEI12_*.mqh'))+[root/'mql5/Experts/StrategyFactory/UCE_I12_StatisticalPromotionDiagnostic.mq5',root/'mql5/Tests/Experts/StrategyFactory/UCE_I12_PromotionContractsSelfTest.mq5',root/'mql5/Tests/Experts/StrategyFactory/UCE_I12_NonCompensatoryGateSelfTest.mq5']
 if len(mql)!=11 or not all(p.is_file() for p in mql): errors.append(f'MQL5 file set invalid: {len(mql)}')

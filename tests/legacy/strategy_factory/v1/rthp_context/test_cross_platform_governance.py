@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from tools.strategy_factory.acl_os.acl_03.errors import PrerequisiteError
-from tools.strategy_factory.contexts.rthp.acl03_onboarding import compile_rthp_acl03
+from src.engine.tooling.strategy_factory.acl_os.acl_03.errors import PrerequisiteError
+from src.engine.tooling.strategy_factory.contexts.rthp.acl03_onboarding import compile_rthp_acl03
 
 ROOT = find_repository_root(__file__)
 CONTEXT = ROOT / "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"

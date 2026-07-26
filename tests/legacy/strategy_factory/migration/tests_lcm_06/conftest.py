@@ -5,4 +5,4 @@ import pytest
 def repo_root(): return find_repository_root(__file__)
 @pytest.fixture(scope="session")
 def framework_root(repo_root):
-    roots=sorted((repo_root/"registry/legacy_context_migration/frameworks").glob("FRAMEWORK_*"));assert roots;return roots[-1]
+    roots=sorted((repo_root/"registry/history/lcm/frameworks").glob("FRAMEWORK_*"));assert roots;return roots[-1]

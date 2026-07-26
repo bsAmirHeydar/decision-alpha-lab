@@ -1,6 +1,6 @@
 import json,copy,pytest
-from tools.strategy_factory.lcm.lcm_06.authority import verify_permit
-from tools.strategy_factory.lcm.lcm_06.errors import PolicyError
+from src.engine.tooling.strategy_factory.lcm.lcm_06.authority import verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_06.errors import PolicyError
 def test_permit_no_authority(framework_root):
     p=json.loads((framework_root/"authority/authority_permit.json").read_text());assert verify_permit(p,p["source_handoff_digest"]);assert not p["source_move_allowed"] and not p["capital_authority"]
 def test_permit_escalation_rejected(framework_root):

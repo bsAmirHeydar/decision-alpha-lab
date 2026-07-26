@@ -1,5 +1,5 @@
 import copy,json
-from tools.strategy_factory.lcm.lcm_06.packet_validator import validate_packet
+from src.engine.tooling.strategy_factory.lcm.lcm_06.packet_validator import validate_packet
 def packets(repo_root):
     return [json.loads(x) for x in (repo_root/"tests/legacy/strategy_factory/migration/fixtures/lcm_06/packets/reference_migration_packets.jsonl").read_text().splitlines() if x]
 def test_valid_packet(repo_root): assert validate_packet(packets(repo_root)[0])["validation_status"]=="VALID_REFERENCE"

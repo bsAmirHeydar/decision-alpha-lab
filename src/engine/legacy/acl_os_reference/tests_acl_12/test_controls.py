@@ -1,5 +1,5 @@
 import json
-from tools.strategy_factory.acl_os.acl_12.registries import security_control_registry,threat_registry
+from src.engine.tooling.strategy_factory.acl_os.acl_12.registries import security_control_registry,threat_registry
 def load(ACL12,rel): return json.loads((ACL12/rel).read_text())
 def test_control_registry_closed():
     r=security_control_registry(); assert r['closed'] and r['control_count']==33

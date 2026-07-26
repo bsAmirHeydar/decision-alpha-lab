@@ -9,7 +9,7 @@ def test_acl00_cli_accepts_deterministic_as_of(root, tmp_path):
         [
             sys.executable,
             "-m",
-            "tools.strategy_factory.acl_os.acl_00.cli",
+            "src.engine.tooling.strategy_factory.acl_os.acl_00.cli",
             "evaluate",
             str(fixture),
             "--ledger",

@@ -14,4 +14,4 @@ def test_roadmap_revision_has_market_services_next():
     assert "Market Cache" in p3["name"]
 
 def test_obsidian_moc_exists():
-    assert (ROOT / "docs/strategy_factory_implementation/phase02/00_PHASE_02_MOC.md").exists()
+    assert (ROOT / "docs/history/systems/strategy_factory_implementation/phase02/00_PHASE_02_MOC.md").exists()

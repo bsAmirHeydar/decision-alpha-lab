@@ -3,7 +3,7 @@ from tools.repository_paths import find_repository_root
 import json
 from pathlib import Path
 
-from tools.strategy_factory.contexts.rthp.acl03_bindings import validate_rthp_acl03_bundle
+from src.engine.tooling.strategy_factory.contexts.rthp.acl03_bindings import validate_rthp_acl03_bundle
 
 ROOT = find_repository_root(__file__)
 PKG = ROOT / "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"

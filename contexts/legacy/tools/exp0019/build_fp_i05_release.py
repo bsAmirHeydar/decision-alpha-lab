@@ -7,14 +7,14 @@ STATUS='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i05'
 META={'releases/history/exp0019/indexes/EXP0019_FP_I05_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I05_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I05_PATCH_MANIFEST.json'}
 def digest(path):return sha256(path.read_bytes()).hexdigest()
 def owned(root):
-    paths=set();dirs=[STATUS,'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i05','mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05']
+    paths=set();dirs=[STATUS,'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i05','mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05']
     for rel in dirs:
         base=root/rel
         if base.exists():
             for p in base.rglob('*'):
                 if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':paths.add(p)
-    for p in (root/'docs/obsidian_deep/01_concepts').glob('FP-I05_*.md'):paths.add(p)
-    specific=['releases/history/exp0019/readmes/README_EXP0019_FP_I05_REFERENCE_ENGINE.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I05_REFERENCE_ENGINE.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I05_QA_REPORT.json','releases/history/exp0019/indexes/EXP0019_FP_I05_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I05_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I05_PATCH_MANIFEST.json','docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I05_SESSION_WEEK_WINDOW_STORE_CALENDAR-DAY_SELECTOR_AND_REFERENCE_ENGINE.md','mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceDiagnostic.mq5','mql5/Tests/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceSelfTest.mq5','contexts/legacy/tools/exp0019/check_fp_i05_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i05_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i05_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i05_delivery.py','contexts/legacy/tools/exp0019/build_fp_i05_release.py']
+    for p in (root/'docs/history/obsidian/deep/01_concepts').glob('FP-I05_*.md'):paths.add(p)
+    specific=['releases/history/exp0019/readmes/README_EXP0019_FP_I05_REFERENCE_ENGINE.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I05_REFERENCE_ENGINE.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I05_QA_REPORT.json','releases/history/exp0019/indexes/EXP0019_FP_I05_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I05_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I05_PATCH_MANIFEST.json','docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I05_SESSION_WEEK_WINDOW_STORE_CALENDAR-DAY_SELECTOR_AND_REFERENCE_ENGINE.md','mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceDiagnostic.mq5','mql5/Tests/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceSelfTest.mq5','contexts/legacy/tools/exp0019/check_fp_i05_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i05_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i05_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i05_delivery.py','contexts/legacy/tools/exp0019/build_fp_i05_release.py']
     for rel in specific:
         p=root/rel
         if p.is_file():paths.add(p)

@@ -23,8 +23,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-from tools.cme_bridge.dal_bar_store import latest_bar_time, merge_bars
-from tools.cme_bridge.providers.databento_provider import (
+from adapters.legacy.market_data.cme_bridge.dal_bar_store import latest_bar_time, merge_bars
+from adapters.legacy.market_data.cme_bridge.providers.databento_provider import (
     DatabentoConfig,
     DatabentoSymbol,
     dataframe_to_bars,

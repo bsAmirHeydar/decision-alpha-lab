@@ -1,7 +1,7 @@
 import pytest
-from tools.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
-from tools.strategy_factory.lcm.lcm_03.locators import Resolver
-from tools.strategy_factory.lcm.lcm_03.errors import CollisionError,UnknownVersionError
+from src.engine.tooling.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_03.locators import Resolver
+from src.engine.tooling.strategy_factory.lcm.lcm_03.errors import CollisionError,UnknownVersionError
 
 def _resolver(root):
     loc=list(read_jsonl(root/'locators/artifact_locator_records.jsonl'));idx=read_json(root/'aliases/alias_resolution_index.json')['index'];cols=read_json(root/'collisions/alias_collision_report.json')['collisions'];keys={'|'.join([x['alias_type'],x['alias_scope'],x['normalized_alias_value']]) for x in cols};return Resolver(loc,idx,keys),loc,cols

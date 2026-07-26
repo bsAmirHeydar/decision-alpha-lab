@@ -1,10 +1,10 @@
 from __future__ import annotations
 from dataclasses import replace
 from datetime import timedelta
-from tools.strategy_factory.acl_os.acl_00.approvals import ApprovalEvaluator
-from tools.strategy_factory.acl_os.acl_00.canonical import StructuralSignatureVerifier
-from tools.strategy_factory.acl_os.acl_00.security import SecurityHookEvaluator
-from tools.strategy_factory.acl_os.acl_00.types import ApprovalDisposition,SecurityStatus
+from src.engine.tooling.strategy_factory.acl_os.acl_00.approvals import ApprovalEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.canonical import StructuralSignatureVerifier
+from src.engine.tooling.strategy_factory.acl_os.acl_00.security import SecurityHookEvaluator
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import ApprovalDisposition,SecurityStatus
 
 
 def test_valid_approval(valid_bundle):

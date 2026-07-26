@@ -1,8 +1,8 @@
 from copy import deepcopy
-from tools.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
-from tools.strategy_factory.acl_os.acl_04.candidate import build_candidate, behavior_payload
-from tools.strategy_factory.acl_os.acl_04.deduplication import deduplicate
-from tools.strategy_factory.acl_os.acl_04.canonical import digest_object
+from src.engine.tooling.strategy_factory.acl_os.acl_04.human_dsl import compile_human_setup
+from src.engine.tooling.strategy_factory.acl_os.acl_04.candidate import build_candidate, behavior_payload
+from src.engine.tooling.strategy_factory.acl_os.acl_04.deduplication import deduplicate
+from src.engine.tooling.strategy_factory.acl_os.acl_04.canonical import digest_object
 
 
 def make(ir,source):

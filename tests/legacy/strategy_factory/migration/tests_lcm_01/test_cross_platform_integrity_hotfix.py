@@ -6,11 +6,11 @@ from pathlib import Path
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_01.cross_platform_integrity import (
+from src.engine.tooling.strategy_factory.lcm.lcm_01.cross_platform_integrity import (
     canonicalize_text_eol,
     verify_repository_bytes_cross_platform,
 )
-from tools.strategy_factory.lcm.lcm_01.errors import IntegrityError
+from src.engine.tooling.strategy_factory.lcm.lcm_01.errors import IntegrityError
 
 
 def _sha256(data: bytes) -> str:

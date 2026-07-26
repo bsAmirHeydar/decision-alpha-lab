@@ -31,7 +31,7 @@ def _verify_baseline_in_subprocess(repo: Path) -> dict:
         [
             sys.executable,
             "-m",
-            "tools.strategy_factory.lcm.lcm_01.baseline_cli",
+            "src.engine.tooling.strategy_factory.lcm.lcm_01.baseline_cli",
             "--repo-root",
             str(repo),
         ],
@@ -52,7 +52,7 @@ def _verify_baseline_in_subprocess(repo: Path) -> dict:
 
 def _load_handoff(repo: Path) -> tuple[Path, dict]:
     roots = sorted(
-        (repo / "registry/legacy_context_migration/baselines").glob("BASELINE_*")
+        (repo / "registry/history/lcm/baselines").glob("BASELINE_*")
     )
     if not roots:
         raise IntegrityError("LCM-00 baseline package not found")
@@ -75,7 +75,7 @@ def _run_stage(repo: Path, staging: Path, stage: str) -> dict:
         [
             sys.executable,
             "-m",
-            "tools.strategy_factory.lcm.lcm_01.stage_worker",
+            "src.engine.tooling.strategy_factory.lcm.lcm_01.stage_worker",
             "--repo-root",
             str(repo),
             "--survey-root",

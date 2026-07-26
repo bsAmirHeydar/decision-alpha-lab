@@ -3,7 +3,7 @@ from .errors import IntegrityError
 from .io import read_json
 
 def latest_framework(repo):
-    roots=sorted((repo/"registry/legacy_context_migration/frameworks").glob("FRAMEWORK_*"))
+    roots=sorted((repo/"registry/history/lcm/frameworks").glob("FRAMEWORK_*"))
     roots=[x for x in roots if x.is_dir() and not x.is_symlink()]
     if not roots: raise IntegrityError("LCM-06 framework package not found")
     return roots[-1]

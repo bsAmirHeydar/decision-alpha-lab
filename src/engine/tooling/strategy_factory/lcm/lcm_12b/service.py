@@ -48,8 +48,8 @@ class LCM12BDocumentationReconciliationService:
     def _all_document_paths(self) -> list[str]:
         rows: list[str] = []
         excluded_prefixes = (
-            "registry/legacy_context_migration/documentation_reconciliations/",
-            "registry/legacy_context_migration/lcm_12b/",
+            "registry/history/lcm/documentation_reconciliations/",
+            "registry/history/lcm/lcm_12b/",
             "src/engine/tooling/strategy_factory/lcm/lcm_12b/",
             "tests/legacy/strategy_factory/migration/tests_lcm_12b/",
         )
@@ -277,10 +277,10 @@ class LCM12BDocumentationReconciliationService:
                 target_no_extension = target.rsplit(".", 1)[0] if target.lower().endswith(".md") else target
                 moc_lines.append(f"- [[{target_no_extension}|{PurePosixPath(target).stem}]]")
             moc_lines.append("")
-        moc_path = self.repo_root / "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md"
+        moc_path = self.repo_root / "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md"
         moc_path.parent.mkdir(parents=True, exist_ok=True)
         moc_path.write_text("\n".join(moc_lines).rstrip() + "\n", encoding="utf-8", newline="\n")
-        changed_paths.add("docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md")
+        changed_paths.add("docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md")
 
         generated_records: list[dict] = []
         for document_id, authority in sorted(authority_by_id.items()):
@@ -336,16 +336,16 @@ class LCM12BDocumentationReconciliationService:
             generated_moc_lines.append(
                 f"- [[{path_no_extension}|{PurePosixPath(canonical_path).stem}]] — `{record['producer_binding_method']}`"
             )
-        generated_moc_path = self.repo_root / "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md"
+        generated_moc_path = self.repo_root / "docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md"
         generated_moc_path.parent.mkdir(parents=True, exist_ok=True)
         generated_moc_path.write_text(
             "\n".join(generated_moc_lines).rstrip() + "\n",
             encoding="utf-8",
             newline="\n",
         )
-        changed_paths.add("docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md")
+        changed_paths.add("docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md")
 
-        project_index = self.repo_root / "docs/00_project_index.md"
+        project_index = self.repo_root / "docs/README.md"
         if project_index.exists():
             project_text = project_index.read_text(encoding="utf-8", errors="replace")
             marker = "## Canonical Knowledge Registry (LCM-12B)"
@@ -359,14 +359,14 @@ class LCM12BDocumentationReconciliationService:
                     + "- [[knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX|Generated Document Index]]\n"
                 )
                 project_index.write_text(project_text, encoding="utf-8", newline="\n")
-                changed_paths.add("docs/00_project_index.md")
+                changed_paths.add("docs/README.md")
 
         changed_document_paths = sorted(
             path for path in changed_paths if PurePosixPath(path).suffix.lower() in DOCUMENT_EXTENSIONS
         )
         existing_final = set(self._all_document_paths()) | set(move_map.values()) | {
-            "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
-            "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
+            "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+            "docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
         }
         changed_edges, changed_unresolved = scan_links(
             self.repo_root, changed_document_paths, existing_final
@@ -509,9 +509,9 @@ class LCM12BDocumentationReconciliationService:
             "relocated_target_orphan_count": 0,
             "orphan_records_path": "records/documentation_orphan_records.jsonl",
             "navigation_entry_points": [
-                "docs/00_project_index.md",
-                "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
-                "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
+                "docs/README.md",
+                "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+                "docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
             ],
         }
         orphan_report["report_digest"] = digest_object(orphan_report, "report_digest")
@@ -541,8 +541,8 @@ class LCM12BDocumentationReconciliationService:
             "registry_id": stable_id("DOCKNOWREG", reconciliation_id),
             "knowledge_record_count": len(canonical_records),
             "records_path": "records/canonical_knowledge_records.jsonl",
-            "canonical_moc_path": "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
-            "generated_moc_path": "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
+            "canonical_moc_path": "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+            "generated_moc_path": "docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
             "relocated_count": len(move_records),
             "generated_authority_escalation_count": 0,
         }
@@ -669,8 +669,8 @@ class LCM12BDocumentationReconciliationService:
             "rollback_id": stable_id("DOC12BROLLBACK", reconciliation_id),
             "remove_paths": [record["target_path"] for record in move_records]
             + [
-                "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
-                "docs/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
+                "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+                "docs/standards/knowledge/generated/LCM12B_GENERATED_DOCUMENT_INDEX.md",
                 output_root.relative_to(self.repo_root).as_posix(),
             ],
             "restore_paths": [
@@ -730,7 +730,7 @@ class LCM12BDocumentationReconciliationService:
                 "canonical_registry_path": (
                     output_parent / reconciliation_id / "canonical_knowledge_registry.json"
                 ).as_posix(),
-                "canonical_moc_path": "docs/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
+                "canonical_moc_path": "docs/standards/knowledge/LCM12B_CANONICAL_KNOWLEDGE_INDEX.md",
                 "redirect_registry_path": (
                     output_parent / reconciliation_id / "documentation_redirect_registry.json"
                 ).as_posix(),

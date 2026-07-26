@@ -1,9 +1,9 @@
 from pathlib import Path
 import pytest
 
-from tools.strategy_factory.lcm.lcm_00.canonical import normalize_root_relative, digest_object
-from tools.strategy_factory.lcm.lcm_00.errors import ContractViolation
-from tools.strategy_factory.lcm.lcm_00.scope import ScopePolicy, classify_path
+from src.engine.tooling.strategy_factory.lcm.lcm_00.canonical import normalize_root_relative, digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_00.errors import ContractViolation
+from src.engine.tooling.strategy_factory.lcm.lcm_00.scope import ScopePolicy, classify_path
 
 
 def test_root_relative_normalization():

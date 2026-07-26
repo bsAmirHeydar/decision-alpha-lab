@@ -1,6 +1,6 @@
 import copy,json,shutil,pytest
-from tools.strategy_factory.acl_os.acl_08.handoff_input import load_acl07_bundle
-from tools.strategy_factory.acl_os.acl_08.authority import validate_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_08.handoff_input import load_acl07_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_08.authority import validate_authority
 
 def test_acl07_bundle_loads(acl07_root): assert load_acl07_bundle(acl07_root)['handoff']['handoff_type']=='ACL07_TO_ACL08'
 def test_decision_coverage(acl07_root): b=load_acl07_bundle(acl07_root); assert len(b['candidate_decisions'])==12 and len(b['gates_by_setup'])==12

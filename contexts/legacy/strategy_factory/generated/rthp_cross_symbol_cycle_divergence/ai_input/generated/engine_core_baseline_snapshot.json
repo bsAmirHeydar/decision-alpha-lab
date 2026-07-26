@@ -3,9 +3,9 @@
     "src/engine/packages/strategy_factory_rthp_context_v1",
     "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input",
     "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence",
-    "registry/strategy_factory/contexts/rthp/v1",
+    "registry/history/strategy_factory/contexts/rthp/v1",
     "tests/legacy/strategy_factory/v1/rthp_ai_input",
-    "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_03/RTHP"
+    "docs/architecture/master/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_03/RTHP"
   ],
   "captured_at_ms": 0,
   "file_hashes": {

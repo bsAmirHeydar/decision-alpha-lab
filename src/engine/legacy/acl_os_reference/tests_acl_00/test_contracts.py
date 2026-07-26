@@ -3,9 +3,9 @@ import json
 from pathlib import Path
 import pytest,yaml
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.common import REPO_ROOT,load_json
-from tools.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle,CATALOG_ROOT
-from tools.strategy_factory.acl_os.acl_00.types import Actor,ArtifactRef,TransitionRequest
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT,load_json
+from src.engine.tooling.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle,CATALOG_ROOT
+from src.engine.tooling.strategy_factory.acl_os.acl_00.types import Actor,ArtifactRef,TransitionRequest
 
 SCHEMAS=REPO_ROOT/"registry"/"acl_os"/"acl_00"/"schemas"/"v1"
 

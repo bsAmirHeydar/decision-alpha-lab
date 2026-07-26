@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.lcm.lcm_16a.verify import verify_package as verify_lcm16a_package
+from src.engine.tooling.strategy_factory.lcm.lcm_16a.verify import verify_package as verify_lcm16a_package
 
 from .canonical import object_digest
 from .constants import (

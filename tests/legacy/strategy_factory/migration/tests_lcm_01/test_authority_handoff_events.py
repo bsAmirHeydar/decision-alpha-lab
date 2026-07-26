@@ -1,7 +1,7 @@
 import copy, json, pytest
-from tools.strategy_factory.lcm.lcm_01.authority import verify_permit
-from tools.strategy_factory.lcm.lcm_01.event_ledger import verify
-from tools.strategy_factory.lcm.lcm_01.errors import ContractViolation, IntegrityError
+from src.engine.tooling.strategy_factory.lcm.lcm_01.authority import verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_01.event_ledger import verify
+from src.engine.tooling.strategy_factory.lcm.lcm_01.errors import ContractViolation, IntegrityError
 
 def test_authority_permit_denies_escalation(survey_root):
     v=json.loads((survey_root/'authority/authority_permit_snapshot.json').read_text())

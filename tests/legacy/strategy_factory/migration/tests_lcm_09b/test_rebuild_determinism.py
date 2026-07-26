@@ -5,8 +5,8 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-from tools.strategy_factory.lcm.lcm_09b.canonical import file_digest
-from tools.strategy_factory.lcm.lcm_09b.service import LCM09BSetupMigrationService
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.canonical import file_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.service import LCM09BSetupMigrationService
 
 from .conftest import REPO, ROOT
 

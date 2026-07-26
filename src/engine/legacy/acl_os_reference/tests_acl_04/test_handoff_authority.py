@@ -1,10 +1,10 @@
 from copy import deepcopy
 import pytest
-from tools.strategy_factory.acl_os.acl_04.handoff_input import load_acl03_bundle
-from tools.strategy_factory.acl_os.acl_04.authority import validate_authority
-from tools.strategy_factory.acl_os.acl_04.search_authority import validate_search_authority
-from tools.strategy_factory.acl_os.acl_04.atom_registry import validate_registry
-from tools.strategy_factory.acl_os.acl_04.errors import AuthorityError, ContractError
+from src.engine.tooling.strategy_factory.acl_os.acl_04.handoff_input import load_acl03_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_04.authority import validate_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_04.search_authority import validate_search_authority
+from src.engine.tooling.strategy_factory.acl_os.acl_04.atom_registry import validate_registry
+from src.engine.tooling.strategy_factory.acl_os.acl_04.errors import AuthorityError, ContractError
 
 
 def test_acl03_bundle_is_bound(fixtures):

@@ -4,7 +4,7 @@ from pathlib import Path
 from .schema_validation import validate_schema_file
 from .policies import FLEET_STATUSES,CLOSURE_STATES,ALLOWED_REOPEN_ACTIONS,FORBIDDEN_ACTIONS
 def validate_registry(root:Path)->dict:
-    base=root/'registry/acl_os/acl_15'; errors=[]
+    base=root/'registry/history/acl/acl_15'; errors=[]
     schemas=list((base/'schemas/v1').glob('*.json')); policies=list((base/'policies/v1').glob('*.json'))
     for p in schemas: errors.extend([f'{p.name}:{e}' for e in validate_schema_file(p)])
     for p in policies:

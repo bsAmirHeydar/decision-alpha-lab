@@ -4,10 +4,10 @@ from pathlib import Path
 from jsonschema import Draft202012Validator
 def validate_registry(root:Path)->dict:
     errors=[]; schema_count=policy_count=mql_count=0
-    for p in sorted((root/'registry/acl_os/acl_14/schemas/v1').glob('*.json')):
+    for p in sorted((root/'registry/history/acl/acl_14/schemas/v1').glob('*.json')):
         try: Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8'))); schema_count+=1
         except Exception as e: errors.append(f'SCHEMA:{p.name}:{e}')
-    for p in sorted((root/'registry/acl_os/acl_14/policies/v1').glob('*.json')):
+    for p in sorted((root/'registry/history/acl/acl_14/policies/v1').glob('*.json')):
         try:
             v=json.loads(p.read_text(encoding='utf-8'))
             if not isinstance(v,dict) or not v.get('policy_id'): raise ValueError('policy_id missing')

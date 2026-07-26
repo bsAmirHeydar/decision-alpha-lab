@@ -1,6 +1,6 @@
-from tools.strategy_factory.lcm.lcm_05.io import read_jsonl
-from tools.strategy_factory.lcm.lcm_05.target_mapper import map_artifact,map_identity
-from tools.strategy_factory.lcm.lcm_05.upstream import load
+from src.engine.tooling.strategy_factory.lcm.lcm_05.io import read_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_05.target_mapper import map_artifact,map_identity
+from src.engine.tooling.strategy_factory.lcm.lcm_05.upstream import load
 
 def test_identity_mapping_replay(repo_root,topology_root):
     up=load(repo_root);expected=read_jsonl(topology_root/'mappings/identity_target_map.jsonl');actual=[map_identity(x) for x in up['identities']];assert [x['mapping_digest'] for x in actual]==[x['mapping_digest'] for x in expected]

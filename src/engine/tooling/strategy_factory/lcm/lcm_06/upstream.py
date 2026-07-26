@@ -4,7 +4,7 @@ from .io import read_json, read_jsonl
 
 
 def latest_topology(repo):
-    roots = sorted((repo / "registry/legacy_context_migration/target_paths").glob("TOPOLOGY_*"))
+    roots = sorted((repo / "registry/history/lcm/target_paths").glob("TOPOLOGY_*"))
     roots = [root for root in roots if root.is_dir() and not root.is_symlink()]
     if not roots:
         raise IntegrityError("LCM-05 topology package not found")

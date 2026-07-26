@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.lcm.lcm_05.upstream import load
-from tools.strategy_factory.lcm.lcm_05.authority import build_permit,verify_permit
-from tools.strategy_factory.lcm.lcm_05.errors import PolicyError
+from src.engine.tooling.strategy_factory.lcm.lcm_05.upstream import load
+from src.engine.tooling.strategy_factory.lcm.lcm_05.authority import build_permit,verify_permit
+from src.engine.tooling.strategy_factory.lcm.lcm_05.errors import PolicyError
 
 def test_lcm04_handoff_bound(repo_root):
     up=load(repo_root);assert up['handoff']['handoff_type']=='LCM04_TO_LCM05'

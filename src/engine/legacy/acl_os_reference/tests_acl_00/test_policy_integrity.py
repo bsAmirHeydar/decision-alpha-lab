@@ -1,6 +1,6 @@
 from __future__ import annotations
 import pytest
-from tools.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle
+from src.engine.tooling.strategy_factory.acl_os.acl_00.catalogs import PolicyBundle
 
 
 def test_every_approval_role_is_registered():

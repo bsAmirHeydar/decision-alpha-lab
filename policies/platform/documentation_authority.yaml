@@ -13,7 +13,7 @@ canonical_roots:
   contexts: docs/contexts
   operations: docs/operations
   decisions: docs/decisions
-  generated: docs/generated
+  generated: docs/history/generated
 document_classes:
   NORMATIVE_AUTHORED: Human-maintained architecture, policy, contract explanation, ADR or runbook.
   CONTEXT_AUTHORED: Doctrine, limitations, falsification and operator guidance for one Context.

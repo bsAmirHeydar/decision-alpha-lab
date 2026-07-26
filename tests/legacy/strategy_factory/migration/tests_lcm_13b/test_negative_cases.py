@@ -1,7 +1,7 @@
 from __future__ import annotations
 import json
 import pytest
-from tools.strategy_factory.lcm.lcm_13b.service import LCM13BConsumerWaveCutoverService, UPSTREAM_HANDOFF
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.service import LCM13BConsumerWaveCutoverService, UPSTREAM_HANDOFF
 
 def test_tampered_upstream_handoff_is_rejected(repo_root, tmp_path):
     clone = tmp_path / "repo"

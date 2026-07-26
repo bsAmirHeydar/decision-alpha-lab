@@ -2,8 +2,8 @@ from __future__ import annotations
 import json
 from referencing import Registry,Resource
 from jsonschema import Draft202012Validator
-from tools.strategy_factory.acl_os.common import REPO_ROOT,load_json
-from tools.strategy_factory.acl_os.acl_00.service import ACL00ControlPlane
+from src.engine.tooling.strategy_factory.acl_os.common import REPO_ROOT,load_json
+from src.engine.tooling.strategy_factory.acl_os.acl_00.service import ACL00ControlPlane
 
 SCHEMAS=REPO_ROOT/"registry"/"acl_os"/"acl_00"/"schemas"/"v1"
 FIX=REPO_ROOT/"lab"/"11_strategy_factory"/"acl_os"/"fixtures"/"acl_00"

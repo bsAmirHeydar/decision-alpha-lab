@@ -29,7 +29,7 @@ def owned_paths(root: Path) -> list[Path]:
     paths: set[Path] = set()
     dirs = [
         "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00",
-        "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00",
+        "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00",
     ]
     for rel in dirs:
         base = root / rel
@@ -37,7 +37,7 @@ def owned_paths(root: Path) -> list[Path]:
             for path in base.rglob("*"):
                 if path.is_file() and path.suffix != ".pyc" and "__pycache__" not in path.parts:
                     paths.add(path)
-    for path in (root / "docs/obsidian_deep/01_concepts").glob("EXP0019_FP_I00_*.md"):
+    for path in (root / "docs/history/obsidian/deep/01_concepts").glob("EXP0019_FP_I00_*.md"):
         paths.add(path)
     specific = [
         "releases/history/exp0019/readmes/README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
@@ -47,9 +47,9 @@ def owned_paths(root: Path) -> list[Path]:
         "releases/history/exp0019/hashes/EXP0019_FP_I00_FILE_HASHES.sha256",
         "releases/history/exp0019/manifests/EXP0019_FP_I00_PATCH_MANIFEST.json",
         "releases/history/exp0019/reports/EXP0019_FP_I00_QA_REPORT.json",
-        "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I00_GOVERNANCE_BASELINE_FREEZE_AND_SOURCE-CONTROL_HARNESS.md",
-        "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
-        "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv",
+        "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I00_GOVERNANCE_BASELINE_FREEZE_AND_SOURCE-CONTROL_HARNESS.md",
+        "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
+        "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv",
         "contexts/legacy/tools/exp0019/validate_fp_i00_delivery.py",
         "contexts/legacy/tools/exp0019/build_fp_i00_release.py",
     ]

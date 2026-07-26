@@ -9,5 +9,5 @@ if str(REPO_ROOT) not in sys.path: sys.path.insert(0,str(REPO_ROOT))
 def repo_root(): return REPO_ROOT
 @pytest.fixture
 def survey_root(repo_root):
-    roots=sorted((repo_root/'registry/legacy_context_migration/surveys').glob('SURVEY_*'))
+    roots=sorted((repo_root/'registry/history/lcm/surveys').glob('SURVEY_*'))
     assert roots; return roots[-1]

@@ -1,0 +1,28 @@
+{
+  "question_code": "TEST-R02",
+  "title": "Anti-Overfit, OOS, and Deployment Criteria",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/contexts/legacy/experience_capture/answers/TEST-R02/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "anti_overfit_test_plan_v1.csv",
+    "oos_validation_policy_v1.csv",
+    "walk_forward_evaluation_v1.csv",
+    "deployment_criteria_v1.csv"
+  ]
+}

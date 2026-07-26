@@ -56,6 +56,34 @@ def verify(repo_root: Path) -> dict[str, Any]:
     part2 = _read_json(required_files["UC-03 Part 2 decision"])
     relocation = _read_json(required_files["UC-03 Part 2 relocation receipt"])
     rewrite = _read_json(required_files["UC-03 Part 2 rewrite receipt"])
+    part3_path = repo / "registry/consolidation/uc03/part3/part3_exit_decision.json"
+    part3 = _read_json(part3_path) if part3_path.is_file() else None
+    part3_rewrite_path = repo / "registry/consolidation/uc03/part3/reference_rewrite_receipt.json"
+    part3_rewrites: dict[str, dict[str, Any]] = {}
+    if part3_rewrite_path.is_file():
+        payload = _read_json(part3_rewrite_path)
+        if payload.get("status") != "PASS":
+            errors.append("UC-03 Part 3 rewrite receipt is not PASS")
+        part3_rewrites = {str(row.get("path", "")): row for row in payload.get("files", []) if isinstance(row, dict)}
+    part3_relocations: dict[str, str] = {}
+    for relative in (
+        "registry/consolidation/uc03/part3/documentation_relocation_receipt.json",
+        "registry/consolidation/uc03/part3/registry_relocation_receipt.json",
+    ):
+        receipt_path = repo / relative
+        if not receipt_path.is_file():
+            continue
+        payload = _read_json(receipt_path)
+        if payload.get("status") != "PASS":
+            errors.append(f"UC-03 Part 3 relocation receipt is not PASS: {relative}")
+            continue
+        for row in payload.get("relocations", []):
+            if not isinstance(row, dict):
+                continue
+            source = str(row.get("source", "")).replace("\\", "/")
+            destination = str(row.get("destination", "")).replace("\\", "/")
+            if source and destination:
+                part3_relocations[source] = destination
 
     if part1.get("status") != "ACCEPTED":
         errors.append("UC-03 Part 1 decision is not ACCEPTED")
@@ -63,6 +91,10 @@ def verify(repo_root: Path) -> dict[str, Any]:
         errors.append("UC-03 Part 2 decision is not ACCEPTED or does not authorize Part 3")
     if part2.get("uc04_authorized") is True:
         errors.append("UC-03 Part 2 must not authorize UC-04")
+    if part3 is not None:
+        if part3.get("status") != "ACCEPTED" or part3.get("uc04_authorized") is not True:
+            errors.append("UC-03 Part 3 is not ACCEPTED or does not authorize UC-04")
+        _check_authority_false(errors, "UC-03 Part 3 decision", part3)
     if relocation.get("status") != "PASS" or int(relocation.get("file_relocation_count", 0)) <= 0:
         errors.append("UC-03 Part 2 relocation receipt is not PASS")
     if int(relocation.get("conflict_count", 0)) != 0:
@@ -87,6 +119,9 @@ def verify(repo_root: Path) -> dict[str, Any]:
     recovery_v2 = repo / "releases/unified_consolidation/ci_recovery_02/UC02_STATIC_AMENDMENT.json"
     if recovery_v2.is_file():
         amendment_sources.append(("CI recovery 02 amendment", recovery_v2))
+    part3_static = repo / "releases/unified_consolidation/uc03/part3/UC02_STATIC_AMENDMENT.json"
+    if part3_static.is_file():
+        amendment_sources.append(("UC-03 Part 3 static amendment", part3_static))
     for label, amendment_path in amendment_sources:
         amendment = _read_json(amendment_path)
         if amendment.get("stage_id") != "UC-03":
@@ -109,14 +144,19 @@ def verify(repo_root: Path) -> dict[str, Any]:
             expected_by_path[relative] = (expected, label)
 
     for relative, (expected, label) in sorted(expected_by_path.items()):
-        path = repo / relative
+        resolved_rel = part3_relocations.get(relative, relative)
+        path = repo / resolved_rel
         if not path.is_file():
-            errors.append(f"{label} path is missing: {relative}")
+            errors.append(f"{label} path is missing after relocation: {relative}")
             continue
         if not hash_matches(path, expected):
-            errors.append(f"{label} hash mismatch: {relative}")
-        else:
-            verified_amendment_paths += 1
+            successor = part3_rewrites.get(resolved_rel)
+            before = str(successor.get("before_sha256", "")).lower() if successor else ""
+            after = str(successor.get("after_sha256", "")).lower() if successor else ""
+            if before != expected.lower() or not after or not hash_matches(path, after):
+                errors.append(f"{label} hash mismatch: {relative}")
+                continue
+        verified_amendment_paths += 1
 
     result = {
         "status": "PASS" if not errors else "FAILED",
@@ -126,7 +166,7 @@ def verify(repo_root: Path) -> dict[str, Any]:
         "rewrite_file_count": int(rewrite.get("modified_file_count", 0)),
         "verified_amendment_path_count": verified_amendment_paths,
         "historical_dynamic_uc01_uc02_package_required": False,
-        "continuity_basis": "UC-03 accepted decisions, relocation receipt, rewrite receipt and bounded static amendments",
+        "continuity_basis": "UC-03 accepted decisions, relocation receipts, chained rewrite receipts and bounded static amendments",
     }
     return result
 

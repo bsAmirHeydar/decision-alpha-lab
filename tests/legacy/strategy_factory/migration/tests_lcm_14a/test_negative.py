@@ -1,7 +1,7 @@
 import json
 import shutil
 
-from tools.strategy_factory.lcm.lcm_14a.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.verify import verify_package
 
 
 def clone(built, tmp_path):

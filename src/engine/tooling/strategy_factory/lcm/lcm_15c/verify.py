@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools.strategy_factory.lcm.portable_integrity import (
+from src.engine.tooling.strategy_factory.lcm.portable_integrity import (
     current_matches_expected_or_amended,
     load_verified_lcm16a_amendments,
     matches_expected_digest,

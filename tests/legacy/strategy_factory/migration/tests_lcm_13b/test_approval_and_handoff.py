@@ -1,6 +1,6 @@
 from __future__ import annotations
-from tools.strategy_factory.lcm.lcm_13b.canonical import verify_embedded_digest
-from tools.strategy_factory.lcm.lcm_13b.io import load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.canonical import verify_embedded_digest
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.io import load_json
 
 def test_reference_owner_approval_is_narrow(cutover_root):
     approval = load_json(cutover_root / "owner_approval_registry.json")

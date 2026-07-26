@@ -6,7 +6,7 @@ import sys
 root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
 errors: list[str] = []
 phase = 'contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i06'
-docrel = 'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i06'
+docrel = 'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i06'
 required = [
     'releases/history/exp0019/readmes/README_EXP0019_FP_I06_RELATION_ENGINE.md',
     'releases/history/exp0019/installers/INSTALL_EXP0019_FP_I06_RELATION_ENGINE.md',
@@ -67,7 +67,7 @@ for path in docs:
     if not path.read_text(encoding='utf-8').startswith('---\n'):
         errors.append('missing frontmatter ' + str(path.relative_to(root)))
 
-concepts = list((root / 'docs/obsidian_deep/01_concepts').glob('FP-I06_*.md'))
+concepts = list((root / 'docs/history/obsidian/deep/01_concepts').glob('FP-I06_*.md'))
 if len(concepts) != 7:
     errors.append(f'atomic concept count {len(concepts)} != 7')
 

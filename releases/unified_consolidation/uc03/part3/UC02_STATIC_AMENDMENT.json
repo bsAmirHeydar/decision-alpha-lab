@@ -1,0 +1,19 @@
+{
+  "amended_paths": [
+    {
+      "path": "tools/consolidation/uc02/verify.py",
+      "sha256": "1f11b079ee58d5f8e0a3920d9bd16efbfb27bbabbd8b20b18b194d0c02955cca"
+    }
+  ],
+  "broker_authority": false,
+  "capital_authority": false,
+  "deletion_authority": false,
+  "order_authority": false,
+  "part_id": "UC03-P3",
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "upstream_stage": "UC-02"
+}

@@ -9,7 +9,7 @@ def repo_root()->Path:return find_repository_root(__file__)
 
 @pytest.fixture(scope="session")
 def inventory_root(repo_root:Path)->Path:
-    roots=sorted((repo_root/'registry/legacy_context_migration/visual_object_inventories').glob('VISINV_*'))
+    roots=sorted((repo_root/'registry/history/lcm/visual_object_inventories').glob('VISINV_*'))
     assert roots
     return roots[-1]
 

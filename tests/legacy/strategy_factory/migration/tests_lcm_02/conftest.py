@@ -5,5 +5,5 @@ import pytest
 def repo_root(): return find_repository_root(__file__)
 @pytest.fixture
 def classification_root(repo_root):
-    roots=sorted((repo_root/'registry/legacy_context_migration/classifications').glob('CLASSIFICATION_*'))
+    roots=sorted((repo_root/'registry/history/lcm/classifications').glob('CLASSIFICATION_*'))
     assert roots; return roots[-1]

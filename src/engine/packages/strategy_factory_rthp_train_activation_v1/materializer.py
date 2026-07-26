@@ -365,10 +365,10 @@ class RTHPHistoricalMaterializer:
         }
         sources = []
         for source_id, path, schema_ref, known_time_field, label_only in (
-            ("RTHP_CANONICAL_OCCURRENCE_LEDGER", occurrence_path, "registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json", "known_time_ms", False),
-            ("RTHP_REFERENCE_STATE_LEDGER", reference_path, "registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json", "exhaustion_known_time_ms", False),
-            ("RTHP_CYCLE_INSTANCE_LEDGER", cycle_path, "registry/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json", "known_time_ms", False),
-            ("RTHP_ROLE_PRICE_PATH_LEDGER", role_path, "registry/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json", "known_time_ms", True),
+            ("RTHP_CANONICAL_OCCURRENCE_LEDGER", occurrence_path, "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json", "known_time_ms", False),
+            ("RTHP_REFERENCE_STATE_LEDGER", reference_path, "registry/history/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json", "exhaustion_known_time_ms", False),
+            ("RTHP_CYCLE_INSTANCE_LEDGER", cycle_path, "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json", "known_time_ms", False),
+            ("RTHP_ROLE_PRICE_PATH_LEDGER", role_path, "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json", "known_time_ms", True),
         ):
             sources.append({
                 "source_id": source_id,

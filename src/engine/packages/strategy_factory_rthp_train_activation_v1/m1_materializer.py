@@ -306,10 +306,10 @@ class RTHPM1HistoricalMaterializer:
                   "entitlement_id":self.config.data_source.entitlement_id,"producer_version":self.config.data_source.producer_version,
                   "availability_time_policy":self.config.data_source.availability_time_policy}
         sources=[]
-        for sid,path,schema,known,label_only in (("RTHP_CANONICAL_OCCURRENCE_LEDGER",op,"registry/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json","known_time_ms",False),
-            ("RTHP_REFERENCE_STATE_LEDGER",rp,"registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json","exhaustion_known_time_ms",False),
-            ("RTHP_CYCLE_INSTANCE_LEDGER",cp,"registry/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json","known_time_ms",False),
-            ("RTHP_ROLE_PRICE_PATH_LEDGER",pp,"registry/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json","known_time_ms",True)):
+        for sid,path,schema,known,label_only in (("RTHP_CANONICAL_OCCURRENCE_LEDGER",op,"registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_source_record.schema.json","known_time_ms",False),
+            ("RTHP_REFERENCE_STATE_LEDGER",rp,"registry/history/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json","exhaustion_known_time_ms",False),
+            ("RTHP_CYCLE_INSTANCE_LEDGER",cp,"registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_cycle_instance.schema.json","known_time_ms",False),
+            ("RTHP_ROLE_PRICE_PATH_LEDGER",pp,"registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_role_price_path.schema.json","known_time_ms",True)):
             sources.append({"source_id":sid,"artifact_uri":path.resolve().as_uri(),"content_hash":"sha256:"+sha256_file(path),"known_time_field":known,
                             "schema_ref":schema,"required":True,"label_only":label_only})
         binding={"schema_version":"1.0.0","binding_id":f"RTHP_AI_DATA_BINDING_{self.config.run_id}","binding_status":"RESOLVED",

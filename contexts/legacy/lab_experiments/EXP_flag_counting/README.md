@@ -7,7 +7,7 @@ This experiment studies fractal, multi-scale, multi-sequence F-counting.
 Start from the current canon:
 
 ```text
-docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+docs/contexts/legacy/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
 ```
 
 That file resolves all Flag Counting implementation decisions. If older VNext/V6/M0007 documents conflict with it, the current canon wins.
@@ -25,12 +25,12 @@ Phoenix is the only active implementation path for this experiment.
 
 Read in this order:
 
-1. `docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`
-2. `docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md`
-3. `docs/flag_counting/FLAG_COUNTING_ENGINEERING_PACK_V5.md`
-4. `docs/flag_counting/engineering_pack_v5/`
-5. `docs/flag_counting/implementation_ladder_v1/`
-6. `docs/flag_counting/phoenix_rebuild/`
+1. `docs/contexts/legacy/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`
+2. `docs/contexts/legacy/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md`
+3. `docs/contexts/legacy/flag_counting/FLAG_COUNTING_ENGINEERING_PACK_V5.md`
+4. `docs/contexts/legacy/flag_counting/engineering_pack_v5/`
+5. `docs/contexts/legacy/flag_counting/implementation_ladder_v1/`
+6. `docs/contexts/legacy/flag_counting/phoenix_rebuild/`
 
 ## Legacy documents
 

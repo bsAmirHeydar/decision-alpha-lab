@@ -1,6 +1,6 @@
-from tools.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
-from tools.strategy_factory.acl_os.acl_11.registries import parity_registry,custody_state_registry
-from tools.strategy_factory.acl_os.acl_11.parity import assess
+from src.engine.tooling.strategy_factory.acl_os.acl_11.handoff_input import load_acl10_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_11.registries import parity_registry,custody_state_registry
+from src.engine.tooling.strategy_factory.acl_os.acl_11.parity import assess
 def test_registry_closed():
     r=parity_registry(); assert r['closed'] and len(r['requirements'])==20
 def test_no_candidate_assessment(acl10):

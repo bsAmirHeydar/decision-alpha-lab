@@ -10,9 +10,9 @@ FILES = {
     "types": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
     "phase": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2HigherTimeframePhaseFilter.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md",
-    "phase_doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md",
-    "obsidian": ROOT / "docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md",
+    "phase_doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md",
+    "obsidian": ROOT / "docs/history/obsidian/hook/08_entry_execution/NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window.md",
 }
 
 

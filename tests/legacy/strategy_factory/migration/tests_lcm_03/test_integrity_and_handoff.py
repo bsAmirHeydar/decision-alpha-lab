@@ -1,9 +1,9 @@
 import copy,pytest
-from tools.strategy_factory.lcm.lcm_03.canonical import digest_object
-from tools.strategy_factory.lcm.lcm_03.event_ledger import verify
-from tools.strategy_factory.lcm.lcm_03.errors import IntegrityError
-from tools.strategy_factory.lcm.lcm_03.io import read_json
-from tools.strategy_factory.lcm.lcm_03.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_03.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_03.event_ledger import verify
+from src.engine.tooling.strategy_factory.lcm.lcm_03.errors import IntegrityError
+from src.engine.tooling.strategy_factory.lcm.lcm_03.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_03.verify import verify_package
 
 def test_package(identity_root): assert verify_package(identity_root)['passed']
 def test_event_chain(identity_root): assert verify(read_json(identity_root/'events/identity_event_ledger.json'))

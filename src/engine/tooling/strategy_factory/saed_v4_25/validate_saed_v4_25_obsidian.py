@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 
 ROOT = find_repository_root(__file__)
-DOC_ROOT = ROOT / "docs/strategy_factory_sovereign_context_intelligence_v4"
+DOC_ROOT = ROOT / "docs/history/systems/saed_v4"
 phase_dirs = [
     DOC_ROOT / "62_PHASE_DELIVERIES_V4/V4_25",
     DOC_ROOT / "63_ATOMIC_CONCEPTS_V4/V4_25",

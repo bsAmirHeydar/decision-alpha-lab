@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.lcm.lcm_03.naming import propose_identity
-from tools.strategy_factory.lcm.lcm_03.io import read_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_03.naming import propose_identity
+from src.engine.tooling.strategy_factory.lcm.lcm_03.io import read_jsonl
 
 def test_fixture_identity(repo_root):
     r=json.loads((repo_root/'tests/legacy/strategy_factory/migration/fixtures/lcm_03/minimal_identity_fixture.json').read_text());x=propose_identity(r);assert x['identity_id'].startswith('CTX_EXAMPLE_EXAMPLECONTEXT_');assert x['identity_id'].endswith('_V1')

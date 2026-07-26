@@ -10,7 +10,7 @@ required=[
  'schemas/legacy/strategy_factory/v3/task_orchestration_plan.schema.json',
  'schemas/legacy/strategy_factory/v3/model_artifact_manifest.schema.json',
  'tests/fixtures/legacy/strategy_factory/v3/uce_i07_trainer_conformance_vectors.json',
- 'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i07/00_UCE_I07_DELIVERY_MOC.md',
+ 'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i07/00_UCE_I07_DELIVERY_MOC.md',
  'releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I07.json',
  'releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/artifacts/UCE_I07_ACCEPTANCE_EVIDENCE.json']
 for rel in required:
@@ -25,7 +25,7 @@ for folder in [root/'schemas/legacy/strategy_factory/v3',root/'tests/fixtures/le
  for f in folder.glob('*i07*.json') if folder.exists() else ():
   try:json.loads(f.read_text(encoding='utf-8'))
   except Exception as e:errors.append(f'invalid json {f.relative_to(root)}: {e}')
-docs=root/'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i07'
+docs=root/'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i07'
 if docs.exists() and len(list(docs.rglob('*.md')))<30:errors.append('insufficient detailed Obsidian delivery documentation')
 if errors:print('\n'.join(errors));raise SystemExit(1)
 print('UCE-I07 delivery validation PASS: canonical SDK, schemas, vectors, phase evidence, and detailed English Obsidian delivery present')

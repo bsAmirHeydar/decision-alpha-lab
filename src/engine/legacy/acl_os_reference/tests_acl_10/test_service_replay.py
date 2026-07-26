@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.acl_os.acl_10.replay_validator import verify_generated_root
-from tools.strategy_factory.acl_os.acl_10.service import ACL10PromotionStateService
+from src.engine.tooling.strategy_factory.acl_os.acl_10.replay_validator import verify_generated_root
+from src.engine.tooling.strategy_factory.acl_os.acl_10.service import ACL10PromotionStateService
 
 def test_reference_replay(reference): assert verify_generated_root(reference)['passed']
 def test_service_build(tmp_path,acl09_root,permit,policy):

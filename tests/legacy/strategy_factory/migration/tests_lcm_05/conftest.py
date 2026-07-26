@@ -8,6 +8,6 @@ def repo_root():
 
 @pytest.fixture(scope='session')
 def topology_root(repo_root):
-    roots=sorted((repo_root/'registry/legacy_context_migration/target_paths').glob('TOPOLOGY_*'))
+    roots=sorted((repo_root/'registry/history/lcm/target_paths').glob('TOPOLOGY_*'))
     assert roots
     return roots[-1]

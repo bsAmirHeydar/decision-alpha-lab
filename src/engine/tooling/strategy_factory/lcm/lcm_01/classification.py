@@ -20,7 +20,7 @@ def family_candidate(path: str) -> tuple[str,int]:
     if p.startswith('.obsidian/'):
         return ('OBSIDIAN_VAULT_CONFIGURATION',8500)
     checks=[
-      ('ACL_OS_PLATFORM',('src/engine/legacy/acl_os_reference/','src/engine/tooling/strategy_factory/acl_os/','docs/alpha_lab_master_architecture/context_lifecycle_os/')),
+      ('ACL_OS_PLATFORM',('src/engine/legacy/acl_os_reference/','src/engine/tooling/strategy_factory/acl_os/','docs/architecture/master/context_lifecycle_os/')),
       ('LCM_CONTROL_PLANE',('legacy_context_migration','src/engine/tooling/strategy_factory/lcm/','tests/legacy/strategy_factory/migration/')),
       ('STRATEGY_FACTORY_PLATFORM',('mql5/Experts/StrategyFactory/','mql5/Tests/Experts/StrategyFactory/','mql5/Include/StrategyFactory/','mql5/Include/AlphaLab/StrategyFactory/','mql5/Include/DecisionAlphaLab/StrategyFactory/')),
       ('EXP0019_FAERIE_PROTOCOL',('EXP0019','FaerieProtocol','faerie_protocol')),
@@ -30,12 +30,12 @@ def family_candidate(path: str) -> tuple[str,int]:
       ('EXP0015_INTERMARKET_TIME',('EXP0015','IntermarketDivergence/','intermarket_time_divergence')),
       ('FLAG_COUNTING_NDS_HOOK_ZONE',('FlagCounting','flag_counting','NDS','nds_','HOOK','Hook','hook_','obsidian_hook','obsidian_zone','hook_validity')),
       ('M_SERIES_CONTEXTS',('/M0001','/M0002','/M0003','/M0004','/M0005','/M0006','/M0007','M0001_','M0002_','M0003_','M0004_','M0005_','M0006_','M0007_')),
-      ('EXECUTION_E_SERIES',('mql5/Experts/Execution/','mql5/Include/Execution/','docs/execution/E')),
+      ('EXECUTION_E_SERIES',('mql5/Experts/Execution/','mql5/Include/Execution/','docs/operations/execution/E')),
       ('ASTRO_RESEARCH_EXECUTION',('Astro','astro')),
       ('ICT_STRUCTURAL_NODES',('/ICT/','StructuralNodes','structural_nodes')),
-      ('RESEARCH_EXPERIMENTS',('mql5/Experts/Research/','mql5/Indicators/Research/','docs/research/','research/')),
+      ('RESEARCH_EXPERIMENTS',('mql5/Experts/Research/','mql5/Indicators/Research/','docs/operations/research/','research/')),
       ('PRODUCT_LAB',('product_lab/','gartal_terminal')),
-      ('PATCH_AND_RELEASE_ARCHIVE',('docs/patches/','docs/root_archive/','_patch','PATCH_MANIFEST')),
+      ('PATCH_AND_RELEASE_ARCHIVE',('docs/history/delivery/patches/','docs/history/root_archive/','_patch','PATCH_MANIFEST')),
     ]
     for fam,needles in checks:
         if any(n in p for n in needles): return fam,9000

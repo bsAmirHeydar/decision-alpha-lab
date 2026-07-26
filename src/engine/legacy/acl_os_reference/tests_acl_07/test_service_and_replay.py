@@ -1,6 +1,6 @@
 import json,shutil
-from tools.strategy_factory.acl_os.acl_07.service import ACL07UnifiedValidationService
-from tools.strategy_factory.acl_os.acl_07.replay_validator import verify_generated_root
+from src.engine.tooling.strategy_factory.acl_os.acl_07.service import ACL07UnifiedValidationService
+from src.engine.tooling.strategy_factory.acl_os.acl_07.replay_validator import verify_generated_root
 
 def test_service_builds(acl06_root,permit,policy,tmp_path):
  d=tmp_path/'out'; r=ACL07UnifiedValidationService().validate(acl06_root,permit,policy,d,'2026-07-18T00:00:00Z'); assert d.exists() and r['validation_id']

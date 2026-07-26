@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_03.io import read_json,read_jsonl
 
 def test_identity_digests_present(identity_root): assert all(x['identity_digest'].startswith('sha256:') for x in read_jsonl(identity_root/'identities/canonical_identity_candidates.jsonl'))
 def test_alias_digests_present(identity_root): assert all(x['alias_digest'].startswith('sha256:') for x in read_jsonl(identity_root/'aliases/legacy_alias_records.jsonl'))

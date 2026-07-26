@@ -1,0 +1,55 @@
+COMMIT_MESSAGE_NDS_HOOK_864_CYCLE_R1.md
+docs/history/delivery/releases/legacy_migration/general/1c5b31444460_INSTALL_NDS_HOOK_864_CYCLE_R1_PATCH.md
+NDS_HOOK_864_CYCLE_R1_FILE_HASHES.sha256
+docs/operations/evidence/nds_hook_864_cycle_r1_file_index/2a4b3a8a1e66_NDS_HOOK_864_CYCLE_R1_FILE_INDEX.txt
+NDS_HOOK_864_CYCLE_R1_PATCH_MANIFEST.json
+NDS_HOOK_864_CYCLE_R1_QA_REPORT.json
+README_NDS_HOOK_864_CYCLE_R1_PATCH.md
+docs/contexts/legacy/nds/entry/README.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/01_scope_authority_and_non_goals.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/02_authoritative_reuse_map.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/03_profile_contract_and_locked_parameters.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/04_cycle_close_and_x3_x4_eligibility.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/05_hook_864_entry_geometry.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/06_stop_target_and_broker_normalization.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/07_setup_identity_one_attempt_and_no_reprice.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/08_pending_position_and_exit_state_machine.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/09_risk_execution_and_authority_boundaries.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/10_audit_ledger_and_evidence_schema.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/11_python_reference_and_test_vectors.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/12_validation_and_hostile_test_matrix.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/13_operator_runbook.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/14_persian_strategy_doctrine.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/15_compatibility_migration_and_rollback.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/16_definition_of_done_limitations_and_residual_risk.md
+docs/contexts/legacy/nds/entry/phase55_hook_864_cycle_r1_execution/README.md
+docs/contexts/legacy/nds/hook/73_phase55_hook_864_cycle_r1_execution.md
+docs/contexts/legacy/nds/hook/README.md
+docs/operations/evidence/nds_entry_execution_moc/52823598bbb7_NDS_ENTRY_EXECUTION_MOC.md
+docs/history/obsidian/hook/03_architecture/Phase 55 NDS Hook 86.4 Cycle R1 Execution.md
+docs/history/obsidian/hook/08_entry_execution/NDS Hook 86.4 Cycle R1 Audit Ledger.md
+docs/history/obsidian/hook/08_entry_execution/NDS Hook 86.4 Cycle R1 Entry Contract.md
+docs/history/obsidian/hook/08_entry_execution/NDS Hook 86.4 Cycle R1 Operator Checklist.md
+docs/history/obsidian/hook/08_entry_execution/NDS Hook 86.4 Cycle R1 State Machine.md
+docs/history/obsidian/hook/08_entry_execution/NDS Hook Limit Entry Contract.md
+lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/acceptance_matrix.json
+lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/profile_contract.json
+lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/test_vectors.json
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+mql5/Experts/FlagCounting/NDSHook864CycleR1ContractSelfTest.mq5
+mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5
+mql5/Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Rules.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh
+tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py
+tools/flag_counting/compile_nds_hook_864_cycle_r1.ps1
+tools/flag_counting/nds_hook_864_cycle_r1_contract_qa.py
+tools/flag_counting/nds_hook_864_cycle_r1_reference.py
+tools/flag_counting/nds_hook_trade_contract_qa.py
+tools/flag_counting/nds_lightweight_backtest_contract_qa.py
+tools/flag_counting/run_nds_hook_864_cycle_r1_tests.ps1
+tools/flag_counting/run_nds_hook_864_cycle_r1_tests.py

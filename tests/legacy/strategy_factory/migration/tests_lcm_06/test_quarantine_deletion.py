@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.lcm.lcm_06.quarantine_validator import validate as qv
-from tools.strategy_factory.lcm.lcm_06.deletion_validator import validate as dv
+from src.engine.tooling.strategy_factory.lcm.lcm_06.quarantine_validator import validate as qv
+from src.engine.tooling.strategy_factory.lcm.lcm_06.deletion_validator import validate as dv
 def test_quarantine_ready(repo_root):
     r=json.loads((repo_root/"tests/legacy/strategy_factory/migration/fixtures/lcm_06/quarantine/reference_quarantine_records.json").read_text())["records"];assert qv(r[0])["eligible"]
 def test_quarantine_blocked(repo_root):

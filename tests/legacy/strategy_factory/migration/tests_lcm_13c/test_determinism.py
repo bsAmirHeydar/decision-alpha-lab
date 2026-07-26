@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from tools.strategy_factory.lcm.lcm_13c.service import LCM13CRollbackClosureService
+from src.engine.tooling.strategy_factory.lcm.lcm_13c.service import LCM13CRollbackClosureService
 
 
 def tree_digest(root: Path) -> str:

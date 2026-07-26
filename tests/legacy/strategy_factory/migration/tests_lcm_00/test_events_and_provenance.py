@@ -2,8 +2,8 @@ import copy
 import json
 import pytest
 
-from tools.strategy_factory.lcm.lcm_00.errors import IntegrityError
-from tools.strategy_factory.lcm.lcm_00.event_ledger import build_event_ledger, verify_event_ledger
+from src.engine.tooling.strategy_factory.lcm.lcm_00.errors import IntegrityError
+from src.engine.tooling.strategy_factory.lcm.lcm_00.event_ledger import build_event_ledger, verify_event_ledger
 
 
 def test_reference_event_chain_verifies(baseline_root):

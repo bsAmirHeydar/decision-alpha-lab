@@ -7,7 +7,7 @@ EXPECTED_PHASES = {f"P{i:02d}" for i in range(21)}
 
 def validate(repo: Path) -> list[str]:
     errors=[]
-    base=repo/'docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2'
+    base=repo/'docs/operations/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2'
     reg_path=base/'data/EXP0018_IMPLEMENTATION_PHASE_REGISTRY_V2.json'
     if not reg_path.exists(): return [f"missing {reg_path}"]
     reg=json.loads(reg_path.read_text(encoding='utf-8'))
@@ -38,7 +38,7 @@ def validate(repo: Path) -> list[str]:
     for moc in [
         'CG_EXP0018_IMPLEMENTATION_DESIGN_V2_MOC.md','CG_EXP0018_CORE_IMPLEMENTATION_MOC.md',
         'CG_EXP0018_ENRICHMENT_IMPLEMENTATION_MOC.md','CG_EXP0018_ARCHITECTURE_CONTRACTS_MOC.md','CG_EXP0018_QA_RELEASE_MOC.md']:
-        if not (repo/'docs/obsidian_deep/00_mocs'/moc).exists(): errors.append(f"missing MOC {moc}")
+        if not (repo/'docs/history/obsidian/deep/00_mocs'/moc).exists(): errors.append(f"missing MOC {moc}")
     return errors
 
 def main() -> int:

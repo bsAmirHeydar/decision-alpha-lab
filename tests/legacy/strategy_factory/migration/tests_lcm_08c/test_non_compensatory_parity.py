@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 REPO = find_repository_root(__file__)
-ROOT = REPO / "registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3"
+ROOT = REPO / "registry/history/lcm/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3"
 PILOT = "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1"
 
 def rows(name):

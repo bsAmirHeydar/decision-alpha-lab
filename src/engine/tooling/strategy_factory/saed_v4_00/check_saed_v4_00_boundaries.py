@@ -16,8 +16,8 @@ allowed_prefixes=(
 'mql5/Experts/StrategyFactory/SAED_V4_00_',
 'mql5/Tests/Experts/StrategyFactory/SAED_V4_00_',
 'src/engine/tooling/strategy_factory/saed_v4_00/',
-'docs/strategy_factory_sovereign_context_intelligence_v4/62_PHASE_DELIVERIES_V4/V4_00/',
-'docs/obsidian_deep/01_concepts/SAED-V4-00_',
+'docs/history/systems/saed_v4/62_PHASE_DELIVERIES_V4/V4_00/',
+'docs/history/obsidian/deep/01_concepts/SAED-V4-00_',
 'README_SAED_V4_00_','INSTALL_SAED_V4_00_','COMMIT_MESSAGE.md','releases/history/saed/scripts/EXPAND_REMOVE_SAED_V4_00_PATCH.ps1','SAED_V4_00_')
 viol=[]
 if INDEX.exists():

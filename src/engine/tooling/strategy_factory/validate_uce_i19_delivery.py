@@ -11,8 +11,8 @@ def need(rel: str) -> Path:
     return path
 pkg=need('src/engine/packages/strategy_factory_operations_v3')
 tests=need('tests/legacy/strategy_factory/v1/phase_uce_i19_production_operations')
-docs=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i19')
-atoms=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/atomic_concepts/uce_i19')
+docs=need('docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i19')
+atoms=need('docs/history/systems/ucee/implementation_program/atomic_concepts/uce_i19')
 mql=need('mql5/Include/AlphaLab/StrategyFactory/Operations')
 art=need('releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/artifacts/uce_i19')
 status=need('releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/phase_status/UCE_I19.json')

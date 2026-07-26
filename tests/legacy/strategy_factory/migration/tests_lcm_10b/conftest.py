@@ -2,8 +2,8 @@ from tools.repository_paths import find_repository_root
 from pathlib import Path
 import json,pytest
 REPO=find_repository_root(__file__)
-ROOT=REPO/'registry/legacy_context_migration/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51'
-SCHEMAS=REPO/'registry/legacy_context_migration/lcm_10b/schemas/v1'
+ROOT=REPO/'registry/history/lcm/treatment_package_migrations/TREATMIG_DCC2F1F7B74985D72A783020843C6B51'
+SCHEMAS=REPO/'registry/history/lcm/lcm_10b/schemas/v1'
 MODULE=REPO/'src/engine/tooling/strategy_factory/lcm/lcm_10b'
 def j(rel):return json.loads((ROOT/rel).read_text(encoding="utf-8"))
 def jl(rel):return [json.loads(x) for x in (ROOT/rel).read_text(encoding="utf-8").splitlines() if x.strip()]

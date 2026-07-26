@@ -8,7 +8,7 @@ if str(PY_ROOT) not in sys.path: sys.path.insert(0,str(PY_ROOT))
 EX=ROOT/"examples/legacy/strategy_factory/saed_v4_31"
 AR=ROOT/"releases/history/strategy_factory/artifacts/saed_v4_31"
 SC=ROOT/"schemas/legacy/strategy_factory/saed_v4_31"
-DOC=ROOT/"docs/strategy_factory_sovereign_context_intelligence_v4"
+DOC=ROOT/"docs/history/systems/saed_v4"
 MQL_INCLUDE=ROOT/"mql5/Include/DecisionAlphaLab/StrategyFactory/SAED/V4_31"
 MQL_EXPERT=ROOT/"mql5/Experts/DecisionAlphaLab/StrategyFactory/SAED/V4_31"
 MAP={

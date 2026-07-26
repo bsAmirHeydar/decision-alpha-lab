@@ -6,7 +6,7 @@ MASTER_PHASE = "LCM-13"
 CLAIM_CEILING = "LCM_13C_REFERENCE_ONLY"
 OWNER = "ALPHA_LAB_MIGRATION_OWNER"
 REVIEWER = "INDEPENDENT_MIGRATION_REVIEWER"
-PRODUCER = "tools.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService"
+PRODUCER = "src.engine.tooling.strategy_factory.lcm.lcm_13c.service:LCM13CRollbackClosureService"
 GENERATED_TIME_SEMANTICS = "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
 
 CLOSURE_STATES = (
@@ -40,6 +40,6 @@ RESIDUAL_RISKS = (
 )
 
 UPSTREAM_CUTOVER_ROOT = (
-    "registry/legacy_context_migration/consumer_wave_cutovers/"
+    "registry/history/lcm/consumer_wave_cutovers/"
     "CUTOVER_E38BEC955210CE172483EE47AA2D9E8C"
 )

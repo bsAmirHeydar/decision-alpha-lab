@@ -6,14 +6,14 @@ import argparse,csv,json,zipfile
 STATUS='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i04';META={'releases/history/exp0019/indexes/EXP0019_FP_I04_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I04_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I04_PATCH_MANIFEST.json'}
 def digest(path):return sha256(path.read_bytes()).hexdigest()
 def owned(root):
-    paths=set();dirs=[STATUS,'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i04','mql5/Include/FaerieProtocol/EXP0019/Data']
+    paths=set();dirs=[STATUS,'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i04','mql5/Include/FaerieProtocol/EXP0019/Data']
     for rel in dirs:
         base=root/rel
         if base.exists():
             for p in base.rglob('*'):
                 if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':paths.add(p)
-    for p in (root/'docs/obsidian_deep/01_concepts').glob('FP-I04_*.md'):paths.add(p)
-    specific=['releases/history/exp0019/readmes/README_EXP0019_FP_I04_DATA_SYNC.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I04_DATA_SYNC.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I04_QA_REPORT.json','releases/history/exp0019/indexes/EXP0019_FP_I04_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I04_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I04_PATCH_MANIFEST.json','docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I04_MULTI-SYMBOL_M1_SYNCHRONIZATION_COVERAGE_AND_DATA_REVISION.md','mql5/Tests/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncSelfTest.mq5','mql5/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncDiagnostic.mq5','contexts/legacy/tools/exp0019/check_fp_i04_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i04_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i04_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i04_delivery.py','contexts/legacy/tools/exp0019/build_fp_i04_release.py']
+    for p in (root/'docs/history/obsidian/deep/01_concepts').glob('FP-I04_*.md'):paths.add(p)
+    specific=['releases/history/exp0019/readmes/README_EXP0019_FP_I04_DATA_SYNC.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I04_DATA_SYNC.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I04_QA_REPORT.json','releases/history/exp0019/indexes/EXP0019_FP_I04_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I04_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I04_PATCH_MANIFEST.json','docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I04_MULTI-SYMBOL_M1_SYNCHRONIZATION_COVERAGE_AND_DATA_REVISION.md','mql5/Tests/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncSelfTest.mq5','mql5/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncDiagnostic.mq5','contexts/legacy/tools/exp0019/check_fp_i04_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i04_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i04_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i04_delivery.py','contexts/legacy/tools/exp0019/build_fp_i04_release.py']
     for rel in specific:
         p=root/rel
         if p.is_file():paths.add(p)

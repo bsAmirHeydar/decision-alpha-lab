@@ -1,8 +1,8 @@
 import copy
 import pytest
-from tools.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
-from tools.strategy_factory.acl_os.acl_03.prerequisites import validate_prerequisites
-from tools.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
+from src.engine.tooling.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
+from src.engine.tooling.strategy_factory.acl_os.acl_03.prerequisites import validate_prerequisites
+from src.engine.tooling.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
 
 def test_snapshot_is_deterministic(context_root,package):
     a=build_source_snapshot(context_root,package,COMPILER_VERSION);b=build_source_snapshot(context_root,package,COMPILER_VERSION);assert a==b

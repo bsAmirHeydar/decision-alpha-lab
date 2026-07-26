@@ -27,7 +27,7 @@ def owned_paths(root: Path) -> list[Path]:
         'src/engine/packages/strategy_factory_deep_views_v3',
         'tests/legacy/strategy_factory/v1/phase_uce_i10_deep_views',
         'examples/legacy/strategy_factory/uce_i10',
-        'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i10',
+        'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i10',
         'mql5/Include/AlphaLab/StrategyFactory/DeepViews',
     )
     for relative in dirs:
@@ -37,7 +37,7 @@ def owned_paths(root: Path) -> list[Path]:
     specific = [
         'releases/history/strategy_factory_ucee/readmes/README_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','releases/history/strategy_factory_ucee/installers/INSTALL_STRATEGY_FACTORY_UCEE_I10_IMPLEMENTATION.md','releases/history/ucee/scripts/EXPAND_REMOVE_UCEE_I10_PATCH.ps1','COMMIT_MESSAGE.md',
         'releases/history/ucee/manifests/UCEE_I10_PATCH_MANIFEST.json','releases/history/ucee/reports/UCEE_I10_QA_REPORT.json','releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt','releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256',
-        'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I10_DEEP_MULTI_VIEW_GRAPH_AND_REGIME_PACK.md',
+        'docs/history/systems/ucee/implementation_program/phases/UCE_I10_DEEP_MULTI_VIEW_GRAPH_AND_REGIME_PACK.md',
         'mql5/Experts/StrategyFactory/UCE_I10_DeepViewsDiagnostic.mq5',
         'mql5/Tests/Experts/StrategyFactory/UCE_I10_DeepViewsSelfTest.mq5',
         'mql5/Tests/Experts/StrategyFactory/UCE_I10_CausalitySafetySelfTest.mq5',
@@ -52,7 +52,7 @@ def owned_paths(root: Path) -> list[Path]:
         'src/engine/tooling/strategy_factory/apply_uce_i10_patch.ps1','src/engine/tooling/strategy_factory/build_uce_i10_release.py',
     ]
     specific += [f'schemas/legacy/strategy_factory/v3/{name}.schema.json' for name in SCHEMAS]
-    concept_dir = root / 'docs/obsidian_deep/01_concepts'
+    concept_dir = root / 'docs/history/obsidian/deep/01_concepts'
     for path in concept_dir.glob('UCE-I10*.md'):
         paths.add(path)
     for relative in specific:
@@ -96,7 +96,7 @@ def main() -> int:
     (root / 'releases/history/ucee/indexes/UCEE_I10_FILE_INDEX.txt').write_text('\n'.join(rel for rel,_,_ in entries)+'\n', encoding='utf-8')
     (root / 'releases/history/ucee/hashes/UCEE_I10_FILE_HASHES.sha256').write_text('\n'.join(f'{h}  {rel}' for rel,h,_ in entries)+'\n', encoding='utf-8')
 
-    docs = list((root / 'docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i10').rglob('*.md'))
+    docs = list((root / 'docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i10').rglob('*.md'))
     schemas = [root / f'schemas/legacy/strategy_factory/v3/{name}.schema.json' for name in SCHEMAS]
     manifest = {
         'patch_id':'decision-alpha-lab-ucee-i10-deep-multi-view-graph-regime-pack',

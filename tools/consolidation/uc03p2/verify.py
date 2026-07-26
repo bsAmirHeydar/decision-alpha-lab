@@ -25,6 +25,33 @@ REQUIRED_DESTINATIONS = (
 RELOCATION_RECEIPT = Path("registry/consolidation/uc03/part2/code_relocation_receipt.json")
 REWRITE_RECEIPT = Path("registry/consolidation/uc03/part2/compatibility_rewrite_receipt.json")
 DECISION_PATH = Path("registry/consolidation/uc03/part2/part2_exit_decision.json")
+PART3_DECISION_PATH = Path("registry/consolidation/uc03/part3/part3_exit_decision.json")
+PART3_REWRITE_RECEIPT = Path("registry/consolidation/uc03/part3/reference_rewrite_receipt.json")
+
+
+def _part3_relocations(repo: Path) -> dict[str, str]:
+    output: dict[str, str] = {}
+    for relative in (
+        "registry/consolidation/uc03/part3/documentation_relocation_receipt.json",
+        "registry/consolidation/uc03/part3/registry_relocation_receipt.json",
+    ):
+        path = repo / relative
+        if not path.is_file():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8-sig"))
+        except Exception:
+            continue
+        if payload.get("status") != "PASS":
+            continue
+        for row in payload.get("relocations", []):
+            if not isinstance(row, dict):
+                continue
+            source = str(row.get("source", "")).replace("\\", "/")
+            destination = str(row.get("destination", "")).replace("\\", "/")
+            if source and destination:
+                output[source] = destination
+    return output
 
 
 def _read_json(path: Path) -> dict:
@@ -94,7 +121,7 @@ def active_stale_references(repo: Path) -> list[str]:
         "releases/history/misc/documents/sitecustomize.py",
         "releases/unified_consolidation/uc03/part2/",
         "registry/consolidation/uc03/part2/",
-        "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/",
+        "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/",
     )
     for relative_root in ACTIVE_REWRITE_ROOTS:
         root = repo / relative_root
@@ -162,11 +189,27 @@ def import_errors(repo: Path) -> list[str]:
         except Exception as exc:
             errors.append(f"import probe failed: {name}: {type(exc).__name__}: {exc}")
 
-    for name in ("tools.strategy_factory", "tools.strategy_factory.lcm", "tools.strategy_factory.acl_os"):
+    part3_closed = False
+    part3_path = repo / PART3_DECISION_PATH
+    compatibility_path = repo / "registry/consolidation/uc03/part3/compatibility_usage_report.json"
+    try:
+        if part3_path.is_file():
+            part3_closed = _read_json(part3_path).get("status") == "ACCEPTED"
+        if not part3_closed and compatibility_path.is_file():
+            compatibility = _read_json(compatibility_path)
+            part3_closed = compatibility.get("status") == "PASS" and compatibility.get("usage_count") == 0
+    except Exception:
+        part3_closed = False
+    probes = (
+        ("src.engine.tooling.strategy_factory", "src.engine.tooling.strategy_factory.lcm", "src.engine.tooling.strategy_factory.acl_os")
+        if part3_closed
+        else ("src.engine.tooling.strategy_factory", "src.engine.tooling.strategy_factory.lcm", "src.engine.tooling.strategy_factory.acl_os")
+    )
+    for name in probes:
         try:
             importlib.import_module(name)
         except Exception as exc:
-            errors.append(f"compatibility import failed: {name}: {type(exc).__name__}: {exc}")
+            errors.append(f"import probe failed: {name}: {type(exc).__name__}: {exc}")
     return errors
 
 
@@ -203,14 +246,26 @@ def _base_topology_errors(repo: Path) -> tuple[list[str], int, int]:
         if not destination_path.exists():
             continue
 
+    part3_closed = False
+    part3_path = repo / PART3_DECISION_PATH
+    compatibility_path = repo / "registry/consolidation/uc03/part3/compatibility_usage_report.json"
+    try:
+        if part3_path.is_file():
+            part3_closed = _read_json(part3_path).get("status") == "ACCEPTED"
+        if not part3_closed and compatibility_path.is_file():
+            compatibility = _read_json(compatibility_path)
+            part3_closed = compatibility.get("status") == "PASS" and compatibility.get("usage_count") == 0
+    except Exception:
+        part3_closed = False
     for old, _ in TOOL_SHIMS:
         shim = repo / old
         files = sorted(
             path.relative_to(shim).as_posix()
             for path in shim.rglob("*") if path.is_file() and "__pycache__" not in path.parts
         ) if shim.is_dir() else []
-        if files != ["__init__.py"]:
-            errors.append(f"tool compatibility namespace contains unexpected files: {old}: {files}")
+        expected = [] if part3_closed else ["__init__.py"]
+        if files != expected:
+            errors.append(f"tool compatibility namespace state mismatch: {old}: {files} expected={expected}")
 
     if not (repo / "releases/history/misc/documents/sitecustomize.py").is_file():
         errors.append("releases/history/misc/documents/sitecustomize.py compatibility bootstrap is missing")
@@ -260,20 +315,33 @@ def fast_receipt_errors(repo: Path) -> list[str]:
     if not isinstance(rewrite_rows, list) or len(rewrite_rows) != int(rewrite.get("modified_file_count", -1)):
         errors.append("rewrite receipt count mismatch")
         rewrite_rows = []
+    part3_rewrites: dict[str, dict] = {}
+    part3_relocations = _part3_relocations(repo)
+    part3_receipt_path = repo / PART3_REWRITE_RECEIPT
+    if part3_receipt_path.is_file():
+        try:
+            payload = _read_json(part3_receipt_path)
+            if payload.get("status") == "PASS":
+                part3_rewrites = {str(row.get("path", "")): row for row in payload.get("files", []) if isinstance(row, dict)}
+        except Exception as exc:
+            errors.append(f"invalid Part 3 rewrite receipt: {exc}")
     rewritten_python: list[Path] = []
     for row in rewrite_rows:
         if not isinstance(row, dict):
             errors.append("invalid rewrite row")
             continue
         relative = str(row.get("path", ""))
+        resolved_relative = part3_relocations.get(relative, relative)
         expected = str(row.get("after_sha256", "")).lower()
-        path = repo / relative
+        path = repo / resolved_relative
         if not relative or not path.is_file():
-            errors.append(f"rewritten file is missing: {relative}")
+            errors.append(f"rewritten file is missing after relocation: {relative}")
             continue
         if expected and not hash_matches(path, expected):
-            errors.append(f"rewritten file hash mismatch: {relative}")
-        if relative.endswith(".py"):
+            successor = part3_rewrites.get(resolved_relative)
+            if not successor or str(successor.get("before_sha256", "")).lower() != expected or not hash_matches(path, str(successor.get("after_sha256", ""))):
+                errors.append(f"rewritten file hash mismatch: {relative}")
+        if resolved_relative.endswith(".py"):
             rewritten_python.append(path)
 
     # CI parses every rewritten Python file plus a deterministic relocation sample.

@@ -6,8 +6,8 @@ def validate_delivery(repo_root: Path) -> dict:
       'releases/history/lcm/readmes/README_ALPHA_LAB_LCM_01.md','releases/history/lcm/installers/INSTALL_ALPHA_LAB_LCM_01.md','releases/history/lcm/commit_messages/COMMIT_MESSAGE_LCM_01.md',
       'releases/history/lcm/indexes/LCM_01_FILE_INDEX.txt','releases/history/lcm/hashes/LCM_01_FILE_HASHES.sha256','releases/history/lcm/inventories/LCM_01_ARTIFACT_INVENTORY.csv',
       'releases/history/lcm/manifests/LCM_01_PATCH_MANIFEST.json','releases/history/lcm/reports/LCM_01_QA_REPORT.json',
-      'docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/00_MOC.md',
-      'docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_01/00_MOC.md',
+      'docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/00_MOC.md',
+      'docs/architecture/master/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/12_ATOMIC_CONCEPTS/LCM_01/00_MOC.md',
     ]
     missing=[x for x in required if not (repo_root/x).is_file()]
     return {'passed':not missing,'required_count':len(required),'missing':missing}

@@ -1,14 +1,14 @@
 import copy,os
 import pytest
-from tools.strategy_factory.acl_os.acl_03.compatibility import validate_compatibility
-from tools.strategy_factory.acl_os.acl_03.extensions import resolve_extensions
-from tools.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
-from tools.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
-from tools.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
-from tools.strategy_factory.acl_os.acl_03.adapters import compile_adapter_contracts
-from tools.strategy_factory.acl_os.acl_03.security import evaluate_security_boundary
-from tools.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
-from tools.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
+from src.engine.tooling.strategy_factory.acl_os.acl_03.compatibility import validate_compatibility
+from src.engine.tooling.strategy_factory.acl_os.acl_03.extensions import resolve_extensions
+from src.engine.tooling.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.adapters import compile_adapter_contracts
+from src.engine.tooling.strategy_factory.acl_os.acl_03.security import evaluate_security_boundary
+from src.engine.tooling.strategy_factory.acl_os.acl_03.source_snapshot import build_source_snapshot
+from src.engine.tooling.strategy_factory.acl_os.acl_03.service import COMPILER_VERSION
 
 def test_compatibility_passes(package): assert validate_compatibility(package,COMPILER_VERSION)['compatible']
 @pytest.mark.parametrize('version',['2.0.0','0.9.0','bad'])

@@ -5,14 +5,14 @@ CLAIM_CEILING = 'LCM_12A_REFERENCE_ONLY'
 SCHEMA_VERSION = '1.0.0'
 OWNER = 'ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER'
 REVIEWER = 'INDEPENDENT_DOCUMENTATION_REVIEWER'
-PRODUCER = 'tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService'
+PRODUCER = 'src.engine.tooling.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService'
 GENERATED_TIME_SEMANTICS = 'DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY'
 DOCUMENT_EXTENSIONS = (".md", ".mdx", ".rst", ".txt", ".adoc")
 REFERENCE_SCAN_EXTENSIONS = DOCUMENT_EXTENSIONS + (".py", ".ps1", ".bat", ".cmd", ".sh", ".mq5", ".mqh", ".cpp", ".c", ".h", ".hpp", ".js", ".jsx", ".ts", ".tsx", ".yaml", ".yml", ".toml")
 EXCLUDED_PARTS = (".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "node_modules", ".venv", "venv", "dist", "build")
 SELF_EXCLUDED_PREFIXES = (
-    "registry/legacy_context_migration/documentation_authority_mappings/",
-    "registry/legacy_context_migration/lcm_12a/",
+    "registry/history/lcm/documentation_authority_mappings/",
+    "registry/history/lcm/lcm_12a/",
     "src/engine/tooling/strategy_factory/lcm/lcm_12a/",
     "tests/legacy/strategy_factory/migration/tests_lcm_12a/",
 )

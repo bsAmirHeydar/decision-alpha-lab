@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
+from src.engine.tooling.strategy_factory.lcm.lcm_14a.service import LCM14ADeprecationRedirectService
 
 
 @pytest.fixture(scope="session")

@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from tools.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
-from tools.strategy_factory.lcm.lcm_16b.recovery import run_control_plane_round_trip, run_lcm16a_rehydration
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.recovery import run_control_plane_round_trip, run_lcm16a_rehydration
 
 
 def test_local_recovery_receipt_passes(package_root):

@@ -10,8 +10,8 @@ def need(rel):
  return p
 pkg=need('src/engine/packages/strategy_factory_qualification_v3')
 tests=need('tests/legacy/strategy_factory/v1/phase_uce_i18_production_qualification')
-docs=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i18')
-atoms=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/atomic_concepts/uce_i18')
+docs=need('docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i18')
+atoms=need('docs/history/systems/ucee/implementation_program/atomic_concepts/uce_i18')
 mql=need('mql5/Include/AlphaLab/StrategyFactory/Qualification')
 art=need('releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/artifacts/uce_i18')
 if pkg.exists() and len(list(pkg.glob('*.py')))<15: errors.append('python_module_count_below_15')

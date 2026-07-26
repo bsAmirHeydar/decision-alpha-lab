@@ -38,14 +38,14 @@ REWRITE_EXCLUDED_PREFIXES = (
     "tests/consolidation/uc03p2/",
     "releases/unified_consolidation/uc03/part2/",
     "registry/consolidation/uc03/part2/",
-    "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/",
+    "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/12_UC03_PHYSICAL_REORGANIZATION_RECORDS/",
 )
 
 ACTIVE_REWRITE_ROOTS = (
     ".github", "src", "tools", "tests", "contexts", "adapters", "configs",
     "ops", "policies", "contracts", "schemas", "mql5", "products", "examples",
-    "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL",
-    "docs/alpha_lab_master_architecture/00_START_HERE",
+    "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL",
+    "docs/architecture/master/00_START_HERE",
 )
 
 # Physical-only relocation.  The legacy namespace is intentional until UC-04.

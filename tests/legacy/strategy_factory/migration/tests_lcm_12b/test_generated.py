@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_12b.io import load_json,iter_jsonl
 def test_generated_documents_are_source_and_producer_bound(reconciliation_root):
     reg=load_json(reconciliation_root/"generated_document_registry.json")
     rows=list(iter_jsonl(reconciliation_root/reg["records_path"]))

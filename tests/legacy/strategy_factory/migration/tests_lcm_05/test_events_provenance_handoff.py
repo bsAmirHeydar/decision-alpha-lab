@@ -1,5 +1,5 @@
-from tools.strategy_factory.lcm.lcm_05.io import read_json
-from tools.strategy_factory.lcm.lcm_05.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_05.io import read_json
+from src.engine.tooling.strategy_factory.lcm.lcm_05.canonical import digest_object
 
 def test_event_chain(topology_root):
     l=read_json(topology_root/'events/topology_event_ledger.json');prev=None

@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.flag_counting.compare_nds_hook_864_acceleration_logs import compare, parse_runs
+from contexts.legacy.tools.flag_counting.compare_nds_hook_864_acceleration_logs import compare, parse_runs
 
 
 class AccelerationLogCompareTests(unittest.TestCase):

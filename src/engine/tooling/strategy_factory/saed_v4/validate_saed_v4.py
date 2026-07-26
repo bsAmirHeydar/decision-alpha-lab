@@ -2,7 +2,7 @@ from pathlib import Path
 import json,re,yaml
 
 def validate(root: Path):
- d=root/"docs/strategy_factory_sovereign_context_intelligence_v4"; md=list(d.rglob("*.md")); stems={p.stem for p in md}; missing=[]
+ d=root/"docs/history/systems/saed_v4"; md=list(d.rglob("*.md")); stems={p.stem for p in md}; missing=[]
  for p in md:
   x=p.read_text(encoding="utf-8")
   if not x.startswith("---\n"): raise ValueError(f"frontmatter {p}")

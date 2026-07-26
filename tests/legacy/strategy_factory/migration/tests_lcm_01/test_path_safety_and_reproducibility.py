@@ -1,6 +1,6 @@
 import json
-from tools.strategy_factory.lcm.lcm_01.config import SurveyConfig
-from tools.strategy_factory.lcm.lcm_01.collision_scan import scan
+from src.engine.tooling.strategy_factory.lcm.lcm_01.config import SurveyConfig
+from src.engine.tooling.strategy_factory.lcm.lcm_01.collision_scan import scan
 
 def test_config_digest_is_stable():
     assert SurveyConfig().digest==SurveyConfig().digest

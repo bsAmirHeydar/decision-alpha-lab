@@ -4,7 +4,7 @@ from pathlib import Path
 from .policies import REPO_ROOT
 
 def run()->dict:
-    commands=[['pytest','-q','src/engine/legacy/acl_os_reference/tests_acl_06'],[sys.executable,'-m','compileall','-q','src/engine/tooling/strategy_factory/acl_os/acl_06'],[sys.executable,'-m','tools.strategy_factory.acl_os.acl_06.validate_acl_06'],[sys.executable,'-m','tools.strategy_factory.acl_os.acl_06.validate_acl_06_delivery']]
+    commands=[['pytest','-q','src/engine/legacy/acl_os_reference/tests_acl_06'],[sys.executable,'-m','compileall','-q','src/engine/tooling/strategy_factory/acl_os/acl_06'],[sys.executable,'-m','src.engine.tooling.strategy_factory.acl_os.acl_06.validate_acl_06'],[sys.executable,'-m','src.engine.tooling.strategy_factory.acl_os.acl_06.validate_acl_06_delivery']]
     results=[]
     for cmd in commands:
         p=subprocess.run(cmd,cwd=REPO_ROOT,text=True,capture_output=True); results.append({'command':' '.join(cmd),'returncode':p.returncode,'stdout':p.stdout[-4000:],'stderr':p.stderr[-2000:]})

@@ -1,7 +1,7 @@
 import json, pytest
-from tools.strategy_factory.acl_os.acl_10.canonical import with_digest
-from tools.strategy_factory.acl_os.acl_10.errors import AuthorityError,PolicyError,PublicationError
-from tools.strategy_factory.acl_os.acl_10.service import ACL10PromotionStateService
+from src.engine.tooling.strategy_factory.acl_os.acl_10.canonical import with_digest
+from src.engine.tooling.strategy_factory.acl_os.acl_10.errors import AuthorityError,PolicyError,PublicationError
+from src.engine.tooling.strategy_factory.acl_os.acl_10.service import ACL10PromotionStateService
 
 def test_capital_permit_rejected(acl09_root,permit,policy,tmp_path):
     bad={**permit,'capital_activation_allowed':True}; bad=with_digest({k:v for k,v in bad.items() if k!='permit_digest'},'permit_digest')

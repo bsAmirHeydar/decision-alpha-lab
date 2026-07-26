@@ -27,13 +27,13 @@ REQUIRED_FILES = (
     "mql5/Include/FlagCountingPhoenix/FP_NDSEntryRules.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSEntryExport.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSEntryEngine.mqh",
-    "docs/nds_entry_architecture/README.md",
-    "docs/nds_entry_architecture/03_zone_adapter_contract.md",
-    "docs/nds_entry_architecture/06_command_preview_contract.md",
-    "docs/nds_entry_architecture/10_validation_and_release_plan.md",
-    "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
-    "docs/obsidian_hook/03_architecture/Phase 51 NDS Entry Transition Architecture.md",
-    "docs/obsidian_hook/05_templates/NDS Setup Review Template.md",
+    "docs/contexts/legacy/nds/entry/README.md",
+    "docs/contexts/legacy/nds/entry/03_zone_adapter_contract.md",
+    "docs/contexts/legacy/nds/entry/06_command_preview_contract.md",
+    "docs/contexts/legacy/nds/entry/10_validation_and_release_plan.md",
+    "docs/history/obsidian/hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+    "docs/history/obsidian/hook/03_architecture/Phase 51 NDS Entry Transition Architecture.md",
+    "docs/history/obsidian/hook/05_templates/NDS Setup Review Template.md",
 )
 
 

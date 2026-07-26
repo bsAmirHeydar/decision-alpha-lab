@@ -10,8 +10,8 @@ def need(path):
  return p
 pkg=need('src/engine/packages/strategy_factory_onboarding_v3')
 tests=need('tests/legacy/strategy_factory/v1/phase_uce_i16_context_onboarding')
-docs=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i16')
-concepts=need('docs/strategy_factory_universal_context_exploitation_engine/implementation_program/atomic_concepts/uce_i16')
+docs=need('docs/history/systems/ucee/implementation_program/phase_deliveries/uce_i16')
+concepts=need('docs/history/systems/ucee/implementation_program/atomic_concepts/uce_i16')
 art=need('releases/history/strategy_factory/program/implementation/universal_context_exploitation_engine/v3_implementation/artifacts/uce_i16')
 mql=need('mql5/Include/AlphaLab/StrategyFactory/ContextOnboarding')
 if pkg.exists() and len(list(pkg.glob('*.py')))<17:errors.append('python_module_count_below_17')

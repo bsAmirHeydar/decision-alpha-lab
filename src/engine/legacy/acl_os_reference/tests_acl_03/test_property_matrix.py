@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
-from tools.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
-from tools.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
 
 @pytest.mark.parametrize("priority",list(range(0,25)))
 def test_transition_priority_is_preserved(package,priority):

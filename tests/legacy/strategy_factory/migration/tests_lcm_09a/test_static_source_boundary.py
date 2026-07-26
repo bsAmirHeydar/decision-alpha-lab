@@ -1,7 +1,7 @@
 from tools.repository_paths import find_repository_root
 from pathlib import Path
 
-from tools.strategy_factory.lcm.lcm_09a.static_validation import (
+from src.engine.tooling.strategy_factory.lcm.lcm_09a.static_validation import (
     FORBIDDEN_API_TOKENS,
     scan_module,
 )

@@ -1,10 +1,10 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
-from tools.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
-from tools.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
-from tools.strategy_factory.acl_os.acl_03.adapters import compile_adapter_contracts
-from tools.strategy_factory.acl_os.acl_03.golden_replay import compile_golden_cases,run_golden_replay,replay_case
-from tools.strategy_factory.acl_os.acl_03.errors import ReplayError
+from src.engine.tooling.strategy_factory.acl_os.acl_03.known_time_ir import compile_known_time_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.feature_binding_ir import compile_feature_binding_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.detector_ir import compile_detector_ir
+from src.engine.tooling.strategy_factory.acl_os.acl_03.adapters import compile_adapter_contracts
+from src.engine.tooling.strategy_factory.acl_os.acl_03.golden_replay import compile_golden_cases,run_golden_replay,replay_case
+from src.engine.tooling.strategy_factory.acl_os.acl_03.errors import ReplayError
 
 def test_adapter_capabilities_are_non_trading(package):
     k,_=compile_known_time_ir(package);f,_=compile_feature_binding_ir(package);items=compile_adapter_contracts(package,k,f);assert items

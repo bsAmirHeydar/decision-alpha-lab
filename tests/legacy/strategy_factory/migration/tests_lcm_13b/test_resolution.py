@@ -1,6 +1,6 @@
 from __future__ import annotations
-from tools.strategy_factory.lcm.lcm_13b.io import iter_jsonl
-from tools.strategy_factory.lcm.lcm_13b.resolver import ConsumerLocatorResolver
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.io import iter_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_13b.resolver import ConsumerLocatorResolver
 
 def test_all_cutover_consumers_resolve_canonical(cutover_root):
     bindings_path = cutover_root / "records/active_consumer_bindings.jsonl"

@@ -11,8 +11,8 @@ import sys
 root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
 errors: list[str] = []
 phase_root = root / "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00"
-doc_root = root / "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00"
-concept_root = root / "docs/obsidian_deep/01_concepts"
+doc_root = root / "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00"
+concept_root = root / "docs/history/obsidian/deep/01_concepts"
 
 required = [
     "releases/history/exp0019/readmes/README_EXP0019_FAERIE_PROTOCOL_FP_I00.md",
@@ -32,7 +32,7 @@ required = [
     "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/artifacts/FP_I00_VALIDATION_REPORT.json",
     "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/artifacts/FP_I00_PHASE_STATUS.json",
     "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/artifacts/FP_I00_HANDOFF_TO_FP_I01.json",
-    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00/00_FP_I00_DELIVERY_MOC.md",
+    "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00/00_FP_I00_DELIVERY_MOC.md",
     "contexts/legacy/tools/exp0019/validate_fp_i00_delivery.py",
     "contexts/legacy/tools/exp0019/build_fp_i00_release.py"
 ]

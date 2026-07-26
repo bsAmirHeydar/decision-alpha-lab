@@ -7,7 +7,7 @@ def ext_name(path):
     p=PurePosixPath(path);stem=''.join(c if (c.isalnum() or c in '._-') else '_' for c in p.stem).rstrip(' .')[:56] or 'artifact';suffix=''.join(c if (c.isalnum() or c=='.') else '_' for c in p.suffix)[:12];return (stem+suffix).rstrip(' .')
 def identity_root(identity):
     if identity.get('protected_platform_asset'):return identity['source_artifact_path']
-    base=PACKAGE_ROOTS.get(identity['identity_kind'],'registry/legacy_context_migration/support_artifacts');iid=identity['identity_id'];segment=iid if len(iid)<=72 else iid[:56]+'__'+identity['identity_digest'].split(':')[-1][:12].upper();return f"{base}/{segment}"
+    base=PACKAGE_ROOTS.get(identity['identity_kind'],'registry/history/lcm/support_artifacts');iid=identity['identity_id'];segment=iid if len(iid)<=72 else iid[:56]+'__'+identity['identity_digest'].split(':')[-1][:12].upper();return f"{base}/{segment}"
 def materialization_status(rec):
     if rec.get('protected_platform_asset'):return 'RETAINED_IN_PLACE'
     if rec.get('security_sensitive'):return 'BLOCKED_SECURITY_REVIEW'

@@ -8,7 +8,7 @@ import argparse,csv,json,zipfile
 
 META={'releases/history/exp0019/indexes/EXP0019_FP_I02_FILE_INDEX.txt','releases/history/exp0019/hashes/EXP0019_FP_I02_FILE_HASHES.sha256','releases/history/exp0019/manifests/EXP0019_FP_I02_PATCH_MANIFEST.json'}
 PHASE='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i02'
-DOC='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
+DOC='docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i02'
 
 def digest(path:Path)->str:return sha256(path.read_bytes()).hexdigest()
 
@@ -25,13 +25,13 @@ def owned(root:Path)->list[Path]:
         'releases/history/exp0019/readmes/README_EXP0019_FP_I02_CORE_KERNEL.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I02_CORE_KERNEL.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I02_QA_REPORT.json',
         'contexts/legacy/tools/exp0019/check_fp_i02_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i02_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i02_vectors.py',
         'contexts/legacy/tools/exp0019/validate_fp_i02_delivery.py','contexts/legacy/tools/exp0019/build_fp_i02_release.py',
-        'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json',
-        'docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv',
+        'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json',
+        'docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv',
     ]
     for rel in specific:
         path=root/rel
         if path.is_file():paths.add(path)
-    for path in (root/'docs/obsidian_deep/01_concepts').glob('FP-I02_*.md'):paths.add(path)
+    for path in (root/'docs/history/obsidian/deep/01_concepts').glob('FP-I02_*.md'):paths.add(path)
     for name in META:
         path=root/name
         if path.is_file():paths.add(path)

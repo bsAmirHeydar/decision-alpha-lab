@@ -104,7 +104,7 @@ def disposition_for(row, role: str, activity: str, caps: set[str], duplicate: bo
 def classify(row, caps: set[str], entry: set[str], inbound: int, duplicate: bool):
     role,rc,rev=role_for(row,caps)
     activity,ac,aev=activity_for(row,role,entry,inbound)
-    protected=row['family_candidate'] in PROTECTED_FAMILIES or row['path'].startswith(('src/engine/legacy/acl_os_reference/','src/engine/tooling/strategy_factory/lcm/','registry/legacy_context_migration/'))
+    protected=row['family_candidate'] in PROTECTED_FAMILIES or row['path'].startswith(('src/engine/legacy/acl_os_reference/','src/engine/tooling/strategy_factory/lcm/','registry/history/lcm/'))
     surfaces=surfaces_for(caps,row['path']); security=bool(caps & SECURITY_CAPABILITIES)
     disp,dev=disposition_for(row,role,activity,caps,duplicate,protected)
     owner=owner_binding(row['family_candidate'],role,security)

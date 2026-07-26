@@ -20,7 +20,7 @@ try:
 except Exception:  # noqa: BLE001
     pd = None
 
-from tools.cme_bridge.dal_bar_store import CsvBar, write_bars
+from adapters.legacy.market_data.cme_bridge.dal_bar_store import CsvBar, write_bars
 
 
 @dataclass(frozen=True)

@@ -57,5 +57,5 @@ The reference path contains no runtime-eligible candidate. ACL-11 therefore prov
         },
         'projection_manifest_digest',
     )
-    dump_json(root / 'docs/obsidian_projection_manifest.json', manifest)
+    dump_json(root / 'docs/history/obsidian/base_projection_manifest.json', manifest)
     return manifest

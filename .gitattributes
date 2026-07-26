@@ -13,3 +13,7 @@
 *.bin binary
 registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl filter=lfs diff=lfs merge=lfs -text
 registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl filter=lfs diff=lfs merge=lfs -text
+registry/history/lcm/classifications/CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B/artifacts/artifact_classification_records.jsonl filter=lfs diff=lfs merge=lfs -text
+registry/history/lcm/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl filter=lfs diff=lfs merge=lfs -text
+registry/history/lcm/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl filter=lfs diff=lfs merge=lfs -text
+registry/history/lcm/surveys/SURVEY_D4EC5C533F886BC439DAEEBDE51FA080/dependencies/all_dependency_edges.csv filter=lfs diff=lfs merge=lfs -text

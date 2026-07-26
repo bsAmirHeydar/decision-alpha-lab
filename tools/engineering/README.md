@@ -6,7 +6,7 @@ Run the same ordered, fail-closed preflight locally and in GitHub Actions:
 python .\tools\engineering\run_engineering_policy.py .
 ```
 
-The Obsidian stage validates the authored canonical vault at `docs/alpha_lab_master_architecture/ai_algorithm_engineering_os`. The legacy `docs/ai_algorithm_engineering_os` tree contains generated compatibility locators.
+The Obsidian stage validates the authored canonical vault at `docs/architecture/master/ai_algorithm_engineering_os`. The legacy `docs/history/aieos_legacy` tree contains generated compatibility locators.
 
 Individual diagnostic checks remain available:
 

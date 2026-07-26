@@ -1,7 +1,7 @@
 import copy,pytest
-from tools.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
-from tools.strategy_factory.acl_os.acl_02.security import classify_security
-from tools.strategy_factory.acl_os.acl_02.authority_binding import validate_authority_binding
+from src.engine.tooling.strategy_factory.acl_os.acl_02.loader import ContextPackageLoader
+from src.engine.tooling.strategy_factory.acl_os.acl_02.security import classify_security
+from src.engine.tooling.strategy_factory.acl_os.acl_02.authority_binding import validate_authority_binding
 
 def pkg(root):p=ContextPackageLoader(root).load();p.pop("_paths");return p
 def test_security_pass(valid_root):assert classify_security(pkg(valid_root))["passed"]

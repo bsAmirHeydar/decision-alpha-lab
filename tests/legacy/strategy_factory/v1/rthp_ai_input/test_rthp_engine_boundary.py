@@ -7,7 +7,7 @@ PROTECTED=(
  'src/engine/packages/strategy_factory_onboarding_v3/',
  'src/engine/packages/strategy_factory_experiments_v3/',
  'src/engine/tooling/strategy_factory/acl_os/',
- 'registry/acl_os/',
+ 'registry/history/acl/',
 )
 
 def test_patch_index_contains_no_central_engine_path():
@@ -38,7 +38,7 @@ def _snapshot_prefixes(prefixes):
 
 def test_extended_central_engine_snapshot_is_unchanged():
  import json
- from tools.strategy_factory.lcm.lcm_16a.canonical import object_digest
+ from src.engine.tooling.strategy_factory.lcm.lcm_16a.canonical import object_digest
  ai=ROOT/'contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input'
  baseline=json.loads((ai/'generated/engine_extended_baseline_snapshot.json').read_text())
  _,current_files=_snapshot_prefixes(tuple(baseline['protected_prefixes']))

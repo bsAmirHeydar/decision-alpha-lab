@@ -1,6 +1,6 @@
 import json,pytest
-from tools.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
-from tools.strategy_factory.acl_os.acl_08.replay_validator import verify_generated_root
+from src.engine.tooling.strategy_factory.acl_os.acl_08.service import ACL08ReportingExperienceService
+from src.engine.tooling.strategy_factory.acl_os.acl_08.replay_validator import verify_generated_root
 
 def test_service_builds(acl07_root,permit,policy,tmp_path):
  d=tmp_path/'out'; r=ACL08ReportingExperienceService().build(acl07_root,permit,policy,d,'2026-07-18T01:00:00Z'); assert d.exists() and r['report_id'] and r['artifact_count']>0

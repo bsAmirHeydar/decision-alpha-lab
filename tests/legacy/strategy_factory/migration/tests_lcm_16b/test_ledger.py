@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json, load_jsonl
 
 
 def test_final_ledger_counts(package_root):

@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_16b.io import file_digest, load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import file_digest, load_json
 
 
 def test_output_manifest_hashes(package_root):

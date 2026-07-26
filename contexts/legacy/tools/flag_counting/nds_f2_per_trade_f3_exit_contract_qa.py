@@ -11,7 +11,7 @@ FILES = {
     "setup": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
     "manager": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
     "detector": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh",
-    "doc": ROOT / "docs/nds_entry_architecture/f2_waist_break_point2_limit/14_exact_per_trade_f3_lineage_exit.md",
+    "doc": ROOT / "docs/contexts/legacy/nds/entry/f2_waist_break_point2_limit/14_exact_per_trade_f3_lineage_exit.md",
 }
 
 def require(text: str, token: str, label: str, errors: list[str]) -> None:

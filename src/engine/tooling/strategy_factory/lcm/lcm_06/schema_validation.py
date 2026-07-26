@@ -15,14 +15,14 @@ def _jsonl(path: Path):
 
 
 def _latest_framework(repo_root: Path) -> Path | None:
-    roots = sorted((repo_root / "registry/legacy_context_migration/frameworks").glob("FRAMEWORK_*"))
+    roots = sorted((repo_root / "registry/history/lcm/frameworks").glob("FRAMEWORK_*"))
     roots = [root for root in roots if root.is_dir() and not root.is_symlink()]
     return roots[-1] if roots else None
 
 
 def validate(repo_root):
     repo_root = Path(repo_root)
-    schema_root = repo_root / "registry/legacy_context_migration/lcm_06/schemas/v1"
+    schema_root = repo_root / "registry/history/lcm/lcm_06/schemas/v1"
     schemas: dict[str, dict] = {}
     for path in sorted(schema_root.glob("*.schema.json")):
         schema = _load(path)

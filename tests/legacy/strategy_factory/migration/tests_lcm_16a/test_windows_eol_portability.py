@@ -4,7 +4,7 @@ from tools.repository_paths import find_repository_root
 import hashlib
 from pathlib import Path
 
-from tools.strategy_factory.lcm.portable_integrity import (
+from src.engine.tooling.strategy_factory.lcm.portable_integrity import (
     digest_variants,
     matches_expected_digest,
     portable_file_digest,

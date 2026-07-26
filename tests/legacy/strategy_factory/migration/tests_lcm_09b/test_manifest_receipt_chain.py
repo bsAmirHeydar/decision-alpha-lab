@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_09b.canonical import digest_object
+from src.engine.tooling.strategy_factory.lcm.lcm_09b.canonical import digest_object
 from .conftest import j
 
 def test_receipt_binds_manifest_and_handoff_without_digest_cycle():

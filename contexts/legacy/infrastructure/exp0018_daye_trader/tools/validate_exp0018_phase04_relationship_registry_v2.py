@@ -111,7 +111,7 @@ def validate(repo: Path) -> list[str]:
     if "22-Relationship" not in text and "22-relationship" not in text:
         errors.append("Phase04 code does not declare the 22-relationship boundary")
 
-    docs = repo / "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/11_phase04_relationship_registry_v2"
+    docs = repo / "docs/operations/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/11_phase04_relationship_registry_v2"
     if not docs.exists():
         errors.append("Phase04 documentation directory missing")
     else:
@@ -119,7 +119,7 @@ def validate(repo: Path) -> list[str]:
         if md_count < 20:
             errors.append(f"expected at least 20 Phase04 docs, got {md_count}")
 
-    moc = repo / "docs/obsidian_deep/00_mocs/CG_EXP0018_PHASE04_RELATIONSHIP_REGISTRY_MOC.md"
+    moc = repo / "docs/history/obsidian/deep/00_mocs/CG_EXP0018_PHASE04_RELATIONSHIP_REGISTRY_MOC.md"
     if not moc.exists():
         errors.append("Phase04 deep Obsidian MOC missing")
     return errors

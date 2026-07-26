@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys,re,json
-root=Path(sys.argv[1]) if len(sys.argv)>1 else Path("docs/strategy_factory_universal_context_exploitation_engine")
+root=Path(sys.argv[1]) if len(sys.argv)>1 else Path("docs/history/systems/ucee")
 errors=[]
 md=list(root.rglob("*.md"))
 if len(md)<180: errors.append(f"expected at least 180 markdown files, found {len(md)}")

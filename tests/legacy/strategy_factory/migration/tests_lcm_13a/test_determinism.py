@@ -8,7 +8,7 @@ def _snapshot(root):
 
 def test_clean_rebuild_is_byte_deterministic(tmp_path):
     from pathlib import Path
-    from tools.strategy_factory.lcm.lcm_13a.service import LCM13ADualRunService
+    from src.engine.tooling.strategy_factory.lcm.lcm_13a.service import LCM13ADualRunService
     repo = find_repository_root(__file__)
     a = LCM13ADualRunService(repo).build(tmp_path / "a").output_root
     b = LCM13ADualRunService(repo).build(tmp_path / "b").output_root

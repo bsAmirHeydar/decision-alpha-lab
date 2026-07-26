@@ -1,5 +1,5 @@
 from dataclasses import replace
-from tools.strategy_factory.acl_os.acl_01.types import ArtifactMutability
+from src.engine.tooling.strategy_factory.acl_os.acl_01.types import ArtifactMutability
 
 def test_register_valid_artifact(registry,descriptor,permit_factory):
     assert registry.register_artifact(descriptor,permit_factory("REGISTER_ARTIFACT",subject=descriptor.identity.artifact_id))==[]

@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve();errors=[]
-phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i05';docrel='docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i05'
+phase='contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i05';docrel='docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i05'
 required=['releases/history/exp0019/readmes/README_EXP0019_FP_I05_REFERENCE_ENGINE.md','releases/history/exp0019/installers/INSTALL_EXP0019_FP_I05_REFERENCE_ENGINE.md','COMMIT_MESSAGE.md','releases/history/exp0019/reports/EXP0019_FP_I05_QA_REPORT.json',f'{phase}/artifacts/FP_I05_REFERENCE_CONTRACT_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_REFERENCE_REASON_REGISTRY.v1.json',f'{phase}/artifacts/FP_I05_GOLDEN_REFERENCE_VECTORS.v1.json',f'{phase}/artifacts/FP_I05_PHASE_STATUS.json',f'{phase}/artifacts/FP_I05_HANDOFF_TO_FP_I06.json',f'{phase}/artifacts/FP_I05_ACCEPTANCE_EVIDENCE.json',f'{phase}/config/FP_I05_REFERENCE_ENGINE_PROFILES.v1.json',f'{docrel}/00_FP_I05_DELIVERY_MOC.md','mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05/FP_I05_All.mqh','mql5/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceDiagnostic.mq5','mql5/Tests/Experts/EXP0019/FaerieProtocol/EXP0019_FP_I05_ReferenceSelfTest.mq5','contexts/legacy/tools/exp0019/check_fp_i05_boundaries.py','contexts/legacy/tools/exp0019/check_fp_i05_mql5_static.py','contexts/legacy/tools/exp0019/generate_fp_i05_vectors.py','contexts/legacy/tools/exp0019/validate_fp_i05_delivery.py','contexts/legacy/tools/exp0019/build_fp_i05_release.py']
 for rel in required:
     if not (root/rel).is_file():errors.append('missing '+rel)
@@ -24,7 +24,7 @@ if len(docs)!=35:errors.append(f'FP-I05 doc count {len(docs)} != 35')
 for path in docs:
     text=path.read_text(encoding='utf-8')
     if not text.startswith('---\n'):errors.append('missing frontmatter '+str(path.relative_to(root)))
-concepts=list((root/'docs/obsidian_deep/01_concepts').glob('FP-I05_*.md'))
+concepts=list((root/'docs/history/obsidian/deep/01_concepts').glob('FP-I05_*.md'))
 if len(concepts)!=7:errors.append(f'atomic concept count {len(concepts)} != 7')
 mqls=list((root/'mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I05').glob('*.mqh'))
 if len(mqls)!=9:errors.append(f'MQL5 include count {len(mqls)} != 9')

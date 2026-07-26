@@ -1,6 +1,6 @@
 import pytest
-from tools.strategy_factory.acl_os.acl_02.scaffold import scaffold
-from tools.strategy_factory.acl_os.acl_02.policies import load_policy
+from src.engine.tooling.strategy_factory.acl_os.acl_02.scaffold import scaffold
+from src.engine.tooling.strategy_factory.acl_os.acl_02.policies import load_policy
 
 def test_scaffold(tmp_path):
  p=scaffold("CTX_NEW_TEST",tmp_path/"CTX_NEW_TEST");assert (p/"context_manifest.yaml").is_file();assert "CTX_NEW_TEST" in (p/"context_manifest.yaml").read_text()

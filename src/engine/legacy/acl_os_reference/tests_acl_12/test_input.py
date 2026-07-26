@@ -1,6 +1,6 @@
 import json,pytest
-from tools.strategy_factory.acl_os.acl_12.handoff_input import load_acl11_bundle
-from tools.strategy_factory.acl_os.acl_12.errors import IntegrityError
+from src.engine.tooling.strategy_factory.acl_os.acl_12.handoff_input import load_acl11_bundle
+from src.engine.tooling.strategy_factory.acl_os.acl_12.errors import IntegrityError
 def test_valid_acl11_bundle(ACL11): assert load_acl11_bundle(ACL11)['binding']['runtime_candidate_count']==0
 def test_missing_marker_fails(acl11_copy):
     (acl11_copy/'.acl11_generated_root').unlink()

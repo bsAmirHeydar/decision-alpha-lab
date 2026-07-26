@@ -3,7 +3,7 @@ from pathlib import Path
 
 PACKAGE_ROOT=Path(__file__).resolve().parent
 REPO_ROOT=find_repository_root(__file__)
-REGISTRY_ROOT=REPO_ROOT/"registry/acl_os/acl_05"
+REGISTRY_ROOT=REPO_ROOT/"registry/history/acl/acl_05"
 SCHEMA_ROOT=REGISTRY_ROOT/"schemas/v1"
 POLICY_ROOT=REGISTRY_ROOT/"policies/v1"
 CLAIM_CEILING="RESEARCH_BATCH_FREEZE_REFERENCE_ONLY"

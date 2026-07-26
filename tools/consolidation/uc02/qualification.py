@@ -32,7 +32,7 @@ def qualify(repo_root: Path, package_root: Path | None = None) -> dict:
     checks["authority_package"] = verify_authority_package(repo_root, package_root)
     checks["guard"] = run_guard(repo_root, require_authority_package=False, receipt_path=package_root / "guard_qualification_receipt.json")
     checks["unit_tests"] = _run((sys.executable, "-m", "pytest", "-q", "tests/consolidation/uc02"), repo_root)
-    checks["obsidian_program"] = _run((sys.executable, "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py", "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL"), repo_root)
+    checks["obsidian_program"] = _run((sys.executable, "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py", "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL"), repo_root)
     checks["repository_policy"] = _run((sys.executable, "tools/engineering/validate_alpha_lab_policy.py", "."), repo_root)
     checks["mql5_static"] = _run((sys.executable, "tools/engineering/check_mql5_compatibility.py", "."), repo_root)
     checks["determinism"] = deterministic_rebuild(repo_root, package_root)

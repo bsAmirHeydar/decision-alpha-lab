@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_16b.io import load_json
+from src.engine.tooling.strategy_factory.lcm.lcm_16b.io import load_json
 
 
 def test_all_authorities_false(package_root):

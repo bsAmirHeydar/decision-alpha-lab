@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_06.verify import verify_package
+from src.engine.tooling.strategy_factory.lcm.lcm_06.verify import verify_package
 def test_reference_package(framework_root):
     r=verify_package(framework_root);assert r["passed"];assert r["packet_result_count"]==5;assert r["adapter_contract_count"]==4
 def test_reference_manifest_nonempty(framework_root):

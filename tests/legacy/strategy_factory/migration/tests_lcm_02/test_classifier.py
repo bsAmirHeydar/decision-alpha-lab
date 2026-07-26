@@ -1,4 +1,4 @@
-from tools.strategy_factory.lcm.lcm_02.classifier import classify
+from src.engine.tooling.strategy_factory.lcm.lcm_02.classifier import classify
 
 def row(path='lab/x/context.mqh',family='EXP0018_DAYE_TRADER',language='MQL5_HEADER'):
  return {'path':path,'sha256':'sha256:'+'a'*64,'source_layer_id':'BASE','family_candidate':family,'family_confidence_bps':'8000','language':language,'extension':'.mqh','semantic_role_candidate':'UNKNOWN_ROLE'}
