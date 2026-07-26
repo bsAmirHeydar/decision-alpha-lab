@@ -311,6 +311,15 @@ def compiled_path_replacements() -> list[tuple[re.Pattern[str], str, str]]:
     return [(re.compile(boundary + re.escape(old)), old, new) for old, new in path_replacements()]
 
 
+def compiled_import_replacements() -> list[tuple[re.Pattern[str], str]]:
+    """Match legacy module roots only, never a suffix of an already-migrated import."""
+    boundary = r"(?<![A-Za-z0-9_.])"
+    return [
+        (re.compile(boundary + re.escape(old)), new)
+        for old, new in LEGACY_IMPORT_RULES
+    ]
+
+
 def iter_active_text_files(repo: Path) -> Iterable[Path]:
     seen: set[Path] = set()
     for relative_root in ACTIVE_REWRITE_ROOTS:
@@ -338,7 +347,7 @@ def iter_active_text_files(repo: Path) -> Iterable[Path]:
 
 def rewrite_active_files(repo: Path) -> tuple[list[dict], int]:
     path_rules = compiled_path_replacements()
-    import_rules = list(LEGACY_IMPORT_RULES)
+    import_rules = compiled_import_replacements()
     rows: list[dict] = []
     total = 0
     for path in sorted(iter_active_text_files(repo), key=lambda p: p.as_posix()):
@@ -356,13 +365,11 @@ def rewrite_active_files(repo: Path) -> tuple[list[dict], int]:
             if occurrences:
                 count += occurrences
                 kinds.add("PATH")
-        for old, new in import_rules:
-            if old not in updated:
-                continue
-            occurrences = updated.count(old)
-            updated = updated.replace(old, new)
+        for pattern, new in import_rules:
+            updated, occurrences = pattern.subn(new, updated)
             count += occurrences
-            kinds.add("IMPORT")
+            if occurrences:
+                kinds.add("IMPORT")
         if updated == text:
             continue
         before = sha256(path)
@@ -586,6 +593,67 @@ def apply(repo: Path) -> dict:
                 "commit_path_count": len(final_paths),
                 "uc04_authorized": True,
                 "resume_mode": "ACCEPTED_INDEX_REBUILD",
+            }
+
+    # A previous bounded run may already have produced the immutable relocation
+    # and replay evidence but stopped before issuing the exit decision.  Never
+    # recompute those receipts: doing so from the relocated tree loses their
+    # before/after lineage.  Re-characterize the current tree, then issue the
+    # decision only when the preserved evidence and current checks both pass.
+    evidence_paths = (
+        output_root / "documentation_relocation_receipt.json",
+        output_root / "registry_relocation_receipt.json",
+        output_root / "reference_rewrite_receipt.json",
+        output_root / "compatibility_usage_report.json",
+        output_root / "clean_replay_receipt.json",
+    )
+    if all(path.is_file() for path in evidence_paths):
+        documentation, registry, rewrite, compatibility, clean = (
+            read_json(path) for path in evidence_paths
+        )
+        evidence_valid = (
+            documentation.get("status") == "PASS"
+            and registry.get("status") == "PASS"
+            and rewrite.get("status") == "PASS"
+            and compatibility.get("status") == "PASS"
+            and compatibility.get("usage_count") == 0
+            and clean.get("status") == "PASS"
+            and clean.get("conflict_count") == 0
+            and not clean.get("errors")
+        )
+        if evidence_valid:
+            post = characterization(repo, "POST_RELOCATION")
+            write_json(output_root / "post_relocation_characterization.json", post)
+            if post["status"] != "PASS":
+                raise RuntimeError("post-relocation characterization failed")
+            write_json(accepted_path, {
+                "schema_version": "1.0.0", "program_id": "UCPS", "stage_id": "UC-03", "part_id": "UC03-P3",
+                "status": "ACCEPTED", "uc03_closed": True, "uc04_authorized": True,
+                "deletion_authority": False, "semantic_merge_authority": False,
+                "runtime_authority": False, "order_authority": False, "capital_authority": False,
+            })
+            write_json(output_root / "uc04_handoff.json", {
+                "schema_version": "1.0.0", "program_id": "UCPS", "from_stage": "UC-03", "to_stage": "UC-04",
+                "status": "ISSUED", "authorized_scope": "SEMANTIC_UNIFICATION_WITHOUT_UNPROVEN_LOGIC_RETIREMENT",
+                "required_inputs": [
+                    "registry/consolidation/uc03/part1/root_relocation_receipt.json",
+                    "registry/consolidation/uc03/part2/code_relocation_receipt.json",
+                    "registry/consolidation/uc03/part3/documentation_relocation_receipt.json",
+                    "registry/consolidation/uc03/part3/registry_relocation_receipt.json",
+                    "registry/consolidation/uc03/part3/clean_replay_receipt.json",
+                ],
+            })
+            final_paths = write_commit_index(repo)
+            return {
+                "status": "ACCEPTED",
+                "documentation_relocation_count": int(documentation.get("file_relocation_count", 0)),
+                "registry_relocation_count": int(registry.get("file_relocation_count", 0)),
+                "rewrite_file_count": int(rewrite.get("modified_file_count", 0)),
+                "replacement_count": int(rewrite.get("replacement_count", 0)),
+                "retired_shim_count": int(compatibility.get("retired_shim_count", 0)),
+                "commit_path_count": len(final_paths),
+                "uc04_authorized": True,
+                "resume_mode": "EVIDENCE_FINALIZATION",
             }
 
     state_path = output_root / "apply_state.json"

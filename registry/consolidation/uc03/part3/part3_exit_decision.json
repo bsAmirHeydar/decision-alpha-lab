@@ -1,0 +1,14 @@
+{
+  "capital_authority": false,
+  "deletion_authority": false,
+  "order_authority": false,
+  "part_id": "UC03-P3",
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_merge_authority": false,
+  "stage_id": "UC-03",
+  "status": "ACCEPTED",
+  "uc03_closed": true,
+  "uc04_authorized": true
+}

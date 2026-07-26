@@ -1,0 +1,15 @@
+{
+  "authorized_scope": "SEMANTIC_UNIFICATION_WITHOUT_UNPROVEN_LOGIC_RETIREMENT",
+  "from_stage": "UC-03",
+  "program_id": "UCPS",
+  "required_inputs": [
+    "registry/consolidation/uc03/part1/root_relocation_receipt.json",
+    "registry/consolidation/uc03/part2/code_relocation_receipt.json",
+    "registry/consolidation/uc03/part3/documentation_relocation_receipt.json",
+    "registry/consolidation/uc03/part3/registry_relocation_receipt.json",
+    "registry/consolidation/uc03/part3/clean_replay_receipt.json"
+  ],
+  "schema_version": "1.0.0",
+  "status": "ISSUED",
+  "to_stage": "UC-04"
+}

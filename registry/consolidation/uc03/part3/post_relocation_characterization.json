@@ -2,20 +2,20 @@
   "commands": [
     {
       "command": [
-        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "C:\\Python314\\python.exe",
         "-m",
         "tools.consolidation.uc03p2.verify",
         "--repo-root",
         ".",
         "--ci-fast"
       ],
-      "output_sha256": "e16f4ed5e3210d94551c80e90ee8dbe3f569474a8a03e7739f0b95e4ebe8eddf",
-      "output_tail": "{\n  \"error_count\": 0,\n  \"errors\": [],\n  \"lab_file_count\": 0,\n  \"mode\": \"CI_FAST\",\n  \"root_file_count\": 16,\n  \"status\": \"PASS\"\n}\n",
+      "output_sha256": "d7754ae92e1a37f0667ede0d08729b801784432e79a8b017e8cf24dcdd646c4c",
+      "output_tail": "{\n  \"error_count\": 0,\n  \"errors\": [],\n  \"lab_file_count\": 0,\n  \"mode\": \"CI_FAST\",\n  \"root_file_count\": 14,\n  \"status\": \"PASS\"\n}\n",
       "return_code": 0
     },
     {
       "command": [
-        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "C:\\Python314\\python.exe",
         "-m",
         "tools.consolidation.uc03p3.probe",
         "--repo-root",
@@ -27,7 +27,7 @@
     },
     {
       "command": [
-        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "C:\\Python314\\python.exe",
         "-m",
         "tools.consolidation.uc02.cli",
         "verify-static-patch",
@@ -40,7 +40,7 @@
     },
     {
       "command": [
-        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "C:\\Python314\\python.exe",
         "-m",
         "tools.consolidation.ci.verify_migration_continuity",
         "--repo-root",
@@ -52,15 +52,15 @@
     },
     {
       "command": [
-        "C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe",
+        "C:\\Python314\\python.exe",
         "tools/engineering/run_engineering_policy.py",
         "."
       ],
-      "output_sha256": "10edb6f83126092e8a971ac502fabdcbda171f562a6282c9cd7e48b310fe1996",
-      "output_tail": "\n::group::Repository policy\nRoot: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::Obsidian operating system\nVault: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\docs\\architecture\\master\\ai_algorithm_engineering_os\nMarkdown notes: 253\nUnique note IDs: 247\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::Unified consolidation Obsidian program\nProgram root: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\docs\\architecture\\master\\01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL\nMarkdown notes: 123\nProgram note IDs: 123\nMachine data files: 7\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::MQL5 compatibility\nMQL5 compatibility scan: errors=0 warnings=0\n::endgroup::\n\n::group::Repository layout\nRoot: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\nConsolidation mode: UC03-P2\nMissing expected directories: 0\nRoot files: 16\nErrors: 1\nERROR: root contains non-allowlisted files: ['ALPHA_LAB_UC03_PART3_DOCUMENTATION_REGISTRY_PHYSICAL_CLOSURE_PATCH.zip', 'sitecustomize.py']\n::endgroup::\n\nEngineering Policy Summary\n===========================\nPASS  Repository policy\nPASS  Obsidian operating system\nPASS  Unified consolidation Obsidian program\nPASS  MQL5 compatibility\nFAIL  Repository layout\n\nFailed stages: Repository layout\n",
-      "return_code": 1
+      "output_sha256": "37e2719f3b3a0037bd52b30f1fc874e4755741a2edbd1309a1d8e158a9cc60b8",
+      "output_tail": "\n::group::Repository policy\nRoot: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::Obsidian operating system\nVault: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\docs\\architecture\\master\\ai_algorithm_engineering_os\nMarkdown notes: 253\nUnique note IDs: 247\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::Unified consolidation Obsidian program\nProgram root: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\\docs\\architecture\\master\\01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL\nMarkdown notes: 123\nProgram note IDs: 123\nMachine data files: 7\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::MQL5 compatibility\nMQL5 compatibility scan: errors=0 warnings=0\n::endgroup::\n\n::group::Repository layout\nRoot: C:\\Users\\SARMAYEHM-PC\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Shared Projects\\decision-alpha-lab\nConsolidation mode: UC03-P2\nMissing expected directories: 0\nRoot files: 14\nErrors: 0\n::endgroup::\n\nEngineering Policy Summary\n===========================\nPASS  Repository policy\nPASS  Obsidian operating system\nPASS  Unified consolidation Obsidian program\nPASS  MQL5 compatibility\nPASS  Repository layout\n\nAll engineering-policy checks passed.\n",
+      "return_code": 0
     }
   ],
   "phase": "POST_RELOCATION",
-  "status": "FAIL"
+  "status": "PASS"
 }
