@@ -22,5 +22,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+      - name: Install policy validator dependencies
+        run: python -m pip install --disable-pip-version-check --no-input pyyaml
       - name: Run the same preflight used locally
         run: python tools/engineering/run_engineering_policy.py .
