@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-HISTORICAL-RELEASE-INTEGRITY-RECOVERY-01",
+  "status": "PASS_WITH_DISCLOSED_LIMITATIONS",
+  "engineering_policy": "PASS",
+  "migration_continuity": "PASS",
+  "uc03_part3": "PASS",
+  "uc04_w0": "PASS",
+  "uc04_w1a": "PASS",
+  "uc04_w1b": "PASS",
+  "targeted_tests": {
+    "passed": 54,
+    "failed": 0,
+    "errors": 0
+  },
+  "pytest_collection": {
+    "collected": 9767,
+    "collection_errors": 0
+  },
+  "regression_claims": [
+    "CRLF checkout of immutable PowerShell release control is accepted without weakening content integrity.",
+    "Active implementation changes no longer invalidate the historical W0 patch snapshot.",
+    "Immutable release-control mutation still fails closed.",
+    "Generic append-only amendment chains permit reviewed immutable evidence corrections.",
+    "An amendment on active source does not become a new permanent byte lock."
+  ],
+  "not_run": [
+    "Full repository execution suite beyond the targeted gates; historical Git LFS/full-suite limitations remain separately recorded.",
+    "Native Windows PowerShell execution in the Linux build environment.",
+    "MetaEditor and MT5 runtime qualification."
+  ],
+  "residual_risks": [
+    "The first real GitHub Actions run remains the final checkout-environment acceptance.",
+    "Semantic baseline transitions still require explicit reviewed evidence by design."
+  ]
+}

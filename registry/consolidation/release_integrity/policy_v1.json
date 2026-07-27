@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../schemas/consolidation/release_integrity/policy.schema.json",
+  "schema_version": "1.0.0",
+  "policy_id": "UC04_HISTORICAL_RELEASE_INTEGRITY_POLICY_V1",
+  "program_id": "UCPS",
+  "historical_stage": "UC04-W0",
+  "status": "ACTIVE",
+  "historical_release_semantics": "AUDIT_SNAPSHOT_NOT_PERMANENT_ACTIVE_SOURCE_LOCK",
+  "immutable_prefixes": [
+    "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/13_UC04_SEMANTIC_UNIFICATION_RECORDS/",
+    "registry/consolidation/uc04/w0/",
+    "releases/unified_consolidation/uc04/w0/",
+    "schemas/consolidation/uc04/"
+  ],
+  "immutable_exact_paths": [],
+  "amendment_search_roots": [
+    "registry/consolidation/release_integrity/amendments"
+  ],
+  "legacy_amendment_documents": [
+    "releases/unified_consolidation/ci_recovery_03/UC04_W0_RELEASE_AMENDMENT.json"
+  ],
+  "require_all_index_targets": true,
+  "semantic_change": false,
+  "runtime_authority_created": false,
+  "order_authority_created": false,
+  "capital_authority_created": false,
+  "document_digest": "sha256:89a7daee9f878d2919e67a5fb918d4df68ea79e8acaef3733dfdce884034d34c"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "program_id": "UCPS",
+  "stage_id": "UC04-HISTORICAL-RELEASE-INTEGRITY-RECOVERY-01",
+  "status": "READY_FOR_INSTALL",
+  "delivery_type": "ci_and_release_integrity_recovery",
+  "title": "Separate historical W0 release snapshots from evolvable active source",
+  "patch_file_count": 18,
+  "modified_file_count": 1,
+  "added_file_count": 17,
+  "deleted_file_count": 0,
+  "current_behavior": "The W0 ledger permanently hash-locks active source and the verifier itself, causing recursive CI failures after legitimate maintenance.",
+  "desired_behavior": "Immutable evidence remains hash-verified while active source evolves under current tests and explicit semantic freezes.",
+  "non_goals": [
+    "No market concept or trading rule change",
+    "No MQL5 consumer or call-site change",
+    "No workflow bypass or LFS disablement",
+    "No runtime, order or capital authority"
+  ],
+  "authority": {
+    "semantic_change": false,
+    "semantic_merge_authority": false,
+    "deletion_authority": false,
+    "runtime_authority": false,
+    "order_authority": false,
+    "capital_authority": false
+  }
+}

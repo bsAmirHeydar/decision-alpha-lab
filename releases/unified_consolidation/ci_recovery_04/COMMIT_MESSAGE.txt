@@ -1,0 +1,7 @@
+fix(uc04): separate historical release snapshots from active source
+
+- keep immutable W0 evidence hash-verified
+- stop permanently pinning evolvable active source to the W0 patch snapshot
+- normalize text line endings for cross-platform release verification
+- discover immutable-evidence amendments through a generic append-only chain
+- preserve semantic freeze, LFS, execution and authority boundaries

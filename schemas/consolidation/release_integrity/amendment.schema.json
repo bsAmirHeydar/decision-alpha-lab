@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "al://schemas/consolidation/release-integrity-amendment/v1",
+  "title": "Decision Alpha Lab Historical Release Integrity Amendment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "amendment_id",
+    "program_id",
+    "upstream_stage",
+    "status",
+    "reason",
+    "record_count",
+    "records",
+    "semantic_change",
+    "runtime_authority_created",
+    "order_authority_created",
+    "capital_authority_created",
+    "document_digest"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "schema_version": {"const": "1.0.0"},
+    "amendment_id": {"type": "string", "pattern": "^[A-Z0-9_\\-]+$"},
+    "program_id": {"const": "UCPS"},
+    "upstream_stage": {"const": "UC04-W0"},
+    "status": {"const": "PASS"},
+    "reason": {"type": "string", "minLength": 1},
+    "record_count": {"type": "integer", "minimum": 1},
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "previous_sha256",
+          "current_sha256",
+          "change_class",
+          "semantic_change",
+          "runtime_authority_created",
+          "order_authority_created",
+          "capital_authority_created"
+        ],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "previous_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "current_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "change_class": {"type": "string", "minLength": 1},
+          "semantic_change": {"const": false},
+          "runtime_authority_created": {"const": false},
+          "order_authority_created": {"const": false},
+          "capital_authority_created": {"const": false}
+        }
+      }
+    },
+    "semantic_change": {"const": false},
+    "runtime_authority_created": {"const": false},
+    "order_authority_created": {"const": false},
+    "capital_authority_created": {"const": false},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

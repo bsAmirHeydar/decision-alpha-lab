@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "al://schemas/consolidation/release-integrity-policy/v1",
+  "title": "Decision Alpha Lab Historical Release Integrity Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "policy_id",
+    "program_id",
+    "historical_stage",
+    "status",
+    "historical_release_semantics",
+    "immutable_prefixes",
+    "immutable_exact_paths",
+    "amendment_search_roots",
+    "legacy_amendment_documents",
+    "require_all_index_targets",
+    "semantic_change",
+    "runtime_authority_created",
+    "order_authority_created",
+    "capital_authority_created",
+    "document_digest"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "schema_version": {"const": "1.0.0"},
+    "policy_id": {"const": "UC04_HISTORICAL_RELEASE_INTEGRITY_POLICY_V1"},
+    "program_id": {"const": "UCPS"},
+    "historical_stage": {"const": "UC04-W0"},
+    "status": {"const": "ACTIVE"},
+    "historical_release_semantics": {
+      "const": "AUDIT_SNAPSHOT_NOT_PERMANENT_ACTIVE_SOURCE_LOCK"
+    },
+    "immutable_prefixes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[^\\\\]+/$"}
+    },
+    "immutable_exact_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "amendment_search_roots": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "legacy_amendment_documents": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "require_all_index_targets": {"const": true},
+    "semantic_change": {"const": false},
+    "runtime_authority_created": {"const": false},
+    "order_authority_created": {"const": false},
+    "capital_authority_created": {"const": false},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

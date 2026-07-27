@@ -10,13 +10,15 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
+from tools.consolidation.release_integrity import verify_historical_release_snapshot
 from tools.repository_paths import RepositoryPaths, migrated_relative_path
 
 REGISTRY_ROOT = Path("registry/consolidation/uc04/w0")
 SCHEMA_ROOT = Path("schemas/consolidation/uc04")
 RELEASE_ROOT = Path("releases/unified_consolidation/uc04/w0")
-RELEASE_AMENDMENT_PATH = Path("releases/unified_consolidation/ci_recovery_03/UC04_W0_RELEASE_AMENDMENT.json")
-RELEASE_AMENDMENT_SCHEMA = Path("schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json")
+RELEASE_INTEGRITY_POLICY_PATH = Path("registry/consolidation/release_integrity/policy_v1.json")
+RELEASE_INTEGRITY_POLICY_SCHEMA = Path("schemas/consolidation/release_integrity/policy.schema.json")
+RELEASE_INTEGRITY_AMENDMENT_SCHEMA = Path("schemas/consolidation/release_integrity/amendment.schema.json")
 SHA256_RE = re.compile(r"^(?:sha256:)?[0-9a-f]{64}$")
 LFS_OID_RE = re.compile(rb"^oid sha256:([0-9a-f]{64})$")
 LFS_SIZE_RE = re.compile(rb"^size ([0-9]+)$")
@@ -333,123 +335,16 @@ def verify_rthp_bindings(repo: Path, receipt: dict[str, Any], errors: list[str])
                     errors.append(f"active RTHP code contains hardcoded legacy prefix: {path.relative_to(repo)}: {forbidden}")
 
 
-def load_release_amendments(repo: Path, errors: list[str]) -> dict[str, dict[str, Any]]:
-    amendment_path = repo / RELEASE_AMENDMENT_PATH
-    schema_path = repo / RELEASE_AMENDMENT_SCHEMA
-    if not amendment_path.is_file():
-        errors.append(f"missing UC04-W0 release amendment: {RELEASE_AMENDMENT_PATH.as_posix()}")
-        return {}
-    if not schema_path.is_file():
-        errors.append(f"missing UC04-W0 release amendment schema: {RELEASE_AMENDMENT_SCHEMA.as_posix()}")
-        return {}
-    validate_schema(amendment_path, schema_path, errors)
-    try:
-        document = read_json(amendment_path)
-    except Exception as exc:
-        errors.append(f"invalid UC04-W0 release amendment: {exc}")
-        return {}
-    verify_document_digest(RELEASE_AMENDMENT_PATH, document, errors)
-    verify_no_authority(document, RELEASE_AMENDMENT_PATH.as_posix(), errors)
-    if (
-        document.get("program_id") != "UCPS"
-        or document.get("stage_id") != "UC04-W1B-CI-RECOVERY-01"
-        or document.get("upstream_stage") != "UC04-W0"
-        or document.get("status") != "PASS"
-    ):
-        errors.append("UC04-W0 release amendment identity or status mismatch")
-    records = document.get("records", [])
-    if not isinstance(records, list) or document.get("record_count") != len(records):
-        errors.append("UC04-W0 release amendment record count mismatch")
-        return {}
-    output: dict[str, dict[str, Any]] = {}
-    for row in records:
-        if not isinstance(row, dict):
-            errors.append("UC04-W0 release amendment contains a non-object record")
-            continue
-        verify_no_authority(row, RELEASE_AMENDMENT_PATH.as_posix(), errors)
-        relative = str(row.get("path", ""))
-        if not relative or relative in output:
-            errors.append(f"invalid or duplicate UC04-W0 release amendment path: {relative!r}")
-            continue
-        for field in ("previous_sha256", "current_sha256"):
-            value = row.get(field)
-            if not isinstance(value, str) or not SHA256_RE.fullmatch(value):
-                errors.append(f"invalid UC04-W0 release amendment digest {field}: {relative}")
-        target = repo / relative
-        if not target.is_file():
-            errors.append(f"UC04-W0 release amendment target missing: {relative}")
-        elif sha256_file(target) != str(row.get("current_sha256", "")):
-            errors.append(f"UC04-W0 release amendment current hash mismatch: {relative}")
-        output[relative] = row
-    return output
-
-
-def release_amendment_accepts(
-    amendments: dict[str, dict[str, Any]],
-    relative: str,
-    expected: str,
-    actual: str,
-) -> bool:
-    row = amendments.get(relative)
-    if row is None:
-        return False
-    return (
-        str(row.get("previous_sha256", "")).removeprefix("sha256:")
-        == expected.removeprefix("sha256:")
-        and str(row.get("current_sha256", "")).removeprefix("sha256:")
-        == actual.removeprefix("sha256:")
-        and row.get("semantic_change") is False
-        and row.get("runtime_authority_created") is False
-        and row.get("order_authority_created") is False
-        and row.get("capital_authority_created") is False
-    )
-
-
 def verify_release(repo: Path, errors: list[str]) -> None:
-    release = repo / RELEASE_ROOT
-    amendments = load_release_amendments(repo, errors)
-    required = {
-        "README.md", "INSTALL.md", "ROLLBACK.md", "COMMIT_MESSAGE.txt", "APPLY.ps1",
-        "PATCH_MANIFEST.json", "PATCH_FILE_INDEX.txt", "PATCH_FILE_HASHES.sha256", "QA_REPORT.json",
-    }
-    if not release.is_dir():
-        errors.append(f"release directory missing: {RELEASE_ROOT.as_posix()}")
-        return
-    present = {item.name for item in release.iterdir() if item.is_file()}
-    missing = sorted(required - present)
-    if missing:
-        errors.append(f"release controls missing: {missing}")
-        return
-    index = [line.strip().replace("\\", "/") for line in (release / "PATCH_FILE_INDEX.txt").read_text(encoding="utf-8").splitlines() if line.strip()]
-    if index != sorted(set(index)):
-        errors.append("patch file index is not sorted and unique")
-    for rel in index:
-        if not (repo / rel).is_file():
-            errors.append(f"patch index target missing: {rel}")
-    ledger: dict[str, str] = {}
-    for line in (release / "PATCH_FILE_HASHES.sha256").read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        try:
-            digest, rel = line.split("  ", 1)
-        except ValueError:
-            errors.append(f"invalid patch hash line: {line}")
-            continue
-        ledger[rel.replace("\\", "/")] = "sha256:" + digest.removeprefix("sha256:")
-    expected_hashed = set(index) - {f"{RELEASE_ROOT.as_posix()}/PATCH_FILE_HASHES.sha256"}
-    if set(ledger) != expected_hashed:
-        errors.append("patch hash ledger paths do not match the patch index")
-    for rel, expected in ledger.items():
-        target = repo / rel
-        if not target.is_file():
-            continue
-        actual = sha256_file(target)
-        if actual != expected and not release_amendment_accepts(amendments, rel, expected, actual):
-            errors.append(f"patch hash mismatch: {rel}")
-    manifest = read_json(release / "PATCH_MANIFEST.json")
-    if manifest.get("patch_file_count") != len(index):
-        errors.append("patch manifest file count mismatch")
-    verify_no_authority(manifest.get("authority", {}), "release manifest authority", errors)
+    errors.extend(
+        verify_historical_release_snapshot(
+            repo,
+            release_root=RELEASE_ROOT,
+            policy_path=RELEASE_INTEGRITY_POLICY_PATH,
+            policy_schema_path=RELEASE_INTEGRITY_POLICY_SCHEMA,
+            amendment_schema_path=RELEASE_INTEGRITY_AMENDMENT_SCHEMA,
+        )
+    )
 
 
 def verify(repo: Path, *, verify_release_controls: bool = True) -> list[str]:
