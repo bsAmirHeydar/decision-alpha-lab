@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.repository_paths import RepositoryPaths
 
 CANDIDATE_ID = "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
@@ -116,7 +117,7 @@ def sha256_bytes(data: bytes) -> str:
 
 
 def sha256_file(path: Path) -> str:
-    return sha256_bytes(path.read_bytes())
+    return "sha256:" + canonical_sha256(path)
 
 
 def canonical_digest(document: dict[str, Any], field: str = "document_digest") -> str:

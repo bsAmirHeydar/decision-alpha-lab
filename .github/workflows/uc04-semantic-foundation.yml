@@ -2,8 +2,38 @@ name: UC04 Semantic Foundation
 
 on:
   pull_request:
+    paths:
+      - '.github/workflows/uc04-semantic-foundation.yml'
+      - '.gitattributes'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'registry/consolidation/uc03/part3/**'
+      - 'registry/consolidation/uc04/w0/**'
+      - 'releases/unified_consolidation/uc04/w0/**'
+      - 'schemas/consolidation/uc04/**'
+      - 'tests/consolidation/uc04w0/**'
+      - 'tools/consolidation/ci/portable_hash.py'
+      - 'tools/consolidation/ci/verify_migration_continuity.py'
+      - 'tools/consolidation/uc03p3/**'
+      - 'tools/consolidation/uc04w0/**'
+      - 'tools/repository_paths.py'
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/uc04-semantic-foundation.yml'
+      - '.gitattributes'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'registry/consolidation/uc03/part3/**'
+      - 'registry/consolidation/uc04/w0/**'
+      - 'releases/unified_consolidation/uc04/w0/**'
+      - 'schemas/consolidation/uc04/**'
+      - 'tests/consolidation/uc04w0/**'
+      - 'tools/consolidation/ci/portable_hash.py'
+      - 'tools/consolidation/ci/verify_migration_continuity.py'
+      - 'tools/consolidation/uc03p3/**'
+      - 'tools/consolidation/uc04w0/**'
+      - 'tools/repository_paths.py'
 
 permissions:
   contents: read

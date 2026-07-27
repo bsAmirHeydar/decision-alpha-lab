@@ -2,8 +2,44 @@ name: UC04 W1 Characterization
 
 on:
   pull_request:
+    paths:
+      - '.github/workflows/uc04-w1-characterization.yml'
+      - '.gitattributes'
+      - 'mql5/**'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'registry/consolidation/uc04/w0/**'
+      - 'registry/consolidation/uc04/w1/**'
+      - 'releases/unified_consolidation/uc04/w0/**'
+      - 'releases/unified_consolidation/uc04/w1/**'
+      - 'schemas/consolidation/uc04/**'
+      - 'tests/consolidation/uc04w0/**'
+      - 'tests/consolidation/uc04w1/**'
+      - 'tests/fixtures/consolidation/uc04w1/**'
+      - 'tools/consolidation/ci/portable_hash.py'
+      - 'tools/consolidation/uc04w0/**'
+      - 'tools/consolidation/uc04w1/**'
+      - 'tools/repository_paths.py'
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/uc04-w1-characterization.yml'
+      - '.gitattributes'
+      - 'mql5/**'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'registry/consolidation/uc04/w0/**'
+      - 'registry/consolidation/uc04/w1/**'
+      - 'releases/unified_consolidation/uc04/w0/**'
+      - 'releases/unified_consolidation/uc04/w1/**'
+      - 'schemas/consolidation/uc04/**'
+      - 'tests/consolidation/uc04w0/**'
+      - 'tests/consolidation/uc04w1/**'
+      - 'tests/fixtures/consolidation/uc04w1/**'
+      - 'tools/consolidation/ci/portable_hash.py'
+      - 'tools/consolidation/uc04w0/**'
+      - 'tools/consolidation/uc04w1/**'
+      - 'tools/repository_paths.py'
 
 permissions:
   contents: read
@@ -19,7 +55,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true
+          # W1 verifies the accepted W0 LFS-pointer boundary before characterization.
+          lfs: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'

@@ -9,6 +9,7 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
+from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.consolidation.uc04w0.verify import verify as verify_w0
 from tools.consolidation.uc04w1.characterize import (
     CANDIDATE_ID,
@@ -343,7 +344,7 @@ def verify_release(repo: Path, errors: list[str]) -> None:
         errors.append("W1A patch hash-ledger paths do not match patch index")
     for relative, expected in ledger.items():
         target = repo / relative
-        if target.is_file() and sha256_file(target) != expected:
+        if target.is_file() and "sha256:" + canonical_sha256(target) != expected:
             errors.append(f"W1A patch hash mismatch: {relative}")
     manifest = read_json(release / "PATCH_MANIFEST.json")
     if manifest.get("patch_file_count") != len(index) or manifest.get("hash_ledger_entry_count") != len(ledger):

@@ -9,6 +9,7 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
+from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.repository_paths import RepositoryPaths, migrated_relative_path
 
 REGISTRY_ROOT = Path("registry/consolidation/uc04/w0")
@@ -307,7 +308,7 @@ def verify_release(repo: Path, errors: list[str]) -> None:
         errors.append("patch hash ledger paths do not match the patch index")
     for rel, expected in ledger.items():
         target = repo / rel
-        if target.is_file() and sha256_file(target) != expected:
+        if target.is_file() and "sha256:" + canonical_sha256(target) != expected:
             errors.append(f"patch hash mismatch: {rel}")
     manifest = read_json(release / "PATCH_MANIFEST.json")
     if manifest.get("patch_file_count") != len(index):

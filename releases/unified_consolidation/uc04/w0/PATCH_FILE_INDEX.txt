@@ -345,6 +345,7 @@ tests/legacy/strategy_factory/v1/rthp_train_activation/__init__.py
 tests/legacy/strategy_factory/v1/rthp_train_activation/conftest.py
 tests/legacy/strategy_factory/v1/rthp_train_activation/test_registry_and_boundaries.py
 tests/legacy/strategy_factory/v2/__init__.py
+tools/consolidation/ci/portable_hash.py
 tools/consolidation/ci/verify_migration_continuity.py
 tools/consolidation/uc01/verify.py
 tools/consolidation/uc03p3/verify.py

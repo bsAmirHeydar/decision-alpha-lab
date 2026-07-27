@@ -1,17 +1,17 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 
+from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.repository_paths import RepositoryPaths
 
 RELEASE = Path("releases/unified_consolidation/uc04/w0")
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return canonical_sha256(path)
 
 
 def build(repo: Path) -> None:

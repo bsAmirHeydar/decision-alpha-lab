@@ -45,6 +45,7 @@ tests/consolidation/uc04w1/test_reference_boundary.py
 tests/consolidation/uc04w1/test_release_controls.py
 tests/consolidation/uc04w1/test_verifier.py
 tests/fixtures/consolidation/uc04w1/datetime_format_vectors.json
+tools/consolidation/ci/portable_hash.py
 tools/consolidation/uc04w1/__init__.py
 tools/consolidation/uc04w1/__main__.py
 tools/consolidation/uc04w1/build_release.py
