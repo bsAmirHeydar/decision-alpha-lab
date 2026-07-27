@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true
+          # UC04-W0 verifies the archived LFS pointer boundary, not payloads.
+          lfs: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'

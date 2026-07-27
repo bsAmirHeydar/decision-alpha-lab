@@ -78,6 +78,20 @@ def sha256_file(path: Path) -> str:
     return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def sha256_logical_text_file(path: Path) -> str:
+    """Hash text artifacts using the repository's LF logical representation.
+
+    UC04 relocation amendments cover text artifacts.  Git may materialize those
+    artifacts with CRLF in a Windows worktree even though their committed form
+    and recorded amendment digest use LF.  Normalizing only this evidence path
+    preserves byte-exact checks for baselines and release ledgers.
+    """
+    content = path.read_bytes().replace(b"\r\n", b"\n")
+    if path.suffix.lower() in {".bat", ".cmd", ".ps1"}:
+        content = content.replace(b"\n", b"\r\n")
+    return "sha256:" + hashlib.sha256(content).hexdigest()
+
+
 def canonical_digest(value: dict[str, Any], omitted_field: str) -> str:
     material = {key: item for key, item in value.items() if key != omitted_field}
     payload = json.dumps(
@@ -206,7 +220,7 @@ def verify_amendment(path: Path, value: dict[str, Any], errors: list[str]) -> No
             target = path.parents[4] / current_path
             if not target.is_file():
                 errors.append(f"amendment target missing: {current_path}")
-            elif sha256_file(target) != current_digest:
+            elif sha256_logical_text_file(target) != current_digest:
                 errors.append(f"amendment current hash mismatch: {current_path}")
 
 

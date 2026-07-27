@@ -20,6 +20,11 @@ def build(repo: Path) -> None:
     index_path = release / "PATCH_FILE_INDEX.txt"
     paths = sorted({line.strip().replace("\\", "/") for line in index_path.read_text(encoding="utf-8").splitlines() if line.strip()})
     index_path.write_text("\n".join(paths) + "\n", encoding="utf-8", newline="\n")
+    manifest_path = release / "PATCH_MANIFEST.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["patch_file_count"] = len(paths)
+    manifest["hash_ledger_entry_count"] = len(paths) - 1
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     ledger_path = release / "PATCH_FILE_HASHES.sha256"
     rows = []
     for relative in paths:
@@ -30,11 +35,6 @@ def build(repo: Path) -> None:
             raise FileNotFoundError(relative)
         rows.append(f"{sha256(target)}  {relative}")
     ledger_path.write_text("\n".join(rows) + "\n", encoding="utf-8", newline="\n")
-    manifest_path = release / "PATCH_MANIFEST.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["patch_file_count"] = len(paths)
-    manifest["hash_ledger_entry_count"] = len(rows)
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
 
 def main() -> int:
