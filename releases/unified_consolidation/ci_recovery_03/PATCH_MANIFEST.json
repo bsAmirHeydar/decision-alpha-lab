@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../schemas/consolidation/uc04/ci_recovery_patch_manifest.schema.json",
+  "schema_version": "1.0.0",
+  "program_id": "UCPS",
+  "stage_id": "UC04-W1B-CI-RECOVERY-01",
+  "release_id": "UC04_W1B_CI_LFS_RECOVERY_01",
+  "status": "PASS_READY_FOR_INSTALL",
+  "intent": "Make the accepted UC04-W0 Git LFS evidence verifier representation-independent across source archives, skip-smudge checkouts, and hydrated GitHub Actions checkouts.",
+  "current_behavior": "UC04-W0 accepts only pointer text in the working tree, so a valid actions/checkout LFS-hydrated tree fails before W1B verification begins.",
+  "desired_behavior": "Use the Git HEAD blob as the canonical pointer when available and accept either matching pointer text or a hydrated object whose size and SHA-256 match that pointer.",
+  "scope": [
+    "UC04-W0 historical Git LFS verification",
+    "bounded release-hash amendment for the corrected verifier",
+    "pointer, hydrated-object, and corruption regression tests",
+    "schema-bound CI recovery evidence",
+    "Obsidian CI recovery record"
+  ],
+  "non_goals": [
+    "change GitHub Actions checkout configuration",
+    "download missing historical LFS blobs into source archives",
+    "change market data or trading semantics",
+    "modify MQL5 consumers or runtime behavior",
+    "grant implementation, cutover, order, or capital authority"
+  ],
+  "preserved_invariants": [
+    "the four historical paths remain the W0 LFS blocker inventory",
+    "the original UC04-W0 patch hash ledger is unchanged",
+    "invalid pointer metadata and corrupted hydrated bytes fail closed",
+    "W0, W1A, W1B, UC-03, and engineering-policy gates remain mandatory",
+    "no authority field becomes true"
+  ],
+  "patch_file_count": 16,
+  "hash_ledger_entry_count": 15,
+  "authority": {
+    "semantic_change": false,
+    "runtime_authority": false,
+    "order_authority": false,
+    "capital_authority": false,
+    "deletion_authority": false
+  },
+  "rollback_strategy": "Before commit restore the W0 verifier from HEAD and remove the exact added paths; after commit use a normal git revert commit.",
+  "residual_risks": [
+    "The corrected behavior must still be confirmed by a new GitHub Actions run after the commit is pushed.",
+    "The complete repository test suite remains unclaimed because the source archive still contains four historical LFS pointers without blobs."
+  ]
+}

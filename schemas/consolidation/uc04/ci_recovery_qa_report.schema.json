@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/consolidation/uc04/ci_recovery_qa_report.schema.json",
+  "title": "UC04 CI Recovery QA Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "release_id",
+    "status",
+    "gates",
+    "targeted_tests",
+    "pytest_collection",
+    "unexecuted",
+    "warnings",
+    "residual_risks"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/consolidation/uc04/ci_recovery_qa_report.schema.json"},
+    "schema_version": {"const": "1.0.0"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-W1B-CI-RECOVERY-01"},
+    "release_id": {"const": "UC04_W1B_CI_LFS_RECOVERY_01"},
+    "status": {"const": "PASS_WITH_DECLARED_LIMITATIONS"},
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "command", "status", "detail"],
+        "properties": {
+          "name": {"type": "string"},
+          "command": {"type": "string"},
+          "status": {"enum": ["PASS", "NOT_RUN", "BLOCKED"]},
+          "detail": {"type": "string"}
+        }
+      }
+    },
+    "targeted_tests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "passed", "failed", "skipped"],
+      "properties": {
+        "command": {"type": "string"},
+        "passed": {"type": "integer", "minimum": 0},
+        "failed": {"type": "integer", "minimum": 0},
+        "skipped": {"type": "integer", "minimum": 0}
+      }
+    },
+    "pytest_collection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "tests_collected", "errors"],
+      "properties": {
+        "command": {"type": "string"},
+        "tests_collected": {"type": "integer", "minimum": 1},
+        "errors": {"type": "integer", "minimum": 0}
+      }
+    },
+    "unexecuted": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "residual_risks": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

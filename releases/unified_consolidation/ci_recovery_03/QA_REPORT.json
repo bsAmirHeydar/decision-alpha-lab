@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../schemas/consolidation/uc04/ci_recovery_qa_report.schema.json",
+  "schema_version": "1.0.0",
+  "program_id": "UCPS",
+  "stage_id": "UC04-W1B-CI-RECOVERY-01",
+  "release_id": "UC04_W1B_CI_LFS_RECOVERY_01",
+  "status": "PASS_WITH_DECLARED_LIMITATIONS",
+  "gates": [
+    {
+      "name": "engineering_policy",
+      "command": "python tools/engineering/run_engineering_policy.py .",
+      "status": "PASS",
+      "detail": "Repository policy, both Obsidian validators, MQL5 compatibility, and repository layout passed with zero errors and warnings."
+    },
+    {
+      "name": "migration_continuity",
+      "command": "python -m tools.consolidation.ci.verify_migration_continuity --repo-root .",
+      "status": "PASS",
+      "detail": "12,301 relocations, 1,418 rewrites, and 9 amendment paths verified."
+    },
+    {
+      "name": "uc03_part3",
+      "command": "python -m tools.consolidation.uc03p3.verify --repo-root . --ci-fast",
+      "status": "PASS",
+      "detail": "Zero errors."
+    },
+    {
+      "name": "uc04_w0",
+      "command": "python -m tools.consolidation.uc04w0.verify --repo-root .",
+      "status": "PASS",
+      "detail": "Pointer and hydrated LFS representations are validated against canonical pointer metadata; release amendment accepted."
+    },
+    {
+      "name": "uc04_w1a",
+      "command": "python -m tools.consolidation.uc04w1.verify --repo-root .",
+      "status": "PASS",
+      "detail": "Zero errors."
+    },
+    {
+      "name": "uc04_w1b",
+      "command": "python -m tools.consolidation.uc04w1b.verify --repo-root .",
+      "status": "PASS",
+      "detail": "Native qualification tooling remains accepted and native execution remains pending."
+    }
+  ],
+  "targeted_tests": {
+    "command": "python -m pytest -q tests/consolidation/uc04w0 tests/consolidation/uc04w1 tests/consolidation/uc04w1b tests/consolidation/ci -p no:cacheprovider",
+    "passed": 49,
+    "failed": 0,
+    "skipped": 0
+  },
+  "pytest_collection": {
+    "command": "python -m pytest --collect-only -q -p no:cacheprovider",
+    "tests_collected": 9762,
+    "errors": 0
+  },
+  "unexecuted": [
+    "A post-push GitHub Actions run using the hosted runner and hydrated LFS working tree.",
+    "The complete repository test suite beyond collection because historical LFS blobs are absent from the supplied source archive.",
+    "MetaEditor and MetaTrader native qualification, which remains a separate W1B evidence gate."
+  ],
+  "warnings": [],
+  "residual_risks": [
+    "A GitHub-hosted Actions rerun is the final environment-specific confirmation of the incident fix.",
+    "Hashing hydrated historical LFS objects adds bounded I/O proportional to the four declared object sizes."
+  ]
+}

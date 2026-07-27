@@ -1,0 +1,16 @@
+docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/16_UC04_W1B_CI_RECOVERY/00_MOC.md
+docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/16_UC04_W1B_CI_RECOVERY/01_LFS_Checkout_Representation_Recovery.md
+releases/unified_consolidation/ci_recovery_03/COMMIT_MESSAGE.txt
+releases/unified_consolidation/ci_recovery_03/INSTALL.md
+releases/unified_consolidation/ci_recovery_03/PATCH_FILE_HASHES.sha256
+releases/unified_consolidation/ci_recovery_03/PATCH_FILE_INDEX.txt
+releases/unified_consolidation/ci_recovery_03/PATCH_MANIFEST.json
+releases/unified_consolidation/ci_recovery_03/QA_REPORT.json
+releases/unified_consolidation/ci_recovery_03/README.md
+releases/unified_consolidation/ci_recovery_03/ROLLBACK.md
+releases/unified_consolidation/ci_recovery_03/UC04_W0_RELEASE_AMENDMENT.json
+schemas/consolidation/uc04/ci_recovery_patch_manifest.schema.json
+schemas/consolidation/uc04/ci_recovery_qa_report.schema.json
+schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json
+tests/consolidation/uc04w0/test_lfs_checkout_representation.py
+tools/consolidation/uc04w0/verify.py

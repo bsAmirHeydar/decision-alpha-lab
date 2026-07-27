@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json",
+  "schema_version": "1.0.0",
+  "program_id": "UCPS",
+  "stage_id": "UC04-W1B-CI-RECOVERY-01",
+  "upstream_stage": "UC04-W0",
+  "status": "PASS",
+  "reason": "Accept a verification-only correction that validates canonical Git LFS pointer metadata while permitting either pointer or hash-matching hydrated working-tree representations.",
+  "record_count": 1,
+  "records": [
+    {
+      "path": "tools/consolidation/uc04w0/verify.py",
+      "previous_sha256": "sha256:89ca3d33e9726aec6cc259f8f0ec0c03d2be247914d7ca27c3503cd42313b7da",
+      "current_sha256": "sha256:44752c170d2f051a7b4e9b2972973e7caa10f963dd76d96cbdfa8bfdd0949b7b",
+      "change_class": "CI_LFS_CHECKOUT_REPRESENTATION_RECOVERY",
+      "semantic_change": false,
+      "runtime_authority_created": false,
+      "order_authority_created": false,
+      "capital_authority_created": false
+    }
+  ],
+  "semantic_change": false,
+  "runtime_authority_created": false,
+  "order_authority_created": false,
+  "capital_authority_created": false,
+  "document_digest": "sha256:1d14db23e0dec8cb1af90e52222d5eb7a50fd20f00002881ca34683369fb4d2d"
+}

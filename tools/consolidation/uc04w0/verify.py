@@ -4,18 +4,23 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
 
-from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.repository_paths import RepositoryPaths, migrated_relative_path
 
 REGISTRY_ROOT = Path("registry/consolidation/uc04/w0")
 SCHEMA_ROOT = Path("schemas/consolidation/uc04")
 RELEASE_ROOT = Path("releases/unified_consolidation/uc04/w0")
+RELEASE_AMENDMENT_PATH = Path("releases/unified_consolidation/ci_recovery_03/UC04_W0_RELEASE_AMENDMENT.json")
+RELEASE_AMENDMENT_SCHEMA = Path("schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json")
 SHA256_RE = re.compile(r"^(?:sha256:)?[0-9a-f]{64}$")
+LFS_OID_RE = re.compile(rb"^oid sha256:([0-9a-f]{64})$")
+LFS_SIZE_RE = re.compile(rb"^size ([0-9]+)$")
+LFS_VERSION_LINE = b"version https://git-lfs.github.com/spec/v1"
 AUTHORITY_FIELDS = (
     "semantic_change",
     "semantic_merge_authority",
@@ -76,21 +81,78 @@ def read_json(path: Path) -> dict[str, Any]:
 
 
 def sha256_file(path: Path) -> str:
-    return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+    hasher = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            hasher.update(chunk)
+    return "sha256:" + hasher.hexdigest()
 
 
-def sha256_logical_text_file(path: Path) -> str:
-    """Hash text artifacts using the repository's LF logical representation.
+def parse_lfs_pointer(payload: bytes) -> tuple[str, int] | None:
+    lines = payload.replace(b"\r\n", b"\n").splitlines()
+    if not lines or lines[0] != LFS_VERSION_LINE:
+        return None
+    oid: str | None = None
+    size: int | None = None
+    for line in lines[1:]:
+        oid_match = LFS_OID_RE.fullmatch(line)
+        if oid_match is not None:
+            oid = oid_match.group(1).decode("ascii")
+            continue
+        size_match = LFS_SIZE_RE.fullmatch(line)
+        if size_match is not None:
+            size = int(size_match.group(1))
+    if oid is None or size is None:
+        return None
+    return oid, size
 
-    UC04 relocation amendments cover text artifacts.  Git may materialize those
-    artifacts with CRLF in a Windows worktree even though their committed form
-    and recorded amendment digest use LF.  Normalizing only this evidence path
-    preserves byte-exact checks for baselines and release ledgers.
-    """
-    content = path.read_bytes().replace(b"\r\n", b"\n")
-    if path.suffix.lower() in {".bat", ".cmd", ".ps1"}:
-        content = content.replace(b"\n", b"\r\n")
-    return "sha256:" + hashlib.sha256(content).hexdigest()
+
+def read_head_blob(repo: Path, relative: str) -> bytes | None:
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(repo), "show", f"HEAD:{relative}"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+    except OSError:
+        return None
+    return result.stdout if result.returncode == 0 else None
+
+
+def verify_historical_lfs_artifact(repo: Path, relative: str, errors: list[str]) -> None:
+    target = repo / relative
+    if not target.is_file():
+        errors.append(f"declared historical Git LFS path is missing: {relative}")
+        return
+
+    head_blob = read_head_blob(repo, relative)
+    canonical_pointer = parse_lfs_pointer(head_blob or b"")
+    with target.open("rb") as handle:
+        worktree_prefix = handle.read(1024)
+    worktree_pointer = parse_lfs_pointer(worktree_prefix)
+
+    if canonical_pointer is None:
+        canonical_pointer = worktree_pointer
+    if canonical_pointer is None:
+        errors.append(f"canonical Git LFS pointer is unavailable or invalid: {relative}")
+        return
+
+    if worktree_pointer is not None:
+        if worktree_pointer != canonical_pointer:
+            errors.append(f"working-tree Git LFS pointer metadata mismatch: {relative}")
+        return
+
+    expected_oid, expected_size = canonical_pointer
+    actual_size = target.stat().st_size
+    if actual_size != expected_size:
+        errors.append(
+            f"hydrated Git LFS object size mismatch: {relative}: {actual_size} != {expected_size}"
+        )
+        return
+    actual_oid = sha256_file(target).removeprefix("sha256:")
+    if actual_oid != expected_oid:
+        errors.append(f"hydrated Git LFS object digest mismatch: {relative}")
 
 
 def canonical_digest(value: dict[str, Any], omitted_field: str) -> str:
@@ -194,9 +256,7 @@ def verify_pytest_contract(repo: Path, receipt: dict[str, Any], errors: list[str
     if len(pointers) != 4:
         errors.append("historical Git LFS pointer inventory must contain four paths")
     for relative in pointers:
-        target = repo / str(relative)
-        if not target.is_file() or not target.read_text(encoding="utf-8").startswith("version https://git-lfs.github.com/spec/v1"):
-            errors.append(f"declared historical Git LFS pointer is missing or not a pointer: {relative}")
+        verify_historical_lfs_artifact(repo, str(relative), errors)
 
 
 def verify_amendment(path: Path, value: dict[str, Any], errors: list[str]) -> None:
@@ -221,7 +281,7 @@ def verify_amendment(path: Path, value: dict[str, Any], errors: list[str]) -> No
             target = path.parents[4] / current_path
             if not target.is_file():
                 errors.append(f"amendment target missing: {current_path}")
-            elif sha256_logical_text_file(target) != current_digest:
+            elif sha256_file(target) != current_digest:
                 errors.append(f"amendment current hash mismatch: {current_path}")
 
 
@@ -273,8 +333,81 @@ def verify_rthp_bindings(repo: Path, receipt: dict[str, Any], errors: list[str])
                     errors.append(f"active RTHP code contains hardcoded legacy prefix: {path.relative_to(repo)}: {forbidden}")
 
 
+def load_release_amendments(repo: Path, errors: list[str]) -> dict[str, dict[str, Any]]:
+    amendment_path = repo / RELEASE_AMENDMENT_PATH
+    schema_path = repo / RELEASE_AMENDMENT_SCHEMA
+    if not amendment_path.is_file():
+        errors.append(f"missing UC04-W0 release amendment: {RELEASE_AMENDMENT_PATH.as_posix()}")
+        return {}
+    if not schema_path.is_file():
+        errors.append(f"missing UC04-W0 release amendment schema: {RELEASE_AMENDMENT_SCHEMA.as_posix()}")
+        return {}
+    validate_schema(amendment_path, schema_path, errors)
+    try:
+        document = read_json(amendment_path)
+    except Exception as exc:
+        errors.append(f"invalid UC04-W0 release amendment: {exc}")
+        return {}
+    verify_document_digest(RELEASE_AMENDMENT_PATH, document, errors)
+    verify_no_authority(document, RELEASE_AMENDMENT_PATH.as_posix(), errors)
+    if (
+        document.get("program_id") != "UCPS"
+        or document.get("stage_id") != "UC04-W1B-CI-RECOVERY-01"
+        or document.get("upstream_stage") != "UC04-W0"
+        or document.get("status") != "PASS"
+    ):
+        errors.append("UC04-W0 release amendment identity or status mismatch")
+    records = document.get("records", [])
+    if not isinstance(records, list) or document.get("record_count") != len(records):
+        errors.append("UC04-W0 release amendment record count mismatch")
+        return {}
+    output: dict[str, dict[str, Any]] = {}
+    for row in records:
+        if not isinstance(row, dict):
+            errors.append("UC04-W0 release amendment contains a non-object record")
+            continue
+        verify_no_authority(row, RELEASE_AMENDMENT_PATH.as_posix(), errors)
+        relative = str(row.get("path", ""))
+        if not relative or relative in output:
+            errors.append(f"invalid or duplicate UC04-W0 release amendment path: {relative!r}")
+            continue
+        for field in ("previous_sha256", "current_sha256"):
+            value = row.get(field)
+            if not isinstance(value, str) or not SHA256_RE.fullmatch(value):
+                errors.append(f"invalid UC04-W0 release amendment digest {field}: {relative}")
+        target = repo / relative
+        if not target.is_file():
+            errors.append(f"UC04-W0 release amendment target missing: {relative}")
+        elif sha256_file(target) != str(row.get("current_sha256", "")):
+            errors.append(f"UC04-W0 release amendment current hash mismatch: {relative}")
+        output[relative] = row
+    return output
+
+
+def release_amendment_accepts(
+    amendments: dict[str, dict[str, Any]],
+    relative: str,
+    expected: str,
+    actual: str,
+) -> bool:
+    row = amendments.get(relative)
+    if row is None:
+        return False
+    return (
+        str(row.get("previous_sha256", "")).removeprefix("sha256:")
+        == expected.removeprefix("sha256:")
+        and str(row.get("current_sha256", "")).removeprefix("sha256:")
+        == actual.removeprefix("sha256:")
+        and row.get("semantic_change") is False
+        and row.get("runtime_authority_created") is False
+        and row.get("order_authority_created") is False
+        and row.get("capital_authority_created") is False
+    )
+
+
 def verify_release(repo: Path, errors: list[str]) -> None:
     release = repo / RELEASE_ROOT
+    amendments = load_release_amendments(repo, errors)
     required = {
         "README.md", "INSTALL.md", "ROLLBACK.md", "COMMIT_MESSAGE.txt", "APPLY.ps1",
         "PATCH_MANIFEST.json", "PATCH_FILE_INDEX.txt", "PATCH_FILE_HASHES.sha256", "QA_REPORT.json",
@@ -308,7 +441,10 @@ def verify_release(repo: Path, errors: list[str]) -> None:
         errors.append("patch hash ledger paths do not match the patch index")
     for rel, expected in ledger.items():
         target = repo / rel
-        if target.is_file() and "sha256:" + canonical_sha256(target) != expected:
+        if not target.is_file():
+            continue
+        actual = sha256_file(target)
+        if actual != expected and not release_amendment_accepts(amendments, rel, expected, actual):
             errors.append(f"patch hash mismatch: {rel}")
     manifest = read_json(release / "PATCH_MANIFEST.json")
     if manifest.get("patch_file_count") != len(index):

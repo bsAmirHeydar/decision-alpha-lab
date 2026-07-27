@@ -1,0 +1,8 @@
+fix(uc04-w1b): accept hydrated Git LFS checkout evidence
+
+- verify canonical LFS pointer metadata from the Git HEAD blob when available
+- accept pointer or hash-matching hydrated working-tree representations
+- preserve the immutable UC04-W0 release ledger through a bounded amendment
+- add pointer, hydrated-object, and corruption regression tests
+- add CI recovery documentation and schema-bound release evidence
+- grant no semantic, runtime, order, capital, deletion, or cutover authority

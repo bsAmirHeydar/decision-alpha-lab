@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json",
+  "title": "UC04 W0 Release Amendment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "upstream_stage",
+    "status",
+    "reason",
+    "record_count",
+    "records",
+    "semantic_change",
+    "runtime_authority_created",
+    "order_authority_created",
+    "capital_authority_created",
+    "document_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "stage_id": {
+      "const": "UC04-W1B-CI-RECOVERY-01"
+    },
+    "upstream_stage": {
+      "const": "UC04-W0"
+    },
+    "status": {
+      "const": "PASS"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_count": {
+      "const": 1
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "previous_sha256",
+          "current_sha256",
+          "change_class",
+          "semantic_change",
+          "runtime_authority_created",
+          "order_authority_created",
+          "capital_authority_created"
+        ],
+        "properties": {
+          "path": {
+            "const": "tools/consolidation/uc04w0/verify.py"
+          },
+          "previous_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "current_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "change_class": {
+            "const": "CI_LFS_CHECKOUT_REPRESENTATION_RECOVERY"
+          },
+          "semantic_change": {
+            "const": false
+          },
+          "runtime_authority_created": {
+            "const": false
+          },
+          "order_authority_created": {
+            "const": false
+          },
+          "capital_authority_created": {
+            "const": false
+          }
+        }
+      }
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "runtime_authority_created": {
+      "const": false
+    },
+    "order_authority_created": {
+      "const": false
+    },
+    "capital_authority_created": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "$schema": {
+      "const": "../../../schemas/consolidation/uc04/ci_recovery_release_amendment.schema.json"
+    }
+  }
+}

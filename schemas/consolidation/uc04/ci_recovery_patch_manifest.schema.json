@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/consolidation/uc04/ci_recovery_patch_manifest.schema.json",
+  "title": "UC04 CI Recovery Patch Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "release_id",
+    "status",
+    "intent",
+    "current_behavior",
+    "desired_behavior",
+    "scope",
+    "non_goals",
+    "preserved_invariants",
+    "patch_file_count",
+    "hash_ledger_entry_count",
+    "authority",
+    "rollback_strategy",
+    "residual_risks"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/consolidation/uc04/ci_recovery_patch_manifest.schema.json"},
+    "schema_version": {"const": "1.0.0"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-W1B-CI-RECOVERY-01"},
+    "release_id": {"const": "UC04_W1B_CI_LFS_RECOVERY_01"},
+    "status": {"const": "PASS_READY_FOR_INSTALL"},
+    "intent": {"type": "string", "minLength": 1},
+    "current_behavior": {"type": "string", "minLength": 1},
+    "desired_behavior": {"type": "string", "minLength": 1},
+    "scope": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "non_goals": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "preserved_invariants": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "patch_file_count": {"type": "integer", "minimum": 1},
+    "hash_ledger_entry_count": {"type": "integer", "minimum": 1},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["semantic_change", "runtime_authority", "order_authority", "capital_authority", "deletion_authority"],
+      "properties": {
+        "semantic_change": {"const": false},
+        "runtime_authority": {"const": false},
+        "order_authority": {"const": false},
+        "capital_authority": {"const": false},
+        "deletion_authority": {"const": false}
+      }
+    },
+    "rollback_strategy": {"type": "string", "minLength": 1},
+    "residual_risks": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}
