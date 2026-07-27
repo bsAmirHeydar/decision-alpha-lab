@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1b/entry_decision.schema.json",
+  "authorized_scope": [
+    "AUTOMATED_METAEDITOR_COMPILE_MATRIX",
+    "AUTOMATED_MT5_TEST_ONLY_SCRIPT_EXECUTION",
+    "HASH_BOUND_NATIVE_RECEIPT",
+    "DETERMINISTIC_INDEPENDENT_REVIEW",
+    "NON_APPLY_CUTOVER_CANDIDATE_GENERATION"
+  ],
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "decision_id": "UC04_W1B_Q_ENTRY_DECISION_V1",
+  "deletion_authority": false,
+  "document_digest": "sha256:2e6a29b39b6fc8cb2e85039f4c5066181754980120d2d56a31f9851261c016bc",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "implementation_authority": false,
+  "order_authority": false,
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1B-Q",
+  "status": "AUTHORIZED_NATIVE_QUALIFICATION_TOOLING_ONLY",
+  "upstream_stage": "UC04-W1A",
+  "upstream_status": "PASS_CHARACTERIZATION_IMPLEMENTATION_BLOCKED"
+}

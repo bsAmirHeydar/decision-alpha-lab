@@ -1,0 +1,9 @@
+fix(uc04-w1b): prevent Python bytecode mutation in staging
+
+- invoke installer-owned Python processes with -B
+- set and restore process-scoped PYTHONDONTWRITEBYTECODE=1
+- keep exact staging membership fail-closed
+- add extracted-ZIP subprocess regression coverage
+- preserve transactional staging, exact hashes, gates, and rollback
+- keep production formatter, ten consumers, and forty-one call sites unchanged
+- preserve zero implementation, cutover, order, runtime, and capital authority

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1b/evidence_review_policy.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:5c3dd1eadc28eb3c3972a924c391aaec82ecaa817f51c9ad16552067d9e12068",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "implementation_authority": false,
+  "order_authority": false,
+  "policy_id": "UC04_W1B_EVIDENCE_REVIEW_POLICY_V1",
+  "program_id": "UCPS",
+  "recomputed_controls": [
+    "CURRENT_SOURCE_HASHES",
+    "COMPILE_LOG_HASHES",
+    "COMPILED_EX5_HASHES",
+    "CLEAN_COMPILE_LOG_RESULT",
+    "RUNTIME_CSV_HASH",
+    "THIRTEEN_FIXTURE_IDENTITY_ORDER_AND_BYTES",
+    "SUMMARY_PASS",
+    "NO_AUTHORITY_GRANT"
+  ],
+  "required_receipt_status": "PASS",
+  "review_output": "independent_native_review.json",
+  "review_tool": "tools/consolidation/uc04w1b/native_review.py",
+  "review_tool_sha256": "sha256:69f37db50ad70d5a337bab09c54a4a67382269f88b2eebde385cdb5c4de3c3bd",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W1B-Q",
+  "status": "ENFORCED"
+}

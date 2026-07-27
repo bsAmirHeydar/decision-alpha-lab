@@ -1,0 +1,43 @@
+name: UC04 W1B Native Qualification Tooling
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uc04-w1b-native-qualification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tooling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade -r requirements.txt
+      - name: Verify upstream W0 and W1A
+        run: |
+          python -m tools.consolidation.uc04w0.verify --repo-root .
+          python -m tools.consolidation.uc04w1.verify --repo-root .
+      - name: Verify W1B qualification tooling
+        run: python -m tools.consolidation.uc04w1b.verify --repo-root .
+      - name: Verify installable release controls
+        run: |
+          python -m tools.consolidation.uc04w1b.build_release --repo-root . --check
+          python -m tools.consolidation.uc04w1b.package_validation verify-tree --repo-root .
+          python -m tools.consolidation.uc04w1b.package_validation build-zip --repo-root . --output "${RUNNER_TEMP}/ALPHA_LAB_UC04_W1B_Q_INSTALLABLE_PATCH.zip"
+          python -m tools.consolidation.uc04w1b.package_validation verify-zip --zip "${RUNNER_TEMP}/ALPHA_LAB_UC04_W1B_Q_INSTALLABLE_PATCH.zip"
+      - name: Run W1B unit tests
+        run: python -m pytest -q tests/consolidation/uc04w1b
+      - name: Prove repository-wide collection integrity
+        run: python -m pytest --collect-only -q

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1b/conditional_cutover_policy.schema.json",
+  "apply_authorized": false,
+  "candidate_builder": "tools/consolidation/uc04w1b/cutover_candidate.py",
+  "candidate_builder_sha256": "sha256:7349db267c994c20a3c446f9709ec95f79bb13c93e9589645cea8814b4b4aeb8",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:c8e3686b209170cf6ef78e2305926890e100c0f57c05ce908bafc49f15b50599",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "generated_change_shape": "ONE_PRODUCTION_INCLUDE_PLUS_TEN_LOCAL_NAME_WRAPPERS_PLUS_ONE_TEST_SCRIPT",
+  "implementation_authority": false,
+  "order_authority": false,
+  "output_boundary": ".alpha/runs/uc04w1b/cutover_candidates",
+  "policy_id": "UC04_W1B_CONDITIONAL_CUTOVER_POLICY_V1",
+  "preconditions": [
+    "NATIVE_RECEIPT_PASS",
+    "INDEPENDENT_REVIEW_PASS",
+    "W1A_CHARACTERIZATION_REPLAY_PASS",
+    "TEN_CONSUMER_HASHES_UNCHANGED"
+  ],
+  "program_id": "UCPS",
+  "required_post_generation_evidence": [
+    "POST_CUTOVER_METAEDITOR_0_ERROR_0_WARNING_MATRIX",
+    "PRODUCTION_SHARED_ENGINE_13_VECTOR_RUNTIME_PASS",
+    "FINAL_CUTOVER_REVIEW_PASS"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1B-Q",
+  "status": "CANDIDATE_GENERATION_ONLY"
+}

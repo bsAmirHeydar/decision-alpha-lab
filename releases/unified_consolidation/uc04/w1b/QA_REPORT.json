@@ -1,0 +1,132 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1b/qa_report.schema.json",
+  "authority": {
+    "capital_authority": false,
+    "consumer_cutover_authority": false,
+    "deletion_authority": false,
+    "implementation_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false
+  },
+  "environment": {
+    "metaeditor_runtime": "PENDING_LOCAL_WINDOWS",
+    "metatrader_runtime": "PENDING_LOCAL_WINDOWS",
+    "platform": "LINUX_X86_64_CONTAINER",
+    "powershell_runtime": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT",
+    "python": "3.13.5"
+  },
+  "gates": [
+    {
+      "command": "python tools/engineering/run_engineering_policy.py .",
+      "detail": "5/5 policy groups passed; 0 errors; 0 warnings",
+      "gate": "engineering_policy",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.ci.verify_migration_continuity --repo-root .",
+      "detail": "12,301 relocations; 1,418 rewrite files; 9 amendment paths; 0 errors",
+      "gate": "migration_continuity",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc03p3.verify --repo-root . --ci-fast",
+      "detail": "0 errors",
+      "gate": "uc03_part3",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w0.verify --repo-root .",
+      "detail": "0 errors",
+      "gate": "uc04_w0",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w1.verify --repo-root .",
+      "detail": "0 errors",
+      "gate": "uc04_w1a",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w1b.verify --repo-root .",
+      "detail": "PASS",
+      "gate": "uc04_w1b",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w1b.package_validation verify-tree --repo-root .",
+      "detail": "Index, hashes, schemas, line endings, LFS, secrets, paths, and PowerShell colon-interpolation hazards passed",
+      "gate": "release_tree",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w1b.package_validation build-zip --repo-root . --output <temp.zip>",
+      "detail": "Two independent deterministic builds produced identical SHA-256",
+      "gate": "deterministic_zip",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m tools.consolidation.uc04w1b.package_validation verify-tree --repo-root .",
+      "detail": "No non-scoped $Variable: interpolation remains; APPLY.ps1 uses the format operator for the exit-code message",
+      "gate": "powershell_parser_hazard_scan",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m pytest -q tests/consolidation/uc04w1b/test_package_validation.py::test_bytecode_disabled_subprocess_does_not_mutate_staging",
+      "detail": "Extracted ZIP validation subprocess passed with -B/PYTHONDONTWRITEBYTECODE=1 and produced zero __pycache__, .pyc, or .pyo files",
+      "gate": "python_bytecode_free_staging_replay",
+      "status": "PASS"
+    },
+    {
+      "command": "python -B -m pytest -p no:cacheprovider -q tests/consolidation/uc04w0 tests/consolidation/uc04w1 tests/consolidation/uc04w1b && python -B -m pytest -p no:cacheprovider --collect-only -q",
+      "detail": "Targeted and collection gates passed without creating .pytest_cache",
+      "gate": "cache_free_pytest_replay",
+      "status": "PASS"
+    }
+  ],
+  "lfs": {
+    "baseline_archive": "FOUR_HISTORICAL_POINTERS_WITHOUT_BLOBS",
+    "full_suite_effect": "BLOCKS_COMPLETE_LOCAL_FULL_SUITE_CLAIM",
+    "patch_payload": "NO_LFS_POINTERS"
+  },
+  "package": {
+    "deterministic_rebuild": "PASS",
+    "duplicate_entries": 0,
+    "lfs_pointers": 0,
+    "line_endings": "PASS",
+    "root_relative": true,
+    "schema_validation": "PASS",
+    "secret_findings": 0,
+    "tree_validation": "PASS",
+    "unsafe_paths": 0,
+    "zip_validation": "PASS"
+  },
+  "program_id": "UCPS",
+  "pytest_collection": {
+    "command": "python -B -m pytest -p no:cacheprovider --collect-only -q",
+    "errors": 0,
+    "tests_collected": 9758
+  },
+  "release_id": "UC04_W1B_Q_INSTALLABLE_R4",
+  "residual_risks": [
+    "POWERSHELL_INSTALLER_RUNTIME_NOT_EXECUTED_IN_LINUX_BUILD_ENVIRONMENT",
+    "METAEDITOR_AND_METATRADER_NATIVE_EVIDENCE_PENDING_LOCAL_WINDOWS_HOST",
+    "FULL_LOCAL_REPOSITORY_SUITE_BLOCKED_BY_HISTORICAL_LFS_PAYLOAD_ABSENCE"
+  ],
+  "schema_version": "1.2.0",
+  "stage_id": "UC04-W1B-Q",
+  "status": "PASS_TOOLING_NATIVE_EXECUTION_PENDING",
+  "targeted_tests": {
+    "command": "python -B -m pytest -p no:cacheprovider -q tests/consolidation/uc04w0 tests/consolidation/uc04w1 tests/consolidation/uc04w1b",
+    "failed": 0,
+    "passed": 41,
+    "skipped": 0
+  },
+  "unexecuted": [
+    "POWERSHELL_INSTALL_AND_AUTOMATIC_ROLLBACK_RUNTIME",
+    "METAEDITOR_COMPILE_MATRIX",
+    "METATRADER_RUNTIME_FIXTURE_EXECUTION",
+    "COMPLETE_REPOSITORY_TEST_SUITE_AFTER_HISTORICAL_LFS_BLOCKER"
+  ],
+  "warnings": []
+}

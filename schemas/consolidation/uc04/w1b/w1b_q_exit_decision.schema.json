@@ -1,0 +1,107 @@
+{
+  "$id": "urn:alpha-lab:uc04:w1b:decision_id",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "consumer_files_modified": {
+      "const": false
+    },
+    "cutover_candidate_status": {
+      "const": "BLOCKED_PENDING_NATIVE_REVIEW"
+    },
+    "decision_id": {
+      "const": "UC04_W1B_Q_EXIT_DECISION_V1"
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "independent_review_status": {
+      "const": "PENDING_NATIVE_RECEIPT"
+    },
+    "native_execution_performed": {
+      "const": false
+    },
+    "native_receipt_status": {
+      "const": "PENDING_LOCAL_WINDOWS"
+    },
+    "next_action": {
+      "const": "RUN_INVOKE_UC04W1BQUALIFICATION_ON_WINDOWS_MT5_HOST"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "production_repository_modified": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "status": {
+      "const": "ACCEPTED_TOOLING_NATIVE_EXECUTION_PENDING"
+    },
+    "tooling_complete": {
+      "const": true
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "candidate_id",
+    "engine_id",
+    "document_digest",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "decision_id",
+    "status",
+    "tooling_complete",
+    "native_execution_performed",
+    "native_receipt_status",
+    "independent_review_status",
+    "cutover_candidate_status",
+    "production_repository_modified",
+    "consumer_files_modified",
+    "next_action",
+    "semantic_change"
+  ],
+  "type": "object"
+}

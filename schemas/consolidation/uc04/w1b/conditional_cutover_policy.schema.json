@@ -1,0 +1,114 @@
+{
+  "$id": "urn:alpha-lab:uc04:w1b:policy_id",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "apply_authorized": {
+      "const": false
+    },
+    "candidate_builder": {
+      "type": "string"
+    },
+    "candidate_builder_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "generated_change_shape": {
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "order_authority": {
+      "const": false
+    },
+    "output_boundary": {
+      "type": "string"
+    },
+    "policy_id": {
+      "const": "UC04_W1B_CONDITIONAL_CUTOVER_POLICY_V1"
+    },
+    "preconditions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "required_post_generation_evidence": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "status": {
+      "const": "CANDIDATE_GENERATION_ONLY"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "candidate_id",
+    "engine_id",
+    "document_digest",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "policy_id",
+    "status",
+    "candidate_builder",
+    "candidate_builder_sha256",
+    "output_boundary",
+    "preconditions",
+    "generated_change_shape",
+    "apply_authorized",
+    "required_post_generation_evidence",
+    "semantic_change"
+  ],
+  "type": "object"
+}

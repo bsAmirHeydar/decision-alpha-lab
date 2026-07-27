@@ -1,0 +1,84 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1b/patch_manifest.schema.json",
+  "authority": {
+    "capital_authority": false,
+    "consumer_cutover_authority": false,
+    "deletion_authority": false,
+    "implementation_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false
+  },
+  "base_stage": "UC04-W1A",
+  "current_behavior": "R3 imports the staged Python validation package before exact membership verification; Python 3.14 writes __pycache__ bytecode into staging and the fail-closed validator correctly rejects the self-created extra files.",
+  "delivery_type": "installable_native_qualification_tooling",
+  "desired_behavior": "R4 invokes every installer-owned Python process with -B and process-scoped PYTHONDONTWRITEBYTECODE=1, disables the Pytest cache provider, and preserves exact payload membership without staging or repository cache mutation.",
+  "full_repository_suite_status": "NOT_COMPLETED_HISTORICAL_LFS_BLOCKER",
+  "hash_ledger_entry_count": 48,
+  "intent": "Prevent installer-owned Python bytecode generation from mutating isolated staging without weakening exact membership, hash, schema, market, execution, consumer, or authority contracts.",
+  "lfs_pointer_count": 0,
+  "line_ending_policy": {
+    "final_newline": true,
+    "other_text": "LF",
+    "powershell": "CRLF",
+    "utf8_bom": false
+  },
+  "native_evidence_status": "PENDING_LOCAL_WINDOWS_MT5",
+  "non_goals": [
+    "APPLY_PRODUCTION_CUTOVER",
+    "CREATE_MARKET_OR_EXECUTION_RULES",
+    "DELETE_LEGACY_HELPERS",
+    "GRANT_ANY_RUNTIME_ORDER_OR_CAPITAL_AUTHORITY",
+    "MODIFY_TEN_CONSUMERS_OR_FORTY_ONE_CALL_SITES",
+    "CLAIM_METAEDITOR_OR_MT5_EVIDENCE"
+  ],
+  "patch_file_count": 49,
+  "payload_total_bytes_excluding_manifest_and_hash_ledger": 195001,
+  "platform_contract": {
+    "installation": "WINDOWS_POWERSHELL_5_OR_NEWER",
+    "path_separator_in_index": "POSIX_FORWARD_SLASH",
+    "validation": "WINDOWS_AND_LINUX_PYTHON_3_11_PLUS",
+    "windows_case_collision_check": true
+  },
+  "preserved_invariants": [
+    "ALL_AUTHORITY_FIELDS_REMAIN_FALSE",
+    "CANDIDATE_AND_ENGINE_IDENTITIES_UNCHANGED",
+    "FORTY_ONE_CALL_SITES_UNCHANGED",
+    "NATIVE_QUALIFICATION_REMAINS_PENDING",
+    "TEN_CONSUMER_SOURCE_HASHES_UNCHANGED",
+    "YYYY_MM_DD_HH_MM_SS_OUTPUT_CONTRACT_UNCHANGED"
+  ],
+  "program_id": "UCPS",
+  "related_workflows": [
+    ".github/workflows/engineering-policy.yml",
+    ".github/workflows/uc04-semantic-foundation.yml",
+    ".github/workflows/uc04-w1-characterization.yml",
+    ".github/workflows/uc04-w1b-native-qualification.yml"
+  ],
+  "release_id": "UC04_W1B_Q_INSTALLABLE_R4",
+  "release_revision": 4,
+  "residual_risks": [
+    "POWERSHELL_INSTALLER_RUNTIME_NOT_EXECUTED_IN_LINUX_BUILD_ENVIRONMENT",
+    "METAEDITOR_AND_METATRADER_NATIVE_EVIDENCE_PENDING_LOCAL_WINDOWS_HOST",
+    "FULL_LOCAL_REPOSITORY_SUITE_BLOCKED_BY_FOUR_HISTORICAL_LFS_POINTERS_WITHOUT_BLOBS"
+  ],
+  "rollback_strategy": "BACK_UP_PRE_EXISTING_TARGETS_OUTSIDE_REPOSITORY_AND_RESTORE_ONLY_HASH_VERIFIED_BYTES; DELETE_NEW_FILES_ONLY_IF_UNCHANGED_SINCE_INSTALL",
+  "schema_version": "1.2.0",
+  "scope": [
+    "CACHE_FREE_INSTALLER_PYTEST_GATES",
+    "DETERMINISTIC_ROOT_RELATIVE_ZIP_BUILD_AND_REPLAY",
+    "EXACT_PATCH_INDEX_AND_SHA256_LEDGER",
+    "EXTRACTED_ZIP_SUBPROCESS_REGRESSION",
+    "JSON_SCHEMA_VALIDATED_RELEASE_CONTROLS",
+    "LFS_SECRET_PATH_AND_LINE_ENDING_VALIDATION",
+    "POWERSHELL_STRING_INTERPOLATION_HAZARD_VALIDATION",
+    "PYTHON_BYTECODE_FREE_STAGING_VALIDATION",
+    "RELATED_CI_AND_OBSIDIAN_DOCUMENTATION",
+    "TRANSACTIONAL_POWERSHELL_INSTALL_AND_ROLLBACK"
+  ],
+  "secret_finding_count": 0,
+  "stage_id": "UC04-W1B-Q",
+  "status": "ACCEPTED_TOOLING_NATIVE_EXECUTION_PENDING",
+  "title": "UC04-W1B-Q Installable Native Qualification Tooling R4",
+  "zip_layout": "ROOT_RELATIVE_FILES_ONLY_NO_REPOSITORY_WRAPPER"
+}

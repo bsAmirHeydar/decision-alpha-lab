@@ -1,0 +1,143 @@
+{
+  "$id": "urn:alpha-lab:uc04:w1b:contract_id",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "allow_dll_import": {
+      "const": false
+    },
+    "allow_live_trading": {
+      "const": false
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "capture_tool": {
+      "type": "string"
+    },
+    "capture_tool_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "compile_target_count": {
+      "const": 12
+    },
+    "compile_targets": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "contract_id": {
+      "const": "UC04_W1B_NATIVE_EXECUTION_CONTRACT_V1"
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "evidence_boundary": {
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "order_authority": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "required_compile_result": {
+      "const": "0_ERRORS_0_WARNINGS"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "runtime_fixture_count": {
+      "const": 13
+    },
+    "runtime_output_relative_to_common_files": {
+      "type": "string"
+    },
+    "runtime_program_type": {
+      "const": "SCRIPT"
+    },
+    "runtime_required_summary": {
+      "const": "PASS"
+    },
+    "runtime_source": {
+      "type": "string"
+    },
+    "runtime_source_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "status": {
+      "const": "READY_FOR_LOCAL_WINDOWS_EXECUTION"
+    },
+    "terminal_test_files_restored": {
+      "const": true
+    },
+    "tracked_source_mutation": {
+      "const": false
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "candidate_id",
+    "engine_id",
+    "document_digest",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "contract_id",
+    "status",
+    "capture_tool",
+    "capture_tool_sha256",
+    "compile_target_count",
+    "compile_targets",
+    "required_compile_result",
+    "runtime_program_type",
+    "runtime_source",
+    "runtime_source_sha256",
+    "runtime_output_relative_to_common_files",
+    "runtime_fixture_count",
+    "runtime_required_summary",
+    "evidence_boundary",
+    "terminal_test_files_restored",
+    "tracked_source_mutation",
+    "allow_live_trading",
+    "allow_dll_import"
+  ],
+  "type": "object"
+}

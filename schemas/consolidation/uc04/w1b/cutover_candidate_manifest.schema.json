@@ -1,0 +1,136 @@
+{
+  "$id": "urn:alpha-lab:uc04:w1b:candidate_manifest_id",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "active_call_site_count": {
+      "const": 41
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "candidate_manifest_id": {
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "consumer_changes": {
+      "items": {
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "type": "array"
+    },
+    "consumer_count": {
+      "const": 10
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "independent_review_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "native_receipt_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "next_required_evidence": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "order_authority": {
+      "const": false
+    },
+    "patch_file_count": {
+      "minimum": 12,
+      "type": "integer"
+    },
+    "patch_hashes": {
+      "type": "object"
+    },
+    "patch_paths": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "production_include": {
+      "type": "string"
+    },
+    "production_runner": {
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "status": {
+      "const": "GENERATED_PENDING_POST_CUTOVER_NATIVE_QUALIFICATION"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "candidate_id",
+    "engine_id",
+    "document_digest",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "candidate_manifest_id",
+    "status",
+    "native_receipt_sha256",
+    "independent_review_sha256",
+    "production_include",
+    "production_runner",
+    "consumer_count",
+    "active_call_site_count",
+    "consumer_changes",
+    "patch_file_count",
+    "patch_paths",
+    "patch_hashes",
+    "semantic_change",
+    "next_required_evidence"
+  ],
+  "type": "object"
+}
