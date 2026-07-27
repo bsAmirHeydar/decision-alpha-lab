@@ -1,0 +1,84 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/consumer_cutover_plan.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_count": 10,
+  "consumer_cutover_authority": false,
+  "consumer_files_modified": false,
+  "consumers": [
+    {
+      "call_site_count": 6,
+      "legacy_function_name": "D0005_FormatDateTime",
+      "path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 4,
+      "legacy_function_name": "D0006_FormatDateTime",
+      "path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 1,
+      "legacy_function_name": "E0001_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 4,
+      "legacy_function_name": "E0002_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 11,
+      "legacy_function_name": "E0003_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 5,
+      "legacy_function_name": "E0004_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 5,
+      "legacy_function_name": "E0005_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 3,
+      "legacy_function_name": "E0006_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 2,
+      "legacy_function_name": "E0010_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    },
+    {
+      "call_site_count": 0,
+      "legacy_function_name": "E0011_FormatDateTime",
+      "path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+      "planned_status": "PENDING_NATIVE_ACCEPTANCE"
+    }
+  ],
+  "deletion_authority": false,
+  "document_digest": "sha256:ee6feb0a2ef7bb980299b876b5d0f8c2f708ba2bd27e228136ac5aa56ae2aeec",
+  "implementation_authority": false,
+  "legacy_helper_deletion_planned": false,
+  "order_authority": false,
+  "plan_id": "UC04_W1A_CONSUMER_CUTOVER_PLAN_V1",
+  "program_id": "UCPS",
+  "rollback_strategy": "RESTORE_PRE_CUTOVER_SOURCE_HASHES_AND_REMOVE_CANONICAL_INCLUDE",
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1A",
+  "status": "PLANNED_NOT_AUTHORIZED",
+  "strategy": "ADD_CANONICAL_INCLUDE_AND_RETAIN_LOCAL_NAME_WRAPPER",
+  "target_path": "mql5/Include/AlphaLab/ContextOS/Shared/ENG_9599AA665C5BC4B13B020EBA4213CB16/AL_DeterministicDateTimeFormat.mqh"
+}

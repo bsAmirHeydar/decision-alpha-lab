@@ -1,0 +1,158 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/capability_migration_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "ledger_id": {
+      "const": "UC04_W1A_CAPABILITY_MIGRATION_LEDGER_V1",
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "previous_ledger": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "row_count": {
+      "const": 1,
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+            "type": "string"
+          },
+          "capability_id": {
+            "const": "DETERMINISTIC_MQL5_DATETIME_FORMATTING",
+            "type": "string"
+          },
+          "characterization_status": {
+            "const": "PASS",
+            "type": "string"
+          },
+          "consumer_cutover_status": {
+            "const": "NOT_STARTED",
+            "type": "string"
+          },
+          "deletion_authority": {
+            "const": false,
+            "type": "boolean"
+          },
+          "disposition": {
+            "const": "MERGE",
+            "type": "string"
+          },
+          "equivalence_status": {
+            "const": "BLOCKED_NATIVE_PENDING",
+            "type": "string"
+          },
+          "source_paths": {
+            "items": {
+              "minLength": 1,
+              "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+              "type": "string"
+            },
+            "maxItems": 10,
+            "minItems": 10,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "target_path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "capability_id",
+          "candidate_id",
+          "source_paths",
+          "target_path",
+          "disposition",
+          "characterization_status",
+          "equivalence_status",
+          "consumer_cutover_status",
+          "deletion_authority"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "OPEN",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "ledger_id",
+    "status",
+    "previous_ledger",
+    "row_count",
+    "rows",
+    "semantic_change",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority"
+  ],
+  "title": "UC04-W1A Capability Migration Ledger",
+  "type": "object"
+}

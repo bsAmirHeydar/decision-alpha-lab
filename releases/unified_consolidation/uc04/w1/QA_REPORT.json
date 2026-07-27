@@ -1,0 +1,41 @@
+{
+  "authority": {
+    "capital_authority": false,
+    "consumer_cutover_authority": false,
+    "deletion_authority": false,
+    "implementation_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false
+  },
+  "candidate": {
+    "active_call_sites": 41,
+    "consumer_count": 10,
+    "distinct_function_bodies": 1,
+    "historical_source_hashes_preserved": true
+  },
+  "engineering_policy": "PASS",
+  "fixture_corpus": {
+    "comparison": "BYTE_EXACT_ASCII",
+    "fixture_count": 13,
+    "reference_result": "PASS"
+  },
+  "full_repository_suite": "NOT_RECLAIMED_HISTORICAL_LFS_BLOCKER_REMAINS",
+  "native_metaeditor": "PENDING_LOCAL_WINDOWS",
+  "native_runtime": "PENDING_LOCAL_WINDOWS",
+  "program_id": "UCPS",
+  "pytest_collection": {
+    "errors": 0,
+    "tests_collected": 9745
+  },
+  "schema_version": "1.0.0",
+  "scoped_tests": {
+    "failed": 0,
+    "passed": 28,
+    "skipped": 0
+  },
+  "stage_id": "UC04-W1A",
+  "status": "PASS_CHARACTERIZATION_IMPLEMENTATION_BLOCKED",
+  "uc04_w0_logical_foundation": "PASS",
+  "uc04_w1a_verifier": "PASS"
+}

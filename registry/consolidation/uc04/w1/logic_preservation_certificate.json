@@ -1,0 +1,80 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/logic_preservation_certificate.schema.json",
+  "blocking_reasons": [
+    "METAEDITOR_COMPILE_EVIDENCE_NOT_CAPTURED",
+    "NATIVE_RUNTIME_FIXTURE_RECEIPT_NOT_CAPTURED",
+    "INDEPENDENT_REVIEW_NOT_RECORDED"
+  ],
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "certificate_id": "UC04_W1A_LOGIC_PRESERVATION_CERTIFICATE_V1",
+  "characterization_evidence": [
+    "registry/consolidation/uc04/w1/candidate_inventory.json",
+    "registry/consolidation/uc04/w1/format_contract.json",
+    "registry/consolidation/uc04/w1/fixture_corpus.json"
+  ],
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:1d4638f56ad05b2ea69c1797323a8c4eaf2e69f856b2c24184d887fa8f0d9414",
+  "implementation_authority": false,
+  "known_time_preserved": true,
+  "native_evidence": [],
+  "order_authority": false,
+  "program_id": "UCPS",
+  "reference_target": {
+    "path": "mql5/Tests/Include/AlphaLab/UC04W1/AL_UC04W1_ReferenceDateTimeFormat.mqh",
+    "production": false,
+    "sha256": "sha256:08625e2118de8e8995c8b43dcc3448aec987c7f7400d2f8af51bddbef4e9e859"
+  },
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "side_effects_preserved": true,
+  "source_digests": [
+    {
+      "path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+      "sha256": "sha256:d0013a98ac2b93264b4f259c34a6ea4251e5dce00fffc1f812750738d9adb21c"
+    },
+    {
+      "path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+      "sha256": "sha256:3dee7dd70c0d9f22c27c53d20a0f0e7076029988cfdc9119b699b9ee64853f1c"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+      "sha256": "sha256:a02dcfcc88819033174abd0b21b68b332df7543770a5e15e5448f13378b998ed"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+      "sha256": "sha256:188c1be87e5a227e1c37178c0aaa3353ed634bed6156826f795126e8aa97dbf1"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+      "sha256": "sha256:83b5d08665495e2a5195aa48d2279c2ffe49db484b6297ef3757d1af2c27ed9d"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+      "sha256": "sha256:d50cbe0e66b93f08801164405481f34e23ba1db3fc6382a80ab0bcb0ad7bf45c"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+      "sha256": "sha256:3724dad524e58837e46478c7736a8ade2eeb980e55df495ace7436990328b6d6"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+      "sha256": "sha256:0483e354e23aafd6e776985d7e3e00fc539f4c0553623debd93f585a27e5aa80"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+      "sha256": "sha256:5a782165a6a8effdcb2ef5c644f4df644ff2c93b596a15944ad25227767c4547"
+    },
+    {
+      "path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+      "sha256": "sha256:2650b2d2cacf23517743c4f13e9d232b2a245edd843f71489e46b725ed9d7118"
+    }
+  ],
+  "stage_id": "UC04-W1A",
+  "static_equivalence_evidence": [
+    "registry/consolidation/uc04/w1/static_equivalence_record.json"
+  ],
+  "status": "BLOCKED_PENDING_NATIVE_EVIDENCE"
+}

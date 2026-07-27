@@ -1,0 +1,238 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/candidate_inventory.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "active_call_site_count": {
+      "const": 41,
+      "type": "integer"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "category": {
+      "const": "DETERMINISTIC_FORMATTING",
+      "type": "string"
+    },
+    "consumer_count": {
+      "const": 10,
+      "type": "integer"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "distinct_function_body_count": {
+      "const": 1,
+      "type": "integer"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+      "type": "string"
+    },
+    "function_body_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "historical_candidate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "historical_normalized_body_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "inventory_id": {
+      "const": "UC04_W1A_DETERMINISTIC_DATETIME_CANDIDATE_INVENTORY_V1",
+      "type": "string"
+    },
+    "members": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+            "type": "string"
+          },
+          "artifact_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "call_site_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "current_bar_access": {
+            "const": false,
+            "type": "boolean"
+          },
+          "family": {
+            "enum": [
+              "DEBUG",
+              "EXECUTION"
+            ],
+            "type": "string"
+          },
+          "file_read_api": {
+            "const": false,
+            "type": "boolean"
+          },
+          "file_write_api": {
+            "const": false,
+            "type": "boolean"
+          },
+          "function_body_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "function_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "function_text_sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "line_end": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "line_start": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "network_api": {
+            "const": false,
+            "type": "boolean"
+          },
+          "object_mutation_api": {
+            "const": false,
+            "type": "boolean"
+          },
+          "order_api": {
+            "const": false,
+            "type": "boolean"
+          },
+          "session_or_dst_access": {
+            "const": false,
+            "type": "boolean"
+          },
+          "signature": {
+            "const": "string(const datetime value)",
+            "type": "string"
+          },
+          "timeframe_access": {
+            "const": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifact_path",
+          "function_name",
+          "family",
+          "artifact_sha256",
+          "function_text_sha256",
+          "function_body_sha256",
+          "line_start",
+          "line_end",
+          "call_site_count",
+          "signature",
+          "current_bar_access",
+          "timeframe_access",
+          "session_or_dst_access",
+          "file_read_api",
+          "file_write_api",
+          "network_api",
+          "object_mutation_api",
+          "order_api"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "type": "array"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "repository_wide_exact_match_count": {
+      "const": 10,
+      "type": "integer"
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "PASS",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "inventory_id",
+    "status",
+    "candidate_id",
+    "engine_id",
+    "category",
+    "historical_candidate_digest",
+    "historical_normalized_body_sha256",
+    "consumer_count",
+    "active_call_site_count",
+    "distinct_function_body_count",
+    "function_body_sha256",
+    "members",
+    "repository_wide_exact_match_count",
+    "semantic_change",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority"
+  ],
+  "title": "UC04-W1A Candidate Inventory",
+  "type": "object"
+}

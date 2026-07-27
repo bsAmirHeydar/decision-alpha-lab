@@ -1,0 +1,146 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/consumer_cutover_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_count": {
+      "const": 10,
+      "type": "integer"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_files_modified": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "call_site_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "legacy_function_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+            "type": "string"
+          },
+          "planned_status": {
+            "const": "PENDING_NATIVE_ACCEPTANCE",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "legacy_function_name",
+          "call_site_count",
+          "planned_status"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "type": "array"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "legacy_helper_deletion_planned": {
+      "const": false,
+      "type": "boolean"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "plan_id": {
+      "const": "UC04_W1A_CONSUMER_CUTOVER_PLAN_V1",
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "rollback_strategy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "PLANNED_NOT_AUTHORIZED",
+      "type": "string"
+    },
+    "strategy": {
+      "const": "ADD_CANONICAL_INCLUDE_AND_RETAIN_LOCAL_NAME_WRAPPER",
+      "type": "string"
+    },
+    "target_path": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "plan_id",
+    "status",
+    "candidate_id",
+    "target_path",
+    "strategy",
+    "consumer_count",
+    "consumers",
+    "rollback_strategy",
+    "legacy_helper_deletion_planned",
+    "consumer_files_modified",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "semantic_change",
+    "order_authority",
+    "capital_authority"
+  ],
+  "title": "UC04-W1A Consumer Cutover Plan",
+  "type": "object"
+}

@@ -1,0 +1,145 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/w1a_exit_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "accepted_evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 11,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "active_call_site_count": {
+      "const": 41,
+      "type": "integer"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_count": {
+      "const": 10,
+      "type": "integer"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_files_modified": {
+      "const": false,
+      "type": "boolean"
+    },
+    "decision_id": {
+      "const": "UC04_W1A_EXIT_DECISION_V1",
+      "type": "string"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fixture_count": {
+      "const": 13,
+      "type": "integer"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "logic_preservation_certificate_status": {
+      "const": "BLOCKED_PENDING_NATIVE_EVIDENCE",
+      "type": "string"
+    },
+    "native_compile_status": {
+      "const": "PENDING_LOCAL_WINDOWS",
+      "type": "string"
+    },
+    "native_runtime_status": {
+      "const": "PENDING_LOCAL_WINDOWS",
+      "type": "string"
+    },
+    "next_delivery": {
+      "const": "UC04-W1B_NATIVE_QUALIFICATION_AND_BOUNDED_CUTOVER",
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "production_target_materialized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "static_equivalence_status": {
+      "const": "PASS",
+      "type": "string"
+    },
+    "status": {
+      "const": "CHARACTERIZATION_ACCEPTED_IMPLEMENTATION_BLOCKED",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "decision_id",
+    "status",
+    "candidate_id",
+    "consumer_count",
+    "active_call_site_count",
+    "fixture_count",
+    "static_equivalence_status",
+    "native_compile_status",
+    "native_runtime_status",
+    "logic_preservation_certificate_status",
+    "production_target_materialized",
+    "consumer_files_modified",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "semantic_change",
+    "next_delivery",
+    "accepted_evidence"
+  ],
+  "title": "UC04-W1A Exit Decision",
+  "type": "object"
+}

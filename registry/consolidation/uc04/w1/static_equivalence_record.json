@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/static_equivalence_record.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "consumer_cutover_authorized": false,
+  "document_digest": "sha256:eb2791788d36669ccc2c81bba0b1472afc5ff3c457db3a2e9b43d810d28d56e5",
+  "exact_body_count": 1,
+  "fixture_reference_result": "EQUIVALENT",
+  "implementation_authorized": false,
+  "known_time_equivalence": true,
+  "native_compile_result": "PENDING_LOCAL_WINDOWS",
+  "native_runtime_result": "PENDING_LOCAL_WINDOWS",
+  "program_id": "UCPS",
+  "record_id": "UC04_W1A_STATIC_EQUIVALENCE_RECORD_V1",
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "side_effect_equivalence": true,
+  "signature_equivalence": true,
+  "source_hashes_match_historical_lcm": true,
+  "source_member_count": 10,
+  "stage_id": "UC04-W1A",
+  "status": "PASS_STATIC_NATIVE_PENDING"
+}

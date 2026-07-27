@@ -1,0 +1,105 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/implementation_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_cutover_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "decision_id": {
+      "const": "UC04_W1A_IMPLEMENTATION_DECISION_V1",
+      "type": "string"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "production_materialization_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "reference_implementation_allowed": {
+      "const": true,
+      "type": "boolean"
+    },
+    "required_next_evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "source_delete_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "source_move_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "BLOCKED_PENDING_NATIVE_EVIDENCE",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "decision_id",
+    "status",
+    "candidate_id",
+    "reference_implementation_allowed",
+    "production_materialization_authorized",
+    "consumer_cutover_authorized",
+    "source_move_authorized",
+    "source_delete_authorized",
+    "required_next_evidence",
+    "semantic_change",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority"
+  ],
+  "title": "UC04-W1A Implementation Decision",
+  "type": "object"
+}

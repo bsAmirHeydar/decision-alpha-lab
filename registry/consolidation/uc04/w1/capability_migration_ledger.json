@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/capability_migration_ledger.schema.json",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:8db9087f0a081d4b087c1cf3aa1a4e9553dc9a2ce3a0d8ce6d5772f1cfde7dd1",
+  "implementation_authority": false,
+  "ledger_id": "UC04_W1A_CAPABILITY_MIGRATION_LEDGER_V1",
+  "order_authority": false,
+  "previous_ledger": "registry/consolidation/uc04/w0/capability_migration_ledger.json",
+  "program_id": "UCPS",
+  "row_count": 1,
+  "rows": [
+    {
+      "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "capability_id": "DETERMINISTIC_MQL5_DATETIME_FORMATTING",
+      "characterization_status": "PASS",
+      "consumer_cutover_status": "NOT_STARTED",
+      "deletion_authority": false,
+      "disposition": "MERGE",
+      "equivalence_status": "BLOCKED_NATIVE_PENDING",
+      "source_paths": [
+        "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+        "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+        "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+        "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+        "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+        "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+        "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+        "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+        "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+        "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5"
+      ],
+      "target_path": "mql5/Include/AlphaLab/ContextOS/Shared/ENG_9599AA665C5BC4B13B020EBA4213CB16/AL_DeterministicDateTimeFormat.mqh"
+    }
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1A",
+  "status": "OPEN"
+}

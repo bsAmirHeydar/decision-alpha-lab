@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/fixture_corpus.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "comparison_mode": "BYTE_EXACT_ASCII",
+  "consumer_cutover_authority": false,
+  "corpus_id": "UC04_W1A_DATETIME_FORMAT_FIXTURE_CORPUS_V1",
+  "document_digest": "sha256:95e07523bc4152ad99c5d0016b95c00def69141379b06050d6d30907fc1a737c",
+  "fixture_count": 13,
+  "fixtures": [
+    {
+      "expected": "1970.01.01 00:00:00",
+      "fixture_id": "UC04W1_DT_001",
+      "mql5_literal": "D'1970.01.01 00:00:00'",
+      "unix_seconds": 0
+    },
+    {
+      "expected": "1970.01.01 00:00:01",
+      "fixture_id": "UC04W1_DT_002",
+      "mql5_literal": "D'1970.01.01 00:00:01'",
+      "unix_seconds": 1
+    },
+    {
+      "expected": "1970.01.01 00:00:59",
+      "fixture_id": "UC04W1_DT_003",
+      "mql5_literal": "D'1970.01.01 00:00:59'",
+      "unix_seconds": 59
+    },
+    {
+      "expected": "1970.01.01 00:01:00",
+      "fixture_id": "UC04W1_DT_004",
+      "mql5_literal": "D'1970.01.01 00:01:00'",
+      "unix_seconds": 60
+    },
+    {
+      "expected": "1970.01.01 23:59:59",
+      "fixture_id": "UC04W1_DT_005",
+      "mql5_literal": "D'1970.01.01 23:59:59'",
+      "unix_seconds": 86399
+    },
+    {
+      "expected": "1970.01.02 00:00:00",
+      "fixture_id": "UC04W1_DT_006",
+      "mql5_literal": "D'1970.01.02 00:00:00'",
+      "unix_seconds": 86400
+    },
+    {
+      "expected": "1999.12.31 23:59:59",
+      "fixture_id": "UC04W1_DT_007",
+      "mql5_literal": "D'1999.12.31 23:59:59'",
+      "unix_seconds": 946684799
+    },
+    {
+      "expected": "2000.02.29 12:34:56",
+      "fixture_id": "UC04W1_DT_008",
+      "mql5_literal": "D'2000.02.29 12:34:56'",
+      "unix_seconds": 951827696
+    },
+    {
+      "expected": "2009.02.13 23:31:30",
+      "fixture_id": "UC04W1_DT_009",
+      "mql5_literal": "D'2009.02.13 23:31:30'",
+      "unix_seconds": 1234567890
+    },
+    {
+      "expected": "2024.02.29 00:00:00",
+      "fixture_id": "UC04W1_DT_010",
+      "mql5_literal": "D'2024.02.29 00:00:00'",
+      "unix_seconds": 1709164800
+    },
+    {
+      "expected": "2026.07.27 12:34:56",
+      "fixture_id": "UC04W1_DT_011",
+      "mql5_literal": "D'2026.07.27 12:34:56'",
+      "unix_seconds": 1785155696
+    },
+    {
+      "expected": "2038.01.19 03:14:07",
+      "fixture_id": "UC04W1_DT_012",
+      "mql5_literal": "D'2038.01.19 03:14:07'",
+      "unix_seconds": 2147483647
+    },
+    {
+      "expected": "2099.12.31 23:59:59",
+      "fixture_id": "UC04W1_DT_013",
+      "mql5_literal": "D'2099.12.31 23:59:59'",
+      "unix_seconds": 4102444799
+    }
+  ],
+  "implementation_authority": false,
+  "metamorphic_properties": [
+    "FIXED_LENGTH_19",
+    "ASCII_ONLY",
+    "PUNCTUATION_AT_FIXED_OFFSETS",
+    "CHRONOLOGICAL_ORDER_PRESERVES_LEXICOGRAPHIC_ORDER",
+    "FUNCTION_NAME_INVARIANCE",
+    "LOCALE_INVARIANCE_BY_CONTRACT"
+  ],
+  "native_execution_performed": false,
+  "program_id": "UCPS",
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1A",
+  "status": "PASS_REFERENCE"
+}

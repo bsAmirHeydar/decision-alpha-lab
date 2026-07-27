@@ -1,0 +1,135 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/native_acceptance_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capture_tool": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "compile_target_count": {
+      "const": 11,
+      "type": "integer"
+    },
+    "compile_targets": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+        "type": "string"
+      },
+      "maxItems": 11,
+      "minItems": 11,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "native_compile_performed": {
+      "const": false,
+      "type": "boolean"
+    },
+    "native_runtime_performed": {
+      "const": false,
+      "type": "boolean"
+    },
+    "plan_id": {
+      "const": "UC04_W1A_NATIVE_ACCEPTANCE_PLAN_V1",
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "receipt_output_boundary": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "required_compile_result": {
+      "const": "0_ERRORS_0_WARNINGS",
+      "type": "string"
+    },
+    "required_runtime_summary": {
+      "const": "PASS",
+      "type": "string"
+    },
+    "runtime_fixture_count": {
+      "const": 13,
+      "type": "integer"
+    },
+    "runtime_output_file": {
+      "const": "UC04W1_DeterministicDateTimeFormatSelfTest.csv",
+      "type": "string"
+    },
+    "runtime_output_location": {
+      "const": "MT5_COMMON_FILES",
+      "type": "string"
+    },
+    "runtime_self_test": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "PENDING_LOCAL_WINDOWS",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "plan_id",
+    "status",
+    "candidate_id",
+    "capture_tool",
+    "compile_target_count",
+    "compile_targets",
+    "required_compile_result",
+    "runtime_self_test",
+    "runtime_fixture_count",
+    "runtime_output_file",
+    "runtime_output_location",
+    "required_runtime_summary",
+    "receipt_output_boundary",
+    "native_compile_performed",
+    "native_runtime_performed",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "semantic_change"
+  ],
+  "title": "UC04-W1A Native Acceptance Plan",
+  "type": "object"
+}

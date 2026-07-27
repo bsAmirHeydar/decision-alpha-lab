@@ -1,0 +1,166 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/datetime_format_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "calendar_projection": {
+      "const": "MQL5_TimeToStruct",
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "contract_id": {
+      "const": "UC04_W1A_DETERMINISTIC_DATETIME_FORMAT_CONTRACT_V1",
+      "type": "string"
+    },
+    "decimal_contract": {
+      "const": "NOT_APPLICABLE",
+      "type": "string"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exact_format_string": {
+      "const": "%04d.%02d.%02d %02d:%02d:%02d",
+      "type": "string"
+    },
+    "failure_contract": {
+      "const": "LEGACY_TimeToStruct_RETURN_VALUE_IGNORED",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "input_type": {
+      "const": "datetime",
+      "type": "string"
+    },
+    "known_time_semantics": {
+      "const": "PURE_REPRESENTATION_ONLY_NO_TIME_ACQUISITION",
+      "type": "string"
+    },
+    "locale_contract": {
+      "const": "ASCII_DIGITS_AND_FIXED_SEPARATORS",
+      "type": "string"
+    },
+    "null_contract": {
+      "const": "NOT_APPLICABLE_DATETIME_IS_VALUE_TYPE",
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "output_length": {
+      "const": 19,
+      "type": "integer"
+    },
+    "output_regex": {
+      "const": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
+      "type": "string"
+    },
+    "output_type": {
+      "const": "string",
+      "type": "string"
+    },
+    "precision": {
+      "const": "SECOND",
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "side_effects": {
+      "items": {},
+      "maxItems": 0,
+      "type": "array"
+    },
+    "sign_contract": {
+      "const": "NOT_APPLICABLE",
+      "type": "string"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "FROZEN",
+      "type": "string"
+    },
+    "timezone_conversion": {
+      "const": "NONE",
+      "type": "string"
+    },
+    "zero_value_output": {
+      "const": "1970.01.01 00:00:00",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "contract_id",
+    "status",
+    "candidate_id",
+    "input_type",
+    "output_type",
+    "exact_format_string",
+    "output_regex",
+    "output_length",
+    "precision",
+    "calendar_projection",
+    "timezone_conversion",
+    "locale_contract",
+    "zero_value_output",
+    "null_contract",
+    "sign_contract",
+    "decimal_contract",
+    "failure_contract",
+    "side_effects",
+    "known_time_semantics",
+    "semantic_change",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority"
+  ],
+  "title": "UC04-W1A Datetime Format Contract",
+  "type": "object"
+}

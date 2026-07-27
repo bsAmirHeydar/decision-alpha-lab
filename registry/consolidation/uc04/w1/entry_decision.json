@@ -1,0 +1,43 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/entry_decision.schema.json",
+  "authorized_actions": [
+    "SOURCE_AND_CONSUMER_INVENTORY",
+    "BYTE_EXACT_FIXTURE_FREEZE",
+    "TEST_ONLY_REFERENCE_IMPLEMENTATION",
+    "STATIC_DIFFERENTIAL_AND_METAMORPHIC_TESTS",
+    "NATIVE_ACCEPTANCE_HARNESS",
+    "CUTOVER_PLAN_WITHOUT_WRITE"
+  ],
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "decision_id": "UC04_W1A_ENTRY_DECISION_V1",
+  "deletion_authority": false,
+  "document_digest": "sha256:7fdedc686a0c991290dd2bdbe8a5271838c12e3587e1fa5f326a35eae5de4ee6",
+  "implementation_authority": false,
+  "order_authority": false,
+  "program_id": "UCPS",
+  "prohibited_actions": [
+    "PRODUCTION_SHARED_ENGINE_MATERIALIZATION",
+    "CONSUMER_SOURCE_MUTATION",
+    "ORDER_CAPABLE_CODE_CHANGE",
+    "SOURCE_MOVE_OR_DELETE",
+    "SEMANTIC_CHANGE",
+    "RUNTIME_ORDER_OR_CAPITAL_AUTHORITY"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1A",
+  "status": "ACCEPTED_CHARACTERIZATION_ONLY",
+  "upstream_evidence": [
+    {
+      "path": "registry/consolidation/uc04/w0/w0_exit_decision.json",
+      "sha256": "sha256:44767be6f6b3be79a4cc5a1995fd689c7dee0797993e67878763077d2e5d4b2c"
+    },
+    {
+      "path": "registry/consolidation/uc04/w0/first_candidate_registration.json",
+      "sha256": "sha256:68e746978f512aa16655aa53544d451ff8fe1b71f3a99d354da16deb21be5bb9"
+    }
+  ]
+}

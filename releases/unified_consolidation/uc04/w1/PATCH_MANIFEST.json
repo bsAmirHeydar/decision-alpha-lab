@@ -1,0 +1,24 @@
+{
+  "authority": {
+    "capital_authority": false,
+    "consumer_cutover_authority": false,
+    "deletion_authority": false,
+    "implementation_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false
+  },
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "consumer_count": 10,
+  "delivery_type": "deterministic_mql5_datetime_characterization",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "fixture_count": 13,
+  "hash_ledger_entry_count": 53,
+  "next_delivery": "UC04-W1B_NATIVE_QUALIFICATION_AND_BOUNDED_CUTOVER",
+  "patch_file_count": 54,
+  "program_id": "UCPS",
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W1A",
+  "status": "CHARACTERIZATION_ACCEPTED_IMPLEMENTATION_BLOCKED",
+  "title": "Deterministic MQL5 DateTime Formatting Characterization"
+}

@@ -1,0 +1,185 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/logic_preservation_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "blocking_reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "certificate_id": {
+      "const": "UC04_W1A_LOGIC_PRESERVATION_CERTIFICATE_V1",
+      "type": "string"
+    },
+    "characterization_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array"
+    },
+    "consumer_cutover_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "deletion_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "implementation_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "known_time_preserved": {
+      "const": true,
+      "type": "boolean"
+    },
+    "native_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+        "type": "string"
+      },
+      "maxItems": 0,
+      "type": "array"
+    },
+    "order_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "reference_target": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+          "type": "string"
+        },
+        "production": {
+          "const": false,
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "production"
+      ],
+      "type": "object"
+    },
+    "runtime_authority": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "side_effects_preserved": {
+      "const": true,
+      "type": "boolean"
+    },
+    "source_digests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "type": "array"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "static_equivalence_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\).+$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "status": {
+      "const": "BLOCKED_PENDING_NATIVE_EVIDENCE",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "certificate_id",
+    "status",
+    "candidate_id",
+    "source_digests",
+    "reference_target",
+    "characterization_evidence",
+    "static_equivalence_evidence",
+    "native_evidence",
+    "known_time_preserved",
+    "side_effects_preserved",
+    "semantic_change",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "blocking_reasons"
+  ],
+  "title": "UC04-W1A Logic Preservation Certificate",
+  "type": "object"
+}

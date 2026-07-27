@@ -1,0 +1,110 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w1/static_equivalence_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "type": "string"
+    },
+    "consumer_cutover_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exact_body_count": {
+      "const": 1,
+      "type": "integer"
+    },
+    "fixture_reference_result": {
+      "const": "EQUIVALENT",
+      "type": "string"
+    },
+    "implementation_authorized": {
+      "const": false,
+      "type": "boolean"
+    },
+    "known_time_equivalence": {
+      "const": true,
+      "type": "boolean"
+    },
+    "native_compile_result": {
+      "const": "PENDING_LOCAL_WINDOWS",
+      "type": "string"
+    },
+    "native_runtime_result": {
+      "const": "PENDING_LOCAL_WINDOWS",
+      "type": "string"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "record_id": {
+      "const": "UC04_W1A_STATIC_EQUIVALENCE_RECORD_V1",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "type": "boolean"
+    },
+    "side_effect_equivalence": {
+      "const": true,
+      "type": "boolean"
+    },
+    "signature_equivalence": {
+      "const": true,
+      "type": "boolean"
+    },
+    "source_hashes_match_historical_lcm": {
+      "const": true,
+      "type": "boolean"
+    },
+    "source_member_count": {
+      "const": 10,
+      "type": "integer"
+    },
+    "stage_id": {
+      "const": "UC04-W1A",
+      "type": "string"
+    },
+    "status": {
+      "const": "PASS_STATIC_NATIVE_PENDING",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "document_digest",
+    "record_id",
+    "status",
+    "candidate_id",
+    "source_member_count",
+    "exact_body_count",
+    "source_hashes_match_historical_lcm",
+    "signature_equivalence",
+    "side_effect_equivalence",
+    "known_time_equivalence",
+    "fixture_reference_result",
+    "native_compile_result",
+    "native_runtime_result",
+    "implementation_authorized",
+    "consumer_cutover_authorized",
+    "semantic_change"
+  ],
+  "title": "UC04-W1A Static Equivalence Record",
+  "type": "object"
+}

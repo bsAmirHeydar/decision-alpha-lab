@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1/implementation_decision.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authorized": false,
+  "decision_id": "UC04_W1A_IMPLEMENTATION_DECISION_V1",
+  "document_digest": "sha256:37b119e734f7f44d6bd8d1351dd930994af9c3d9ef27c9a6603d701df9c62037",
+  "order_authority": false,
+  "production_materialization_authorized": false,
+  "program_id": "UCPS",
+  "reference_implementation_allowed": true,
+  "required_next_evidence": [
+    "METAEDITOR_0_ERROR_0_WARNING_COMPILE_MATRIX",
+    "NATIVE_SELF_TEST_13_VECTOR_PASS_RECEIPT",
+    "INDEPENDENT_REVIEW_PASS"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "source_delete_authorized": false,
+  "source_move_authorized": false,
+  "stage_id": "UC04-W1A",
+  "status": "BLOCKED_PENDING_NATIVE_EVIDENCE"
+}
