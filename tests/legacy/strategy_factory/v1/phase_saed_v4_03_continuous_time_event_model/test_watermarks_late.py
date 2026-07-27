@@ -3,7 +3,7 @@ from dataclasses import replace
 from saed_v4_event_model.service import ContinuousTimeEventService
 from saed_v4_event_model.enums import LatePolicy
 from saed_v4_event_model.errors import LateEventError
-from helpers import batch
+from .helpers import batch
 
 def _late_after_head(stream_nq,nq_events):
     e=nq_events[-1]

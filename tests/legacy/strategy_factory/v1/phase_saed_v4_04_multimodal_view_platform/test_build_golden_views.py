@@ -1,4 +1,4 @@
-from helpers import service_and_specs,request
+from .helpers import service_and_specs,request
 from saed_v4_multimodal_views.enums import ViewStatus,CompatibilityStatus
 
 def test_all_golden_views_build():

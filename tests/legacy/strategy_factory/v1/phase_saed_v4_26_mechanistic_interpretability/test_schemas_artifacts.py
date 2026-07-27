@@ -10,14 +10,14 @@ def closed(x):
  return True
 
 def test_schema_pairs_are_closed():
- from conftest import EXAMPLES,ARTIFACTS,SCHEMAS,load
+ from .conftest import EXAMPLES,ARTIFACTS,SCHEMAS,load
  instances=sorted(EXAMPLES.glob("*.JSON"))+sorted(ARTIFACTS.glob("*.JSON"))
  assert len(instances)==39
  for p in instances:
   s=load(SCHEMAS/f"{p.stem}.SCHEMA.JSON"); assert closed(s); jsonschema.validate(load(p),s,cls=jsonschema.Draft202012Validator)
 @pytest.mark.parametrize("directory_name",["examples","artifacts"])
 def test_unknown_field_rejected(directory_name):
- from conftest import EXAMPLES,ARTIFACTS,SCHEMAS,load
+ from .conftest import EXAMPLES,ARTIFACTS,SCHEMAS,load
  d=EXAMPLES if directory_name=="examples" else ARTIFACTS
  for p in sorted(d.glob("*.JSON"))[:8]:
   value=load(p); schema=load(SCHEMAS/f"{p.stem}.SCHEMA.JSON")

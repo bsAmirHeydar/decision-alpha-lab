@@ -1,7 +1,7 @@
 import json
 from jsonschema import Draft202012Validator
 from strategy_factory_contracts_v3 import canonical_sha256
-from helpers import ROOT,CONTEXT,REGISTRY,FIXTURE,load,records
+from .helpers import ROOT,CONTEXT,REGISTRY,FIXTURE,load,records
 
 INSTANCE_SCHEMA={
  'feature_catalog.v1.json':'rthp_ai_feature_catalog.schema.json',

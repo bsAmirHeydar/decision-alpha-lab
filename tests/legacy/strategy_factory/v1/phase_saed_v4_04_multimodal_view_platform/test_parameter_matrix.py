@@ -1,5 +1,5 @@
 import pytest
-from helpers import service_and_specs,request
+from .helpers import service_and_specs,request
 from saed_v4_multimodal_views.transforms import apply_transform
 from saed_v4_multimodal_views.enums import TransformKind
 @pytest.mark.parametrize('index',range(30))

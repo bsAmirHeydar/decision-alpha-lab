@@ -1,0 +1,97 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/semantic_equivalence_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "comparison_method": {
+      "enum": [
+        "BYTE_EXACT",
+        "STRUCTURAL",
+        "BEHAVIORAL_TRACE",
+        "NUMERIC_TOLERANCE",
+        "MULTI_METHOD"
+      ],
+      "type": "string"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fixtures": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "observables": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "NOT_EVALUATED",
+        "EQUIVALENT",
+        "NOT_EQUIVALENT",
+        "INCONCLUSIVE"
+      ],
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "record_id",
+    "candidate_id",
+    "status",
+    "observables",
+    "fixtures",
+    "comparison_method",
+    "result",
+    "semantic_change",
+    "document_digest"
+  ],
+  "title": "UC04 Semantic Equivalence Record",
+  "type": "object"
+}

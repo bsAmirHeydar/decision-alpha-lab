@@ -1,4 +1,4 @@
-from helpers import solve
+from .helpers import solve
 from saed_v4_action_lattice.graph import validate_dag,validate_atomic_edges
 def test_dag_and_atomic_edges():
  l=solve()['action_lattice'];assert len(validate_dag(l['nodes'],l['edges']))==38;validate_atomic_edges(l['nodes'],l['edges'])

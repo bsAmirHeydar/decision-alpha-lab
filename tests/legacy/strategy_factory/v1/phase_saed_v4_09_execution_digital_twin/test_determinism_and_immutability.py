@@ -1,5 +1,5 @@
 import copy
-from helpers import inputs,built
+from .helpers import inputs,built
 from saed_v4_execution_twin.models import ExecutionTwinProfile
 from saed_v4_execution_twin.twin import build_execution_twin
 

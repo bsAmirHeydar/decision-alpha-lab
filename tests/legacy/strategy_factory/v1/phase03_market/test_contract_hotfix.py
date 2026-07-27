@@ -1,7 +1,7 @@
 import pytest
 from strategy_factory_contracts.records import BarRecord
 from strategy_factory_contracts.validation import validate_terminal_symbol
-from helpers import bar
+from .helpers import bar
 
 @pytest.mark.parametrize("symbol", ["#US30", "NQ.c", "EURUSD.a", "XAUUSD-pro", "BTCUSD_i"])
 def test_real_broker_symbol_grammar_is_supported(symbol: str) -> None:

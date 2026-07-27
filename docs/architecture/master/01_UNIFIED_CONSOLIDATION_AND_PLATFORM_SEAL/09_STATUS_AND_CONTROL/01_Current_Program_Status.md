@@ -4,9 +4,9 @@ title: "Current Program Status"
 type: status
 status: active
 domain: unified-consolidation-platform-seal
-version: 1.0.0
+version: 1.1.0
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-27
 tags:
   - consolidation
   - platform-seal
@@ -15,22 +15,26 @@ tags:
 
 ## Status date
 
-2026-07-23
+2026-07-27
 
 ## Program state
 
-`DOCUMENTATION_FOUNDATION_READY_FOR_UC01`
+`UC04_W0_ACCEPTED_W1_AUTHORIZED`
 
-The seven-stage program, target state, Context Factory, logic-preservation method, quality gates, documentation authority and governed templates are defined. No consolidation stage is yet accepted as complete.
-
-## Prior program state
-
-LCM-16B implementation exists, but its final certificate is not issued and zero deletion authority was exercised. LCM evidence is input to UC-01; it does not replace the new preservation baseline.
+UC-01 preservation, UC-02 authority standardization and UC-03 physical reorganization are accepted. UC04-W0 has recovered canonical repository paths, repository-wide test collection, historical gate continuity and the RTHP golden operational boundary after relocation.
 
 ## Active stage
 
-UC-01 is the only allowed execution stage after this documentation foundation is merged.
+UC-04 is active. The only authorized next implementation is UC04-W1 characterization and bounded implementation of the deterministic MQL5 formatting primitive.
+
+## Verified W0 evidence
+
+- 9,732 tests collected with zero collection errors;
+- 166 scoped consolidation, RTHP and UC04-W0 tests passed;
+- 7 controlled historical skips reported;
+- Engineering Policy, migration continuity and UC-03 physical closure pass;
+- no Context, model, Train Engine, execution or capital semantics changed.
 
 ## Destructive authority
 
-Disabled. No deletion, semantic retirement or broad consumer cutover is authorized by this documentation patch.
+Disabled. Semantic retirement and legacy deletion require candidate-specific equivalence, zero-consumer evidence, rollback proof and a separate accepted decision.

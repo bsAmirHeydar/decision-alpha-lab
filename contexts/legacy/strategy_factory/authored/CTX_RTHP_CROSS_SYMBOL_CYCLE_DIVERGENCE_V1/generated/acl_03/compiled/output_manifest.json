@@ -39,12 +39,12 @@
     },
     {
       "bytes": 213,
-      "content_digest": "sha256:05394e928d71d93555eb628cf39461cf7fdc9e27fdfaefb8e918ce2d13196fe3",
+      "content_digest": "sha256:c4c405c47a396bbd92a64f41190ed3d2912ca7581e1e9d3d3f1f501f8cc6b727",
       "relative_path": "docs/GENERATED_FILES.md"
     },
     {
       "bytes": 1252,
-      "content_digest": "sha256:47d75fab8ace2940ed25d2e978d39d82783964b89773435eb19d33e0527dab0d",
+      "content_digest": "sha256:4961b5af3ccf57fdc4ba8adf4f282ebb7cd3f7dbd3805a093e950bdd18036bde",
       "relative_path": "handoff/acl04_handoff.json"
     },
     {
@@ -53,8 +53,8 @@
       "relative_path": "ir/detector_ir.json"
     },
     {
-      "bytes": 1605,
-      "content_digest": "sha256:84a39331338a29b4ff2549a42281a0820ce00c1a60754ee5a95a669cad617e27",
+      "bytes": 1621,
+      "content_digest": "sha256:2bf54fc5bdc9ceb8c8be87e63522e73b70bb46636b013e494ae0d9eafea89f15",
       "relative_path": "ir/feature_binding_ir.json"
     },
     {
@@ -69,12 +69,12 @@
     },
     {
       "bytes": 3360,
-      "content_digest": "sha256:48944b636c3942fe9dec4bd67d912315176dd1977b26e2efbd56e2ae906ba704",
+      "content_digest": "sha256:e7fa593f3a7b821731a5f1fed426b629a8ed8c47bea53d96ffc723fdb377972b",
       "relative_path": "lineage/lineage_graph.json"
     },
     {
       "bytes": 4124,
-      "content_digest": "sha256:1f715c1a62cd606f0abd7d1bbd373aa87eb937d8c1cf3c663803b08e948a58e8",
+      "content_digest": "sha256:ad8da17cc3bdb4137d46c0750a18d858617e731501144c8e55d0f660ea00d41a",
       "relative_path": "plan/compiler_plan.json"
     },
     {
@@ -134,12 +134,12 @@
     },
     {
       "bytes": 9156,
-      "content_digest": "sha256:c68e5c14398ccfb0c79f4b2e0695bdf46bcf7e9a1469422011cd3fb8c19c0b9f",
+      "content_digest": "sha256:e1db3db71e1987bc43b271d704f1e445fcf950005153590813f72e3f4f47cdab",
       "relative_path": "source/source_snapshot.json"
     }
   ],
   "entry_count": 27,
-  "manifest_digest": "sha256:619a7fe35fca96c1e3b141cfee2d2b3a4487153b304506ef4886fc7f41d0ced1",
+  "manifest_digest": "sha256:1dbad545d38cb7488c59c5aaf52562fcd7759212d0306792e97821cb13a30514",
   "schema_version": "1.0.0",
-  "source_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18"
+  "source_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df"
 }

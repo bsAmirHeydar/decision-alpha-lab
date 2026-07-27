@@ -1,6 +1,6 @@
 import pytest
 from strategy_factory_market import BarCache, TickCache, TickSnapshot
-from helpers import bar
+from .helpers import bar
 
 def test_tick_cache_rejects_out_of_order_tick() -> None:
     cache = TickCache()

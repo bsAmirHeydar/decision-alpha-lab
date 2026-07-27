@@ -7,6 +7,8 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
+from tools.repository_paths import RepositoryPaths, find_repository_root, migrated_relative_path
+
 from .canonical import canonical_json, sha256_file, sha256_material, write_json, write_jsonl
 from .config import ActivationConfig
 from .features import EncodedObservation, RTHPFeatureEncoder
@@ -17,16 +19,6 @@ from .trainer_bridge import RTHPTrainerBridge
 
 
 PACKAGE_VERSION = "1.0.0"
-
-
-def find_repository_root(start: Path | None = None) -> Path:
-    current = (start or Path(__file__)).resolve()
-    if current.is_file():
-        current = current.parent
-    for candidate in (current, *current.parents):
-        if (candidate / "lab" / "11_strategy_factory").is_dir() and (candidate / "registry").is_dir():
-            return candidate
-    raise RuntimeError("unable to resolve repository root")
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -97,12 +89,16 @@ class RTHPTrainActivationPipeline:
 
     def __init__(self, config: ActivationConfig, repository_root: Path | None = None):
         self.config = config
-        self.repository_root = (repository_root or find_repository_root()).resolve()
-        self.ai_input_root = self.repository_root / "lab" / "11_strategy_factory" / "generated_contexts" / "rthp_cross_symbol_cycle_divergence" / "ai_input"
+        root = repository_root or find_repository_root(__file__)
+        self.paths = RepositoryPaths.from_root(root)
+        self.repository_root = self.paths.root
+        generated = self.paths.generated_context("rthp_cross_symbol_cycle_divergence")
+        authored = self.paths.authored_context("CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1")
+        self.ai_input_root = generated / "ai_input"
         self.task_registry_path = self.ai_input_root / "task_references.v1.json"
         self.label_bindings_path = self.ai_input_root / "label_bindings.v1.json"
-        self.context_manifest_path = self.repository_root / "lab" / "11_strategy_factory" / "contexts" / "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1" / "context_manifest.yaml"
-        self.acl03_receipt_path = self.repository_root / "lab" / "11_strategy_factory" / "contexts" / "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1" / "generated" / "acl_03" / "compiled" / "compilation_receipt.json"
+        self.context_manifest_path = authored / "context_manifest.yaml"
+        self.acl03_receipt_path = authored / "generated/acl_03/compiled/compilation_receipt.json"
         self._validate_repository_inputs()
 
     def _validate_repository_inputs(self) -> None:
@@ -118,15 +114,23 @@ class RTHPTrainActivationPipeline:
         if "context_version: 1.0.2" not in context_text:
             raise ValueError("RTHP canonical Context 1.0.2 is required")
         output = self.config.output_root.resolve()
+        logical_output = output
+        try:
+            relative_output = output.relative_to(self.repository_root.resolve())
+        except ValueError:
+            relative_output = None
+        if relative_output is not None:
+            logical_output = self.repository_root / migrated_relative_path(self.repository_root, relative_output)
         protected = (
-            self.repository_root / "lab" / "11_strategy_factory" / "contexts",
-            self.repository_root / "lab" / "11_strategy_factory" / "python",
-            self.repository_root / "tools" / "strategy_factory",
-            self.repository_root / "registry",
+            self.paths.context_root,
+            self.paths.source_root,
+            self.paths.registry_root,
+            self.paths.schema_root,
+            self.paths.release_root,
         )
         for root in protected:
             try:
-                output.relative_to(root.resolve())
+                logical_output.relative_to(root.resolve())
             except ValueError:
                 continue
             raise ValueError(f"run output must not be written into a protected source tree: {output}")
@@ -134,7 +138,7 @@ class RTHPTrainActivationPipeline:
             output.relative_to(self.repository_root.resolve())
         except ValueError:
             return
-        allowed = (self.repository_root / "lab" / "11_strategy_factory" / "runs").resolve()
+        allowed = self.paths.runtime_run_root.resolve()
         try:
             output.relative_to(allowed)
         except ValueError as exc:

@@ -1,4 +1,4 @@
-from helpers import solve,load
+from .helpers import solve,load
 def test_golden_result_exact():
  o=solve();assert o['solver_result']==load('golden_solver_result.json')
 def test_golden_lattice_exact():

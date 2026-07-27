@@ -2,7 +2,7 @@ import pytest
 from dataclasses import replace
 from saed_v4_event_model.service import ContinuousTimeEventService
 from saed_v4_event_model.errors import SequenceError,JournalError,DuplicateConflict
-from helpers import batch
+from .helpers import batch
 
 def test_append_commits_atomically(stream_nq,nq_events):
     s=ContinuousTimeEventService();s.register_stream(stream_nq);r=s.append(batch(stream_nq,nq_events));assert len(r.committed_event_ids)==4 and r.head_sequence==4

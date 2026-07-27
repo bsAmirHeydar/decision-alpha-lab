@@ -8,6 +8,10 @@
     "independent_reviewer"
   ],
   "decision": "APPROVE",
-  "source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+  "previous_source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+  "relocation_amendment": "generated/acl_03/evidence/source_snapshot_relocation_amendment_uc03.json",
+  "relocation_amendment_digest": "sha256:0dfe7c036d7a494ebeff7e889363883e548c39c52b85df110dedc51d155d3f9a",
+  "semantic_change": false,
+  "source_snapshot_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df",
   "subject_artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.2#sha256:abac746292c964be66eed0bb311a8a79e2b7116532a5471d6a1d9b094ea70c37"
 }

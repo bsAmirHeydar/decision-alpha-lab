@@ -1,0 +1,18 @@
+{
+  "capital_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:3d6442bf89417dbd7a30113b6b3dfbd9af0c078ebbcc5fee6824b9904bc30141",
+  "ledger_id": "UC04_CAPABILITY_MIGRATION_LEDGER_V1",
+  "order_authority": false,
+  "program_id": "UCPS",
+  "row_count": 0,
+  "row_schema": "schemas/consolidation/uc04/capability_migration_ledger_row.schema.json",
+  "rows": [],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "OPEN",
+  "w0_statement": "UC04-W0 performs no shared-primitive merge and therefore creates no migration row."
+}

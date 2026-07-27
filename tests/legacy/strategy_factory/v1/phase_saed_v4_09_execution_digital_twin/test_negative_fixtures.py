@@ -1,6 +1,6 @@
 from pathlib import Path
 import pytest
-from conftest import ROOT
+from .conftest import ROOT
 from saed_v4_execution_twin.models import ExecutionTwinProfile
 import json
 

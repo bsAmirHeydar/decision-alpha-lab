@@ -1,4 +1,4 @@
-from helpers import build
+from .helpers import build
 from saed_v4_treatment_dsl.catalog import institutional_registry
 from saed_v4_treatment_dsl.diff import semantic_diff
 from saed_v4_treatment_dsl.partition import deterministic_partition

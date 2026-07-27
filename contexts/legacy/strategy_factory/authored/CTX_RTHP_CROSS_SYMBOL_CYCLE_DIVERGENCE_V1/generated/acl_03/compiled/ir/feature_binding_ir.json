@@ -42,7 +42,7 @@
   ],
   "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
   "context_version": "1.0.2",
-  "feature_binding_ir_digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+  "feature_binding_ir_digest": "sha256:a9ed98e7fbf62b3059fed25527ca24c604ac91fbc15fb2b9544068928ede7992",
   "feature_order_frozen": true,
   "fusion_policy": "Join only by registered symbol-pair identity, family scope, cycle identities, and equal synchronized confirmation-close identity.",
   "missing_view_policy": "MASK_AND_ABSTAIN",

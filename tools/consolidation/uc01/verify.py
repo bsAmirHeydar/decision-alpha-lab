@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -14,8 +15,60 @@ from .constants import (
 )
 from .git_utils import git_available, list_repository_files, run_command
 from .io_utils import iter_jsonl_gz, read_json, sha256_file
+from tools.repository_paths import resolve_repository_path
 
 
+
+
+def _canonical_digest(value: dict, omitted_field: str) -> str:
+    material = {key: item for key, item in value.items() if key != omitted_field}
+    payload = json.dumps(material, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
+def _uc04_w0_static_amendments(repo_root: Path) -> tuple[dict[str, dict], list[str]]:
+    path = repo_root / "registry/consolidation/uc04/w0/uc01_static_amendment.json"
+    if not path.is_file():
+        return {}, []
+    errors: list[str] = []
+    try:
+        document = read_json(path)
+    except Exception as exc:
+        return {}, [f"invalid UC04-W0 UC01 amendment: {exc}"]
+    if document.get("stage_id") != "UC04-W0" or document.get("status") != "PASS":
+        errors.append("UC04-W0 UC01 amendment is not a PASS document")
+    if document.get("amendment_digest") != _canonical_digest(document, "amendment_digest"):
+        errors.append("UC04-W0 UC01 amendment digest mismatch")
+    records: dict[str, dict] = {}
+    for row in document.get("records", []):
+        rel = str(row.get("legacy_path", ""))
+        if not rel or rel in records:
+            errors.append(f"invalid or duplicate UC04-W0 UC01 amendment path: {rel}")
+            continue
+        if row.get("semantic_change") is not False:
+            errors.append(f"semantic change is forbidden in UC04-W0 UC01 amendment: {rel}")
+        for key in ("runtime_authority_created", "order_authority_created", "capital_authority_created"):
+            if row.get(key) is not False:
+                errors.append(f"authority escalation in UC04-W0 UC01 amendment: {rel}: {key}")
+        records[rel] = row
+    return records, errors
+
+
+def _resolve_current_path(repo_root: Path, rel: str) -> Path:
+    return resolve_repository_path(repo_root, rel, require_exists=False)
+
+
+def _amendment_accepts(repo_root: Path, amendments: dict[str, dict], rel: str, target: Path, actual: str, original: str | None = None) -> bool:
+    row = amendments.get(rel)
+    if row is None or not target.is_file():
+        return False
+    if str(row.get("current_path", "")) != target.relative_to(repo_root).as_posix():
+        return False
+    if str(row.get("current_sha256", "")).removeprefix("sha256:") != actual.removeprefix("sha256:"):
+        return False
+    if original is not None and str(row.get("uc01_sha256", "")).removeprefix("sha256:") != original.removeprefix("sha256:"):
+        return False
+    return True
 
 
 def _uc03_part2_chain(repo_root: Path) -> tuple[dict[str, dict], dict[str, dict], dict[str, str]]:
@@ -64,6 +117,8 @@ def verify_static_patch(repo_root: Path) -> dict:
     release = repo_root / RELEASE_RELATIVE_ROOT
     errors: list[str] = []
     relocation_rows, rewrite_rows, static_amendments = _uc03_part2_chain(repo_root)
+    uc04_amendments, amendment_errors = _uc04_w0_static_amendments(repo_root)
+    errors.extend(amendment_errors)
     try:
         manifest = read_json(release / "UC01_PATCH_MANIFEST.json")
     except Exception as exc:
@@ -73,15 +128,16 @@ def verify_static_patch(repo_root: Path) -> dict:
     if len(paths) != manifest.get("total_path_count") or len(paths) != len(set(paths)):
         errors.append("static file index count or uniqueness mismatch")
     for rel in paths:
-        target, relocation = _resolve_uc03_part2_path(repo_root, rel, relocation_rows)
+        target = _resolve_current_path(repo_root, rel)
+        relocation = relocation_rows.get(rel)
         if not target.is_file():
             errors.append(f"static patch path missing: {rel}")
         elif relocation is not None:
             source_hash = str(relocation.get("source_sha256", ""))
             rewrite = rewrite_rows.get(str(relocation.get("destination", "")))
             current_expected = str(rewrite.get("after_sha256")) if rewrite else source_hash
-            if current_expected and sha256_file(target) != current_expected:
-                errors.append(f"UC-03 Part 2 relocation chain mismatch: {rel}")
+            if current_expected and sha256_file(target) != current_expected and not _amendment_accepts(repo_root, uc04_amendments, rel, target, sha256_file(target), None):
+                errors.append(f"UC-03 relocation chain mismatch: {rel}")
     ledger_path = release / "UC01_PATCH_FILE_HASHES.sha256"
     ledger_entries = {}
     if ledger_path.is_file():
@@ -99,7 +155,8 @@ def verify_static_patch(repo_root: Path) -> dict:
     if set(ledger_entries) != expected_ledger:
         errors.append("static hash ledger path set mismatch")
     for rel, digest in ledger_entries.items():
-        target, relocation = _resolve_uc03_part2_path(repo_root, rel, relocation_rows)
+        target = _resolve_current_path(repo_root, rel)
+        relocation = relocation_rows.get(rel)
         if not target.is_file():
             continue
         actual = sha256_file(target)
@@ -109,9 +166,9 @@ def verify_static_patch(repo_root: Path) -> dict:
                 errors.append(f"UC-03 Part 2 source-chain mismatch: {rel}")
             rewrite = rewrite_rows.get(str(relocation.get("destination", "")))
             expected_current = str(rewrite.get("after_sha256")) if rewrite else str(relocation.get("source_sha256", ""))
-            if expected_current and actual != expected_current:
-                errors.append(f"UC-03 Part 2 destination-chain mismatch: {rel}")
-        elif actual != digest and static_amendments.get(rel) != actual:
+            if expected_current and actual != expected_current and not _amendment_accepts(repo_root, uc04_amendments, rel, target, actual, digest):
+                errors.append(f"UC-03 destination-chain mismatch: {rel}")
+        elif actual != digest and static_amendments.get(rel) != actual and not _amendment_accepts(repo_root, uc04_amendments, rel, target, actual, digest):
             errors.append(f"static patch hash mismatch: {rel}")
     inventory_path = release / "UC01_PATCH_ARTIFACT_INVENTORY.csv"
     if inventory_path.is_file():
@@ -138,13 +195,14 @@ def verify_static_patch(repo_root: Path) -> dict:
     if set(original_hashes) != expected_modified or set(patched_hashes) != expected_modified:
         errors.append("UC-01 repair provenance hash maps do not match the bounded repair set")
     for rel in expected_modified:
-        target, relocation = _resolve_uc03_part2_path(repo_root, rel, relocation_rows)
+        target = _resolve_current_path(repo_root, rel)
+        relocation = relocation_rows.get(rel)
         if target.is_file():
             if relocation is not None:
                 source_hash = str(relocation.get("source_sha256", ""))
                 if patched_hashes.get(rel) != source_hash and static_amendments.get(rel) != source_hash:
                     errors.append(f"UC-01 repaired relocation source does not match its declared patched hash: {rel}")
-            elif patched_hashes.get(rel) != sha256_file(target) and static_amendments.get(rel) != sha256_file(target):
+            elif patched_hashes.get(rel) != sha256_file(target) and static_amendments.get(rel) != sha256_file(target) and not _amendment_accepts(repo_root, uc04_amendments, rel, target, sha256_file(target), patched_hashes.get(rel)):
                 errors.append(f"UC-01 repaired path does not match its declared patched hash: {rel}")
         if original_hashes.get(rel) == patched_hashes.get(rel):
             errors.append(f"UC-01 repair provenance does not distinguish original and patched bytes: {rel}")

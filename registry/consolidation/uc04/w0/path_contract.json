@@ -1,0 +1,79 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/path_contract.schema.json",
+  "archive_checkout_supported": true,
+  "canonical_roots": {
+    "authored_strategy_factory_contexts": "contexts/legacy/strategy_factory/authored",
+    "contexts": "contexts",
+    "documentation": "docs/architecture/master",
+    "generated_strategy_factory_contexts": "contexts/legacy/strategy_factory/generated",
+    "historical_registry": "registry/history",
+    "packages": "src/engine/packages",
+    "registry": "registry",
+    "releases": "releases",
+    "runtime_runs": ".alpha/runs",
+    "schemas": "schemas",
+    "source": "src/engine",
+    "tooling": "src/engine/tooling"
+  },
+  "capital_authority": false,
+  "contract_id": "UC04_W0_CANONICAL_REPOSITORY_PATH_CONTRACT_V1",
+  "document_digest": "sha256:f051d5314d2d2270a7c6381f1c295345f1c6b2566a26aae9e097838480bdceb1",
+  "git_metadata_required": false,
+  "implementation": "tools/repository_paths.py",
+  "legacy_prefix_mappings": [
+    {
+      "canonical_prefix": "src/engine/packages/",
+      "legacy_prefix": "lab/11_strategy_factory/python/",
+      "resolution_mode": "EXACT_RECEIPT_FIRST"
+    },
+    {
+      "canonical_prefix": "src/engine/tooling/strategy_factory/",
+      "legacy_prefix": "lab/11_strategy_factory/tools/",
+      "resolution_mode": "EXACT_RECEIPT_FIRST"
+    },
+    {
+      "canonical_prefix": "src/engine/tooling/strategy_factory/",
+      "legacy_prefix": "tools/strategy_factory/",
+      "resolution_mode": "EXPLICIT_PREFIX_FALLBACK"
+    },
+    {
+      "canonical_prefix": "contexts/legacy/strategy_factory/authored/",
+      "legacy_prefix": "lab/11_strategy_factory/contexts/",
+      "resolution_mode": "EXACT_RECEIPT_FIRST"
+    },
+    {
+      "canonical_prefix": "contexts/legacy/strategy_factory/generated/",
+      "legacy_prefix": "lab/11_strategy_factory/generated_contexts/",
+      "resolution_mode": "EXACT_RECEIPT_FIRST"
+    },
+    {
+      "canonical_prefix": "registry/history/strategy_factory/",
+      "legacy_prefix": "registry/strategy_factory/",
+      "resolution_mode": "EXPLICIT_PREFIX_FALLBACK"
+    },
+    {
+      "canonical_prefix": "registry/history/acl/",
+      "legacy_prefix": "registry/acl_os/",
+      "resolution_mode": "EXPLICIT_PREFIX_FALLBACK"
+    },
+    {
+      "canonical_prefix": "docs/architecture/master/",
+      "legacy_prefix": "docs/alpha_lab_master_architecture/",
+      "resolution_mode": "EXPLICIT_PREFIX_FALLBACK"
+    }
+  ],
+  "order_authority": false,
+  "program_id": "UCPS",
+  "resolution_order": [
+    "DIRECT_EXISTING_PATH",
+    "UC03_EXACT_RELOCATION_RECEIPT",
+    "EXPLICIT_LEGACY_PREFIX_FALLBACK",
+    "FAIL_EXPLICITLY_IF_REQUIRED_TARGET_MISSING"
+  ],
+  "runtime_authority": false,
+  "runtime_output_boundary": ".alpha/runs",
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W0",
+  "status": "ACTIVE"
+}

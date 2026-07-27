@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 import jsonschema
-from conftest import ROOT,load
+from .conftest import ROOT,load
 
 def test_all_schemas_are_closed_objects():
     for p in (ROOT/'schemas/legacy/strategy_factory/saed_v4_09').glob('*.schema.json'):

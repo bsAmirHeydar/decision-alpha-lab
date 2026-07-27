@@ -1,4 +1,4 @@
-from helpers import built
+from .helpers import built
 
 def _row(twin,source,scenario):return next(r for r in twin['rows'] if r['source_row_id']==source and r['scenario_id']==scenario)
 

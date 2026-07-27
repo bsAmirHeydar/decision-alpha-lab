@@ -1,4 +1,4 @@
-from helpers import cube
+from .helpers import cube
 from saed_v4_outcome_cube.integrity import build_receipt
 from saed_v4_outcome_cube.validation import validate_cube
 def test_integrity_receipt():

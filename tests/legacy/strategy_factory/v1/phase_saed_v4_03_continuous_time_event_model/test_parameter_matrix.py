@@ -3,7 +3,7 @@ from dataclasses import replace
 from saed_v4_event_model.service import ContinuousTimeEventService
 from saed_v4_event_model.enums import LatePolicy,ProjectionReducer,EventKind
 from saed_v4_event_model.models import ProjectionFieldDefinition,EventProjectionDefinition
-from helpers import batch
+from .helpers import batch
 
 @pytest.mark.parametrize('lateness',[0,1,10,100,1000,5000,60000])
 @pytest.mark.parametrize('priority',[-10,0,1,10,100])

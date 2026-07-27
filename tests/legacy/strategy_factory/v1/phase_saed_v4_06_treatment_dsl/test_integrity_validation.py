@@ -1,6 +1,6 @@
 from dataclasses import replace
 import pytest
-from helpers import build
+from .helpers import build
 from saed_v4_treatment_dsl.errors import IntegrityError
 from saed_v4_treatment_dsl.integrity import build_integrity_receipt,verify_integrity
 from saed_v4_treatment_dsl.validation import validate_package

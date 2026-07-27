@@ -1,5 +1,5 @@
 import pytest
-from helpers import inputs
+from .helpers import inputs
 from saed_v4_action_lattice.service import ActionLatticeService
 from saed_v4_action_lattice.errors import BudgetError
 @pytest.mark.parametrize(('key','value'), [('maximum_candidates',8),('maximum_feasible_nodes',8),('maximum_edges',8),('maximum_constraint_evaluations',8),('operation_budget',16)])

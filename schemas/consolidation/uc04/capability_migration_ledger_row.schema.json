@@ -1,0 +1,92 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/capability_migration_ledger_row.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "characterization_status": {
+      "enum": [
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "PASS",
+        "FAIL"
+      ],
+      "type": "string"
+    },
+    "consumer_cutover_status": {
+      "enum": [
+        "NOT_STARTED",
+        "PARTIAL",
+        "COMPLETE",
+        "NOT_APPLICABLE"
+      ],
+      "type": "string"
+    },
+    "deletion_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "disposition": {
+      "enum": [
+        "KEEP",
+        "MERGE",
+        "REWRITE",
+        "WRAP",
+        "QUARANTINE",
+        "RETIRE_CANDIDATE"
+      ],
+      "type": "string"
+    },
+    "equivalence_status": {
+      "enum": [
+        "NOT_EVALUATED",
+        "EQUIVALENT",
+        "NOT_EQUIVALENT",
+        "BLOCKED"
+      ],
+      "type": "string"
+    },
+    "source_paths": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "target_path": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "capability_id",
+    "candidate_id",
+    "source_paths",
+    "target_path",
+    "disposition",
+    "characterization_status",
+    "equivalence_status",
+    "consumer_cutover_status",
+    "deletion_authority"
+  ],
+  "title": "UC04 Capability Migration Ledger Row",
+  "type": "object"
+}

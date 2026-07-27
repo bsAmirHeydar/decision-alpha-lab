@@ -2,7 +2,7 @@ from dataclasses import replace
 
 import pytest
 
-from helpers import build_graph, build_package
+from .helpers import build_graph, build_package
 from saed_v4_semantic_hypergraph.errors import GraphValidationError
 
 

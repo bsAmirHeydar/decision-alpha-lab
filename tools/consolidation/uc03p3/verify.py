@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import hashlib
 import json
 import os
 import subprocess
@@ -37,6 +38,40 @@ def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+
+def _canonical_digest(value: dict, omitted_field: str) -> str:
+    material = {key: item for key, item in value.items() if key != omitted_field}
+    payload = json.dumps(material, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
+def _uc04_w0_amendments(repo: Path) -> tuple[dict[str, dict], list[str]]:
+    path = repo / "registry/consolidation/uc04/w0/uc03_post_closure_amendment.json"
+    if not path.is_file():
+        return {}, []
+    errors: list[str] = []
+    try:
+        document = read_json(path)
+    except Exception as exc:
+        return {}, [f"invalid UC04-W0 UC03 amendment: {exc}"]
+    if document.get("stage_id") != "UC04-W0" or document.get("status") != "PASS":
+        errors.append("UC04-W0 UC03 amendment is not a PASS document")
+    if document.get("amendment_digest") != _canonical_digest(document, "amendment_digest"):
+        errors.append("UC04-W0 UC03 amendment digest mismatch")
+    records: dict[str, dict] = {}
+    for row in document.get("records", []):
+        rel = str(row.get("path", ""))
+        if not rel or rel in records:
+            errors.append(f"invalid or duplicate UC04-W0 UC03 amendment path: {rel}")
+            continue
+        if row.get("semantic_change") is not False:
+            errors.append(f"semantic change is forbidden in UC04-W0 amendment: {rel}")
+        for key in ("runtime_authority_created", "order_authority_created", "capital_authority_created"):
+            if row.get(key) is not False:
+                errors.append(f"authority escalation in UC04-W0 amendment: {rel}: {key}")
+        records[rel] = row
+    return records, errors
+
 def imported_modules(path: Path) -> set[str]:
     try:
         tree = ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
@@ -55,6 +90,8 @@ def verify(repo: Path, ci_fast: bool = False) -> list[str]:
     repo = repo.resolve()
     errors: list[str] = []
     output = repo / PART3_ROOT
+    uc04_amendments, amendment_errors = _uc04_w0_amendments(repo)
+    errors.extend(amendment_errors)
     required_receipts = (
         "documentation_relocation_receipt.json",
         "registry_relocation_receipt.json",
@@ -139,9 +176,20 @@ def verify(repo: Path, ci_fast: bool = False) -> list[str]:
         errors.append("reference rewrite count mismatch")
     sample_rewrites = rewrite_rows if not ci_fast else rewrite_rows[:512]
     for row in sample_rewrites:
-        path = repo / str(row.get("path", ""))
-        if not path.is_file() or not hash_matches(path, str(row.get("after_sha256", ""))):
-            errors.append(f"rewrite output mismatch: {row.get('path')}")
+        relative = str(row.get("path", ""))
+        path = repo / relative
+        expected = str(row.get("after_sha256", ""))
+        if path.is_file() and hash_matches(path, expected):
+            continue
+        amendment = uc04_amendments.get(relative)
+        if not path.is_file() or amendment is None:
+            errors.append(f"rewrite output mismatch: {relative}")
+            continue
+        if str(amendment.get("previous_sha256", "")).removeprefix("sha256:") != expected.removeprefix("sha256:"):
+            errors.append(f"UC04-W0 amendment source mismatch: {relative}")
+            continue
+        if not hash_matches(path, str(amendment.get("current_sha256", "")).removeprefix("sha256:")):
+            errors.append(f"UC04-W0 amendment destination mismatch: {relative}")
 
     clean = read_json(output / "clean_replay_receipt.json")
     if clean.get("status") != "PASS" or clean.get("conflict_count") != 0 or clean.get("errors"):

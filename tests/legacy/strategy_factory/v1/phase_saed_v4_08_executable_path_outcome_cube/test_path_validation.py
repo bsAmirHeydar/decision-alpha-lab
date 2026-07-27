@@ -1,5 +1,5 @@
 import pytest
-from helpers import inputs,load
+from .helpers import inputs,load
 from saed_v4_outcome_cube import PriceObservation,build_cube
 from saed_v4_outcome_cube.errors import PathError
 def test_non_monotonic_path_fails():

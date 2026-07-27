@@ -1,6 +1,6 @@
 import pytest
 from dataclasses import replace
-from helpers import golden_sources,sv
+from .helpers import golden_sources,sv
 from saed_v4_multimodal_views.source_frame import SourceFrame
 from saed_v4_multimodal_views.errors import SourceConflictError
 

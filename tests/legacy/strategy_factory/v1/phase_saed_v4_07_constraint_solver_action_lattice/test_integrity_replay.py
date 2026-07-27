@@ -1,5 +1,5 @@
 import copy
-from helpers import solve,load,inputs
+from .helpers import solve,load,inputs
 from saed_v4_action_lattice.integrity import verify_integrity_receipt,build_integrity_receipt
 from saed_v4_action_lattice.replay import build_replay_receipt
 def test_golden_integrity_receipt_verifies():assert verify_integrity_receipt(load('golden_lattice_integrity_receipt.json'))

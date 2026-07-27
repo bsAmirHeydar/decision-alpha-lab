@@ -1,0 +1,57 @@
+{
+  "capital_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:3bc1fbd5f5f7d6fe8fe4bb9d1e8f1ec3675fa6e42ece87570f3071662809761b",
+  "error_count": 0,
+  "failed_test_count": 0,
+  "implementation_paths": [
+    "tools/repository_paths.py",
+    "src/engine/packages/strategy_factory_rthp_train_activation_v1/pipeline.py",
+    "src/engine/packages/strategy_factory_rthp_mt5_activation_v1/orchestrator.py",
+    "src/engine/tooling/strategy_factory/acl_os/common.py"
+  ],
+  "order_authority": false,
+  "passed_test_count": 166,
+  "preserved_invariants": [
+    "Context semantics unchanged",
+    "Train engine unchanged",
+    "No order authority",
+    "No capital authority",
+    "Repository-local runs remain confined to .alpha/runs"
+  ],
+  "program_id": "UCPS",
+  "qualification_commands": [
+    {
+      "command": "python -m pytest -q tests/consolidation tests/legacy/strategy_factory/v1/rthp_context tests/legacy/strategy_factory/v1/rthp_ai_input",
+      "errors": 0,
+      "failed": 0,
+      "passed": 135,
+      "skipped": 7
+    },
+    {
+      "command": "python -m pytest -q tests/legacy/strategy_factory/v1/rthp_train_activation tests/legacy/strategy_factory/v1/rthp_mt5_activation",
+      "errors": 0,
+      "failed": 0,
+      "passed": 31,
+      "skipped": 0
+    }
+  ],
+  "receipt_id": "UC04_W0_RTHP_GOLDEN_PATH_RECOVERY_V1",
+  "recovered_boundaries": [
+    "RTHP authored context discovery",
+    "ACL generated context and receipt resolution",
+    "AI-input registry self-digests",
+    "train activation repository discovery",
+    "MT5 activation repository-local run boundary",
+    "UC01/UC03 historical evidence continuity"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "skipped_test_count": 7,
+  "stage_id": "UC04-W0",
+  "status": "PASS",
+  "warning_class": "sklearn.exceptions.LinAlgWarning",
+  "warning_count": 4
+}

@@ -1,22 +1,24 @@
 {
-  "package": "alpha-lab-master-architecture-v1",
-  "version": "1.0.0",
-  "status": "PASS",
-  "checks": {
-    "master_markdown_files": 18,
-    "all_markdown_files": 938,
-    "master_wikilinks_checked": 34,
-    "missing_master_wikilinks": 0,
-    "canvas_json_valid": true,
-    "required_entry_exists": true,
-    "persian_overview_exists": true,
-    "implementation_program_exists": true,
-    "source_libraries_present": true
+  "current_stage": "UC04-W0",
+  "engineering_policy": "PASS",
+  "full_repository_suite": "INCOMPLETE_AT_FIRST_HISTORICAL_LFS_BLOCKER",
+  "full_repository_suite_details": {
+    "collection_errors": 0,
+    "first_failure_is_unchanged_source_archive_lfs_pointer": true,
+    "historical_lfs_pointer_count": 4,
+    "progress_at_timeout_percent": 5,
+    "tests_collected": 9732,
+    "timeout_seconds": 900,
+    "unresolved_beyond_first_blocker": true
   },
-  "missing_links": [],
-  "notes": [
-    "Link validation is exhaustive for the newly authored master architecture layer.",
-    "Retained source libraries are copied without semantic rewriting to preserve their original internal structure.",
-    "The package is documentation architecture only and does not modify production MQL5 or Python code."
-  ]
+  "migration_continuity": "PASS",
+  "pytest_collection_errors": 0,
+  "pytest_tests_collected": 9732,
+  "rthp_and_consolidation_passed": 166,
+  "rthp_and_consolidation_skipped": 7,
+  "status": "PASS",
+  "uc03_part3": "PASS",
+  "uc04_w0": "ACCEPTED",
+  "uc04_w0_verifier": "PASS",
+  "uc04_w1": "AUTHORIZED_FOR_CHARACTERIZATION_ONLY"
 }

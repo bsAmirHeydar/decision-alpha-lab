@@ -1,6 +1,6 @@
 from copy import deepcopy
 import pytest
-from conftest import FIXTURE
+from .conftest import FIXTURE
 from saed_v4_research_memory_active_planner import run
 
 def test_memory_chain_is_contiguous():

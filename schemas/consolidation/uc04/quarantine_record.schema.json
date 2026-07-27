@@ -1,0 +1,81 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/quarantine_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deletion_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exit_condition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "paths": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "RESOLVED"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "record_id",
+    "status",
+    "paths",
+    "reason",
+    "owner",
+    "exit_condition",
+    "semantic_change",
+    "deletion_authority",
+    "document_digest"
+  ],
+  "title": "UC04 Quarantine Record",
+  "type": "object"
+}

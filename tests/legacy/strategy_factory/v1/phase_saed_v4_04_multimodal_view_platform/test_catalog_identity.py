@@ -1,6 +1,6 @@
 import pytest
 from dataclasses import replace
-from helpers import service_and_specs,TWIN
+from .helpers import service_and_specs,TWIN
 from saed_v4_multimodal_views.enums import ViewKind
 from saed_v4_multimodal_views.registry import ViewSpecificationRegistry
 from saed_v4_multimodal_views.errors import RegistryError,AuthorityError

@@ -1,5 +1,5 @@
 from saed_v4_baseline_manual.compiler import compile_program
-from helpers import program
+from .helpers import program
 
 def test_compile_closed_and_deterministic(load,upstream):
  v,_,l,_=upstream;p=program(load);a=compile_program(p,v,l);b=compile_program(p,v,l);assert a==b;assert a['compiled_program_hash']==b['compiled_program_hash'];assert not a['selection_authority']

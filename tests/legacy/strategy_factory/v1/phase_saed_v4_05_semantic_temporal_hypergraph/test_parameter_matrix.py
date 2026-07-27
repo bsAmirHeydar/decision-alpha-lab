@@ -2,7 +2,7 @@ from dataclasses import replace
 
 import pytest
 
-from helpers import build_graph
+from .helpers import build_graph
 from saed_v4_semantic_hypergraph.catalog import institutional_policy
 from saed_v4_semantic_hypergraph.partitioning import deterministic_partition
 

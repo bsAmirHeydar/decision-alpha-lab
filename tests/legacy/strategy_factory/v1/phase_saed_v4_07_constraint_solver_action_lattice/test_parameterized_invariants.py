@@ -1,5 +1,5 @@
 import pytest
-from helpers import solve
+from .helpers import solve
 @pytest.fixture(scope='module')
 def output():return solve()
 @pytest.mark.parametrize('index',range(38))

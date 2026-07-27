@@ -1,5 +1,5 @@
 from dataclasses import replace
-from helpers import build,sources
+from .helpers import build,sources
 from saed_v4_treatment_dsl.replay import build_replay_receipt
 def test_source_order_is_nonsemantic():
  a=build();b=build(tuple(reversed(sources())));assert a.package_hash==b.package_hash;assert a.package_id==b.package_id

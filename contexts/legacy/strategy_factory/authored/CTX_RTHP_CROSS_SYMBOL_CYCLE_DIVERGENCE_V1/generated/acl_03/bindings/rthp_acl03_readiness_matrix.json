@@ -1,6 +1,6 @@
 {
   "acl03_decision": "COMPILED_WITH_OBLIGATIONS",
-  "acl04_handoff_digest": "sha256:cf815b88e49e527c849ac08dcab894b1c51b10f44ee409d2addcf52bafebf739",
+  "acl04_handoff_digest": "sha256:38b5a163f95514b10c0f8bdd9acdda01512c400dc211a0f596dba4d3acc9c32b",
   "allowed_next_actions": [
     "IMPLEMENT_REGISTERED_ADAPTERS",
     "ADD_DOMAIN_GOLDEN_CASES",
@@ -8,7 +8,7 @@
   ],
   "capital_activation_allowed": false,
   "claim_ceiling": "CONTEXT_COMPILATION_AND_ONBOARDING_REFERENCE_ONLY",
-  "compilation_receipt_digest": "sha256:b672d236c2fc73ed4c4193e4f3532b4973e2ee75c32f4bcf85b2cc92adb878b8",
+  "compilation_receipt_digest": "sha256:834301e4899313c177dcaedca3efab6bf0c511223ced83fffdf835a832f798b1",
   "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
   "context_version": "1.0.2",
   "gates": {
@@ -30,6 +30,6 @@
   },
   "highest_state": "CONTEXT_COMPILED",
   "live_order_submission_allowed": false,
-  "matrix_digest": "sha256:aa1bd14c4e01c52694ef500bd8269a28817ca580a1b135294cb03509f3fcbc1f",
+  "matrix_digest": "sha256:931021a9e4bde133c62bab8378b27f65a83db573bf333726025706550e577884",
   "schema_version": "1.0.0"
 }

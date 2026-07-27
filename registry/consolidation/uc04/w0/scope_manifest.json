@@ -1,0 +1,36 @@
+{
+  "capital_authority": false,
+  "definition_of_done": [
+    "pytest collection completes with zero collection errors",
+    "UC-01 through UC-03 accepted gates remain green",
+    "RTHP context, AI input, train activation and MT5 activation suites are green",
+    "Engineering Policy passes on the canonical topology",
+    "No prohibited authority is granted"
+  ],
+  "deletion_authority": false,
+  "document_digest": "sha256:67b34f1e2d0ccb493e94a7772e21b8feca5a9aa457773652bdbddb12214a76b3",
+  "in_scope": [
+    "Canonical repository path authority",
+    "Repository-wide pytest collection recovery",
+    "Historical gate amendment awareness",
+    "RTHP authored/generated/registry binding recovery after UC-03 relocation",
+    "UC-04 governance schemas, evidence, verifier, tests, documentation and release controls",
+    "Engineering Policy compatibility with the accepted UC-03 topology"
+  ],
+  "manifest_id": "UC04_W0_SCOPE_MANIFEST_V1",
+  "order_authority": false,
+  "out_of_scope": [
+    "Context semantic changes",
+    "Feature, label, model or train-engine changes",
+    "MQL5 signal, execution, stop, target or risk changes",
+    "Shared primitive implementation or consumer cutover",
+    "Legacy deletion or retirement"
+  ],
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "FROZEN"
+}

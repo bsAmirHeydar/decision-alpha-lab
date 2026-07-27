@@ -1,7 +1,7 @@
 from copy import deepcopy
 from strategy_factory_rthp_context_v1 import RTHPContextPackage, build_auxiliary_payload, validate_source_record
 from strategy_factory_contexts_v3 import ContextPackageRegistry
-from helpers import records
+from .helpers import records
 
 def test_package_contract_counts_and_registry():
  p=RTHPContextPackage(); r=ContextPackageRegistry(); r.register(p)

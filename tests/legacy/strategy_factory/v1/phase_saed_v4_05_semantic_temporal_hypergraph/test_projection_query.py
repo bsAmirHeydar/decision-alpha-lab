@@ -1,6 +1,6 @@
 import pytest
 
-from helpers import build_graph
+from .helpers import build_graph
 from saed_v4_semantic_hypergraph.canonical import stable_id
 from saed_v4_semantic_hypergraph.enums import NodeKind, QueryDirection, RelationKind
 from saed_v4_semantic_hypergraph.errors import QueryError

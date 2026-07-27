@@ -1,16 +1,38 @@
 {
+  "$id": "registry/history/strategy_factory/contexts/rthp/v1/rthp_train_tick.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "registry/strategy_factory/contexts/rthp/v1/rthp_train_tick.schema.json",
-  "title": "RTHP Train Tick",
-  "type": "object",
   "additionalProperties": false,
-  "required": ["symbol", "event_time_ms", "known_time_ms", "bid", "tick_size"],
   "properties": {
-    "symbol": {"type": "string", "minLength": 1},
-    "event_time_ms": {"type": "integer"},
-    "known_time_ms": {"type": "integer"},
-    "bid": {"type": "number", "exclusiveMinimum": 0},
-    "tick_size": {"type": "number", "exclusiveMinimum": 0},
-    "source_sequence": {"type": "integer", "minimum": 0}
-  }
+    "bid": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "event_time_ms": {
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "source_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tick_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "symbol",
+    "event_time_ms",
+    "known_time_ms",
+    "bid",
+    "tick_size"
+  ],
+  "title": "RTHP Train Tick",
+  "type": "object"
 }

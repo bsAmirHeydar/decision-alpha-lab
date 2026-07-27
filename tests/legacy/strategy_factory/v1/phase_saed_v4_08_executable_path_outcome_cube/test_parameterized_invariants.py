@@ -1,5 +1,5 @@
 import pytest
-from helpers import cube
+from .helpers import cube
 @pytest.mark.parametrize('idx',range(12))
 def test_rows_preserve_net_cost_identity(idx):
  r=cube().rows[idx];assert abs(r.net_r-(r.gross_r-r.cost.total_cost_r))<1e-9

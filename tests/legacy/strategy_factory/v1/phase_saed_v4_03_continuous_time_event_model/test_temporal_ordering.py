@@ -2,7 +2,7 @@ import pytest
 from dataclasses import replace
 from saed_v4_event_model.service import ContinuousTimeEventService
 from saed_v4_event_model.errors import TemporalError
-from helpers import batch
+from .helpers import batch
 
 def test_known_before_event_rejected(stream_nq,nq_events):
     s=ContinuousTimeEventService();s.register_stream(stream_nq);bad=replace(nq_events[0],known_time='2026-01-02T14:29:59Z')

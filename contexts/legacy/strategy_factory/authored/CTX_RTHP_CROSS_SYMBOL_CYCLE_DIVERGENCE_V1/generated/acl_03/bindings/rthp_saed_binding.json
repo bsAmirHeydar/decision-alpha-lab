@@ -10,7 +10,7 @@
     "MATERIALIZE_KNOWN_TIME_SAFE_VIEWS",
     "REGISTER_CONTEXT_LINEAGE"
   ],
-  "binding_digest": "sha256:7cfece5d25d9d7e55caebd702ef247e6cad1eeaa7947bb86f7e3ed14a8197013",
+  "binding_digest": "sha256:a92044c93ff63765cfe7f54f8ae47a41f82e40a795ab3f4512ca519e5a9f762b",
   "binding_id": "RTHP_SAED_BINDING_3D35FC4B00B6FE0823EE",
   "binding_kind": "SAED_CONTEXT_DIGITAL_TWIN_SEED",
   "capital_activation_allowed": false,
@@ -32,5 +32,5 @@
   "live_order_submission_allowed": false,
   "qualification_status": "ADAPTER_IMPLEMENTATION_REQUIRED",
   "schema_version": "1.0.0",
-  "twin_seed_digest": "sha256:03149f7cd9c1956250a2240e82300614fc80e4ccafdc24949efc0a3ad8287b09"
+  "twin_seed_digest": "sha256:6f71bf3813a9626675023a05579ecb05be2589510242a39ac743b5f5eb5ebc40"
 }

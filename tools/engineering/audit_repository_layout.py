@@ -29,7 +29,7 @@ ROOT_ALLOWLIST = {
     ".editorconfig", ".gitattributes", ".gitignore", "AGENTS.md",
     "CODE_OF_CONDUCT.md", "COMMIT_MESSAGE.md", "COMMIT_MESSAGE.txt",
     "CONTRIBUTING.md", "FILE_INDEX.txt", "LICENSE", "PATCH_MANIFEST.json",
-    "QA_REPORT.json", "README.md", "requirements.txt", "releases/history/misc/documents/sitecustomize.py",
+    "QA_REPORT.json", "README.md", "requirements.txt", "pytest.ini", "releases/history/misc/documents/sitecustomize.py",
 }
 
 

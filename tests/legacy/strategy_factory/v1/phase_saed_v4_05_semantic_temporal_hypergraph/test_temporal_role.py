@@ -2,7 +2,7 @@ from dataclasses import replace
 
 import pytest
 
-from helpers import build_graph
+from .helpers import build_graph
 from saed_v4_semantic_hypergraph.enums import EvidenceRole
 from saed_v4_semantic_hypergraph.errors import GraphValidationError, TemporalBoundaryError
 from saed_v4_semantic_hypergraph.validation import validate_graph

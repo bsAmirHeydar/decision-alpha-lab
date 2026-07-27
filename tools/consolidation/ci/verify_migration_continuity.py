@@ -85,6 +85,26 @@ def verify(repo_root: Path) -> dict[str, Any]:
             if source and destination:
                 part3_relocations[source] = destination
 
+    uc04_w0_records: dict[str, dict[str, Any]] = {}
+    uc04_w0_path = repo / "registry/consolidation/uc04/w0/uc01_static_amendment.json"
+    if uc04_w0_path.is_file():
+        uc04_w0 = _read_json(uc04_w0_path)
+        if uc04_w0.get("stage_id") != "UC04-W0" or uc04_w0.get("status") != "PASS":
+            errors.append("UC04-W0 UC01 static amendment is not PASS")
+        _check_authority_false(errors, "UC04-W0 UC01 static amendment", uc04_w0)
+        if uc04_w0.get("semantic_change") is not False:
+            errors.append("UC04-W0 UC01 static amendment declares semantic change")
+        for row in uc04_w0.get("records", []):
+            if not isinstance(row, dict):
+                errors.append("UC04-W0 UC01 static amendment has an invalid record")
+                continue
+            legacy = str(row.get("legacy_path", ""))
+            current = str(row.get("current_path", ""))
+            if legacy:
+                uc04_w0_records[legacy] = row
+            if current:
+                uc04_w0_records[current] = row
+
     if part1.get("status") != "ACCEPTED":
         errors.append("UC-03 Part 1 decision is not ACCEPTED")
     if part2.get("status") != "ACCEPTED" or part2.get("uc03_part3_authorized") is not True:
@@ -154,8 +174,12 @@ def verify(repo_root: Path) -> dict[str, Any]:
             before = str(successor.get("before_sha256", "")).lower() if successor else ""
             after = str(successor.get("after_sha256", "")).lower() if successor else ""
             if before != expected.lower() or not after or not hash_matches(path, after):
-                errors.append(f"{label} hash mismatch: {relative}")
-                continue
+                amendment = uc04_w0_records.get(relative) or uc04_w0_records.get(resolved_rel)
+                amended_path = repo / str(amendment.get("current_path", "")) if amendment else None
+                amended_hash = str(amendment.get("current_sha256", "")).removeprefix("sha256:") if amendment else ""
+                if amendment is None or amended_path is None or not amended_path.is_file() or not amended_hash or not hash_matches(amended_path, amended_hash):
+                    errors.append(f"{label} hash mismatch: {relative}")
+                    continue
         verified_amendment_paths += 1
 
     result = {

@@ -1,6 +1,6 @@
 import pytest
 from strategy_factory_candidate import *
-from sf08_helpers import fixture
+from .sf08_helpers import fixture
 
 def test_build_two_candidates():
     r=build_fixture_registry();m=build_reference_matrix(r);engine=CandidateEngine(r,m);e,s,f=fixture();out=engine.build(e,s,f,8);assert len(out)==2;assert len({x.candidate_id for x in out})==2;assert all(x.planned_r_multiple>0 for x in out)

@@ -1,23 +1,26 @@
-# Alpha Lab Master Architecture v1.0.0
+# Decision Alpha Lab
 
-A modular Obsidian architecture vault defining the complete Alpha Lab lifecycle:
+Decision Alpha Lab is an evidence-driven quantitative research and platform-engineering repository. It converts approved market concepts into deterministic, reviewable, replayable, testable and reversible software without allowing research artifacts or AI outputs to acquire execution authority implicitly.
+
+## Current consolidation state
+
+- UC-01 — Preserve and Baseline: **ACCEPTED**
+- UC-02 — Authority and Standardization: **ACCEPTED**
+- UC-03 — Physical Reorganization: **ACCEPTED**
+- UC-04 — Semantic and Logic Unification: **IN PROGRESS**
+  - UC04-W0 Foundation and Recovery: **ACCEPTED**
+  - UC04-W1 Deterministic MQL5 Formatting Primitive: **AUTHORIZED**
+
+Canonical program documentation:
+`docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/`
+
+## Engineering preflight
 
 ```text
-Knowledge → Context → Human/AI Setup → Evidence → Capital → Runtime → Monitoring → Research Memory
+python tools/engineering/run_engineering_policy.py .
+python -m tools.consolidation.uc04w0.verify --repo-root .
 ```
 
-## Install into the repository
+## Authority boundary
 
-Copy or expand the bundle at the repository root. The canonical vault will be located at:
-
-```text
-docs/architecture/master/
-```
-
-Open this folder as an Obsidian vault, then start from:
-
-```text
-docs/architecture/master/00_START_HERE/00_Home.md
-```
-
-The vault includes the new master architecture plus retained reference libraries from Strategy Factory, Strategy Factory V2, UCEE and AI Algorithm Engineering OS.
+The current stage grants no semantic retirement, deletion, order or capital authority. Candidate-specific logic-preservation evidence is mandatory before consumer cutover.

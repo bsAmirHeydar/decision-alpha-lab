@@ -1,5 +1,5 @@
 from strategy_factory_context.engine import ContextEngine
-from sf07_helpers import registry,vector_schema,event
+from .sf07_helpers import registry,vector_schema,event
 
 def test_end_to_end_context_build():
     engine=ContextEngine(registry(),vector_schema());snapshot,frame,vector=engine.build(event(),7)

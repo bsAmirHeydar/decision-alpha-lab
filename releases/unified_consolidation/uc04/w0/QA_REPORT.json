@@ -1,0 +1,37 @@
+{
+  "authority": {
+    "capital_authority": false,
+    "deletion_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false,
+    "semantic_merge_authority": false
+  },
+  "collection": {
+    "errors": 0,
+    "tests_collected": 9732
+  },
+  "engineering_policy": "PASS",
+  "full_repository_suite": "INCOMPLETE_AT_FIRST_HISTORICAL_LFS_BLOCKER",
+  "full_repository_suite_details": {
+    "collection_errors": 0,
+    "first_failure_is_unchanged_source_archive_lfs_pointer": true,
+    "historical_lfs_pointer_count": 4,
+    "progress_at_timeout_percent": 5,
+    "tests_collected": 9732,
+    "timeout_seconds": 900,
+    "unresolved_beyond_first_blocker": true
+  },
+  "migration_continuity": "PASS",
+  "program_id": "UCPS",
+  "rthp_and_consolidation_scope": {
+    "failed": 0,
+    "passed": 166,
+    "skipped": 7
+  },
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W0",
+  "status": "PASS",
+  "uc03_part3": "PASS",
+  "uc04_w0_verifier": "PASS"
+}

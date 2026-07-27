@@ -1,5 +1,5 @@
 from __future__ import annotations
-from tools.repository_paths import find_repository_root
+from tools.repository_paths import RepositoryPaths, find_repository_root
 
 import json
 from pathlib import Path
@@ -14,7 +14,7 @@ def repo_root() -> Path:
 
 @pytest.fixture(scope="session")
 def activation_root(repo_root: Path) -> Path:
-    return repo_root / "lab" / "11_strategy_factory" / "generated_contexts" / "rthp_cross_symbol_cycle_divergence" / "train_activation" / "v1"
+    return RepositoryPaths.from_root(repo_root).generated_context("rthp_cross_symbol_cycle_divergence") / "train_activation/v1"
 
 
 @pytest.fixture()

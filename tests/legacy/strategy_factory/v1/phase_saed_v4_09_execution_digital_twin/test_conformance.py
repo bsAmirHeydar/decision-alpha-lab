@@ -1,5 +1,5 @@
-from conftest import load
-from helpers import inputs
+from .conftest import load
+from .helpers import inputs
 from saed_v4_execution_twin.conformance import run_vectors
 
 def test_reference_vectors_pass():

@@ -3,6 +3,8 @@ from pathlib import Path
 
 import pytest
 
+from tools.repository_paths import resolve_repository_path
+
 REPAIRED_PATHS = (
     "lab/11_strategy_factory/python/saed_v4_anytime_valid_online_fdr/cli.py",
     "lab/11_strategy_factory/python/saed_v4_complete_search_exposure_ledger/cli.py",
@@ -21,7 +23,7 @@ REPAIRED_PATHS = (
 @pytest.mark.parametrize("relative_path", REPAIRED_PATHS)
 def test_baseline_stabilization_file_parses(relative_path: str) -> None:
     root = Path(__file__).resolve().parents[3]
-    path = root / relative_path
+    path = resolve_repository_path(root, relative_path, require_exists=True)
     text = path.read_text(encoding="utf-8")
     ast.parse(text, filename=relative_path)
     assert "+'\\n'" in text or '+"\\n"' in text or "'\\n'.join" in text

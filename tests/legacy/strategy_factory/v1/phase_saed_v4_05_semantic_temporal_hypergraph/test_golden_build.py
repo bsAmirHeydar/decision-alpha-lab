@@ -1,4 +1,4 @@
-from helpers import build_graph
+from .helpers import build_graph
 from saed_v4_semantic_hypergraph.enums import GraphStatus, NodeKind, RelationKind
 
 

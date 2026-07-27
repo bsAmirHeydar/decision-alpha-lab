@@ -124,7 +124,8 @@
     "src/engine/packages/strategy_factory_runtime_v3/signing.py": "2aab25011f468f6c4f6d69c882c46d2bff02241a9852ad96f53275b100fb66a8"
   },
   "protected_scope": "strategy_factory_onboarding_v3.CORE_PREFIXES",
-  "schema_version": "1.0.0",
-  "snapshot_hash": "2aae071ea8cbc8f3215109189a840ee41a8e4b6c09be79edd08a977877cae732",
-  "snapshot_id": "core-snapshot:ee651c9a40b34eeb8701037f"
+  "root_hash": "0098c97d35443b2894dfdef4eeb5b30b5e5a3784ca7ba1ffa89066a91c1438f1",
+  "snapshot_hash": "c3889911bf4871c35cbcbc69438613b20c0d7d7f25038e4b270cd46401fcb34b",
+  "snapshot_id": "core-snapshot:3b1dd86c5af186e1d36a1d43",
+  "version": "1.0.0"
 }

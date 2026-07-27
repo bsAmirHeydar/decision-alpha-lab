@@ -1,0 +1,47 @@
+{
+  "candidate_id": "UC04_W1_DETERMINISTIC_MQL5_FORMATTING_PRIMITIVE_V1",
+  "candidate_patterns": [
+    "DoubleToString",
+    "StringFormat",
+    "numeric serialization helpers",
+    "deterministic audit/export formatting"
+  ],
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:4a3dbf381ee419e62f5ba8a227708891659c325f9689dcbc873f4a1a1bbc2fcf",
+  "implementation_authority": false,
+  "next_wave": "UC04-W1",
+  "order_authority": false,
+  "program_id": "UCPS",
+  "required_gates": [
+    "consumer inventory",
+    "source digest freeze",
+    "fixture corpus",
+    "byte-exact characterization",
+    "differential equivalence",
+    "metamorphic locale/precision tests",
+    "consumer cutover plan",
+    "rollback proof",
+    "logic preservation certificate"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "search_roots": [
+    "mql5",
+    "src/engine/legacy"
+  ],
+  "selection_rationale": [
+    "No market-direction semantics",
+    "No order API ownership",
+    "No capital authority",
+    "Deterministic input/output surface",
+    "High reuse potential",
+    "Suitable for byte-exact differential fixtures"
+  ],
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "AUTHORIZED_FOR_CHARACTERIZATION_ONLY",
+  "title": "Deterministic MQL5 Formatting Primitive"
+}

@@ -1,0 +1,157 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/w0_exit_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "accepted_evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capital_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "collected_test_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "collection_error_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "deletion_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engineering_policy_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN"
+      ],
+      "type": "string"
+    },
+    "entry_gate_passed": {
+      "type": "boolean"
+    },
+    "full_repository_suite_status": {
+      "const": "INCOMPLETE_AT_FIRST_HISTORICAL_LFS_BLOCKER",
+      "type": "string"
+    },
+    "historical_lfs_pointer_count": {
+      "const": 4,
+      "type": "integer"
+    },
+    "migration_continuity_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN"
+      ],
+      "type": "string"
+    },
+    "next_wave": {
+      "const": "UC04-W1",
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "residual_suite_uncertainty": {
+      "const": true,
+      "type": "boolean"
+    },
+    "rthp_golden_path_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN"
+      ],
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "scoped_test_passed_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scoped_test_skipped_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "semantic_merge_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "BLOCKED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "wave_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "wave_id",
+    "status",
+    "entry_gate_passed",
+    "collection_error_count",
+    "collected_test_count",
+    "scoped_test_passed_count",
+    "scoped_test_skipped_count",
+    "engineering_policy_status",
+    "migration_continuity_status",
+    "rthp_golden_path_status",
+    "semantic_merge_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "next_wave",
+    "document_digest",
+    "full_repository_suite_status",
+    "historical_lfs_pointer_count",
+    "residual_suite_uncertainty"
+  ],
+  "title": "UC04-W0 Exit Decision",
+  "type": "object"
+}

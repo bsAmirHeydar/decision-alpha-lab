@@ -4,7 +4,7 @@ from strategy_factory_context.descriptor import FeatureDescriptor
 from strategy_factory_context.enums import UpdateScope
 from strategy_factory_contracts.enums import FeatureType,FeatureQuality
 from strategy_factory_contracts.records import FeatureValue
-from sf07_helpers import registry
+from .sf07_helpers import registry
 class Node:
     def __init__(self,d):self.descriptor=d
     def compute(self,event,state):return FeatureValue(self.descriptor.feature_id,self.descriptor.feature_version,self.descriptor.value_type,FeatureQuality.VALID,event.known_time,event.event_id,'x',1.0)

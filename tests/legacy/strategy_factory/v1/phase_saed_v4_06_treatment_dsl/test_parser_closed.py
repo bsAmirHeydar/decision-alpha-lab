@@ -1,5 +1,5 @@
 import copy,pytest
-from helpers import load
+from .helpers import load
 from saed_v4_treatment_dsl.errors import ContractError
 from saed_v4_treatment_dsl.parser import parse_program
 

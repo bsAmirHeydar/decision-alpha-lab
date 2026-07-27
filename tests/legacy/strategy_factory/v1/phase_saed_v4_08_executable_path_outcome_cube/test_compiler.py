@@ -1,4 +1,4 @@
-from helpers import inputs
+from .helpers import inputs
 from saed_v4_outcome_cube.compiler import compile_spec
 def test_ordinary_specs_have_positive_risk():
  lattice,_,ctx,*_=inputs()

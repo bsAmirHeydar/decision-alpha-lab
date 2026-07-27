@@ -1,6 +1,6 @@
 import pytest
 from strategy_factory_generation import *
-from test_manifest import make_manifest
+from .test_manifest import make_manifest
 def bundle(n):return GenerationBundle(GenerationCompiler().compile(make_manifest(requested_generation_id=n,run_id=f'run_{n}'),CompilationEvidence(f'd{n}',f'r{n}')))
 def test_stage_activate():
     m=GenerationManager();m.stage(bundle(1));a=m.activate(100);assert a.generation.state is GenerationState.ACTIVE and m.activation_count==1

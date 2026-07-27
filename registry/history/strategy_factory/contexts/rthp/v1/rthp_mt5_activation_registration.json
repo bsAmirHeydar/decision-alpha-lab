@@ -6,7 +6,7 @@
   "latest_closed_m1_policy": "POSITION_ONE_PROVIDER_CONTRACT_WITH_HISTORY_WARMUP_RETRY",
   "local_wall_clock_is_closure_authority": false,
   "python_import": "strategy_factory_rthp_mt5_activation_v1:RTHPMT5Automation",
-  "quality_report_schema": "registry/strategy_factory/contexts/rthp/v1/rthp_mt5_quality_report.schema.json",
+  "quality_report_schema": "registry/history/strategy_factory/contexts/rthp/v1/rthp_mt5_quality_report.schema.json",
   "read_only": true,
   "real_mt5_smoke_evidence_status": "PASS",
   "registration_id": "RTHP_MT5_AUTOMATIC_M1_ACTIVATION_V1",

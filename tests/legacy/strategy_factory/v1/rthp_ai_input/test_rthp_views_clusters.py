@@ -1,6 +1,6 @@
 from strategy_factory_rthp_context_v1 import RTHPContextPackage, build_auxiliary_payload, cluster_dimensions
 from strategy_factory_contexts_v3 import RepresentationViewRegistry, ClusterCompiler, RepresentationKind
-from helpers import records
+from .helpers import records
 
 def sequence_aux(package,frame,source):
  aux=dict(build_auxiliary_payload(source)); windows={}

@@ -1,0 +1,137 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/path_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "archive_checkout_supported": {
+      "const": true,
+      "type": "boolean"
+    },
+    "canonical_roots": {
+      "additionalProperties": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "minProperties": 8,
+      "type": "object"
+    },
+    "capital_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "contract_id": {
+      "const": "UC04_W0_CANONICAL_REPOSITORY_PATH_CONTRACT_V1",
+      "type": "string"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "git_metadata_required": {
+      "const": false,
+      "type": "boolean"
+    },
+    "implementation": {
+      "const": "tools/repository_paths.py",
+      "type": "string"
+    },
+    "legacy_prefix_mappings": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "canonical_prefix": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+            "type": "string"
+          },
+          "legacy_prefix": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+            "type": "string"
+          },
+          "resolution_mode": {
+            "enum": [
+              "EXACT_RECEIPT_FIRST",
+              "EXPLICIT_PREFIX_FALLBACK"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "legacy_prefix",
+          "canonical_prefix",
+          "resolution_mode"
+        ],
+        "title": "Legacy Prefix Mapping",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "order_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "resolution_order": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "runtime_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "runtime_output_boundary": {
+      "const": ".alpha/runs",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "const": "ACTIVE",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "contract_id",
+    "status",
+    "canonical_roots",
+    "legacy_prefix_mappings",
+    "runtime_output_boundary",
+    "semantic_change",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "document_digest"
+  ],
+  "title": "UC04-W0 Canonical Repository Path Contract",
+  "type": "object"
+}

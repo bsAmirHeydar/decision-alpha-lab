@@ -49,8 +49,8 @@
       "path": "contracts/data_contract.yaml"
     },
     {
-      "bytes": 861,
-      "digest": "sha256:715a20aabf74408ebdea3cf977651c8bb4a308cde3d3a345d11018f99114b1eb",
+      "bytes": 877,
+      "digest": "sha256:479e6578ff545b88d230c9383d7069999f6f08ee871222542da47439c751c64a",
       "path": "contracts/feature_views.yaml"
     },
     {
@@ -84,8 +84,8 @@
       "path": "contracts/price_basis_contract.yaml"
     },
     {
-      "bytes": 1249,
-      "digest": "sha256:8823bcb62576a99937e65f04d7ec3d83650dfa2875f4d9fa35ede43daf2d022b",
+      "bytes": 1276,
+      "digest": "sha256:8a29b3060e4923129f5d47e6a1773c647f32b5b40b1540fd01febada8d20db0b",
       "path": "contracts/reference_contract.yaml"
     },
     {
@@ -254,12 +254,12 @@
       "path": "security/security_profile.yaml"
     },
     {
-      "bytes": 225,
-      "digest": "sha256:4c27defa7517e9ae7a366cdc27c1125dc5b9ee100e419e4797b9a49fbedd860a",
+      "bytes": 228,
+      "digest": "sha256:907ad0c5a52a6f90300be1c34ad854284526571831aa065cde1009e7dcb6aed4",
       "path": "tests/README.md"
     }
   ],
   "schema_version": "1.0.0",
-  "snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
-  "source_package_digest": "sha256:0049d8a46560962c4aeb5a8eb748e765ff519174e0367fe3db79d893a741bd80"
+  "snapshot_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df",
+  "source_package_digest": "sha256:a023b73fa731388d69590347e32b250595ab4d82ccf353adf68b8ddf001b76ea"
 }

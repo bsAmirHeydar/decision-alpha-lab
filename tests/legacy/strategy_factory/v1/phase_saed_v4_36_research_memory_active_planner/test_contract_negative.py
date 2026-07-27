@@ -1,6 +1,6 @@
 from copy import deepcopy
 import pytest
-from conftest import FIXTURE
+from .conftest import FIXTURE
 from saed_v4_research_memory_active_planner import run
 from saed_v4_research_memory_active_planner.errors import SAEDV436Error
 

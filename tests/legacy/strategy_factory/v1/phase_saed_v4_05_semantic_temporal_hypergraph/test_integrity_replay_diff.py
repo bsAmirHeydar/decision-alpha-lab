@@ -1,4 +1,4 @@
-from helpers import build_graph, build_package, changed_sources
+from .helpers import build_graph, build_package, changed_sources
 from saed_v4_semantic_hypergraph.diff import diff_graphs
 from saed_v4_semantic_hypergraph.integrity import build_integrity_receipt, verify_integrity
 from saed_v4_semantic_hypergraph.replay import replay_graph

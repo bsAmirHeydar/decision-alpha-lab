@@ -6,7 +6,7 @@ from jsonschema import Draft202012Validator
 from ..common import REPO_ROOT
 from .policies import PolicyBundle
 
-SCHEMA_ROOT=REPO_ROOT/"registry"/"acl_os"/"acl_01"/"schemas"/"v1"
+SCHEMA_ROOT=REPO_ROOT/"registry"/"history"/"acl"/"acl_01"/"schemas"/"v1"
 DOC_ROOT=REPO_ROOT/"docs"/"alpha_lab_master_architecture"/"context_lifecycle_os"
 MQL5_ROOT=REPO_ROOT/"lab"/"11_strategy_factory"/"mql5"/"Include"/"AlphaLab"/"ACL_OS"/"ACL01"
 

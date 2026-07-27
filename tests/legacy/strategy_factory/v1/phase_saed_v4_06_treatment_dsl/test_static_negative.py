@@ -1,5 +1,5 @@
 import pytest
-from helpers import load
+from .helpers import load
 from saed_v4_treatment_dsl.catalog import institutional_capability_profile,institutional_policy,institutional_registry
 from saed_v4_treatment_dsl.parser import parse_program
 from saed_v4_treatment_dsl.static_analysis import StaticTreatmentAnalyzer

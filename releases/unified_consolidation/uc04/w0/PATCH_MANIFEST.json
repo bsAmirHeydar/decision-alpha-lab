@@ -1,0 +1,19 @@
+{
+  "authority": {
+    "capital_authority": false,
+    "deletion_authority": false,
+    "order_authority": false,
+    "runtime_authority": false,
+    "semantic_change": false,
+    "semantic_merge_authority": false
+  },
+  "delivery_type": "semantic_unification_foundation_and_recovery",
+  "hash_ledger_entry_count": 356,
+  "next_wave": "UC04-W1",
+  "patch_file_count": 357,
+  "program_id": "UCPS",
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W0",
+  "status": "ACCEPTED",
+  "title": "Canonical Path Authority, Test Recovery and RTHP Golden-Path Recovery"
+}

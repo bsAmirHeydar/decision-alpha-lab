@@ -1,0 +1,104 @@
+{
+  "amendment_digest": "sha256:4623014f78bb64ce92245520a9e9a5e96a064d1ba71dfe6aa537beb61ec9d590",
+  "amendment_id": "UC04_W0_OBSIDIAN_FOUNDATION_AMENDMENT_V1",
+  "capital_authority_created": false,
+  "order_authority_created": false,
+  "program_id": "UCPS",
+  "reason": "Preserve the immutable Obsidian foundation ledger while recording bounded UC04-W0 validator and status updates after accepted UC-03 relocation.",
+  "record_count": 8,
+  "records": [
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/00_MOC.md",
+      "current_sha256": "sha256:472a36f5ee0faee8d6eecbf245bed08efc1b4cfc6f35fddccd5be839023751ac",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/00_MOC.md",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:874008445e255308b2b41b5b798c4bbce728ca36c37a0caa8c80bad306f624de",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically.md",
+      "current_sha256": "sha256:c8dcf9b70ef18ba86963561345f180d6591be2920b49b5d6d3361277a13216e3",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/03_EXECUTION_STAGES/03_UC03_Reorganize_Physically.md",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:d4136c136b7423b329fde013843071eedd4b2d94053c16030069270302fc8ef7",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/01_Current_Program_Status.md",
+      "current_sha256": "sha256:91588e01a79c091a525ae551d0f08ec1e6c9a065d6e9a6803bbadc3d5ff00a40",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/01_Current_Program_Status.md",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:b671e7b32640b858d2ecb41aa4163bd49177974ea7cee1c7bf13ff0cb0cda008",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/02_Stage_Board_And_Allowed_Transitions.md",
+      "current_sha256": "sha256:d2c67d943303c5a6ebfa4dc3f5326ce84af62cdc8d5774164ca09a3f44945b7a",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/02_Stage_Board_And_Allowed_Transitions.md",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:8b7ef22dfc8b6e0daa05e7681e376f5bb33d9f49fc82c5c7f8dc7f6da8374e37",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/06_Next_Executable_Action.md",
+      "current_sha256": "sha256:99b6094805a681d7a4eb60ac260b469cc45ca8b0a7e6a4e0f47c0b720964e137",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/09_STATUS_AND_CONTROL/06_Next_Executable_Action.md",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:19fa6aaa88c8e0a9361b3f2cc345682a027689f46991e46c04cd4a4534fcf5ab",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/_release/UCPS_OBSIDIAN_FOUNDATION_ARTIFACT_INVENTORY.csv",
+      "current_sha256": "sha256:428ddb249371bb908747eaebdc8198b2319ccb86d704ab51413217953ee3c668",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/_release/UCPS_OBSIDIAN_FOUNDATION_ARTIFACT_INVENTORY.csv",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:37d91743aac17d7eb8398745821bdc5a491dfd559a07421701633a2069077fde",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
+      "current_sha256": "sha256:443c545a3d5327c274283b4e6fa1bb97a465684835549e60925d107bc515ab01",
+      "historical_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/tools/validate_program_vault.py",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:763e1b8c3a019ef17f90e410ac97faccc747355bc507a4d917258b69e9b372d6",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_GOVERNANCE_OR_STATUS_RECOVERY",
+      "current_path": "tools/engineering/run_engineering_policy.py",
+      "current_sha256": "sha256:a6c7431d2b6ff9ce3db084cb26fd779099cd38f53897b8823aff8293f91e2e16",
+      "historical_path": "tools/engineering/run_engineering_policy.py",
+      "order_authority_created": false,
+      "previous_sha256": "sha256:b247c907be1067000edeb940395dd186ec7531b4ab76387ac0e2931959a138a1",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    }
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W0",
+  "status": "PASS"
+}

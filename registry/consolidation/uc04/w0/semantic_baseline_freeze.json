@@ -1,0 +1,94 @@
+{
+  "artifact_count": 17,
+  "artifacts": [
+    {
+      "path": "pytest.ini",
+      "sha256": "sha256:0bbe925dd2fea474e135c372ef0b41d024a576f4f8782e5a6cfcf6bd88a9c6ee"
+    },
+    {
+      "path": "tools/repository_paths.py",
+      "sha256": "sha256:c818d9a340b2f38d7c15c9fbcad00e8db220efff8e577b1f33e49b7e5d1957cb"
+    },
+    {
+      "path": "src/engine/packages/strategy_factory_rthp_train_activation_v1/pipeline.py",
+      "sha256": "sha256:7810472713ac5a7278af60f7ad84b11090c381eecfd89883b36a862df81e60b1"
+    },
+    {
+      "path": "src/engine/packages/strategy_factory_rthp_mt5_activation_v1/orchestrator.py",
+      "sha256": "sha256:069970b33a27af5e833f538ff2ab848efef517d31a301e30c0d75aefc0d93ddd"
+    },
+    {
+      "path": "src/engine/tooling/strategy_factory/acl_os/common.py",
+      "sha256": "sha256:bf8b6e9332c2b984f920f5fe7b15b9a528319fa45dbab6a92abb80c1247fc5b5"
+    },
+    {
+      "path": "src/engine/tooling/strategy_factory/acl_os/acl_01/validate_acl_01.py",
+      "sha256": "sha256:0cef5f017feaadcb41e53a8abc4c404d034e4ff9e38f0dbc84120e92c272516c"
+    },
+    {
+      "path": "src/engine/tooling/strategy_factory/acl_os/acl_02/policies.py",
+      "sha256": "sha256:ddd0abced58d665b639210d91ea5d25e7e6fe45a0b2ca73af139ecfd1a77bb70"
+    },
+    {
+      "path": "src/engine/tooling/strategy_factory/acl_os/acl_03/policies.py",
+      "sha256": "sha256:362192a81eac35bd73d784b2f44936983b0091f6798833d7e500aea1054c8a3b"
+    },
+    {
+      "path": "src/engine/tooling/strategy_factory/acl_os/acl_04/policies.py",
+      "sha256": "sha256:6ae9d959ddd0390fb72729140ab5d8e51c73e5d9b155d3c2d417825d98a7b024"
+    },
+    {
+      "path": "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1/generated/acl_03/RTHP_ACL03_ACCEPTANCE_REPORT.json",
+      "sha256": "sha256:5fa87706b8bda0e3bac441e25561ee12ea8fc479a00cc05fe1302753fecb7dce"
+    },
+    {
+      "path": "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1/generated/acl_03/evidence/source_snapshot_relocation_amendment_uc03.json",
+      "sha256": "sha256:b17b338936495340922f7d4daccb822cfacefb0c77f8dd1699ee3be7caec90ec"
+    },
+    {
+      "path": "registry/history/strategy_factory/contexts/rthp/v1/rthp_ai_input_registration.json",
+      "sha256": "sha256:ced6ec10a296a1d90260db8d234364b67480b40d362bbcfee32dc32146acd592"
+    },
+    {
+      "path": "registry/history/strategy_factory/contexts/rthp/v1/context_package_registration.json",
+      "sha256": "sha256:cea3e3f3ee499e09a2940f7b52c405e43036ccab1f6d980c076e2ba048a194f1"
+    },
+    {
+      "path": "registry/history/strategy_factory/contexts/rthp/v1/acl03_onboarding_registration.json",
+      "sha256": "sha256:4717a211f21ba0e7fe9e711f3bc32c921d813776345682af25f01e577d1bcfa6"
+    },
+    {
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_core_baseline_snapshot.json",
+      "sha256": "sha256:2bd98537144f4b2101601cf9e64d1f8b5d9dedebf46d3a51b3cd9b9701b99b6d"
+    },
+    {
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_core_baseline_amendment_uc04_w0.json",
+      "sha256": "sha256:cbc82eb2f2d8132f996077cf7d38e8829a5f31dc14d63989dfcd61fa2365bb72"
+    },
+    {
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_extended_baseline_amendment_lcm16a.json",
+      "sha256": "sha256:1b46392163058ba84f3344b18ef1d804ca0d968b2f8f35901b55089763e9f1c4"
+    }
+  ],
+  "capital_authority": false,
+  "change_policy": "Any UC04-W1 implementation must produce characterization, semantic-equivalence and logic-preservation evidence before consumer cutover.",
+  "deletion_authority": false,
+  "document_digest": "sha256:c4dd6d2825c5e22e0b784336b782249fd856affa97f0e66918a1be66be8700de",
+  "freeze_id": "UC04_W0_SEMANTIC_BASELINE_FREEZE_V1",
+  "frozen_observables": [
+    "repository path resolution",
+    "RTHP context identity",
+    "ACL03 compiled receipt identity",
+    "AI-input registration identity",
+    "train and MT5 activation boundary behavior",
+    "engine baseline continuity"
+  ],
+  "order_authority": false,
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "FROZEN"
+}

@@ -9,7 +9,7 @@
   "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
   "context_version": "1.0.2",
   "detector_ir_digest": "sha256:643d1e6aedaaef33c73de4b04fd23d94ba291af8a0e8f9e9942e73059c9334fb",
-  "feature_binding_ir_digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+  "feature_binding_ir_digest": "sha256:a9ed98e7fbf62b3059fed25527ca24c604ac91fbc15fb2b9544068928ede7992",
   "forbidden_scope": [
     "ALTER_CONTEXT_SEMANTICS",
     "ALTER_CONTEXT_STATE_MACHINE",
@@ -18,12 +18,12 @@
     "SUBMIT_ORDERS",
     "MODIFY_GENERATED_IR"
   ],
-  "handoff_digest": "sha256:cf815b88e49e527c849ac08dcab894b1c51b10f44ee409d2addcf52bafebf739",
+  "handoff_digest": "sha256:38b5a163f95514b10c0f8bdd9acdda01512c400dc211a0f596dba4d3acc9c32b",
   "handoff_type": "ACL03_TO_ACL04",
   "live_order_submission_allowed": false,
   "occurrence_ir_digest": "sha256:22029214ddc97c8e94c65e23120de8e484f05afb884c617fc615d96b104d485b",
   "onboarding_report_digest": "sha256:4f328ce14246ba492921120031b55c8cb331146911c0d504110f08410fee855f",
   "schema_version": "1.0.0",
   "search_authority_required": true,
-  "source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18"
+  "source_snapshot_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df"
 }

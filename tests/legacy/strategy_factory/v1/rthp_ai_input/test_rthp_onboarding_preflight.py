@@ -6,7 +6,7 @@ from strategy_factory_onboarding_v3.generator import ContextGenerator
 from strategy_factory_onboarding_v3.invariance import snapshot,compare
 from strategy_factory_onboarding_v3.tournament_template import default_template,compile_template
 from strategy_factory_rthp_context_v1.preflight import run_preflight
-from helpers import ROOT,CONTEXT,FIXTURE,load
+from .helpers import ROOT,CONTEXT,FIXTURE,load
 
 def spec_from_json():
  d=load('uce_i16_context_spec.v1.json'); caps=tuple(CapabilityDeclaration(x['capability_id'],CapabilityDecision(x['decision']),x['reason'],x['scope']) for x in d['capabilities'])

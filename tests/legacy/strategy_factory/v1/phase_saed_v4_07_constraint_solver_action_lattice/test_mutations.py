@@ -1,5 +1,5 @@
 import copy,pytest
-from helpers import solve
+from .helpers import solve
 from saed_v4_action_lattice.validation import validate_lattice,validate_solver_result
 from saed_v4_action_lattice.errors import ContractError,IntegrityError
 @pytest.mark.parametrize('field',['candidate_count','feasible_count','pruned_count'])

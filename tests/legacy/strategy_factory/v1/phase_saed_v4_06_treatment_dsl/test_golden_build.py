@@ -1,4 +1,4 @@
-from helpers import build,load
+from .helpers import build,load
 def test_golden_package_hash_matches_fixture():
  assert build().package_hash == load('golden_treatment_dsl_package.json')['package_hash']
 def test_golden_has_three_programs_and_one_binding():

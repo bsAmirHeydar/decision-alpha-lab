@@ -62,7 +62,23 @@ def hash_matches(path: Path, expected: str) -> bool:
 def main() -> int:
     program = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[1]).resolve()
     vault = program.parent.resolve()
-    repo = next((candidate for candidate in (vault, *vault.parents) if (candidate / ".git").exists()), None)
+
+    def looks_like_repository(candidate: Path) -> bool:
+        return (
+            (candidate / "README.md").is_file()
+            and (candidate / "src/engine").is_dir()
+            and (candidate / "registry/consolidation/uc03/part3/uc04_handoff.json").is_file()
+        )
+
+    repo = next(
+        (
+            candidate
+            for candidate in (vault, *vault.parents)
+            if ((candidate / ".git").exists() and (candidate / "src/engine").is_dir())
+            or looks_like_repository(candidate)
+        ),
+        None,
+    )
     if repo is None:
         print(f"ERROR: repository root not found from {program}")
         return 2
@@ -290,6 +306,35 @@ def main() -> int:
                 add_amendment(str(row.get("path", "")), digest)
         except Exception as exc:
             errors.append(f"invalid UC-03 Part 3 Obsidian amendment: {exc}")
+
+    uc04_w0_amendment = repo / "registry/consolidation/uc04/w0/uc03_post_closure_amendment.json"
+    if uc04_w0_amendment.is_file():
+        try:
+            payload = json.loads(uc04_w0_amendment.read_text(encoding="utf-8-sig"))
+            if payload.get("program_id") != "UCPS" or payload.get("stage_id") != "UC04-W0" or payload.get("status") != "PASS":
+                errors.append("invalid UC04-W0 post-closure amendment identity")
+            for row in payload.get("records", []):
+                if row.get("semantic_change") is not False:
+                    errors.append(f"UC04-W0 semantic change is forbidden: {row.get('path')}")
+                digest = str(row.get("current_sha256", "")).removeprefix("sha256:")
+                add_amendment(str(row.get("path", "")), digest)
+        except Exception as exc:
+            errors.append(f"invalid UC04-W0 post-closure amendment: {exc}")
+
+    uc04_obsidian_amendment = repo / "registry/consolidation/uc04/w0/obsidian_foundation_amendment.json"
+    if uc04_obsidian_amendment.is_file():
+        try:
+            payload = json.loads(uc04_obsidian_amendment.read_text(encoding="utf-8-sig"))
+            if payload.get("program_id") != "UCPS" or payload.get("stage_id") != "UC04-W0" or payload.get("status") != "PASS":
+                errors.append("invalid UC04-W0 Obsidian foundation amendment identity")
+            for row in payload.get("records", []):
+                if row.get("semantic_change") is not False:
+                    errors.append(f"UC04-W0 Obsidian semantic change is forbidden: {row.get('current_path')}")
+                digest = str(row.get("current_sha256", "")).removeprefix("sha256:")
+                add_amendment(str(row.get("historical_path", "")), digest)
+                add_amendment(str(row.get("current_path", "")), digest)
+        except Exception as exc:
+            errors.append(f"invalid UC04-W0 Obsidian foundation amendment: {exc}")
 
     release = program / "_release"
     required_release = {

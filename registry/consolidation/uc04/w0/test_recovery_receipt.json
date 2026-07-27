@@ -1,0 +1,52 @@
+{
+  "capital_authority": false,
+  "collected_test_count": 9732,
+  "collection_command": "python -m pytest --collect-only -q",
+  "collection_error_count": 0,
+  "collection_policy": {
+    "configuration": "pytest.ini",
+    "import_mode": "importlib",
+    "test_root": "tests"
+  },
+  "deletion_authority": false,
+  "document_digest": "sha256:70b96b723545b2a2e4df31b0ec2d21d03d86c8bf0fd2f39f1788703f82c19df3",
+  "evidence_paths": [
+    "pytest.ini",
+    "tests",
+    "registry/consolidation/uc04/w0/uc01_static_amendment.json",
+    "registry/consolidation/uc04/w0/uc03_post_closure_amendment.json"
+  ],
+  "full_repository_suite_attempt": {
+    "available_size_bytes": 133,
+    "command": "python -m pytest -q",
+    "expected_size_bytes": 61208723,
+    "first_failure_after_passed_count": 197,
+    "first_failure_after_skipped_count": 7,
+    "first_failure_artifact": "registry/history/lcm/surveys/SURVEY_D4EC5C533F886BC439DAEEBDE51FA080/dependencies/all_dependency_edges.csv",
+    "first_failure_reproduction_command": "python -m pytest -q -x",
+    "first_failure_test": "tests/legacy/strategy_factory/migration/tests_lcm_01/test_reference_package.py::test_reference_package_verifies",
+    "git_lfs_pointer_paths": [
+      "registry/history/lcm/classifications/CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B/artifacts/artifact_classification_records.jsonl",
+      "registry/history/lcm/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/records/documentation_records.jsonl",
+      "registry/history/lcm/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658/unknowns/documentation_unknowns.jsonl",
+      "registry/history/lcm/surveys/SURVEY_D4EC5C533F886BC439DAEEBDE51FA080/dependencies/all_dependency_edges.csv"
+    ],
+    "progress_at_timeout_percent": 5,
+    "source_archive_bytes_unchanged": true,
+    "status": "INCOMPLETE_AT_FIRST_HISTORICAL_LFS_BLOCKER",
+    "tests_collected": 9732,
+    "timeout_seconds": 900,
+    "unresolved_beyond_first_blocker": true
+  },
+  "local_import_rewrite_strategy": "Convert sibling helper and conftest imports to explicit relative imports.",
+  "order_authority": false,
+  "package_marker_strategy": "Add deterministic __init__.py markers to test directories requiring package-relative imports.",
+  "program_id": "UCPS",
+  "receipt_id": "UC04_W0_TEST_ESTATE_RECOVERY_V1",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "PASS"
+}

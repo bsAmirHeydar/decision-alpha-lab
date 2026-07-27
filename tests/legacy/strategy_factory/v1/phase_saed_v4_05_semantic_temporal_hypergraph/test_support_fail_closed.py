@@ -2,7 +2,7 @@ from dataclasses import replace
 
 import pytest
 
-from helpers import build_graph, build_package
+from .helpers import build_graph, build_package
 from saed_v4_semantic_hypergraph.catalog import institutional_policy
 from saed_v4_semantic_hypergraph.errors import GraphValidationError
 
@@ -27,7 +27,7 @@ def test_degraded_package_policy_can_be_strict():
 
 
 def test_missing_execution_evidence_is_unsupported_not_imputed():
-    from helpers import golden_sources
+    from .helpers import golden_sources
     from saed_v4_semantic_hypergraph.enums import GraphStatus
 
     sources = tuple(item for item in golden_sources() if item.namespace != "execution")
@@ -39,7 +39,7 @@ def test_missing_execution_evidence_is_unsupported_not_imputed():
 
 
 def test_strict_policy_rejects_degraded_source_package():
-    from helpers import golden_sources
+    from .helpers import golden_sources
 
     sources = tuple(item for item in golden_sources() if item.namespace != "execution")
     package = build_package(sources)

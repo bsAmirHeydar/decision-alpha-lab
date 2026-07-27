@@ -4,10 +4,11 @@ import json
 from pathlib import Path
 
 from strategy_factory_rthp_train_activation_v1 import RTHPTrainActivationPipeline
+from tools.repository_paths import RepositoryPaths
 
 
 def test_registration_is_context_owned(repo_root: Path):
-    path = repo_root / "registry" / "strategy_factory" / "contexts" / "rthp" / "v1" / "rthp_train_activation_registration.json"
+    path = RepositoryPaths.from_root(repo_root).strategy_factory_registry_root / "contexts/rthp/v1/rthp_train_activation_registration.json"
     value = json.loads(path.read_text(encoding="utf-8"))
     assert value["python_import"] == "strategy_factory_rthp_train_activation_v1:RTHPTrainActivationPipeline"
     assert value["shared_engine_change_allowed"] is False

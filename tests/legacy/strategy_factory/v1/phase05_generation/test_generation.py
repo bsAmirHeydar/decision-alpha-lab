@@ -1,6 +1,6 @@
 import pytest
 from strategy_factory_generation import *
-from test_manifest import make_manifest
+from .test_manifest import make_manifest
 def compile_one(n=1):return GenerationCompiler().compile(make_manifest(requested_generation_id=n),CompilationEvidence('desc_1','req_1'))
 def test_compiler_returns_warmed():assert compile_one().state is GenerationState.WARMED
 

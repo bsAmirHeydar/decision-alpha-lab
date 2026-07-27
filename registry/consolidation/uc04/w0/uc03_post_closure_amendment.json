@@ -1,0 +1,1376 @@
+{
+  "amendment_digest": "sha256:0125957087b014182cefce8902225c12fa6dfd21e85413d6715acbfc493896d7",
+  "amendment_id": "UC04_W0_UC03_POST_CLOSURE_AMENDMENT_V1",
+  "capital_authority_created": false,
+  "order_authority_created": false,
+  "program_id": "UCPS",
+  "reason": "UC04-W0 repairs test infrastructure, canonical path bindings, and deterministic evidence after accepted UC-03 relocation.",
+  "record_count": 136,
+  "records": [
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8e82f7903de5bd7d59c42eba2c2a09e329e6f65015000c5efa36851d3b08a3c5",
+      "order_authority_created": false,
+      "path": "README.md",
+      "previous_sha256": "sha256:d2d271ea4010c60f91e1bb17568836ceb60abddeed68128d61027f772078cce2",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:ad630d153d8ba4791f5a9d6db9eb0e4352d6338d101dbce5c3f449ea3604b32a",
+      "order_authority_created": false,
+      "path": "adapters/legacy/market_data/cme_bridge/dal_cme_historical_poller.py",
+      "previous_sha256": "sha256:be177f159f016a3624bc436afa26327176084ac4900b2da976c23fdf5ebfd7f4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:e8ff584a90454e00b9e820cc18edb5bc2a837ddf2978a24387a13a18a52cd473",
+      "order_authority_created": false,
+      "path": "adapters/legacy/market_data/cme_bridge/providers/databento_provider.py",
+      "previous_sha256": "sha256:a1535f053ec503a72e500f2916a0331f0a127cd7a7dd0c7695ad5d2a17ecbdd9",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f875d09decc2feca926eeca7d45eab769be3a766e6fe8f4391c634888976ee5f",
+      "order_authority_created": false,
+      "path": "adapters/legacy/market_data/cme_bridge/providers/yahoo_delayed_provider.py",
+      "previous_sha256": "sha256:719e645b1a2cc39f64de5a327c94d29f2c3a98af35f660216a7b67bf102d5539",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:12284b0efa63c086e230a43ae5c8440389591bee2742501e61bc76aa16b0dd0e",
+      "order_authority_created": false,
+      "path": "configs/legacy/infrastructure/README.md",
+      "previous_sha256": "sha256:b4d831b044e7c4f90dd0b8ae171a0a7dd4d6e3d9b0674f34f2c9d6a97a62ffde",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d4844920a619445f270be8aa6a70fb41fe9cd3e0524bfa039afcb420223e6d49",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/artifacts/FP_I00_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:ce795face75bd34aa0e09bdde157020f41f2a392d902c1e1320c4e42a513c77d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:31430485baa45322cb809d54250b8eecbf370f841b774373250fd2a816d2e422",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/artifacts/FP_I00_PHASE_FILE_OWNERSHIP.csv",
+      "previous_sha256": "sha256:296712cff242d8e2ac233410542f1842333fc8e896e897654b5411ab3a16ad10",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:45772ffaa3b89b129aff614a079cb99ed53cdfd951587a62989a6f83f912adfa",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/powershell/run_exp0019_fp_i00_checks.ps1",
+      "previous_sha256": "sha256:4f2929afc6870ab6e836a709fbab8aa4f13a67fcc25b312b88016667c3198625",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b3fd3ebe53b51986514d582084ca26670074ae3c6f6c6a2f53d0cc73013c75f3",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i00/powershell/verify_exp0019_fp_source_package.ps1",
+      "previous_sha256": "sha256:6e5bd3eb262de96d9555a6e1f7ee77ced689e6e98e0e7f7d3bf91a16737eb649",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d9ff2116ef948c0062be38abfd28580e990e3e4043801c6658b0241255b7e222",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i01/artifacts/FP_I01_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:36db591b1dfdb038d4c0a442ebef9fec371f9b44be20bd284a2f51e9afdcdf24",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:9a0d561e69aad252ea158c8d3298f9a4b9c673f21d9ccd14c7c218d306037a73",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i02/artifacts/FP_I02_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:126b3e8b9dbd3c118bd8268cfe2ffea00b800b1000db1065bde6a4f9d2dc2299",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6a81f2be0237127b25b6e8f068e3c9f3453ff6ba12ec5a8a5f654bb22b050125",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i03/artifacts/FP_I03_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:e5bfa652612b395ec7e078cf72f54140c944e63d654892480b5c31371fedaecc",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:3dd63a0632d6c860f481c57f8fa9c38d257f91a3f1de1ccb075861a24d84886b",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i04/artifacts/FP_I04_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:57875e0c0b79f65930caf951bedffb43d827eb3037786b0cd2d1e9cc5e0d99ed",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:ce213b675049c04a68d23b8eb3bedddb4f86da035fd515366446275a838dbd32",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i05/artifacts/FP_I05_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:67bf605b0dd060f0eec48e899b782552557f7f90d47ba559a8f44baba40775f4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:c26b6b2bb51f52bfb5944ba9a14733f3282d8a4d424ffb942ee7c876d0561d5a",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i06/artifacts/FP_I06_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:66b096df5716ed00cdf675133859ecfb3c8c02705a73125b2fc521ec5583025c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:07c6ed678d457694de5a9cff0523eb94d451e6ad7c1b25f5c7ee52045b93370d",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i07/artifacts/FP_I07_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:d84d0e9de74327bd0801746b63ede6728ed37229f7e32ba399e44ba23538e5fd",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:bc1e0f503a396565b74f73eb62777827cfd2395fa33b64232e256666c8bdc1fd",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i08/artifacts/FP_I08_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:308f08246eab82cb9f1fe7f1fe7c38cb5b52fe245962b95619bb8d6d79c23e82",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:0d628af4b0ba7e782a32e24879874e93e9b9fcc794c97358e1cb03f01f1e133b",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i11/artifacts/FP_I11_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:f4ed5bee1510f27e08fb8689576749f75982ec29617a4462d0c07fee70fc4ae2",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:72deeaa0f8571ef12111585486ba08011a581e01ebb5da48b63216bf32bcc9b5",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i13/artifacts/FP_I13_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:4ff8de13734feb3674a1b4ec0a29b8661f2d2b8703f16d52c6d423f39b840eb1",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:a8163ecf1271b24556fdd113bfebe777967798420e96e26a3a15c82b65b525b4",
+      "order_authority_created": false,
+      "path": "contexts/legacy/infrastructure/exp0019_faerie_protocol/phase_i14/artifacts/FP_I14_ARTIFACT_INVENTORY.csv",
+      "previous_sha256": "sha256:d711eec169ef6b7fce78bea58c896c214e66e31b4b00889cc73b9ad96b466b22",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:5fc77874d966de7240a21144a0f4bbaf7f0a6328d6e38fff7a563422096be4f8",
+      "order_authority_created": false,
+      "path": "contexts/legacy/lab_experiments/EXP0004_mql_native_m0004/report.md",
+      "previous_sha256": "sha256:1e3250f3156a7ae1491c7cc7ab54258836d3d2f3f7b28fbbf378577037f0c4e3",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2bf54fc5bdc9ceb8c8be87e63522e73b70bb46636b013e494ae0d9eafea89f15",
+      "order_authority_created": false,
+      "path": "contexts/legacy/strategy_factory/authored/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1/generated/acl_03/compiled/ir/feature_binding_ir.json",
+      "previous_sha256": "sha256:fee0e8c8b6d0a4c0c2e6fcf303a68ae6de8ad4e818b048b5027bae0185f69dee",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:562c9e25f4bb3c8e389084e9101e231af72491cf8afdb8e44f0e57ce42b941b0",
+      "order_authority_created": false,
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/data_binding.real.template.v1.json",
+      "previous_sha256": "sha256:7241555c9667d7fac40a7f363817892db608a4b751bb7503cc43e54d89371fe2",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:5cda5ee13551b2574369721ef2d5346636ae927d789ebccd950c4a3003578c70",
+      "order_authority_created": false,
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/data_binding.smoke.v1.json",
+      "previous_sha256": "sha256:86341986160eae61555cc204dba6204eddf253d6dc322db1771b48f68b603f24",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2bd98537144f4b2101601cf9e64d1f8b5d9dedebf46d3a51b3cd9b9701b99b6d",
+      "order_authority_created": false,
+      "path": "contexts/legacy/strategy_factory/generated/rthp_cross_symbol_cycle_divergence/ai_input/generated/engine_core_baseline_snapshot.json",
+      "previous_sha256": "sha256:0f5ffedd3c04970180773445002ce776bf31acda19be531fc439c6ddbd1755aa",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:0e4d3d48599ab05e1c815a8dbdabc767e84a9c5f2d9d3a6d7e3f7a948d359255",
+      "order_authority_created": false,
+      "path": "docs/architecture/project_layout.md",
+      "previous_sha256": "sha256:d52731934b66d7d950eba14b8d108f5ddc45f77e5fc91673060afe1bb19662f9",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:89c90762e854f8f1b98252aab1b4a6a422164065211e1064ab949fba9f0ac0f9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/EXPERIENCE_CAPTURE_INDEX_EN.md",
+      "previous_sha256": "sha256:4058f8c3a1845bd4660c52add5c3eb22b21aba5d16cbaa2b982a410c4aeae108",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:86cb1bcad92732e7ce63a706e45f26d5ee21554d6f7c09ee5f8c7014e20b8a8e",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/README.md",
+      "previous_sha256": "sha256:e33c525e524cf6c287b3d25742d2124d4886659d38ed0d27105bd4f4ec4a4713",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d94b51201a2f2264030376e0bb054f85337e22ae474557029943326f9164a716",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/DATA-R03_en.md",
+      "previous_sha256": "sha256:55f708ba028ba529faa6aec4a203755abd0df985013110c6957e37fa4c7d0e38",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:4be1ae264a2f887d92800d13a5ec6b7c714dda25e6818a63c13a5833a4df2886",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/DST-R01_en.md",
+      "previous_sha256": "sha256:02e5c8ae91b98e1889bf628d887054ad9977a91601b11a9dcc0277b69a66db80",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:feb210c9ff237bce64b64529d41c462b570f18259144111ff2273163fcf92a0f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/DST-R02_en.md",
+      "previous_sha256": "sha256:942509a07e46c4bc979e461d4cee0010c57d9a063100a18dd3a46de4dd25ef3f",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:234abb20287abf014a82cd8050c3b61885b77d872e96e404af850067379f5163",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/DST-R03_en.md",
+      "previous_sha256": "sha256:c0d5d0915b6be20465c7ea128df036c08cd9b615e8a839231562c325481eddf4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:57d22b5759eea77c2263c81837e25a06cd4d6aad2fbe7da09a771f189776c917",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/ENT-R01_en.md",
+      "previous_sha256": "sha256:9d122b0af37b30660cedca4982daa3d2ad6d66b4370ce65f2fd5908dddd13135",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:dea5c90d79fa0bbcb8a55ea76ea3400e2aa1fb5362d74fd82bf15a7620a6bbd0",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/ENT-R02_en.md",
+      "previous_sha256": "sha256:d30b565ef648381ba1e0a91916cae93eb04d4e94132876f8f237e16314e8e0c3",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:737e8cdca3fc7b9cf1568d4737d89abc821bf49e04d7af572a48687355aec1f7",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/ENT-R03_en.md",
+      "previous_sha256": "sha256:9c111b233be9844a6384515cf9f7d80f375b512c31215966bbb02356b41c69c5",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b48706e65220251e0c2152804ca93e81ddf304950a5d5bcf1a0fc6ab8e587af2",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/ENT-R04_en.md",
+      "previous_sha256": "sha256:8dac0d6fc97d57b640448a6e13202a3d11d4a5d418fda9bfe33af709bc3af608",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8a32d8e69c6bfae3eb250e87acb0bf62940e12e1df122e80336b39f93dcd0acb",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/EXE-R01_en.md",
+      "previous_sha256": "sha256:3f076d29d33164f7c305e243de749842b45b29ac60385033dd03c6b38478f801",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f5d18d5068bd2545885a58617e3efd9f5011d75c87cc1000979357e38ea69344",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/EXE-R02_en.md",
+      "previous_sha256": "sha256:eed257f1f80a3e1801388a75c167fc01c6dc74b1c5dfabbd68287b1cf93fb13a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:01564b97205963aaae8cedba35d6ac50b8353be6cc00c725524f7b2b5772d56f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/RSK-R01_en.md",
+      "previous_sha256": "sha256:c1b92070dd47df72ce1f415658ebf5dd1a6b00e24d68fd6cb4fb9205fededf42",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b8ce9b317a23ab0d91fff5095365219cbd1110c9dd23e1c485fab8b5cb7de257",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/RSK-R02_en.md",
+      "previous_sha256": "sha256:92660571f5b75add3aa759e4dadff9ff15eca913ee3e9a5818d6520b174b2e85",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8580caa8c476460dae328a5c804403bcaacbfb64e3b9c3d3b6289110deb1cc18",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/SCN-R02_en.md",
+      "previous_sha256": "sha256:c2e0d41ac797742b70cc3e2f9173b0785887547d517074bd1ddd5dc9c13e4107",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:7f979fcfd945069446b00b9832f47a296797016cef4cb14a3da5e5216bc27078",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/SCN-R03_en.md",
+      "previous_sha256": "sha256:758da7bee9cc9cef193361843ae3945b4f160c24a95b6a4d214c9645daaf63d9",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b5a11f729c26210f8b3d991e09e87e3dcac3339dca2360da7a48656d61519dd9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/index_fragments/SCN-R04_en.md",
+      "previous_sha256": "sha256:d6e2c751c2f2400f66f544b000987df5430bb2c3e66fd0f042cba6a44aa72692",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d57e1ef71a73fa81b5233cecba658ceec7d9818230631ddf3800ff7970fd4906",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/ACTIVE_REMAINING_QUESTIONS_V2_POINTER_EN.md",
+      "previous_sha256": "sha256:6dd2ccecacad246679de1a7e7a7a3cf88afe5f08207e5031a768a47a88bb3a2e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8c772c62a70ce635ce63c286f3d4cc84d4e5a3dbee43fe5e55977f2cd7d2f387",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/README.md",
+      "previous_sha256": "sha256:d6b0658db681b1e9f1fd3c402c9e472b85bee4326de14d96e1f8775d5cfee726",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:4b53d40535850f484ce180367f732f6fa59093eeb51f58c22ba76131c5a4117c",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/ACTIVE_REMAINING_QUESTIONS_V2_EN.md",
+      "previous_sha256": "sha256:7446370142fd4377040147ad7cfd1fba55e98e7a5a119d52824259fa4af9fedb",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:e6f3d13616536470c5f8e6333fc7ee75fce88e781dfdc9677615ab37739cb981",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/MIGRATION_NOTE_EN.md",
+      "previous_sha256": "sha256:f31743f12baeae90dbddf5167309077e8330e5c0edf7c68e9154dc32ab49290b",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f54721e457b6a89c8f743e976f2caebea7b050463daf0428561908deb11800c9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/AI-R01.md",
+      "previous_sha256": "sha256:a8c3aaabe1f54022f6879130a3a3a54d4c23adafaf846f0fedb1576ee376484a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d46d06f7204cd1495c3f891b41639029a127b1ed9df12118e4c7e0f134203d0b",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/AI-R02.md",
+      "previous_sha256": "sha256:5cd060243d9b99ff3b82612cf1ec75c703d47fd47eebe2d5d9cf846ceaee9cce",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:aba59a253a1d68abb037418349bffcfb0749624cd85798e6e381c0cff34bd53f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/AI-R03.md",
+      "previous_sha256": "sha256:f4c4dbd0f605168bcba9330031d9cb0d97b6a76b6afe646077c522db83e54a76",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:58f9f1a6d1f26c5d315dd0249a6325d979b22212004fca3e28b0ff7cff3358c9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/DATA-R01.md",
+      "previous_sha256": "sha256:9b3aaba7d6f462df5ac781250c419f8ab8690e0ef4ac160b4b3a418433de8745",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:afb2b8dc181b1f53a4df7d4a4f8b4ff95b046b490850e369c6f2b3d0deebc644",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/DATA-R02.md",
+      "previous_sha256": "sha256:bb3c8a8c9ae4c3a67edd670ade7edc7e668ff97ce66e71d5a84dff42236e08e4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:1db710ca4cc68795737c2a5b7d26cae98a2cb5b621c59b9c1ca397c6ca12919c",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/DATA-R03.md",
+      "previous_sha256": "sha256:9066032484e60d9aa4ea65937143d36fb4d459779d7d55dae6f0e874c656f759",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2c91f1a8342c80c36ad886ab0290ff65a8b97119515fd8fb79025c4c7e6a0f42",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/DATA-R04.md",
+      "previous_sha256": "sha256:eca6b55b1b2c35a4193d692860ced3cb1acd350adede324a081401a552eb7e6e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:119cb08a9cdde12f8de2d71849a8864259484500a20731b29530135c0aabcc3b",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/ENT-R01.md",
+      "previous_sha256": "sha256:cce330171a3168a9c2abb2e4a828c7bab013122bf9651e4d17d5d1836c439e4b",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:79b167798fb098a4764ac78536f79d7442f3ea6f21ca2aab23c06b7d8804cd3e",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/ENT-R02.md",
+      "previous_sha256": "sha256:5839a8aeaafb840c1b6914fa0aa1bdbe3869b645e91288c4e690e763c839751c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6b1bbb469685a5aba9d344c62918a83aaf81dfd6680810070ac5573132262eaa",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/ENT-R03.md",
+      "previous_sha256": "sha256:da7aea40a2512f6d86633a018954f4bf5092dec08fc3050bc5f5a5bb60ed5926",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6c0a1ab51ff3d4d8166e4593776f2a494dfc862bb8388e8c293fcfd2187f7f80",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/ENT-R04.md",
+      "previous_sha256": "sha256:6b4f29c8555d412a833d31ffe318eebda688c9cef93438719b35d4187a1944be",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:3068b19d0dda4c63ec7dce5f18b0a36661e439e7c67d785b407a447a2713d5a6",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXE-R01.md",
+      "previous_sha256": "sha256:2c4faf2096dc5dd58a8fea2c617cbb7906f6be7aa305805587396f796880656a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:52afd103471477b365e2e330030b8e9d816763b20e2e826e1aed70a50ad2841f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXE-R02.md",
+      "previous_sha256": "sha256:1ddc08f37117878eea7c6cfeb92ee5df03cd8cbd6d0b884d2d40b33119b01938",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f3aba9d3897d07d504491ac7bf5490d3e7f01254c866fc0c0f8b02f0c574aaf9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXE-R03.md",
+      "previous_sha256": "sha256:a5f69c9251095e12400b748bc26860169e46c1779035a84a02e2e5c548a9df73",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:54e3a1bc9e53357ef075b6ac7af7bd167d6ed130ebf10bff0af8d645c6fb7c36",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXE-R04.md",
+      "previous_sha256": "sha256:8eac6157c0bed7f42ea094dae93000db16f4aee993a101a84a4b6a526ec36c2b",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:38d354670ca2cd60b2d2cb2d0fcd77661d07c9fad7f12ea3811e4102b9b412e7",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXT-R01.md",
+      "previous_sha256": "sha256:5ddc5c9c8c9a14325a55e9b663ec5577f775d8be0beb0da3a9bce338b21ac5c4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:17368432807f7a56562782a5e7b8eccf9dd86e3ee417a0dc50e7159242ad438f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXT-R02.md",
+      "previous_sha256": "sha256:a9c3f51ac3824c76f2a2593704f65353b5e1141e3fa6c8345c9bd0371e5f35b0",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:e28f432c90a5787545122544d0c31284ea974c587e7168862a0f2e13c3e43c80",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXT-R03.md",
+      "previous_sha256": "sha256:b87219e534ff6d183ad4d34cc8342265397d119d323b7abb2daf85ce98d2581c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f263864344a9e2690a498cdf25afcf6e7bde89a6b7b383755565a052351fc08d",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/EXT-R04.md",
+      "previous_sha256": "sha256:fb8e7e9b977533e5232f95d2b5aa3cd26edcc977cce63f4ee427915f2a6ffa90",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:26d36facf5cb176416bd22ecd3c6c84a451528a144b263be76d84cc917b9b34c",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/NDS-R01.md",
+      "previous_sha256": "sha256:6487f8906ab6114062a573b2493b71a8cf51f2a571ec216e02544639b632b65a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b00d9b7d910ad2653ef23e3cb22836aa131e0fcc03b47e69d904f975453c2d30",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/NDS-R02.md",
+      "previous_sha256": "sha256:2e3408062df2454f83da3265dc213638befb57c62006efe73c92bf786a3095ba",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:ffbe01cc6e8e6e4521522bd3cac7b87fbb91d6b9059ef3d05fcaa3030e867471",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/NDS-R03.md",
+      "previous_sha256": "sha256:caa2f0e16459cf37b09850b7892dd214ef6127792a79f25a9b958f1e06f86f0c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:cb40590a015cd8c6baa1f388317850a240739e798b6a4fd550fb1bc1e081ec98",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/SCN-R01.md",
+      "previous_sha256": "sha256:8bc3c5bbd47d0dca653a96b5263fbaaecaea3385f753fca2b1188a765a43ced1",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:cb63a2e693ea438078a7e0b6b218cbb576067a32f9e382b0ec5aa806f6d85f52",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/SCN-R02.md",
+      "previous_sha256": "sha256:4c82dae431246b911a9007691b6298694c8d73bdde0939bdc11b4c26358cccc1",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:7480a5f2b70388eabd3475e98d34b3694959b4fa084d33c8dc9249d68c1b11e9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/SCN-R03.md",
+      "previous_sha256": "sha256:c4ed75228c0b3f9682794ae9178c2db5109a4cdd824403138a27629400370bef",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:c451cc8d34dbe02a0675c70cff0758a9deccc7ddae7a090fad7ed0dab73304d2",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/SCN-R04.md",
+      "previous_sha256": "sha256:fdc1f2df2312d8ec79d699edb7dbcf896dde63b5fac580d7f33a8366045b3cd1",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:28f4dcb90ed199c80c04f7c09f1ef93070291f11daffc3ff45980f04dfc9d8fd",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/SYS-R01.md",
+      "previous_sha256": "sha256:e6ae24517baac3a9f0808501d3399811ef9b90d6f9abb970736a7df267d6df02",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:947bf2657779b182431d5d03d2fcfba5b673bd395144f37a21c8b6ce20e4620d",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/TEST-R01.md",
+      "previous_sha256": "sha256:0bcaffd2fede704901efd967936f3bbd2f833c4d04ddcedce87725907cf640bd",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:cc6f41afdbbf7558cfa148f5d6a1051027b9d57d3dd3da2a63aa0579cc4c6f0f",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/by_code/TEST-R02.md",
+      "previous_sha256": "sha256:bba740afc3feaaab9d5e863c1a2ba40a682689f45263f220874b0079647d6662",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:5ccc70b10bd9d5f76a03ef970a5aee2d4069a73b786adc8cde5a05c503a9816e",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/manifest.json",
+      "previous_sha256": "sha256:f1c0b2b17bddfe159fa963afab49e3013e2c1d126a8298dab795a605965c014d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8306fb6f1d564b7b3f05a91eb719d30b7658c300773433ce4581a5ebdc7d6e40",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/01_core_schema/README.md",
+      "previous_sha256": "sha256:e8737329eb08eeb4ec812fd68e3ff104c54ae7369c9be92a510c01b7257a5489",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:10487e43306849c742c5072c8f566b3e1291f66027d2f01e3def4959bd91edb8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/02_context_zone_destination/README.md",
+      "previous_sha256": "sha256:67ac6bf0bd257728abd25632dec3de8f8b9f25801732951a8573edd2255762b8",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:3733ae7c6626aed338d8d41ba73c24aa8fcd21c944095e62af95e2dcdce62185",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/03_entry_families/README.md",
+      "previous_sha256": "sha256:3fcfa60565b2bebe0b678174e54a567c84b4c4c0260db6b53f64768209d405f0",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6c65535cd80dec3b44cbf449e7b25ad6e356c9eb81c1e365d6c2187995b27c19",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/04_extreme_remaining/README.md",
+      "previous_sha256": "sha256:f3208a58df07857f5ddb436b153c1de2c0ba908d664cb7041186567b3bcf9e6f",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:b3574b7851ca56061373050611c1cb0537fe5a7d63de52a103e486c51cb0435d",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/05_execution_policy/README.md",
+      "previous_sha256": "sha256:ba16f4032fffec4272b1374b432fa010eb2df9a5cef614e3ad15f8cf2faab04f",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:0848c2333e561d3ae635a11b8129920d3c88c86332a59887a441063f37267151",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/06_labels_datasets/README.md",
+      "previous_sha256": "sha256:95db12b34b67428f6e795d07cf56ac4ce6976c27e3f01d05f6fc27eefab1d59a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:1f67fa1bdcff58bd2e6ec87bfa75b48c7ab3eed683b95ba7f51ed01be98bb7b9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/07_ai_training/README.md",
+      "previous_sha256": "sha256:46ec6fa7f57c012cab00f1032ab90ee11f92db3847933d0219acb8c816b4854e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:c97ffad02e170ad39dfaa57ee3d0ead8ab19ba799b06a4f0a2f150f104987ce2",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v2/sections/08_testing_acceptance/README.md",
+      "previous_sha256": "sha256:09116ef77bc741ce1f6b1d5d057eda99c5754b1fa623242b7a01752faeec72cf",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:65a97a052fb51a5b80de057f24402d8f48283710ebc6d9a36b7c33815eed3980",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/AI-R01/manifest.json",
+      "previous_sha256": "sha256:e7d13d38d67118dc005bb8a892767d753024141fbdafc3d4b684cf176333354c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2bd5f7c4df58f8bcbaeed53743cddfec95a3f51f855b0a1367aa5accf5f6f086",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/AI-R02/manifest.json",
+      "previous_sha256": "sha256:7a8e09d15a7cf058195615bf20c972af885741c4ae2f1bbe8dce3049ad5bb987",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:fca6b4d13d7e7b7afcaa7a51dbeedbd3df75632d81796999d0fbe3fd828bc694",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/AI-R03/manifest.json",
+      "previous_sha256": "sha256:7361624299e322ce76594edf0175a14afc4d98951d55386b34012e2c7a5712bc",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:35d0be5643e43cbbb7d183675b64cf234f648db075a6d3cf13cfbd9a979b3ea0",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DATA-R01/manifest.json",
+      "previous_sha256": "sha256:09548c81c76147012c42f84f50dbb26bad0c5d7c0b8355d10c1378932bbdef56",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:692ff59ea09b5f3b6a1c42e398bdabf4f52959a2862e929db9e75858c54461e9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DATA-R02/manifest.json",
+      "previous_sha256": "sha256:f3db7ef95c787a9c7517e68855b4c1e0c261bd9afc69565f6c40173a9784c59f",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d0d7667b5e6b255d8a27213493d7d92dd47a3267c2f98c5460b8e5fe2f09f2e2",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DATA-R03/manifest.json",
+      "previous_sha256": "sha256:43b9a4e9dbea76c042207157ad79b6f92eb16cb3441a3a330e2f2480114fc6e5",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:c6460f11b2a2f93c709589c2a4fe67ddffd10733b7af8e8012c059d6d5e19562",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DATA-R04/manifest.json",
+      "previous_sha256": "sha256:8be5478146541190110fd527c590bf477149d2b849094a136243192d02415453",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:afec9a48f9ecfaad3d8890077a36ce039f79bdf3d8e6d84a13122c6afeb26593",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DST-R01/manifest.json",
+      "previous_sha256": "sha256:9a87e6f84236f96e3d1ec836df6b3622b985e365c5c5de425391012cecdcc0e6",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6bfbe3d4d561ac8f3889476b55786a91c78ea2a7237df73f42d87d2bc57aec68",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DST-R02/manifest.json",
+      "previous_sha256": "sha256:67c1e03a411773fcca4b2a70942001b70614b76ef8cbca4aeb9962128093f203",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:e49fa0561244ff02576ef9df60ad826f18b4fe1fb7b2832a464a80f95496efc0",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/DST-R03/manifest.json",
+      "previous_sha256": "sha256:421e4e79b64a2fced9e5bef538505dbcd219cc23b2dcc82310f8e271e8eb70f4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:93efe5c6855ae2bd32eecfcc3ff5f0635c91ff003e3bdd41e585a9605550f861",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/ENT-R03/manifest.json",
+      "previous_sha256": "sha256:02874780b1c40c79286884cfc48270601a6fc6096144e0afc4a1b584b09420e6",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:c99b3bc328975ba732ad373ff8f273f9711b8849ab84bcafb41da7f1d5f0eff8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/ENT-R04/manifest.json",
+      "previous_sha256": "sha256:4ff9dc3e0e258ba65a822665139d001384a2581ae43a7fc7d1b53d337ad386c7",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:dce76797d6e40e547198092a1e5500499dd17982dd21b9259f8245c537634832",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/EXE-R01/manifest.json",
+      "previous_sha256": "sha256:4e5e743a16ec7ca016b942acde94cfa4d2500deac8a23cf1d85b3d04b0262872",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:aafa3804b3e7aca0210b1a0612f4dbe22aba127ac121de008fd0c293e285fed8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/EXE-R02/manifest.json",
+      "previous_sha256": "sha256:b74d550e6b1e1e64ef3442b35428b3bca78e5768bbe4eae2c86fa70401b0038d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:13226e213fad2c0d8e85260c5013efc8d8e90a112558bef936450d7373c8e760",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/EXE-R03/manifest.json",
+      "previous_sha256": "sha256:92ad8c6b8d870791ecd7082e3fe440662d1100eab19bece29facce967a81b868",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:823a1362a5fb3c64e6d955d145232040ab5d10b0db34c4d488bfcd04e9c6703e",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/EXE-R04/manifest.json",
+      "previous_sha256": "sha256:eeb0bac09725c57e842e71d81bf382da7a67048fd5cdc20abf200b1e0a6d6788",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6bd761a12528b09d08644e74f6f55a75135f06c2f745adc83fb029b268a540b8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/README.md",
+      "previous_sha256": "sha256:51f0b4d37bf1a70723c10e57c18ad4d3afde368d6dcdebeba45b0c1053c34318",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:759c5c938aaae5f5c57e42056f0b11a2811dec799f9391c0ef12f3625212c9ba",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/RSK-R01/manifest.json",
+      "previous_sha256": "sha256:41a24b68a4d5b076f1209bcfd37c55513003d785cb0e45be0c70c12e8642cb5f",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:61b460e71c66281fb28a4cc8402cc4dbb498b6d54462060895c52809582baca1",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/RSK-R02/manifest.json",
+      "previous_sha256": "sha256:43f53f02666f6b8a48a192200a6bfb713f35e262e6796959e59eb4d9a4b66d92",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:09df1c2bb10d9f11cb8ac666bbbb4ce9fd96ff36a40e474f902d17a4cb5c82e8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/SYS-R01/manifest.json",
+      "previous_sha256": "sha256:ec27e7f4ea3905bca8e244a433fc3828bfd416863b93366c9915ac5280e5d056",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:9dcc4fbbb08c0051bec457c9033df4f9e165155a50c4f28d0b450799b8bcd9a0",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/TEST-R01/manifest.json",
+      "previous_sha256": "sha256:d42f0ca0437125f6371e9f832d13630aed142d6681acdda263df748cf033f300",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:28b30da1738293cd214e2dc57ea0b2c0b60fb2f223468fc0aa25c742af45d173",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/TEST-R02/manifest.json",
+      "previous_sha256": "sha256:5a5e3d95877bb78215018339deea6e29133fee1e4b923055c1eed0a4f0929b0e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:8eb5da2c938e4f2584b4a29a3706da8a544d7ef0dc6dea75571599970958b540",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/answered_boundary_v3_split_fa.md",
+      "previous_sha256": "sha256:5570498046935321de98bb577961ae55143ab92de555a1518d771468b24142c5",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:68c96d37aef0607d8b8982a4ad646173e694388840e5a1308271044704519aba",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/experience_capture/questions/remaining_v3_split/manifest.json",
+      "previous_sha256": "sha256:8202e1dc1a67677e408084d04db72091051cf3cc1939ac92fac0988c01bb7410",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:6b4c9c0dbd42474e90f5a7e334a943962fc69cf0416171234b3649af457536e9",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/15_phase08_audit_csv_reconciliation_implementation.md",
+      "previous_sha256": "sha256:77572ca51d51aed9660f13b49233401afc6234f9aabf948a4328fc48bc3bcfa4",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:a798e8e38e0669ace891041e9d3eee7f0919f6bb017bafd0d82f1ce68fad5859",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/17_phase10_freeze_training_contract_implementation.md",
+      "previous_sha256": "sha256:83062ac108c07fdb8022d9cc2f88a5f272f9067ce93d61c3e34fd671aa1f9f63",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:87edf4d838945b5a70dbab464504f5b81d57338e6b7528c710546166b9b3fe60",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/hook_phase01_manifest.json",
+      "previous_sha256": "sha256:ebe78131911747f8794d96fa78cdd6576a81578873774139161f67b93a27ac9c",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:1b050c2670b7c007a2f0e4040715d4211fab09e9810e570182398aaf11666dc8",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/hook_phase07_manifest.json",
+      "previous_sha256": "sha256:68d25d38e050e08e296e655607a19eab470177b41af4f35342cdac0c71f71197",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:4a2c4f04ffbe177c4c1aff1fe86bf649367feb143fb368ae160b5c404804f01b",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/hook_phase08_manifest.json",
+      "previous_sha256": "sha256:437ed5562921fc8c30e7c50ebfe9247214dff19591c8297c4aa5236feb901ed3",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:30aef682f2f7056d607483c54c32b51d2fc404d6b267ebf5e026f629897b6197",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/hook_phase09_manifest.json",
+      "previous_sha256": "sha256:94d0d78ca223c8b527d3b8af7044d5c4752a910a5528f15917b80a1d54c1fe3b",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:fc7bd2fd273928454532d9c18613b1ee93edbd4e790e18a98074016941c30a79",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/hook_phase10_manifest.json",
+      "previous_sha256": "sha256:307de9f0b93598c7b0b6854e1716f9afa1a135b6b5819855bffcb52ebed6feb5",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d555fb1180126c8a61606ce33dc602a654b8b0066d4adf2fdcfd8dd4b53c1438",
+      "order_authority_created": false,
+      "path": "docs/contexts/legacy/nds/hook/manifest.json",
+      "previous_sha256": "sha256:54eae5fb8bc1764b646582ada290a1c035f772c4f4e7ca930497ea21da9c865d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:09ed3de3cee936fde0ce4515af7a31b8ac4c10d15c367fbd69f3b1425f37e2a1",
+      "order_authority_created": false,
+      "path": "docs/operations/ai_execution/AI_NATIVE_EXECUTION_ROADMAP_FA.md",
+      "previous_sha256": "sha256:4302eee4bc0fcc903435ab9b511ae69c257e6009b1452f23100977fe25d0b525",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:fca40b699f9d02c639ca4ceee4f2cbcdc3d96866606bc79e34fed25f6ff066a5",
+      "order_authority_created": false,
+      "path": "docs/operations/ai_execution/EXTREME_L2_NODE_CYCLE_LIMIT_ENTRY_FA.md",
+      "previous_sha256": "sha256:2b6758b983786307ccc82860ecd8697b24ffce3c4eab92d379eb0d6e24594aa9",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:1165495061cf1c5f2ae16a13b6b06abac4d6c299db6bdc24f6d203cd6e4f4d7d",
+      "order_authority_created": false,
+      "path": "docs/operations/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_task_ledger.v1.csv",
+      "previous_sha256": "sha256:9243a21f5b42e8800e677cc1f82225e55f848960e6613dba3cee38cd4ddfafed",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:f403b56ace4af3fc35a18a67cfae387e76333f11f5570b8d0191cf0cedcb911c",
+      "order_authority_created": false,
+      "path": "docs/operations/mql5_native/MODULE_MAP.md",
+      "previous_sha256": "sha256:669e844210887ee41fb3cc5e391255a48bcfc6e2f27e0158ca009bca58c72fca",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:d62a668539470fbb7e2dcf7b21ba7d7a674a2bee00d2e9f0e47c7f28f22a45de",
+      "order_authority_created": false,
+      "path": "ops/ci/legacy/README.md",
+      "previous_sha256": "sha256:82a5b855a37a77e4202a9d614ecfc373cb77fd1c1b9ee345d09b06cf0db17bbc",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2d96075a5df66e42ffa5a038970b763b3736c16a042f7becd9307dd5daf8350d",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/core/CP0000_market_data/README.md",
+      "previous_sha256": "sha256:ffae514754edab0bff32c9eb4f8eeaa44ba3a6a764d4481e9c6852471f65d740",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:61c9224ddb205bb6833b2b4ef6a3047eb167d8ec482d0d5e9c3442ff11f92401",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/core/CP0000_sample/README.md",
+      "previous_sha256": "sha256:07db2d972d94d2560cb74463e194e0e8a7ab91d94c1724c678e8b4c00c1f1e2d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:93b73f4865d24dc20f1df28b6b467f5ad26b624d84f705f0d1982919d0990208",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/core/CP0001_structural_nodes/README.md",
+      "previous_sha256": "sha256:0c3c359a505811e634459481644a4191bedbc59bbe8aa0a370003d08272d6245",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:2f6aee90f51bd58fa0f2a86add7c711b7779a42a0fbe9d1e4561452ca6cb1d3f",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/execution/runtime/bridge/README.md",
+      "previous_sha256": "sha256:f78d3cfb7092e07ed6a06e6fae7b18e5141b41e968e5830e9fecd81848889c3e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:16d64b8849bd0abfa1504867aa2bb025b053b53883a0a81077109b93c84599fd",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/execution/runtime/logging/README.md",
+      "previous_sha256": "sha256:1fce32964264e6f36a6bc3bf2979671d3bed4ad0c8ab8a3678164838b40a350e",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:720ec1a438e50b276bf8a8659d538b5ab04df78d4843382aa1c7b6f41349ca10",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/infrastructure/utils/README.md",
+      "previous_sha256": "sha256:7c9e2b8e78a7ede3d050757c79455edb65d98a41a891322476f80c9893666fe6",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:bd236fba4de6a6fbc66abb342e75ec257985c45cad1008ff1d34fe960e2c4342",
+      "order_authority_created": false,
+      "path": "src/engine/legacy/production/SIG001/README.md",
+      "previous_sha256": "sha256:7a3e0ab020418d290112c60c94514f9b88685499857ec384bbf736027f8c7b41",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:4853454af38784ef2089727d4b38d243af7d85b345b1d8fa15b5f9d578be6466",
+      "order_authority_created": false,
+      "path": "src/engine/tooling/strategy_factory/verify_sf04_sf05_ci_hotfix.ps1",
+      "previous_sha256": "sha256:a9e8fd6a3d0c384e73c90704de8c0b67a6c7329d13f1193d83fbd69b220b7428",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:92491882d5bdae4d011e8c07c2c7ec0ad2d39224770b96e24c337894169292f9",
+      "order_authority_created": false,
+      "path": "tests/legacy/infrastructure/README.md",
+      "previous_sha256": "sha256:099fa2fd1f7630b5afa4a11155bab2524685d0e3b8fdfd0f12bcbe4b62f44feb",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:aab41fd828a43c5b6241a0df9c351ff7505cab980b9b80383e84994eff5ace37",
+      "order_authority_created": false,
+      "path": "tests/legacy/strategy_factory/migration/surveys/reference_2026_07_18/documentation_namespace_inventory.csv",
+      "previous_sha256": "sha256:b6287db0c2094022604c20845d8d92915d46e21900c8390e3993a932d457aa14",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:5c95e099cebfa899153e0dc056d71112a6b7962b742a5c5994882b4c0a310bfc",
+      "order_authority_created": false,
+      "path": "tests/legacy/strategy_factory/migration/tests_lcm_10c/test_determinism.py",
+      "previous_sha256": "sha256:a6ea10051cc3bf54f8628d2d0bd9b2df876ca4d53b991b6125d9e78c763371a3",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:dfdffd1e13da51e5f60f49cb56d6693064f41a400a0061f56c793f2e7faf8689",
+      "order_authority_created": false,
+      "path": "tests/legacy/strategy_factory/v1/rthp_ai_input/test_rthp_engine_boundary.py",
+      "previous_sha256": "sha256:94b02c247a3b57e6739e6a4a9310d6868c8f099cc24c91b39338b40fb90392b8",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:58065d55dedb4deee3b2645822195bef5bb0fffbf62d26a89d3163a66791f8ca",
+      "order_authority_created": false,
+      "path": "tools/apply_mql_live_lab_all_in_one.ps1",
+      "previous_sha256": "sha256:404739ce4cde8bd989709b8ea6f936c7365cb31ec09f46a6d355a36bb242e59d",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC04_W0_EVIDENCE_OR_PATH_AUTHORITY_RECOVERY",
+      "current_sha256": "sha256:32a38411bc9a1f191464f07d9b8747dc1904b5e3f39647d91dd18f7145604936",
+      "order_authority_created": false,
+      "path": "tools/clean_ui_stack.ps1",
+      "previous_sha256": "sha256:8ee739e6fa9bf4b158f1c191b64cd4072eb8946e366b63269448b1da30701cc2",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    }
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W0",
+  "status": "PASS"
+}

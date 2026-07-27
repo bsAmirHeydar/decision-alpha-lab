@@ -1,0 +1,39 @@
+name: UC04 Semantic Foundation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uc04-semantic-foundation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade -r requirements.txt
+      - name: Run engineering policy
+        run: python tools/engineering/run_engineering_policy.py .
+      - name: Verify migration continuity and UC-03 closure
+        run: |
+          python -m tools.consolidation.ci.verify_migration_continuity --repo-root .
+          python -m tools.consolidation.uc03p3.verify --repo-root . --ci-fast
+      - name: Verify UC04-W0 release and governance
+        run: python -m tools.consolidation.uc04w0.verify --repo-root .
+      - name: Run UC04-W0 conformance tests
+        run: python -m pytest -q tests/consolidation/uc04w0
+      - name: Prove repository-wide collection integrity
+        run: python -m pytest --collect-only -q

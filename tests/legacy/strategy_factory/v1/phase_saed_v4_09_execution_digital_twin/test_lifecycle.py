@@ -1,4 +1,4 @@
-from helpers import built
+from .helpers import built
 
 def test_event_hash_chain_is_complete():
     *_,twin=built()

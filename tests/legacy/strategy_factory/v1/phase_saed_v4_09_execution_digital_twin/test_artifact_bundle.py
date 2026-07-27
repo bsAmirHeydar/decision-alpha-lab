@@ -1,4 +1,4 @@
-from conftest import load
+from .conftest import load
 
 def test_claim_ledger_blocks_stronger_claims():
     c=load('releases/history/strategy_factory/artifacts/saed_v4_09/CLAIM_LEDGER.JSON');assert 'production authorization' in c['blocked_claims'];assert 'shadow replacement' in c['blocked_claims']

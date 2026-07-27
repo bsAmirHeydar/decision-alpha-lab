@@ -1,6 +1,6 @@
 import pytest
 from dataclasses import replace
-from helpers import service_and_specs,request,golden_sources
+from .helpers import service_and_specs,request,golden_sources
 from saed_v4_multimodal_views.diff import diff_views
 from saed_v4_multimodal_views.integrity import build_integrity_receipt,verify_integrity
 from saed_v4_multimodal_views.errors import ReplayError,IntegrityError

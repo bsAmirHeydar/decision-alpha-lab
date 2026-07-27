@@ -1,7 +1,7 @@
 from strategy_factory_market import (
     BarCache, MultiSymbolSynchronizer, SyncRequirement, SyncStatus,
 )
-from helpers import bar
+from .helpers import bar
 
 def requirements(skew: int = 0):
     return [

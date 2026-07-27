@@ -1,4 +1,4 @@
-from helpers import build_graph, build_package
+from .helpers import build_graph, build_package
 from saed_v4_semantic_hypergraph.conformance import run_conformance
 from saed_v4_semantic_hypergraph.handoff import build_v4_06_handoff
 from saed_v4_semantic_hypergraph.integrity import build_integrity_receipt

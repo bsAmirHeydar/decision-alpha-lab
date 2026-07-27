@@ -1,0 +1,14 @@
+{
+  "amended_snapshot_hash": "c3889911bf4871c35cbcbc69438613b20c0d7d7f25038e4b270cd46401fcb34b",
+  "amendment_digest": "sha256:fca9b12604e8f0836fd099ccc80c172bee699ab79b4c85ee1bb9138e58e990ae",
+  "amendment_id": "RTHP_ENGINE_CORE_BASELINE_UC04_W0_V1",
+  "capital_authority_created": false,
+  "order_authority_created": false,
+  "previous_snapshot_hash": "c3889911bf4871c35cbcbc69438613b20c0d7d7f25038e4b270cd46401fcb34b",
+  "reason": "Refresh post-UC03 canonical-path evidence; no central engine semantics or authority are introduced.",
+  "records": [],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "status": "APPROVED_EVIDENCE_REFRESH"
+}

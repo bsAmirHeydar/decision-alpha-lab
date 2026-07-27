@@ -4,6 +4,7 @@ from dataclasses import asdict
 from datetime import datetime,timezone
 from pathlib import Path
 from typing import Any
+from tools.repository_paths import find_repository_root
 from strategy_factory_rthp_train_activation_v1.config import load_activation_config
 from strategy_factory_rthp_train_activation_v1.pipeline import RTHPTrainActivationPipeline,verify_run_root
 from .acquire import acquire_symbol,resolve_range
@@ -18,12 +19,7 @@ from .verify import verify_mt5_run
 
 class RTHPMT5Automation:
     def __init__(self,config:MT5ActivationConfig,provider:MT5Provider|None=None,repository_root:Path|None=None):
-        self.config=config; self.provider=provider or MetaTrader5Provider(); self.repo=(repository_root or self._repo()).resolve()
-    def _repo(self):
-        p=Path(__file__).resolve()
-        for c in (p,*p.parents):
-            if (c/'lab/11_strategy_factory').is_dir() and (c/'registry').is_dir(): return c
-        raise RuntimeError('repository root not found')
+        self.config=config; self.provider=provider or MetaTrader5Provider(); self.repo=(repository_root or find_repository_root(__file__)).resolve()
     def _hash_ledger(self,root):
         out=root/'MT5_RUN_FILE_HASHES.sha256'; rows=[]
         for p in sorted(root.rglob('*')):

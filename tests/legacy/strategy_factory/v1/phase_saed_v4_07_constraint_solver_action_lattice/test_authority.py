@@ -1,5 +1,5 @@
 import pytest
-from helpers import inputs,solve
+from .helpers import inputs,solve
 from saed_v4_action_lattice.service import ActionLatticeService
 @pytest.mark.parametrize('field',['selection_authority','execution_authority'])
 def test_outputs_have_no_authority(field):

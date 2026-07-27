@@ -1,0 +1,104 @@
+{
+  "amendment_digest": "sha256:a1e9aa56c10b8021de59488af2b0bf850a0a505c8f7dbb75cd006b8787f48698",
+  "amendment_id": "UC04_W0_UC01_STATIC_CHAIN_AMENDMENT_V1",
+  "capital_authority_created": false,
+  "order_authority_created": false,
+  "program_id": "UCPS",
+  "reason": "Resolve immutable UC-01 file identities through accepted UC-03 moves and bounded UC04-W0 recovery changes.",
+  "record_count": 8,
+  "records": [
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/10_EXECUTION_RECORDS/13_Baseline_Stabilization_Repair_Record.md",
+      "current_sha256": "sha256:044436c8f0cb60733411b70368a9aa18f35ad4f7effa574706d1a77c41bf63f9",
+      "legacy_path": "docs/alpha_lab_master_architecture/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/10_EXECUTION_RECORDS/13_Baseline_Stabilization_Repair_Record.md",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:a72fa7677c70c611a552453deafd339529453a93934c255976ae7765ab43a8c9"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "src/engine/packages/saed_v4_foundation_model_adapters/cli.py",
+      "current_sha256": "sha256:64691249b2c025cd310f3d433fa80d044948fcd9ea254c34bdfa20ac75df5504",
+      "legacy_path": "lab/11_strategy_factory/python/saed_v4_foundation_model_adapters/cli.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:41cf3248bad0400f3476fcea5e595b6a7bbc25188e78459cdf9b6b58b6f04088"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "releases/unified_consolidation/uc01/UC01_PATCH_ARTIFACT_INVENTORY.csv",
+      "current_sha256": "sha256:7d2feb66c50e62da83862cf5dba2efd28644b0f5493cfd86357165b529a72363",
+      "legacy_path": "releases/unified_consolidation/uc01/UC01_PATCH_ARTIFACT_INVENTORY.csv",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:92fedafc641ea9e1bb3b27a3f139720f8904a4a92113f36500134b5637e05639"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "tests/consolidation/uc01/test_baseline_stabilization_repairs.py",
+      "current_sha256": "sha256:2ffb8b1ee49167cc6b8a15b21462a601f8658499a7eb1d0fa6fe69816d5fc49d",
+      "legacy_path": "tests/consolidation/uc01/test_baseline_stabilization_repairs.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:410d8ad0039642e3f0610ef1ed0b8c0f2c3a644597f6aa153e0071e6739ada58"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "tests/consolidation/uc01/test_io_and_classification.py",
+      "current_sha256": "sha256:3e395abcf432343a6f16555509359c8b84d5eb72cfa77a437f2a9cf314941502",
+      "legacy_path": "tests/consolidation/uc01/test_io_and_classification.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:e3033ab2fcdc54157b29daa28b641eb8f72ee14c31e51f2b561e125779668251"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "tools/consolidation/uc01/qualification.py",
+      "current_sha256": "sha256:0448f54e2352c6d9f9704ef02296eda9fd6b360a9eef2087333377e504e10d48",
+      "legacy_path": "tools/consolidation/uc01/qualification.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:ee59257d8bfd64f3d357f6a771880a7946613e1ca1be6c1e508b853436ce25b4"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "tools/consolidation/uc01/verify.py",
+      "current_sha256": "sha256:bff21e4a24d84f3375269245e9a927467a626a7cbb17e1e5dae56d920a47744a",
+      "legacy_path": "tools/consolidation/uc01/verify.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:14c4486ac4bafdd0c96ad282080a93a0c38348219fcc6c1201578008e225d3fa"
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "UC03_RELOCATION_OR_UC04_W0_RECOVERY",
+      "current_path": "src/engine/tooling/strategy_factory/generate_uce_i13_vectors.py",
+      "current_sha256": "sha256:25dbf4575c9b2c319271b27d07c32fa5d7a798041ac8bdfbc4278a0c5d3e2dbf",
+      "legacy_path": "tools/strategy_factory/generate_uce_i13_vectors.py",
+      "order_authority_created": false,
+      "runtime_authority_created": false,
+      "semantic_change": false,
+      "uc01_sha256": "sha256:16505bef18ba89442c3af0f466825ac268e1f9054b8abd3dda2453a994665517"
+    }
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W0",
+  "status": "PASS"
+}

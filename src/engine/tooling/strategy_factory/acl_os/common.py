@@ -1,12 +1,13 @@
 from __future__ import annotations
-from tools.repository_paths import find_repository_root
+from tools.repository_paths import RepositoryPaths, find_repository_root
 import hashlib, json, re
 from pathlib import Path
 from typing import Any
 
 REPO_ROOT = find_repository_root(__file__)
-SCHEMA_ROOT = REPO_ROOT / "registry" / "acl_os" / "schemas" / "v1"
-TEMPLATE_ROOT = REPO_ROOT / "lab" / "11_strategy_factory" / "contexts" / "_template"
+PATHS = RepositoryPaths.from_root(REPO_ROOT)
+SCHEMA_ROOT = PATHS.acl_registry_root / "acl_02" / "schemas" / "v1"
+TEMPLATE_ROOT = PATHS.authored_strategy_factory_context_root / "_template"
 PLACEHOLDER_RE = re.compile(r"\b(?:REPLACE_ME(?:_[A-Z0-9_]+)?|TBD|TODO)\b")
 
 def load_json(path: Path) -> Any:

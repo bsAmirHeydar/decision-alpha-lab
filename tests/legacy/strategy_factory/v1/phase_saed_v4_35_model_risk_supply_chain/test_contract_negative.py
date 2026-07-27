@@ -1,6 +1,6 @@
 from copy import deepcopy
 import pytest
-from conftest import FIXTURE
+from .conftest import FIXTURE
 from saed_v4_model_risk_supply_chain import run
 from saed_v4_model_risk_supply_chain.errors import SAEDV435Error
 

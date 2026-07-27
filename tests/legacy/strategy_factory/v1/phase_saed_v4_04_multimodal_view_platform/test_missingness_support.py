@@ -1,6 +1,6 @@
 import pytest
 from dataclasses import replace
-from helpers import service_and_specs,request,golden_sources
+from .helpers import service_and_specs,request,golden_sources
 from saed_v4_multimodal_views.enums import ViewStatus,MissingnessPolicy
 from saed_v4_multimodal_views.errors import MissingnessError
 

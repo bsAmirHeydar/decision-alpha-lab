@@ -1,4 +1,4 @@
-from conftest import load
+from .conftest import load
 from saed_v4_execution_twin.models import ExecutionTwinProfile
 from saed_v4_execution_twin.twin import build_execution_twin
 

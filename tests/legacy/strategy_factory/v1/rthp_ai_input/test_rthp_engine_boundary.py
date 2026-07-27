@@ -1,5 +1,5 @@
 from pathlib import Path
-from helpers import ROOT
+from .helpers import ROOT
 PROTECTED=(
  'src/engine/packages/strategy_factory_contexts_v3/',
  'src/engine/packages/strategy_factory_dataset_v3/',

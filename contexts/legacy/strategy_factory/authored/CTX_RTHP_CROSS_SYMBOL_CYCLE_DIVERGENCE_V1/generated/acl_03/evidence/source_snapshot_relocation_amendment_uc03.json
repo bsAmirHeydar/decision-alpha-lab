@@ -1,0 +1,58 @@
+{
+  "amended_source_snapshot_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df",
+  "amendment_digest": "sha256:0dfe7c036d7a494ebeff7e889363883e548c39c52b85df110dedc51d155d3f9a",
+  "amendment_id": "RTHP_ACL03_SOURCE_SNAPSHOT_UC03_RELOCATION_V1",
+  "capital_authority_created": false,
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "context_version": "1.0.2",
+  "context_version_change_required": false,
+  "order_authority_created": false,
+  "previous_source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+  "reason": "UC-03 relocated canonical roots and rewrote repository path references without changing Context semantics.",
+  "records": [
+    {
+      "capital_authority_created": false,
+      "change_class": "PATH_REFERENCE_ONLY",
+      "current_bytes": 877,
+      "current_digest": "sha256:479e6578ff545b88d230c9383d7069999f6f08ee871222542da47439c751c64a",
+      "order_authority_created": false,
+      "path": "contracts/feature_views.yaml",
+      "previous_bytes": 861,
+      "previous_digest": "sha256:715a20aabf74408ebdea3cf977651c8bb4a308cde3d3a345d11018f99114b1eb",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "PATH_REFERENCE_ONLY",
+      "current_bytes": 1276,
+      "current_digest": "sha256:8a29b3060e4923129f5d47e6a1773c647f32b5b40b1540fd01febada8d20db0b",
+      "order_authority_created": false,
+      "path": "contracts/reference_contract.yaml",
+      "previous_bytes": 1249,
+      "previous_digest": "sha256:8823bcb62576a99937e65f04d7ec3d83650dfa2875f4d9fa35ede43daf2d022b",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    },
+    {
+      "capital_authority_created": false,
+      "change_class": "PATH_REFERENCE_ONLY",
+      "current_bytes": 228,
+      "current_digest": "sha256:907ad0c5a52a6f90300be1c34ad854284526571831aa065cde1009e7dcb6aed4",
+      "order_authority_created": false,
+      "path": "tests/README.md",
+      "previous_bytes": 225,
+      "previous_digest": "sha256:4c27defa7517e9ae7a366cdc27c1125dc5b9ee100e419e4797b9a49fbedd860a",
+      "runtime_authority_created": false,
+      "semantic_change": false
+    }
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "status": "APPROVED_PATH_ONLY_RELOCATION",
+  "uc03_evidence": [
+    "registry/consolidation/uc03/part2/compatibility_rewrite_receipt.json",
+    "registry/consolidation/uc03/part3/reference_rewrite_receipt.json"
+  ]
+}

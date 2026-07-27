@@ -1,5 +1,5 @@
 import copy,pytest
-from helpers import inputs
+from .helpers import inputs
 from saed_v4_execution_twin.models import ExecutionTwinProfile
 from saed_v4_execution_twin.twin import build_execution_twin
 from saed_v4_execution_twin.errors import BudgetError,ContractError

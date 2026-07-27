@@ -1,4 +1,4 @@
-from helpers import build,graph,handoff,sources
+from .helpers import build,graph,handoff,sources
 from saed_v4_treatment_dsl.catalog import institutional_capability_profile,institutional_policy,institutional_registry
 from saed_v4_treatment_dsl.conformance import run_conformance
 def test_conformance_is_order_invariant():

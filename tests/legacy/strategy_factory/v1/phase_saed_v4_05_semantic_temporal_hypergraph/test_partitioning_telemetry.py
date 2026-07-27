@@ -1,6 +1,6 @@
 import pytest
 
-from helpers import build_graph
+from .helpers import build_graph
 from saed_v4_semantic_hypergraph.partitioning import deterministic_partition
 from saed_v4_semantic_hypergraph.telemetry import build_telemetry
 

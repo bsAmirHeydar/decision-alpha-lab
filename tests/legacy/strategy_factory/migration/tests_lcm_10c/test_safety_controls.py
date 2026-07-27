@@ -1,5 +1,5 @@
 import json
-from conftest import CLOSURE
+from .conftest import CLOSURE
 def test_all_safety_controls_fail_closed():
  r=json.loads((CLOSURE/'safety/safety_control_test_report.json').read_text());assert r['failed_count']==0;assert r['passed_count']==r['case_count'];assert r['submission_attempt_count']==0
 def test_required_controls_present():

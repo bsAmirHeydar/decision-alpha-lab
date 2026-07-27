@@ -21,7 +21,7 @@
     "OCCURRENCE_BELONGS_TO_FAMILY",
     "STATE_PROJECTS_REFERENCE"
   ],
-  "feature_binding_ir_digest": "sha256:61ed49e77e9e793e4a4e8849cbae55299a86c2c3d625208ac4199ac6ebd01b69",
+  "feature_binding_ir_digest": "sha256:a9ed98e7fbf62b3059fed25527ca24c604ac91fbc15fb2b9544068928ede7992",
   "immutable_semantics": true,
   "implementation_status": "TWIN_SEED_READY",
   "known_time_ir_digest": "sha256:1a80fa97f50f0e92ab9f2e3f03b6b435ccd17d5451a64d7568754cb87398c09f",
@@ -45,8 +45,8 @@
   ],
   "occurrence_ir_digest": "sha256:22029214ddc97c8e94c65e23120de8e484f05afb884c617fc615d96b104d485b",
   "schema_version": "1.0.0",
-  "seed_digest": "sha256:03149f7cd9c1956250a2240e82300614fc80e4ccafdc24949efc0a3ad8287b09",
-  "seed_id": "RTHP_TWIN_SEED_4C34CC1C6169668C4307",
-  "source_snapshot_digest": "sha256:418c9cbe3d35fab4483224ef3a086ffdc521a9a94d1d6daaeb261c3a3554ad18",
+  "seed_digest": "sha256:6f71bf3813a9626675023a05579ecb05be2589510242a39ac743b5f5eb5ebc40",
+  "seed_id": "RTHP_TWIN_SEED_5B7F3DA00A24A3108415",
+  "source_snapshot_digest": "sha256:47cf3dea1d07f24168459215e55fc4ea6a8b2d8d9e70f649755adfb4f15c32df",
   "treatment_authority_created": false
 }

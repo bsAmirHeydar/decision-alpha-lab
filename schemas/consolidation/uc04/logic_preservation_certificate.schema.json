@@ -1,0 +1,171 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/logic_preservation_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "certificate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "characterization_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deletion_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "differential_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_preserved": {
+      "type": "boolean"
+    },
+    "metamorphic_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "order_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_change": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "side_effects_preserved": {
+      "type": "boolean"
+    },
+    "source_digests": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "title": "Source Digest",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ],
+      "type": "string"
+    },
+    "target_digest": {
+      "oneOf": [
+        {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "minLength": 1,
+              "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "title": "Target Digest",
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "certificate_id",
+    "candidate_id",
+    "status",
+    "source_digests",
+    "target_digest",
+    "characterization_evidence",
+    "differential_evidence",
+    "metamorphic_evidence",
+    "known_time_preserved",
+    "side_effects_preserved",
+    "semantic_change",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "document_digest"
+  ],
+  "title": "UC04 Logic Preservation Certificate",
+  "type": "object"
+}

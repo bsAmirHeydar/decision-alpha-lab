@@ -1,6 +1,6 @@
 import pytest,hashlib
 from dataclasses import replace
-from helpers import service_and_specs,request,golden_sources
+from .helpers import service_and_specs,request,golden_sources
 from saed_v4_multimodal_views.models import StaticNormalizer
 from saed_v4_multimodal_views.enums import NormalizationKind,TransformKind,FeatureType,MissingnessPolicy
 from saed_v4_multimodal_views.normalization import normalize

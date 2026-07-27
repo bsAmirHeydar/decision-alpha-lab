@@ -1,6 +1,6 @@
 from dataclasses import replace
 
-from helpers import build_graph, build_package
+from .helpers import build_graph, build_package
 from saed_v4_semantic_hypergraph.builder import SemanticTemporalHypergraphBuilder
 from saed_v4_semantic_hypergraph.catalog import institutional_policy, institutional_registry
 

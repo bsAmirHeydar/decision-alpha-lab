@@ -1,4 +1,4 @@
-from helpers import solve
+from .helpers import solve
 def test_pruning_is_complete():
  r=solve()['solver_result'];assert len(r['pruning_ledger']['records'])==36;assert all(x['failed_constraints'] for x in r['pruning_ledger']['records'])
 def test_only_frozen_constraints_prune():

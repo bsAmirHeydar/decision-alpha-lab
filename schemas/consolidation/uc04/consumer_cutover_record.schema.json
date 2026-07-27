@@ -1,0 +1,103 @@
+{
+  "$id": "https://alpha-lab.local/schemas/consolidation/uc04/consumer_cutover_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "consumers": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PENDING",
+              "CUTOVER",
+              "BLOCKED",
+              "NOT_APPLICABLE"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "status"
+        ],
+        "title": "Consumer",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "deletion_authority": {
+      "const": false,
+      "description": "UC04-W0 cannot grant this authority.",
+      "type": "boolean"
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "legacy_reference_count_after": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "legacy_reference_count_before": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "program_id": {
+      "const": "UCPS",
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rollback_path": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+(?:/[^\\\\]+)*$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "stage_id": {
+      "const": "UC04-W0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "record_id",
+    "candidate_id",
+    "status",
+    "consumers",
+    "legacy_reference_count_before",
+    "legacy_reference_count_after",
+    "rollback_path",
+    "deletion_authority",
+    "document_digest"
+  ],
+  "title": "UC04 Consumer Cutover Record",
+  "type": "object"
+}

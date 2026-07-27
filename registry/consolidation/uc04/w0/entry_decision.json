@@ -1,0 +1,33 @@
+{
+  "authorized_scope": "FOUNDATION_TEST_RECOVERY_PATH_AUTHORITY_AND_RTHP_BINDING_RECOVERY_ONLY",
+  "capital_authority": false,
+  "decision_id": "UC04_W0_ENTRY_DECISION_V1",
+  "deletion_authority": false,
+  "document_digest": "sha256:cd6c2b78eb1dfe8f7c25de8aca5da8136ae7d2d8c28234483604f40177071389",
+  "entry_basis": [
+    {
+      "path": "registry/consolidation/uc03/part3/part3_exit_decision.json",
+      "sha256": "sha256:f61a1a972104df3576aa79c08e8d9edaec923eebbec2bd41973487064a1be2cb"
+    },
+    {
+      "path": "registry/consolidation/uc03/part3/uc04_handoff.json",
+      "sha256": "sha256:1fbc488115dfc08c2838258d5defaa1cc02cad3e4180950221c6bd27482abfe6"
+    }
+  ],
+  "order_authority": false,
+  "program_id": "UCPS",
+  "prohibited_actions": [
+    "MARKET_SEMANTIC_CHANGE",
+    "MODEL_OR_LABEL_CHANGE",
+    "ORDER_AUTHORITY",
+    "CAPITAL_AUTHORITY",
+    "LEGACY_DELETION",
+    "UNPROVEN_LOGIC_MERGE"
+  ],
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "semantic_merge_authority": false,
+  "stage_id": "UC04-W0",
+  "status": "ACCEPTED"
+}
