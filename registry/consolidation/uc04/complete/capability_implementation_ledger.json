@@ -1,0 +1,838 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/capability_implementation_ledger.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "selected_capability_count": 14,
+  "consumer_adapter_count": 109,
+  "capabilities": [
+    {
+      "candidate_id": "ENGCAND_10B280C3481F84DFFD8F381AFC4FCF88",
+      "historical_candidate_digest": "sha256:553e848e2474f72e5505794e29ef74432099dc2149c50ef835bfe6f2e0baecc8",
+      "category": "OBJECT_LIFECYCLE",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04CreateArrow",
+      "consumer_count": 5,
+      "adapter_count": 5,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Visual.mqh",
+          "function_name": "FP_HookP02CreateArrow",
+          "source_sha256": "sha256:a659a5104542b8d6b478c9f9aeef369df453c7d437134a55fb920f04509bfbf2",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase03Visual.mqh",
+          "function_name": "FP_HookP03CreateArrow",
+          "source_sha256": "sha256:657027d5af925088738f4bb8d9cd6c4f5338fa860903d750e3d940a020cdb8ea",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Visual.mqh",
+          "function_name": "FP_HookP04CreateArrow",
+          "source_sha256": "sha256:2a9a89afc30bf7a90dfdc2919742d5c9f42d587eccf2bbb7752b6b7144f69357",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase05Visual.mqh",
+          "function_name": "FP_HookP05CreateArrow",
+          "source_sha256": "sha256:bfd47e1b57ca2734d88678ca65728d92fefc156214672fafc3c62da939c9e5ca",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase06Visual.mqh",
+          "function_name": "FP_HookP06CreateArrow",
+          "source_sha256": "sha256:388419c9fa3c04fe27fc5f46eb5ddd23626d03254abf39dc819d444bbacdecad",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_145E9E03599E6387041337DE73A4F287",
+      "historical_candidate_digest": "sha256:fe624689d83127d80179de18a1c87d05f30ffd8c4c70445bcfc65f526bed0f8d",
+      "category": "GENERIC_UTILITY",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04PricesCloseEnough",
+      "consumer_count": 5,
+      "adapter_count": 5,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+          "function_name": "E0006_PricesCloseEnough",
+          "source_sha256": "sha256:a3fda928f495eefce3f245182ef3d334f8fa96698310c0643c985a18c921aede",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0009_HTF123M1HookCounterExecutor.mq5",
+          "function_name": "E0009_PricesCloseEnough",
+          "source_sha256": "sha256:be708a15d4f8b0d5942a05668bd908cf89ad69dd002e2cd49429f5c365ba07d8",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/Execution/E0007/DAL_E0007OrderEngine.mqh",
+          "function_name": "DAL_E0007PricesCloseEnough",
+          "source_sha256": "sha256:ecdc734c09520456aee5be7c7b2e4354d37983e567310a57c39b48631260db6f",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/Execution/E0008/DAL_E0008OrderEngine.mqh",
+          "function_name": "DAL_E0008PricesCloseEnough",
+          "source_sha256": "sha256:1838685b6ce7539cd73b2b2f776eb35d07f165a0d95740da8c660721eb54df19",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/Execution/E0009/DAL_E0009OrderEngine.mqh",
+          "function_name": "DAL_E0009PricesCloseEnough",
+          "source_sha256": "sha256:1156a446f411cb9f5ee26d6c1a17f50379f119e794efa862244ba9903e6d38b3",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_20ED877E56D47DE82D871D2571BCA4AB",
+      "historical_candidate_digest": "sha256:5fa0d79602062458f947702c885b214f26a8075134e647c1585ab517bd59624f",
+      "category": "DOMAIN_LOGIC",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04M0002Config.mqh",
+      "canonical_function": "AL_UC04BuildM0002Config",
+      "consumer_count": 7,
+      "adapter_count": 7,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+          "function_name": "D0005_BuildM0002Config",
+          "source_sha256": "sha256:943690e52f0fa3aabe7bba5ca797a8ca335a6451aeb6704830756056a1df7e55",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+          "function_name": "D0006_BuildM0002Config",
+          "source_sha256": "sha256:82cc24fcb8fe28727041abe09aec885b26ed057476c2e60b79bb96aa82839077",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+          "function_name": "BuildM0002Config",
+          "source_sha256": "sha256:404269c3ebf76aca1cf96168f837aa456b6dd194e29eae8d9c8f5956c768cd4b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+          "function_name": "BuildM0002Config",
+          "source_sha256": "sha256:a73bee5362d1d87c11c4b919b871190a19c905032542b888c056b25688e0334b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+          "function_name": "E0003_BuildM0002Config",
+          "source_sha256": "sha256:17651dfa1e073d8d43fdd4ba1868c57b65ba691311be4b8cb560a5f0a740bccd",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+          "function_name": "E0004_BuildM0002Config",
+          "source_sha256": "sha256:20687ba64649d46fe50782c9404385e7e70d41116294f89fd074474c2648b6ff",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+          "function_name": "E0005_BuildM0002Config",
+          "source_sha256": "sha256:9fe34b0e0ec80527882188f0831c147ac9659f5e2c41aa6e159d5fec08be1c28",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_28BC862A7CE62872B9A94895D08D9DA7",
+      "historical_candidate_digest": "sha256:c708c0e087edef4acf3488636203a957502635348eee6ca8f42bdcf2d5252eba",
+      "category": "CONFIGURATION_GATE",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04DirectionAllowed",
+      "consumer_count": 5,
+      "adapter_count": 5,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh",
+          "function_name": "FP_HookP02DirectionAllowed",
+          "source_sha256": "sha256:108233d284fb44ee93827b60bcd053ed0337fa276a57f4fd51a64e89473b496e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase03Rules.mqh",
+          "function_name": "FP_HookP03DirectionAllowed",
+          "source_sha256": "sha256:4c6912324e2b6a51595058c52d11d83c66bd0652a7842f7fe4754ca42457052e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Rules.mqh",
+          "function_name": "FP_HookP04DirectionAllowed",
+          "source_sha256": "sha256:8ff0cd2fa9e8615dadfbccf3d17743c14a28791abbd1e7c9f47897fba73ed1e5",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase05Rules.mqh",
+          "function_name": "FP_HookP05DirectionAllowed",
+          "source_sha256": "sha256:dd9e6e5488e30fbcce246dc65aec00865e91f5d4d7924b033bcb8be4777bba4c",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase06Rules.mqh",
+          "function_name": "FP_HookP06DirectionAllowed",
+          "source_sha256": "sha256:9321ce8d39301e3da89d0d1ca976018828cc32b4d208b558f1c6026ce1f5e581",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_3184B4B0934CC5A945ED26DAFF189E47",
+      "historical_candidate_digest": "sha256:409ed4ca6da23f7cee4fbd64bd713dae5ff59eaa19f160692ee9436948f8ae75",
+      "category": "TIME_SESSION_CONFIGURATION",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04ResolveTimeframe",
+      "consumer_count": 16,
+      "adapter_count": 16,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+          "function_name": "D0005_Timeframe",
+          "source_sha256": "sha256:943690e52f0fa3aabe7bba5ca797a8ca335a6451aeb6704830756056a1df7e55",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+          "function_name": "D0006_Timeframe",
+          "source_sha256": "sha256:82cc24fcb8fe28727041abe09aec885b26ed057476c2e60b79bb96aa82839077",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:404269c3ebf76aca1cf96168f837aa456b6dd194e29eae8d9c8f5956c768cd4b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:a73bee5362d1d87c11c4b919b871190a19c905032542b888c056b25688e0334b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:17651dfa1e073d8d43fdd4ba1868c57b65ba691311be4b8cb560a5f0a740bccd",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:20687ba64649d46fe50782c9404385e7e70d41116294f89fd074474c2648b6ff",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:9fe34b0e0ec80527882188f0831c147ac9659f5e2c41aa6e159d5fec08be1c28",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+          "function_name": "E0006_Timeframe",
+          "source_sha256": "sha256:a3fda928f495eefce3f245182ef3d334f8fa96698310c0643c985a18c921aede",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0001/M0001_LiveVisualLab.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:2442a87002cb3fefffc86e7cf4b864bd7414ba341eab83bbabdc364c2a92fe56",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_HuntRejectExitVolatility.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:9bddada4a08fa5cfc9b31c9ac2b0b9ec4bcb47d265c7ad2929cd8956bb4a5fa8",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_ReversalContinuationExitVolatility.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:e0cd602582b0e72804c485d3489d953d0a69e94345a43cc0e9a2fbba321cbe85",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0003/M0003_ContinuationInertiaMemory.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:2716fd8a1b2712b2ace401637c1a729cc9b3e15c074f3fa35c5d2c55bbedf727",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0004/M0004_BranchRegimeClustering.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:e8610a5c90bcea6e1d52083a688a3f01abf0389e0d866c2ff19da1b43d9d8e42",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0005/M0005_DirectionalMemory.mq5",
+          "function_name": "LabTimeframe",
+          "source_sha256": "sha256:b2e87574eb84013baea3332988ec1949aa962b54ff010d7b3181e663e673ebda",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0006/M0006_NodeSurvivalMap.mq5",
+          "function_name": "M6Timeframe",
+          "source_sha256": "sha256:c8dcfabe425101715e864e310d479cd8bb90c89c6e55c2d67191de86bf16ce0e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0006/M0006_ReversalExplosiveOptionality.mq5",
+          "function_name": "M6Timeframe",
+          "source_sha256": "sha256:6584a0181f99c2c28e5060b89d724250038e60d17b654003af58bf727f180f99",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_31B77F4A9FE3D8B31FB34669D7B5B002",
+      "historical_candidate_digest": "sha256:607cd58991c8d66bc98f46fb59735bfb26332829b75ce71045e9dc9d581f72f9",
+      "category": "DOMAIN_LOGIC",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04M0001Config.mqh",
+      "canonical_function": "AL_UC04BuildM0001Config",
+      "consumer_count": 12,
+      "adapter_count": 12,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+          "function_name": "D0005_BuildM0001Config",
+          "source_sha256": "sha256:943690e52f0fa3aabe7bba5ca797a8ca335a6451aeb6704830756056a1df7e55",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+          "function_name": "D0006_BuildM0001Config",
+          "source_sha256": "sha256:82cc24fcb8fe28727041abe09aec885b26ed057476c2e60b79bb96aa82839077",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0007_H5CausalLiveReplayAudit.mq5",
+          "function_name": "D0007_BuildM0001Config",
+          "source_sha256": "sha256:75b395e79f53829c2ad1f388e8d68d105bf3836d79c68cca1bac706a94d6fd61",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0009_H5AtomicNoSampleReplayAudit.mq5",
+          "function_name": "D0009_BuildM0001Config",
+          "source_sha256": "sha256:39bf87b6120d3c00a4c98824f56bbe2ed936866850711e97f0d074a3a6f2c5e3",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0010_H4AtomicNoSampleRegimeAudit.mq5",
+          "function_name": "D0010_BuildM0001Config",
+          "source_sha256": "sha256:264971553050ad1f27b360b8735bf41a635fff817ee8f8a9d6ed5dfeddb3e76e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+          "function_name": "BuildM0001Config",
+          "source_sha256": "sha256:404269c3ebf76aca1cf96168f837aa456b6dd194e29eae8d9c8f5956c768cd4b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+          "function_name": "BuildM0001Config",
+          "source_sha256": "sha256:a73bee5362d1d87c11c4b919b871190a19c905032542b888c056b25688e0334b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+          "function_name": "E0003_BuildM0001Config",
+          "source_sha256": "sha256:17651dfa1e073d8d43fdd4ba1868c57b65ba691311be4b8cb560a5f0a740bccd",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+          "function_name": "E0004_BuildM0001Config",
+          "source_sha256": "sha256:20687ba64649d46fe50782c9404385e7e70d41116294f89fd074474c2648b6ff",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+          "function_name": "E0005_BuildM0001Config",
+          "source_sha256": "sha256:9fe34b0e0ec80527882188f0831c147ac9659f5e2c41aa6e159d5fec08be1c28",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/M0004/DAL_M0004AtomicNoSample.mqh",
+          "function_name": "D0010_BuildM0001Config",
+          "source_sha256": "sha256:c2ef3aa243b2f28ec441cd2dd70f8c75f1e6d52f05f13ef872b83da856cf4a6e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/M0005/DAL_M0005AtomicNoSample.mqh",
+          "function_name": "D0009_BuildM0001Config",
+          "source_sha256": "sha256:5dd603efddcaf6957dbc49867d4c9369808a812f1c6c20550747124e57e4c844",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_5F6D0BFC84A95D23CAECA754A03F06E3",
+      "historical_candidate_digest": "sha256:1b913b4f84503e71cf3324e7af48ed13ee98f0a9cf8671d661d0c28ecb8e12ca",
+      "category": "REFERENCE_LIFECYCLE",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04CloseFileHandle",
+      "consumer_count": 6,
+      "adapter_count": 6,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:5f20f2d4dddcadbe0350e77af7134b027284c496a61321001491e65c741e6ab2",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_HuntAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:fdbcfdadd16b5ce26a6f672a991e4637f34d8abf520edb9f0887f08eee1df95b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:00112ae85d6c0f23b47a76f436aea6f5767bbbc217b017dbf21d3b1b2709a445",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_RelationshipAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:45be04282676a22c85986446ee3d84fb710e45cdfc35e12e0a6c661d7a936ff1",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_RenderAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:d0965f61638663f1ea8698e22cbdb5875d482b4bbeccd2b1c1086a05853a14db",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_SessionBoxAudit.mqh",
+          "function_name": "Close",
+          "source_sha256": "sha256:8691c5998246030660ee61153da811aed10b4281ee47172a2d3a220bb6783aa5",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "historical_candidate_digest": "sha256:f317c18e7ca700a7f7eff82a9042857d78dc6819a8fb981e5fc7edb6afaea83c",
+      "category": "DETERMINISTIC_FORMATTING",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04FormatDateTime",
+      "consumer_count": 10,
+      "adapter_count": 10,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+          "function_name": "D0005_FormatDateTime",
+          "source_sha256": "sha256:943690e52f0fa3aabe7bba5ca797a8ca335a6451aeb6704830756056a1df7e55",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+          "function_name": "D0006_FormatDateTime",
+          "source_sha256": "sha256:82cc24fcb8fe28727041abe09aec885b26ed057476c2e60b79bb96aa82839077",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+          "function_name": "E0001_FormatDateTime",
+          "source_sha256": "sha256:404269c3ebf76aca1cf96168f837aa456b6dd194e29eae8d9c8f5956c768cd4b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+          "function_name": "E0002_FormatDateTime",
+          "source_sha256": "sha256:a73bee5362d1d87c11c4b919b871190a19c905032542b888c056b25688e0334b",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+          "function_name": "E0003_FormatDateTime",
+          "source_sha256": "sha256:17651dfa1e073d8d43fdd4ba1868c57b65ba691311be4b8cb560a5f0a740bccd",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+          "function_name": "E0004_FormatDateTime",
+          "source_sha256": "sha256:20687ba64649d46fe50782c9404385e7e70d41116294f89fd074474c2648b6ff",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+          "function_name": "E0005_FormatDateTime",
+          "source_sha256": "sha256:9fe34b0e0ec80527882188f0831c147ac9659f5e2c41aa6e159d5fec08be1c28",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+          "function_name": "E0006_FormatDateTime",
+          "source_sha256": "sha256:a3fda928f495eefce3f245182ef3d334f8fa96698310c0643c985a18c921aede",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+          "function_name": "E0010_FormatDateTime",
+          "source_sha256": "sha256:db9e0a95c4a7cdd013b93c4d6d00d121308c0823673a411afe8367bed5d5aa99",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+          "function_name": "E0011_FormatDateTime",
+          "source_sha256": "sha256:e5f97f9132375f6c3230c85347bb2aac0724b3e3affc960a0b1356e87b3b1645",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_7F3DF48AA2EE0468F7B2C15906E19DF0",
+      "historical_candidate_digest": "sha256:146756594be3191816458f323255458691bb10b4409744ffaa3633d85788e411",
+      "category": "CLOSED_BAR_CLOCK",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04HasNewClosedCandle",
+      "consumer_count": 6,
+      "adapter_count": 6,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/M0001/M0001_LiveVisualLab.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:2442a87002cb3fefffc86e7cf4b864bd7414ba341eab83bbabdc364c2a92fe56",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_HuntRejectExitVolatility.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:9bddada4a08fa5cfc9b31c9ac2b0b9ec4bcb47d265c7ad2929cd8956bb4a5fa8",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_ReversalContinuationExitVolatility.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:e0cd602582b0e72804c485d3489d953d0a69e94345a43cc0e9a2fbba321cbe85",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0003/M0003_ContinuationInertiaMemory.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:2716fd8a1b2712b2ace401637c1a729cc9b3e15c074f3fa35c5d2c55bbedf727",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0004/M0004_BranchRegimeClustering.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:e8610a5c90bcea6e1d52083a688a3f01abf0389e0d866c2ff19da1b43d9d8e42",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0005/M0005_DirectionalMemory.mq5",
+          "function_name": "HasNewClosedCandle",
+          "source_sha256": "sha256:b2e87574eb84013baea3332988ec1949aa962b54ff010d7b3181e663e673ebda",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_C7F1739252CDDD4D7758D9291805FD11",
+      "historical_candidate_digest": "sha256:bf35ebf04f10cb315021c1f6c1ff3b0f2466350a44431c0556cc70dd023ee612",
+      "category": "TIME_SESSION_CONFIGURATION",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04DayeTimeConfig.mqh",
+      "canonical_function": "AL_UC04BuildDayeTimeConfig",
+      "consumer_count": 10,
+      "adapter_count": 10,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Close_Confirmation_Anatomy.mq5",
+          "function_name": "DAYE_BuildP06TimeConfig",
+          "source_sha256": "sha256:0d42bf26e18b9763a183d3d33348b857458627902cd4dcd6e8c737b7bc55d032",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Data_Sync_Anatomy.mq5",
+          "function_name": "DAYE_BuildP02TimeConfig",
+          "source_sha256": "sha256:eaf5fe2c960d0eaa60fed96d20426e75ad58229354c9b4133fd7de869fc5b58c",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Divergence_Drawing_Anatomy.mq5",
+          "function_name": "DAYE_BuildP08TimeConfig",
+          "source_sha256": "sha256:6d4f1999f1d889ba45dcf5d79e7ebf19b45f574222f55088e2e388fde7eb22d8",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Hunt_Observation_Anatomy.mq5",
+          "function_name": "DAYE_BuildP05TimeConfig",
+          "source_sha256": "sha256:f11698f89fdf33de8c34a8a85c66ed400d7a8b1e94b5873c5442c3230927a51c",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Period_Anatomy.mq5",
+          "function_name": "DAYE_BuildP03TimeConfig",
+          "source_sha256": "sha256:32174887092d4edeb1c7172420c3c7d8beed9521f7b4cb09c5fca76e8f14f4e4",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
+          "function_name": "DAYE_BuildP07TimeConfig",
+          "source_sha256": "sha256:daba717c2b7d09da432744ba6acff0c1c70b64422acc069c09bbcaa3370bc47f",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Relationship_Registry_Anatomy.mq5",
+          "function_name": "DAYE_BuildP04TimeConfig",
+          "source_sha256": "sha256:32211b0d894c15608e84aab231244a276c7e803ee0e3510929685bde79e96cd2",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Session_Boxes_Anatomy.mq5",
+          "function_name": "DAYE_BuildP09TimeConfig",
+          "source_sha256": "sha256:46918b900dd377a0b4f9608037f782ca5a3dcb5a7365b561d5cd3d413090bf33",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Time_Foundation.mq5",
+          "function_name": "DAYE_BuildInputConfig",
+          "source_sha256": "sha256:730c573d8cd4b2e14f5cac53f1667baaed21f20847f4a4a7d5f6b6b1932a3e0d",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5",
+          "function_name": "DAYE_BuildP08TimeConfig",
+          "source_sha256": "sha256:08bc46f174bb2b67d1112cb06ce518258f3ffa4273606d9fed4e4074246a07c9",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_D2365B8D8124962DDDD5E19AF6CF97CE",
+      "historical_candidate_digest": "sha256:bdaf5fb10c4da23eb15c9434f691b1314734734f62e5cd2ec539d219b99aad7b",
+      "category": "STATE_STREAM",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04MarketStream.mqh",
+      "canonical_function": "AL_UC04UpdateLiveBarStream",
+      "consumer_count": 6,
+      "adapter_count": 6,
+      "members": [
+        {
+          "artifact_path": "mql5/Experts/M0001/M0001_LiveVisualLab.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:2442a87002cb3fefffc86e7cf4b864bd7414ba341eab83bbabdc364c2a92fe56",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_HuntRejectExitVolatility.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:9bddada4a08fa5cfc9b31c9ac2b0b9ec4bcb47d265c7ad2929cd8956bb4a5fa8",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0002/M0002_ReversalContinuationExitVolatility.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:e0cd602582b0e72804c485d3489d953d0a69e94345a43cc0e9a2fbba321cbe85",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0003/M0003_ContinuationInertiaMemory.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:2716fd8a1b2712b2ace401637c1a729cc9b3e15c074f3fa35c5d2c55bbedf727",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0004/M0004_BranchRegimeClustering.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:e8610a5c90bcea6e1d52083a688a3f01abf0389e0d866c2ff19da1b43d9d8e42",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Experts/M0005/M0005_DirectionalMemory.mq5",
+          "function_name": "UpdateLiveBarStream",
+          "source_sha256": "sha256:b2e87574eb84013baea3332988ec1949aa962b54ff010d7b3181e663e673ebda",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_E543B99C9395A7521B5972F72268E8FE",
+      "historical_candidate_digest": "sha256:548dbc6c11bf1d40a0812287f36e111dc2e23188cfe7e1ffa675a01abc01a01a",
+      "category": "CONFIGURATION_GATE",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04ShouldRun",
+      "consumer_count": 6,
+      "adapter_count": 6,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase01Rules.mqh",
+          "function_name": "FP_HookP01ShouldRun",
+          "source_sha256": "sha256:0d032805f68646dffbf473a4a3b99a5ec431f5b8484c39bb0980b780c296dd96",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh",
+          "function_name": "FP_HookP02ShouldRun",
+          "source_sha256": "sha256:108233d284fb44ee93827b60bcd053ed0337fa276a57f4fd51a64e89473b496e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase03Rules.mqh",
+          "function_name": "FP_HookP03ShouldRun",
+          "source_sha256": "sha256:4c6912324e2b6a51595058c52d11d83c66bd0652a7842f7fe4754ca42457052e",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Rules.mqh",
+          "function_name": "FP_HookP04ShouldRun",
+          "source_sha256": "sha256:8ff0cd2fa9e8615dadfbccf3d17743c14a28791abbd1e7c9f47897fba73ed1e5",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase05Rules.mqh",
+          "function_name": "FP_HookP05ShouldRun",
+          "source_sha256": "sha256:dd9e6e5488e30fbcce246dc65aec00865e91f5d4d7924b033bcb8be4777bba4c",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase06Rules.mqh",
+          "function_name": "FP_HookP06ShouldRun",
+          "source_sha256": "sha256:9321ce8d39301e3da89d0d1ca976018828cc32b4d208b558f1c6026ce1f5e581",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_EE0FCB3A57FBBF7A42F400166E98E2FE",
+      "historical_candidate_digest": "sha256:b7a511c9c06cae99525f45cad2d0ee8b0617ae41ca4bb347bbd35a0ff8aeaf1c",
+      "category": "GENERIC_UTILITY",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04WriteLine",
+      "consumer_count": 6,
+      "adapter_count": 6,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh",
+          "function_name": "FP_AcceptanceWriteLine",
+          "source_sha256": "sha256:45da350b8f6f206bd8ce7bf4112b0490efe7089712fb82ade997c7e7b7577fb5",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh",
+          "function_name": "FP_AmbiguityWriteLine",
+          "source_sha256": "sha256:c70d6b8213bb094572d3370591f6b5d0997fdaf1fa2bdffc7bd3126a34bc635f",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_ExportEngine.mqh",
+          "function_name": "FP_ExportWriteLine",
+          "source_sha256": "sha256:1fc34a4fcdcaa22021a34cc0028a6684b24b645035d071fd3d9d343046246cd0",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh",
+          "function_name": "FP_InterfaceWriteLine",
+          "source_sha256": "sha256:1c440e420666a0473e32fb74044480e1e6359e4eed581daeb4a8d9d8431cee48",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh",
+          "function_name": "FP_StaticQaWriteLine",
+          "source_sha256": "sha256:4dfa8f2a360355decc922aa735d4110563f5d30ff8d835fd552236c3740e8d81",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_ValidationEngine.mqh",
+          "function_name": "FP_ValidationWriteLine",
+          "source_sha256": "sha256:638a7a3a857ba7d66190f0ea450afaaeff5375a2a4bb8faa242b33215e2e86a7",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    },
+    {
+      "candidate_id": "ENGCAND_FF465FD882B14D4DE7C0542185F72E4C",
+      "historical_candidate_digest": "sha256:d12fea43a5abd4f2431ba0a188b2eaaec59480e4f9d234d4fb513a09a6f1b9c8",
+      "category": "IDENTITY_HASH",
+      "canonical_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+      "canonical_function": "AL_UC04DeleteObjectsByPrefix",
+      "consumer_count": 9,
+      "adapter_count": 9,
+      "members": [
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase01Visual.mqh",
+          "function_name": "FP_HookPhase01DeleteObjects",
+          "source_sha256": "sha256:ea0a1fc079b94d1b20351da0a6622e67745fe080d03ba0facc46a53964d898ce",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Visual.mqh",
+          "function_name": "FP_HookPhase02DeleteObjects",
+          "source_sha256": "sha256:a659a5104542b8d6b478c9f9aeef369df453c7d437134a55fb920f04509bfbf2",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase03Visual.mqh",
+          "function_name": "FP_HookPhase03DeleteObjects",
+          "source_sha256": "sha256:657027d5af925088738f4bb8d9cd6c4f5338fa860903d750e3d940a020cdb8ea",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Visual.mqh",
+          "function_name": "FP_HookPhase04DeleteObjects",
+          "source_sha256": "sha256:2a9a89afc30bf7a90dfdc2919742d5c9f42d587eccf2bbb7752b6b7144f69357",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase05Visual.mqh",
+          "function_name": "FP_HookPhase05DeleteObjects",
+          "source_sha256": "sha256:bfd47e1b57ca2734d88678ca65728d92fefc156214672fafc3c62da939c9e5ca",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase06Visual.mqh",
+          "function_name": "FP_HookPhase06DeleteObjects",
+          "source_sha256": "sha256:388419c9fa3c04fe27fc5f46eb5ddd23626d03254abf39dc819d444bbacdecad",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase07Visual.mqh",
+          "function_name": "FP_HookP07DeleteObjectsByPrefix",
+          "source_sha256": "sha256:ba9f9f048d1da150c5bc541adeb869abb32947eacd688ff6fca99f816e835408",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase09Visual.mqh",
+          "function_name": "FP_HookP09DeleteObjectsByPrefix",
+          "source_sha256": "sha256:854ecd60bb0ecf732d7eaaad88fd1656d48c8115f61da02eb659c3c23bb7a7cc",
+          "adapter_call_present": true
+        },
+        {
+          "artifact_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Visual.mqh",
+          "function_name": "FP_HookP10DeleteObjectsByPrefix",
+          "source_sha256": "sha256:ca5cefa484202b5466bb46d34309bcd5928678e86185e8492d9703b572a02f3e",
+          "adapter_call_present": true
+        }
+      ],
+      "implementation_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"
+    }
+  ],
+  "semantic_change_authority": false,
+  "deletion_authority": false,
+  "runtime_authority": false,
+  "order_authority": false,
+  "capital_authority": false,
+  "document_digest": "sha256:4b0b9de56aecca545f335f134d2868a16034a507769fd7dfc9b045c43d9f8823"
+}

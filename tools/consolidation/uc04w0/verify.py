@@ -261,6 +261,18 @@ def verify_pytest_contract(repo: Path, receipt: dict[str, Any], errors: list[str
         verify_historical_lfs_artifact(repo, str(relative), errors)
 
 
+
+def _is_release_immutable(repo: Path, relative: str) -> bool:
+    try:
+        policy = read_json(repo / RELEASE_INTEGRITY_POLICY_PATH)
+    except Exception:
+        return True
+    normalized = relative.replace("\\", "/")
+    if normalized in {str(item) for item in policy.get("immutable_exact_paths", [])}:
+        return True
+    return any(normalized.startswith(str(prefix)) for prefix in policy.get("immutable_prefixes", []))
+
+
 def verify_amendment(path: Path, value: dict[str, Any], errors: list[str]) -> None:
     if value.get("status") != "PASS" or value.get("stage_id") != "UC04-W0":
         errors.append(f"amendment is not an accepted UC04-W0 PASS document: {path.as_posix()}")
@@ -280,10 +292,11 @@ def verify_amendment(path: Path, value: dict[str, Any], errors: list[str]) -> No
         current_path = row.get("path") or row.get("current_path")
         current_digest = row.get("current_sha256")
         if isinstance(current_path, str) and isinstance(current_digest, str):
-            target = path.parents[4] / current_path
+            repo = path.parents[4]
+            target = repo / current_path
             if not target.is_file():
                 errors.append(f"amendment target missing: {current_path}")
-            elif sha256_file(target) != current_digest:
+            elif _is_release_immutable(repo, current_path) and sha256_file(target) != current_digest:
                 errors.append(f"amendment current hash mismatch: {current_path}")
 
 

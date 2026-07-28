@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/w1_candidate_transition.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "historical_state": "W1A_CHARACTERIZATION_ACCEPTED_IMPLEMENTATION_BLOCKED",
+  "current_state": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS",
+  "production_include": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh",
+  "production_function": "AL_UC04FormatDateTime",
+  "member_count": 10,
+  "members": [
+    {
+      "artifact_path": "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+      "function_name": "D0005_FormatDateTime",
+      "current_sha256": "sha256:943690e52f0fa3aabe7bba5ca797a8ca335a6451aeb6704830756056a1df7e55",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+      "function_name": "D0006_FormatDateTime",
+      "current_sha256": "sha256:82cc24fcb8fe28727041abe09aec885b26ed057476c2e60b79bb96aa82839077",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+      "function_name": "E0001_FormatDateTime",
+      "current_sha256": "sha256:404269c3ebf76aca1cf96168f837aa456b6dd194e29eae8d9c8f5956c768cd4b",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+      "function_name": "E0002_FormatDateTime",
+      "current_sha256": "sha256:a73bee5362d1d87c11c4b919b871190a19c905032542b888c056b25688e0334b",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+      "function_name": "E0003_FormatDateTime",
+      "current_sha256": "sha256:17651dfa1e073d8d43fdd4ba1868c57b65ba691311be4b8cb560a5f0a740bccd",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+      "function_name": "E0004_FormatDateTime",
+      "current_sha256": "sha256:20687ba64649d46fe50782c9404385e7e70d41116294f89fd074474c2648b6ff",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+      "function_name": "E0005_FormatDateTime",
+      "current_sha256": "sha256:9fe34b0e0ec80527882188f0831c147ac9659f5e2c41aa6e159d5fec08be1c28",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+      "function_name": "E0006_FormatDateTime",
+      "current_sha256": "sha256:a3fda928f495eefce3f245182ef3d334f8fa96698310c0643c985a18c921aede",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+      "function_name": "E0010_FormatDateTime",
+      "current_sha256": "sha256:db9e0a95c4a7cdd013b93c4d6d00d121308c0823673a411afe8367bed5d5aa99",
+      "adapter_token": "AL_UC04FormatDateTime("
+    },
+    {
+      "artifact_path": "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+      "function_name": "E0011_FormatDateTime",
+      "current_sha256": "sha256:e5f97f9132375f6c3230c85347bb2aac0724b3e3affc960a0b1356e87b3b1645",
+      "adapter_token": "AL_UC04FormatDateTime("
+    }
+  ],
+  "active_call_site_count": 41,
+  "unexplained_behavior_delta_count": 0,
+  "semantic_change_authority": false,
+  "deletion_authority": false,
+  "runtime_authority": false,
+  "order_authority": false,
+  "capital_authority": false,
+  "status": "PASS",
+  "document_digest": "sha256:805920621a4f8394ca089ed9eae0650fab0ed18b24cd249f282a360b1ed709ee"
+}

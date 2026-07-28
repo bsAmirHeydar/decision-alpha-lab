@@ -10,6 +10,7 @@
 #include <StructuralNodes/DAL_StructuralNodeEngine.mqh>
 #include <M0001/DAL_M0001Config.mqh>
 #include <M0001/DAL_M0001Engine.mqh>
+#include <AlphaLab/UC04/AL_UC04M0001Config.mqh>
 
 #define DAL_D0010_BUILD "1.00"
 #define DAL_D0010_LABEL_REVERSAL 0
@@ -190,14 +191,13 @@ void D0010_ResetSummary(D0010Summary &s)
 
 void D0010_BuildM0001Config(DALM0001Config &config)
 {
-   DAL_M0001DefaultConfig(config);
-   config.L = InpL;
-   config.zone_ratio = InpZoneRatio;
-   config.exit_gap = InpExitGap;
-   config.consume_mode = InpConsumeMode;
-   config.consume_on_touch = (InpConsumeMode == DAL_M0001_CONSUME_BY_TOUCH);
-   config.max_events = 0;
-   config.min_rtv = 0.0;
+   AL_UC04BuildM0001Config(
+      config,
+      InpL,
+      InpZoneRatio,
+      InpExitGap,
+      InpConsumeMode
+   );
 }
 
 void D0010_ReverseRates(MqlRates &rates[], const int count)

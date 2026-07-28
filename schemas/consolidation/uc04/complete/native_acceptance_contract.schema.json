@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/native_acceptance_contract.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "compile_target_count", "compile_targets", "required_compile_result", "runtime_self_test", "runtime_output", "runtime_summary_requirement", "repository_mutation_allowed", "live_trading_allowed", "dll_import_allowed", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "compile_target_count": {"type": "integer", "minimum": 30},
+    "compile_targets": {"type": "array", "minItems": 30, "items": {"type": "string", "pattern": "^mql5/.+\\.mq5$"}, "uniqueItems": true},
+    "required_compile_result": {"const": "0_ERRORS_0_WARNINGS_FOR_EVERY_TARGET"},
+    "runtime_self_test": {"const": "mql5/Tests/Scripts/UC04/UC04_Phase4SharedPrimitivesSelfTest.mq5"},
+    "runtime_output": {"const": "AlphaLab/UC04/UC04_Phase4SharedPrimitivesSelfTest.csv"},
+    "runtime_summary_requirement": {"const": "SUMMARY_PASS_ZERO_FAILURES"},
+    "repository_mutation_allowed": {"const": false},
+    "live_trading_allowed": {"const": false},
+    "dll_import_allowed": {"const": false},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

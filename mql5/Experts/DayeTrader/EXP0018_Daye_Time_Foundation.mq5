@@ -3,6 +3,7 @@
 #property description "EXP0018 P01 isolated New York Time Kernel v2. No signal, drawing, risk, or trading authority."
 
 #include <DayeTrader/EXP0018/DAYE_Engine.mqh>
+#include <AlphaLab/UC04/AL_UC04DayeTimeConfig.mqh>
 
 input group "EXP0018 P01 — Broker Clock Adapter"
 input DAYE_BrokerOffsetMode InpBrokerOffsetMode = DAYE_BROKER_OFFSET_MANUAL_FIXED;
@@ -31,13 +32,15 @@ CDayeTimeKernelEngine g_daye_time_kernel;
 
 void DAYE_BuildInputConfig(DAYE_TimeConfig &config)
 {
-   config.schema_version = DAYE_TIME_SCHEMA_VERSION;
-   config.broker_offset_mode = InpBrokerOffsetMode;
-   config.broker_utc_offset_minutes = (int)MathRound(InpBrokerUtcOffsetHours * 60.0);
-   config.ny_offset_mode = InpNewYorkOffsetMode;
-   config.manual_new_york_utc_offset_minutes = (int)MathRound(InpManualNewYorkUtcOffsetHours * 60.0);
-   config.ambiguous_start_policy = InpAmbiguousStartPolicy;
-   config.ambiguous_end_policy = InpAmbiguousEndPolicy;
+   AL_UC04BuildDayeTimeConfig(
+      config,
+      InpBrokerOffsetMode,
+      InpBrokerUtcOffsetHours,
+      InpNewYorkOffsetMode,
+      InpManualNewYorkUtcOffsetHours,
+      InpAmbiguousStartPolicy,
+      InpAmbiguousEndPolicy
+   );
 }
 
 datetime DAYE_CurrentBrokerTime(void)

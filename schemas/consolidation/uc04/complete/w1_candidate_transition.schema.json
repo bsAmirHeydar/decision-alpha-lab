@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/w1_candidate_transition.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "candidate_id", "historical_state", "current_state", "production_include", "production_function", "member_count", "members", "active_call_site_count", "unexplained_behavior_delta_count", "semantic_change_authority", "deletion_authority", "runtime_authority", "order_authority", "capital_authority", "status", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "candidate_id": {"const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"},
+    "historical_state": {"const": "W1A_CHARACTERIZATION_ACCEPTED_IMPLEMENTATION_BLOCKED"},
+    "current_state": {"const": "CANONICAL_IMPLEMENTATION_WITH_LOCAL_COMPATIBILITY_ADAPTERS"},
+    "production_include": {"const": "mql5/Include/AlphaLab/UC04/AL_UC04CorePrimitives.mqh"},
+    "production_function": {"const": "AL_UC04FormatDateTime"},
+    "member_count": {"const": 10},
+    "members": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_path", "function_name", "current_sha256", "adapter_token"],
+        "properties": {
+          "artifact_path": {"type": "string", "pattern": "^mql5/.+\\.mq5$"},
+          "function_name": {"type": "string", "minLength": 1},
+          "current_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "adapter_token": {"const": "AL_UC04FormatDateTime("}
+        }
+      }
+    },
+    "active_call_site_count": {"const": 41},
+    "unexplained_behavior_delta_count": {"const": 0},
+    "semantic_change_authority": {"const": false},
+    "deletion_authority": {"const": false},
+    "runtime_authority": {"const": false},
+    "order_authority": {"const": false},
+    "capital_authority": {"const": false},
+    "status": {"const": "PASS"},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

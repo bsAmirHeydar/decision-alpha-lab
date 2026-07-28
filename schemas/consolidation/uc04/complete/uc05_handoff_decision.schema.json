@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/uc05_handoff_decision.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "uc04_acceptance_digest", "uc04_implementation_complete", "uc04_native_seal_pass", "uc05_handoff_authorized", "uc05_implementation_authority", "semantic_change_authority", "deletion_authority", "runtime_authority", "order_authority", "capital_authority", "status", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-TO-UC05"},
+    "schema_version": {"const": "1.0.0"},
+    "uc04_acceptance_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "uc04_implementation_complete": {"const": true},
+    "uc04_native_seal_pass": {"const": true},
+    "uc05_handoff_authorized": {"const": true},
+    "uc05_implementation_authority": {"const": false},
+    "semantic_change_authority": {"const": false},
+    "deletion_authority": {"const": false},
+    "runtime_authority": {"const": false},
+    "order_authority": {"const": false},
+    "capital_authority": {"const": false},
+    "status": {"const": "HANDOFF_AUTHORIZED_ONLY"},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

@@ -3,23 +3,11 @@
 #property strict
 
 #include "FP_HookPhase05Rules.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 int FP_HookPhase05DeleteObjects(const string prefix)
 {
-   if(StringLen(prefix) <= 0)
-      return 0;
-
-   int deleted = 0;
-   for(int i=ObjectsTotal(0, -1, -1)-1; i>=0; i--)
-   {
-      string name = ObjectName(0, i, -1, -1);
-      if(StringFind(name, prefix) == 0)
-      {
-         if(ObjectDelete(0, name))
-            deleted++;
-      }
-   }
-   return deleted;
+   return AL_UC04DeleteObjectsByPrefix(0, prefix);
 }
 
 color FP_HookP05TypeColor(const FP_HookPhase05Config &cfg,
@@ -72,18 +60,16 @@ bool FP_HookP05CreateArrow(const string name,
                            const int width,
                            FP_HookPhase05Report &report)
 {
-   ObjectDelete(0, name);
-   if(!ObjectCreate(0, name, OBJ_ARROW, 0, t, price))
-      return false;
-
-   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
-   ObjectSetInteger(0, name, OBJPROP_WIDTH, width);
-   ObjectSetInteger(0, name, OBJPROP_ARROWCODE, arrow_code);
-   ObjectSetInteger(0, name, OBJPROP_BACK, false);
-   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
-   ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
-   report.objects_created++;
-   return true;
+   return AL_UC04CreateArrow(
+      0,
+      name,
+      t,
+      price,
+      c,
+      arrow_code,
+      width,
+      report.objects_created
+   );
 }
 
 bool FP_HookP05CreateTrend(const string name,

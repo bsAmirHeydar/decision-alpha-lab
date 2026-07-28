@@ -2,6 +2,7 @@
 #define __EXP0018_DAYE_CONFIRMATION_AUDIT_MQH__
 
 #include <DayeTrader/EXP0018/DAYE_ConfirmationDiagnostics.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 class CDayeConfirmationAuditWriter
 {
@@ -107,9 +108,7 @@ public:
    void Flush(void) { if(m_enabled && m_handle != INVALID_HANDLE) FileFlush(m_handle); }
    void Close(void)
    {
-      if(m_handle != INVALID_HANDLE) FileClose(m_handle);
-      m_handle=INVALID_HANDLE;
-      m_enabled=false;
+      AL_UC04CloseFileHandle(m_handle, m_enabled);
    }
 };
 

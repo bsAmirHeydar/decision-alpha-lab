@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/qa_report.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "status": "PASS_STATIC_NATIVE_SEAL_PENDING_INSTALL_HOST",
+  "engineering_policy": "PASS",
+  "migration_continuity": "PASS",
+  "uc03_closure": "PASS",
+  "uc04_upstream": "PASS",
+  "uc04_complete_verifier": "PASS",
+  "targeted_tests_passed": 70,
+  "targeted_tests_failed": 0,
+  "pytest_collected": 9783,
+  "collection_errors": 0,
+  "native_compile_status": "PENDING_INSTALL_HOST",
+  "native_runtime_status": "PENDING_INSTALL_HOST",
+  "full_runtime_suite_status": "NOT_RUN_HISTORICAL_LFS_PAYLOADS_NOT_IN_SOURCE_ARCHIVE",
+  "residual_risks": [
+    "MetaEditor and MetaTrader native acceptance must execute on the installation host before UC-04 acceptance records are materialized.",
+    "The source archive does not contain the four historical Git LFS payloads required for an unrestricted full runtime suite."
+  ],
+  "document_digest": "sha256:bf43f6cc796ababd9103cf1a464984f7b4ebcbc5b685dc0cd4121e57c38cd8c4"
+}

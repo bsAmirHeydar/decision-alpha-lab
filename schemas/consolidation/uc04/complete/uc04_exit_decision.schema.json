@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/uc04_exit_decision.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "implementation_status", "selected_shared_capability_count", "explicit_variant_count", "production_implementation_per_shared_capability", "unexplained_behavior_delta_count", "active_internal_imports_from_retired_engines", "context_specific_branch_in_shared_kernel", "native_seal_status", "status", "uc05_handoff_authorized", "deletion_authority", "runtime_authority", "order_authority", "capital_authority", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC-04"},
+    "schema_version": {"const": "1.0.0"},
+    "implementation_status": {"const": "COMPLETE"},
+    "selected_shared_capability_count": {"const": 14},
+    "explicit_variant_count": {"const": 191},
+    "production_implementation_per_shared_capability": {"const": true},
+    "unexplained_behavior_delta_count": {"const": 0},
+    "active_internal_imports_from_retired_engines": {"const": 0},
+    "context_specific_branch_in_shared_kernel": {"const": false},
+    "native_seal_status": {"enum": ["PENDING_INSTALL_HOST", "PASS"]},
+    "status": {"enum": ["IMPLEMENTATION_COMPLETE_NATIVE_SEAL_PENDING", "ACCEPTED"]},
+    "uc05_handoff_authorized": {"type": "boolean"},
+    "deletion_authority": {"const": false},
+    "runtime_authority": {"const": false},
+    "order_authority": {"const": false},
+    "capital_authority": {"const": false},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

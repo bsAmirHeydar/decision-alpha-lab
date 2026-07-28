@@ -1,0 +1,2122 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/explicit_variant_registry.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "historical_candidate_count": 205,
+  "shared_capability_count": 14,
+  "explicit_variant_count": 191,
+  "variants": [
+    {
+      "candidate_id": "ENGCAND_00773D95F2D75DC29DE2B8588B72ACE9",
+      "candidate_digest": "sha256:b036a3a8623b0d8df9dd806b0c3c70a8f4ecb488ac69409a7811f6b4d217872a",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_00891EBA3F6B33577A5BEE5F5141BC33",
+      "candidate_digest": "sha256:0252ce64c9ecb39c81cc3920d5fc288b54ec7121dab1f67c0e9432933073fc01",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_0118693DE7D372B90D840ACA001C6058",
+      "candidate_digest": "sha256:53e0970477f858480f60097f5ff1ba8b8225897f29814a175d30db26945ff92c",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_02E66ABA78251D9E7A9AE9463D2C815C",
+      "candidate_digest": "sha256:4ddc583da088d64cce7e25cc549a75bd6a7d1f2d527f37632475a8023fc14dba",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_062EB9E04AD4F313A23D358B8A0E1424",
+      "candidate_digest": "sha256:c47684060d8ea9d91063a256e6187be9e4e047ac521afef1ac92260dd9e40054",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_064E43C604D8FC6101DF7AC0C5E021B1",
+      "candidate_digest": "sha256:1942cae72b6de156a9fea09dc33900968efc7833c51ab7f2600f43a75ff953e1",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_07377B9DCC6F0FF1A0D0B439DBF3878D",
+      "candidate_digest": "sha256:df360030dcb1b18419102d8ba5cbb0be5e6a8b4271bc8760c3586d6673454d97",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_07EEB80EB3D48A21E8244034C579D50C",
+      "candidate_digest": "sha256:2513b91ff864e2a96157f40deb94834523e762f32ab572c8aab065429a27a3f4",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_089F6D4F39BB4A5786E75D5C95C94838",
+      "candidate_digest": "sha256:063b02fd2e200535788813c36c72f1aa4161eb034ab7ed0c3f6d3d1c1372326f",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_089F87DE74E83EFFD970562565267342",
+      "candidate_digest": "sha256:c7248e8dccb33a2d79ea3856cae2076cddd054ec6464bf68ed63aee5314bdc6d",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_08FD69AAAED824A35824B039420BE65F",
+      "candidate_digest": "sha256:1d6641fd2261ed7da4ed98e8ad012e7e71fd11bda058a1513f5591a8df7b8698",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_093DD0C2B54C343EE9D0BDA7D44D53DC",
+      "candidate_digest": "sha256:b0d845485d6aa3b90489dd68266ceb0e0e44c02a8b8747e4d55d3cf87f0b93d3",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_0D9DB84DAD414BC1449FFA6CC7BDF956",
+      "candidate_digest": "sha256:5af67460c297a97498de373aeba0982f837b8a5c4cd51b9229b0ca2f83a842e6",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_0DE5B3A10D1CF47B5275695710CDC52D",
+      "candidate_digest": "sha256:97c394c8f7b397c52de46a2be373fdce54ee7db99dc3b557ced9ab29e4bac21d",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_0EC3AA378A60EAB9D1239CC79CB94F0A",
+      "candidate_digest": "sha256:87c4e2c76b25e3a3de627d51739221fb56d3816e0421f467297de4588c9f4043",
+      "category": "STATE_STREAM",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_0F82243CB25DB3A7E8DC2B8A5862E19A",
+      "candidate_digest": "sha256:b5ab1921f372c7dcf315f9aa22edd464b0fd759e738277d7b6eff209a5dccf86",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_107A29ADCDCC720B9BC5650938FFD896",
+      "candidate_digest": "sha256:ab14731c6290aab7b709b181aa91ef2947f00c306c0f9ef479b6e7ea016111ec",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_11577C9A4A1FE7CECCCDCD03028A2486",
+      "candidate_digest": "sha256:cac02b5c726ddf55eda144f163ff4dad7c18896b96fbd05158f18ab2fb4ba18a",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_1234A5742A2E62E2328F4C14B26807C6",
+      "candidate_digest": "sha256:7f1fa62141078e525143852ceae2a6f913b70b400065dccf4f67c3636f178c91",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_14A90346D727A404C55D13E6A3C15954",
+      "candidate_digest": "sha256:269dd0cf9feb650577709f2a564e0a15a87d0c63a456c8867861dafbf7d231f0",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_154710CCA9088FE61097B31BD742951A",
+      "candidate_digest": "sha256:efedcd0670c29984c441f2b36a5b193e220326e2d20e5d01eeb43f88b086a6d9",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_15653EE665DB46CB0C7EAE3785CFFD7B",
+      "candidate_digest": "sha256:fa10eb8da16b78dfb8e448d6031df966d1a0fa0ef0e06ea7d09d3462927d2362",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_1800BFE5E59BB7C07CC0385E76DC6959",
+      "candidate_digest": "sha256:dac040a2b66656a869a29a53dcb60bbf38c7566de4db6e8fc976a01dc6e77315",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_1C63F747563E4AF4BCAB315D18B9EBAD",
+      "candidate_digest": "sha256:76f2ff02e73981eabe5ea927d806d2e6336fb296a4c6896e4e1ae329a562de4e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_1DF87E79EC88B52F7FF8A79355F53B24",
+      "candidate_digest": "sha256:a4b607b7a582f64aaca4f2155c93cd125b2d8f8945acf7653e21b10546e36340",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_2042C75653EE4320D5899624AEC2786E",
+      "candidate_digest": "sha256:d85baeb21af8ed714ac1967f18459ee3c3df73adf8a903ea120b6581afb69995",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_2097CDB053396DDD86664B96555A0E76",
+      "candidate_digest": "sha256:fba6c09043f20012441aecc53b16e787afbdbd003b32d2b9a3afb92b61b95403",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_20C5E2E08EF377DCC630AD49001E5FA6",
+      "candidate_digest": "sha256:8ccc103a1b38b7438efbbc2678bcbe39dce9ed15eaf1432cef87aea15a87c311",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_21639F1ECCEC224ABF5E40C7368F112B",
+      "candidate_digest": "sha256:3e2472fcdefab01f796a800475782c8e9dcf237845b38aa99e9ee63a10b627f2",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_21F386226E21446CC147738D2AD155EF",
+      "candidate_digest": "sha256:87a22ac352d3ef2bfbc3806d0502bbb7f4e951f7fd8937d0e1217ac8a02935a1",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_21FF5F84917F778F63B6C69B527495CC",
+      "candidate_digest": "sha256:e3003dcf74cc9fe10f2e6a606cf6282d27eabb99929d85ee234e557052b1d262",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_22086B10E6836CC3A25B0389900AF597",
+      "candidate_digest": "sha256:8923778e52d4ed9424c959a8029379d90a41fb8090ea583ab9ae2cb707bbbb61",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_232F49FF339882539985BAC8DDA6AE28",
+      "candidate_digest": "sha256:5c580fd4fd4adf7c57e363f0a9cb9c78c80cc7a14724816ee5be8ba82afd349d",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_2334B5173083DBA42D833231B55F8CCF",
+      "candidate_digest": "sha256:2b3479d7ed995e6f806095025ba3d7bc123e7ca3c36951e8b65cd49b5efb74e9",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_248E152D20175AA604C8E39424E0F441",
+      "candidate_digest": "sha256:cf491a449ace5eeeb222a4872ce80b5c49408ad31f89c7c3034b706d6579cd21",
+      "category": "TIME_SESSION_CONFIGURATION",
+      "consumer_count": 3,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_2972F6507DD641E3C6632D520B1B725F",
+      "candidate_digest": "sha256:26aaba0e371d4161f98399d0c8c2e962136eb05b79574e046a08cb6a46738e42",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_299DBD90054954B62557B1EE2F0E2DA6",
+      "candidate_digest": "sha256:280a97e00e5aefbc1b46832d1263f35b0fa87e914ffc31193d417e7c62ded350",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_2A0FA552B77AE69E1D6B7A801DB5C047",
+      "candidate_digest": "sha256:1444485e62749e9c1bddfcca1dff4ae925df2c234aefa49e451b421fdae91ea8",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3089E122357FD5F28FADC09677C80B2F",
+      "candidate_digest": "sha256:8a8a56faa039e8ff9574545cf33ae3346c703521df938e3d8187bd94214d39b1",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_30E68E5BEF722B7E2223B629417AD506",
+      "candidate_digest": "sha256:6ced33252ae0a9c27ca57acb7b38b2c5c98d5892a2b22ebd02be26b72cab6cdd",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_325F1D2020BEAC6F2FDA3BEBA8943D14",
+      "candidate_digest": "sha256:a7279173c95ccaaca70f8d1005c4da857cfd7cb517affb4844740b6f10a12382",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_32FEB38A241161EA92D6C5EE214A8A55",
+      "candidate_digest": "sha256:d5e392aaa6060414aa7f85c921400519b46bebfe0b6b7a4ba49d34cacb8e58b5",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_33A410C9ACE584E8FA8EA04F3C592596",
+      "candidate_digest": "sha256:f21208485fe0cae28c9fb0caf1572b6a868c9e75f46fc452aa2a223a08a90553",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_34E6F497954101F3B356B180539CE491",
+      "candidate_digest": "sha256:00bd8f01dfb9960b3dcea40bc39871735400d5ec0876cd2331470ed3ea079ce9",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_34F635310987433533F46C9312382671",
+      "candidate_digest": "sha256:1b9b434969e5a2ab5d463b023e17566de9d6c07e858fb4a4ed46bba80cd3c83b",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_35ACB12F0B7E75F754CE8F152B6970B6",
+      "candidate_digest": "sha256:0e5b6156ba59e13e46e723374c2cd8d954876f540b5289de788f12402fd285fc",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3629237A4E90C1D25742BAE7F14F1893",
+      "candidate_digest": "sha256:11957fcd068cd9abfb7ac3100360530a07e328a00de07e55a5306243a8e31563",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_39364D778716FF6FEE11C41E58678D7F",
+      "candidate_digest": "sha256:9d1f344eb4d54ad78ed888383bf4fae690f9de95451c9660cc3358214f140806",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3B005F41729F80885BD032C70676A351",
+      "candidate_digest": "sha256:766e5003a2c1837b9b3e131015d2c962f4c3b16197ba683033124ffb47cdf6a5",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CHART_OBJECT_SIDE_EFFECT_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3E0B8C074EEBE7ED58119B4E2D95413D",
+      "candidate_digest": "sha256:4bd2432717c7e36a4e6d1bdaa7ed082c837509e5c575345385c34b2264ba9eba",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3EF3B38D05AC05B244EDC5B38572BD03",
+      "candidate_digest": "sha256:3d0370e9e8a02b8941977d354be948faefdfb4d19f2cad06e21c8f5ba3fa4d45",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_3F36F3CE0458EDA12A52FD848844C3E9",
+      "candidate_digest": "sha256:7c7db85fcfe7996e503093a357c8d711ebcbbb5d718ebf32adf40c82e9f293bb",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_417B040857A61652FAC35789DFA7F4DF",
+      "candidate_digest": "sha256:f9262206bde087c5c6706c11033bba8b2bc1f76f15a8180fdc3c7ba3b8edfd3a",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_43C59F623F7CF9B62217B9F8AD9730A8",
+      "candidate_digest": "sha256:cbea1e57a792b80ea5c044c8bde0464029cbb35555db6156cddeea45af004661",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_460C8A8DD68CD48B58AEBAC0BED8594D",
+      "candidate_digest": "sha256:bc154515a5df0f7110095ce8d6ae00733388c7993dc8f64ca52fe27b9665ae04",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_485CE0EB41D94604751EECDCFAAEFD2A",
+      "candidate_digest": "sha256:ba48d3b8f334f1167f7bc5393c6fc8130746d0d364d6b9f839b9f35b3cc07f76",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_48EA31C0F0B04629F30EC8EE2F453946",
+      "candidate_digest": "sha256:4ecf0fbd4aa2952cce23803cc6c46fc67132682ec0a5070c8e02500a4a88f22f",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_4BC473BAFE552106EFC77BE5264E5916",
+      "candidate_digest": "sha256:b8ffc513a4863637c69fcc0241c7764dd18f5f9f04a37f61f5c2e6fd943cb66d",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_4BED98A9E51CAF22BC4E47C1D1020F17",
+      "candidate_digest": "sha256:667fe47001166c196a74d9420d60fe8125847abf9ee105709236fb51988db229",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_5005D63F32F940641160692C7538DCD8",
+      "candidate_digest": "sha256:4c55ac68772b2436f2be67eed7350fe2e8a5842b40a0c6d831f3928d9624bc9c",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_51A2866C4059E5772FA4962C638A6496",
+      "candidate_digest": "sha256:45974b2f81d156df7c16f0db190d1329a7e46027e8d67e58cceb17b7c82b6fb0",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_51FB36BE899C23342A7AE649CAE5B62B",
+      "candidate_digest": "sha256:8627a77237ffa883e57d36d692076b02b05cd6550d61ec1c177908cd24414cfc",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_51FDD39B1C0C4972CE7D7B86257FFB65",
+      "candidate_digest": "sha256:2906fe5c97a84db5b8b24888b7a8a4eb99f68fe512eabbe6d9ce303ffeb33d62",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_52524EBC9A1B46FCC5347958669C4FFD",
+      "candidate_digest": "sha256:6851c730cc933fa1bc560eadbd5e711dbded606879139efb99962d57411aaeaa",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_529FC7398C69E61944329CC95F761CCE",
+      "candidate_digest": "sha256:c46737779c8461bec9d2a08576f31b8b8a0e4edf75fb32416203a72943472051",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_538F88CAF373552007D4F97ECC6EDB08",
+      "candidate_digest": "sha256:01ad1a3415312ee3846535f44367668bed79f4a3e7e3aaa1e3cb5c7bb5d840f2",
+      "category": "STATE_STREAM",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_54B59019F57CB070950D325751A1490F",
+      "candidate_digest": "sha256:38bd63e27e0757881974ab6ac67c47aa721a2020857b4ca435369aae06019d2f",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 5,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_54B6523A67342189E936A71A4221DA51",
+      "candidate_digest": "sha256:36073ef59a096bd338c082e9f622cd5eedd0fe253874ff15b1ee661d6f710fce",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_55395288A56FC8498BCB85F90DCB666D",
+      "candidate_digest": "sha256:125f3cf5d6d2eb43fe9a1f71e0ce82e0e824fb8bf8b84896714122e9e71ef131",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_56559A6DF04DDC932B5119D709D746BE",
+      "candidate_digest": "sha256:d25ae719aa712f64affd9fb16c4b081e0c4e680a1c158fca1f3a56d52429a38b",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_590B35274B60559CEF9E933EB6C45580",
+      "candidate_digest": "sha256:cf035201906544af39e9848b25ee28d5a938f359e50dd2033869f7195cf25b01",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_5A008B5A893B8FBB462F4861F59AD3CE",
+      "candidate_digest": "sha256:cc836e8819b06b1632c0b313a6be725147b87920b7230d6730b6334174945aee",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_5BA2FF760FF102FF24E27A6AA03F252E",
+      "candidate_digest": "sha256:d2c87d56323adf60be7584cd3cb1bf12de346818b197a372b60f2c6f6eed4571",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_60D5B45BF4A2BE7A211595A1C1DA9A88",
+      "candidate_digest": "sha256:10768e3622232b9d99ccabfae2c483ab89c021afa567578991ec8c844d4abee3",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_62164A222FE39CD21DA39C0A7E947A85",
+      "candidate_digest": "sha256:d8b14e5404ab2bd47bf76e25e293dead4b5488af9d033eacc2125caff0cf3d40",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_62BA283E3B060F09E0761F52414BA4F9",
+      "candidate_digest": "sha256:6c3d461407a5b83efb0f8f24a4c391f0a1d04aedcf048334d9a10257f36e8cf2",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 5,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_64ADDA689A676C28E9789AF7622B2A4C",
+      "candidate_digest": "sha256:3f605f8dcfc88fee9745cd374e4f6d841ab54057168bab4a8aae27c866a371bc",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_64B10D1AA4A624BC75D3222B29293EB4",
+      "candidate_digest": "sha256:c830f8f4e760ff5604e0996ea83e61cadf467755ed246cd2327f636214dccc3e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6513DAF0342CBE9BB6CEFEC74B6CE568",
+      "candidate_digest": "sha256:b51e9667e829354bed7ece8f4d4f245ec9ed0e2cab4d68983be152f01a01878f",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_655F623FD8BE5A5F736E106802D075E3",
+      "candidate_digest": "sha256:aed8a1e8c2bb6be2e3f2347ac52a04909cbf6afde087c90d227ded210fb9f08b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_66817A90C6E8CBB6D8F8608B266FAD12",
+      "candidate_digest": "sha256:c354718da0d5018c838ee6db5f31c56fa9ad19a10b5b1227ed8da53446517582",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6687C19B8321EF142763298EB3844DF2",
+      "candidate_digest": "sha256:374290e0393acd8799fb8fa3461db820bf537ff3880fde501d450faaf1f7bf03",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_698A95D8D5E2401553CF6502205E0069",
+      "candidate_digest": "sha256:acda7aca63776aadd885bcd0e265e3b6ac3a19a8fabb163ea88ed87f48a349aa",
+      "category": "STATE_STREAM",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_69A4EBB4926664A27C3552A67E2AF4E7",
+      "candidate_digest": "sha256:4150b211b2cd1f02b816a0693b503a1903aa3612cda447198f7f17886e0aa039",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6AA120DECCBD5C7E9C9F1E8D93FC61E0",
+      "candidate_digest": "sha256:f31ebde2c80f9fb3cfed9d40d764750b88fcb84adb7bb41321ac0b30dbd0a505",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6ADBD87AF6BB8AE5041B922AD3EB15DA",
+      "candidate_digest": "sha256:c50c02344737f91adb44dcfa11555d1bb9978762ba523ed5785fa85911f0f8c5",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6B77AC8751786D32D85E923807629A77",
+      "candidate_digest": "sha256:f85a8d6825b8765e8b0b9acd1d0f0f2123822dd131a1d8c2167cb7f10eda8b8e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_6CF5D67B5783576B5C4F00B49C0CAE6F",
+      "candidate_digest": "sha256:58b52acb48ee552adf0f3078712a80ff8c92ff13dcadef47146024f33b7f6609",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_73FDDE963EC4AE2A856F6C75772B757E",
+      "candidate_digest": "sha256:2d19277c062da9a8c7657787858209b8bfd89e2ddff92d5a1ebfd1cd2539bf2e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_78340195283B5ACEA823130052FB6984",
+      "candidate_digest": "sha256:b87ab5ebd7cada5234948ef4f3cfb2ec4295bf2d4ccde71e56f58581dfa53965",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_78F23D5A93455F0017729E0142C8400A",
+      "candidate_digest": "sha256:ce3841c845200f16ff9ca427b0be6a3998cd982e511dcdd4c665561e980e6ae7",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_79E1B208E2FDDB0EAF251415CDC2C353",
+      "candidate_digest": "sha256:0dffae036b81a63175ed6e3184b973b521c0afc16321c1b5f6ed502bd16ace54",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_7AEBD306EC6D4A3CF44B5DE880034964",
+      "candidate_digest": "sha256:e52eb30a47e59929224eae27c3745fc47a338393c74d67b1d87992ed3667192a",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_7BC136C40140CB2F5F918067100A6E1D",
+      "candidate_digest": "sha256:7c7ab17070c82cb9be61133adfd6767a17269562b20353b75ea35e50d534008e",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_7C4E4F9384924601C7C8907F0675864E",
+      "candidate_digest": "sha256:3fba11217dbb9445d6ccabf11647ca480b1bb24eda3fb4c00fe33cd768c59b3a",
+      "category": "DETERMINISTIC_FORMATTING",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SESSION_OR_DST_SEMANTIC_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_7DA20A07D6329919C50FB4FC5AD181F2",
+      "candidate_digest": "sha256:da14fd8a6d18f8ec8a184db25268b46472dc50946c03f3a5ba6942221e5a78fa",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_7E213215195D236BDCA12965D8CF3FA1",
+      "candidate_digest": "sha256:5248846712819fea2003359b76c2f830401f9b8babb8a45f98844ce4dbd1ad3b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_809A6E369134001E78C69F6B2AFAA3BA",
+      "candidate_digest": "sha256:ebf5c17930008cf2c7fdeb7d728adee04e7b415f6647c87ebf695c919a62cc84",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "FILE_IO_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_81ADA6A266AC7BEE008DDFAC8787D995",
+      "candidate_digest": "sha256:ab216d83702bc26f8fef81f6c23402f7c2a1fae154a9f07ca86b6dd8e8920d96",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_828A5C66824D662CEFA29F0FEAD37EFF",
+      "candidate_digest": "sha256:0775932dd388fb8b5d8e77095b6b02c3cf99bf41c5ec7f94b5cca687ef2f7e0e",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_866F5B5EEC3ABFD91A192CCF97CF4220",
+      "candidate_digest": "sha256:ce8b66beb76b8a9e8d763e3bdd44c8b0d7aae011114ddfb3edbf3a5f9f403d13",
+      "category": "TIME_SESSION_CONFIGURATION",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_8676314EAB855CB2E61E76E8E515EA68",
+      "candidate_digest": "sha256:984881525c04928653f1692326b0e7218834c85b8ed3c1ece53f2c61ee29b25c",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_867D043C89DEEC4DCD6940D8E6681F14",
+      "candidate_digest": "sha256:388ae83a171ffcb31ecb59457172994c78fd0cac8873da7ab1c273ebd985f793",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_882E0D6CA3DFA3CCE268BDC5A5CC725E",
+      "candidate_digest": "sha256:151eddd5ad6acdcd8c8ec95f150d722d41a6e39783d3c5436da5eb43c4066e8b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_8A0AA7A932909C75D868EF63220DE9EB",
+      "candidate_digest": "sha256:d3b362bad8f4593a9ab7ea15d953c829d8f9ff6bfe203aa2e2d60c7868cedc53",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_8A7DA57D406E6F7099139B5D10380A0F",
+      "candidate_digest": "sha256:1cf299b16cf7eedb912f3a2334ed6e10e3c95a7d13e2025ab85d9058daeee6d4",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_8B53ECA557753B58DD694CCB610024A3",
+      "candidate_digest": "sha256:e3d37fff86c2b928eb0a7d6649c2ad2d3425cd7aa999c1d6bc98d5026c9085c2",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_8FD62391C361DEF5EEF001F09AF7A057",
+      "candidate_digest": "sha256:3c49f67db7512543894cc8fdd30d27c22bf874c35c1e0c6d114f17d8d12d6559",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_90B6064416C2771547F225BBEB322267",
+      "candidate_digest": "sha256:9c371dd73c07e025367d3fb90a4d8586397aa0c1a54c93954d8e545d36c84d01",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_90CA5E3BA0A477A4463460F0A47972B5",
+      "candidate_digest": "sha256:6e1b015aef0505be1a693fe93bed3fdd5148921140d3d66df0abbe2370a81d2b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_90EAB956528B47DFFF678F83B929B967",
+      "candidate_digest": "sha256:7d4a827a6c32f6a64986a0b667aec030dbe394bc731094931dbbc1171e22ea68",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9108A73BE6CD053C027CA26DE053EB0D",
+      "candidate_digest": "sha256:eaaaa92800ddf07cfd669ff4a633ea412d1c04d25c373a0a25b4020c5e0cdfaa",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_915FCF66C9F85187CFA687CAD25EED7F",
+      "candidate_digest": "sha256:a094e98968752254b06f1accbe8abc43de31df286b2ff9853d2384ea255e06a3",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_926382F01B0D43651BE0F48DEBF4175C",
+      "candidate_digest": "sha256:faba7d2596441061beb61c08c980e54300f1d9c3f34bbc3dd42732853a5ae3e4",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_95D34B17ECCAA19B7C816A96F8BB6E9D",
+      "candidate_digest": "sha256:f8b7cc5325b691d3808d98b6e2eedb8abdba70c15bafc58cd27a1cca64b01ef2",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9A7203E2B6AB45F721674B6838FF83CA",
+      "candidate_digest": "sha256:69d8b4c937a93c62c0ac4ed8f007ea8c81d4ed54e155d92e9f3bc6ce8bd10615",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9A9E981C8DB7691607F5B24FED44B3A6",
+      "candidate_digest": "sha256:1a190fa7116ce7b0f81960bcbed2e34df34f1ef4bc9e4e7178e0cec0da0ff4f0",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9D37CBB5215DE21DAB1CC9F22D1F7EA2",
+      "candidate_digest": "sha256:1cd2d16374cc0b9053e5c4f8dd1494255571253ac064f529f7bcb9bfa102c75a",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9E5AA0F4CF2AC4FF1E044F50191B285E",
+      "candidate_digest": "sha256:59558a40d5c80ed6dabddfe81d062d316690ea23ee1a10d6dedec7034953e5d9",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9E8D4BA9023BB3C17BD33943A6A5CB77",
+      "candidate_digest": "sha256:53c94c23b928ac86132624411208610b74a98b4472254f1539584a4a3cfdeada",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_9FD5266CA8539ED85A77C162BC7CA3BC",
+      "candidate_digest": "sha256:48b5fbbd51568509abfe859b6682fc75afcff8575ffe513d39a629ca9e4ab3da",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A0D6CCBE5110B3F5AA3DA84E5B66AF4B",
+      "candidate_digest": "sha256:8af811b8ef44afa674f31eff122ed2a1efe1a2353b698450486412f26f7d799e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A31C367F7886E8CC52903394D805C41E",
+      "candidate_digest": "sha256:d2ec356def7c1795fc4f41dbb7048109f6dfafc937b23e13f7a853939af0b9e7",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A3D102172D32E42929CDDD7F8CDD3ED3",
+      "candidate_digest": "sha256:4e62892b99b4ed5cbba8ede01741bfa07abe4eb244c5af8753280310815656b0",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A4E4F2F08678448A15D2CC96E3D2573E",
+      "candidate_digest": "sha256:0117e07d0f02f804b141c2c6fe7d9da73d50aceb6b3eb98d473b704e2bb24214",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A6ABA43B613801C28C2CE17097A028C3",
+      "candidate_digest": "sha256:72c6e31982803d5fa954e7f444fc1ca0ec4ca47af537a0fae84fc3f74fbf2c9c",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A745B86CA2F95739C14F565B46509ECA",
+      "candidate_digest": "sha256:0ba7feb768e195d1be1927d9e7d86f0162512e8ed65a9101ac53a8fdf5b01d24",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 5,
+      "signature_count": 5,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A75DDA61D7AFBBA781A7855CFD951938",
+      "candidate_digest": "sha256:8dc424efb1f18fda3b31e3e208e5859e7228dbb039060abf536d9d12273bc513",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_A8C809C8FC6B90AB84CCBF1BCF086E84",
+      "candidate_digest": "sha256:5d1c0fbbdb8954665be549ab3bb309199760524736fc8a22dc671efb398ff8e1",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_AC444F4B865A5A5CB3138FD40F839843",
+      "candidate_digest": "sha256:7458b99a8bf3f8106b6b2bfc8cc47a26bd3470c61d4fecb6bb8fe65785ff1a77",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_AC55B02EFFD79D9D54FDEE12D4E7C45F",
+      "candidate_digest": "sha256:0913a13bd7f672d63949c59ed5db76ca7bdc1e5be1bac2e277bd21ee67211cf7",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_ADA4B1D67CC7604FD52161902825A2A0",
+      "candidate_digest": "sha256:d31f91aa9e9066b83830d546b09c914997feffaf36aa677e6dab9d39d3c1140a",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_AE1B95BC9C92DDD70E63A8CF9CF60FF1",
+      "candidate_digest": "sha256:6e6c778968e1b6fa3aa3c47345290770de02d617d3219b57c768297b3096be93",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_AEA1A2B51A97035CFB4401134F305A58",
+      "candidate_digest": "sha256:660e0324690216c3d96556e4e899e84b118b4e801b8969bfc94819d2f2b65133",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B0468F6C8D390608E240942F832CEDBF",
+      "candidate_digest": "sha256:526a67822368f1120c7877c8c8eb32e09e4ccdd7421b4269e5bd6a2b21bef50d",
+      "category": "CONFIGURATION_GATE",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B10028DA8C8D436ADFAF293B0CD7C5B5",
+      "candidate_digest": "sha256:547800beae851485cab63dd9a3ec0c2b1646f339be8da10d9459078b45f9b89c",
+      "category": "TIME_SESSION_CONFIGURATION",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SESSION_OR_DST_SEMANTIC_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B172BCB0284657976FCFDA525144FE9E",
+      "candidate_digest": "sha256:ea32536169d98ca39ac7c00cde2ff2d75b230db916cc4181ef1fc297cc530ae9",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B342E9A7B46C4BE9C5296AD8DC840AAA",
+      "candidate_digest": "sha256:9a0bb981559ab11d1d563ef9d7a59533e65a9664a91f107cb3844ca0841d5b25",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B3EA7C1F9C8B374D856DB27C94464DA5",
+      "candidate_digest": "sha256:4b1c9bea5296299d94b065628df488849f034e4066ec3b2a894b967bd1858259",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B54C1B22F9016C594231CBB56C22C4C8",
+      "candidate_digest": "sha256:0f44f752ee6513603ad8b890023b15d3272d50d343b73054acd9235907acb6eb",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B71568DC046CF7B4364FEE5025187684",
+      "candidate_digest": "sha256:2ea99a1f4be145ab7d5754761224bb315c28db4f9d95367b392df4079ed79890",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B8B1CEA1C395D3A9B5013FA56C161422",
+      "candidate_digest": "sha256:af97029d03e71fbde9a536a535b1b737e2b5268e47d518ef3ff80705d4549364",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_B98BF062A54AFEE1C48367AF267ECDD7",
+      "candidate_digest": "sha256:4359b1f94f3041bde1b78b69d2c37f9c9bdca067e2d97e14d8b1ae5fd7d747e1",
+      "category": "OBJECT_LIFECYCLE",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CHART_OBJECT_SIDE_EFFECT_BOUNDARY",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_BCC4FF266C2A5C763E30A9A17ED3389B",
+      "candidate_digest": "sha256:fbf6d57c33254321f66edd1f388304f44e94df08baafd482cea770bee812d4e4",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_BFC02E52D963BF484BD9C3C08B4A6BFC",
+      "candidate_digest": "sha256:0c64de6fb3c30a3c9e2f9aa66c3542479c77fe765a1f82462a389b6c08c28374",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_BFFE0CB9A0C43E8D2244E7C89940CA58",
+      "candidate_digest": "sha256:9ab2d88d54e9e434b70b4b81ec27c20a503e7a16d0621aefa2d64747b01b6bfd",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C06B890725E983585E2450EB4990FADD",
+      "candidate_digest": "sha256:ace121ebeb01b48f3f0c43b736ce4adab7988bd5cbe9cdf0bdd20a2442383aed",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C0EDBE85E236CA6C3A9C489D41F98E14",
+      "candidate_digest": "sha256:de00d264e6b417898cefb2e2e118626c9139c1024404beb14575caea379de60b",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C11C749411537CFAC70BA9C03A9AB108",
+      "candidate_digest": "sha256:1e1832dcbcf55defe0de035b3f284084915303c6a52705e6bd187a12e390a0f0",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C3D90B1DA8646C66C2E3FB6349E82D07",
+      "candidate_digest": "sha256:4f9c4f7ef45081019f7ff02d07cf254db176954ac6193a3c62f87f72858b60a2",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C48FFC365D7D9B8B1CB8A3FF61DE756B",
+      "candidate_digest": "sha256:bba7fb6476f11c03d7970eb6e75df4cfc73cb87dea56c711be338be7ac6a2bf9",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C555FEE442B268D8B13929375116212D",
+      "candidate_digest": "sha256:45cc8f00e9733594aec4653bb8031b3d9621bb6eb512b612181460873d88583d",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SESSION_OR_DST_SEMANTIC_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C73B526DCB40ACC8E011E26FBEA8A37B",
+      "candidate_digest": "sha256:0ac494436e3bba8735bf2e54f889cb723b964cd65c2acbd152fceceabd3e6529",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C7898D7ABC00C03824897EE89645CB32",
+      "candidate_digest": "sha256:56b1319002deaaf77a7bf9b00e2c6a9a3ed03aca6d4bd982fe708b372deca3e9",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_C836D1215277B8A17EF01D1686C7F125",
+      "candidate_digest": "sha256:d5835a8ce79042a3b4664dfa98db16c730c9de78eedd383a60c2bd437887f1f3",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CAF50FB4B5DFD33B1FAAB57E691E40E2",
+      "candidate_digest": "sha256:d86dbf2d3f12b1e57bb21c30ac9946e276e8d5ae28294b331cc6de1bd6aef88e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CBAD1D7BC9673C32742689DCF9630A89",
+      "candidate_digest": "sha256:01f1f5bdbd009a4745f18edfbaca7ebdb20f2715d59fb56d3b2df84aaf630b3c",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CC0BE92C35845276EBF9E6388C6F4B94",
+      "candidate_digest": "sha256:72846048c6833b82d87a2fa0d0ad394c4d9cad49e02b7ae3660a9122d336295e",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CC5FD679CB58DA6D881EDDC60CD42A9A",
+      "candidate_digest": "sha256:41188f405054d2df218ac1b7bfb5ccda6b823046a10660d07e78e890d5d8e3d7",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CD4B7B9BDFDDE9BD24FE8CDE2E27A3D5",
+      "candidate_digest": "sha256:57b6824c8b080218911c8d0bb7792ae76668bf47b337fc6e211047a56837828a",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_CF93C29C61D519C8326D18747A1566AD",
+      "candidate_digest": "sha256:feb3d035898919d53775a0e32bc11caa4438cd70d6fc33ed61cc6a32a99eb504",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D09A4D2DED70187BDC6BE0EFD03B42D8",
+      "candidate_digest": "sha256:4008d22a698c0b2fc563b511fa78e38ac4c30b3b87bb092e20de8115b9c11e03",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D26CFBCFDF90F83A2D6BC0C10D7AB68E",
+      "candidate_digest": "sha256:9fdc19704ba8acddd044a89d29652c218f200b9ea1c24193123020f5ac8bf415",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D2A10B1DF82B2BB22574B1BC25F417F5",
+      "candidate_digest": "sha256:b15cd2fdda99bd8817e6c19e41ac37d00b413556c016610d22070d6f81a273b3",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D3B2B00B239F29118CD1DD672A128488",
+      "candidate_digest": "sha256:486750c5d3f098c784db60e2c2284c6896772c7226b81de61a9c162351f019dd",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D3C114834E6E9CFA4E947DBB3E78FDDB",
+      "candidate_digest": "sha256:3b007a158927ddcd439f90ba6c4b2987ef0d65e7822d8dfbabf18c2b70a56b64",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 5,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D58B2AE07851D8887B9BB1D288888ABE",
+      "candidate_digest": "sha256:007e755f4c71c020a673b152412c44d950b5af10dc23e9c2e07013da48296efd",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D61A5CE915BCA504C3C13AFDA597AA3B",
+      "candidate_digest": "sha256:95b8a32cb1a11fa150f52f95251467c2e0a6eaee542c27a94a923d50dc588cb6",
+      "category": "REFERENCE_LIFECYCLE",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D664643846BCCA912537DECAFDA15210",
+      "candidate_digest": "sha256:782c8744523c4da71c18ce9294864d7e8ec285450911ede1b6db39c8e3221fc1",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D6C5ECABB31BE288B02F4961C3054BEB",
+      "candidate_digest": "sha256:578f3ef432b4ecd24b65dcda0803805d5e327ae12929effd5ead1aa78c558a5b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_D9B726DCDE015090892968B11E8A936A",
+      "candidate_digest": "sha256:5c3922c40ce8aa07364f72a64036524c28f30ec5677143012968df693c1dd9f3",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_DE7473FD5F9D56E1C5EF8798A1021C8D",
+      "candidate_digest": "sha256:eebd0656e624de57e960c167fb48845b470a01dc47dc40503dea0a19deea9d19",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_DECA57DD6AB60EE9D3C30D5F0381DBB5",
+      "candidate_digest": "sha256:b70d5bb2ce61a9b47e267f87a527ca80ead4c390e220611519313f0b1a13add9",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_DEFCE451803C036CE77C66A01C3AB818",
+      "candidate_digest": "sha256:06dbc4837816a5a8dd7525bdc8aa09b23435cf634977060eb1030c1e2d64e5f3",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_DF259ABC0A6701AA0141EE643D7CE060",
+      "candidate_digest": "sha256:a6e03c55e4451ffe31c2b9378365b4c3523f28665f4d2cff9cae134eeaa89791",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY",
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_E047A7C56CE87E35D39AE897CF5B2BCF",
+      "candidate_digest": "sha256:b238f612a35d6e7d607628e8e90492057f1f02301afe2d37d79fd22b927f5aab",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_E3CD37F0C7B1DA8025A28F6845F3437B",
+      "candidate_digest": "sha256:8b8d16c5a80e2c521d28bb8ed30fc57892d11de36fd15c30a8628da24ad73e81",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_E52273FA780668E34AEBDB80EB06ADB8",
+      "candidate_digest": "sha256:e8b4dbedfb80bbde6b08884de592584c00fd0668addf95bc8c8388ef0f1b67d3",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_E8E3A41D2C48116AC6A59900334E7030",
+      "candidate_digest": "sha256:8f8e6acd5adb2b570a30f91657d61b2ac036b54cc8d07f21eb1326ab81b1260b",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_E8FCCBD41CC9A381A82C14E8E246A269",
+      "candidate_digest": "sha256:3fc78a1e2c1bf6c838d00c712ed50ae4ac5dd19660ac8dd84c9965c09ab64c7a",
+      "category": "CLOSED_BAR_CLOCK",
+      "consumer_count": 5,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_EB4E8215AD08489046C35DEBC3A5D5F8",
+      "candidate_digest": "sha256:779c1ff23391fd33160e1f631f2a3ba722fe3c7c255fdb86325855d2463dfd85",
+      "category": "STATE_STREAM",
+      "consumer_count": 2,
+      "signature_count": 2,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_ECDB41A091E538076358E1AD8AC4CA9A",
+      "candidate_digest": "sha256:cc6d682783df7314317a3a7e6920a77739c93289db97b4d8e497e2a0e55a963f",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_EFD336E56512E9E0B70584966146021C",
+      "candidate_digest": "sha256:1c9115a59ee681f9a268a1115fec01d8d425197a942e00e4b4f8bb8aade5e318",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CURRENT_BAR_KNOWN_TIME_BOUNDARY",
+        "DOMAIN_OWNER_VARIANT",
+        "SESSION_OR_DST_SEMANTIC_BOUNDARY"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_F53F11CDCC727426E8D4977AE4A9A217",
+      "candidate_digest": "sha256:bba4d1da1938bfac7001909d4bb0ddcc5e566ed855f6fa4492e9ad69b0455258",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_F786D245584BDA700F79E3F60DA8BCBC",
+      "candidate_digest": "sha256:ab66fe2e59e7a9d25a66a5b6b21154b68ec6adcba21a058ddb32e8480f4664de",
+      "category": "OBJECT_LIFECYCLE",
+      "consumer_count": 4,
+      "signature_count": 4,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "CHART_OBJECT_SIDE_EFFECT_BOUNDARY",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_F79C4B5C8C60EC227131BEFB42E79233",
+      "candidate_digest": "sha256:e0f62be83ab67f03c540337f706f6449b30d22514ec80729c9fa6cf4291c86b7",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_F7FF73469A95971AF67E9DB81BD9164E",
+      "candidate_digest": "sha256:c3746f4831a88e0a2262c869cc548818b0893719bdfafbf16ff8b719947f33c6",
+      "category": "GENERIC_UTILITY",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_FACF2979981A42CC0F7CEFA485035431",
+      "candidate_digest": "sha256:4556c6a8999ed5b2b02e4813e09ee28347e556e661e2aae296eac8a6ccc6c57e",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 2,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_FC0B4DDC6DA0468B27B3BD0BAC003A50",
+      "candidate_digest": "sha256:b5fda5b3dc908b9ed7476d644c6b895a5b051001ee435728bb4bc6090cc02d5f",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 3,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT",
+        "SIGNATURE_VARIANCE"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_FC5527F25FD59B34C84AA8E498A8079C",
+      "candidate_digest": "sha256:0e2196fd4d5ca078675b9aef9f4ec3e858ebdbae421a286e2be4e3d220e31b45",
+      "category": "IDENTITY_HASH",
+      "consumer_count": 4,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "NOT_PROMOTED_BY_ACCEPTED_LCM07_SELECTION"
+      ]
+    },
+    {
+      "candidate_id": "ENGCAND_FCAD7B7F4D606D3250CE32ADB4594D25",
+      "candidate_digest": "sha256:b2c3d7fd7fa9cf3375bcbff4843c885f1e22506d58d997e63712662b8a192ff0",
+      "category": "DOMAIN_LOGIC",
+      "consumer_count": 3,
+      "signature_count": 1,
+      "disposition": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY",
+      "reason_codes": [
+        "DOMAIN_OWNER_VARIANT"
+      ]
+    }
+  ],
+  "document_digest": "sha256:c84b822180d9316a34869c4ac0a384745ab218005556c00675bc265dce9db32f"
+}

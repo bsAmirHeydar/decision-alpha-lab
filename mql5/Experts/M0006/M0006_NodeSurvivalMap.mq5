@@ -7,6 +7,7 @@
 #property description "Fast H0006 valid-zone boxes with selectable full/node-capped zone projection"
 
 #include <M0006/DAL_M0006AllNodeReactionBoxes.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 input string InpSymbol = "";                    // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
@@ -61,8 +62,10 @@ string M6Symbol()
 
 ENUM_TIMEFRAMES M6Timeframe()
 {
-   if(InpTimeframe == PERIOD_CURRENT) return (ENUM_TIMEFRAMES)_Period;
-   return InpTimeframe;
+   return AL_UC04ResolveTimeframe(
+      InpTimeframe,
+      (ENUM_TIMEFRAMES)_Period
+   );
 }
 
 void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode = "manual")

@@ -47,6 +47,7 @@ input bool InpWriteCsv = false;
 input string InpCsvFileName = "M0006_Reversal_Explosive_Optionality.csv";
 
 #include <M0006/DAL_M0006OptionalityReport.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 #define DAL_M0006_BUILD "1.04"
 
@@ -58,8 +59,10 @@ string M6Symbol()
 
 ENUM_TIMEFRAMES M6Timeframe()
 {
-   if(InpTimeframe == PERIOD_CURRENT) return (ENUM_TIMEFRAMES)_Period;
-   return InpTimeframe;
+   return AL_UC04ResolveTimeframe(
+      InpTimeframe,
+      (ENUM_TIMEFRAMES)_Period
+   );
 }
 
 void RunM0006Report()

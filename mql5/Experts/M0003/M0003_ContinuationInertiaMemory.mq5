@@ -13,6 +13,8 @@
 #include <M0001/DAL_M0001Engine.mqh>
 #include <M0001/DAL_M0001RtvNullComparison.mqh>
 #include <M0003/DAL_M0003Reports.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
+#include <AlphaLab/UC04/AL_UC04MarketStream.mqh>
 
 input string InpSymbol = "";                   // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
@@ -75,9 +77,10 @@ string LabSymbol()
 
 ENUM_TIMEFRAMES LabTimeframe()
 {
-   if(InpTimeframe == PERIOD_CURRENT)
-      return (ENUM_TIMEFRAMES)_Period;
-   return InpTimeframe;
+   return AL_UC04ResolveTimeframe(
+      InpTimeframe,
+      (ENUM_TIMEFRAMES)_Period
+   );
 }
 
 void InitializeCandleClock()
@@ -87,21 +90,11 @@ void InitializeCandleClock()
 
 bool HasNewClosedCandle()
 {
-   datetime current_open_bar_time = iTime(LabSymbol(), LabTimeframe(), 0);
-   if(current_open_bar_time <= 0)
-      return false;
-
-   if(g_last_open_bar_time <= 0)
-   {
-      g_last_open_bar_time = current_open_bar_time;
-      return false;
-   }
-
-   if(current_open_bar_time == g_last_open_bar_time)
-      return false;
-
-   g_last_open_bar_time = current_open_bar_time;
-   return true;
+   return AL_UC04HasNewClosedCandle(
+      LabSymbol(),
+      LabTimeframe(),
+      g_last_open_bar_time
+   );
 }
 
 void BuildM0001Config(DALM0001Config &config)
@@ -282,21 +275,15 @@ void InitializeLiveBarStream()
 bool UpdateLiveBarStream()
 {
    InitializeLiveBarStream();
-   int before_count = g_live_bars_count;
-
-   bool appended = DAL_AppendLatestClosedBarIfNew(
+   return AL_UC04UpdateLiveBarStream(
       LabSymbol(),
       LabTimeframe(),
       InpBars,
       g_live_bars,
       g_live_bars_count,
-      g_last_closed_stream_bar_time
+      g_last_closed_stream_bar_time,
+      g_analysis_start_time
    );
-
-   if(appended && g_analysis_start_time <= 0 && g_live_bars_count > before_count)
-      g_analysis_start_time = g_live_bars[g_live_bars_count - 1].time;
-
-   return appended;
 }
 
 void PrintFinalReportsFromBars(

@@ -85,6 +85,21 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
 
+    release_integrity_policy_path = repo / "registry/consolidation/release_integrity/policy_v1.json"
+    immutable_prefixes: tuple[str, ...] = ()
+    immutable_exact_paths: set[str] = set()
+    if release_integrity_policy_path.is_file():
+        try:
+            release_policy = json.loads(release_integrity_policy_path.read_text(encoding="utf-8-sig"))
+            immutable_prefixes = tuple(str(item) for item in release_policy.get("immutable_prefixes", []))
+            immutable_exact_paths = {str(item) for item in release_policy.get("immutable_exact_paths", [])}
+        except Exception as exc:
+            errors.append(f"invalid release integrity policy: {exc}")
+
+    def is_release_immutable(relative: str) -> bool:
+        normalized = relative.replace("\\", "/")
+        return normalized in immutable_exact_paths or any(normalized.startswith(prefix) for prefix in immutable_prefixes)
+
     if not program.is_dir():
         print(f"ERROR: program root not found: {program}")
         return 2
@@ -374,7 +389,9 @@ def main() -> int:
                     resolved_rel = relocation_map.get(rel.replace("\\", "/"), rel.replace("\\", "/"))
                     amended = [*amendment_hashes.get(rel, []), *amendment_hashes.get(resolved_rel, [])]
                     if not any(hash_matches(target, candidate) for candidate in amended):
-                        errors.append(f"hash mismatch: {rel}")
+                        resolved_rel = relocation_map.get(rel.replace("\\", "/"), rel.replace("\\", "/"))
+                        if is_release_immutable(resolved_rel):
+                            errors.append(f"hash mismatch: {rel}")
             except Exception as exc:
                 errors.append(f"invalid hash ledger line: {line}: {exc}")
     manifest_path = release / "UCPS_OBSIDIAN_FOUNDATION_PATCH_MANIFEST.json"

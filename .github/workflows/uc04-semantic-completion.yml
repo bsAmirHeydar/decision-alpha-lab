@@ -1,0 +1,62 @@
+name: UC04 Semantic Completion
+
+on:
+  push:
+    paths:
+      - "mql5/Include/AlphaLab/UC04/**"
+      - "mql5/Experts/**"
+      - "mql5/Tests/Scripts/UC04/UC04_Phase4SharedPrimitivesSelfTest.mq5"
+      - "tools/consolidation/uc04complete/**"
+      - "tests/consolidation/uc04complete/**"
+      - "registry/consolidation/uc04/complete/**"
+      - "schemas/consolidation/uc04/complete/**"
+      - "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/**"
+      - ".github/workflows/uc04-semantic-completion.yml"
+  pull_request:
+    paths:
+      - "mql5/Include/AlphaLab/UC04/**"
+      - "mql5/Experts/**"
+      - "mql5/Tests/Scripts/UC04/UC04_Phase4SharedPrimitivesSelfTest.mq5"
+      - "tools/consolidation/uc04complete/**"
+      - "tests/consolidation/uc04complete/**"
+      - "registry/consolidation/uc04/complete/**"
+      - "schemas/consolidation/uc04/complete/**"
+      - "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/**"
+      - ".github/workflows/uc04-semantic-completion.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-seal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check jsonschema pytest
+      - name: Engineering policy
+        run: python -B tools/engineering/run_engineering_policy.py .
+      - name: Migration and physical closure
+        run: |
+          python -B -m tools.consolidation.ci.verify_migration_continuity --repo-root .
+          python -B -m tools.consolidation.uc03p3.verify --repo-root . --ci-fast
+      - name: UC04 complete verifier
+        run: python -B -m tools.consolidation.uc04complete.verify --repo-root .
+      - name: UC04 complete tests
+        run: python -B -m pytest -q tests/consolidation/uc04complete -p no:cacheprovider
+      - name: Repository-wide collection integrity
+        run: python -B -m pytest --collect-only -q -p no:cacheprovider
+      - name: Reject generated cache mutation
+        run: |
+          test -z "$(find . -type d -name __pycache__ -o -type d -name .pytest_cache)"
+          test -z "$(find . -type f \( -name '*.pyc' -o -name '*.pyo' \))"

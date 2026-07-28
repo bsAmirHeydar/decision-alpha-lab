@@ -5,6 +5,7 @@
 #include <Execution/E0009/DAL_E0009Types.mqh>
 #include <Execution/DAL_ExecRisk.mqh>
 #include <Execution/DAL_ExecOrders.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 int DAL_E0009DirectionFromOrderType(const ENUM_ORDER_TYPE t)
 {
@@ -287,10 +288,7 @@ bool DAL_E0009SendHookOrder(
 
 bool DAL_E0009PricesCloseEnough(const string symbol, const double a, const double b)
 {
-   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
-   if(point <= 0.0)
-      point = 0.00000001;
-   return (MathAbs(a - b) <= point * 0.5);
+   return AL_UC04PricesCloseEnough(symbol, a, b);
 }
 
 bool DAL_E0009CheckPositionTPGeometry(

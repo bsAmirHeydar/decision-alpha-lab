@@ -11,6 +11,7 @@
 #include <StructuralNodes/DAL_StructuralNodeEngine.mqh>
 #include <M0001/DAL_M0001Engine.mqh>
 #include <Execution/E0009/DAL_E0009Modules.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 input group "00. SYMBOL / EXECUTION"
 input string InpSection00 = "===== 00 | SYMBOL / EXECUTION =====";
@@ -281,11 +282,7 @@ bool E0009_CheckPositionTPGeometry(const string symbol, const int direction, con
 
 bool E0009_PricesCloseEnough(const string symbol, const double a, const double b)
 {
-   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
-   if(point <= 0.0)
-      point = 0.00000001;
-
-   return (MathAbs(a - b) <= point * 0.5);
+   return AL_UC04PricesCloseEnough(symbol, a, b);
 }
 
 void E0009_SyncGlobalExitTP(

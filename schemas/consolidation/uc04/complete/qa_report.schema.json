@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/qa_report.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "status", "engineering_policy", "migration_continuity", "uc03_closure", "uc04_upstream", "uc04_complete_verifier", "targeted_tests_passed", "targeted_tests_failed", "pytest_collected", "collection_errors", "native_compile_status", "native_runtime_status", "full_runtime_suite_status", "residual_risks", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "status": {"const": "PASS_STATIC_NATIVE_SEAL_PENDING_INSTALL_HOST"},
+    "engineering_policy": {"const": "PASS"},
+    "migration_continuity": {"const": "PASS"},
+    "uc03_closure": {"const": "PASS"},
+    "uc04_upstream": {"const": "PASS"},
+    "uc04_complete_verifier": {"const": "PASS"},
+    "targeted_tests_passed": {"type": "integer", "minimum": 1},
+    "targeted_tests_failed": {"const": 0},
+    "pytest_collected": {"type": "integer", "minimum": 9000},
+    "collection_errors": {"const": 0},
+    "native_compile_status": {"enum": ["PENDING_INSTALL_HOST", "PASS"]},
+    "native_runtime_status": {"enum": ["PENDING_INSTALL_HOST", "PASS"]},
+    "full_runtime_suite_status": {"const": "NOT_RUN_HISTORICAL_LFS_PAYLOADS_NOT_IN_SOURCE_ARCHIVE"},
+    "residual_risks": {"type": "array", "items": {"type": "string"}},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

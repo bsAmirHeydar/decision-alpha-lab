@@ -4,6 +4,7 @@
 
 #include "FP_ExportEngine.mqh"
 #include "FP_StaticQaAudit.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 // ============================================================================
 // Phoenix Level 18 - Static QA / Compile Hardening Engine
@@ -11,9 +12,7 @@
 
 bool FP_StaticQaWriteLine(const int handle, const string line)
 {
-   if(handle == INVALID_HANDLE) return false;
-   FileWriteString(handle, line + "\r\n");
-   return true;
+   return AL_UC04WriteLine(handle, line);
 }
 
 bool FP_StaticQaWriteCsv(const FP_StaticQaConfig &cfg,

@@ -14,6 +14,7 @@
 #include <Execution/DAL_ExecRisk.mqh>
 #include <Execution/DAL_ExecOrders.mqh>
 #include <Execution/DAL_ExecReversalOneToOne.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 // Revisit entry anchor: normal revisit uses the origin zone; secondary-node mode uses
 // the same-side internal node created during the first non-hunted touch cycle.
@@ -192,9 +193,10 @@ string E0006_Symbol()
 
 ENUM_TIMEFRAMES E0006_Timeframe()
 {
-   if(InpTimeframe == PERIOD_CURRENT)
-      return (ENUM_TIMEFRAMES)_Period;
-   return InpTimeframe;
+   return AL_UC04ResolveTimeframe(
+      InpTimeframe,
+      (ENUM_TIMEFRAMES)_Period
+   );
 }
 
 int E0006_ClampInt(const int value, const int lo, const int hi)
@@ -215,9 +217,7 @@ string E0006_TwoDigits(const int value)
 
 string E0006_FormatDateTime(const datetime value)
 {
-   MqlDateTime dt;
-   TimeToStruct(value, dt);
-   return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
+   return AL_UC04FormatDateTime(value);
 }
 
 string E0006_StopAnchorModeToString()
@@ -1027,10 +1027,7 @@ void E0006_DeletePendingOrdersByDirection(
 
 bool E0006_PricesCloseEnough(const string symbol, const double a, const double b)
 {
-   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
-   if(point <= 0.0)
-      point = 0.00000001;
-   return (MathAbs(a - b) <= point * 0.5);
+   return AL_UC04PricesCloseEnough(symbol, a, b);
 }
 
 bool E0006_CheckLimitGeometryAllowOptionalTP(

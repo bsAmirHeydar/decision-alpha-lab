@@ -9,6 +9,7 @@
 #include <Trade/Trade.mqh>
 #include <Execution/DAL_ExecHeikinAshi.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpEntryTimeframe = PERIOD_M1;
@@ -67,9 +68,7 @@ string E0010_Symbol()
 
 string E0010_FormatDateTime(const datetime value)
 {
-   MqlDateTime dt;
-   TimeToStruct(value, dt);
-   return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
+   return AL_UC04FormatDateTime(value);
 }
 
 void E0010_ResetRiskSizing(E0010RiskSizing &r)

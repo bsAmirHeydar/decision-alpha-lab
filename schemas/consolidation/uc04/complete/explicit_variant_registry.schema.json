@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/explicit_variant_registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "historical_candidate_count", "shared_capability_count", "explicit_variant_count", "variants", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "historical_candidate_count": {"const": 205},
+    "shared_capability_count": {"const": 14},
+    "explicit_variant_count": {"const": 191},
+    "variants": {
+      "type": "array",
+      "minItems": 191,
+      "maxItems": 191,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "candidate_digest", "category", "consumer_count", "signature_count", "disposition", "reason_codes"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^ENGCAND_[0-9A-F]{32}$"},
+          "candidate_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "category": {"type": "string"},
+          "consumer_count": {"type": "integer", "minimum": 2},
+          "signature_count": {"type": "integer", "minimum": 1},
+          "disposition": {"const": "EXPLICIT_VARIANT_NOT_SHARED_CAPABILITY"},
+          "reason_codes": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
+        }
+      }
+    },
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

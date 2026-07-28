@@ -3,24 +3,27 @@
 #property strict
 
 #include "FP_HookPhase05Types.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 bool FP_HookP05ShouldRun(const FP_HookPhase05Config &cfg)
 {
-   if(!cfg.enabled)
-      return false;
-   if(cfg.display_family == FP_NDS_HOOK_DISPLAY_RALLY_ONLY)
-      return false;
-   return true;
+   return AL_UC04ShouldRun(
+      cfg.enabled,
+      (int)cfg.display_family,
+      (int)FP_NDS_HOOK_DISPLAY_RALLY_ONLY
+   );
 }
 
 bool FP_HookP05DirectionAllowed(const FP_HookPhase05Config &cfg,
                                 const FP_HookPhase02Direction d)
 {
-   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
-      return cfg.show_positive;
-   if(d == FP_HOOK_P02_DIRECTION_NEGATIVE)
-      return cfg.show_negative;
-   return false;
+   return AL_UC04DirectionAllowed(
+      cfg.show_positive,
+      cfg.show_negative,
+      (int)d,
+      (int)FP_HOOK_P02_DIRECTION_POSITIVE,
+      (int)FP_HOOK_P02_DIRECTION_NEGATIVE
+   );
 }
 
 void FP_HookP05LoadEvidence(const FP_HookPhase03YAxis &y,

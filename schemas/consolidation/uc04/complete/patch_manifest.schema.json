@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/patch_manifest.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "status", "patch_file_count", "hash_ledger_entry_count", "added_file_count", "modified_file_count", "deleted_file_count", "payload_total_bytes_excluding_manifest_and_hash_ledger", "root_relative", "wrapper_directory", "unsafe_path_count", "lfs_pointer_count", "secret_finding_count", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "status": {"const": "READY"},
+    "patch_file_count": {"type": "integer", "minimum": 1},
+    "hash_ledger_entry_count": {"type": "integer", "minimum": 1},
+    "added_file_count": {"type": "integer", "minimum": 0},
+    "modified_file_count": {"type": "integer", "minimum": 0},
+    "deleted_file_count": {"const": 0},
+    "payload_total_bytes_excluding_manifest_and_hash_ledger": {"type": "integer", "minimum": 1},
+    "root_relative": {"const": true},
+    "wrapper_directory": {"const": false},
+    "unsafe_path_count": {"const": 0},
+    "lfs_pointer_count": {"const": 0},
+    "secret_finding_count": {"const": 0},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

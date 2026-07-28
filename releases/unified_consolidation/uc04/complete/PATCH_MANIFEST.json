@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/patch_manifest.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "status": "READY",
+  "patch_file_count": 158,
+  "hash_ledger_entry_count": 157,
+  "added_file_count": 83,
+  "modified_file_count": 75,
+  "deleted_file_count": 0,
+  "payload_total_bytes_excluding_manifest_and_hash_ledger": 1740303,
+  "root_relative": true,
+  "wrapper_directory": false,
+  "unsafe_path_count": 0,
+  "lfs_pointer_count": 0,
+  "secret_finding_count": 0,
+  "document_digest": "sha256:704454275b2bb452ceba379c444030c4d57e12b026190dc6aa4822e7c4c53a69"
+}

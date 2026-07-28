@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/complete/logic_preservation_certificates.schema.json",
+  "program_id": "UCPS",
+  "stage_id": "UC04-COMPLETE",
+  "schema_version": "1.0.0",
+  "certificate_count": 14,
+  "certificates": [
+    {
+      "candidate_id": "ENGCAND_10B280C3481F84DFFD8F381AFC4FCF88",
+      "historical_normalized_body_sha256": "sha256:666e0de73fa496edbeef695ebc8c073fb810a6b96fa757116e9af40563e22860",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_145E9E03599E6387041337DE73A4F287",
+      "historical_normalized_body_sha256": "sha256:a6baf9295df689d6307bf5fec4a998be6cb9dd30a49adb193f2386fee6fa2f47",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_20ED877E56D47DE82D871D2571BCA4AB",
+      "historical_normalized_body_sha256": "sha256:e8d1c00980cfc8caeffda4e1f9af3d4628ed51ff67add1a96f1b3f667931a180",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_28BC862A7CE62872B9A94895D08D9DA7",
+      "historical_normalized_body_sha256": "sha256:8314ab8aa0725fa863843648305aaa1ac863676392e35694b949e5768b9ecc39",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_3184B4B0934CC5A945ED26DAFF189E47",
+      "historical_normalized_body_sha256": "sha256:22e7b95e66f2cc102f2135e4e5d81e371453b86b5d8cb8969cc06b709cc0e405",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_31B77F4A9FE3D8B31FB34669D7B5B002",
+      "historical_normalized_body_sha256": "sha256:96c9be31363595f7097966e86358bb849cd47982649f727de65a519087bbf20b",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_5F6D0BFC84A95D23CAECA754A03F06E3",
+      "historical_normalized_body_sha256": "sha256:84ec673172d28ba178a5939915a457714e69131875d7b2703da5154d6bb89b17",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+      "historical_normalized_body_sha256": "sha256:e17791f58738094ca4fad01a659c9b4a4055894c1c8c78ec2ef1d7b90a21d68c",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_7F3DF48AA2EE0468F7B2C15906E19DF0",
+      "historical_normalized_body_sha256": "sha256:92dc88b874f16c5dd1b7e40ea4b1f26f7d4d052eac0a67e35e5bdb88f61d7e4d",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_C7F1739252CDDD4D7758D9291805FD11",
+      "historical_normalized_body_sha256": "sha256:a05610d8bd5baef116450a53be5b7255a7ecd8732dd9af1cc814fb4de30a01f3",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_D2365B8D8124962DDDD5E19AF6CF97CE",
+      "historical_normalized_body_sha256": "sha256:6094022dfbd7249677ddb5d27851cfa3306c729bb2c7b12005a277adb72e6841",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_E543B99C9395A7521B5972F72268E8FE",
+      "historical_normalized_body_sha256": "sha256:37c724f4b8a02c250b5498f48c8fc9dce9a41cb894fb6474247a0e30df731397",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_EE0FCB3A57FBBF7A42F400166E98E2FE",
+      "historical_normalized_body_sha256": "sha256:f6138f1ec85fc18e909275e4f000094ea40af5597320b4f399662bd9bd29f9e2",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    },
+    {
+      "candidate_id": "ENGCAND_FF465FD882B14D4DE7C0542185F72E4C",
+      "historical_normalized_body_sha256": "sha256:3c625c025cd2723452b00b406a4df26629d9c1b05797fa1167edbfa5d6bd9dd7",
+      "static_equivalence": "PASS",
+      "consumer_adapter_coverage": "PASS",
+      "source_recovery_evidence": "HISTORICAL_LCM07_MEMBER_HASHES_AND_UC04_PATCH_ROLLBACK",
+      "native_compile_status": "PENDING_INSTALL_HOST",
+      "native_runtime_status": "PENDING_INSTALL_HOST",
+      "unexplained_behavior_delta_count": 0,
+      "retirement_authority": false
+    }
+  ],
+  "claim_ceiling": "STATIC_EQUIVALENCE_AND_INSTALL_HOST_NATIVE_HARNESS",
+  "document_digest": "sha256:59e4edf46bfc6df467463c0df20e375ef8460cee1260b9c9343566e5ab4184d3"
+}

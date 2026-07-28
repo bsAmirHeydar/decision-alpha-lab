@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/native_seal_receipt.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "status", "captured_at_utc", "compile_target_count", "compile_targets", "runtime", "evidence_bundle_sha256", "production_source_mutation", "semantic_change_authority", "deletion_authority", "runtime_authority", "order_authority", "capital_authority"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE-NATIVE-SEAL"},
+    "schema_version": {"const": "1.0.0"},
+    "status": {"const": "PASS"},
+    "captured_at_utc": {"type": "string", "format": "date-time"},
+    "compile_target_count": {"type": "integer", "minimum": 30},
+    "compile_targets": {
+      "type": "array",
+      "minItems": 30,
+      "uniqueItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_path", "source_sha256", "errors", "warnings", "log_path", "log_sha256", "ex5_path", "ex5_sha256"],
+        "properties": {
+          "source_path": {"type": "string", "pattern": "^mql5/.+\\.mq5$"},
+          "source_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "errors": {"const": 0},
+          "warnings": {"const": 0},
+          "log_path": {"type": "string"},
+          "log_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "ex5_path": {"type": "string"},
+          "ex5_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "runtime_csv_path", "runtime_csv_sha256", "test_rows", "failed_rows", "summary", "runtime_symbol"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "runtime_csv_path": {"type": "string"},
+        "runtime_csv_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "test_rows": {"type": "integer", "minimum": 20},
+        "failed_rows": {"const": 0},
+        "summary": {"const": "PASS"},
+        "runtime_symbol": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence_bundle_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "production_source_mutation": {"const": false},
+    "semantic_change_authority": {"const": false},
+    "deletion_authority": {"const": false},
+    "runtime_authority": {"const": false},
+    "order_authority": {"const": false},
+    "capital_authority": {"const": false}
+  }
+}

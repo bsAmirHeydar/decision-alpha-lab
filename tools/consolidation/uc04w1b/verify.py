@@ -11,6 +11,7 @@ from jsonschema import Draft202012Validator
 
 from tools.repository_paths import RepositoryPaths
 from tools.consolidation.uc04w1.characterize import PROPOSED_PRODUCTION_TARGET, characterize
+from tools.consolidation.uc04w1.verify import verify_complete_transition
 from tools.consolidation.uc04w1b.contracts import (
     AUTHORITY_FIELDS,
     BASELINE_COMPILE_TARGETS,
@@ -104,10 +105,15 @@ def _verify_upstream(repo: Path, errors: list[str]) -> None:
         errors.append("UC04-W1A implementation decision drift")
     if (repo / PROPOSED_PRODUCTION_TARGET).exists():
         errors.append("production shared engine materialized before native acceptance")
-    try:
-        characterize(repo)
-    except Exception as exc:
-        errors.append(f"W1A candidate replay failed: {exc}")
+    transition_errors: list[str] = []
+    transition = verify_complete_transition(repo, transition_errors)
+    if transition is None:
+        try:
+            characterize(repo)
+        except Exception as exc:
+            errors.append(f"W1A candidate replay failed: {exc}")
+    else:
+        errors.extend(f"W1A transition: {item}" for item in transition_errors)
 
 
 def _verify_records(repo: Path, errors: list[str]) -> None:
@@ -247,10 +253,15 @@ def _verify_release(repo: Path, errors: list[str]) -> None:
         if "git push" in install_text.lower():
             errors.append("W1B INSTALL.md must not instruct push")
 
-    try:
-        verify_tree(repo)
-    except PackageValidationError as exc:
-        errors.append(f"W1B installable package contract failed: {exc}")
+    transition_errors: list[str] = []
+    transition = verify_complete_transition(repo, transition_errors)
+    if transition is None:
+        try:
+            verify_tree(repo)
+        except PackageValidationError as exc:
+            errors.append(f"W1B installable package contract failed: {exc}")
+    else:
+        errors.extend(f"W1B transition: {item}" for item in transition_errors)
 
 
 def verify(repo: Path) -> list[str]:

@@ -10,6 +10,7 @@
 #include <Execution/DAL_ExecRouletteRisk.mqh>
 #include <Execution/DAL_ExecDonchianAtr.mqh>
 #include <Execution/DAL_ExecHypotheticalProfitGate.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpSignalTimeframe = PERIOD_M1;
@@ -75,9 +76,7 @@ string E0011_Symbol()
 
 string E0011_FormatDateTime(const datetime value)
 {
-   MqlDateTime dt;
-   TimeToStruct(value, dt);
-   return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
+   return AL_UC04FormatDateTime(value);
 }
 
 void E0011_ResetRiskSizing(E0011RiskSizing &r)

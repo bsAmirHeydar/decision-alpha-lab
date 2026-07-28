@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/native_seal_review.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "receipt_sha256", "contract_sha256", "compile_target_count", "compile_membership_exact", "compile_all_zero_errors_zero_warnings", "runtime_summary_pass", "runtime_failed_rows", "production_source_mutation", "semantic_change_authority", "deletion_authority", "runtime_authority", "order_authority", "capital_authority", "status", "errors", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE-NATIVE-SEAL"},
+    "schema_version": {"const": "1.0.0"},
+    "receipt_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "contract_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "compile_target_count": {"type": "integer", "minimum": 30},
+    "compile_membership_exact": {"type": "boolean"},
+    "compile_all_zero_errors_zero_warnings": {"type": "boolean"},
+    "runtime_summary_pass": {"type": "boolean"},
+    "runtime_failed_rows": {"type": "integer"},
+    "production_source_mutation": {"const": false},
+    "semantic_change_authority": {"const": false},
+    "deletion_authority": {"const": false},
+    "runtime_authority": {"const": false},
+    "order_authority": {"const": false},
+    "capital_authority": {"const": false},
+    "status": {"enum": ["PASS", "FAIL"]},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

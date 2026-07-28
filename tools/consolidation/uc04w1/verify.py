@@ -9,7 +9,6 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
-from tools.consolidation.ci.portable_hash import canonical_sha256
 from tools.consolidation.uc04w0.verify import verify as verify_w0
 from tools.consolidation.uc04w1.characterize import (
     CANDIDATE_ID,
@@ -32,6 +31,8 @@ from tools.repository_paths import RepositoryPaths
 
 SCHEMA_ROOT = Path("schemas/consolidation/uc04/w1")
 RELEASE_ROOT = Path("releases/unified_consolidation/uc04/w1")
+COMPLETE_TRANSITION = Path("registry/consolidation/uc04/complete/w1_candidate_transition.json")
+COMPLETE_TRANSITION_SCHEMA = Path("schemas/consolidation/uc04/complete/w1_candidate_transition.schema.json")
 SHA256_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 OUTPUT_RE = re.compile(r"^[0-9]{4}\.[0-9]{2}\.[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$")
 REQUIRED_RECORDS = (
@@ -151,6 +152,47 @@ def verify_upstream_authority(repo: Path, errors: list[str]) -> None:
             errors.append(f"UC04-W0 candidate handoff has unsafe {field}")
 
 
+
+def _complete_document_digest(value: dict[str, Any]) -> str:
+    material = {key: item for key, item in value.items() if key != "document_digest"}
+    payload = (json.dumps(material, sort_keys=True, separators=(",", ":"), ensure_ascii=False) + "\n").encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
+def verify_complete_transition(repo: Path, errors: list[str]) -> dict[str, Any] | None:
+    path = repo / COMPLETE_TRANSITION
+    if not path.is_file():
+        return None
+    try:
+        value = read_json(path)
+        if value.get("document_digest") != _complete_document_digest(value):
+            errors.append("UC04 complete W1 transition digest mismatch")
+        verify_schema(path, repo / COMPLETE_TRANSITION_SCHEMA, errors)
+        if value.get("status") != "PASS" or value.get("candidate_id") != CANDIDATE_ID:
+            errors.append("UC04 complete W1 transition is not accepted")
+        members = value.get("members", [])
+        if value.get("member_count") != 10 or len(members) != 10:
+            errors.append("UC04 complete W1 transition must contain ten members")
+        expected_pairs = {(path, name) for path, name, _ in MEMBERS}
+        actual_pairs = {(str(row.get("artifact_path")), str(row.get("function_name"))) for row in members if isinstance(row, dict)}
+        if actual_pairs != expected_pairs:
+            errors.append("UC04 complete W1 transition member set drift")
+        for row in members:
+            relative = str(row.get("artifact_path", ""))
+            target = repo / relative
+            if not target.is_file():
+                errors.append(f"transition target missing: {relative}")
+                continue
+            if row.get("current_sha256") != sha256_file(target):
+                errors.append(f"transition target hash mismatch: {relative}")
+            if str(row.get("adapter_token", "")) not in target.read_text(encoding="utf-8-sig"):
+                errors.append(f"transition adapter missing: {relative}")
+        return value
+    except Exception as exc:
+        errors.append(f"invalid UC04 complete W1 transition: {exc}")
+        return None
+
+
 def verify_records(repo: Path, errors: list[str]) -> dict[str, dict[str, Any]]:
     actual: dict[str, dict[str, Any]] = {}
     for name in REQUIRED_SCHEMAS:
@@ -164,10 +206,12 @@ def verify_records(repo: Path, errors: list[str]) -> dict[str, dict[str, Any]]:
             errors.append(f"invalid W1A schema {name}: {exc}")
 
     expected_documents: dict[str, dict[str, Any]] = {}
-    try:
-        expected_documents = characterize(repo)
-    except Exception as exc:
-        errors.append(f"candidate characterization failed: {exc}")
+    transition = verify_complete_transition(repo, errors)
+    if transition is None:
+        try:
+            expected_documents = characterize(repo)
+        except Exception as exc:
+            errors.append(f"candidate characterization failed: {exc}")
 
     for name in REQUIRED_RECORDS:
         path = repo / REGISTRY_ROOT / name
@@ -212,14 +256,16 @@ def verify_candidate(repo: Path, records: dict[str, dict[str, Any]], errors: lis
     if actual_pairs != expected_pairs:
         errors.append("candidate member set drift")
 
-    historical = load_historical_candidate(repo)
-    historical_hashes = {str(row["artifact_path"]): str(row["artifact_sha256"]) for row in historical.get("members", [])}
-    for path, _, _ in MEMBERS:
-        target = repo / path
-        if not target.is_file():
-            errors.append(f"candidate source missing: {path}")
-        elif sha256_file(target) != historical_hashes.get(path):
-            errors.append(f"candidate source changed before native acceptance: {path}")
+    transition = verify_complete_transition(repo, errors)
+    if transition is None:
+        historical = load_historical_candidate(repo)
+        historical_hashes = {str(row["artifact_path"]): str(row["artifact_sha256"]) for row in historical.get("members", [])}
+        for path, _, _ in MEMBERS:
+            target = repo / path
+            if not target.is_file():
+                errors.append(f"candidate source missing: {path}")
+            elif sha256_file(target) != historical_hashes.get(path):
+                errors.append(f"candidate source changed before native acceptance: {path}")
 
 
 def verify_fixture_contract(repo: Path, records: dict[str, dict[str, Any]], errors: list[str]) -> None:
@@ -342,9 +388,17 @@ def verify_release(repo: Path, errors: list[str]) -> None:
     expected_hashed = set(index) - {f"{RELEASE_ROOT.as_posix()}/PATCH_FILE_HASHES.sha256"}
     if set(ledger) != expected_hashed:
         errors.append("W1A patch hash-ledger paths do not match patch index")
+    transition_active = (repo / COMPLETE_TRANSITION).is_file()
+    immutable_prefixes = (
+        f"{RELEASE_ROOT.as_posix()}/",
+        "registry/consolidation/uc04/w1/",
+        "schemas/consolidation/uc04/w1/",
+        "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/14_UC04_W1A_CHARACTERIZATION_RECORDS/",
+    )
     for relative, expected in ledger.items():
         target = repo / relative
-        if target.is_file() and "sha256:" + canonical_sha256(target) != expected:
+        must_match = (not transition_active) or relative.startswith(immutable_prefixes)
+        if must_match and target.is_file() and sha256_file(target) != expected:
             errors.append(f"W1A patch hash mismatch: {relative}")
     manifest = read_json(release / "PATCH_MANIFEST.json")
     if manifest.get("patch_file_count") != len(index) or manifest.get("hash_ledger_entry_count") != len(ledger):

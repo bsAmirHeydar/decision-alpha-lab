@@ -12,6 +12,9 @@
 #include <M0001/DAL_M0001Engine.mqh>
 #include <M0002/DAL_M0002Engine.mqh>
 #include <Execution/DAL_ExecReversalOneToOne.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
+#include <AlphaLab/UC04/AL_UC04M0001Config.mqh>
+#include <AlphaLab/UC04/AL_UC04M0002Config.mqh>
 
 #define DAL_D0005_BUILD "1.00"
 
@@ -68,9 +71,10 @@ string D0005_Symbol()
 
 ENUM_TIMEFRAMES D0005_Timeframe()
 {
-   if(InpTimeframe == PERIOD_CURRENT)
-      return (ENUM_TIMEFRAMES)_Period;
-   return InpTimeframe;
+   return AL_UC04ResolveTimeframe(
+      InpTimeframe,
+      (ENUM_TIMEFRAMES)_Period
+   );
 }
 
 string D0005_TwoDigits(const int value)
@@ -82,9 +86,7 @@ string D0005_TwoDigits(const int value)
 
 string D0005_FormatDateTime(const datetime value)
 {
-   MqlDateTime dt;
-   TimeToStruct(value, dt);
-   return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
+   return AL_UC04FormatDateTime(value);
 }
 
 string D0005_BoolToString(const bool value)
@@ -105,38 +107,24 @@ string D0005_RegimeOutcomeToString(const ENUM_DALM0002Outcome outcome)
 
 void D0005_BuildM0001Config(DALM0001Config &config)
 {
-   DAL_M0001DefaultConfig(config);
-   config.L = InpL;
-   config.zone_ratio = InpZoneRatio;
-   config.exit_gap = InpExitGap;
-   config.consume_mode = InpConsumeMode;
-   config.consume_on_touch = (InpConsumeMode == DAL_M0001_CONSUME_BY_TOUCH);
-   config.max_events = 0;
-   config.min_rtv = 0.0;
+   AL_UC04BuildM0001Config(
+      config,
+      InpL,
+      InpZoneRatio,
+      InpExitGap,
+      InpConsumeMode
+   );
 }
 
 void D0005_BuildM0002Config(DALM0002Config &config)
 {
-   DAL_M0002DefaultConfig(config);
-   config.measure_mode = DAL_M0002_MEASURE_EVENT_RTV;
-   config.outcome_candle_offset_after_exit = MathMax(0, InpOutcomeCandleOffsetAfterExit);
-   config.post_outcome_sample_bars = 0;
-   config.use_event_length_for_sample = false;
-   config.random_samples_per_event = 1;
-   config.bootstrap_iterations = 0;
-   config.permutation_iterations = 0;
-   config.validation_splits = 1;
-   config.broker_utc_offset_hours = InpBrokerUtcOffsetHours;
-   config.regime_lookback_bars = MathMax(1, InpRegimeLookbackBars);
-   config.print_group_session_regime = false;
-   config.run_stress_suite = false;
-   config.hard_random_candidates = 1;
-   config.placebo_shift_bars = 1;
-   config.nonoverlap_gap_bars = 0;
-   config.block_bootstrap_iterations = 0;
-   config.block_bootstrap_block_pairs = 1;
-   config.consume_mode = InpConsumeMode;
-   config.consume_on_touch = (InpConsumeMode == DAL_M0001_CONSUME_BY_TOUCH);
+   AL_UC04BuildM0002Config(
+      config,
+      InpOutcomeCandleOffsetAfterExit,
+      InpBrokerUtcOffsetHours,
+      InpRegimeLookbackBars,
+      InpConsumeMode
+   );
 }
 
 bool D0005_HasNewOpenCandle()

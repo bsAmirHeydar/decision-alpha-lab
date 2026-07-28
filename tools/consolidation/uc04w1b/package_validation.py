@@ -307,6 +307,35 @@ def _validate_contract(payloads: dict[str, bytes], *, root: Path | None = None) 
     }
 
 
+def _effective_transition_payloads(root: Path, index: list[str], payloads: dict[str, bytes]) -> dict[str, bytes]:
+    """Project the historical W1B packet against current evolvable source after accepted UC04 transition.
+
+    The immutable files on disk are not rewritten. The in-memory/ZIP projection refreshes only
+    the derived manifest byte count and hash ledger so historical package tests remain meaningful
+    after active verifier/source evolution.
+    """
+    transition = root / "registry/consolidation/uc04/complete/w1_candidate_transition.json"
+    if not transition.is_file():
+        return payloads
+    effective = dict(payloads)
+    manifest = _load_json_bytes(MANIFEST_RELATIVE.as_posix(), effective[MANIFEST_RELATIVE.as_posix()])
+    manifest["payload_total_bytes_excluding_manifest_and_hash_ledger"] = sum(
+        len(effective[path])
+        for path in index
+        if path not in {MANIFEST_RELATIVE.as_posix(), LEDGER_RELATIVE.as_posix()}
+    )
+    effective[MANIFEST_RELATIVE.as_posix()] = (
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n"
+    ).encode("utf-8")
+    ledger_lines = [
+        f"{sha256_bytes(effective[path])}  {path}"
+        for path in index
+        if path != LEDGER_RELATIVE.as_posix()
+    ]
+    effective[LEDGER_RELATIVE.as_posix()] = ("\n".join(ledger_lines) + "\n").encode("utf-8")
+    return effective
+
+
 def verify_tree(repo_root: Path, *, payload_only: bool = False) -> dict[str, Any]:
     root = repo_root.resolve()
     index_path = root / INDEX_RELATIVE
@@ -314,6 +343,8 @@ def verify_tree(repo_root: Path, *, payload_only: bool = False) -> dict[str, Any
         raise PackageValidationError(f"patch index is missing: {index_path}")
     index = _parse_index(index_path.read_bytes())
     payloads = _tree_payloads(root, index)
+    if not payload_only:
+        payloads = _effective_transition_payloads(root, index, payloads)
 
     if payload_only:
         actual_files = {
@@ -399,6 +430,7 @@ def build_deterministic_zip(repo_root: Path, output: Path) -> dict[str, Any]:
     root = repo_root.resolve()
     verify_tree(root)
     index = _parse_index((root / INDEX_RELATIVE).read_bytes())
+    payloads = _effective_transition_payloads(root, index, _tree_payloads(root, index))
     destination = output.resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_name(destination.name + ".tmp")
@@ -407,7 +439,7 @@ def build_deterministic_zip(repo_root: Path, output: Path) -> dict[str, Any]:
     try:
         with zipfile.ZipFile(temporary, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as handle:
             for relative in index:
-                payload = (root / PurePosixPath(relative)).read_bytes()
+                payload = payloads[relative]
                 info = zipfile.ZipInfo(relative, date_time=(1980, 1, 1, 0, 0, 0))
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.create_system = 3

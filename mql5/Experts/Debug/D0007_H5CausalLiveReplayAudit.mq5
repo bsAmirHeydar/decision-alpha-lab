@@ -12,6 +12,7 @@
 #include <M0001/DAL_M0001Engine.mqh>
 #include <M0002/DAL_M0002Engine.mqh>
 #include <M0005/DAL_M0005LiveCausal.mqh>
+#include <AlphaLab/UC04/AL_UC04M0001Config.mqh>
 
 #define DAL_D0007_BUILD "1.00"
 
@@ -245,14 +246,13 @@ void D0007_ResetTradeResult(D0007TradeResult &r)
 
 void D0007_BuildM0001Config(DALM0001Config &config)
 {
-   DAL_M0001DefaultConfig(config);
-   config.L = InpL;
-   config.zone_ratio = InpZoneRatio;
-   config.exit_gap = InpExitGap;
-   config.consume_mode = InpConsumeMode;
-   config.consume_on_touch = (InpConsumeMode == DAL_M0001_CONSUME_BY_TOUCH);
-   config.max_events = 0;
-   config.min_rtv = 0.0;
+   AL_UC04BuildM0001Config(
+      config,
+      InpL,
+      InpZoneRatio,
+      InpExitGap,
+      InpConsumeMode
+   );
 }
 
 void D0007_BuildM0002Config(DALM0002Config &config)

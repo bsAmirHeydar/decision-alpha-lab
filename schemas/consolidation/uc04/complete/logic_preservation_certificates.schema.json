@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/consolidation/uc04/complete/logic_preservation_certificates.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "program_id", "stage_id", "schema_version", "certificate_count", "certificates", "claim_ceiling", "document_digest"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "program_id": {"const": "UCPS"},
+    "stage_id": {"const": "UC04-COMPLETE"},
+    "schema_version": {"const": "1.0.0"},
+    "certificate_count": {"const": 14},
+    "certificates": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "historical_normalized_body_sha256", "static_equivalence", "consumer_adapter_coverage", "source_recovery_evidence", "native_compile_status", "native_runtime_status", "unexplained_behavior_delta_count", "retirement_authority"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^ENGCAND_[0-9A-F]{32}$"},
+          "historical_normalized_body_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "static_equivalence": {"const": "PASS"},
+          "consumer_adapter_coverage": {"const": "PASS"},
+          "source_recovery_evidence": {"type": "string"},
+          "native_compile_status": {"enum": ["PENDING_INSTALL_HOST", "PASS"]},
+          "native_runtime_status": {"enum": ["PENDING_INSTALL_HOST", "PASS"]},
+          "unexplained_behavior_delta_count": {"const": 0},
+          "retirement_authority": {"const": false}
+        }
+      }
+    },
+    "claim_ceiling": {"const": "STATIC_EQUIVALENCE_AND_INSTALL_HOST_NATIVE_HARNESS"},
+    "document_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

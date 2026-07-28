@@ -4,6 +4,7 @@
 
 #include "FP_ExportEngine.mqh"
 #include "FP_AmbiguityAudit.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 // ============================================================================
 // Phoenix Level 17 - Ambiguity / Decision-Lock Engine
@@ -11,9 +12,7 @@
 
 bool FP_AmbiguityWriteLine(const int handle, const string line)
 {
-   if(handle == INVALID_HANDLE) return false;
-   FileWriteString(handle, line + "\r\n");
-   return true;
+   return AL_UC04WriteLine(handle, line);
 }
 
 bool FP_AmbiguityWriteCsv(const FP_AmbiguityConfig &cfg,

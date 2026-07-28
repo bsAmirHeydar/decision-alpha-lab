@@ -3,14 +3,15 @@
 #property strict
 
 #include "FP_HookPhase01Types.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 bool FP_HookP01ShouldRun(const FP_HookPhase01Config &cfg)
 {
-   if(!cfg.enabled)
-      return false;
-   if(cfg.display_family == FP_NDS_HOOK_DISPLAY_RALLY_ONLY)
-      return false;
-   return true;
+   return AL_UC04ShouldRun(
+      cfg.enabled,
+      (int)cfg.display_family,
+      (int)FP_NDS_HOOK_DISPLAY_RALLY_ONLY
+   );
 }
 
 int FP_HookP01BarsToScan(const int copied, const FP_HookPhase01Config &cfg)

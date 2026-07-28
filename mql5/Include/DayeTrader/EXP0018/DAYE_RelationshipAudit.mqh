@@ -2,6 +2,7 @@
 #define __EXP0018_DAYE_RELATIONSHIP_AUDIT_MQH__
 
 #include <DayeTrader/EXP0018/DAYE_RelationshipDiagnostics.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 class CDayeRelationshipAuditWriter
 {
@@ -117,10 +118,7 @@ public:
 
    void Close(void)
    {
-      if(m_handle != INVALID_HANDLE)
-         FileClose(m_handle);
-      m_handle = INVALID_HANDLE;
-      m_enabled = false;
+      AL_UC04CloseFileHandle(m_handle, m_enabled);
    }
 };
 

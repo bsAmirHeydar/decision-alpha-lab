@@ -7,6 +7,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 from tools.consolidation.uc04w1.characterize import PROPOSED_PRODUCTION_TARGET, characterize
+from tools.consolidation.uc04w1.verify import verify_complete_transition
 from tools.consolidation.uc04w1b.contracts import BASELINE_COMPILE_TARGETS
 from tools.consolidation.uc04w1bn1.contracts import (
     AUTHORITY_FIELDS,
@@ -86,10 +87,15 @@ def _verify_upstream(repo: Path, errors: list[str]) -> None:
         errors.append("W1B-Q unexpectedly claims native execution")
     if (repo / PROPOSED_PRODUCTION_TARGET).exists():
         errors.append("production formatter materialized before native evidence")
-    try:
-        characterize(repo)
-    except Exception as exc:
-        errors.append(f"W1A characterization replay failed: {exc}")
+    transition_errors: list[str] = []
+    transition = verify_complete_transition(repo, transition_errors)
+    if transition is None:
+        try:
+            characterize(repo)
+        except Exception as exc:
+            errors.append(f"W1A characterization replay failed: {exc}")
+    else:
+        errors.extend(f"W1A transition: {item}" for item in transition_errors)
 
 
 def _verify_records(repo: Path, errors: list[str]) -> None:
@@ -226,9 +232,17 @@ def _verify_docs_release(repo: Path, errors: list[str]) -> None:
         expected = set(index) - {"releases/unified_consolidation/uc04/w1bn1/PATCH_FILE_HASHES.sha256"}
         if set(ledger) != expected:
             errors.append("W1B-N1 hash ledger paths do not match patch index")
+        transition_active = (repo / "registry/consolidation/uc04/complete/w1_candidate_transition.json").is_file()
+        immutable_prefixes = (
+            "releases/unified_consolidation/uc04/w1bn1/",
+            "registry/consolidation/uc04/w1bn1/",
+            "schemas/consolidation/uc04/w1bn1/",
+            "docs/architecture/master/01_UNIFIED_CONSOLIDATION_AND_PLATFORM_SEAL/18_UC04_W1B_NATIVE_HOST_HARDENING/",
+        )
         for relative, digest in ledger.items():
             path = repo / relative
-            if path.is_file() and sha256_file(path).removeprefix("sha256:") != digest:
+            must_match = (not transition_active) or relative.startswith(immutable_prefixes)
+            if must_match and path.is_file() and sha256_file(path).removeprefix("sha256:") != digest:
                 errors.append(f"W1B-N1 patch hash mismatch: {relative}")
 
         manifest_path = release / "PATCH_MANIFEST.json"

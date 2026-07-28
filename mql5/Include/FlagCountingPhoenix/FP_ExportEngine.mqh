@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_ExportRows.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 // ============================================================================
 // FlagCounting Phoenix - Level 11.5 Export Engine
@@ -13,9 +14,7 @@
 
 bool FP_ExportWriteLine(const int handle, const string line)
 {
-   if(handle == INVALID_HANDLE) return false;
-   FileWriteString(handle, line + "\r\n");
-   return true;
+   return AL_UC04WriteLine(handle, line);
 }
 
 bool FP_ExportOpenWrite(const string path, int &handle)

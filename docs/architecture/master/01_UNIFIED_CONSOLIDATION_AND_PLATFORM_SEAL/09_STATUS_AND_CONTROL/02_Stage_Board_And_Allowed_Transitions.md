@@ -4,9 +4,9 @@ title: "Stage Board and Allowed Transitions"
 type: status
 status: active
 domain: unified-consolidation-platform-seal
-version: 1.1.0
+version: 2.0.0
 created: 2026-07-23
-updated: 2026-07-27
+updated: 2026-07-28
 tags:
   - consolidation
   - platform-seal
@@ -19,17 +19,19 @@ tags:
 | UC-01 — Preserve and Baseline | ACCEPTED | Preserve immutable baseline |
 | UC-02 — Authority and Standardization | ACCEPTED | Preserve authority freeze |
 | UC-03 — Physical Reorganization | ACCEPTED | Preserve canonical topology |
-| UC-04 — Semantic and Logic Unification | IN_PROGRESS | Execute UC04-W1 after W0 PASS |
-| UC-05 — Platform Mechanization | LOCKED | Requires accepted UC-04 exit |
+| UC-04 — Semantic and Logic Unification | IMPLEMENTATION_COMPLETE_NATIVE_SEAL_PENDING | Run native seal; accept only on evidence PASS |
+| UC-05 — Platform Mechanization | LOCKED | Requires accepted UC-04 exit and handoff record |
 | UC-06 — Migration and Cutover | LOCKED | Requires accepted UC-05 exit |
 | UC-07 — Delete and Seal | LOCKED | Requires accepted UC-06 exit and explicit deletion authority |
 
-## Current wave board
+## UC-04 completion board
 
-| Wave | Status | Authority |
-|---|---|---|
-| UC04-W0 — Foundation and Recovery | ACCEPTED | Recovery only; no semantic merge |
-| UC04-W1 — Deterministic MQL5 Formatting Primitive | AUTHORIZED | Characterization and bounded implementation |
-| Later UC04 waves | LOCKED | Require prior-wave PASS and candidate registration |
-
-A stage or wave may become `BLOCKED` or `FAILED`; it cannot be manually marked accepted without an evidence-bound exit decision.
+| Boundary | Status |
+|---|---|
+| Shared capability implementation | COMPLETE — 14/14 |
+| Local compatibility adapters | COMPLETE — 109/109 |
+| Historical variant classification | COMPLETE — 191/191 |
+| Static logic-preservation evidence | PASS |
+| Repository and CI verification | PASS |
+| Installation-host MetaEditor/MT5 seal | PENDING_INSTALL_HOST |
+| UC-05 handoff | LOCKED until native PASS |

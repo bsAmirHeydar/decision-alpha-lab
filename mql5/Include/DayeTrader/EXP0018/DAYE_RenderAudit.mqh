@@ -2,6 +2,7 @@
 #define __EXP0018_DAYE_RENDER_AUDIT_MQH__
 
 #include <DayeTrader/EXP0018/DAYE_RenderDiagnostics.mqh>
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 class CDayeRenderAuditWriter
 {
@@ -49,7 +50,9 @@ public:
                 TimeToString(s.availability_time_utc,TIME_DATE|TIME_SECONDS),TimeToString(s.processing_time_utc,TIME_DATE|TIME_SECONDS),s.reason_code);
    }
    void Flush(void) { if(m_enabled && m_handle!=INVALID_HANDLE) FileFlush(m_handle); }
-   void Close(void) { if(m_handle!=INVALID_HANDLE) FileClose(m_handle); m_handle=INVALID_HANDLE; m_enabled=false; }
+   void Close(void) {
+      AL_UC04CloseFileHandle(m_handle, m_enabled);
+   }
 };
 
 #endif

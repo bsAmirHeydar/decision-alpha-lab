@@ -3,23 +3,11 @@
 #property strict
 
 #include "FP_HookPhase07Rules.mqh"
+#include <AlphaLab/UC04/AL_UC04CorePrimitives.mqh>
 
 int FP_HookP07DeleteObjectsByPrefix(const string prefix)
 {
-   if(StringLen(prefix) <= 0)
-      return 0;
-
-   int deleted = 0;
-   for(int i=ObjectsTotal(0, -1, -1)-1; i>=0; i--)
-   {
-      string name = ObjectName(0, i, -1, -1);
-      if(StringFind(name, prefix) == 0)
-      {
-         if(ObjectDelete(0, name))
-            deleted++;
-      }
-   }
-   return deleted;
+   return AL_UC04DeleteObjectsByPrefix(0, prefix);
 }
 
 int FP_HookP07DeleteObjectsByPrefixes(const string &prefixes[])

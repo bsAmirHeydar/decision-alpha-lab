@@ -3,6 +3,7 @@
 #property description "EXP0018 P07 reference lifecycle and first-sweep state machine. No drawing, direction, risk, or trading authority."
 
 #include <DayeTrader/EXP0018/DAYE_LifecycleEngine.mqh>
+#include <AlphaLab/UC04/AL_UC04DayeTimeConfig.mqh>
 
 input group "EXP0018 P07 — Symbols"
 input string InpSymbolA = "SPXUSD";
@@ -110,13 +111,15 @@ CDayeLifecycleEngine g_daye_lifecycle_engine;
 
 void DAYE_BuildP07TimeConfig(DAYE_TimeConfig &config)
 {
-   config.schema_version=DAYE_TIME_SCHEMA_VERSION;
-   config.broker_offset_mode=InpBrokerOffsetMode;
-   config.broker_utc_offset_minutes=(int)MathRound(InpBrokerUtcOffsetHours*60.0);
-   config.ny_offset_mode=InpNewYorkOffsetMode;
-   config.manual_new_york_utc_offset_minutes=(int)MathRound(InpManualNewYorkUtcOffsetHours*60.0);
-   config.ambiguous_start_policy=InpAmbiguousStartPolicy;
-   config.ambiguous_end_policy=InpAmbiguousEndPolicy;
+   AL_UC04BuildDayeTimeConfig(
+      config,
+      InpBrokerOffsetMode,
+      InpBrokerUtcOffsetHours,
+      InpNewYorkOffsetMode,
+      InpManualNewYorkUtcOffsetHours,
+      InpAmbiguousStartPolicy,
+      InpAmbiguousEndPolicy
+   );
 }
 
 void DAYE_BuildP07Config(DAYE_LifecycleConfig &config)
