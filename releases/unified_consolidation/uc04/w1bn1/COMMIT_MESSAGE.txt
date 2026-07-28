@@ -1,0 +1,1 @@
+feat(uc04-w1b): harden native Windows qualification host

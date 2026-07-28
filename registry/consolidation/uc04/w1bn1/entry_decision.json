@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1bn1/entry_decision.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "decision_id": "UC04_W1B_N1_ENTRY_DECISION_V1",
+  "deletion_authority": false,
+  "document_digest": "sha256:f8f88d2ac0d6bf6f6a12df3eb6592b3e67d900a679f17cc8b42864238f4fcadd",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "implementation_authority": false,
+  "native_evidence_required": true,
+  "order_authority": false,
+  "production_repository_modified": false,
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1B-N1",
+  "status": "AUTHORIZED_TOOLING_ONLY",
+  "upstream_required_status": "ACCEPTED_TOOLING_NATIVE_EXECUTION_PENDING"
+}

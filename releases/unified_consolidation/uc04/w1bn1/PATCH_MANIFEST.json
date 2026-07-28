@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1bn1/patch_manifest.schema.json",
+  "added_file_count": 36,
+  "authority": {
+    "capital": false,
+    "consumer_cutover": false,
+    "deletion": false,
+    "implementation": false,
+    "order": false,
+    "runtime": false
+  },
+  "deleted_file_count": 0,
+  "hash_ledger_entry_count": 35,
+  "modified_file_count": 0,
+  "patch_file_count": 36,
+  "patch_id": "UC04_W1B_N1_NATIVE_HOST_HARDENING_01",
+  "production_consumer_change": false,
+  "program_id": "UCPS",
+  "schema_version": "1.0.0",
+  "semantic_change": false,
+  "stage_id": "UC04-W1B-N1",
+  "status": "READY",
+  "zip_structure": "ROOT_RELATIVE_NO_WRAPPER"
+}

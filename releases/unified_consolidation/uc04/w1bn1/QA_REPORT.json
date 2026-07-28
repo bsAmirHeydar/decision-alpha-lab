@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1bn1/qa_report.schema.json",
+  "engineering_policy": "PASS",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "mt5_runtime": "PENDING_LOCAL_WINDOWS",
+  "program_id": "UCPS",
+  "pytest_collection": {
+    "collected": 9773,
+    "errors": 0
+  },
+  "residual_risks": [
+    "PowerShell and MetaEditor execution require the user's Windows host.",
+    "Production cutover remains forbidden until native evidence and a later post-cutover qualification pass."
+  ],
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W1B-N1",
+  "stage_verifier": "PASS",
+  "status": "PASS_TOOLING_NATIVE_EXECUTION_PENDING",
+  "targeted_tests": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 60
+  },
+  "upstream_verifiers": {
+    "engineering_policy": "PASS",
+    "migration_continuity": "PASS",
+    "uc03p3": "PASS",
+    "uc04w0": "PASS",
+    "uc04w1": "PASS",
+    "uc04w1b": "PASS"
+  },
+  "windows_native_execution": "PENDING_LOCAL_WINDOWS"
+}

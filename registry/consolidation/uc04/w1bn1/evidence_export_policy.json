@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1bn1/evidence_export_policy.schema.json",
+  "absolute_host_paths_exported": false,
+  "account_identifiers_allowed": false,
+  "broker_credentials_allowed": false,
+  "bundle_apply_authorized": false,
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "consumer_cutover_authority": false,
+  "deletion_authority": false,
+  "document_digest": "sha256:bdded55872ed0fca95b74e1516953367f5c53f48e0d9639e0e01fe81b2159885",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "export_contains": [
+    "native_acceptance_receipt.json",
+    "independent_native_review.json",
+    "runtime_csv",
+    "compile_logs",
+    "compiled_ex5",
+    "candidate_manifest_if_generated",
+    "bundle_manifest.json"
+  ],
+  "implementation_authority": false,
+  "order_authority": false,
+  "policy_id": "UC04_W1B_N1_EVIDENCE_EXPORT_POLICY_V1",
+  "program_id": "UCPS",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "secrets_allowed": false,
+  "stage_id": "UC04-W1B-N1",
+  "status": "ACTIVE"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schemas/consolidation/uc04/w1bn1/host_execution_contract.schema.json",
+  "candidate_id": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8",
+  "capital_authority": false,
+  "compile_target_count": 12,
+  "compile_targets": [
+    "mql5/Experts/Debug/D0005_H5NoFutureWalkForwardAudit.mq5",
+    "mql5/Experts/Debug/D0006_H5LiveTouchReplayAudit.mq5",
+    "mql5/Experts/Execution/E0001_ReversalOneToOne.mq5",
+    "mql5/Experts/Execution/E0002_CloseConfirmedMarket.mq5",
+    "mql5/Experts/Execution/E0003_ContinuationCloseHunt.mq5",
+    "mql5/Experts/Execution/E0004_ContinuationHeikinAshiFlip.mq5",
+    "mql5/Experts/Execution/E0005_ContinuationCloseBreakFixedR.mq5",
+    "mql5/Experts/Execution/E0006_AllZoneTouchLimitFixedR.mq5",
+    "mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5",
+    "mql5/Experts/Execution/E0011_Donchian20Atr3Roulette.mq5",
+    "mql5/Tests/Experts/UC04/UC04W1_DeterministicDateTimeFormatSelfTest.mq5",
+    "mql5/Tests/Scripts/UC04/UC04W1B_DeterministicDateTimeFormatNativeRunner.mq5"
+  ],
+  "consumer_cutover_authority": false,
+  "contract_id": "UC04_W1B_N1_HOST_EXECUTION_CONTRACT_V1",
+  "deletion_authority": false,
+  "document_digest": "sha256:a0b37ecc1866edb14fa7b08f75eedaac7fb5275d15c998d846831ba2863e26fd",
+  "engine_id": "ENG_9599AA665C5BC4B13B020EBA4213CB16",
+  "git_write_allowed": false,
+  "implementation_authority": false,
+  "metaeditor_cli_contract": {
+    "compile_switch": "/compile",
+    "include_switch": "/include",
+    "log_switch": "/log",
+    "required_result": "0 errors, 0 warnings"
+  },
+  "order_authority": false,
+  "program_id": "UCPS",
+  "run_boundary": "%LOCALAPPDATA%/AlphaLab/runs/uc04w1b/native_host_qualification",
+  "runner": "tools/consolidation/uc04w1bn1/Invoke-UC04W1BNativeHostQualification.ps1",
+  "runner_sha256": "sha256:aa71a6234ada81b3154f10de8c896b2d6b1e9ebddd9d23b046bf551ec1736e6b",
+  "runtime_authority": false,
+  "runtime_contract": {
+    "dll_import": false,
+    "fixture_count": 13,
+    "live_trading": false,
+    "market_data_dependency": false,
+    "shutdown_terminal": true
+  },
+  "schema_version": "1.0.0",
+  "stage_id": "UC04-W1B-N1",
+  "status": "ACTIVE",
+  "tracked_repository_mutation_allowed": false
+}

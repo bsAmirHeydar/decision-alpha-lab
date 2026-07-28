@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "added_file_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "capital": {
+          "const": false
+        },
+        "consumer_cutover": {
+          "const": false
+        },
+        "deletion": {
+          "const": false
+        },
+        "implementation": {
+          "const": false
+        },
+        "order": {
+          "const": false
+        },
+        "runtime": {
+          "const": false
+        }
+      },
+      "required": [
+        "implementation",
+        "consumer_cutover",
+        "deletion",
+        "runtime",
+        "order",
+        "capital"
+      ],
+      "type": "object"
+    },
+    "deleted_file_count": {
+      "const": 0
+    },
+    "hash_ledger_entry_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "modified_file_count": {
+      "const": 0
+    },
+    "patch_file_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "patch_id": {
+      "const": "UC04_W1B_N1_NATIVE_HOST_HARDENING_01"
+    },
+    "production_consumer_change": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "stage_id": {
+      "const": "UC04-W1B-N1"
+    },
+    "status": {
+      "const": "READY"
+    },
+    "zip_structure": {
+      "const": "ROOT_RELATIVE_NO_WRAPPER"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "patch_id",
+    "status",
+    "patch_file_count",
+    "hash_ledger_entry_count",
+    "added_file_count",
+    "modified_file_count",
+    "deleted_file_count",
+    "semantic_change",
+    "production_consumer_change",
+    "authority",
+    "zip_structure"
+  ],
+  "type": "object"
+}

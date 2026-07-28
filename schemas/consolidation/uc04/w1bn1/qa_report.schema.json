@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "engineering_policy": {
+      "const": "PASS"
+    },
+    "metaeditor_compile": {
+      "const": "PENDING_LOCAL_WINDOWS"
+    },
+    "mt5_runtime": {
+      "const": "PENDING_LOCAL_WINDOWS"
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "pytest_collection": {
+      "additionalProperties": false,
+      "properties": {
+        "collected": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "errors": {
+          "const": 0
+        }
+      },
+      "required": [
+        "collected",
+        "errors"
+      ],
+      "type": "object"
+    },
+    "residual_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "stage_id": {
+      "const": "UC04-W1B-N1"
+    },
+    "stage_verifier": {
+      "const": "PASS"
+    },
+    "status": {
+      "enum": [
+        "PASS_TOOLING_NATIVE_EXECUTION_PENDING",
+        "PASS_NATIVE_EXECUTION_COMPLETE"
+      ]
+    },
+    "targeted_tests": {
+      "additionalProperties": false,
+      "properties": {
+        "errors": {
+          "const": 0
+        },
+        "failed": {
+          "const": 0
+        },
+        "passed": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "passed",
+        "failed",
+        "errors"
+      ],
+      "type": "object"
+    },
+    "upstream_verifiers": {
+      "additionalProperties": {
+        "const": "PASS"
+      },
+      "type": "object"
+    },
+    "windows_native_execution": {
+      "const": "PENDING_LOCAL_WINDOWS"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "status",
+    "engineering_policy",
+    "upstream_verifiers",
+    "stage_verifier",
+    "targeted_tests",
+    "pytest_collection",
+    "windows_native_execution",
+    "metaeditor_compile",
+    "mt5_runtime",
+    "residual_risks"
+  ],
+  "type": "object"
+}

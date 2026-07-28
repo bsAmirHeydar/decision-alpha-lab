@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_identifiers_included": {
+      "const": false
+    },
+    "apply_authorized": {
+      "const": false
+    },
+    "bundle_id": {
+      "const": "UC04_W1B_N1_NATIVE_EVIDENCE_BUNDLE_V1"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "host_paths_redacted": {
+      "const": true
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "member_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "members": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "pattern": "^[A-Za-z0-9._/-]+$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "secret_material_included": {
+      "const": false
+    },
+    "stage_id": {
+      "const": "UC04-W1B-N1"
+    },
+    "status": {
+      "const": "PASS"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "bundle_id",
+    "status",
+    "candidate_id",
+    "engine_id",
+    "host_paths_redacted",
+    "secret_material_included",
+    "account_identifiers_included",
+    "member_count",
+    "members",
+    "apply_authorized",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "order_authority",
+    "capital_authority"
+  ],
+  "type": "object"
+}

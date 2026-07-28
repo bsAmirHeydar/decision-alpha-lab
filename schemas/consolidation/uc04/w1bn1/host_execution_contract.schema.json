@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "compile_target_count": {
+      "const": 12
+    },
+    "compile_targets": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "contract_id": {
+      "const": "UC04_W1B_N1_HOST_EXECUTION_CONTRACT_V1"
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "git_write_allowed": {
+      "const": false
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "metaeditor_cli_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "compile_switch": {
+          "const": "/compile"
+        },
+        "include_switch": {
+          "const": "/include"
+        },
+        "log_switch": {
+          "const": "/log"
+        },
+        "required_result": {
+          "const": "0 errors, 0 warnings"
+        }
+      },
+      "required": [
+        "compile_switch",
+        "include_switch",
+        "log_switch",
+        "required_result"
+      ],
+      "type": "object"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "run_boundary": {
+      "type": "string"
+    },
+    "runner": {
+      "type": "string"
+    },
+    "runner_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "runtime_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "dll_import": {
+          "const": false
+        },
+        "fixture_count": {
+          "const": 13
+        },
+        "live_trading": {
+          "const": false
+        },
+        "market_data_dependency": {
+          "const": false
+        },
+        "shutdown_terminal": {
+          "const": true
+        }
+      },
+      "required": [
+        "fixture_count",
+        "live_trading",
+        "dll_import",
+        "shutdown_terminal",
+        "market_data_dependency"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "stage_id": {
+      "const": "UC04-W1B-N1"
+    },
+    "status": {
+      "const": "ACTIVE"
+    },
+    "tracked_repository_mutation_allowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "contract_id",
+    "status",
+    "candidate_id",
+    "engine_id",
+    "runner",
+    "runner_sha256",
+    "compile_target_count",
+    "compile_targets",
+    "metaeditor_cli_contract",
+    "runtime_contract",
+    "run_boundary",
+    "tracked_repository_mutation_allowed",
+    "git_write_allowed",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "document_digest"
+  ],
+  "type": "object"
+}

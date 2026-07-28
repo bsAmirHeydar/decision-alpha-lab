@@ -1,0 +1,47 @@
+name: UC04 W1B Native Host Qualification Hardening
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uc04-w1b-native-host-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  host-tooling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade -r requirements.txt
+      - name: Verify engineering and upstream stages
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B tools/engineering/run_engineering_policy.py .
+          python -B -m tools.consolidation.uc04w0.verify --repo-root .
+          python -B -m tools.consolidation.uc04w1.verify --repo-root .
+          python -B -m tools.consolidation.uc04w1b.verify --repo-root .
+      - name: Verify W1B-N1 native host tooling
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m tools.consolidation.uc04w1bn1.verify --repo-root .
+      - name: Run W1B-N1 tests
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m pytest -q tests/consolidation/uc04w1bn1 -p no:cacheprovider
+      - name: Prove repository-wide collection integrity
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m pytest --collect-only -q -p no:cacheprovider

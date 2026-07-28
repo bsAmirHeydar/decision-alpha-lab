@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "const": "ENGCAND_5F87C4D5849C4FD141DDBF29590235D8"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "consumer_cutover_authority": {
+      "const": false
+    },
+    "decision_id": {
+      "const": "UC04_W1B_N1_ENTRY_DECISION_V1"
+    },
+    "deletion_authority": {
+      "const": false
+    },
+    "document_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "engine_id": {
+      "const": "ENG_9599AA665C5BC4B13B020EBA4213CB16"
+    },
+    "implementation_authority": {
+      "const": false
+    },
+    "native_evidence_required": {
+      "const": true
+    },
+    "order_authority": {
+      "const": false
+    },
+    "production_repository_modified": {
+      "const": false
+    },
+    "program_id": {
+      "const": "UCPS"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_change": {
+      "const": false
+    },
+    "stage_id": {
+      "const": "UC04-W1B-N1"
+    },
+    "status": {
+      "const": "AUTHORIZED_TOOLING_ONLY"
+    },
+    "upstream_required_status": {
+      "const": "ACCEPTED_TOOLING_NATIVE_EXECUTION_PENDING"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "program_id",
+    "stage_id",
+    "decision_id",
+    "status",
+    "candidate_id",
+    "engine_id",
+    "upstream_required_status",
+    "native_evidence_required",
+    "production_repository_modified",
+    "semantic_change",
+    "implementation_authority",
+    "consumer_cutover_authority",
+    "deletion_authority",
+    "runtime_authority",
+    "order_authority",
+    "capital_authority",
+    "document_digest"
+  ],
+  "type": "object"
+}
